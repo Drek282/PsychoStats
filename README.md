@@ -6,7 +6,7 @@ Most of the "fixes" were already present in the code, as Stormtrooper was aware 
 
 I have, for the most part, tried not to make changes that change the way Psychostats works, by default. However, I have made one or two changes that reflect my own personal biases, and for my own convenience when faced with reinstalling Psychostats hundreds of times as I worked on it. One of those is that the bonus for an ffkill is now -10. I also believe that winning the game or round is really the entire point, far more important than k:d ratios, this is reflected in the bonuses I have added for team wins. If you don't like that, those things are easy to change in the Admin CP.
 
-Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained the only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to stormtrooper's email address have been removed.
+Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained the only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to Stormtrooper's email address have been removed.
 
 
 Known Issues
