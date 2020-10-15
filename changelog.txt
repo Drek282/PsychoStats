@@ -1,6 +1,5 @@
 --- DREK ---
 
-
 Version 3.2.6b (10/15/2020)
 * [Added] Missing Team Fortress Classic weapon images.
 * [Fixed] Removed duplicate entries from heat.xml.
