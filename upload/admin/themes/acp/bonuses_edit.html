@@ -1,0 +1,127 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the bonus?#>";
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Bonus#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+{*
+<div class="inline-notes">
+	<h4></h4>
+	<p></p>
+</div>
+*}
+
+<div{if $errors.eventname} class="err"{/if}>
+	<p class="err" id="err-eventname">{$errors.eventname|escape}</p>
+	<label><#Event Name#>:</label>
+	<input name="eventname" value="{$form.eventname|escape}" type="text" class="field" />
+	<p class="small">
+		The event name is the unique name that is triggered in the game event code when the event fires while 
+		processing logs.
+	</p>
+</div>
+
+<div class="notes">
+	<h4>Bonus Values</h4>
+	<p>
+		Not all events use all bonus values shown here, it depends on the event and the game being played.  Bonus values are precise to one decimal place.
+	</p>
+</div>
+<div{if $errors.enactor} class="err"{/if}>
+	<p class="err" id="err-enactor">{$errors.enactor|escape}</p>
+	<label><#Enactor#>:</label>
+	<input name="enactor" value="{$form.enactor|escape}" type="text" class="field short" />
+	<p class="small">
+		The original player who triggered the event.
+	</p>
+</div>
+
+<div{if $errors.enactor_team} class="err"{/if}>
+	<p class="err" id="err-enactor_team">{$errors.enactor_team|escape}</p>
+	<label><#Enactor Team#>:</label>
+	<input name="enactor_team" value="{$form.enactor_team|escape}" type="text" class="field short" />
+	<p class="small">
+		All players on the team of the enactor who triggered the event.
+	</p>
+</div>
+
+<div{if $errors.victim} class="err"{/if}>
+	<p class="err" id="err-victim">{$errors.victim|escape}</p>
+	<label><#Victim#>:</label>
+	<input name="victim" value="{$form.victim|escape}" type="text" class="field short" />
+	<p class="small">
+		The player that is on the receiving end of an event (like being shot or fragged)
+	</p>
+</div>
+
+<div{if $errors.victim_team} class="err"{/if}>
+	<p class="err" id="err-victim_team">{$errors.victim_team|escape}</p>
+	<label><#Victim Team#>:</label>
+	<input name="victim_team" value="{$form.victim_team|escape}" type="text" class="field short" />
+	<p class="small">
+		All players on the team of the victim
+	</p>
+</div>
+
+<div{if $errors.description} class="err"{/if}>
+	<p class="err" id="err-description">{$errors.description|escape}</p>
+	<label><#Description#>:</label>
+	<input name="description" value="{$form.description|escape}" type="text" class="field long" />
+</div>
+
+<div class="notes">
+	<h4>Game &amp; Mod Type</h4>
+	<p>If left blank the event will be used for all games or mods.</p>
+</div>
+<div{if $errors.gametype} class="err"{/if}>
+	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
+	<label><#Game Type#>:</label>
+	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.modtype} class="err"{/if}>
+	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
+	<label><#MOD Type#>:</label>
+	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>default-blue</name>
+	<parent>default</parent>
+	<version>1.0</version>
+	<title>Default Theme - blue skin</title>
+	<author>Stormtrooper</author>
+	<website></website>
+	<source></source>
+	<image></image>
+	<file></file>
+	<description>blue skin for {$parent} theme.</description>
+</theme>

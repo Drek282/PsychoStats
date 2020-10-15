@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<title>{$title|default:"<#PsychoStats ACP#>"}</title>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="author" content="Stormtrooper" />
+{theme->meta_tags}
+{theme->css_links}
+{theme->js_sources}
+</head>
+
+<body>
+
+<!--#OVERALL_HEADER_LOGO#-->
+<div id="ps-overall-header">
+	<div id="ps-overall-right">
+{if ps_user_logged_in()}
+		[ <a href="logout.php"><#Logout#></a> ]
+{/if}
+		{user->username}
+	</div>
+	<div id="ps-overall-logo">
+		<h1>PsychoStats Administrator Control Panel</h1>
+	</div>
+</div>
+<!---->
+
+<!--#OVERALL_HEADER_MENU#-->
+<div id="ps-overall-menu">
+<div id="ps-menu-right">
+	<!-- ... -->
+</div>
+<ul>
+	<li class="first"><a href="{url _base='index.php'}"><#Home#></a></li>
+	<li><a href="{url _base='conf.php'}"><#Config#></a></li>
+	<li><a href="{url _base='manage.php'}"><#Manage#></a></li>
+	<li><a href="{url _base='themes.php'}"><#Themes#></a></li>
+	<li><a href="{url _base='plugins.php'}"><#Plugins#></a></li>
+{*
+	<li><a href="{url _base='global.php'}"><#Global#></a></li>
+*}
+</ul>
+</div>
+<!---->

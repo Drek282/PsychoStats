@@ -1,0 +1,63 @@
+<h2 id="go-hdr"><#Create Administrator#></h2>
+<p>
+	An administrator user will allow you to access the Admin Control Panel (ACP) within the stats website. 
+	In the ACP you will be able to change your configuration and have access to other special features.
+	You can create as many administrators as you need for you and your friends. You can also create new users
+	later, after installation is complete.
+</p>
+
+<form id="config-form" action="{$SELF}" method="post">
+<div id='results' style="display: block">
+<div class="config-frame">
+<p class="row">
+	<label><#Username#>:</label>
+	<input id="username" name="username" value="{$username|escape}" type="text" class="field" />
+	<span class="sub err" style="display: none"><#You must enter a username#></span>
+</p>
+<p class="row">
+	<label><#Password#>:</label>
+	<input id="password" name="password" type="password" class="field short" />	
+	<span class="sub err" style="display: none"><#You must enter a password#></span>
+</p>
+<p class="row">
+	<label><#Retype Password#>:</label>
+	<input id="password2" name="password2" type="password" class="field short" />	
+	<span class="sub err" style="display: none"><#Password mismatch!#> <#Please try again#></span>
+</p>
+</div>
+
+<h3><#Current Administrator List#></h3>
+<p class="h3">Current admin users in the database. Click on a username to <b>delete</b> the user.</p>
+<p class="row" id="admin-list">
+	{$admin_list|default:"<#No admins found#>"}
+</p>
+
+<div id='db-pending' style='display: none'>
+	<p><span>Creating</span> administrator . . . </p>
+	<p>Please wait . . .</p>
+</div>
+<div id='db-results' style='display: none'></div>
+</div>
+
+<p id="create-or-next" class="row">
+{if !$allow_next}
+	<strong>At least 1 administrator user must be created before continuing.</strong>
+{else}
+	<strong>Create another user or click "Next" to continue!</strong>
+{/if}
+</p>
+
+<p id="go-ctrl" class="controls">
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
+	<input name="s_back" value="dbinit" type="hidden" />
+
+	<input id="btn-create" value="<#Create User#>" type="button" />
+	<input id="step" name="s" value="theme" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+</p>
+</form>
+
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+</script>

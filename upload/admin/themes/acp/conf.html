@@ -1,0 +1,119 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+{if $install_dir_insecure} {* warn the user that the install directory is still viewable *}
+	{include file='insecure.html'
+		title='Insecure Install Directory'
+		dir=$install_dir
+		message='<#The installation directory should be removed after installation is completed!#> <#If you do not remove this directory anyone will be able to access your database!!#>'
+	}
+{/if}
+
+<!-- admin menu -->
+<div id="ps-main-column">
+<div class="ps-column-frame">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Configuration Menu#></span></a></div>
+<div class="ps-column-content">
+<dl id="ps-admin-menu">
+{foreach from=$sections key='conftype' item='ct_section'}
+	<dt {if $conftype == $ct}id="menu-general"{/if} class="folder first {if $conftype == $ct}{if $section_errors.general}err {/if}{if $s == 'general'}sel{/if}{/if}">
+		{if $conftype == $ct}
+			<a id="link-general" href="{url ct=$conftype}">{$conftype|ucfirst|escape}</a>
+		{else}
+			<a href="{url ct=$conftype q=$q}">{$conftype|ucfirst|escape}</a>
+		{/if}
+	</dt>
+	{foreach from=$ct_section item='sec'}
+		<dd id="menu-{$sec|escape}" class="edit {$sec|escape}{if $section_errors[$sec]} err {/if}{if $s == $sec} sel{/if}">{strip}
+		{if $conftype == $ct}
+			<a id="link-{$sec|escape}" href="#">{confsection var='label' ct=$conftype sec=$sec}</a></dd>
+		{else}
+			<a href="{url ct=$conftype s=$sec q=$q}">{confsection var='label' ct=$conftype sec=$sec}</a></dd>
+		{/if}
+		{/strip}</dd>
+	{/foreach}
+{foreachelse}
+	<dt><#No matching config#></dt>
+{/foreach}
+</dl>
+</div>
+</div>
+{* ... *}
+
+</div>
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div id="conf-search">
+	<form action="{url}" method="get">
+		<#Search Config#>: <input name="q" value="{$q|escape}" type="text" class="field search" />
+	</form>
+</div>
+
+<div class="ps-tabs">
+<ul style="display: none">
+	<li id="tab-general" class="{if $section_errors.general}err {/if}{if $s == 'general'}sel{/if}"><a href="#">{confsection var='label' sec='general' ct=$ct}</a></li>
+{foreach from=$section item='sec'}
+	<li id="tab-{$sec|escape}" class="{if $section_errors[$sec]}err {/if}{if $s == $sec}sel{/if}"><a href="#">{confsection var='label' sec=$sec ct=$ct}</a></li>
+{/foreach}
+</ul>
+</div>
+
+<div id="ps-conf-form">
+<div class="ps-form">
+<form id='form' action="{url}" method="post">
+{foreach from=$conf key='conf_key' item='conf_options'}
+<div id="div-{$conf_key}" class="form-div"{if $conf_key != $s} style="display: none"{/if}>
+	<div class="section-desc">{confsection var='value' ct=$ct sec=$conf_key}</div>
+	<fieldset>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+{foreach from=$conf_options item='o'}
+		<div id="row-{$o.id}" {if $errors[$o.id]} class="err"{/if}>
+{if $advanced_config}
+			<a href="{url _base='var.php' id=$o.id del=1}" class="del"><img class="del"  src="{theme->url}/img/icons/delete.png" alt="<#Delete#>" /></a>
+			<a href="{url _base='var.php' id=$o.id}"><img class="edit" src="{theme->url}/img/icons/pencil.png" alt="<#Edit#>" /></a>
+{/if}
+			{if $errors[$o.id]}<p class="err" id="err-{$o.id}">{$errors[$o.id]|escape}</p>{/if}
+			{confvarlabel var=$o}
+			{confvarinput var=$o}
+{if $o.help}
+			<div class="var-help" id="help-{$o.id}" style="display: none">{$o.help|nl2br}</div>
+{/if}
+		</div>
+{/foreach}
+	</fieldset>
+</div>
+{/foreach}
+
+	{* ----------------------------------------------- *}
+	<fieldset>
+		<div class="submit">
+			<input name="submit" value="1" type="hidden" />
+			<input name="key" value="{$form_key|escape}" type="hidden" />
+			<input name="ct" value="{$ct|escape}" type="hidden" />
+			<input name="s" value="{$s|escape}" type="hidden" />
+			<input name="q" value="{$q|escape}" type="hidden" />
+			<input class="btn save" type="submit" value="<#Save#>" />
+			<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+{if $advanced_config}
+			<input name="new" class="btn new" type="submit" value="<#New Variable#>" />
+{/if}
+
+		</div>
+	</fieldset>
+</form>
+</div>
+</div>
+</div> {* end ps-main-content *}
+</div> {* end ps-main *}
+
+	<div class="clear"></div>
+</div> {* end ps-page-container *}

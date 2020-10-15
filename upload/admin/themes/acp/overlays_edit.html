@@ -1,0 +1,126 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the overlay?#>";
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Overlay#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+
+<div{if $errors.map} class="err"{/if}>
+	<p class="err" id="err-map">{$errors.map|escape}</p>
+	<label><#Map Name#>:</label>
+	<input name="map" value="{$form.map|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.minx or $errors.miny} class="err"{/if}>
+	<p class="err" id="err-minx">{$errors.minx|escape}</p>
+	<p class="err" id="err-miny">{$errors.miny|escape}</p>
+	<label><#MIN X/Y#>:</label>
+	<input name="minx" value="{$form.minx|escape}" type="text" class="field short" />
+	x
+	<input name="miny" value="{$form.miny|escape}" type="text" class="field short" />
+</div>
+
+<div{if $errors.maxx or $errors.maxy} class="err"{/if}>
+	<p class="err" id="err-maxx">{$errors.maxx|escape}</p>
+	<p class="err" id="err-maxy">{$errors.maxy|escape}</p>
+	<label><#MAX X/Y#>:</label>
+	<input name="maxx" value="{$form.maxx|escape}" type="text" class="field short" />
+	x
+	<input name="maxy" value="{$form.maxy|escape}" type="text" class="field short" />
+</div>
+
+<div{if $errors.width or $errors.height} class="err"{/if}>
+	<p class="err" id="err-width">{$errors.width|escape}</p>
+	<p class="err" id="err-height">{$errors.height|escape}</p>
+	<label><#Width / Height#>:</label>
+	<input name="width" value="{$form.width|escape}" type="text" class="field short" />
+	x
+	<input name="height" value="{$form.height|escape}" type="text" class="field short" />
+</div>
+
+<div class="notes">
+	<h4>Flipping</h4>
+	<p><#Most overlays require a vertical flip but not horizontal.#></p>
+</div>
+<div{if $errors.flipv} class="err"{/if}>
+	<p class="err" id="err-flipv">{$errors.flipv|escape}</p>
+	<label><#Flip Vertically#>:</label>
+	<input name="flipv" value="1" type="checkbox" {if $form.flipv}checked="checked"{/if} />
+</div>
+
+<div{if $errors.fliph} class="err"{/if}>
+	<p class="err" id="err-fliph">{$errors.fliph|escape}</p>
+	<label><#Flip Horizontally#>:</label>
+	<input name="fliph" value="1" type="checkbox" {if $form.fliph}checked="checked"{/if} />
+</div>
+
+{*
+<div{if $errors.rotate} class="err"{/if}>
+	<p class="err" id="err-rotate">{$errors.rotate|escape}</p>
+	<label><#Rotate Angle&deg;#>:</label>
+	<input name="rotate" value="{$form.rotate|escape}" type="text" class="field short" />
+</div>
+<div>
+	<p class="small">
+		Specifying a rotation angle changes the direction the overlay
+		co-ordinates are applied. This is useful for heatmaps that
+		are really long. You can rotate 90&deg; (clockwise) to turn it
+		on it's side. -90&deg; would turn it counter-clockwise.
+		<b>Note:</b> The width / height should reflect the actual size
+		of the rotated overlay and not the original.
+	</p>
+</div>
+*}
+
+<div{if $errors.gametype} class="err"{/if}>
+	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
+	<label><#Game Type#>:</label>
+	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.modtype} class="err"{/if}>
+	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
+	<label><#MOD Type#>:</label>
+	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

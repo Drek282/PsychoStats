@@ -1,0 +1,2 @@
+-- Nothing to do for HLDM. But this file must exist for the 
+-- option to appear in the install menu

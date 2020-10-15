@@ -1,0 +1,38 @@
+<!-- admin menu -->
+<div class="ps-column-frame">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Management Menu#></span></a></div>
+<div class="ps-column-content">
+<dl id="ps-admin-menu">
+	<dt class="folder first"><#Manage Your Stats#></dt>
+		<dd class="logs{if $page == 'logsources'} sel{/if}"><a href="{url _base='logsources.php'}"><b><#Log Sources#></b></a></dd></dd>
+		<dd class="award-gold{if $page == 'awards'} sel{/if}"><a href="{url _base='awards.php'}"><#Awards#></a></dd></dd>
+		<dd class="bonus{if $page == 'plrbonuses'} sel{/if}"><a href="{url _base='bonuses.php'}"><#Bonuses#> (<#players#>)</a></dd></dd>
+		<dd class="lightning{if $page == 'events'} sel{/if}"><a href="{url _base='events.php'}"><#Game Events#></a></dd></dd>
+		<dd class="images{if $page == 'icons'} sel{/if}"><a href="{url _base='icons.php'}"><#Icons#> (<#mini avatars#>)</a></dd></dd>
+		<dd class="server{if $page == 'servers'} sel{/if}"><a href="{url _base='servers.php'}"><#Live Servers#></a></dd></dd>
+		<dd class="overlay{if $page == 'overlays'} sel{/if}"><a href="{url _base='overlays.php'}"><#Overlays#></a></dd></dd>
+		<dd class="role{if $page == 'roles'} sel{/if}"><a href="{url _base='roles.php'}"><#Roles#></a></dd></dd>
+		<dd class="weapon{if $page == 'weapons'} sel{/if}"><a href="{url _base='weapons.php'}"><#Weapons#></a></dd></dd>
+		<dd class="page{if $page == 'reset'} sel{/if}"><a href="{url _base='reset.php'}"><em><#Reset All Stats!#></em></a></dd></dd>
+	<dt class="folder first"><#Clan Management#></dt>
+		<dd class="tag{if $page == 'clantags'} sel{/if}"><a href="{url _base='clantags.php'}"><#Clantags#></a></dd></dd>
+{*
+		<dd class="tag{if $page == 'clan'} sel{/if}"><a href="{url _base='clan.php'}"><#Create Clan#></a></dd></dd>
+*}
+	<dt class="folder first"><#Player Management#></dt>
+		<dd class="user-green{if $page == 'players'} sel{/if}"><a href="{url _base='players.php'}"><#All Players#></a></dd></dd>
+		<dd class="alias{if $page == 'aliases'} sel{/if}"><a href="{url _base='aliases.php'}"><#Aliases#></a></dd></dd>
+	<dt class="folder first"><#User Management#></dt>
+		<dd class="user-red{if $page == 'users'} sel{/if}"><a href="{url _base='users.php'}"><#All Users#></a></dd></dd>
+{*
+		<dd class="user-red{if $page == 'pending'} sel{/if}"><a href="{url _base='users.php' c=0}"><#Pending Users#></a></dd></dd>
+*}
+	<dt class="folder first"><#Error Logs#></dt>
+		<dd class="error{if $page == 'errlogs'} sel{/if}"><a href="{url _base='errlogs.php'}"><#View Error Logs#></a></dd></dd>
+{*
+		<dd class="edit{if $page == ''} sel{/if}"><a href="{url _base='.php'}"><##></a></dd></dd>
+*}
+</dl>
+</div>
+</div>
+

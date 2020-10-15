@@ -1,0 +1,40 @@
+<div class="ps-plr-profile">
+	{if $conf.theme.map.google_key and $plr.latitude and $plr.longitude}
+	<script type="text/javascript">
+		var plr_lat = parseInt('{$plr.latitude}');
+		var plr_lng = parseInt('{$plr.longitude}');
+	</script>
+	<div id="map"></div>
+	{/if}
+	{if $plr.steam_community_url}
+	<div class="row">
+		<label><#Steam Profile#>:</label>
+		<p><a href="{$plr.steam_community_url|escape}">{$plr.steam_community_url|escape}</a> <em class="add-friend">(<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
+	</div>
+	{/if}
+	<div class="row">
+		<label><#Website#>:</label>
+		<p>{if $plr.website}<a href="{$plr.website|escape}">{$plr.website|urltruncate:60|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+	</div>
+	<div class="row">
+		<label><#Email Address#>:</label>
+		<p>{if $plr.email}<a href="mailto:{$plr.email|escape}">{$plr.email|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+	</div>
+	<div class="row">
+		<label><#AIM Name#>:</label>
+		<p>{if $plr.aim}<a href="aim:goim?screenname={$plr.aim|escape}">{$plr.aim|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+	</div>
+	<div class="row">
+		<label><#ICQ Number#>:</label>
+		<p>{if $plr.icq}<a href="http://wwp.icq.com/scripts/search.dll?to={$plr.icq|escape}">{$plr.icq|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+	</div>
+	<div class="row">
+		<label><#MSN Messenger#>:</label>
+		<p>{if $plr.msn}{$plr.msn|escape}{else}<em><#Not Set#></em>{/if}</p>
+{*
+{if !ps_user_logged_in() and $show_login}
+		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>
+{/if}
+*}
+	</div>
+</div>

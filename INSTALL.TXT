@@ -1,0 +1,84 @@
+= PsychoStats QUICK Installation = 
+
+For those that are too impatient follow the quick step guide below.
+
+== Quick Note ==
+
+PsychoStats has two parts. The local perl scripts that do all the database 
+updates and stats processing. And the 'upload' files that make up all of the 
+PHP files that allow you to view the stats web pages on your website. Anything
+not in the 'upload' directory is considered a local file.
+
+The only suggestion I can make is that the local files SHOULD NEVER BE 
+located inside your website directory tree. If you put it somewhere where the 
+webserver can access it then any user on the Internet would be able to read 
+your stats.cfg file and see your database settings. You've been warned.
+
+== QUICK WINDOWS INSTALLATION ==
+
+1) You've already unzipped the archive. So you have a directory 
+structure that looks like this:
+
+* \lib
+* \upload
+* \scripts
+** daily.bat
+** psychostats.bat
+** scanclans.bat
+* changelog.txt
+* INSTALL.TXT
+* stats.pl
+* stats.cfg
+
+2) Copy the 'upload' directory to your website. If your website is on the same 
+machine then just drag and drop the directory inside your website directory. If 
+your website is remote you'll want to upload the directory to the remote 
+server. Be sure to upload the directory as a different name, afterall using the 
+name 'upload' isn't very descriptive for your stats. I suggest uploading the 
+files into a directory named 'stats'.
+
+3) Browse to the stats installation wizard with your browser:
+	http://localhost/stats/install/index.php
+
+Be sure to replace 'localhost' with the actual domain name of your website. And 
+then just follow the instructions.
+
+4) Edit the stats.cfg with the proper database settings so PsychoStats can 
+connect to your database.
+
+5) In the 'scripts' directory there is a 'psychostats.bat' file. If you double 
+click on that file it will run the stats update for you. You could also just 
+double click on the 'stats.pl' file. But if you encounter errors the 
+'psychostats.bat' file will allow you to see the errors without the window 
+closing immediately.
+
+== QUICK LINUX INSTALLATION ==
+
+1) You've already unzipped the archive. So you have a directory structure that 
+looks the same as the directory listing in the Windows instructions above.
+
+2) Copy or upload the 'upload' directory to your website. The rest of the 
+archive should remain where it is. Usually within your home directory. There is 
+no need to move it anywhere. However, make sure its NOT within your WWW or 
+public_html directory tree. Otherwise remote users would be able to view your 
+stats.cfg and gain access to your database.
+
+	mkdir -p /path/to/website/stats
+	cp -rf upload/* /path/to/website/stats
+
+3) Browse to the stats installation wizard with your browser:
+	http://localhost/stats/install/index.php
+
+Be sure to replace 'localhost' with the actual domain name of your website. And 
+then just follow the instructions.
+
+4) Edit the stats.cfg with the proper database settings so PsychoStats can 
+connect to your database. 
+
+5) All Done! Now you just need to run the stats.pl to update your stats. If you 
+have shell access on your server then just run:
+	./stats.pl -v
+
+If you do not have shell access and are limited to only running programs with 
+'cron' updates then you'll want to add a cron entry to run the stats.pl on a 
+daily basis (like every hour or so).

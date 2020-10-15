@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>default</name>
+	<parent></parent>
+	<version>1.0</version>
+	<title>Default PsychoStats Theme (Metallic)</title>
+	<author>Stormtrooper</author>
+	<website></website>
+	<source></source>
+	<image></image>
+	<file></file>
+	<description>This is the default PsychoStats theme.</description>
+</theme>

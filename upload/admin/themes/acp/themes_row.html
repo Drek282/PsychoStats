@@ -1,0 +1,32 @@
+		<tr class="{cycle values=", even" advance=false}">
+			<td class="preview" rowspan="2">
+{if $t.image}
+	<div class="preview"><img src="{$t.image|escape}" width="50" alt="" title="<#Preview of #> {$t.title|escape}" /></div>
+{else}
+	<em><#none#></em>
+{/if}
+			</td>
+			<td class="{if $child}child {/if}item">{$t.title|default:$t.name|escape}</td>
+			<td>{$t.version|default:'-'|escape}</td>
+			<td>{$t.author|default:'-'|escape}
+				{if $t.website}<a title="<#Goto to author's website#>" href="{$t.website|escape}"><img src="{theme->url}/img/icons/house.png" /></a>{/if}
+			</td>
+			<td rowspan="2" class="ctrl">
+{if $t.name != $conf.main.theme}
+				<a href="{url id=$t.name action='default'}" title="<#Click to make this the default theme#>"><img src="{theme->url}/img/icons/eye-off.png"/></a>
+{else}
+				<acronym title="<#This is the default theme#>"><img src="{theme->url}/img/icons/eye.png" /></acronym>
+{/if}
+{if $t.enabled}
+				<a href="{url id=$t.name action='disable'}" title="<#Click to Disable Theme#>"><img src="{theme->url}/img/icons/lightbulb.png"/></a>
+{else}
+				<a href="{url id=$t.name action='enable'}" title="<#Click to Enable Theme#>"><img src="{theme->url}/img/icons/lightbulb_off.png"/></a>
+{/if}
+{if $t.name != 'default'}
+				&nbsp;&nbsp;&nbsp;<a id="uninstall-{$t.name|escape}" href="{url id=$t.name action='uninstall'}" title="<#Click to Uninstall Theme#>"><img src="{theme->url}/img/icons/delete.png"/></a>
+{/if}
+			</td>
+		</tr>
+		<tr class="{cycle values=", even"}">
+			<td colspan="3" class="{if $child}child {/if}description-bottom">{$t.description}</td>
+		</tr>

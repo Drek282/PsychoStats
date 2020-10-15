@@ -1,0 +1,76 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the log source?#>";
+
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+{include file="crumbs.html"}
+
+<div id="ps-main-column">
+{include file="manage_menu.html"}
+</div>
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+<div class="ps-table-frame no-ani">
+	<div class="ps-table-header">
+		<div id="filter" class="filter">
+			<form action="{url _base='logsources_edit.php'}" method="get">
+				{include file='ajax.html' float='left' size='small-snake'}
+				<input type="submit" value="<#New Log Source#>" class="btn" />
+			</form>
+		</div>
+		{$pager}
+	</div>
+	<div class="ps-table-inner">
+		<table id="ls-table" class='ps-table ps-logsource-table'>
+		<tr class="hdr">
+			<th class="active"><p><span class="asc"><#Order#></span></p></th>
+			<th><p><span class="asc"><#Log Source#></span></p></th>
+			<th><p><span class="asc"><#Updated#></span></p></th>
+			<th><p><span class="asc"><acronym title="<#Enabled?#>">?</acronym></span></p></th>
+		</tr>
+{foreach from=$logsources item='log'}
+		<tr{cycle values=", class='even'"}>
+			<td class="idx">{strip}
+<a {if !$log.up}style="display: none"{/if} class="up" href="{url move='up' id=$log.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>
+<a {if !$log.down}style="display: none"{/if} class="dn" href="{url move='down' id=$log.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>
+			{/strip}</td>
+			<td class="item"><a href="{url _base='logsources_edit.php' id=$log.id}">{$log.logsource|escape}</a>
+{if $log.lastupdate}
+				<span class="sub"><b><#Time#>:</b> {$log.timestamp|datetime}, <b><#Map#>:</b> {$log.map|escape}, <b><#File#>:</b> {$log.file|escape} ({$log.line})</span>
+{/if}
+			</td>
+			<td class="smaller">{if $log.lastupdate}{$log.lastupdate|datetime}{else}-{/if}</td>
+			<td><a class="toggle" href="{url toggle=1 id=$log.id}"><img src="{theme->url}/img/icons/{if $log.enabled}tick{else}cross{/if}.png"/></a></td>
+		</tr>
+{foreachelse}
+		<tr><td colspan="4" class="no-data">
+			<#No Log Sources Defined!#>
+			<br/>
+			<a href="{url _base='logsources_edit.php'}"><#Click here to add a log source#></a>
+		</td></tr>
+{/foreach}
+
+		</table>
+	</div>
+	<div class="ps-table-footer">
+		<div class="legend">
+			<p>Click on the check <img src="{theme->url}/img/icons/tick.png"/> or cross <img src="{theme->url}/img/icons/cross.png"/> to quickly enable or disable the log source.</p>
+			<p><b><#Time#></b> is the last timestamp read from the log source.</p>
+			<p><b><#Map#></b> is the known map to be active from the log source.</p>
+			<p><b><#File#></b> is the last file read from the log source (and the last line read).</p>
+		</div>
+	</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+</div> {* end ps-main *}
+
+	<div class="clear"></div>
+</div> {* end ps-page-container *}

@@ -1,0 +1,67 @@
+#icon-gallery {
+	border: 1px solid gray;
+	background-color: #eeeeee;
+	padding: 1em;
+}
+#icon-gallery strong {
+	font-size: 150%;
+	font-weight: bold;
+	color: gray;
+}
+#icon-gallery span {
+}
+#icon-gallery span img {
+	margin: 5px;
+}
+#icon-gallery img {
+	padding: 3px;
+}
+#icon-gallery .readonly {
+	padding: 2px;
+	border: 1px dashed red;
+	background-color: #ffeeee;
+}
+#icon-gallery p {
+	margin-top: 0.5em;
+	text-align: left;
+}
+
+#icon-upload {
+	border: 1px solid gray;
+	background-color: #ddddff;
+	overflow: hidden;
+	margin-bottom: 0.25em;
+	text-align: left;
+	padding: 1em;
+}
+#icon-upload h4, #icon-gallery h4 {
+	text-align: left;
+	font-size: 110%;
+	border-bottom: 2px solid #444499;
+	margin-bottom: 0.25em;
+	padding-bottom: 2px;
+}
+
+#icon-upload p {
+	margin-top: 0.5em;
+}
+#icon-upload .up-btn {
+	width: 150px;
+}
+
+#result {
+	line-height: 2em;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid gray;
+	margin-bottom: 0.25em;
+	background-color: #ffffee;
+	padding-left: 20px;
+}
+#result.good {
+	background: #eeffee url(../img/icons/tick.png) no-repeat 16px 50%;
+}
+#result.bad {
+	background: #ffeeee url(../img/icons/cross.png) no-repeat 16px 50%;
+}
+

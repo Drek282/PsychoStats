@@ -1,0 +1,550 @@
+/*
+	content.css
+	Main content styles for most pages with PsychoStats.
+
+	These styles define how the layout and format for most pages will be displayed within PsychoStats.
+*/
+
+#ps-main {
+	padding-top: 1em;
+	background: url(../img/content-bg.gif) repeat-x;
+}
+
+h1, h2, h3
+{
+	font-family: Helvetica,"trebuchet ms",arial,sans-serif;
+	font-size: 140%;
+	font-weight: normal;
+}
+h1 { border-bottom: 2px solid #778899; font-weight: bold; }
+h2 { font-size: 110%; }
+h3 { font-size: 80%; }
+
+acronym {
+	border-bottom: 1px dashed black;
+	cursor: help;
+}
+
+#ps-main-content {
+	text-align: center;
+	background-color: #EEE;
+	border: 1px solid gray;
+	color: #000;
+}
+
+/* --- TABLE LAYOUT --------------------------------------------------------------- */
+.ps-frame-header { 
+	font-size: 125%;
+	font-weight: bold;
+	text-align: left;
+	padding: 0.3em;
+	padding-left: 1em;
+	margin-bottom: 2px;
+	background: #e7e7e7;
+	border:  1px solid gray;
+}
+.ps-frame-header span { 
+	display: block;
+	width: 100%;
+	background: url(../img/exp_minus.gif) no-repeat 100% 50%;
+}
+
+.ps-table-frame { 
+	margin: 0 0.5em 1em 0.5em;
+}
+.ps-table-inner {
+	border: 1px solid gray;
+}
+.ps-table-header {
+	padding: 0 0.2em 0.2em 0;
+	text-align: right;
+}
+.ps-table-footer {
+	padding: 0.2em 0.2em 0 0;
+	background: url(../img/table-footer-bg.png) repeat-x 0 bottom; /* 72px */
+	text-align: right;
+}
+.ps-table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+.ps-table th {
+	line-height: 20px;
+	background: url(../img/table-header-bg.png) repeat;
+	border-bottom: 1px solid #999;
+	text-align: center;
+	padding: 0;
+}
+.ps-table td {
+	padding: 0 0.5em 0 0.4em;
+	border-right: 1px solid #BBB;
+	text-align: center;
+	line-height: 1.5em;
+}
+.ps-table tr { background-color: #EEE; }
+.ps-table tr.even { background-color: #E0E0E0; }
+.ps-table td.noborder { border: none; }
+
+.ps-table th a,
+.ps-table th a:link,
+.ps-table th a:visited,
+.ps-table th a:hover,
+.ps-table th a:active 
+{
+	color: black;
+}
+.ps-table th.active a {
+	color: white;
+}
+.ps-table th.active a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.ps-table th.active p {
+	background: url(../img/table-header-active-l-bg.png) no-repeat;
+}
+.ps-table th.active span {
+	width: 100%;
+	display: block;
+	/* default the right side with no sort arrow */
+	background: url(../img/table-header-desc-r-bg.png) no-repeat 100% 0;
+}
+.ps-table tr th.active span.asc {
+	background: url(../img/table-header-asc-r-bg.png) no-repeat 100% 0;
+	cursor: pointer;
+}
+.ps-table tr th.active span.desc {
+	background: url(../img/table-header-desc-r-bg.png) no-repeat 100% 0;
+	cursor: pointer;
+}
+.ps-table acronym {
+	text-decoration: none;
+	border: none;
+	cursor: help;
+}
+
+.ps-table td.no-data {
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+	color: gray;
+	padding: 0.5em 0;
+}
+
+.ps-table .left   { text-align: left; }
+.ps-table .right  { text-align: right; }
+.ps-table .center { text-align: center; }
+
+.important {
+	color: red !important;
+	font-weight: bold !important;
+}
+
+/* --- PAGER styles ------------ */
+.pager {
+	display: block;
+	padding: 3px;
+}
+.pager-current, .pager-goto, .pager-next, .pager-prev {
+	border: 1px solid gray;
+	padding: 0 2px;
+	background: #DDDDDD;
+}
+.pager-current {
+	background: lightyellow;
+	font-weight: bold;
+}
+.pager-next, .pager-prev {
+	background: #BBBBBB;
+}
+
+#error {
+	width: 400px;
+	margin: 3em auto;
+	background: lightyellow;
+	border: 2px solid darkred;
+	padding: 1em;
+}
+#error h1 {
+	color: darkred;
+	font-size: 180%;
+	border-bottom: 3px solid #999;
+	margin-bottom: 0.5em;
+}
+#error p {
+	font-size: 120%;
+}
+
+/* activity percentage bar */
+.pct-bar {
+	border: 1px solid #AAA;
+	background-color: #EEE;
+	height: 8px;
+	overflow: hidden;
+	text-align: left;
+}
+.pct-bar span {
+	display: block;
+	height: 100%;
+	text-align: left;
+	background-color: black;
+}
+
+
+/* -- installer content block --------------------------- */
+#content {
+	margin: 0.25em;
+	padding: 0.25em;
+	text-align: left; 
+	font-size: 10pt;
+}
+#content p {
+	margin-bottom: 0.5em;
+	font-size: 8pt;
+}
+#content h2 {
+	font-size: 1em;
+	font-weight: bold;
+	border-left: 1px solid #ABABAB;
+	border-bottom: 1px solid #ABABAB;
+	color: #4573A1;
+	background-color: #DDD;
+	padding: 2px;
+	margin-bottom: 0.25em;
+}
+
+blockquote.fatal {
+	color: red;
+	font-weight: bold;
+	padding: 0.25em;
+	background-color: lightyellow;
+	border: 1px solid orange;
+	margin: 0.5em 2em;
+}
+#content blockquote.fatal p { margin: 0; padding: 0; }
+
+#content p.controls {
+	margin-top: 0.5em;
+	text-align: right;
+	border-top: 1px solid #ABABAB;
+	border-left: 1px solid #ABABAB;
+	background-color: #DDD;
+	padding: 0.5em 2em;
+}
+#content p.controls input {
+	font-weight: bold;
+	margin-left: 1em;
+}
+
+#content p.gpl {
+	border: 1px solid #ABABAB;
+	background-color: #FFF;
+	padding: 5px;
+	height: 200px;
+	overflow: auto;
+}
+
+#results {
+	margin-left: 2em;
+	padding-bottom: 1em;
+}
+
+#results h3 {
+	font-weight: bold;
+	border-bottom: 1px solid #ABABAB;
+	color: #4573A1;
+	margin-top: 1em;
+}
+
+#results p.h3 {
+	font-size: 0.8em;
+	color: #898989;
+}
+
+#results p.row {
+	margin-left: 2em;
+}
+
+#results p.sep {
+	height: 1px;
+	overflow: hidden;
+	border-bottom: 1px solid #777;
+	width: 95%;
+	margin: 0 auto;
+	
+}
+#results p.sep span {
+	height: 1px;
+	border: 1px solid #ABABAB;
+	
+}
+
+#results p.row label {
+	font-weight: bold;
+	float: left;
+	width: 12em;
+	display: block;	
+}
+#results p.row label.for {
+	float: none;
+	width: auto;
+	display: inline;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+#results p.row input.field {
+	width: 250px;
+}
+#results p.row input.short {
+	width: 100px;
+}
+#results p.row input.wide {
+	width: 90%;
+}
+#results p.row input.long {
+	width: 300px;
+}
+
+#results p.row span {
+	padding-left: 1em;
+}
+#results p.row span.extra {
+	color: #6788A1;
+}
+#results p.row span.sub {
+	line-height: 1.2em;
+	display: block;
+	margin: 0 0 0 12em;
+	padding: 0;
+	color: #6788A1;
+}
+#results p.row span.wide {
+	margin: 0 0 0 1em;
+}
+#results p.row span.err {
+	color: red;
+}
+
+#results p.row em {
+	padding-left: 1em;
+	color: gray;
+	font-style: normal;
+}
+
+#results p.row label.gametype {
+	font-weight: bold;
+}
+#results ul.modtypes {
+	display: block;
+	margin-left: 2em;
+	padding: 0;
+	list-style: none;
+	line-height: 1.25em;
+}
+
+#results p.row span.good {
+	color: green;
+	padding: 1px 0 1px 20px;
+	background: url(../img/tick.png) no-repeat 0 50%;
+	font-weight: bold;
+}
+
+#results p.h3 span.bad {
+	color: red;
+	font-weight: bold;
+}
+#results p.row span.bad {
+	color: red;
+	padding: 1px 0 1px 20px;
+	background: url(../img/cross.png) no-repeat 0 50%;
+	font-weight: bold;
+}
+
+#results p.h3 span.bad { }
+
+#results p.row span.warn {
+	color: orange;
+	padding: 1px 0 1px 20px;
+	background: url(../img/exclamation.png) no-repeat 0 50%;
+	font-weight: bold;
+}
+
+#results p.row span.desc {
+	display: block;
+	margin-left: 20px;
+	padding-left: 0;
+	color: #898989;
+	font-size: 1em;
+}
+
+#results h3.success {
+	color: blue;
+	background-color: lightblue;
+	padding-top: 0.25em;
+	padding-left: 0.25em;
+	border-left: 1px solid blue;
+	border-top: 1px solid blue;
+	border-right: 1px solid blue;
+}
+#results p.success {
+	color: blue;
+	background-color: lightblue;
+	padding: 0.5em;
+	border-left: 1px solid blue;
+	border-bottom: 1px solid blue;
+	border-right: 1px solid blue;
+}
+#results .config-frame h3.success {
+	margin: 0 1em;
+}
+#results .config-frame p.success {
+	margin: 0 1em 1em 0;
+}
+#results h3.err {
+	color: red;
+	background-color: lightyellow;
+	padding-top: 0.25em;
+	padding-left: 0.25em;
+	border-left: 1px solid orange;
+	border-top: 1px solid orange;
+	border-right: 1px solid orange;
+}
+#results p.err {
+	color: red;
+	background-color: lightyellow;
+	padding: 0.5em;
+	border-left: 1px solid orange;
+	border-bottom: 1px solid orange;
+	border-right: 1px solid orange;
+}
+
+#admin-list a {
+	font-weight: bold;
+}
+
+#results .config-frame p.row {
+	line-height: 2em;
+	margin: 0.25em 1em;
+}
+#results .config-frame p.h3 {
+	margin-left: 1em;
+	color: black;
+}
+
+#results .config-frame h3 {
+	padding-left: 1em;
+	margin-top: 0;
+	background-color: #FFF;
+}
+
+.config-frame {
+	margin: 1em 3em 1em 1em;
+	border: 1px solid #ABABAB;
+	background-color: #DDD;
+}
+
+.config-frame select {
+	width: 200px;
+}
+.config-frame select optgroup {
+	color: #4573A1;
+	background: #eee;
+}
+.config-frame select option {
+	padding-left: 1em;
+	background: #FFF;
+	color: #000;
+}
+
+#config-text {
+	width: 500px;
+	height: 140px;
+	font-size: 8pt;
+	background-color: #FFF;
+	border: 1px solid #ABABAB;
+}
+
+#results #warn {
+	border: 1px solid orange;
+	background: lightyellow;
+	padding: 0.5em;
+	margin: 1em;
+}
+
+#db-pending {
+	background: url(../img/ajax-big.gif) no-repeat 0 50%;
+	padding-left: 40px;
+	overflow: hidden;
+}
+#db-results {
+	overflow: hidden;
+}
+
+.dbq ul {
+	list-style-position: outside;
+	margin-left: 2em;
+	font-size: 8pt;
+}
+
+#go-ctrl #btn-skip {
+	color: #FF0000;
+}
+
+#btn-back {
+	float: left;
+}
+
+#preview { /* iframe preview */
+	width: 95%;
+	height: 250px;
+	border: 1px solid #ABABAB;
+}
+
+#bad-install,
+#bad-db {
+	border: 1px solid red;
+	background-color: lightyellow;
+	margin: 1em;
+}
+#bad-install h3,
+#bad-db h3 {
+	color: #cc0000;
+	border-bottom: 1px solid red;
+	padding: 0 0 0 25px;
+	font-weight: bold;
+	font-size: 120%;
+	background: url(../img/exclamation.png) no-repeat 5px 50%;
+}
+#bad-install p,
+#bad-db p {
+	color: black;
+	padding: 0.5em;
+}
+
+#newer {
+	margin: 1em;
+	padding: 0.5em;
+	background: lightblue;
+	border: 1px solid blue;
+}
+#newer h3 {
+	border-bottom: 1px solid blue;
+	color: blue;
+	padding-top: 0.25em;
+	padding-left: 0.25em;
+	font-size: 125%;
+	font-weight: bold;
+}
+#newer p {
+	padding-top: 0.5em;
+	padding-left: 0.25em;
+	font-size: 110%;
+}
+#newer a {
+	color: blue;
+	text-decoration: underline;
+}
+

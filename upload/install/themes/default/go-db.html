@@ -1,0 +1,67 @@
+<h2 id="go-hdr"><#Database Setup#></h2>
+<p>
+	Fill out the connection settings for your database that PsychoStats will use and click the "Next" button below.
+</p>
+
+{if $re}
+<div id="bad-db">
+	<h3><#Database Failure!#></h3>
+	<p>
+		An error has occured with the database '<b>{$dbname}</b>' on '<b>{$dbhost}</b>'. Either the user
+		privileges have changed and you can no longer see the database or the database no longer exists. 
+		<b>Re-setup the database here and continue with the installation.</b>
+	</p>
+</div>
+{/if}
+
+<form id="config-form" action="{$SELF}" method="post">
+<div id='results' style="display: block">
+<div class="config-frame">
+<p class="row">
+	<label><#Host#>:</label>
+	<input name="conf[dbhost]" value="{$dbhost|escape}" class="field" />	
+	<span class="sub"><#Use 'localhost' if your database is on THIS server.#></span>
+</p>
+<p class="row">
+	<label><#Port#>:</label>
+	<input name="conf[dbport]" value="{$dbport|escape}" class="field short" />	
+	<span class="extra">(<#optional#>)</span>
+</p>
+<p class="row">
+	<label><#DB Name#>:</label>
+	<input name="conf[dbname]" value="{$dbname|escape}" class="field" />	
+</p>
+<p class="row">
+	<label><#Username#>:</label>
+	<input name="conf[dbuser]" value="{$dbuser|escape}" class="field" />	
+</p>
+<p class="row">
+	<label><#Password#>:</label>
+	<input name="conf[dbpass]" value="{$dbpass|escape}" class="field" />	
+	<span class="extra">(will be visible)</span>
+</p>
+<p class="row">
+	<label><#Table Prefix#>:</label>
+	<input name="conf[dbtblprefix]" value="{$dbtblprefix|escape}" class="field" />	
+	<span class="sub"><#A string prefix that is prepended to all table names in the database.#>
+		<#This makes sure PsychoStats table names do not conflict with other tables in an existing database.#></span>
+</p>
+</div>
+
+<div id='db-pending' style='display: none'>
+	<p>Testing database connection. . . </p>
+	<p>Please wait . . .</p>
+</div>
+<div id='db-results' {if !$dbtest.tested}style='display: none'{/if}>{include file="go-db-results.html"}</div>
+</div>
+
+<p id="go-ctrl" class="controls">
+	<input id="btn-test" value="<#Test#>" type="button" />
+	<input id="step" name="s" value="dbinit" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" />
+{*
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+*}
+</p>
+</form>

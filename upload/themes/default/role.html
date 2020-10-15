@@ -1,0 +1,171 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+	<div id="ps-page-title">
+		<div class="inner">
+		<h1><#Role Statistics#> :: {roleimg role=$role noimg=''} {$role.label|escape}</h1>
+		<h2>&nbsp;</h2>
+		</div>
+	</div>
+
+<!--left column block -->
+<div id="ps-main-column">
+
+{if $roleimg}<div class="roleimg">{$roleimg}</div>{/if}
+
+<div class="ps-column-frame">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Kill Profile#></span></a></div>
+<div id="s-role-killprofile" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Total Kills#></label>
+	<span>{$role.kills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Headshot Kills#></label>
+	{if $role.headshotkills}<em>{$role.headshotkillspct}%</em>{/if}
+	<span>{$role.headshotkills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $role.ffkills}<em>{$role.ffkillspct}%</em>{/if}
+	<span>{$role.ffkills|commify}</span>
+</p>
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$role.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$role.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$role.hits|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$role.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$role.damage|commify}</span>
+</p>
+<p class="hl">
+	<label><#Hitbox Zones#></label>
+	<span></span>
+</p>
+<p class="substat">
+	<label><#Head#></label>
+	{if $role.shot_headpct}<em>{$role.shot_headpct}%</em>{/if}
+	<span>{$role.shot_head|commify}</span>
+</p>
+<p class="substat">
+	<label><#Chest#></label>
+	{if $role.shot_chestpct}<em>{$role.shot_chestpct}%</em>{/if}
+	<span>{$role.shot_chest|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Arm#></label>
+	{if $role.shot_leftarmpct}<em>{$role.shot_leftarmpct}%</em>{/if}
+	<span>{$role.shot_leftarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Arm#></label>
+	{if $role.shot_rightarmpct}<em>{$role.shot_rightarmpct}%</em>{/if}
+	<span>{$role.shot_rightarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Stomach#></label>
+	{if $role.shot_stomachpct}<em>{$role.shot_stomachpct}%</em>{/if}
+	<span>{$role.shot_stomach|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Leg#></label>
+	{if $role.shot_leftlegpct}<em>{$role.shot_leftlegpct}%</em>{/if}
+	<span>{$role.shot_leftleg|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Leg#></label>
+	{if $role.shot_rightlegpct}<em>{$role.shot_rightlegpct}%</em>{/if}
+	<span>{$role.shot_rightleg|commify}</span>
+</p>
+</div>
+</div>
+
+<div class="ps-column-frame">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Available Roles#></span></a></div>
+<div id="s-rolelist" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Role#></label>
+	<span><b><#Kills#></b></span>
+</p>
+{foreach from=$roles item='r'}
+{if $r.roleid == $id}
+<p class="selected{cycle values=", even"}">
+{else}
+<p{cycle values=", class='even'"}>
+{/if}
+	<label><a href="{url _base='role.php' id=$r.roleid}">{$r.label|escape}</a></label>
+	<span>{$r.kills|commify}</span>
+</p>
+{/foreach}
+</div>
+</div>
+
+
+</div>
+<!--end of left column -->
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-role">
+
+{*
+	<!--#PLAYERS#-->
+	<table class="ps-table ps-player-table">
+	<tr>{sortheader reset=1 order=$order sort=$sort baseurl="$SELF?id=$id"}
+		<th>#</th>
+		<th><#Player#></th>
+		{sortheader label='<#Kills#>' sort='kills'}
+		{sortheader label='<#Deaths#>' sort='deaths'}
+		{sortheader label='<#HS#>' sort='headshotkills'}
+		{sortheader label='<#HS%#>' sort='headshotkillspct'}
+		{sortheader label='<#Accuracy#>' sort='accuracy'}
+		{sortheader label='<#S:K#>' sort='shotsperkill'}
+		{sortheader label='<#Dmg#>' sort='damage'}
+	</tr>
+{foreach name="players" from=$players item='p'}
+	<tr{cycle values=", class='even'"}>
+		<td class="col-first">{$smarty.foreach.players.iteration}</td>
+		<td class="left"><a class="plr" href="{url _base='player.php' id=$p.plrid}">{$p.name|escape}</a></td>
+		<td>{$p.kills|commify}</td>
+		<td>{$p.deaths|commify}</td>
+		<td>{$p.headshotkills|commify}</td>
+		<td>{$p.headshotkillspct}%</td>
+		<td><acronym title="{$p.hits} <#hits#> / {$p.shots} <#shots#>">{$p.accuracy}%</acronym></td>
+		<td>{$p.shotsperkill}</td>
+		<td><acronym title="{$p.damage|commify}">{$p.damage|abbrnum:0}</acronym></td>
+	</tr>
+{/foreach}
+	</table>
+	{if $pager}<div class="ps-table-footer">{$pager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+*}
+
+	<div class="ps-table-frame">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$totalplayers} <#Top Players#></span></a></div>
+	<div class="ps-table-inner">
+	{$players_table}
+	</div>
+	{if $pager}<div class="ps-table-footer">{$pager}</div>{/if}
+	</div>
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

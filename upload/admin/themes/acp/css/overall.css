@@ -1,0 +1,220 @@
+/**
+	overall.css 
+	Global and overall header/footer styles.
+
+	I've tried to make the overall styles 3rd party friendly so that not many global tags are redefined. 
+	I wrap a lot of content	into id tags and set styles around those ids. So PsychoStats can be integrated 
+	into another page w/o much fuss. Of course, if you use an iframe then none of this matters.
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 80%;
+	font-family: Tahoma,Arial,sans-serif;
+	background: #C4C4C4;
+}
+
+a,a:link,a:visited,a:hover,a:active {	/* LVHA */
+	color: DarkRed; /* #6A5ACD; */
+	text-decoration: none;
+}
+a:hover {
+	color: black; /* #483D8B; */
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+acronym {
+	font-size: 100%;
+}
+
+/* --- OVERALL HEADER ------------------------------------- */
+#ps-overall-header {
+	height: 60px;
+	background: url(../img/header-bg.png) repeat-x;
+	overflow: hidden;
+/*	display: none; /* !!!!!!!!!!!!!!!!!!!!! */
+}
+
+#ps-overall-logo {
+	height: 60px;
+/*	background: url(../img/header-logo.png) no-repeat;*/
+	padding-left: 0.5em;
+}
+#ps-overall-logo h1 {
+	font-size: 140%;
+	font-weight: bold;
+	font-family: verdana,arial,sans-serif;
+	color: darkred;
+}
+
+#ps-overall-right {
+	float: right;
+	text-align: right;
+	padding-right: 0.5em;
+}
+
+/* --- BREAD CRUMBS --------------------------------------- */
+#ps-crumbs {
+	font-size: 0.8em;
+	line-height: 1em;
+	border-bottom: 1px solid gray;
+}
+#ps-crumbs ul {
+	padding: 2px 0;
+	margin: 0 1em;
+}
+#ps-crumbs ul li {
+	display: inline;
+	padding-left: 1px;
+	font-weight: normal;
+}
+#ps-crumbs ul li {
+	background: url(../img/icons/bullet_go.png) right 50% no-repeat;
+	padding-right: 16px;
+}
+#ps-crumbs ul li.last {
+	background: none;
+	padding-right: 0px;
+}
+/* --- OVERALL MENU --------------------------------------- */
+#ps-overall-menu {
+	line-height: 28px;	/* Setting the line-height allows the menu to vertically align */
+	background: url(../img/header-menu-bg.png) repeat;
+}
+#ps-overall-menu ul {
+	margin: 0 1em;
+}
+#ps-overall-menu ul li {
+	display: inline;
+	background: url(../img/header-menu-sep.png) no-repeat 0 50%;
+	padding-left: 12px;
+	font-weight: bold;
+}
+#ps-overall-menu li.first {
+	background-image: none;
+	padding-left: 0;
+}
+#ps-overall-menu a {
+	color: black;
+}
+#ps-overall-menu a:hover {
+	color: #6A5ACD;
+}
+
+#ps-menu-right {
+	float: right;
+	display: inline;	/* IE */
+	margin-right: 1em;
+}
+#ps-menu-right img {
+	vertical-align: top;
+}
+
+/* --- OVERALL FOOTER ------------------------------------- */
+#ps-overall-footer {
+	font-size: 80%;
+	background: url(../img/footer-bg.png) gray;
+	margin-top: 2em;
+	height: 41px;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	clear: left;
+	text-align: center;
+}
+#ps-footer-middle {
+	margin-top: 5px;
+}
+
+/* --- OVERALL LOGIN POPUP --------------------------------------------- */
+#ps-login-popup {
+	position: absolute;
+	width: 230px;
+	height: 103px;
+	background: transparent url(../img/popup-login.gif) no-repeat;
+	overflow: hidden;
+	z-index: 65535;
+}
+#ps-login-popup #ps-login-inner,
+#ps-search-popup #ps-search-inner
+{
+	margin: 33px 10px 0 10px;
+	font-size: 8pt;
+}
+#ps-login-popup input.field {
+	margin: 0 0.2em 0 0.2em;
+}
+#ps-login-inner p {
+	margin-bottom: 0.2em;
+}
+#ps-login-inner p label {
+	float: left;
+	width: 60px;
+	text-align: right;
+}
+#ps-login-inner button, 
+#ps-search-inner button {
+	vertical-align: bottom;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+#ps-login-reg {
+	position: absolute;
+	right: 10px;
+	top: 13px;
+}
+#ps-login-reg a {
+	text-decoration: underline;
+}
+#ps-login-options {
+	font-size: 8pt;
+}
+#ps-login-popup input.field {
+	border: 1px solid gray;
+	width: 100px;
+}
+#ps-login-options a {
+	position: absolute;
+	right: 0px !important;		/* FF */
+	right: 10px;			/* IE */
+	top: 3px !important;		/* FF */
+	top: 6px;			/* IE */
+	text-decoration: underline;
+}
+
+/* --- OVERALL SEARCH POPUP --------------------------------------------- */
+/* some styles are included in the LOGIN styles above */
+#ps-search-popup {
+	position: absolute;
+	width: 230px;
+	height: 60px;
+	background: url(../img/popup-search.gif) no-repeat;
+	z-index: 65535;
+}
+#ps-search-popup input.field {
+	background: white url(../img/search-input-icon.png) no-repeat 0 50%;
+	border: 1px solid gray;
+	width: 155px;
+	padding-left: 17px;
+}
+
+#conf-search {
+	text-align: right;
+}
+#conf-search input.search {
+	background: white url(../img/magnifier.png) no-repeat scroll 0pt 50%;
+	border: 1px solid gray;
+	padding-left: 17px;
+	width: 125px;
+}
+

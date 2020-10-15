@@ -1,0 +1,371 @@
+<maps>
+ <map name='cp_badlands'>
+  <minx>-2504</minx> 
+  <miny>-4840</miny> 
+  <maxx>2504</maxx>
+  <maxy>4840</maxy>
+  <res>861x903</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_dustbowl'>
+  <minx>-3716</minx>
+  <miny>-2912</miny>
+  <maxx>2856</maxx>
+  <maxy>3422</maxy>
+  <res>928x915</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_granary'>
+  <minx>-4224</minx> 
+  <miny>-6868</miny> 
+  <maxx>1153</maxx>
+  <maxy>6868</maxy>
+  <res>429x1140</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_gravelpit'>
+  <minx>-5376</minx>
+  <miny>-1024</miny>
+  <maxx>2248</maxx>
+  <maxy>5636</maxy>
+  <res>848x741</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_2fort'>
+  <minx>-1960</minx>
+  <miny>-4248</miny>
+  <maxx>1960</maxx>
+  <maxy>4248</maxy>
+  <res>398x855</res>
+  <flipv>0</flipv>
+  <fliph>1</fliph>
+ </map>
+ <map name='cp_well'>
+  <minx>-4608</minx> 
+  <miny>-6696</miny> 
+  <maxx>1534</maxx>
+  <maxy>7464</maxy>
+  <res>480x1109</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_well'>
+  <minx>-4608</minx> 
+  <miny>-5800</miny> 
+  <maxx>1534</maxx>
+  <maxy>6568</maxy>
+  <res>500x1017</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='tc_hydro'>
+  <minx>-5928</minx> 
+  <miny>-3152</miny> 
+  <maxx>6600</maxx>
+  <maxy>2952</maxy>
+  <res>1146x564</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_silo_b3'>
+  <minx>-872</minx> 
+  <miny>-4120</miny> 
+  <maxx>2016</maxx>
+  <maxy>6360</maxy>
+  <res>240x1124</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_four_trees_v2'>
+  <minx>-1348</minx> 
+  <miny>-4693</miny> 
+  <maxx>1874</maxx>
+  <maxy>4250</maxy>
+  <res>443x1172</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_castle3'>
+  <minx>-2736</minx> 
+  <miny>-2640</miny> 
+  <maxx>8328</maxx>
+  <maxy>6896</maxy>
+  <res>1304x1126</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_castle4'>
+  <minx>-2736</minx> 
+  <miny>-2650</miny> 
+  <maxx>8333</maxx>
+  <maxy>6896</maxy>
+  <res>1088x940</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_corporation_b1'>
+  <minx>-2952</minx> 
+  <miny>-3272</miny> 
+  <maxx>2980</maxx>
+  <maxy>2015</maxy>
+  <res>1009x898</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_corporation_b2'>
+  <minx>-2952</minx> 
+  <miny>-3272</miny> 
+  <maxx>2980</maxx>
+  <maxy>2015</maxy>
+  <res>881x786</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_lazytown'>
+  <minx>-3560</minx> 
+  <miny>-2856</miny> 
+  <maxx>1768</maxx>
+  <maxy>6696</maxy>
+  <res>629x1125</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_jailbreak_b3'>
+  <minx>-4200</minx>
+  <miny>-9615</miny>
+  <maxx>495</maxx>
+  <maxy>-1168</maxy>
+  <res>625x1119</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_japan_v2'>
+  <minx>3092</minx>
+  <miny>-3617</miny>
+  <maxx>11784</maxx>
+  <maxy>-1140</maxy>
+  <res>1598x430</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_junction_v2'>
+  <minx>-3329</minx>
+  <miny>-1018</miny>
+  <maxx>2528</maxx>
+  <maxy>5080</maxy>
+  <res>831x898</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_turbine_v3'>
+  <minx>-3856</minx>
+  <miny>-1752</miny>
+  <maxx>3856</maxx>
+  <maxy>1752</maxy>
+  <res>1506x684</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_warpath2_1b'>
+  <minx>-3761</minx>
+  <miny>-2962</miny>
+  <maxx>3983</maxx>
+  <maxy>2962</maxy>
+  <res>1200x915</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_mach4'>
+  <minx>-969</minx>
+  <miny>-2129</miny>
+  <maxx>1672</maxx>
+  <maxy>3620</maxy>
+  <res>515x1113</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_chaos'>
+  <minx>-1656</minx>
+  <miny>-660</miny>
+  <maxx>1656</maxx>
+  <maxy>3108</maxy>
+  <res>657x746</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_dogblu_b3'>
+  <minx>-1048</minx>
+  <miny>-2392</miny>
+  <maxx>3816</maxx>
+  <maxy>10968</maxy>
+  <res>378x1049</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_impact2'>
+  <minx>-768</minx>
+  <miny>-3128</miny>
+  <maxx>2454</maxx>
+  <maxy>3968</maxy>
+  <res>427x934</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_desertfortress'>
+  <minx>-2794</minx>
+  <miny>-2388</miny>
+  <maxx>2494</maxx>
+  <maxy>2892</maxy>
+  <res>886x884</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_roswell_b2'>
+  <minx>-840</minx>
+  <miny>-1695</miny>
+  <maxx>3391</maxx>
+  <maxy>4121</maxy>
+  <res>720x987</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_roswell'>
+  <minx>-840</minx>
+  <miny>-1695</miny>
+  <maxx>3391</maxx>
+  <maxy>4121</maxy>
+  <res>720x987</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_switchback_b5'>
+  <minx>-1624</minx>
+  <miny>-3488</miny>
+  <maxx>2000</maxx>
+  <maxy>9104</maxy>
+  <res>328x1135</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_redstone_b2'>
+  <minx>-2026</minx>
+  <miny>-7008</miny>
+  <maxx>2977</maxx>
+  <maxy>6340</maxy>
+  <res>429x1118</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_redstone_b1'>
+  <minx>-2026</minx>
+  <miny>-7008</miny>
+  <maxx>2977</maxx>
+  <maxy>6340</maxy>
+  <res>429x1118</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_labor'>
+  <minx>-1602</minx>
+  <miny>-4862</miny>
+  <maxx>1444</maxx>
+  <maxy>3096</maxy>
+  <res>453x1175</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_vertigo_beta3'>
+  <minx>-1208</minx>
+  <miny>-2766</miny>
+  <maxx>2792</maxx>
+  <maxy>2860</maxy>
+  <res>804x1102</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='dm_duel_v2'>
+  <minx>-770</minx>
+  <miny>-1209</miny>
+  <maxx>1614</maxx>
+  <maxy>1232</maxy>
+  <res>1002x972</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_broma'>
+  <minx>-4460</minx>
+  <miny>-1800</miny>
+  <maxx>320</maxx>
+  <maxy>2912</maxy>
+  <res>932x930</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_broma_b6'>
+  <minx>-4460</minx>
+  <miny>-1800</miny>
+  <maxx>320</maxx>
+  <maxy>2912</maxy>
+  <res>932x930</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_fastlane_b1'>
+  <minx>-1924</minx>
+  <miny>-6696</miny>
+  <maxx>1924</maxx>
+  <maxy>5672</maxy>
+  <res>345x1117</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_spywinder_optim'>
+  <minx>-3308</minx>
+  <miny>-4461</miny>
+  <maxx>1287</maxx>
+  <maxy>134</maxy>
+  <res>780x780</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='pl_goldrush'>
+  <minx>-9215</minx>
+  <miny>-4093</miny>
+  <maxx>-1539</maxx>
+  <maxy>4111</maxy>
+  <res>901x944</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_steel_b4'>
+  <minx>-3286</minx>
+  <miny>-4128</miny>
+  <maxx>4193</maxx>
+  <maxy>2706</maxy>
+  <res>1097x992</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='cp_egypt'>
+  <minx>-7084</minx>
+  <miny>-7092</miny>
+  <maxx>4092</maxx>
+  <maxy>9056</maxy>
+  <res>770x1115</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_quarry'>
+  <minx>-1350</minx>
+  <miny>-9</miny>
+  <maxx>1610</maxx>
+  <maxy>6411</maxy>
+  <res>456x942</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+</maps>

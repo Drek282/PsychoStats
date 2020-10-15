@@ -1,0 +1,31 @@
+{if $errors.fatal}
+<h3><#Create Administrator Result#></h3>
+<p class="h3">An error occured while creating the admin user.</p>
+<p class="row"><span class="bad">{$errors.fatal|escape}</span></p>
+{elseif !$errors}
+<h3><#Administrator Update Result#></h3>
+	{if $action == 'created'}
+	<p class="row"><span class="good">Administrator "<strong>{$username|escape}</strong>" has been created successfully!</span></p>
+	{else}
+	<p class="row"><span class="good">Administrator "<strong>{$deleted|escape}</strong>" has been deleted successfully!</span></p>
+	{/if}
+{/if}
+
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+{if $allow_next}
+	$('#create-or-next strong').html('Create another user or click "Next" to continue!');
+{else}
+	$('#create-or-next strong').html('At least 1 administrator user must be created before continuing.');
+{/if}
+{foreach from=$errors key='var' item='e'}
+	{if $var != 'fatal'}
+	$('#{$var}').next().html('{$e|escape}').slideDown();
+	{/if}
+{foreachelse}
+	$('#admin-list').html('{$admin_list|default:'<#No admins found#>'|escape:'quotes'}');
+	$('#admin-list a').click(click_admin);
+	$('.config-frame input').val('');
+{/foreach}
+</script>
+

@@ -1,0 +1,107 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the event?#>";
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Event#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+{*
+<div class="inline-notes">
+	<h4></h4>
+	<p></p>
+</div>
+*}
+<div{if $errors.ignore} class="err"{/if}>
+	<p class="err" id="err-ignore">{$errors.ignore|escape}</p>
+	<label><#Ignore?#></label>
+	<label class="for" for="ignore1"><input id="ignore1" name="ignore" value="1" {if  $form.ignore}checked="" {/if}type="radio" class="radio" /> Yes</label>
+	<label class="for" for="ignore2"><input id="ignore2" name="ignore" value="0" {if !$form.ignore}checked="" {/if}type="radio" class="radio" /> No</label>
+</div>
+
+<div{if $errors.eventname} class="err"{/if}>
+	<p class="err" id="err-eventname">{$errors.eventname|escape}</p>
+	<label><#Event Name#>:</label>
+	<input name="eventname" value="{$form.eventname|escape}" type="text" class="field" />
+	<p class="small">
+		The event name must be unique and a single word w/o spaces and will be used as the function name to call when 
+		the event is triggered. If an Alias is defined below it will be used as the function name instead.
+	</p>
+</div>
+
+<div{if $errors.alias} class="err"{/if}>
+	<p class="err" id="err-alias">{$errors.alias|escape}</p>
+	<label><#Alias#>:</label>
+	<input name="alias" value="{$form.alias|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.regex} class="err"{/if}>
+	<p class="err" id="err-regex">{$errors.regex|escape}</p>
+	<label><#Regular Expression#>:</label>
+	<input name="regex" value="{$form.regex|escape}" type="text" class="field long" />
+</div>
+
+<div class="notes">
+	<h4>Game &amp; Mod Type</h4>
+	<p>If left blank the event will be used for all games or mods.</p>
+</div>
+<div{if $errors.gametype} class="err"{/if}>
+	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
+	<label><#Game Type#>:</label>
+	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.modtype} class="err"{/if}>
+	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
+	<label><#MOD Type#>:</label>
+	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.codefile} class="err"{/if}>
+	<p class="err" id="err-codefile">{$errors.codefile|escape}</p>
+	<label><#Code File#>:</label>
+	<input name="codefile" value="{$form.codefile|escape}" type="text" class="field" />
+	<p class="small">
+		Optional filename of a file in the Events directory of your PsychoStats installation that contains
+		a function to handle log events that match this regular expression.
+	</p>
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

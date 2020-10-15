@@ -1,0 +1,80 @@
+<h2 id="go-hdr"><#Themes Setup#></h2>
+<p>
+	PsychoStats uses the <a href="http://smarty.php.net/" target="_blank">Smarty Template Engine</a> for output. 
+	Themes are compiled and are usually written to files so a theme only has to be compiled once.
+	However, this requires that proper file permissions are configured on your server so the web user
+	{if $web_user}"<b>{$web_user.name}</b>"{/if} can write to the compile directory. This is not always easy for some systems.
+</p>
+
+<form id="config-form" action="{$SELF}" method="post">
+<div id='results' style="display: block">
+
+<h3><#Choose theme compilation method#></h3>
+<p class="h3">
+	Themes can either be compiled to disk for faster performance (recommended) or can be compiled on-the-fly with
+	every page request, which is much slower and should not be used unless you have no other option.
+</p>
+
+<div class="config-frame">
+<h3><#Choose Wisely#> . . .</h3>
+<p class="row">
+	<input id="nosave" name="nosave" value="1" type="checkbox" {if $nosave}checked="checked"{/if} />
+	<span class="extra">
+		<label class="for" for="nosave">
+			If checked, themes will be re-compiled on <b>EVERY</b> page request and the compile directory will be ignored.
+		</label>
+	</span>
+</p>
+<p class="row">
+	You can change this setting at any time in the ACP.
+	<span id="reduce-warning" class="sub warn"{if !$nosave} style="display: none"{/if}><b>This will reduce page rendering performance!</b></span>
+</p>
+<div id="compiledir-row"{if $nosave} style="display: none"{/if}>
+	<p class="sep"></p>
+	<p class="row">
+		<label><#Compile Directory#>:</label>
+		<input id="compiledir" name="compiledir" value="{$compiledir|escape}" class="field long" />
+		<span class="sub">Leave blank to use the system default "<b>{$system_default_dir}</b>"</span>
+{if $is_windows}
+		<span class="sub"><b>Windows:</b> Only use backslashes "<b>\</b>" in the path.</span>
+{/if}
+	</p>
+
+	<div id='db-results'>{include file="go-theme-results.html"}</div>
+
+	{if $open_basedir}
+	<h3 class="success"><#PHP directive open_basedir is enabled!#></h3>
+		<p class="h3 success">
+		The PHP directive "<a href="http://us.php.net/manual/en/features.safe-mode.php#ini.open-basedir" target="_blank">open_basedir</a>" 
+		is enabled in your PHP configuration. Because of this, the compile directory above has to be within the confines of 
+			the open_basedir setting.
+		<br/><br/><b>open_basedir</b>: <u>{$open_basedir}</u>
+	</p>
+	{/if}
+	<p id="click-test" class="row"{if $can_write} style="display: none"{/if}>
+		<strong>Click "Test" to check if the compile directory is valid!</strong>
+		<br/>
+		Your PsychoStats installation will not function if the compile directory is not verified first.
+	</p>
+</div> {* compiledir-row *}
+</div>
+
+<div id='db-pending' style='display: none'>
+	<p>Testing theme support. . . </p>
+	<p>Please wait . . .</p>
+</div>
+
+</div> {* #results *}
+
+<p id="go-ctrl" class="controls">
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
+	<input name="s_back" value="admin" type="hidden" />
+
+	<input id="btn-test" value="<#Test#>" type="button" />
+	<input id="step" name="s" value="save" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+
+	<input name="dosubmit" value="1" type="hidden" />
+</p>
+</form>

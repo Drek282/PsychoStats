@@ -1,0 +1,141 @@
+/* specific styles for the query page */
+
+#ps-container .ps-server-wrapper {
+	width: 450px;
+	float: left;
+	margin: 0 0.5em;
+}
+
+.ps-server-container {
+	text-align: center;
+}
+
+#ps-container .ps-server-main {
+	margin: 0 auto 0.5em auto;
+	width: 450px;
+	border: 1px solid black;
+	background: #E4DCCE;
+	text-align: left;
+}
+
+.ps-server-main .hdr {
+	line-height: 20px;
+	background: url(../img/table-header-bg.png) repeat;
+	border-bottom: 1px solid #999;
+	text-align: center;
+	padding: 0;
+	font-weight: bold;
+	font-size: 90%;
+}
+
+.ps-server-main .hdr img.flag {
+	float: left;
+}
+.ps-server-main .hdr img.ajax {
+	float: right;
+}
+
+.ps-server-main .map {
+	float: left;
+	height: 120px;
+	width: 160px;
+}
+
+.ps-server-main .map img {
+	height: 120px;
+	width: 160px;
+}
+
+.ps-server-main .content,
+.ps-server-main .details,
+.ps-server-main .players,
+.ps-server-main .rules,
+.ps-server-main .rcon {
+	font-size: 80%;
+	height: 101px !important;	/* FF */
+	height: 100px;			/* IE */
+/*	margin-left: 160px; /* don't use margin with overflow set */
+	overflow: hidden;
+}
+
+.ps-server-main .players,
+.ps-server-main .rules{
+	overflow: auto;
+}
+.ps-server-main table {
+	width: 270px;
+	border-collapse: collapse;
+}
+.ps-server-main table th { font-weight: bold; background: #BAB6A7; }
+.ps-server-main table tr.even { background: #D6CEC0; }
+.ps-server-main table tr.footer th { font-size: 3px; height: 3px; overflow: hidden; }
+.ps-server-main table .name { text-align: left; }
+.ps-server-main table .kills { text-align: center; }
+.ps-server-main table .time { text-align: right; }
+
+#ps-container .ps-server-main .content p label,
+#ps-container .ps-server-main .details p label {
+	float: left;
+	width: 80px;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+#ps-container .ps-server-main .content p span.ping,
+#ps-container .ps-server-main .details p span.ping {
+	color: gray;
+	margin-left: 1em;
+}
+
+.ps-server-main .content .timeout,
+.ps-server-main .details .timeout {
+	line-height: 90px;
+	text-align: center;
+}
+
+#ps-container .ps-server-main .menu {
+	text-align: center;
+	font-size: 90%;
+	font-weight: bold;
+	border-bottom: 1px solid #5C6472;
+	margin-left: 160px;
+	margin-bottom: 0.25em;
+	background: #C9C1B3;
+}
+#ps-container .ps-server-main .menu ul {
+	list-style: none;
+	margin: 0 auto;
+	padding: 1px;
+}
+#ps-container .ps-server-main .menu ul li {
+	display: inline;
+	margin-left: 1em;
+}
+#ps-container .ps-server-main .menu ul li a {
+	padding: 0 1px;
+}
+.ps-server-main .menu ul li.selected {
+}
+.ps-server-main .menu ul li.selected a {
+	border: 1px solid #8A8274;
+	background: #8A8274;
+}
+
+.ps-server-main .clear {
+	clear: left;
+	height: 0px;
+}
+
+/* timer bar is actually part of server.html */
+#ps-container .ps-column-sep { /* override original style from 2columns.css */
+	border: none;
+}
+#ps-container .ps-column-sep p {
+	text-align: left;
+}
+#timer-bar {
+	display: block;
+	background: #aaa;
+	height: 1px;
+	width: 1px;
+}

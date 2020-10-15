@@ -1,0 +1,241 @@
+/**
+	overall.css
+	Global and overall header/footer styles.
+
+	I've tried to make the overall styles 3rd party friendly so that not many global tags are redefined.
+	I wrap a lot of content	into id tags and set styles around those ids. So PsychoStats can be integrated
+	into another page w/o much fuss. Of course, if you use an iframe then none of this matters.
+
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Tahoma, Sans-serif;
+	font-size: 10px;
+	color: #777777;
+	background-color: #d5be84;
+	border: 1px solid #999999 ;
+	margin: 0px;
+}
+
+a {
+	font-size:		10pt;
+	font-family:	Tahoma, Sans-serif;
+}
+
+a:link, a:visited, a:hover, a:active {
+	text-decoration:	none;
+	color:		#330000;
+	font-size:		10pt;
+	font-family:	Tahoma, Sans-serif;
+}
+
+a:hover, a:active {
+	color:		#660000;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+acronym {
+	font-size: 100%;
+}
+
+/* --- OVERALL MENU --------------------------------------- */
+
+#ps-overall-menu {
+	vertical-align: 	middle;
+	border-top:		1px solid #999999;
+	border-bottom:	1px solid #999999;
+	width:		100%;
+	line-height:	28px;	/* Setting the line-height allows the menu to vertically align */
+	background: 	url(../img/header-menu-bg.gif) repeat;
+}
+
+#ps-overall-menu ul {
+	margin: 0 1em;
+}
+
+#ps-overall-menu ul li {
+	display: inline;
+	background: url(../img/header-menu-sep.gif) no-repeat 0 50%;
+	padding-left: 12px;
+	font-weight: bold;
+}
+
+#ps-overall-menu li.first {
+	background-image: none;
+	padding-left: 0;
+}
+
+#ps-overall-menu a {
+	color:		#5d3231;
+}
+
+#ps-overall-menu a:hover {
+	color:		#b66358;
+}
+
+#ps-menu-right {
+	float: right;
+	display: inline;	/* IE */
+	margin-right: 1em;
+}
+#ps-menu-right img {
+	vertical-align: top;
+}
+
+/* --- OVERALL FOOTER ------------------------------------- */
+#ps-overall-footer {
+	background: #e7cebd;
+	margin-top: 2em;
+	min-height: 50px;					/* FF  */
+	height: expression(this.height = 50 + 'px');		/* IE6 */
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	clear: left;
+}
+#ps-footer-middle {
+	font-size: 80%;
+	text-align: center;
+	margin-top: 5px;
+}
+
+#ps-overall-footer div.language,
+#ps-overall-footer div.theme
+{
+	font-size: 80%;
+	float: left;
+	margin-left: 0.5em;
+	line-height: 3em !important;		/* FF */
+	line-height: 1.5em;			/* IE */
+	font-weight: bold;
+}
+#ps-overall-footer select {
+	background-color: #ffffff;
+	border: 1px solid #666666;
+	padding: 2px;
+	font-size: 90%;
+}
+#ps-overall-footer select option {
+	padding-right: 1em;
+}
+
+/* --- OVERALL LOGIN POPUP --------------------------------------------- */
+#ps-login-popup {
+	position: absolute;
+	width: 230px;
+	height: 103px;
+	background: transparent url(../img/popup-login.gif) no-repeat;
+	overflow: hidden;
+	z-index: 65535;
+}
+#ps-login-popup #ps-login-inner,
+#ps-search-popup #ps-search-inner
+{
+	margin: 33px 10px 0 10px;
+	font-size: 8pt;
+}
+#ps-login-popup input.field {
+	margin: 0 0.2em 0 0.2em;
+}
+#ps-login-inner p {
+	margin-bottom: 0.2em;
+}
+#ps-login-inner p label {
+	float: left;
+	width: 60px;
+	text-align: right;
+}
+#ps-login-inner button,
+#ps-search-inner button {
+	vertical-align: bottom;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+#ps-login-reg {
+	position: absolute;
+	right: 10px;
+	top: 13px;
+}
+#ps-login-reg a {
+	text-decoration: underline;
+}
+#ps-login-options {
+	font-size: 8pt;
+}
+#ps-login-popup input.field {
+	color: #777777;
+	border: 1px solid #777777;
+	background: #000000;
+	width: 100px;
+}
+#ps-login-options a {
+	position: absolute;
+	right: 0px !important;		/* FF */
+	right: 10px;			/* IE */
+	top: 3px !important;		/* FF */
+	top: 6px;			/* IE */
+	text-decoration: underline;
+}
+
+#ps-loggedin-popup {
+	position: absolute;
+	padding: 2em;
+	text-align: left;
+	background: #dddddd;
+	color: #CC6600;
+	border: 1px solid #999999;
+	width: 300px;
+	font-size: 110%;
+}
+
+/* --- OVERALL SEARCH POPUP --------------------------------------------- */
+/* some styles are included in the LOGIN styles above */
+#ps-search-popup {
+	position: absolute;
+	width: 230px;
+	height: 60px;
+	background: url(../img/popup-search.gif) no-repeat;
+	z-index: 65535;
+}
+#ps-search-popup input.field {
+	color: #888888;
+	background: #000000 url(../img/search-input-icon.gif) no-repeat 0 50%;
+	border: 1px solid #888888;
+	width: 155px;
+	padding-left: 17px;
+}
+input.search { /* generic search class */
+	background: #ffffff url(../img/search-input-icon.gif) no-repeat 0 50%;
+	padding-left: 17px;
+	border: 1px solid #888888;
+	width: 125px;
+}
+
+.gmapinfo {
+	text-align: left;
+	font-size: 90%;
+}
+.gmapinfo h4 {
+	text-align: center;
+	border-bottom: 1px solid #888888;
+	font-size: 110%;
+}
+.gmapinfo label {
+	font-weight: bold;
+	float: left;
+	width: 50px;
+}
+.gmapinfo span {
+	clear: right;
+}
+

@@ -1,0 +1,89 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the user?#>";
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#User#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+
+<div{if $errors.confirmed} class="err"{/if}>
+	<p class="err" id="err-confirmed">{$errors.confirmed|escape}</p>
+	<label><#Confirmed?#></label>
+	<label class="for" for="confirmed1"><input id="confirmed1" name="confirmed" value="1" {if  $form.confirmed}checked="" {/if}type="radio" class="radio" /> Yes</label>
+	<label class="for" for="confirmed2"><input id="confirmed2" name="confirmed" value="0" {if !$form.confirmed}checked="" {/if}type="radio" class="radio" /> No</label>
+</div>
+
+<div{if $errors.username} class="err"{/if}>
+	<p class="err" id="err-username">{$errors.username|escape}</p>
+	<label><#Username#>:</label>
+	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.accesslevel} class="err"{/if}>
+	<p class="err" id="err-accesslevel">{$errors.accesslevel|escape}</p>
+	<label><#Access Level#>:</label>
+	<select name="accesslevel" class="field">
+{foreach from=$accesslevels item='label' key='value'}
+		<option value="{$value}"{if $value == $form.accesslevel} selected{/if}>{$label}</option>
+{/foreach}
+	</select>
+</div>
+
+{if $id}
+<div class="notes">
+	<h4><#Change Password?#></h4>
+	<p><#Only enter a password if you want to change it from the current password.#></p>
+</div>
+{/if}
+
+<div{if $errors.password} class="err"{/if}>
+	<p class="err" id="err-password">{$errors.password|escape}</p>
+	<label><#New Password#>:</label>
+	<input name="password" type="password" class="field" autocomplete="off" />
+</div>
+
+<div{if $errors.password2} class="err"{/if}>
+	<p class="err" id="err-password2">{$errors.password2|escape}</p>
+	<label><#Retype Password#>:</label>
+	<input name="password2" type="password" class="field" autocomplete="off" />
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

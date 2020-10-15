@@ -1,0 +1,27 @@
+<h3><#Initialization Result#></h3>
+{if $errors}
+<p class="h3">There were errors initializing the database. 
+	<span class="bad">You database is NOT currently setup properly!</span>
+	The errors below must be resolved before continuing.
+</p>
+	{foreach from=$errors item='e'}
+	<p class="row"><span class="bad">{$e|escape}</span></p>
+	{/foreach}
+{/if}
+
+{if $actions}
+	{foreach from=$actions key='tbl' item='a'}
+	<p class="row"><span class="{$a.status}">{$a.msg}</span></p>
+	{/foreach}
+{elseif !$errors}
+<p class="row"><span class="good">Database '{$dbname}' has been initialized!</span></p>
+{/if}
+
+{if $allow_next}
+<p class="row right"><strong>Your database has been initialized with default values. Click "Next" to continue!</strong></p>
+{/if}
+
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+</script>
+

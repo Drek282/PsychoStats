@@ -1,0 +1,26 @@
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+{if $method == 'ftp'}
+	{if $is_saved}
+	var res = $('#ftp-result');
+	{else}
+	var res = $('#local-result');
+	{/if}
+{else}
+	var res = $('#local-result');
+	res.next().slideUp();
+{/if}
+res.html('');
+{if $errors}
+	{foreach from=$errors item='e'}
+	res.append('<p class="row"><span class="bad">{$e|escape}</span></p>');
+	{/foreach}
+{else}
+	res.append("<p class='row'><span class='good'>Configuration saved successfully!</span></p>");
+{*
+	{if $method == 'ftp'}$('#local-block').slideUp();{/if}
+*}
+{/if}
+res.slideDown();
+</script>
+

@@ -1,0 +1,75 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Role#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+
+{if !$id}
+<div class="inline-notes">
+	<h4><#Note#></h4>
+	<p>	
+		There is usually no need to manually add roles to the configuration since roles are automatically added
+		after being used in a game.
+	</p>
+</div>
+{/if}
+
+<div{if $errors.uniqueid} class="err"{/if}>
+	<p class="err" id="err-uniqueid">{$errors.uniqueid|escape}</p>
+	<label><#Unique ID#>:</label>
+	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.name} class="err"{/if}>
+	<p class="err" id="err-name">{$errors.name|escape}</p>
+	<label><#Real Name#>:</label>
+	<input name="name" value="{$form.name|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.team} class="err"{/if}>
+	<p class="err" id="err-class">{$errors.team|escape}</p>
+	<label><#Team#>:</label>
+	<input name="class" value="{$form.team|escape}" type="text" class="field" />
+	<p class="small">
+		What team this role is used on. If a role is used on multiple teams leave this blank.
+	</p>
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

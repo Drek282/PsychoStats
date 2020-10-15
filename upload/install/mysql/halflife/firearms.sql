@@ -1,0 +1,52 @@
+CREATE TABLE `ps_map_data_halflife_firearms` (
+  `dataid` int(10) unsigned NOT NULL default '0',
+  `red_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `joinedred_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedblue_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedspectator` smallint(5) unsigned NOT NULL default '0',
+  `red_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `red_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `bandage` smallint(5) unsigned NOT NULL default '0',
+  `medevac` smallint(5) unsigned NOT NULL default '0',
+  `capturepoint` smallint(5) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`dataid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `ps_plr_data_halflife_firearms` (
+  `dataid` int(10) unsigned NOT NULL default '0',
+  `red_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `red_forcedeaths` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcedeaths` smallint(5) unsigned NOT NULL default '0',
+  `joinedred_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedblue_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedspectator` smallint(5) unsigned NOT NULL default '0',
+  `red_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `red_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `bandage` smallint(5) unsigned NOT NULL default '0',
+  `medevac` smallint(5) unsigned NOT NULL default '0',
+  `capturepoint` smallint(5) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`dataid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `ps_plr_maps_halflife_firearms` (
+  `dataid` int(10) unsigned NOT NULL default '0',
+  `red_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcekills` smallint(5) unsigned NOT NULL default '0',
+  `red_forcedeaths` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcedeaths` smallint(5) unsigned NOT NULL default '0',
+  `joinedred_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedblue_force` smallint(5) unsigned NOT NULL default '0',
+  `joinedspectator` smallint(5) unsigned NOT NULL default '0',
+  `red_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcewon` smallint(5) unsigned NOT NULL default '0',
+  `red_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `blue_forcelost` smallint(5) unsigned NOT NULL default '0',
+  `bandage` smallint(5) unsigned NOT NULL default '0',
+  `medevac` smallint(5) unsigned NOT NULL default '0',
+  `capturepoint` smallint(5) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`dataid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

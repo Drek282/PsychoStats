@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="author" content="Stormtrooper" />
+	<meta name="keywords" content="psychostats statistics firearms" />
+{theme->meta_tags}
+
+	<title>{$title|default:"PsychoStats"|escape}</title>
+
+	<link rel="stylesheet" type="text/css" media="screen,projection,print" href="{theme->parent_url}/css/overall.css" />
+	<link rel="stylesheet" type="text/css" media="screen,projection,print" href="{theme->parent_url}/css/content.css" />
+{* child themes can set $css_links_name to define the base theme to use for page-specific css files *}
+{theme->css_links name=$css_links_theme|default:'cc_firearms'}
+{if $extra_css}
+	{* child themes can pass the extra_css variable when including this file to allow an override of CSS rules *}
+	<link rel="stylesheet" type="text/css" media="screen,projection,print" href="{theme->url}/{$extra_css}" />
+{/if}
+
+	<script type="text/javascript">
+{* these variables are used in various js routines throughout the stats *}
+		var themeurl = '{theme->parent_url|escape:'javascript'}';
+		var iconsurl = '{$conf.theme.icons_url|escape:'javascript'}';
+{* setup some variables that will be accessed in the js/map.js code *}
+{if $conf.theme.map.google_key}
+		var mapconf = {ldelim}
+			enable_custom_icons:	parseInt('{$conf.theme.map.enable_custom_icons|escape:'javascript'}'),
+			ctrl_maptype:		parseInt('{$conf.theme.map.ctrl_maptype|escape:'javascript'}'),
+			ctrl_overview:		parseInt('{$conf.theme.map.ctrl_overview|escape:'javascript'}'),
+			mousewheel:		parseInt('{$conf.theme.map.mousewheel|escape:'javascript'}'),
+			smoothzoom:		parseInt('{$conf.theme.map.smoothzoom|escape:'javascript'}'),
+			center: 		'{$conf.theme.map.center|escape:'javascript'}',
+			ctrl_map: 		'{$conf.theme.map.ctrl_map|escape:'javascript'}',
+			maptype:		'{$conf.theme.map.maptype|escape:'javascript'}',
+			zoom:			parseInt('{$conf.theme.map.zoom|escape:'javascript'}'),
+			standard_icon: 		'{$conf.theme.map.standard_icon|escape:'javascript'}',
+			standard_icon_shadow:	'{$conf.theme.map.standard_icon_shadow|escape:'javascript'}'
+		{rdelim};
+{/if}
+
+	</script>
+	<script src="{theme->parent_url}/js/jquery.js" type="text/javascript"></script>
+	<script src="{theme->parent_url}/js/overall.js" type="text/javascript"></script>
+{theme->js_sources name=$js_sources_theme|default:'cc_firearms'}
+{if $loggedin and ps_user_logged_in()}
+	<script src="{theme->parent_url}/js/loggedin.js" type="text/javascript"></script>
+{/if}
+{if $extra_js}{* similiar to extra_css above *}
+	<script src="{theme->url}/{$extra_js}" type="text/javascript"></script>
+{/if}
+</head>
+
+<body>
+
+<!--#OVERALL_HEADER_MENU#-->
+<div id="ps-overall-menu">
+<div id="ps-menu-right">
+{if $show_login}
+<a id="ps-login-link" href="{url _base='login.php' _ref=1}" title="Quick Login Popup"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.gif" alt="Login" /></a>
+{/if}
+<a id="ps-search-link" href="{url _base='search.php'}" title="Quick Search Popup"><img id="ps-search-img" src="{theme->parent_url}/img/menu-search-icon.gif" alt="Search" /></a>
+</div>
+<ul>
+{if $conf.main.site_url}
+	<li class="first"><a href="{$conf.main.site_url|escape}" title="<#Go to#> {$conf.main.site_url|escape}"><#Home#></a></li>
+	<li><a href="{url _base='index.php'}"><#Players#></a></li>
+{else}
+	<li class="first"><a href="{url _base='index.php'}"><#Players#></a></li>
+{/if}
+	<li><a href="{url _base='clans.php'}"><#Clans#></a></li>
+	<li><a href="{url _base='weapons.php'}"><#Weapons#></a></li>
+	<li><a href="{url _base='maps.php'}"><#Maps#></a></li>
+	<li><a href="{url _base='awards.php'}"><#Awards#></a></li>
+{if $conf.theme.map.google_key}
+	<li><a href="{url _base='overview.php'}"><#Overview#></a></li>
+{/if}
+{if $show_admin}
+	<li><a href="{url _base='admin/index.php'}"><#Admin#></a></li>
+{/if}
+</ul>
+</div>
+<!---->
+
+{if !ps_user_logged_in()}
+<!--#LOGIN_POPUP#-->
+<form method="post" action="{url _base='login.php' _ref=1}">
+<div id="ps-login-popup" style="display: none">
+<div id="ps-login-inner">
+	{if $show_register}<div id="ps-login-reg"><#Newbie?#> -- <a href="register.php"><#Register!#></a></div>{/if}
+	<p>
+	<label><#Username#></label>
+	<input id="username" name="username" type="text" class="field" value="" />
+	<input name="submit" value="1" type="hidden" />
+	</p>
+	<p>
+	<label><#Password#></label>
+	<input id="password" name="password" type="password" class="field" value="" />
+	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go" /></button>
+	</p>
+	<div id="ps-login-options">
+		<input id="ps-remember-login" name="autologin" type="checkbox" value="1" />
+		<label for="ps-remember-login"><#Remember me!#></label>
+{*
+		<a href="forgotpw.php"><#Forgot password?#></a>
+*}
+	</div>
+</div>
+</div>
+</form>
+<!---->
+{else}
+<!--#LOGOUT_POPUP#-->
+<div id="ps-login-popup" style="display: none">
+<div id="ps-login-inner">
+	<center>
+	<h4><#Logged in as#> <b><a href="{url _base='edituser.php' _ref=1}">{$user.username|escape}</a></b></h4>
+	<p><big><a href="{url _base='logout.php' _ref=1}"><#Click here to logout!#></a></big></p>
+	</center>
+</div>
+</div>
+<!---->
+<!--#LOGGEDIN_POPUP#-->
+<div id="ps-loggedin-popup" style="display: none">
+	<#Welcome#>, <b>{$user.username|escape}</b><br/>
+	<#You have been logged in.#><br/>
+	<#This window will close in a few seconds.#>
+</div>
+<!---->
+{/if}
+
+<!--#SEARCH_POPUP#-->
+<form method="get" action="{url _base='index.php'}">
+<div id="ps-search-popup" style="display: none">
+<div id="ps-search-inner">
+<p>
+	<input id="q" name="q" type="text" class="field" value="{$q|escape}" />
+	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go" /></button>
+</p>
+</div>
+</div>
+</form>
+<!---->
+

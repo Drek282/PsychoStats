@@ -1,0 +1,195 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+	<div id="ps-page-title">
+		<div class="inner">
+{if ps_user_can_edit_clan($clan)}
+		<span>[ 
+			<a href="{url _base='editclan.php' _ref=1 id=$clan.clanid}"><#Edit Clan#></a>
+		]</span>
+{/if}
+		<h1><#Clan Statistics for Tag#> :: {$clan.clantag|escape}</h1>
+		<h2>{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong></h2>
+		</div>
+	</div>
+
+<!--left column block -->
+<div id="ps-main-column">
+
+<div class="ps-column-frame{if $shades.s_clan_rundown} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Clan Rundown#></span></a></div>
+<div id="s-clan-rundown" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Skill#></label>
+	<span>{$clan.skill}</span>
+</p>
+<p>
+	<label><#Activity Level#></label>
+{**}
+	<em>{if $clan.activity != -1}{pctbar pct=$clan.activity width=50 fixedwidth=true}{else}-{/if}</em>
+	<span>{if $clan.activity != -1}{$clan.activity}%{else}-{/if}</span>
+{**
+{**
+	<span>{if $clan.activity != -1}{$clan.activity}%{else}-{/if}</span>
+{**}
+</p>
+<p>
+	<label><#Bonus Points#></label>
+	<span>{$clan.totalbonus|commify}</span>
+</p>
+<p>
+	<label><#Total Games#></label>
+	<span>{$clan.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$clan.rounds|commify}</span>
+</p>
+<p>
+	<label><#Maps Played#></label>
+	<span>{$clan.totalmaps|commify}</span>
+</p>
+<p>
+	<label><#Total Kicks#></label>
+	<span>{$clan.kicked|commify}</span>
+</p>
+<p>
+	<label><#Total Bans#></label>
+	<span>{$clan.banned|commify}</span>
+</p>
+<p>
+	<label><#Total Connections#></label>
+	<span>{$clan.connections|commify}</span>
+</p>
+<p>
+	<label><#Online Time#></label>
+	<span>{$clan.onlinetime|compacttime}</span>
+</p>
+<p>
+	<label><#Last Seen#></label>
+	<span>{$clan.lasttime|datetime}</span>
+</p>
+</div>
+</div>
+
+<div class="ps-column-frame{if $shades.s_clan_killprofile} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Kill Profile#></span></a></div>
+<div id="s-clan-killprofile" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Total Kills#></label>
+	<span>{$clan.kills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Headshot Kills#></label>
+	{if $clan.headshotkills}<em>{$clan.headshotkillspct}%</em>{/if}
+	<span>{$clan.headshotkills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $clan.ffkills}<em>{$clan.ffkillspct}%</em>{/if}
+	<span>{$clan.ffkills|commify}</span>
+</p>
+<p class="hl">
+	<label><#Total Deaths#></label>
+	<span>{$clan.deaths|commify}</span>
+</p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $clan.ffdeaths}<em>{$clan.ffdeathspct}%</em>{/if}
+	<span>{$clan.ffdeaths|commify}</span>
+</p>
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$clan.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$clan.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$clan.hits|commify}</span>
+</p>
+<p>
+	<label><#Kills per Death#></label>
+	<span>{$clan.killsperdeath}</span>
+</p>
+<p>
+	<label><#Kills per Minute#></label>
+	<span>{$clan.killsperminute}</span>
+</p>
+<p>
+	<label><#Kill Streak#></label>
+	<span>{$clan.kills_streak|commify}</span>
+</p>
+<p>
+	<label><#Death Streak#></label>
+	<span>{$clan.deaths_streak|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$clan.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$clan.damage|commify}</span>
+</p>
+<p>
+	<label><#Suicides#></label>
+	<span>{$clan.suicides|commify}</span>
+</p>
+</div>
+</div>
+
+{$clan_left_column_mod} {* include this where you want the mod block of stats to appear (left side) *}
+
+</div>
+<!--end of left column -->
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-clan">
+
+	<!--#MEMBERS#-->
+	<a name="members"></a>
+	<div class="ps-table-frame{if $shades.s_clanmembers} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$clan.totalmembers|commify} <#Clan Members#></span></a></div>
+	<div id="s-clanmembers" class="ps-table-inner">
+	{$members_table}
+	{if $memberpager}<div class="ps-table-footer">{$memberpager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+
+	<!--#WEAPONS#-->
+	<a name="weapons"></a>
+	<div class="ps-table-frame{if $shades.s_clanweapons} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$clan.totalweapons} <#Clan Weapons#></span></a></div>
+	<div id="s-clanweapons" class="ps-table-inner">
+	{$weapons_table}
+	{if $weaponpager}<div class="ps-table-footer">{$weaponpager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+
+	<!--#MAPS#-->
+	<a name="maps"></a>
+	<div class="ps-table-frame{if $shades.s_clanmaps} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$clan.totalmaps} <#Clan Maps#></span></a></div>
+	<div id="s-clanmaps" class="ps-table-inner">
+	{$maps_table}
+	{if $mappager}<div class="ps-table-footer">{$mappager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

@@ -1,0 +1,152 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message} 
+
+{if $allow.install}
+<div class="ps-theme-install">
+<form action="{url}" method="post">
+	<div><h2><#Install new theme#>:</h2></div>
+	{if $submit and !$confirm}	{* show a confirmation message and button to actually install the specified theme *}
+	<div>
+		<label><#XML URL Location#>:</label>
+		<span><strong><a href="{$url|escape}">{$url|escape}</a></strong></span>
+		<input name="submit" value="1" type="hidden" />
+		<input name="url" value="{$url|escape}" type="hidden" />
+	</div>
+	<div>&nbsp;</div>
+	<div><h2><#Please confirm theme installation!#></h2></div>
+	<div>
+		<#Are you sure you want to install this theme?#>
+		<input name="confirm" value="<#Yes#>" type="submit" class="btn" />
+		/ 
+		<input name="cancel"  value="<#No#>" type="submit" class="btn" />
+		<p><strong><#Themes should only be installed from trusted sources!#></strong></p>
+	</div>
+{if $newtheme.theme_exists}
+	<div class="theme-warn">
+		<p>
+			<strong><#Warning#>:</strong> This theme already exists on the local server. 
+			If you choose to install this theme it will overwrite the existing theme on your server.
+			This is ok if you're installing a newer version.
+		</p>
+	</div>
+{/if}
+	<div>&nbsp;</div>
+	<div class="theme-info">
+		{if $newtheme.image}<div class="image"><img src="{$newtheme.image|escape}" alt="No preview available" title="Preview of {$newtheme.name|escape}" /></div>{/if}
+		<div>
+			<label><#Short Name#>:</label>
+			<span>{$newtheme.name|escape} {if $newtheme.parent}<em>(<#parent#>: {$newtheme.parent|escape})</em>{/if}</span>
+		</div>
+		<div>
+			<label><#Title#>:</label>
+			<span>{$newtheme.title|escape}</span>
+		</div>
+		<div>
+			<label><#Version#>:</label>
+			<span>{$newtheme.version|escape}</span>
+		</div>
+		<div>
+			<label><#Author#>:</label>
+			{if $newtheme._author.email}
+			<span><a href="mailto:{$newtheme._author.email|escape}">{$newtheme.author|escape}</a></span>
+			{else}
+			<span>{$newtheme.author|escape}</span>
+			{/if}
+		</div>
+		<div>
+			<label><#File#>:</label>
+			<span><a href="{$newtheme.file|escape}">{$newtheme.file|truncate:'44':'...':true:true|escape}</a></span>
+		</div>
+		<div>
+			<label><#File Size#>:</label>
+			<span>{if $newtheme._file.size}{$newtheme._file.size|abbrnum}{else}<em><#Unknown#></em>{/if}</span>
+		</div>
+		<div>
+			<label><#File Type#>:</label>
+			<span>{if $newtheme._file.type}{$newtheme._file.type|upper|escape}{else}<em><#Unknown#></em>{/if}</span>
+		</div>
+		<div class="theme-desc">{$newtheme.description|escape}</div>
+		<div class="clear"></div>
+	</div>
+	{else} {* Provide input to specify URL to get theme from *}
+	<div class="row">
+		<label><#XML URL Location#>:</label>
+		<input name="url" value="{$url|escape}" type="text" class="field" />
+		<input name="submit" value="<#Fetch#>" type="submit" class="btn" />
+	</div>
+{if $theme_dirs}
+	<div class="row-sep">
+		<p>
+		<#You can also reinstall a local theme in the list below.#> 
+		</p>
+		<p>
+		<#These themes are already in your themes directory but are not installed in your database.#>
+		</p>
+	</div>
+	<div class="row">
+		<label><#Select Theme#>:</label>
+		<select name="dir">
+			<option value=""><#Select theme to reinstall#>&nbsp;&nbsp;</option>
+	{foreach from=$theme_dirs item="d"}
+			<option value="{$d.directory|escape}">{$d.title|escape} ({$d.directory|escape})</option>
+	{/foreach}
+		</select>
+		<input name="reinstall" value="<#Reinstall#>" type="submit" class="btn" />
+	</div>
+{/if}
+	{/if}
+</form>
+</div>
+{else}
+	{* Server environment will not allow themes to be installed *}
+	<div class="warning" style="width: 90%; margin: 0 auto 1em;">
+		<h4><#Themes can not be installed!#></h4>
+		<p><#Your server environment will not allow new themes to be installed due to the following reasons.#></p>
+		<ul>
+{if !$allow.url}			<li><#allow_url_fopen INI setting is disabled.#> See: <a href="http://php.net/manual/en/filesystem.configuration.php#ini.allow-url-fopen">php:allow_url_fopen</a></li>{/if}
+{if !$allow.write}			<li><#Theme directory <em>{$conf.theme.template_dir|escape}</em> is not writable by web server.#> <#Please fix permissions.#></li>{/if}
+		</ul>
+	</div>
+{/if}
+
+<div class="ps-table-frame">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$total_themes} <#Installed Themes#></span></a></div>
+	<div class="ps-table-inner">
+		<table class='ps-table ps-theme-table'>
+		<tr>
+			<th><p><span class="asc"></span><#Preview#></p></th>
+			<th class="active"><p><a href=""><span class="asc"><#Theme#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Version#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Author#></span></a></p></th>
+			<th class="ctrl"><p><a href=""><span class="asc"><#Controls#></span></a></p></th>
+		</tr>
+{foreach from=$themes item='t'}
+	{include file='themes_row.html' t=$t}
+	{foreach from=$t.children item='c'}
+		{include file='themes_row.html' t=$c child=true}
+	{/foreach}
+{foreachelse}
+		<tr><td colspan="5" class="no-data">
+			<#No Themes Installed#>
+		</td></tr>
+{/foreach}
+
+		</table>
+	</div>
+</div>
+
+</div> {* end ps-main-content *}
+</div> {* end ps-main *}
+
+	<div class="clear"></div>
+</div> {* end ps-page-container *}

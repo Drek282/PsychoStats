@@ -1,0 +1,200 @@
+<script type="text/javascript">
+delete_message = "<#Are you sure you want to delete the award?#>";
+</script>
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Award#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+
+<div{if $errors.enabled} class="err"{/if}>
+	<p class="err" id="err-enabled">{$errors.enabled|escape}</p>
+	<label><#Enabled?#></label>
+	<label class="for" for="enabled1"><input id="enabled1" name="enabled" value="1" {if  $form.enabled}checked="" {/if}type="radio" class="radio" /> Yes</label>
+	<label class="for" for="enabled2"><input id="enabled2" name="enabled" value="0" {if !$form.enabled}checked="" {/if}type="radio" class="radio" /> No</label>
+</div>
+
+<div{if $errors.negative} class="err"{/if}>
+	<p class="err" id="err-negative">{$errors.negative|escape}</p>
+	<label><#Negative Award?#></label>
+	<label class="for" for="negative1"><input id="negative1" name="negative" value="1" {if  $form.negative}checked="" {/if}type="radio" class="radio" /> Yes</label>
+	<label class="for" for="negative2"><input id="negative2" name="negative" value="0" {if !$form.negative}checked="" {/if}type="radio" class="radio" /> No</label>
+	<p class="small">
+		Negative awards are achievements that reflect poor actions from a player 
+		(like commiting suicide, or killing team mates, etc).
+	</p>
+</div>
+
+<div{if $errors.type} class="err"{/if}>
+	<p class="err" id="err-type">{$errors.type|escape}</p>
+	<label><#Award Type#>:</label>
+	<select id="awardtype" name="type" class="field">
+		<option value="player" {if $form.type == 'player'}selected=""{/if}><#Player#></option>
+		<option value="weapon" {if $form.type == 'weapon'}selected=""{/if}><#Weapon#></option>
+		<option value="weaponclass" {if $form.type == 'weaponclass'}selected=""{/if}><#Weapon Class#></option>
+	</select>
+</div>
+
+<div id="groupname" {if $form.type == 'player'}style="display: none"{/if} {if $errors.groupname} class="err"{/if}>
+	<p class="err" id="err-name">{$errors.groupname|escape}</p>
+	<label><#Group Title#>:</label>
+	<input name="name" value="{$form.groupname|escape}" type="text" class="field long" />
+	<p class="small">
+		The group name is used for weapon awards since multiple awards are grouped under a single heading in the
+		awards output. IE: "Most Kills" would appear as a header for all awards under a weapon like the AWP. The 
+		same special tokens as explained below can be used in the name.
+	</p>
+</div>
+
+<div{if $errors.name} class="err"{/if}>
+	<p class="err" id="err-name">{$errors.name|escape}</p>
+	<label><#Award Name#>:</label>
+	<input name="name" value="{$form.name|escape}" type="text" class="field long" />
+	<p class="small">
+		The award name is a short, generic description of what the overall award is. It should not include
+		any specific player or weapon information. See the 'phrase' setting below.
+	</p>
+</div>
+
+<div{if $errors.phrase} class="err"{/if}>
+	<p class="err" id="err-phrase">{$errors.phrase|escape}</p>
+	<label><#Award Phrase#>:</label>
+	<input name="phrase" value="{$form.phrase|escape}" type="text" class="field long" />
+	<p class="small">
+		{literal}
+		The award phrase is what is displayed in the awards listing for the player that won the award and should 
+		contain <b>{$tokens}</b> about the player and/or weapon. 
+		For example: "<em>{$player.link} has the most kills ({$kills} total)</em>".
+		{/literal}
+	</p>
+</div>
+
+<div{if $errors.expr} class="err"{/if}>
+	<p class="err" id="err-expr">{$errors.expr|escape}</p>
+	<label><#Expression#>:</label>
+	<input name="expr" value="{$form.expr|escape}" type="text" class="field long" />
+	<p class="small">
+		The expression defines what fields the award is calculated with and how. 
+		Special tokens are used within the expression. The tokens represent values from players or weapons depending
+		on the type of award being created. For example you would use $kills to use the 'kills' field from player data.
+		The expression can contain a single token or more complex computational expressions, for instance, to create
+		percentage or ratio based awards.
+	</p>
+</div>
+
+<div class="notes">
+	<h4>Game &amp; Mod Type</h4>
+	<p>If left blank the award will be used for all games or mods.</p>
+</div>
+<div{if $errors.gametype} class="err"{/if}>
+	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
+	<label><#Game Type#>:</label>
+	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.modtype} class="err"{/if}>
+	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
+	<label><#MOD Type#>:</label>
+	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
+</div>
+
+<div{if $errors.class} class="err"{/if}>
+	<p class="err" id="err-class">{$errors.class|escape}</p>
+	<label><#Award Class#>:</label>
+	<input name="class" value="{$form.class|escape}" type="text" class="field" />
+	<p class="small">
+		<b>Optional</b> award class to use to create the awards. This points to a class file inside the
+		Awards directory of your PsychoStats installation. The class file will contain more advanced code which
+		will allow you to create almost any type of award beyond simple expressions.
+	</p>
+</div>
+
+<div{if $errors.where} class="err"{/if}>
+	<p class="err" id="err-where">{$errors.where|escape}</p>
+	<label><#Where Clause#>:</label>
+	<input name="where" value="{$form.where|escape}" type="text" class="field long" />
+	<p class="small">
+		The where clause allows your award calculations to limit who or what will be counted in the calculations.
+		For example you could generate an award for the highest bomb defusals but limit the results so that only
+		players with more than a certain amount will count. Leave it blank if you require no limitations.
+	</p>
+</div>
+
+<div{if $errors.limit} class="err"{/if}>
+	<p class="err" id="err-limit">{$errors.limit|escape}</p>
+	<label><#Maximum Results#>:</label>
+	<input name="limit" value="{$form.limit|escape}" type="text" class="field short" />
+	<p class="small">Maximum players included in the award results. 10 is default for all awards.</p>
+</div>
+
+<div{if $errors.order} class="err"{/if}>
+	<p class="err" id="err-order">{$errors.order|escape}</p>
+	<label><#Order#>:</label>
+	<select id="order" name="order" class="field">
+		<option value="desc" {if $form.order == 'desc'}selected=""{/if}><#Descending#></option>
+		<option value="asc" {if $form.order == 'asc'}selected=""{/if}><#Ascending#></option>
+	</select>
+	<p class="small">
+		Most awards will be ordered in DESCending order, but a few will require ASCending order instead.
+	</p>
+</div>
+
+<div{if $errors.format} class="err"{/if}>
+	<p class="err" id="err-format">{$errors.format|escape}</p>
+	<label><#Format#>:</label>
+	<input name="format" value="{$form.format|escape}" type="text" class="field" />
+	<p class="small">
+		The format is either a <a href="http://php.net/sprintf">sprintf</a> string or the name of a function that takes a single argument and returns
+		the modified result (like 'commify' to put comma's in numbers).
+	</p>
+</div>
+
+<div{if $errors.description} class="err"{/if}>
+	<p class="err" id="err-description">{$errors.description|escape}</p>
+	<label><#Description#>: <small style="text-align: right"><#Plain text only#>&nbsp;</small></label>
+	<textarea name="description" rows="3" cols="40" class="field long">{$form.description|escape}</textarea>
+	<p class="small">
+		<b>Optional</b>: A simple description explaining what the award is. This is generally displayed in the awards listing and should
+		be kept short and simple. The special tokens can be used in this text.
+	</p>
+</div>
+
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+{if $id}
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+{/if}
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

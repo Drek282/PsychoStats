@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 80%;
+	font-family: Tahoma,Arial,sans-serif;
+	background: #FFF;
+}
+
+a,a:link,a:visited,a:hover,a:active {
+	color: #6788A1;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+}
+
+acronym {
+	font-size: 100%;
+}
+
+
+#ps-overall-footer {
+	border-top: 1px solid #ABABAB;
+	background-color: #EEE;
+	clear: left;
+	margin-top: 25px;
+	padding: 2px;
+}
+#ps-overall-footer p {
+	text-align: center;
+	font-size: 80%;
+}
+

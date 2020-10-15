@@ -1,0 +1,165 @@
+/* 
+	2column.css
+
+	overrides a couple of styles in overall.css and content.css so that a page can have a 
+	fixed width left-hand column and a liquid content block on the remaining portion of the page.
+*/
+
+#ps-main-content {
+	margin: 0 5px 0 250px;	/* left margin should be a little larger than the ps-main-column width */
+}
+
+/* this is the container for the left column. you shouldn't apply padding or margins to this. 
+   use inner content/block divs to control padding, etc. */
+#ps-main-column {
+	display: inline;
+	float: left;
+	width: 240px;
+}
+
+.ps-column-frame {
+	margin-left: 1em;
+/*
+	margin-bottom: 1em;
+*/
+}
+.ps-column-sep {
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+	border-top: 1px dashed gray;
+}
+.ps-column-sep p {
+	text-align: center;
+	font-size: 80%;
+	color: #666;
+}
+
+.ps-column-header {
+	line-height: 19px;
+	background: url(../img/table-header-bg.png) repeat;
+	padding: 0 0.3em;
+	border: 1px solid gray;
+	text-align: center;
+	font-weight: bold;
+}
+.ps-column-header span {
+	display: block;
+	width: 100%;
+	background: url(../img/exp_minus.gif) no-repeat 100% 50%;
+	cursor: pointer;
+}
+
+.ps-column-header a,
+.ps-column-header a:link,
+.ps-column-header a:visited,
+.ps-column-header a:hover,
+.ps-column-header a:active
+{ 
+	color: black;
+}
+
+.ps-column-content {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background: #EEEEEE;
+	padding: 5px;
+	font-size: 100%;
+	clear: both;
+}
+
+.ps-column-content ul {
+	list-style: none;
+	padding: 10px 0;
+}
+
+.ps-column-content ul li {
+	padding: 5px 0 5px 20px;
+	background: url(../img/bullet_black.gif) no-repeat 0 50%;
+}
+.ps-column-content ul li.selected {
+	font-weight: bold;
+	background: url(../img/bullet_go.gif) no-repeat 0 50%;
+	color: #4573A1;
+}
+
+/*** ------------------------- ***/
+
+.ps-column-content p,
+.ps-column-content p.hl,
+.ps-column-content p.substat
+{
+	border-top: 1px solid #DDDDDD;
+	line-height: 1.5em;
+	padding: 0.1em 0.3em 0 0.3em;
+}
+.ps-column-content p.hl {
+	background: #e4dcce;
+	border-top: 1px solid #a29490;
+}
+.ps-column-content p.substat  {
+	margin-left: 1.5em;
+	border: none;
+/*	border-bottom: 1px dashed #dddddd; */
+}
+.ps-column-content p.selected {
+	background: lightyellow;
+}
+
+.ps-column-content p label {		/* stat label */
+	width: 50%; /* 70% */
+	float: left;
+	font-weight: bold;
+}
+.ps-column-content p span {		/* stat value */
+	text-align: right;
+	float: right;
+}
+.ps-column-content .pct-bar {
+	position: relative;
+	top: 4px;
+}
+.ps-column-content p em .pct-bar,	/* Fix the pct-bar on 2column pages (player.php) */
+.ps-column-content p em .pct-bar span
+{
+	float: none;
+	text-align: left;
+}
+.ps-column-content p em {		/* stat% */
+/*
+	padding-right: 2em;
+*/
+	font-size: 0.8em;
+	font-style: normal;
+	color: gray;
+	float: left;
+	text-align: right;
+	width: 4em;
+}
+.ps-column-content p.firstrow { border: none; }
+
+.ps-column-content p.substat label {
+	font-weight: normal;
+	width: 50%;
+}
+
+
+/* --- CLEAR FLOATS ------------ */
+#ps-main-column:after, 
+#ps-main-content:after,
+.ps-column-content p:after,
+.spacer:after
+{
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+* html #ps-main-content,
+* html .ps-column-content p 
+{ 
+	height:1%; 
+}
+

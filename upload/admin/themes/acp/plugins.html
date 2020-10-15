@@ -1,0 +1,111 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+{**}
+<!--left column block -->
+<div id="ps-main-column">
+
+<div class="ps-column-frame">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Plugins Not Installed#></span></a></div>
+<div id="ps-id-pending-plugins" class="ps-column-content">
+{foreach from=$pending_plugins item='p'}
+<p>
+	<label>{$p.base|escape}</label>
+	<span><a id="install-{$p.base|escape}" href="{url install=$p.base}" title="<#Click to install plugin#>"><img src="{theme->url}/img/icons/lightning.png"/></a></span>
+</p>
+{foreachelse}
+<p class="msgrow">
+	<label><#No Pending Plugins#></label>
+</p>
+{/foreach}
+</div>
+</div>
+
+</div>
+<!--end of left column -->
+{**}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message} 
+
+<div class="ps-table-frame">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$total_installed} <#Installed Plugins#></span></a></div>
+	<div class="ps-table-inner">
+		<table class='ps-table ps-plugin-table'>
+		<tr>
+			<th class="active"><p><a href=""><span class="asc"><#Order#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Plugin#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Version#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Install Date#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Controls#></span></a></p></th>
+		</tr>
+{foreach from=$installed_plugins item='p'}
+		<tr{cycle name="plugins" values=", class='even'" advance=false}>
+			<td class="idx">{strip}
+{if $p.up}<a href="{url move='up' id=$p.plugin}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>{/if}
+{if $p.down}<a href="{url move='down' id=$p.plugin}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>{/if}
+			{/strip}</td>
+			<td class="item">{$p.plugin|escape}</td>
+			<td>{$p.version|escape}</td>
+			<td>{$p.installdate|datetime}</td>
+			<td>
+{if $p.enabled}
+				<a href="{url disable=$p.plugin}" title="<#Click to Disable Plugin#>"><img src="{theme->url}/img/icons/lightbulb.png"/></a>
+{else}
+				<a href="{url enable=$p.plugin}" title="<#Click to Enable Plugin#>"><img src="{theme->url}/img/icons/lightbulb_off.png"/></a>
+{/if}
+				&nbsp;<a id="uninstall-{$p.plugin|escape}" href="{url uninstall=$p.plugin}" title="<#Click to Uninstall Plugin#>"><img src="{theme->url}/img/icons/page_delete.png"/></a>
+			</td>
+		</tr>
+		<tr{cycle name="plugins" values=", class='even'"}>
+			<td colspan="5" class="description">{$p.description}</td>
+		</tr>
+{foreachelse}
+		<tr><td colspan="5" class="no-data">
+			<#No Plugins Installed#>
+		</td></tr>
+{/foreach}
+
+		</table>
+	</div>
+</div>
+
+{*
+<div class="ps-table-frame">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$total_pending} <#Pending Plugins#></span></a></div>
+	<div class="ps-table-inner">
+		<table class='ps-table ps-plugin-table'>
+		<tr>
+			<th><p><a href=""><span class="asc"><#File#></span></a></p></th>
+			<th><p><a href=""><span class="asc"><#Install#></span></a></p></th>
+		</tr>
+{foreach from=$pending_plugins item='p'}
+		<tr{cycle values=", class='even'"}>
+			<td class="item">{$p.file|escape}</a></td>
+			<td>
+				<a id="install-{$p.base|escape}" href="{url install=$p.base}" title="<#Click to install plugin#>"><img src="{theme->url}/img/icons/lightning.png"/></a>
+			</td>
+		</tr>
+{foreachelse}
+		<tr><td colspan="2" class="no-data">
+			<#No Pending Plugins Found#>
+		</td></tr>
+{/foreach}
+
+		</table>
+	</div>
+</div>
+*}
+
+</div> {* end ps-main-content *}
+</div> {* end ps-main *}
+
+	<div class="clear"></div>
+</div> {* end ps-page-container *}

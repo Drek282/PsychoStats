@@ -1,0 +1,91 @@
+<h2 id="go-hdr"><#Database Initialization#></h2>
+<p>
+	Your PsychoStats database will be initialized with default values. 
+	Any existing player statistics and users in the database will be lost!
+</p>
+
+<form id="config-form" action="{$SELF}" method="post">
+<div id='results' style="display: block">
+<div class="config-frame">
+<h3>Select the game support to enable:</h3>
+<p class="h3">
+	Multiple games and mod support can be added to the database, but only one game:mod can be used at a time.
+</p>
+{foreach name="gs" from=$gamesupport key='type' item='mod'}
+<p class="row">
+	<input class="gametype" name="gametype[]" id="{$type}" value="{$type}" type="checkbox"{if in_array($type, $gametype)} checked{/if} />
+	<label class="for gametype" for="{$type}">{$gametypes[$type]|escape}</label>
+</p>
+	{if $mod}
+	<ul class="modtypes"{if !in_array($type, $gametype)} style="display: none"{/if}>
+		{foreach from=$mod item='m'}
+		<li>
+			<input id="{$type}-{$m}" name="modtype[]" value="{$m}" type="checkbox" />
+			<label for="{$type}-{$m}" class="for">{$modtypes[$m]|escape}</label>
+		</li> 
+		{/foreach}
+	</ul>
+	{/if}
+{/foreach}
+
+{*
+<p class="row">
+	<label><#Game Type#>:</label>
+	<select name="gametype[]" multiple="multiple" size="3">
+{foreach from=$gametypes key='type' item='label'}
+		<option value="{$type}"{if in_array($type, $gametype)} selected{/if}>{$label}</option>
+{/foreach}
+	</select>
+</p>
+<p class="row">
+	<label><#MOD Type#>:</label>
+	<select name="modtype[]" multiple="multiple" size="7">
+		<optgroup label="<#Half-Life Mods#>">
+{foreach from=$modtypes key='type' item='label'}
+		<option value="{$type}"{if in_array($type, $modtype)} selected{/if}>{$label}</option>
+{/foreach}
+		</optgroup>
+	</select>
+</p>
+*}
+
+<h3><#Initialization Options#></h3>
+<p class="h3">
+	<#You can tweak how the database is initialized with these optional settings.#>
+	<#Existing tables are not overwritten by default.#>
+</p>
+<p id="dropdb-row" class="row">
+	<input id="dropdb" name="dropdb" value="1" type="checkbox" />
+	<span class="extra">
+		<label class="for important" for="dropdb"><#Drop and recreate database#> {$dbname} @ {$dbhost}.</label>
+	</span>
+</p>
+<p id="overwrite-row" class="row">
+	<input id="overwrite" name="overwrite" value="1" type="checkbox" />
+	<span class="extra">
+		<label class="for" for="overwrite"><#Overwrite existing tables#> (<#Useful if you're trying to repair a previous installation#>).</label>
+	</span>
+</p>
+</div> {* config-frame *}
+
+<div id='db-pending' style='display: none'>
+	<p><#Initializing PsychoStats Database#> . . . </p>
+	<p>Please wait . . . This may take a minute . . .</p>
+</div>
+<div id='db-results' {if !$db_init}style='display: none'{/if}>{include file="go-dbinit-results.html"}</div>
+</div> {* results *}
+
+<p id="when-ready">
+	<strong><#When ready click the "Initialize Database" button below!#></strong>
+</p>
+
+<p id="go-ctrl" class="controls">
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
+	<input name="s_back" value="db" type="hidden" />
+	<input id="btn-init" value="<#Initialize Database#>" type="button" />
+	<input id="step" name="s" value="admin" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-skip" value="<#Skip#>" type="button" />
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+</p>
+</form>

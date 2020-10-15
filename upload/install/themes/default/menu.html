@@ -1,0 +1,19 @@
+<div class="ps-column-frame">
+	<div class="ps-column-header"><a href="" onclick="return false"><span><#Installation Progress#></span></a></div>
+	<div class="ps-column-content">
+		<ul id="menu">
+			<li{if !$step || $step=='welcome'} class='selected'{/if}><#Welcome to PsychoStats#></li>
+			<li{if $step=='analyze'} class='selected'{/if}><#Analyzing system#></li>
+{*
+			<li{if $step=='update'} class='selected'{/if}><#Checking for updates#></li>
+*}
+			<li{if $step=='db'} class='selected'{/if}><#Database setup#></li>
+			<li{if $step=='dbinit'} class='selected'{/if}><#Initialize database#></li>
+			<li{if $step=='admin'} class='selected'{/if}><#Create admin#></li>
+			<li{if $step=='theme'} class='selected'{/if}><#Setup theme#></li>
+			<li{if $step=='save'} class='selected'{/if}><#Saving setup#></li>
+			<li{if $step=='done'} class='selected'{/if}><#Done!#></li>
+		</ul>
+
+	</div>
+</div>

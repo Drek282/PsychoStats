@@ -1,0 +1,492 @@
+/*
+	content.css
+	Main content styles for most pages with PsychoStats.
+
+	These styles define how the layout and format for most pages will be displayed within PsychoStats.
+*/
+
+#ps-main {
+	background: url(../img/content-bg.gif) repeat-x;
+}
+
+#ps-main h1, #ps-main h2, #ps-main h3
+{
+	font-family: Helvetica,"trebuchet ms",arial,sans-serif;
+	font-size: 140%;
+	font-weight: normal;
+}
+#ps-main h1 { border-bottom: 2px solid #778899; font-weight: bold; }
+#ps-main h2 { font-size: 110%; }
+#ps-main h3 { font-size: 80%; }
+
+#ps-main-content {
+	padding-top: 1em;
+	text-align: center;
+}
+
+#ps-page-title, .ps-section-title {
+	text-align: left;
+	margin: 0 1em 1em 1em;
+ 	background: url(../img/page-title-bg.jpg) repeat-x;
+	height: 57px;
+	border: 1px solid gray;
+}
+#ps-page-title div, .ps-section-title div {
+	padding: 7px 7px 0 7px;
+}
+#ps-page-title h2, .ps-section-title h2 { 
+	float: left;
+}
+#ps-page-title span, .ps-section-title span {
+	float: right;
+	font-weight: bold;
+}
+
+/* --- TABLE LAYOUT --------------------------------------------------------------- */
+.ps-frame-header { 
+	font-size: 125%;
+	font-weight: bold;
+	text-align: left;
+	padding: 0.3em;
+	padding-left: 1em;
+	margin-bottom: 2px;
+	background: #e7e7e7;
+	border:  1px solid gray;
+}
+.ps-frame-header span { 
+	display: block;
+	width: 100%;
+	background: url(../img/exp_minus.gif) no-repeat 100% 50%;
+}
+
+.ps-table-frame { 
+	margin: 0 0.5em 1em 0.5em;
+}
+.ps-table-inner {
+	border: 1px solid gray;
+/*	float: left !important;	/* FF */
+/*	float: none;		/* IE */
+}
+.ps-table-header {
+	padding: 0 0.2em 0.2em 0;
+	text-align: right;
+}
+.ps-table-header filter {
+	border: 1px solid gray;
+	background: lightyellow;
+}
+.ps-table-footer {
+	padding: 0.2em 0.2em 0 0;
+	background: url(../img/table-footer-bg.png) repeat-x 0 bottom; /* 72px */
+	text-align: right;
+}
+.ps-table-footer .legend {
+	text-align: left;
+	font-size: 80%;
+	padding: 2px;
+}
+.ps-table {
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+.ps-table th {
+	line-height: 20px;
+	background: url(../img/table-header-bg.png) repeat;
+	border-bottom: 1px solid #999;
+	text-align: center;
+	padding: 0;
+}
+.ps-table td {
+	padding: 0 0.5em 0 0.4em;
+	border-right: 1px solid #BBB;
+	text-align: center;
+	line-height: 1.5em;
+}
+.ps-table td.smaller {
+	font-size: 90%;
+}
+.ps-table tr { background-color: #EEE; }
+.ps-table tr.even { background-color: #E0E0E0; }
+.ps-table td.noborder { border: none; }
+
+/* 
+.ps-table th.first { }
+.ps-table td.first { border-left: none; }
+
+/*
+   This would be the ideal way to eliminate the extra border on the first
+   column of tables. But noooooo, IE doesn't play nice. Instead we ruin
+   the html by manually adding the 'first' class to the proper <td> tags
+   on all tables.
+.ps-table tr td:first-child { border-left: none; }
+*/
+
+.ps-table th a,
+.ps-table th a:link,
+.ps-table th a:visited,
+.ps-table th a:hover,
+.ps-table th a:active 
+{
+	color: black;
+}
+.ps-table th.active a {
+	color: white;
+}
+.ps-table th.active a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.ps-table th.active p {
+	background: url(../img/table-header-active-l-bg.png) no-repeat;
+}
+.ps-table th.active span {
+	width: 100%;
+	display: block;
+	/* default the right side with no sort arrow */
+	background: url(../img/table-header-desc-r-bg.png) no-repeat 100% 0;
+}
+.ps-table tr th.active span.asc {
+	background: url(../img/table-header-asc-r-bg.png) no-repeat 100% 0;
+	cursor: pointer;
+}
+.ps-table tr th.active span.desc {
+	background: url(../img/table-header-desc-r-bg.png) no-repeat 100% 0;
+	cursor: pointer;
+}
+.ps-table acronym {
+	text-decoration: none;
+	border: none;
+}
+
+.ps-table td.no-data {
+	font-size: 150%;
+	font-weight: bold;
+	text-align: center;
+	color: gray;
+	padding: 0.5em 0;
+}
+
+.ps-table .left   { text-align: left; float: none; }
+.ps-table .right  { text-align: right; float: none; }
+.ps-table .center { text-align: center; }
+
+.ps-table .description {
+	text-align: left;
+	border-top: 1px solid #BBB;
+}
+.ps-table .description-bottom {
+	text-align: left;
+	border-bottom: 1px solid #BBB;
+}
+
+.ps-theme-table td.preview {
+	text-align: center;
+	width: 60px;
+	border-bottom: 1px solid #BBB;
+}
+.ps-theme-table td.child {
+	padding-left: 2em;
+}
+.ps-theme-table td.ctrl {
+	width: 100px;
+	text-align: left;
+	border-bottom: 1px solid #BBB;
+	
+}
+
+/* --- Player table specific styles */
+.ps-player-table a.plr,
+.ps-clan-table a.clan,
+.ps-map-table a.map,
+.ps-weapon-table a.weapon,
+.ps-role-table a.role
+{
+	font-weight: bold;
+}
+
+.ps-weapon-table td.first {
+	width: 1px;
+}
+
+/* --- PAGER styles ------------ */
+.pager {
+	display: block;
+	padding: 3px;
+}
+.pager-current, .pager-goto, .pager-next, .pager-prev {
+	border: 1px solid gray;
+	padding: 0 2px;
+	background: #DDDDDD;
+}
+.pager-current {
+	background: lightyellow;
+	font-weight: bold;
+}
+.pager-next, .pager-prev {
+	background: #BBBBBB;
+}
+
+/* --- warning and errors --- */
+div.warning {
+	padding: 0.5em 0.5em 0.5em 30px;
+	margin: 0.5em 0;
+	background: lightyellow url(../img/icons/error.png) no-repeat 5px 50%;
+	border: 1px solid black;
+	color: #000;
+	text-align: left;
+}
+div.warning h4 {
+	border-bottom: 1px solid black;
+	font-size: 120%;
+	color: #000;
+}
+div.warning ul, div.warning ul li {
+	margin-left: 1em;
+}
+
+#error {
+	width: 400px;
+	margin: 3em auto;
+	background: lightyellow;
+	border: 2px solid darkred;
+	padding: 1em;
+}
+#error h1 {
+	color: darkred;
+	font-size: 180%;
+	border-bottom: 3px solid #999;
+	margin-bottom: 0.5em;
+}
+#error p {
+	font-size: 120%;
+}
+#warning {
+	width: 400px;
+	margin: 0.5em auto;
+	background: lightyellow;
+	border: 2px solid orange;
+	padding: 1em;
+	text-align: left;
+}
+#warning h1 {
+	color: orange;
+	font-size: 120%;
+	border-bottom: 3px solid orange;
+	margin-bottom: 0;
+}
+#error p {
+	font-size: 120%;
+}
+
+div.insecure {
+	padding: 0.5em 0.5em 0.5em 30px;
+	margin: 0.5em auto;
+	width: 595px;
+	background: lightyellow url(../img/icons/error.png) repeat-y 5px 50%;
+	border: 1px solid darkred;
+	color: #000;
+	text-align: left;
+}
+#ps-main div.insecure h3 {
+	border-bottom: 1px solid darkred;
+	font-size: 120%;
+	font-weight: bold;
+	color: red;
+}
+#ps-main div.insecure h4 {
+	border: none;
+	font-size: 100%;
+	color: #000;
+}
+
+/* --- TABS ------------------------------- */
+
+.ps-tabs {
+	border-bottom: 1px solid black;
+	padding-top: 0.5em;
+}
+.ps-tabs ul {
+	list-style: none;
+}
+.ps-tabs ul li {
+	display: inline;
+}
+.ps-tabs ul li a {
+	font-weight: bold;
+	padding: 0 3px;
+	border: 1px solid black;
+	border-color: gray;
+	border-bottom-color: black;
+}
+.ps-tabs ul li a:hover {
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	background: aliceblue;
+/*	border-bottom-style: dashed; */
+}
+.ps-tabs ul li.sel a {
+	border: 1px solid black;
+	border-bottom: 1px solid aliceblue;
+	background: aliceblue;
+}
+
+.ps-tabs ul li.err a {
+	background-color: #FFCCCC;
+}
+
+div.success, div.failure {
+	width: 400px;
+	margin: 0 auto;
+	margin-bottom: 1em;
+	text-align: left;
+	padding: 1em;
+	background: #CCFFCC url(../img/icons/tick.png) 10px top repeat-y;
+	border: 1px solid #336600;
+}
+div.success h4, div.failure h4 {
+	border-bottom: 2px solid #336600;
+	margin-left: 30px;
+}
+div.success p, div.failure p {
+	color: darkgreen;
+	margin-left: 30px;
+}
+div.failure {
+	background: #FFCCCC url(../img/icons/cross.png) 10px top repeat-y;
+	border-color: #663300;
+}
+div.failure h4 {
+	border-bottom-color: #660000;
+}
+div.failure p {
+	color: darkred;
+}
+div.failure a {
+	text-decoration: underline;
+}
+div.failure ul {
+	margin-left: 30px;
+}
+div.failure ul li {
+	color: darkred;
+	margin-left: 2em;
+}
+div.wide {
+	width: 90%;
+	margin: 0 auto 1em;
+}
+
+span.mini-avatar {
+	width: 30px;
+	display: block;
+	float: left;
+}
+
+div.preview {
+	text-align: center;
+	border: none;
+}
+
+div.ps-theme-install {
+	border: 1px outset black;
+	background-color: #DDDDFF;
+	text-align: left;
+	padding: 0.5em;
+	width: 90%;
+	margin: 0 auto 1em; 
+}
+div.ps-theme-install p.small {
+	font-size: 0.8em;
+	color: gray;
+}
+div.ps-theme-install .field {
+	width: 50%;
+}
+#ps-main div.ps-theme-install h2 {
+	font-weight: bold;
+	border-bottom: 1px solid gray;
+	margin-bottom: 0.5em;
+}
+div.theme-warn {
+	background-color: lightyellow;
+	border: 1px solid red;
+	padding: 0.5em;
+	margin: 0.5em auto 0;
+	width: 90%;
+}
+div.theme-desc {
+	margin: 0.5em;
+	padding: 0.25em;
+	font-size: 90%;
+/*
+	border: 1px inset black;
+	background-color: #DDDDFF;
+*/
+}
+div.theme-info {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px inset black;
+	background-color: #CCCCFF;
+	padding: 0.5em;
+}
+div.theme-info label {
+	display: inline;
+	float: left;
+	line-height: 1.5em;
+	font-weight: bold;
+	width: 100px;
+}
+div.theme-info span {
+	line-height: 1.5em;
+	font-weight: normal;
+	display: inline;
+	position: relative;
+}
+div.theme-info .image {
+	float: right;
+	padding: 3px;
+	margin-left: 3px;
+	border: 1px outset black;
+	background-color: #DDDDFF;
+}
+div.theme-info .image img {
+	max-width: 250px;					/* FF */
+	width: expression(this.width > 250 ? '250px' : true);	/* IE6 */
+}
+
+div.row label { 
+	float: left;
+	display: inline;
+	line-height: 1.5em;
+	font-weight: bold;
+	width: 150px;
+}
+div.row-sep {
+	margin: 1em;
+	padding: 0.25em;
+	text-align: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	color: gray;
+}
+
+/* --- clear floats ------------ */
+.ps-stat-container:after, 
+.ps-stat-content p:after 
+{
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+* html .ps-stat-container,
+* html .ps-stat-content p
+{ 
+	height:1%; 
+}
+.clear { clear: both; }

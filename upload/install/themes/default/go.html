@@ -1,0 +1,24 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{* *}
+<!--optional navigation block-->
+<div id="ps-main-column">
+	{include file='menu.html'}
+</div>
+
+<!--content block-->
+<div id="ps-main-content">
+
+<div id="content">
+{include file="go-`$step`.html"}
+</div>
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

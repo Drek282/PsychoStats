@@ -1,0 +1,349 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+	<div id="ps-page-title">
+		<div class="inner">
+			<span>[ 
+				<a href="{url _base='plrhist.php' id=$plr.plrid}"><#View History#></a> 
+				{if ps_user_can_edit_player($plr)}
+				| <a href="{url _base='editplr.php' _ref=1  id=$plr.plrid}"><#Edit Player#></a>
+				{/if}
+			]</span>
+			<h1><#Player Statistics#> :: {$plr.name|escape}</h1>
+			{if $plr.clanid}
+			<span><#Clan member#> [ 
+				<a href="{url _base='clan.php' id=$plr.clanid}">{$plr.clan.clantag|escape}</a> 
+				{if ps_user_can_edit_clan($plr.clanid, $plr)}
+				| <a href="{url _base='editclan.php' _ref=1 id=$plr.clanid}"><#Edit Clan#></a>
+				{/if}
+			]</span>
+			{/if}
+
+			{if $plr.rank}
+			<h2>{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is ranked#> <strong>#{$plr.rank}</strong> <#out of#> <strong>{$totalranked|commify}</strong>{if $top1percentile} (<#top 1 percentile#>){/if}</h2>
+			{else}
+			<h2>{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is not ranked#></h2>
+			{/if}
+		</div>
+		{if $conf.theme.permissions.show_plr_profile}
+			{include file="../default/player_profile.html"}
+		{/if}
+	</div>
+
+{if $plr.logo}<div class="ps-plr-logo">{$plr.logo}</div>{/if}
+
+<!--left column block -->
+<div id="ps-main-column">
+
+<div class="ps-column-frame">
+{*
+	<img id='plrskill' src="{url _base='imgquick.php' id=$plr.plrid}" alt="[img]" />
+*}
+	{ofc data="skill&id=`$id`" width=287 height=180}
+</div>
+
+<div class="ps-column-frame{if $shades.s_plr_rundown} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player Rundown#></span></a></div>
+<div id="s-plr-rundown" class="ps-column-content">
+<p class="hl firstrow">
+	<label><#Rank#></label>
+	<em>{rankchange plr=$plr}</em>
+	<span>{if $plr.rank}{$plr.rank|commify}{else}-{/if}</span>
+</p>
+<p class="substat">
+	<label><#Previous Rank#></label>
+	<span>{if $plr.prevrank}{$plr.prevrank|commify}{else}-{/if}</span>
+</p>
+<p class="hl">
+	<label><#Skill#></label>
+	<em>{skillchange plr=$plr}</em>
+	<span>{$plr.skill}</span>
+</p>
+<p class="substat">
+	<label><#Previous Skill#></label>
+	<span>{$plr.prevskill}</span>
+</p>
+<p>
+	<label><#Activity Level#></label>
+{**}
+	<em>{if $plr.activity != -1}{pctbar pct=$plr.activity width=50 fixedwidth=true}{else}-{/if}</em>
+	<span>{if $plr.activity != -1}{$plr.activity}%{else}-{/if}</span>
+{**
+{**
+	<span>{if $plr.activity != -1}{$plr.activity}%{else}-{/if}</span>
+{**}
+</p>
+<p>
+	<label><#Objectives Completed#></label>
+    <span>{$plr.capturepoint|commify}</span>
+</p>
+<p>
+	<label><#Structures Destroyed#></label>
+    <span>{$plr.structuresdestroyed|commify}</span>
+</p>
+<p>
+	<label><#Medic Actions#></label>
+    <span>{$plr.bandage|commify}</span>
+</p>
+<p>
+	<label><#Bonus Points#></label>
+	<span>{$plr.totalbonus|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$plr.rounds|commify}</span>
+</p>
+<p>
+	<label><#Total Games#></label>
+	<span>{$plr.games|commify}</span>
+</p>
+<p>
+	<label><#Maps Played#></label>
+	<span>{$plr.totalmaps|commify}</span>
+</p>
+<p>
+{if $plr.totalawards}
+	<label><a href="{url _base='awards.php' p=$plr.plrid}"><#Total Awards#></a></label>
+	<span><a href="{url _base='awards.php' p=$plr.plrid}">{$plr.totalawards|commify}</a></span>
+{else}
+	<label><#Total Awards#></label>
+	<span>{$plr.totalawards|commify}</span>
+{/if}
+</p>
+<p>
+	<label><#Total Kicks#></label>
+	<span>{$plr.kicked|commify}</span>
+</p>
+<p>
+	<label><#Total Bans#></label>
+	<span>{$plr.banned|commify}</span>
+</p>
+<p>
+	<label><#Total Connections#></label>
+	<span>{$plr.connections|commify}</span>
+</p>
+<p>
+	<label><#Online Time#></label>
+	<span>{$plr.onlinetime|compacttime}</span>
+</p>
+<p>
+	<label><#Last Seen#></label>
+	<span>{$plr.lasttime|datetime}</span>
+</p>
+<p>
+	<label><#First Seen#></label>
+	<span>{$plr.firstseen|datetime}</span>
+</p>
+</div>
+</div>
+
+<div class="ps-column-frame{if $shades.s_plr_killprofile} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Kill Profile#></span></a></div>
+<div id="s-plr-killprofile" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Total Kills#></label>
+	<span>{$plr.kills|commify}</span>
+</p>
+{if $plr.headshotkills}
+<p class="substat">
+	<label><#Headshot Kills#></label>
+	<em>{$plr.headshotkillspct}%</em>
+	<span>{$plr.headshotkills|commify}</span>
+</p>
+{/if}
+{if $plr.ffkills}
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	<em>{$plr.ffkillspct}%</em>
+	<span>{$plr.ffkills|commify}</span>
+</p>
+{/if}
+<p class="hl">
+	<label><#Total Deaths#></label>
+	<span>{$plr.deaths|commify}</span>
+</p>
+{if $plr.ffdeaths}
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	<em>{$plr.ffdeathspct}%</em>
+	<span>{$plr.ffdeaths|commify}</span>
+</p>
+{/if}
+{if $plr.shots}
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$plr.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$plr.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$plr.hits|commify}</span>
+</p>
+{/if}
+<p>
+	<label><#Kills per Death#></label>
+	<span>{$plr.killsperdeath}</span>
+</p>
+<p>
+	<label><#Kills per Minute#></label>
+	<span>{$plr.killsperminute}</span>
+</p>
+<p>
+	<label><#Kill Streak#></label>
+	<span>{$plr.kills_streak|commify}</span>
+</p>
+<p>
+	<label><#Death Streak#></label>
+	<span>{$plr.deaths_streak|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$plr.shotsperkill}</span>
+</p>
+{if $plr.damage}
+<p>
+	<label><#Damage Done#></label>
+	<span>{$plr.damage|commify}</span>
+</p>
+{/if}
+<p>
+	<label><#Suicides#></label>
+	<span>{$plr.suicides|commify}</span>
+</p>
+</div>
+</div>
+
+{$player_left_column_mod} {* include this where you want the mod block of stats to appear (left side) *}
+
+<div class="ps-column-sep">
+	<p><#Only the top#> {$max_plr_ids} <#player IDs are shown#></p>
+</div>
+
+<div id="ps-id-plrname" class="ps-column-frame{if $shades.s_plrname} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player Names#></span></a></div>
+<div id="s-plrname" class="ps-column-content">
+<p class="hl firstrow">
+	<label><#Name#></label>
+	<span><b><#Used#></b></span>
+</p>
+{foreach from=$plr.ids_name item='i'}
+<p{cycle values=", class='even'"}>
+	<label class="name">{$i.id|escape}</label>
+	<span>{$i.totaluses|commify}</span>
+</p>
+{/foreach}
+</div>
+</div>
+
+{if $show_worldids}
+<div id="ps-id-plrworldid" class="ps-column-frame{if $shades.s_plrworldid} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player#> {$worldid_noun_plural}</span></a></div>
+<div id="s-plrworldid" class="ps-column-content">
+<p class="hl firstrow">
+	<label>{$worldid_noun}</label>
+	<span><b><#Used#></b></span>
+</p>
+{foreach from=$plr.ids_worldid item='i'}
+<p{cycle values=", class='even'"}>
+	<label>{$i.id|escape}</label>
+	<span>{$i.totaluses|commify}</span>
+</p>
+{/foreach}
+</div>
+</div>
+{/if}
+
+{if $show_ips}
+<div id="ps-id-plripaddr" class="ps-column-frame{if $shades.s_plripaddr} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player IP Addresses#></span></a></div>
+<div id="s-plripaddr" class="ps-column-content">
+<p class="hl firstrow">
+	<label><#IP#></label>
+	<span><b><#Used#></b></span>
+</p>
+{foreach from=$plr.ids_ipaddr item='i'}
+<p{cycle values=", class='even'"}>
+	<label>{if $i.id}{$i.flagimg} {$i.id|int2ip}{else}<#unknown#>{/if}</label>
+	<span>{$i.totaluses|commify}</span>
+</p>
+{/foreach}
+</div>
+</div>
+{/if}
+
+</div>
+<!--end of left column -->
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-player">
+
+	<!--#SESSIONS#-->
+	<a name="sessions"></a>
+	<div class="ps-table-frame{if $shades.s_plrsess} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalsessions} <#Player Game Sessions#></span></a></div>
+	<div id="s-plrsess" class="ps-table-inner">
+	{$sessions_table}
+	{if $sessionpager}<div class="ps-table-footer">{$sessionpager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+	<!--#WEAPONS#-->
+	<a name="weapons"></a>
+	<div class="ps-table-frame{if $shades.s_plrweapons} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalweapons} <#Player Weapons#></span></a></div>
+	<div id="s-plrweapons" class="ps-table-inner">
+	{$weapons_table}
+	{if $weaponpager}<div class="ps-table-footer">{$weaponpager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+
+	<!--#MAPS#-->
+	<a name="maps"></a>
+	<div class="ps-table-frame{if $shades.s_plrmaps} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalmaps} <#Player Maps#></span></a></div>
+	<div id="s-plrmaps" class="ps-table-inner">
+	{$maps_table}
+	{if $mappager}<div class="ps-table-footer">{$mappager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+
+{if $use_roles}
+	<!--#ROLES#-->
+	<a name="roles"></a>
+	<div class="ps-table-frame{if $shades.s_plrroles} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalroles} <#Player Roles#></span></a></div>
+	<div id="s-plrroles" class="ps-table-inner">
+	{$roles_table}
+	{if $rolepager}<div class="ps-table-footer">{$rolepager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+{/if}
+
+	<!--#VICTIMS#-->
+	<a name="victims"></a>
+	<div class="ps-table-frame{if $shades.s_plrvictims} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalvictims|commify} <#Player Victims#></span></a></div>
+	<div id="s-plrvictims" class="ps-table-inner">
+	{$victims_table}
+	{if $victimpager}<div class="ps-table-footer">{$victimpager}</div>{/if}
+	</div>
+	</div>
+	<!---->
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

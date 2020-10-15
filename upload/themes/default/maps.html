@@ -1,0 +1,38 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{* 
+<!--optional navigation block; the 2column.css needs to be added to the <head> first -->
+<div id="ps-main-nav">
+	this is the navagation block
+</div>
+{* *}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-maps">
+	<div id="ps-page-title">
+		<div class="inner">
+		<h1><#Map Statistics#></h1>
+		<h2><strong>{$totalmaps|commify}</strong> <#maps have been played#></h2>
+		</div>
+	</div>
+
+	<!--#MAPS#-->
+	<a name="maps"></a>
+	<div class="ps-table-frame no-ani">
+	<div class="ps-table-header">{$pager}</div>
+	<div class="ps-table-inner">
+	{$maps_table}
+	</div>
+	{if $totalmaps}<div class="ps-table-footer">{$pager}</div>{/if}
+	</div>
+	<!---->
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

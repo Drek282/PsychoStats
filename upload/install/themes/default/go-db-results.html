@@ -1,0 +1,115 @@
+<h3><#Database Testing Results#></h3>
+<p class="h3">
+	Using the settings in the form above ... 
+	{if $db_errors and !$allow_next}
+	<span class="bad">Errors</span> below will not allow installation to continue.
+	{/if}
+</p>
+{if $dbtest.connected} 
+<p class="row">
+	<span class="good">Connection to the database server was successful on '{$dbhost|escape}'!</span>
+</p>
+	{if $dbtest.min_ver}
+	<p class="row">
+		<span class="good">Database server is {$dbtest.type|escape} v{$dbtest.db_ver}.</span>
+		<em>(minimum required {$min_db_version})</em>
+	</p>
+	{else}
+	<p class="row">
+		<span class="bad">Your {$dbtest.type|escape} database version is too low. 
+			v{$dbtest.db_ver} is less than the minimum of v{$min_db_version}</span>
+	</p>
+	{/if}
+{else}
+<p class="row">
+	<span class="bad">I was not able to connect to your database server.</span>
+</p>
+<p class="row">
+	<span>
+		Make sure the host and port are correct.
+		{if $dbhost == '127.0.0.1'}
+		Try using 'localhost' for the host instead of 127.0.0.1.
+		{/if}
+		{if !empty($dbport)}
+		Try leaving the port empty to use the default.
+		{/if}
+	</span>
+</p>
+<p class="row">
+	<span>
+		Make sure your username and password are correct.
+		{if !empty($dbpass)}Are you sure your user even needs a password? Try leaving it blank.{/if}
+	</span>
+</p>
+{/if}
+
+{if $dbtest.connected}
+	{if $dbtest.created}
+	<p class="row"><span class="good">I created the database '<b>{$dbname|escape}</b>' successfully!</span></p>
+	{elseif $dbtest.exists}
+	<p class="row"><span class="good">I am able to use the existing database '<b>{$dbname|escape}</b>'.</span></p>
+	{else}
+	<p class="row"><span class="bad">I was not able to create the database '<b>{$dbname|escape}</b>'.</span></p>
+	{/if}
+
+	{if $dbtest.selected}
+		{if !$dbtest.charset}
+		<p class="row"><span class="warn">Default charset for DB '{$dbname|escape}' is not UTF8 (current: {$dbtest.charset_str|escape}) and might cause problems.</span></p>
+		<p class="row"><span>
+			If the database is not using utf8 character set you might encounter problems with 
+			players that have non-ascii names. If you want to re-create the database you can do so in the next
+			step of the installation.
+		</span></p>
+		{/if}
+
+	<p class="row"><span class="{if $dbtest.tbl_create}good{else}bad{/if}">CREATE privilege is {if !$dbtest.tbl_create}not{/if} OK</span></p>
+	<p class="row"><span class="{if $dbtest.tbl_select}good{else}bad{/if}">SELECT privilege is {if !$dbtest.tbl_select}not{/if} OK</span></p>
+	<p class="row"><span class="{if $dbtest.tbl_insert}good{else}bad{/if}">INSERT privilege is {if !$dbtest.tbl_insert}not{/if} OK</span></p>
+	<p class="row"><span class="{if $dbtest.tbl_update}good{else}bad{/if}">UPDATE privilege is {if !$dbtest.tbl_update}not{/if} OK</span></p>
+	<p class="row"><span class="{if $dbtest.tbl_delete}good{else}bad{/if}">DELETE privilege is {if !$dbtest.tbl_delete}not{/if} OK</span></p>
+
+		{if !$dbtest.tbl_drop}
+		<p class="row"><span class="warn">DROP privilege is not OK</span></p>
+		<p class="row"><span>Not being able to drop a table is <b>not required</b> unless you attempt to reset the player stats from the <acronym title="Admin control Panel">ACP</acronym> at a later date.</span></p>
+		<p class="row"><span>Note: A test table was created '<b>{$dbtest.table}</b>' for these tests and could not be deleted. You should manually delete this table with another mysql user if possible.</span></p>
+		{else}
+		<p class="row"><span class="good">DROP privilege is OK</span></p>
+		{/if}
+	{/if}
+{/if}
+
+{if $db_errors}
+<div class='dbq dberr'>
+	<h3><#Database Errors#></h3>
+	<p class="h3">The errors below should help indicate why any tests above failed.</p>
+	<ul>
+	{foreach from=$db_errors item='e'}
+	<li>{$e.error|escape}</li>
+	{/foreach}
+	</ul>
+</div>
+{/if}
+
+{if $db_queries}
+<div class="dbq">
+	<h3 id="dbq"><#Database Queries Performed#> <em>(<a href="">Show</a>)</em></h3>
+	<div style="display: none">
+		<p class="h3">For the curious, the following DB queries were performed to determine if your DB/user is setup properly.</p>
+		<ul>
+		{foreach from=$db_queries item='q'}
+			<li>{$q|escape}</li>
+		{/foreach}
+		</ul>
+	</div>
+</div>
+{/if}
+
+{if $allow_next}
+<h3><#Database Setup Confirmed!#></h3>
+<p class="row right"><strong>Your database settings have been verified! Click "Next" to continue!</strong></p>
+{/if}
+
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+</script>
+

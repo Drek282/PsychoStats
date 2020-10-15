@@ -1,0 +1,295 @@
+/* 
+	2column.css
+
+	overrides a couple of styles in overall.css and content.css so that a page can have a 
+	fixed width left-hand column and a liquid content block on the remaining portion of the page.
+*/
+
+#ps-main-content {
+	margin: 0 5px 0 260px;	/* left margin should be a little larger than the ps-main-column width */
+}
+
+/* this is the container for the left column. you shouldn't apply padding or margins to this. 
+   use inner content/block divs to control padding, etc. */
+#ps-main-column {
+	display: inline;
+	float: left;
+	width: 250px;
+	padding-top: 1em;
+}
+
+.ps-column-frame {
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+.ps-column-sep {
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+	border-top: 1px dashed gray;
+}
+.ps-column-sep p {
+	text-align: center;
+	font-size: 80%;
+	color: #666;
+}
+
+.ps-column-header {
+	line-height: 19px;
+	background: url(../img/table-header-bg.png) repeat;
+	padding: 0 0.3em;
+	border: 1px solid gray;
+	text-align: center;
+	font-weight: bold;
+}
+.ps-column-header span {
+	display: block;
+	width: 100%;
+	background: url(../img/exp_minus.gif) no-repeat 100% 50%;
+	cursor: pointer;
+}
+
+.ps-column-header a,
+.ps-column-header a:link,
+.ps-column-header a:visited,
+.ps-column-header a:hover,
+.ps-column-header a:active
+{ 
+	color: black;
+}
+
+/*
+.ps-column-content {
+	margin-left: 0.5em;
+/*	border-right: 1px solid gray;*/
+/*
+	font-size: 100%;
+	clear: both;
+}
+*/
+.ps-column-content {
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+        border-bottom: 1px solid gray;
+        background: #EEEEEE;
+        font-size: 100%;
+        clear: both;
+}
+.ps-column-content p,
+.ps-column-content p.hl,
+.ps-column-content p.substat
+{					/* each <p>...</p> is a row */
+/*	margin-bottom: 0.3em; */
+	border-top: 1px solid #DDDDDD;
+	line-height: 1.5em;
+	padding: 0.1em 0.3em 0 0.3em;
+}
+.ps-column-content p.hl {
+	background: #e4dcce;
+	border-top: 1px solid #a29490;
+}
+.ps-column-content p.substat  {
+	margin-left: 1.5em;
+	border: none;
+/*	border-bottom: 1px dashed #dddddd; */
+}
+.ps-column-content p.selected {
+	background: lightyellow;
+}
+
+.ps-column-content p label {		/* stat label */
+	width: 50%; /* 70% */
+	float: left;
+	font-weight: bold;
+}
+.ps-column-content p.msgrow { 
+	font-weight: normal;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+.ps-column-content p.msgrow label { 
+	width: 100%;
+	float: none;
+	color: gray;
+}
+
+.ps-column-content p span {		/* stat value */
+	text-align: right;
+	float: right;
+}
+.ps-column-content p em {		/* stat% */
+/*
+	padding-right: 2em;
+*/
+	font-size: 0.8em;
+	font-style: normal;
+	color: gray;
+	float: left;
+	text-align: right;
+	width: 4em;
+}
+.ps-column-content p.firstrow { border: none; }
+
+.ps-column-content p.substat label {
+	font-weight: normal;
+	width: 50%;
+}
+
+
+/* override the label style for the player ID lists on player.php */
+#ps-id-plripaddr p.plr,
+#ps-id-plrname p.plr,
+#ps-id-plrworldid p.plr {
+	font-size: 80%;
+}
+#ps-id-plripaddr p.plr label,
+#ps-id-plrname p.plr label,
+#ps-id-plrworldid p.plr label {
+	width: 75%;
+	font-weight: normal;
+}
+
+/* --- ADMIN MENU ---------------------------------------- */
+#ps-admin-menu {
+	font-size: 1em;
+	margin: 0 1em;
+}
+#ps-admin-menu a {
+	display: block;
+}
+/* IE Fix
+* html body #ps-admin-menu a {
+	width: 100%;
+}
+/**/
+#ps-admin-menu dt {
+	line-height: 1.5em;
+	font-weight: bold;
+}
+#ps-admin-menu dt.first {
+	border-bottom: 2px solid gray;
+}
+#ps-admin-menu dd {
+	margin-left: 20px;
+	line-height: 1.5em;
+}
+#ps-admin-menu dt a, 
+#ps-admin-menu dd a {
+	border: 1px solid #eee;
+	padding-left: 22px;
+	background-position: 2px 50%;
+	background-repeat: no-repeat;
+}
+#ps-admin-menu dt a:hover {
+	background: lightyellow url(../img/icons/folder_page.png) no-repeat;
+	border: 1px solid gray;
+}
+#ps-admin-menu dd a:hover {
+	background-color: lightyellow;
+	border: 1px solid gray;
+}
+#ps-admin-menu .sel {
+	background: lightyellow;
+}
+#ps-admin-menu .sel a {
+	border: 1px solid white;
+}
+
+dt.folder a {
+	background-image: url(../img/icons/folder.png);
+}
+dd.edit a {
+	background-image: url(../img/icons/application_form.png);
+}
+dd.tag a {
+	background-image: url(../img/icons/tag.png);
+}
+dd.server a {
+	background-image: url(../img/icons/server.png);
+}
+dd.award-gold a, dd.awards a {
+	background-image: url(../img/icons/award_star_gold_3.png);
+}
+dd.ranking a {
+	background-image: url(../img/icons/medal_gold_1.png);
+}
+dd.security a {
+	background-image: url(../img/icons/shield.png);
+}
+dd.map a {
+	background-image: url(../img/icons/map.png);
+}
+dd.overlay a {
+	background-image: url(../img/icons/layers.png);
+}
+dd.psycholive a {
+	background-image: url(../img/icons/television.png);
+}
+dd.permissions a {
+	background-image: url(../img/icons/eye.png);
+}
+dd.images a, dd.icons a {
+	background-image: url(../img/icons/images.png);
+}
+dd.page a {
+	background-image: url(../img/icons/page_white.png);
+}
+dd.alias a {
+	background-image: url(../img/icons/group.png);
+}
+dd.user-green a {
+	background-image: url(../img/icons/user_green.png);
+}
+dd.user-red a {
+	background-image: url(../img/icons/user_red.png);
+}
+dd.cog a {
+	background-image: url(../img/icons/cog.png);
+}
+dd.logs a {
+	background-image: url(../img/icons/page_white_text.png);
+}
+dd.auto a {
+	background-image: url(../img/icons/clock.png);
+}
+dd.lightning a {
+	background-image: url(../img/icons/lightning.png);
+}
+dd.error a, dd.errlog a {
+	background-image: url(../img/icons/error.png);
+}
+dd.decay a {
+	background-image: url(../img/icons/arrow_down.png);
+}
+dd.bonus a {
+	background-image: url(../img/icons/add.png);
+}
+dd.role a {
+	background-image: url(../img/icons/user_gray.png);
+}
+dd.weapon a {
+	background-image: url(../img/icons/bomb.png);
+}
+
+#ps-admin-menu dd.err, #ps-admin-menu dt.err {
+	background: #FFCCCC url(../img/icons/error.png) right 50% no-repeat;
+}
+
+/* --- CLEAR FLOATS ------------ */
+#ps-main-column:after, 
+#ps-main-content:after,
+.ps-column-content p:after,
+.spacer:after
+{
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+* html #ps-main-content,
+* html .ps-column-content p 
+{ 
+	height:1%; 
+}
+

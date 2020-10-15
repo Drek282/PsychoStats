@@ -1,0 +1,63 @@
+<h3><#Server Software#></h3>
+<p class="row">
+	<label><#Server OS#>:</label>
+	<span class="good">{$server_os|escape}</span>
+	<em>({$php_sapi_name|escape})</em>
+</p>
+<p class="row">
+	<label><#Server Uname#>:</label>
+	<span class="good">{$server_uname|escape}</span>
+</p>
+<p class="row">
+	<label><#PHP Version#>:</label>
+	<span class="{if $php_version_ok}good{else}bad{/if}">{$php_version}</span>
+	<em>(v{$min_php_version} minimum)</em>
+</p>
+
+{if !$allow_next}
+<h3 class="err"><#Install required modules!#></h3>
+<p class="h3 err">
+	Before you can continue with the installation you must install or enable the required modules shown below.
+	Keep this page open and once you've installed the required modules click the 'Recheck' button below to re-validate
+	your system.
+</p>
+<script type="text/javascript">
+	$('#btn-next').attr('disabled', 'disabled');
+</script>
+{else}
+<h3 class="success"><#All required modules are installed#></h3>
+<p class="h3 success">
+	All required PHP modules are already installed and enabled on your server. You can continue with the installation
+	by clicking on the "Next" button below{if $optional_err}, 
+		or you can attempt to enable the optional modules that you
+		are missing below. However, those modules are not required for PsychoStats to function properly.
+	{/if}
+</p>
+<script type="text/javascript">
+	$('#btn-next').attr('disabled', '');
+</script>
+{/if}
+
+<h3><#Required Server Extensions#></h3>
+<p class="h3">These extensions must be enabled in your PHP installation before you can proceed with the installation.</p>
+{foreach from=$required_ext_ok key='ext' item='ok'}
+<p class="row">
+	<span class="ext {if $ok}good{else}bad{/if}">{$ext}</span>
+{if !$ok}
+	<span class="desc">{$required_ext[$ext]}</span>
+{/if}
+</p>
+{/foreach}
+
+<h3><#Optional Server Extensions#></h3>
+<p class="h3">
+	These extensions are optional and will enhance your PsychoStats installation and allow more 
+	advanced features to be available.
+</p>
+{foreach from=$optional_ext key='ext' item='desc'}
+<p class="row">
+	<span class="ext {if $optional_ext_ok[$ext]}good{else}warn{/if}">{$ext}</span>
+	<span class="desc">{$desc}</span>
+</p>
+{/foreach}
+

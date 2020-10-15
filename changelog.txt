@@ -1,0 +1,272 @@
+--- DREK ---
+
+
+Version 3.2.6b (10/15/2020)
+* [Added] Missing Team Fortress Classic weapon images.
+* [Fixed] Removed duplicate entries from heat.xml.
+* [Fixed] Team joins now work for Firearms.
+* [Added] Roles support for Team Fortress Classic.
+* [Added] Support for Firearms specific events, awards and bonuses.
+* [Added] Support for Team Fortress Classic specific events, awards and bonuses.
+* [Improved] Expanded the definition of a bot in the is_bot subroutine.
+* [Fixed] Broken awards editing in the Admin CP.
+* [Improved] A lot of stats now only display if they are present in the game logs.
+* [Changed] Default colours for dual_bar from red and green to red and blue.
+* [Added] Forceful warnings regarding the web "install" directory.
+* [Updated] Information on Google API key which is now a payed service.
+* [Updated] Information on GeoIP database in the Google Map section of the Admin CP.
+* [Improved] Changed the fatal error on database reset where data tables are empty, into a warning.
+* [Improved] Changed the precision on bonuses to one decimal place.
+* [Added] Casually Crackers themes specifically designed for Firearms, Natural Selection and Team Fortress Classic.
+* [Added] Drek's Plugin Pack with plugins that add and remove various fields from the stats pages.
+* [Included] wakachamo's and Rosenstein's commits from the wakachamo GitHub repository.
+
+Version 3.2.5b (10/04/2020)
+* [Fixed] Default theme player page now honours flag image permissions.
+* [Fixed] Broken weaponstats for Team Fortress Classic.
+
+Version 3.2.4b (10/03/2020)
+* [Removed] Most references and links to psychostats.com as it is no longer maintained.
+* [Fixed] Broken preg_replace_callback funcion in includes/CMS/functions.php.
+* [Improved] Better Firearms weapon images taken from the game itself.
+
+Version 3.2.3b (09/28/2020)
+* [Updated] Minimum PHP and MySQL versions updated to 5.3.0 and 4.1.13 respectively.
+* [Fixed] Deprecated and obsolete PHP code in the web front end.
+* [Regression] Replaced broken heat.pl from 3.2.2b with heat.pl from version 3.1 that works.
+* [Added] Support for Natural Selection heatmaps along with some overlays.
+* [Added] Updated weapon images for Natural Selection.
+* [Added] Basic support for Firearms.
+* [Added] Basic support for Team Fortress Classic.
+* [Removed] Update checks for Psychostats commented out in the install index.php.
+* [Removed] Overview link removed from overall header if no Google API key configured.
+* [Improved] Replaced "dirname(__FILE__)" with "__DIR__" for performance reasons.
+
+--- WAKACHAMO ---
+
+* [Added] More Heatmaps (especially TF2)
+* [Added] Hardcoded regeneration of /tmp/ps_themes_compiled
+* [Fixed] function_exists() error
+* [Fixed] call_user_func_array() error
+* [Fixed] Deprecated-errors
+
+--- STORMTROOPER ---
+
+Version 3.1.1 (...)
+* Fixed halflife::parseprops to properly parse player names in event parameters 
+that have double quotes (") in their name.
+* TF2: Team 'pointcaptured' old style events will once again give bonus points 
+to players (along with the newer style of the event
+* TF2: double bonus points for player 'dominations' are no longer given.
+* Fixed typo de_interno to de_inferno in heat.xml
+* Fixed a couple minor issues in the installer.
+* Implemented Halflife GUNGAME support.
+* Implemented Call of Duty 4 support.
+* Implemented Soldat support.
+* Enhanced HTML output with GZIP support.
+* Fixed Feeder::stream support to properly process halflife log streams.
+
+Version 3.1 (05/01/2008)
+* Implemented CMS and plugin architecture in the PHP front-end.
+* Recoded theme routines to be more robust and tolerant.
+* Redesigned default theme template. XHTML compliant and easier to maintain.
+(pre-3.1 themes are NOT backwards compatible!)
+* Log state routines have been recoded and made more accurate.
+* Logsources have been recoded and have their own config table.
+* Events code has been recoded and have their own config table.
+* Events can be configured via the ACP and new event code can be dropped into
+the 'Events' directory if users wish to add new event handlers w/o modifying
+existing code. Wiki doc's will need to be updated (yuk)
+* Implemented -maxlogs, -maxlines command line options to allow stats updates
+to exit early. This will help systems under resource restraints.
+* Split plr_ids table (name,ipaddr,steamid) into 3 separate tables to make
+queries against these fields easier and less confusing.
+* Removed 'headshotdeaths' stat since its not very reliable to track.
+* Player events with a steamid of STEAM_ID_PENDING are completely ignored now.
+* CMS security: Implemented defense against CSRF exploits.
+* CMS security: Implemented separate admin login for ACP pages.
+* Removed ps_config_layout table and combined all config related stuff
+into ps_config. Also added 'label' field.
+* daily awards are now created (along with monthly and weekly).
+* Removed 'auto' section of config as it's no longer needed. Daily updates 
+(all maxdays decay activity players clans ranks awards) are performed 
+automatically by stats.pl based on new 'daily' settings in the config.
+* DB routines are more robust and will attempt to reconnect if a query fails.
+* Implemented Team Fortress 2 support.
+* Roles can now have mod based stats.
+* Reduced code required for mod sub-classes, which makes it easier to add new
+support for game mods.
+* Recoded class_PS.php to be a real class with sub-classes for game:mods.
+* Overhauled the overview page with lots of useful charts and a google map.
+* Implemented backend Spatial stats.
+* BUG: Fixed name changes when tracking by name (names were not being separated).
+* Implemented Heatmaps (uses spatial stats)
+* Added default-blue skin.
+* Updated player profile display in the default theme to be a bit more pleasing to 
+the eyes. And added a link to a players SteamID profile page on steamcommunity.com.
+* Fixed DOD flag caps.
+* Added theme install wizard to ACP for automatic download and installation of new themes.
+* 1 million and 1 tweaks and fixes and other things I've forgotten. See the full 
+timeline on http://www.psychostats.com/trac/psychostats/timeline/
+
+Version 3.0.6 beta (2007-05-01)
+* Fixed query.html: rcon commands would not work.
+* Fixed function.sortheader.php: removed hardcoded themes path.
+* Fixed class_theme.php: "Cannot break/continue 1 level" error.
+* Fixed admin/servers.php: Incorrect integer value: '' for column 'idx'
+* Fixed PQ modtype for 'hl2dm'. returns 'hldm' instead.
+* Added module version check for DBD:mysql. v3.0002 or higher is required.
+* Fixed 'Connection Closed' errors while downloading from FTP log sources.
+
+Version 3.0.5 beta (2007-03-10)
+* Fixed "constant CACHE_FILE_GROUP already defined" errors
+* Fixed PS::Config->set(); would not set sub vars (var.subvar = value)
+* Fixed event plrtrigger 'address'; would not track player IP addresses
++ Implemented game support for halflife:natural (Natural Selection)
+* Bug #8 fixed (I hope). "Duplicate entry in 'plr_ids' table"
+* Bug #9 fixed. "Only variables can be passed by reference in imgcommon.php"
++ Added a couple of batch files for Windows users. These are just
+shortcuts for a couple of common tasks for stats.pl.
++ Added 'dod_teamscore' event so that win/loses for non-source DOD servers
+will properly track for players and maps.
++ Added 'round_win' event trigger for 'dod' servers.
++ Directory structure has changed a bit to try and make it less confusing
+for users. The 'upload' directory contains all files meant to be uploaded to
+a website (this used to be called 'web'). Everything else stays local.
++ The 'live servers' configuration has been moved into it's own table to 
+make it easier to manage.
+* Fixed bug with installer on step 1. Incorrectly saying mysql 4.1.11 was
+too low when in fact it's the minimum.
++ Fixed stats update from crashing when no regex clantags are defined.
+* Fixed 'czero' servers in the live server view to show maps correctly.
+* Fixed 'white screen' problems on certain pages when run on PHP5.
+* Corrected 'kill_streak' and 'death_streak' calculation in awards.
+* Fixed team detection for players w/o the need for 'joined_team' events.
+* Fixed player bonuses. Bonus points were not actually being added to skill.
+* Fixed load_clan_members(); SQL query was not optimized properly and causes 
+the 'edit clan' page to be very slow with large member lists.
+* Fixed 'weaponstats' accuracy triggers for Natural Selection. Event wasn't
+being delegated properly.
+* Fixed player BANS. Bans didn't work at all. They do now. :)
+* Fixed infinite loop in Feeder::* when an error occurs downloading a file.
+
+Version 3.0.4 beta (2007-02-10)
++ Added clean module detection to stats.pl to show 'pretty' errors
+if a non-standard module is not present or if Perl is too old.
+* Tweaked some events in Game/halflife.pm
+* Fixed language encoding problem in certain parts of the theme.
+(UTF8 characters were not encoded correctly).
+* Fixed smarty plugin function.mapimg.php. It was causing infinite 
+loops on some systems due to bad file paths.
+* Fixed a DB query that greatly affected the load times of the main
+player index and possibly other listings on the stats web pages.
+* Fixed some player stats from not being saved properly. This would cause
+some players to have slightly lower stats than what the logs actually reflect.
+* A couple more tweaks to the Installer that adds more logic for minimum
+requirements and less confusion when tables already exist.
+* DOD player bonuses have been added to the default config and confirmed
+working.
+* Updated DOD theme pieces to include some missing DOD specific information.
+
+Version 3.0.3 beta (2007-02-03)
+* Recoded the Install wizard to remove some confusion during the database
+initialization step. Also made step 6 (compiled themes) more robust to 
+allow users to change the path and have better permission checking.
+
+Version 3.0.2 beta (2007-02-02)
+* Fixed 'notice' errors on install pages.
+* Fixed 'Field 'logo' has no default value' when updating stats for certain
+versions of MySQL.
++ Changed default settings for a few config variables. Like disabling 
+warnings for unknown events and enabling partial week awards.
+
+Version 3.0.1 beta (2007-02-02)
+* Unknown column 'lastdecay' in 'field list' -- Error fixed. the database
+schema included in the previous release was missing this field.
+
+Version 3.0.0 beta (2007-02-02)
+* Not all features and changes have been mentioned below *
++ Recoded object hierarchy to be scalable, easily sub-classed and to separate 
+functionally. Lots of work went into the recoding and structure, too many
+to list here.
++ All configuration is stored in the database with the exception of basic
+DB settings in the stats.cfg. This will allow for 100% web based GUI setup.
++ logsource's can be local directories, or remote FTP or SFTP sites
+(Note: SFTP requires Net::SSH::Perl to be installed).
++ Implemented player/clan 'profile' support. If stats are reset players
+and clans will retain their personal profiles when the stats are recreated.
++ Implemented full UTF-8 support. This requires MYSQL v4.1+
++ Implemented Real-Time clantag detection for players.
++ Implemented Real-Time 'most used' player name selection. 
++ Implemented better state persistence for log scanning so logs are only 
+scanned once for each source configured.
++ Implemented a better 'kill skill' calculation. Still using the ELO method
+however, a players total online time is now taken into account. The more 
+online time you have the less points you give/receive for kills.
+* Re-coded the DB stats routines (again). They are now simplier, and about
+15% faster than before.
++ Implemented IP to Country lookups. The players country flag will be shown
+in player listings within the stats. Flag images credit goes to 
+http://flags.blogpotato.de/
++ Implemented 'user' profile support. Users are registered and linked to a 
+player for login. The user system is flexable and will allow for easier
+integration within existing sites.
++ Implemented extensible admin controls. New admin 'controls' can be dropped
+into place w/o any changes in existing PHP code.
++ Enhanced "Live server view" to allow multiple servers all on 1 page and
+w/o causing the page to 'lag out'. RCON queries are also allowed for admins.
++ Enhanced player searching to match on player IP's and name aliases.
++ Implemented uploadable plr/clan icon support. Upload from users computer
+or from another URL.
++ Implemented player session histories. Each player has their previous 
+online sessions saved and can be viewed separately from their overall
+stats. A 'session' is the length of time the player was logged in, even
+between map changes.
++ Removed some logic from the default theme to make it a little less complex
+on some pages.
++ Implemented an advanced admin config editor. The admin config editor is 
+dynamic and very easy to use. New settings in the database are automatically
+discovered by the editor w/o any changes to the themes or other code.
++ Implemented several more Admin Control Panel features, like logsource 
+editing and other tweaks.
++ Implemented a 'daily' process trigger for stats updates. Daily processes
+are generally run once, or possibly several times a day to calculate certain
+stats, ranks, trim histories or clean up the clan listings.
++ Implemented daily process: player ranks.
++ Theme updated to show a players rank difference going up or down.
++ Enhanced PHP session support to recognize Web "robots" (ie: google, yahoo)
+and disable the auto appending of session ID's in the HTML output. This will
+help search engines to properly index your stats pages.
++ Implemented daily process: clan rules
++ Implemented daily process: players rules
++ Implemented player bonuses. Ie: assign extra points to players (or teams 
+of players) based on different events like 'target_bombed'. Fully web 
+configurable. Note: this has nothing to do with AWARDS. 
++ Enhanced clantag support. different tags can be matched and combined into 
+a single clan entity automatically.
++ Implemented awards. The awards system uses a plugin architecture to allow
+for more complex awards. Currently basic player action and weapon awards
+are present.
++ Implemented player aliases.
++ Implemented an easy to use online installation process.
++ Implemented 'maxdays' feature! -- Old stats are removed automatically.
++ Added 'maxdays_exclusive' option: If enabled, compiled stats are reduced
+when old stats are removed. If disabled the compiled stats continue to 
+increase regardless of old stats being removed.
++ Implemented automatic scheduling of 'daily' updates when stats.pl is
+run. So using the -daily command line manually is optional.
++ All dynamically created images (charts and graphs) are now fully 
+customizable via an external XML config file.
++ Implemented automatic player bans from log events (incomplete).
++ Implemented manual player bans. Wildcard support included. Ban players
+by steamid, IP or name.
++ Implemented fully functional DECAY system for decaying player skill
+over long periods of inactivity.
++ Implemented full Day of Defeat:Source support. Including detailed stats
+based on team roles.
++ Google Maps API support implemented for player world locations based on
+their IP address. This is never 100% accurate, but it's good enough.
++ New hitbox flash animation included with default theme. Fully 3D!
++ HL2DM support added (classic HLDM should work the same)
++ Implemented Feeder::stream to allow log streams from remote game servers. 
+NOTE: This feature is currently experimental and is not fully fleshed out.

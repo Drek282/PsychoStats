@@ -1,0 +1,137 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+	<div id="ps-page-title">
+		<div class="inner">
+		<h1><#Weapon Statistics#> :: {weaponimg weapon=$weapon noimg=''} {$weapon.label|escape}</h1>
+		<h2>&nbsp;</h2>
+		</div>
+	</div>
+
+<!--left column block -->
+<div id="ps-main-column">
+
+{if $weaponimg}<div class="weaponimg">{$weaponimg}</div>{/if}
+
+<div class="ps-column-frame{if $shades.s_weapon_killprofile} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Kill Profile#></span></a></div>
+<div id="s-weapon-killprofile" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Total Kills#></label>
+	<span>{$weapon.kills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Headshot Kills#></label>
+	{if $weapon.headshotkills}<em>{$weapon.headshotkillspct}%</em>{/if}
+	<span>{$weapon.headshotkills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $weapon.ffkills}<em>{$weapon.ffkillspct}%</em>{/if}
+	<span>{$weapon.ffkills|commify}</span>
+</p>
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$weapon.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$weapon.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$weapon.hits|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$weapon.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$weapon.damage|commify}</span>
+</p>
+<p class="hl">
+	<label><#Hitbox Zones#></label>
+	<span></span>
+</p>
+<p class="substat">
+	<label><#Head#></label>
+	{if $weapon.shot_headpct}<em>{pctbar pct=$weapon.shot_headpct}</em>{/if}
+	<span>{$weapon.shot_head|commify}</span>
+</p>
+<p class="substat">
+	<label><#Chest#></label>
+	{if $weapon.shot_chestpct}<em>{pctbar pct=$weapon.shot_chestpct}</em>{/if}
+	<span>{$weapon.shot_chest|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Arm#></label>
+	{if $weapon.shot_leftarmpct}<em>{pctbar pct=$weapon.shot_leftarmpct}</em>{/if}
+	<span>{$weapon.shot_leftarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Arm#></label>
+	{if $weapon.shot_rightarmpct}<em>{pctbar pct=$weapon.shot_rightarmpct}</em>{/if}
+	<span>{$weapon.shot_rightarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Stomach#></label>
+	{if $weapon.shot_stomachpct}<em>{pctbar pct=$weapon.shot_stomachpct}</em>{/if}
+	<span>{$weapon.shot_stomach|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Leg#></label>
+	{if $weapon.shot_leftlegpct}<em>{pctbar pct=$weapon.shot_leftlegpct}</em>{/if}
+	<span>{$weapon.shot_leftleg|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Leg#></label>
+	{if $weapon.shot_rightlegpct}<em>{pctbar pct=$weapon.shot_rightlegpct}</em>{/if}
+	<span>{$weapon.shot_rightleg|commify}</span>
+</p>
+</div>
+</div>
+
+<div class="ps-column-frame{if $shades.s_weaponlist} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Available Weapons#></span></a></div>
+<div id="s-weaponlist" class="ps-column-content">
+<p class="firstrow hl">
+	<label><#Weapon#></label>
+	<span><b><#Kills#></b></span>
+</p>
+{foreach from=$weapons item='w'}
+{if $w.weaponid == $id}
+<p class="selected{cycle values=", even"}">
+{else}
+<p{cycle values=", class='even'"}>
+{/if}
+	<label><a href="{url _base='weapon.php' id=$w.weaponid}">{$w.label|escape}</a></label>
+	<span>{$w.kills|commify}</span>
+</p>
+{/foreach}
+</div>
+</div>
+
+
+</div>
+<!--end of left column -->
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-weapon">
+
+	<div class="ps-table-frame{if $shades.s_weapon_plrlist} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$totalplayers} <#Top Players#></span></a></div>
+	<div id="s-weapon_plrlist" class="ps-table-inner">
+	{$players_table}
+	</div>
+	{if $pager}<div class="ps-table-footer">{$pager}</div>{/if}
+	</div>
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

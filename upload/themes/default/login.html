@@ -1,0 +1,62 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-login">
+
+
+<div class="ps-form-container" id="ps-login-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend><#User Login#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+<div{if $errors.username} class="err"{/if}>
+	<p class="err" id="err-username">{$errors.username|escape}</p>
+	<label><#Username#>:</label>
+	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+</div>
+<div{if $errors.password} class="err"{/if}>
+	<p class="err" id="err-password">{$errors.password|escape}</p>
+	<label><#Password#>:</label>
+	<input name="password" type="password" class="field" />
+</div>
+<div>
+	<label for="autologin"><#Auto Login#>:</label>
+	<input id="autologin" name="autologin" type="checkbox" value="1" class="checkbox" />
+	<p class="small">
+		<!--<#LOGIN_AUTOLOGIN#>-->
+		If auto login is enabled a cookie will be saved in your browser and the next time you
+		visit this site you will automatically be logged in again, even if you close your browser.
+		<!---->
+	</p>
+</div>
+<div class="inline-notes">
+	<h4><#Login Help#></h4>
+{if $show_register}
+	<p><strong><#Not registered?#></strong> <a href="register.php"><#Register now!#></a><br/>
+{/if}
+	<strong><#Forgot your password?#></strong> <a href="forgotpw.php"><#Reset your password#></a></p>
+</div>
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input class="btn login" type="submit" value="<#Login#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

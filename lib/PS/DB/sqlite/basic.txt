@@ -1,0 +1,420 @@
+CREATE TABLE 'ps_clan' (
+	'locked' tinyint(1) DEFAULT '0',
+	'clanid' int(10) PRIMARY KEY,
+	'clantag' varchar(32),
+	'allowrank' tinyint(1) DEFAULT '0'
+);
+CREATE INDEX 'ps_clan.clantag' ON ps_clan ( 'clantag' );
+
+CREATE TABLE 'ps_clan_profile' (
+	'icon' varchar(64),
+	'website' varchar(255),
+	'name' varchar(128),
+	'aim' varchar(64),
+	'msn' varchar(128),
+	'logo' text,
+	'email' varchar(128),
+	'icq' varchar(16),
+	'clantag' varchar(32) PRIMARY KEY
+);
+
+CREATE TABLE 'ps_config' (
+	'value' text,
+	'var' varchar(128),
+	'section' varchar(128),
+	'idx' smallint(6) DEFAULT '0',
+	'id' int(10) PRIMARY KEY,
+	'conftype' varchar(32) DEFAULT 'main'
+);
+CREATE INDEX 'ps_config.conftype' ON ps_config ( 'conftype','idx' );
+
+CREATE TABLE 'ps_config_clantags' (
+	'example' varchar(64),
+	'clantag' varchar(128),
+	'type' TEXT DEFAULT 'plain',
+	'pos' TEXT DEFAULT 'left',
+	'overridetag' varchar(64),
+	'idx' int(10) DEFAULT '0',
+	'id' int(10) PRIMARY KEY
+);
+
+CREATE TABLE 'ps_config_layout' (
+	'locked' tinyint(1) DEFAULT '0',
+	'options' text,
+	'section' varchar(128),
+	'verifycodes' varchar(8),
+	'comment' text,
+	'var' varchar(128),
+	'id' smallint(5) PRIMARY KEY,
+	'type' TEXT DEFAULT 'text',
+	'multiple' tinyint(1) DEFAULT '0',
+	'conftype' varchar(32)
+);
+
+CREATE TABLE 'ps_config_plrbonuses' (
+	'enactor' int(11) DEFAULT '0',
+	'gametype' varchar(32),
+	'enactor_team' int(11) DEFAULT '0',
+	'event' varchar(64),
+	'desc' varchar(255),
+	'modtype' varchar(32),
+	'victim_team' int(11) DEFAULT '0',
+	'id' int(10) PRIMARY KEY,
+	'victim' int(11) DEFAULT '0'
+);
+CREATE INDEX 'ps_config_plrbonuses.gametype' ON ps_config_plrbonuses ( 'gametype','modtype' );
+
+CREATE TABLE 'ps_errlog' (
+	'msg' text,
+	'timestamp' int(10) DEFAULT '0',
+	'userid' int(10),
+	'id' int(10) PRIMARY KEY,
+	'severity' TEXT DEFAULT 'info'
+);
+CREATE INDEX 'ps_errlog.timestamp' ON ps_errlog ( 'timestamp' );
+
+CREATE TABLE 'ps_geoip_cc' (
+	'cc' varchar(2),
+	'cn' varchar(50)
+);
+
+CREATE TABLE 'ps_geoip_ip' (
+	'cc' char(2),
+	'end' int(10) DEFAULT '0',
+	'start' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_geoip_ip.cc' ON ps_geoip_ip ( 'cc' );
+
+CREATE TABLE 'ps_map' (
+	'name' varchar(128),
+	'uniqueid' varchar(32),
+	'mapid' smallint(5) PRIMARY KEY
+);
+CREATE INDEX 'ps_map.uniqueid' ON ps_map ( 'uniqueid' );
+
+CREATE TABLE 'ps_map_data' (
+	'suicides' smallint(5) DEFAULT '0',
+	'games' smallint(5) DEFAULT '0',
+	'connections' smallint(5) DEFAULT '0',
+	'mapid' smallint(5) DEFAULT '0',
+	'onlinetime' int(10) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'dataid' int(10) PRIMARY KEY,
+	'rounds' smallint(5) DEFAULT '0',
+	'ffkills' smallint(5) DEFAULT '0',
+	'kills' smallint(5) DEFAULT '0',
+	'lasttime' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_map_data.mapid' ON ps_map_data ( 'mapid','statdate' );
+
+CREATE TABLE 'ps_map_data_halflife_cstrike' (
+	'rescuedhostages' smallint(5) DEFAULT '0',
+	'ctkills' smallint(5) DEFAULT '0',
+	'bombexploded' smallint(5) DEFAULT '0',
+	'bombdefuseattempts' smallint(5) DEFAULT '0',
+	'terroristwon' smallint(5) DEFAULT '0',
+	'bombrunner' smallint(5) DEFAULT '0',
+	'joinedterrorist' smallint(5) DEFAULT '0',
+	'terroristlost' smallint(5) DEFAULT '0',
+	'terroristkills' smallint(5) DEFAULT '0',
+	'vipkilled' smallint(5) DEFAULT '0',
+	'touchedhostages' smallint(5) DEFAULT '0',
+	'joinedct' smallint(5) DEFAULT '0',
+	'killedhostages' smallint(5) DEFAULT '0',
+	'vipescaped' smallint(5) DEFAULT '0',
+	'ctwon' smallint(5) DEFAULT '0',
+	'bombdefused' smallint(5) DEFAULT '0',
+	'ctlost' smallint(5) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'bombplanted' smallint(5) DEFAULT '0',
+	'joinedspectator' smallint(5) DEFAULT '0'
+);
+
+CREATE TABLE 'ps_plr' (
+	'uniqueid' varchar(128),
+	'firstseen' int(10) DEFAULT '0',
+	'allowrank' tinyint(1) DEFAULT '1',
+	'prevrank' mediumint(8) DEFAULT '0',
+	'plrid' int(10) PRIMARY KEY,
+	'clanid' int(10) DEFAULT '0',
+	'skill' float(8,2) DEFAULT '0.00',
+	'prevskill' float(8,2) DEFAULT '0.00',
+	'rank' mediumint(8) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr.uniqueid' ON ps_plr ( 'uniqueid' );
+
+CREATE TABLE 'ps_plr_aliases' (
+	'uniqueid' varchar(128),
+	'id' int(10) PRIMARY KEY,
+	'alias' varchar(128)
+);
+CREATE INDEX 'ps_plr_aliases.uniqueid' ON ps_plr_aliases ( 'uniqueid' );
+CREATE INDEX 'ps_plr_aliases.alias' ON ps_plr_aliases ( 'alias' );
+
+CREATE TABLE 'ps_plr_bans' (
+	'reason' varchar(255),
+	'bandate' int(10) DEFAULT '0',
+	'type' varchar(32),
+	'unbandate' int(10) DEFAULT '0',
+	'id' int(10) PRIMARY KEY
+);
+
+CREATE TABLE 'ps_plr_data' (
+	'games' smallint(5) DEFAULT '0',
+	'suicides' smallint(5) DEFAULT '0',
+	'damage' int(10) DEFAULT '0',
+	'banned' smallint(5) DEFAULT '0',
+	'connections' smallint(5) DEFAULT '0',
+	'kills_streak' smallint(5) DEFAULT '0',
+	'totalbonus' smallint(6) DEFAULT '0',
+	'onlinetime' int(10) DEFAULT '0',
+	'hits' smallint(5) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'kicked' smallint(5) DEFAULT '0',
+	'kills' smallint(5) DEFAULT '0',
+	'lasttime' int(10) DEFAULT '0',
+	'deaths_streak' smallint(5) DEFAULT '0',
+	'ffdeaths' smallint(5) DEFAULT '0',
+	'shots' smallint(5) DEFAULT '0',
+	'deaths' smallint(5) DEFAULT '0',
+	'headshotkills' smallint(5) DEFAULT '0',
+	'cheated' smallint(5) DEFAULT '0',
+	'dayskill' float(8,2) DEFAULT '0.00',
+	'plrid' int(10) DEFAULT '0',
+	'headshotdeaths' smallint(5) DEFAULT '0',
+	'dayrank' int(10) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'rounds' smallint(5) DEFAULT '0',
+	'ffkills' smallint(5) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_data.statdate' ON ps_plr_data ( 'statdate' );
+CREATE INDEX 'ps_plr_data.plrid' ON ps_plr_data ( 'plrid','statdate' );
+
+CREATE TABLE 'ps_plr_data_halflife_cstrike' (
+	'rescuedhostages' smallint(5) DEFAULT '0',
+	'ctkills' smallint(5) DEFAULT '0',
+	'bombexploded' smallint(5) DEFAULT '0',
+	'terroristdeaths' smallint(5) DEFAULT '0',
+	'bombdefuseattempts' smallint(5) DEFAULT '0',
+	'terroristwon' smallint(5) DEFAULT '0',
+	'bombrunner' smallint(5) DEFAULT '0',
+	'joinedterrorist' smallint(5) DEFAULT '0',
+	'terroristlost' smallint(5) DEFAULT '0',
+	'terroristkills' smallint(5) DEFAULT '0',
+	'ctdeaths' smallint(5) DEFAULT '0',
+	'vip' smallint(5) DEFAULT '0',
+	'vipkilled' smallint(5) DEFAULT '0',
+	'touchedhostages' smallint(5) DEFAULT '0',
+	'joinedct' smallint(5) DEFAULT '0',
+	'killedhostages' smallint(5) DEFAULT '0',
+	'bombspawned' smallint(5) DEFAULT '0',
+	'ctwon' smallint(5) DEFAULT '0',
+	'vipescaped' smallint(5) DEFAULT '0',
+	'bombdefused' smallint(5) DEFAULT '0',
+	'ctlost' smallint(5) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'bombplanted' smallint(5) DEFAULT '0',
+	'joinedspectator' smallint(5) DEFAULT '0'
+);
+
+CREATE TABLE 'ps_plr_ids' (
+	'totaluses' int(10) DEFAULT '1',
+	'name' varchar(128),
+	'worldid' varchar(32),
+	'id' int(10) PRIMARY KEY,
+	'ipaddr' int(10) DEFAULT '0',
+	'plrid' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_ids.uniqplr' ON ps_plr_ids ( 'name','worldid','ipaddr' );
+CREATE INDEX 'ps_plr_ids.plrid' ON ps_plr_ids ( 'plrid' );
+
+CREATE TABLE 'ps_plr_maps' (
+	'ffdeaths' smallint(5) DEFAULT '0',
+	'games' smallint(5) DEFAULT '0',
+	'connections' smallint(5) DEFAULT '0',
+	'deaths' smallint(5) DEFAULT '0',
+	'mapid' int(10) DEFAULT '0',
+	'plrid' int(10) DEFAULT '0',
+	'onlinetime' int(10) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'dataid' int(10) PRIMARY KEY,
+	'rounds' smallint(5) DEFAULT '0',
+	'ffkills' smallint(5) DEFAULT '0',
+	'kills' smallint(5) DEFAULT '0',
+	'lasttime' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_maps.plrid' ON ps_plr_maps ( 'plrid','mapid','statdate' );
+
+CREATE TABLE 'ps_plr_maps_halflife_cstrike' (
+	'rescuedhostages' smallint(5) DEFAULT '0',
+	'ctkills' smallint(5) DEFAULT '0',
+	'bombexploded' smallint(5) DEFAULT '0',
+	'terroristdeaths' smallint(5) DEFAULT '0',
+	'bombdefuseattempts' smallint(5) DEFAULT '0',
+	'terroristwon' smallint(5) DEFAULT '0',
+	'bombrunner' smallint(5) DEFAULT '0',
+	'joinedterrorist' smallint(5) DEFAULT '0',
+	'terroristlost' smallint(5) DEFAULT '0',
+	'terroristkills' smallint(5) DEFAULT '0',
+	'ctdeaths' smallint(5) DEFAULT '0',
+	'vip' smallint(5) DEFAULT '0',
+	'vipkilled' smallint(5) DEFAULT '0',
+	'touchedhostages' smallint(5) DEFAULT '0',
+	'joinedct' smallint(5) DEFAULT '0',
+	'killedhostages' smallint(5) DEFAULT '0',
+	'bombspawned' smallint(5) DEFAULT '0',
+	'ctwon' smallint(5) DEFAULT '0',
+	'vipescaped' smallint(5) DEFAULT '0',
+	'bombdefused' smallint(5) DEFAULT '0',
+	'ctlost' smallint(5) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'bombplanted' smallint(5) DEFAULT '0',
+	'joinedspectator' smallint(5) DEFAULT '0'
+);
+
+CREATE TABLE 'ps_plr_profile' (
+	'icon' varchar(64),
+	'website' varchar(128),
+	'userid' int(11),
+	'name' varchar(128),
+	'uniqueid' varchar(128) PRIMARY KEY,
+	'aim' varchar(64),
+	'msn' varchar(128),
+	'logo' text,
+	'email' varchar(128),
+	'icq' varchar(16),
+	'cc' varchar(2),
+	'namelocked' tinyint(1) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_profile.userid' ON ps_plr_profile ( 'userid' );
+
+CREATE TABLE 'ps_plr_sessions' (
+	'suicides' smallint(5) DEFAULT '0',
+	'shots' smallint(5) DEFAULT '0',
+	'damage' int(10) DEFAULT '0',
+	'ffdeaths' smallint(5) DEFAULT '0',
+	'headshotkills' smallint(5) DEFAULT '0',
+	'deaths' smallint(5) DEFAULT '0',
+	'sessionstart' int(10) DEFAULT '0',
+	'totalbonus' smallint(6) DEFAULT '0',
+	'plrid' int(10) DEFAULT '0',
+	'headshotdeaths' smallint(5) DEFAULT '0',
+	'hits' smallint(5) DEFAULT '0',
+	'skill' float(8,2) DEFAULT '0.00',
+	'dataid' int(10) PRIMARY KEY,
+	'ffkills' smallint(5) DEFAULT '0',
+	'kills' smallint(5) DEFAULT '0',
+	'sessionend' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_sessions.plrid' ON ps_plr_sessions ( 'plrid' );
+
+CREATE TABLE 'ps_plr_victims' (
+	'headshotdeaths' smallint(5) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'headshotkills' smallint(5) DEFAULT '0',
+	'deaths' smallint(5) DEFAULT '0',
+	'victimid' int(10) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'kills' smallint(5) DEFAULT '0',
+	'plrid' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_victims.plrid' ON ps_plr_victims ( 'plrid','victimid','statdate' );
+
+CREATE TABLE 'ps_plr_weapons' (
+	'damage' int(10) DEFAULT '0',
+	'shot_head' smallint(5) DEFAULT '0',
+	'shot_stomach' smallint(5) DEFAULT '0',
+	'hits' int(10) DEFAULT '0',
+	'shot_leftarm' smallint(5) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'kills' smallint(5) DEFAULT '0',
+	'shot_rightleg' smallint(5) DEFAULT '0',
+	'shots' int(10) DEFAULT '0',
+	'ffdeaths' smallint(5) DEFAULT '0',
+	'shot_rightarm' smallint(5) DEFAULT '0',
+	'weaponid' smallint(5) DEFAULT '0',
+	'deaths' smallint(5) DEFAULT '0',
+	'headshotkills' smallint(5) DEFAULT '0',
+	'shot_leftleg' smallint(5) DEFAULT '0',
+	'plrid' int(10) DEFAULT '0',
+	'headshotdeaths' smallint(5) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'shot_chest' smallint(5) DEFAULT '0',
+	'ffkills' smallint(5) DEFAULT '0'
+);
+CREATE INDEX 'ps_plr_weapons.plrid' ON ps_plr_weapons ( 'plrid','weaponid','statdate' );
+
+CREATE TABLE 'ps_sessions' (
+	'session_ip' int(10) DEFAULT '0',
+	'session_logged_in' tinyint(1) DEFAULT '0',
+	'session_id' char(32) PRIMARY KEY,
+	'session_is_bot' tinyint(3) DEFAULT '0',
+	'session_start' int(10) DEFAULT '0',
+	'session_last' int(10) DEFAULT '0',
+	'session_userid' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_sessions.session_userid' ON ps_sessions ( 'session_userid' );
+
+CREATE TABLE 'ps_state' (
+	'map' varchar(32),
+	'lastupdate' int(10) DEFAULT '0',
+	'timestamp' int(10) DEFAULT '0',
+	'file' varchar(255),
+	'logsource' varchar(255),
+	'id' smallint(5) PRIMARY KEY,
+	'line' int(11) DEFAULT '0'
+);
+CREATE INDEX 'ps_state.logsource' ON ps_state ( 'logsource' );
+
+CREATE TABLE 'ps_state_plrs' (
+	'uid' smallint(5) DEFAULT '0',
+	'isdead' tinyint(1) DEFAULT '0',
+	'name' varchar(128),
+	'plrid' int(10) DEFAULT '0',
+	'plrsig' varchar(128),
+	'id' smallint(5) DEFAULT '0',
+	'worldid' varchar(32),
+	'team' varchar(32),
+	'role' varchar(32),
+	'ipaddr' int(10) DEFAULT '0'
+);
+CREATE INDEX 'ps_state_plrs.id' ON ps_state_plrs ( 'id' );
+
+CREATE TABLE 'ps_user' (
+	'lastvisit' int(10) DEFAULT '0',
+	'password' varchar(32),
+	'userid' int(11) PRIMARY KEY,
+	'session_last' int(10) DEFAULT '0',
+	'accesslevel' tinyint(2) DEFAULT '0',
+	'username' varchar(64)
+);
+
+CREATE TABLE 'ps_weapon' (
+	'weaponid' smallint(5) PRIMARY KEY,
+	'weight' float(4,2) DEFAULT '0.00',
+	'name' varchar(128),
+	'uniqueid' varchar(32),
+	'class' varchar(32)
+);
+CREATE INDEX 'ps_weapon.uniqueid' ON ps_weapon ( 'uniqueid' );
+
+CREATE TABLE 'ps_weapon_data' (
+	'shot_rightleg' smallint(5) DEFAULT '0',
+	'damage' int(10) DEFAULT '0',
+	'shots' int(10) DEFAULT '0',
+	'shot_rightarm' smallint(5) DEFAULT '0',
+	'headshotkills' smallint(5) DEFAULT '0',
+	'weaponid' smallint(5) DEFAULT '0',
+	'shot_leftleg' smallint(5) DEFAULT '0',
+	'shot_head' smallint(5) DEFAULT '0',
+	'shot_stomach' smallint(5) DEFAULT '0',
+	'hits' int(10) DEFAULT '0',
+	'shot_leftarm' smallint(5) DEFAULT '0',
+	'statdate' date DEFAULT '0000-00-00',
+	'shot_chest' smallint(5) DEFAULT '0',
+	'dataid' int(10) PRIMARY KEY,
+	'ffkills' smallint(5) DEFAULT '0',
+	'kills' smallint(5) DEFAULT '0'
+);
+CREATE INDEX 'ps_weapon_data.weaponid' ON ps_weapon_data ( 'weaponid','statdate' );
+

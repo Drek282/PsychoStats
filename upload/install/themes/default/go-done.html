@@ -1,0 +1,39 @@
+<h2 id="go-hdr"><#Congratulations! PsychoStats has been installed!#></h2>
+<p>
+	PsychoStats version <b>{ps->version}</b> has been successfully installed on your web server!
+</p>
+<p>
+	Before your player statistics start to work you need to setup the PsychoStats backend, which consists of
+	the perl stats.pl script and other libraries that actually process logs and create the statistics for your
+	website. For more information view the INSTALL file included with the PsychoStats archive.
+</p>
+<p>
+	You should also login with your admin user and make sure your PsychoStats configuration is setup the way you want it.
+	You absolutely need to setup a log source at a bare minimum, otherwise PsychoStats won't know where to read your log files from.
+</p>
+<br/>
+<p>
+    <strong style="color:red;">
+        YOU SHOULD DELETE THE "install" FOLDER FROM YOUR WEB DIRECTORY AS SOON AS YOU REACH THE ADMIN LOGIN SCREEN!
+    </strong>
+</p>
+<p>
+    <strong style="color:red;">
+        IT IS AN EXTREME SECURITY RISK AND YOU NO LONGER NEED IT!
+    </strong>
+</p>
+
+<div id='results' style="display: block">
+
+<h3><#A preview of your stats page#></h3>
+<iframe id="preview" src="../index.php" frameborder="0" scrolling="no"></iframe>
+
+</div>
+
+<form action="{$SELF}" method="post">
+<p id="go-ctrl" class="controls">
+	<input id="step" name="s" value="done" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-done" name="done" value="<#Finish and goto ACP#>" type="submit" />
+</p>
+</form>

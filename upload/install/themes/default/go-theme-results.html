@@ -1,0 +1,21 @@
+<p class="row">
+{if $can_write}
+	<span class="good">The compile directory is writable!</span>
+{else}
+	<span class="bad">The compile directory is NOT writable!</span>
+{/if}
+</p>
+{foreach from=$errors item='e'}
+	<p class="row"><span class="bad">{$e|escape}</span></p>
+{/foreach}
+
+<script type="text/javascript">
+	allow_next = {if $can_write or $nosave}true{else}false{/if};
+	compiledir = '{$compiledir|escape:'javascript'}';
+	$('#compiledir').val(compiledir);
+{if $can_write}
+	$('#click-test').slideUp();
+{else}
+	$('#click-test').slideDown();
+{/if}
+</script>

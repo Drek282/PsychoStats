@@ -1,0 +1,131 @@
+<h2 id="go-hdr"><#Save Database Configuration#></h2>
+<p>
+	Your database settings need to be saved to the config.php file located in your PsychoStats website.
+	You must use one of the methods shown below to save your config.
+</p>
+
+<form id="config-form" action="{$SELF}" method="post">
+<div id='results' style="display: block">
+
+{if $is_saved and !$can_write}
+	<h3><#Configuration is Saved#></h3>
+	<p class="row">
+		<span class="good"><#Your database configuration is up to date and does not need to be saved.#></span>
+	</p>
+{else}
+	{* ---- LOCAL CONFIG ----------------------------------------------------- *}
+	<div id="local-block">
+	<h3><#Attempt 1#>: <#Save config locally#></h3>
+	{if $can_write}
+		<p class="row"><span class="good"><#Your configuration has been saved successfully!#> <#Click "Next" to continue!#></span></p>
+	{else}
+		<p id="local-result" class="row"><span class="warn"><#Your configuration can not be saved directly!#></span></p>
+		<p class="row">Local config file: <b>{$real_config_file}</b></p>
+		<p class="row">
+			The web server user {if $web_user}"<b>{$web_user.name}</b>"{/if} does not have permission to write to the
+			config file.
+			Either change the permissions on the file so the web server user can write to it, or try to upload
+			the config.php using the FTP form below.
+		</p>
+	{/if}
+	</div>
+
+	{if !$can_write}	
+		{* ---- FTP CONFIG ----------------------------------------------------- *}
+		<h3><#Attempt 2#>: <#Upload config via FTP server#></h3>
+		{if !$can_ftp}
+			{if !$can_write}
+			<p class="h3">I can not write to the config.php locally and FTP support is disabled.</p>
+			{/if}
+		<p class="row"><span class="bad">Your server does not have FTP support enabled. See <a href="http://php.net/ftp" target="_blank">http://php.net/ftp</a> for more information.</span></p>
+		{else}
+		<p class="h3">Fill in the form and click "Save Config" below to try and upload your configuration..</p>
+		<div id="ftp-result" style="display: none"></div>
+	
+		<div class="config-frame">
+		<h3><#FTP Settings#></h3>
+			<p class="h3">
+			Upload config.php via FTP to your web server. Make sure the settings below match your FTP server settings.
+			</p>
+	
+		<p class="row">
+			<label><#Username#>:</label>
+			<input id="username" name="username" value="{$username|escape}" type="text" class="field" />
+		</p>
+		<p class="row">
+			<label><#Password#>:</label>
+			<input id="password" name="password" type="password" class="field" />
+		</p>
+			<p class="row">
+			<label><#Host#>:</label>
+			<input id="ftphost" name="ftphost" value="{$ftphost|escape}" type="text" class="field" />
+		</p>
+		<p class="row">
+			<label><#Stats Directory#>:</label>
+			<input id="ftpdir" name="ftpdir" value="{$ftpdir|escape}" type="text" class="field" />
+			<span class="sub">Path to your PsychoStats directory where the config.php is located.</span>
+		</p>
+		</div> {* .config-frame *}
+		{/if} {* if $can_ftp *}
+
+	{/if} {* if !$can_write ... *}
+
+{/if} {* if $is_saved else ... *}
+
+	{* ---- MANUAL CONFIG ----------------------------------------------------- *}
+	<h3><#Manually save config#> ( <em><a id="toggle-manual" href="">click here to show config</a></em> )</h3>
+	<p class="h3">
+{if $is_saved}
+	The configuration that was saved can be viewed below.
+{else}
+	Manually saving the config requires you have direct access to the config.php file on this website 
+	(via ssh or local access).
+{/if}
+	</p>
+	<div id="manual" class="config-frame"{if $can_ftp or $can_write} style="display: none"{/if}>
+	<h3><#Copy and Paste Config#></h3>
+	<p class="h3">
+		If you can not upload the config.php file using FTP then you will have to manually copy the 
+		contents of the config seen below into the file <b>{$real_config_file}</b> located on your server. 
+	</p>
+	<p class="row">
+		<span class="sub wide">
+			<strong>Be careful not to include any SPACES or BLANK LINES before or after the <b>&lt;?php</b> <b>?&gt;</b> lines.</strong>
+		</span>
+	</p>
+	<p class="row">
+		<textarea id="config-text" wrap="off" readonly="readonly">{$config_text|escape}</textarea>
+{*
+		<span class="sub wide">
+			<strong class="important">Important!</strong> 
+			If you do not update the config.php with the correct database settings your 
+			PsychoStats site will not work when you try to view it for the first time.
+		</span>
+*}
+	</p>
+	</div> {* #manual .config-frame *}
+
+<div id='db-pending' style='display: none'>
+	<p>Attempting to save config.php . . . </p>
+	<p>Please wait . . .</p>
+</div>
+<div id='db-results' style='display: none'></div>
+</div>
+
+<p id="go-ctrl" class="controls">
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
+	<input name="s_back" value="theme" type="hidden" />
+
+	<input id="btn-save" value="<#Save Config#>" type="button" />
+	<input id="step" name="s" value="done" type="hidden" />
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+</p>
+</form>
+
+<script type="text/javascript">
+	allow_next = {if $allow_next}true{else}false{/if};
+	{if $can_write}
+	$('#btn-save').attr('disabled', 'disabled');
+	{/if}
+</script>

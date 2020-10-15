@@ -1,0 +1,51 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{* 
+<!--optional navigation block-->
+<div id="ps-main-nav">
+	this is the navagation block
+</div>
+{* *}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-index">
+<form action="{url}" method="get">
+	<div id="ps-page-title">
+		<div class="inner">
+		<span>
+			<input id='q-hdr' name="q" value="{if $results}{$results.phrase|escape}{else}{$q|escape}{/if}" class="field search"/>
+			<input name="sort" value="{$sort|escape}" type="hidden" />
+			<input name="order" value="{$order|escape}" type="hidden" />
+{*
+			<input type="image" src="{theme->url}/img/icons/bullet_go.png" style="vertical-align: middle" />
+*}
+		</span>
+		<h1><#Player Statistics#></h1>
+		<h2>
+{if $search}
+			<#Search criteria#> "<em>{$results.phrase|escape}</em>" <#matched#> <strong>{$total.ranked|commify}</strong> <#ranked players out of#> <strong>{$total.all|commify}</strong> <#total#>
+{else}
+			<strong>{$total.ranked|commify}</strong> <#players rank out of#> <strong>{$total.absolute|commify}</strong> <#total#>
+{/if}
+		</h2>
+		</div>
+	</div>
+</form>
+
+	<div class="ps-table-frame no-ani">
+	<div class="ps-table-header">{$pager}</div>
+	<div class="ps-table-inner">
+	{$players_table}
+	</div>
+	{if $total.ranked}<div class="ps-table-footer">{$pager}</div>{/if}
+	</div>
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}
