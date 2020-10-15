@@ -8,6 +8,7 @@ I have, for the most part, tried not to make changes that change the way Psychos
 
 Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained the only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to stormtrooper's email address have been removed.
 
+
 Known Issues
 
 Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
@@ -19,6 +20,14 @@ The events for Firearms and Team Fortress Classic have not been thoroughly analy
 The filter for bots isn't working properly in Natural Selection.
 
 The weapon images TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
+
+
+Future Plans
+
+Heat map overviews and support for Firearms and Team Fortress Classic.
+
+If it's possible, support for Alien Swarm: Reactive Drop.
+
 
 Credits
 
