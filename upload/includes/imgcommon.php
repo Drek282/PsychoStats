@@ -65,7 +65,7 @@ define("CACHE_FILE_GROUP", "");
 //define("BRAND_TIMING", true);	// if true all images will have a timing value on the left footer
 
 // We must load the proper JPGRAPH version depending on our version of PHP
-define("JPGRAPH_DIR", __DIR__ . '/jpg' . substr(PHP_VERSION,0,1));
+define("JPGRAPH_DIR", __DIR__ . '/jpg5');
 
 define("CATCH_PHPERRMSG", false);
 
