@@ -30,7 +30,7 @@ Note that you may have to use the "+jump" command to remove the ready room from 
 
 Creating the Heatmap Overlays:
 
-You create the overlays by starting a listenserver in developer mode.  To start your game you should add the following commands to your game launch options in Steam.  To find those options right click on the game in your games list, choose properties, then click on Set Launch Options:
+You create the overlays by starting a listenserver in developer mode.  To start your game you should add the following commands to your game launch options in Steam.  If you set up Admin Mod or AMXModX then you won't need to add these to your game launch options, other than you might want to add the map.  To find those options right click on the game in your games list, choose properties, then click on Set Launch Options:
 
 -dev -console +map [map name]
 
