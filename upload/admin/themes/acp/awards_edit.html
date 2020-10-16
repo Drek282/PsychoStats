@@ -75,11 +75,9 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 	<label><#Award Phrase#>:</label>
 	<input name="phrase" value="{$form.phrase|escape}" type="text" class="field long" />
 	<p class="small">
-		{literal}
 		The award phrase is what is displayed in the awards listing for the player that won the award and should 
 		contain <b>{$tokens}</b> about the player and/or weapon. 
 		For example: "<em>{$player.link} has the most kills ({$kills} total)</em>".
-		{/literal}
 	</p>
 </div>
 

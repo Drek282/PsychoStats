@@ -19,6 +19,7 @@ Version 3.2.6b (10/15/2020)
 * [Added] Casually Crackers themes specifically designed for Firearms, Natural Selection and Team Fortress Classic.
 * [Added] Drek's Plugin Pack with plugins that add and remove various fields from the stats pages.
 * [Included] wakachamo's and Rosenstein's commits from the wakachamo GitHub repository.
+* [Fixed] Phrase warning on awards edit page in the admin cp.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
