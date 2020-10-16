@@ -205,6 +205,13 @@
 </div>
 </div>
 
+<div id="ps-id-plrsess" class="ps-column-frame{if $shades.s_plrsess} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player Session Chart#></span></a></div>
+<div id="s-plrsess" class="ps-column-content" style="text-align: center">
+	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]" />
+</div>
+</div>
+
 {$player_left_column_mod} {* include this where you want the mod block of stats to appear (left side) *}
 
 <div class="ps-column-sep">

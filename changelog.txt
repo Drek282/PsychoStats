@@ -17,6 +17,7 @@ Version 3.2.6b (10/04/2020)
 * [Updated] Information on GeoIP database in the Google Map section of the Admin CP.
 * [Improved] Changed the fatal error on database reset where the data tables are empty into a warning.
 * [Fixed] Broken player session chart.
+* [Reinstated] Player session chart to the CC themes.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
