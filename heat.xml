@@ -1063,4 +1063,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='obj_sweden'>
+  <minx>-4040</minx>
+  <miny>-1285</miny>
+  <maxx>3600</maxx>
+  <maxy>3560</maxy>
+  <res>600x378</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
