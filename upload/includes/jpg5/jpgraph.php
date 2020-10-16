@@ -6172,7 +6172,7 @@ class Image {
 	    }
 	}
 	else {
-	    if( preg_match('\n',$txt) ) { 
+	    if( preg_match('~\R~u',$txt) ) { 
 		$tmp = explode("\n",$txt);
 		for($i=0; $i < count($tmp); ++$i) {
 		    $w1 = $this->GetTextWidth($tmp[$i]);
