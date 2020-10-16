@@ -1,25 +1,22 @@
 --- DREK ---
 
-Version 3.2.6b (10/15/2020)
+
+Version 3.2.6b (10/04/2020)
 * [Added] Missing Team Fortress Classic weapon images.
 * [Fixed] Removed duplicate entries from heat.xml.
 * [Fixed] Team joins now work for Firearms.
 * [Added] Roles support for Team Fortress Classic.
 * [Added] Support for Firearms specific events, awards and bonuses.
 * [Added] Support for Team Fortress Classic specific events, awards and bonuses.
-* [Improved] Expanded the definition of a bot in the is_bot subroutine.
+* [Added] Expanded the definition of a bot in the is_bot subroutine.
 * [Fixed] Broken awards editing in the Admin CP.
 * [Improved] A lot of stats now only display if they are present in the game logs.
 * [Changed] Default colours for dual_bar from red and green to red and blue.
 * [Added] Forceful warnings regarding the web "install" directory.
 * [Updated] Information on Google API key which is now a payed service.
 * [Updated] Information on GeoIP database in the Google Map section of the Admin CP.
-* [Improved] Changed the fatal error on database reset where data tables are empty, into a warning.
-* [Improved] Changed the precision on bonuses to one decimal place.
-* [Added] Casually Crackers themes specifically designed for Firearms, Natural Selection and Team Fortress Classic.
-* [Added] Drek's Plugin Pack with plugins that add and remove various fields from the stats pages.
-* [Included] wakachamo's and Rosenstein's commits from the wakachamo GitHub repository.
-* [Fixed] Phrase warning on awards edit page in the Admin CP.
+* [Improved] Changed the fatal error on database reset where the data tables are empty into a warning.
+* [Fixed] Broken player session chart.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
