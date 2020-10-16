@@ -23,6 +23,8 @@ The weapon images TFC are hack jobs mostly stolen from TF2. I'm not an artist an
 
 The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
 
+The Firearms obj_bocage heat map is screwed.  I have no idea why.
+
 
 Future Plans
 
