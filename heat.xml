@@ -1046,11 +1046,20 @@
   <fliph>0</fliph>
  </map>
  <map name='obj_bocage'>
-  <minx>-1530</minx>
-  <miny>-4615</miny>
-  <maxx>3160</maxx>
-  <maxy>4095</maxy>
+  <minx>-1730</minx>
+  <miny>-3915</miny>
+  <maxx>3860</maxx>
+  <maxy>3895</maxy>
   <res>600x411</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='tc_iwojima'>
+  <minx>-3130</minx>
+  <miny>-1015</miny>
+  <maxx>1880</maxx>
+  <maxy>1650</maxy>
+  <res>600x326</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
