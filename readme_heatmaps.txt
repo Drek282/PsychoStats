@@ -30,13 +30,13 @@ Note that you may have to use the "+jump" command to remove the ready room from 
 
 Creating the Heatmap Overlays:
 
-You create the overlays by starting a listenserver in developer mode.  To start your game you should add the following commands to your game launch options in Steam.  If you set up Admin Mod or AMXModX then you won't need to add these to your game launch options, other than you might want to add the map.  To find those options right click on the game in your games list, choose properties, then click on Set Launch Options:
+You create the overlays by starting a listenserver in developer mode.  To start your game you should add the following commands to your game launch options in Steam.  To find those options right click on the game in your games list, choose properties, then click on Set Launch Options:
 
 -dev -console +map [map name]
 
 Valve suggests setting your video resolution to 1024x768 32 to generate the overview.
 
-Noclip is a very valuable tool when you are trying to get the coords of the map.  noclip is not available on most mods, however, you can get it by installing Admin Mod, or AMXModX with the AdminModX plugin.  I'm not going to go into details here on how to do that, other than to say I would recommend Admin Mod and you will need to enable the cheats plugin.  Your user on a listenserver will be "STEAM_ID_LAN".  If you are working with a mod that isn't one of the popular mods, you will want to use Metamod-P.  You can google that.
+Noclip is a very valuable tool when you are trying to get the coords of the map.  noclip is not available on most mods, however, you can get it by installing Admin Mod, or AMXModX with the AdminModX plugin.  I'm not going to go into details here on how to do that, other than to say I would recommend Admin Mod and you will need to enable the cheats plugin.  Your user on a listenserver will be "STEAM_ID_LAN".  If you are working with a mod that isn't one of the popular mods, you will want to use Metamod-P.  You can google that.  If you do this, leave out the "-dev" in your launch options.
 
 To see the overview use the following commands in the console:
 
