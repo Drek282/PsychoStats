@@ -1081,4 +1081,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='sd_durandal'>
+  <minx>-2820</minx>
+  <miny>-3965</miny>
+  <maxx>3980</maxx>
+  <maxy>1255</maxy>
+  <res>600x290</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
