@@ -32,6 +32,8 @@ Future Plans
 
 Heat map overviews and support for Firearms and Team Fortress Classic.
 
+Add support for team wins on maps other than push maps for Firearms.
+
 If it's possible, support for Alien Swarm: Reactive Drop.
 
 
