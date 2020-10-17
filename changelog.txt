@@ -20,6 +20,7 @@ Version 3.2.6b (in progress)
 * [Reinstated] Player session chart to the CC themes.
 * [Added] wakachamo's cod fixes from Aug 30, 2012
 * [Fixed] Rosenstein's fix for SQL injection vulnerability from Jul 11, 2013
+* [Fixed] Broken warnings in awards edit page in the Admin CP.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
