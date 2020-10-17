@@ -364,6 +364,9 @@ sub event_teamtrigger {
 	$self->plrbonus($trigger, 'enactor_team', $enactor_team, 'victim_team', $victim_team);
 }
 
+# Ignore for now
+sub event_firearms_endgame { }
+
 sub has_mod_tables { 1 }
 
 1;
