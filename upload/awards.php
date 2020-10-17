@@ -67,7 +67,7 @@ foreach ($list as $a) {
 unset($list);
 
 // no date or the string is invalid?
-if (empty($d) or !preg_match('/\d\d\d\d-\d\d?-\d\d?/', $d)) {
+if (empty($d) or !preg_match('/^\d\d\d\d-\d\d?-\d\d?$/', $d)) {
 	$d = date('Y-m-d');
 //	$d = $range[$v]['max'];
 }
