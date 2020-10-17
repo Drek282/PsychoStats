@@ -854,66 +854,6 @@ sub event_plrtrigger {
 	}
 }
 
-# this event is triggered after a round has been completed and a team won
-sub event_tfc_mapinfo {
-	my ($self, $timestamp, $args) = @_;
-	my ($mapname, $propstr) = @$args;
-	my $props = $self->parseprops($propstr);
-	my $m = $self->get_map;
-	my $blue = $self->get_team('blue', 1);
-	my $red  = $self->get_team('red', 1);
-	my $green = $self->get_team('green', 1);
-	my $yellow  = $self->get_team('yellow', 1);
-	my ($p1, $p2, $p3, $p4, $bluevar, $redvar, $greenvar, $yellowvar, $won, $lost);
-
-	if ($props->{victory_team} eq 'blue') {
-		$won  = $blue;
-		$bluevar = 'bluewon';
-		$redvar = 'redlost';
-		$greenvar = 'greenlost';
-		$yellowvar = 'yellowlost';
-	} elsif ($props->{victory_team} eq 'red') {
-		$won  = $red;
-		$redvar = 'redwon';
-		$bluevar = 'bluelost';
-		$greenvar = 'greenlost';
-		$yellowvar = 'yellowlost';
-    } elsif ($props->{victory_team} eq 'green') {
-		$won  = $green;
-		$greenvar = 'greenwon';
-		$bluevar = 'bluelost';
-		$redvar = 'redlost';
-		$yellowvar = 'yellowlost';
-    } else {
-		$won  = $yellow;
-		$yellowvar = 'yellowwon';
-		$greenvar = 'greenlost';
-		$bluevar = 'bluelost';
-		$redvar = 'redlost';
-	}
-	$self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
-
-	# assign won/lost points ...
-	$m->{mod}{$bluevar}++;
-	$m->{mod}{$redvar}++;
-	foreach (@$blue) {
-		$_->{mod}{$bluevar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$bluevar}++;		
-	}
-	foreach (@$red) {
-		$_->{mod}{$redvar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$redvar}++;		
-	}
-	foreach (@$green) {
-		$_->{mod}{$greenvar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$greenvar}++;		
-	}
-	foreach (@$yellow) {
-		$_->{mod}{$yellowvar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$yellowvar}++;		
-	}
-}
-
 sub event_tfc_teamscore {
 	my ($self, $timestamp, $args) = @_;
 	my ($team, $score, $numplrs) = @$args;
