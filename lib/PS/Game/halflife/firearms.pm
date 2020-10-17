@@ -323,9 +323,10 @@ sub event_teamtrigger {
 	$team =~ tr/ /_/;				# convert spaces to _ on team names (some mods are known to do this)
 	$team =~ tr/a-z0-9_//cs;			# remove all non-alphanumeric characters
 	$trigger = lc $trigger;
-
+    
+	# Ignored for now
 	if ($trigger eq 'teamgoal') {
-
+        
 	} elsif ($trigger eq "capturedallpoints") {
 		return unless $team eq 'red_force' or $team eq 'blue_force';
 		my $team2 = $team eq 'blue_force' ? 'red_force' : 'blue_force';
@@ -361,47 +362,6 @@ sub event_teamtrigger {
 	}
 
 	$self->plrbonus($trigger, 'enactor_team', $enactor_team, 'victim_team', $victim_team);
-}
-
-# this event is triggered after a game has been completed and a team won
-sub event_firearms_mapinfo {
-	my ($self, $timestamp, $args) = @_;
-	my ($mapname, $propstr) = @$args;
-	my $props = $self->parseprops($propstr);
-	my $m = $self->get_map;
-	my $blue_force = $self->get_team('blue_force', 1);
-	my $red_force  = $self->get_team('red_force', 1);
-	my ($p1, $p2, $blue_forcevar, $red_forcevar, $won, $lost);
-
-	if ($props->{victory_team} eq 'blue_force') {
-		$won  = $blue_force;
-		$blue_forcevar = 'blue_forcewon';
-		$red_forcevar = 'red_forcelost';
-	} elsif ($props->{victory_team} eq 'red_force') {
-		$won  = $red_force;
-		$red_forcevar = 'red_forcewon';
-		$blue_forcevar = 'blue_forcelost';
-    }
-	$self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
-
-	# assign won/lost points ...
-	$m->{mod}{$blue_forcevar}++;
-	$m->{mod}{$red_forcevar}++;
-	foreach (@$blue_force) {
-		$_->{mod}{$blue_forcevar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$blue_forcevar}++;		
-	}
-	foreach (@$red_force) {
-		$_->{mod}{$red_forcevar}++;
-		$_->{mod_maps}{ $m->{mapid} }{$red_forcevar}++;		
-	}
-	
-    $m->{mod}{$blue_forcevar}++;
-    $m->{mod}{$red_forcevar}++;
-    $m->{basic}{rounds}++;
-    
-    # Reset round start.
-    $self->{roundstart} = 0;
 }
 
 sub has_mod_tables { 1 }
