@@ -1,7 +1,7 @@
 #
 #	This file is part of PsychoStats.
 #
-#	Written by Jason Morriss <stormtrooper@psychostats.com>
+#	Written by Jason Morriss
 #	Copyright 2008 Jason Morriss
 #
 #	PsychoStats is free software: you can redistribute it and/or modify
