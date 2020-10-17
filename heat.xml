@@ -1072,4 +1072,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='ps_storm_r1'>
+  <minx>-3950</minx>
+  <miny>-1895</miny>
+  <maxx>4000</maxx>
+  <maxy>1890</maxy>
+  <res>600x290</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
