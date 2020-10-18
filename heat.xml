@@ -1054,21 +1054,30 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
- <map name='tc_iwojima'>
-  <minx>-3130</minx>
-  <miny>-1015</miny>
-  <maxx>1880</maxx>
-  <maxy>1650</maxy>
-  <res>600x326</res>
-  <flipv>1</flipv>
-  <fliph>0</fliph>
- </map>
  <map name='obj_sweden'>
   <minx>-4040</minx>
   <miny>-1285</miny>
   <maxx>3600</maxx>
   <maxy>3560</maxy>
   <res>600x378</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='obj_thanatos'>
+  <minx>-4040</minx>
+  <miny>-1285</miny>
+  <maxx>3600</maxx>
+  <maxy>3560</maxy>
+  <res>600x591</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ps_bridge'>
+  <minx>-3885</minx>
+  <miny>-3860</miny>
+  <maxx>3445</maxx>
+  <maxy>3705</maxy>
+  <res>600x457</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1087,6 +1096,15 @@
   <maxx>3980</maxx>
   <maxy>1255</maxy>
   <res>600x290</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='tc_iwojima'>
+  <minx>-3130</minx>
+  <miny>-1015</miny>
+  <maxx>1880</maxx>
+  <maxy>1650</maxy>
+  <res>600x326</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
