@@ -325,7 +325,12 @@ sub event_teamtrigger {
 	$trigger = lc $trigger;
     
 	# Ignore for now
+	# getting somewhere
 	if ($trigger eq 'teamgoal') {
+#		return unless $team eq 'red_force' or $team eq 'blue_force';
+#		my $var = $team . 'score';
+		
+#		$m->{mod}{$var}++;
 		
 	} elsif ($trigger eq "capturedallpoints") {
 		return unless $team eq 'red_force' or $team eq 'blue_force';
