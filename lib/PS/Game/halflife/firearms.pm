@@ -324,9 +324,9 @@ sub event_teamtrigger {
 	$team =~ tr/a-z0-9_//cs;			# remove all non-alphanumeric characters
 	$trigger = lc $trigger;
     
-	# Ignored for now
+	# Ignore for now
 	if ($trigger eq 'teamgoal') {
-        
+		
 	} elsif ($trigger eq "capturedallpoints") {
 		return unless $team eq 'red_force' or $team eq 'blue_force';
 		my $team2 = $team eq 'blue_force' ? 'red_force' : 'blue_force';
