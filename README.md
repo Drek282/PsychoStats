@@ -23,7 +23,7 @@ The events for Firearms and Team Fortress Classic have not been thoroughly analy
 
 The filter for bots isn't working properly in Natural Selection.
 
-The weapon images TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
+The weapon images for TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
 
 The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
 
