@@ -31,6 +31,8 @@ The Flash hit box graphic no longer works on most browsers because Flash is abou
 
 The Firearms heatmaps have not all been tested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
 
+Editing users in the Admin CP is broken.
+
 
 Future Plans
 
