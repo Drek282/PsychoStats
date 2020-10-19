@@ -226,6 +226,10 @@ The order of commands does not matter.
 
 Specifies the brush size to use. 'medium' is used by default.
 
+=item B<-cold>
+
+Generates a blue heatmap.  Useful for diferentiating between victim and killer heatmaps.
+
 =item B<-date> [string]
 
 Defines the date to collect heat map data for. Must be in 'YYYY-MM-DD' format.
@@ -285,6 +289,15 @@ Scale factor of the heat map. The higher the scale factor the smaller
 the heat map. A scale of 1 means the heat map will be the same size as the 
 map overlay image. 2 is half the size, etc. Each step in scale reduces the 
 size by half. The lower the scale the longer it takes to process the heatmap.
+
+=item B<-who='victim|killer'>
+
+The default heatmap is a killer map that shows the location of deaths.
+If you specify -who='killer' you will generate a heatmap that shows the
+location of killers.  This can be used with the -cold switch to generate a
+map that is coloured differently, to avoid confusion.  You can generate both
+victim and killer maps and the heatmap will give the user the option of which
+they wish to view
 
 =item B<-xmlpath> [path]
 
