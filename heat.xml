@@ -1072,6 +1072,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='obj_vengeance'>
+  <minx>-3500</minx>
+  <miny>-3925</miny>
+  <maxx>3115</maxx>
+  <maxy>3985</maxy>
+  <res>600x503</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='ps_bridge'>
   <minx>-3885</minx>
   <miny>-3860</miny>
