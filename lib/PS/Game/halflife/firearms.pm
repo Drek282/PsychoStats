@@ -27,6 +27,8 @@ use base qw( PS::Game::halflife );
 use util qw( :net );
 
 our $VERSION = '1.00';
+our $RF_SCORE = 0;
+our $BF_SCORE = 0;
 
 
 sub _init { 
@@ -327,10 +329,15 @@ sub event_teamtrigger {
 	# Ignore for now
 	# getting somewhere
 	if ($trigger eq 'teamgoal') {
-#		return unless $team eq 'red_force' or $team eq 'blue_force';
-#		my $var = $team . 'score';
+		return unless $team eq 'red_force' or $team eq 'blue_force';
 		
-#		$m->{mod}{$var}++;
+		if ($team eq 'red_force') {
+            $RF_SCORE++;
+            print $m->{mapid} . " / " . $team . ": " . $RF_SCORE . "\n";
+        } else {
+            $BF_SCORE++;
+            print $m->{mapid} . " / " . $team . ": " . $BF_SCORE . "\n";
+        }
 		
 	} elsif ($trigger eq "capturedallpoints") {
 		return unless $team eq 'red_force' or $team eq 'blue_force';
@@ -369,8 +376,70 @@ sub event_teamtrigger {
 	$self->plrbonus($trigger, 'enactor_team', $enactor_team, 'victim_team', $victim_team);
 }
 
-# Ignore for now
-sub event_firearms_endgame { }
+# catures the pausable 0 cvar
+# hacky and kludgy but the best I could come up with
+sub event_endgame {
+    
+    print "EG RF\: " . $RF_SCORE . "\n";
+    print "EG BF\: " . $BF_SCORE . "\n";
+    
+    
+    
+	my ($self, $timestamp, $args) = @_;
+	my ($team, $numplrs) = @$args;
+	$team = lc $team;
+
+	my $m = $self->get_map;
+	my $teams = {
+		red_force	=> $self->get_team('red_force', 1) || [],
+		blue_force	=> $self->get_team('blue_force',   1) || [],
+	};
+
+#	print "allies = " . scalar(@{$self->get_team('allies', 1)}) . "\n";
+#	print "axis   = " . scalar(@{$self->get_team('axis', 1)}) . "\n";
+
+	# increase everyone's rounds
+	$m->{basic}{rounds}++;
+	for (@{$teams->{red_force}}, @{$teams->{red_force}}) {
+		$_->{basic}{rounds}++;
+		$_->{maps}{ $m->{mapid} }{rounds}++;
+	}
+
+	# determine who won and lost
+	my ($won, $lost, $teamwon, $teamlost);
+	if ($RF_SCORE > $BF_SCORE) {
+		$teamwon  = 'red_force';
+		$teamlost = 'blue_force';
+		$won  = $teams->{ $teamwon };
+		$lost = $teams->{ $teamlost };
+	} elsif ($BF_SCORE > $RF_SCORE) {
+		$teamwon  = 'blue_force';
+		$teamlost = 'red_force';
+		$won  = $teams->{ $teamwon };
+		$lost = $teams->{ $teamlost };
+	} else {
+		# do mot count 'draws'
+	}
+
+	# clear the previous team scores
+    $RF_SCORE = 0;
+    $BF_SCORE = 0;
+
+	return unless $teamwon;	# no one 'won'; it's a draw.
+
+	# assign won/lost values to all players
+	$m->{mod}{$teamwon  . 'won'}++;
+	$m->{mod}{$teamlost . 'lost'}++;
+	for (@$won) {
+		$_->{mod}{$teamwon.'won'}++;
+		$_->{mod_maps}{ $m->{mapid} }{$teamwon.'won'}++;
+	}
+	for (@$lost) {
+		$_->{mod}{$teamlost.'lost'}++;
+		$_->{mod_maps}{ $m->{mapid} }{$teamlost.'lost'}++;
+	}
+	$self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
+}
 
 sub has_mod_tables { 1 }
 
