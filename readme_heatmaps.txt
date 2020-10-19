@@ -9,6 +9,8 @@ To generate the heatmaps all you need to do is configure them as you wish in the
 
 If you store the heatmaps in a folder it must be readable by the webserver software, and in a folder that it can serve, and you must enter the same absolute path into your Admin, Heatmaps, Directory field, in the web administration interface for your stats.  Note that this folder is not the same folder as the folder you store your overlays in (the map overview images).
 
+If you add "-who='killer' -cold" command line switches when you run heat.pl you can generate a very cool, no pun intended, heatmap that shows where the killers are in blue.  This heatmap is saved separately from the default 'victim' heatmap and the web gui will allow the user to choose which map they want to view from the drop down web gui heatmap menu.
+
 
 Creating the Heatmap Overlays:
 
