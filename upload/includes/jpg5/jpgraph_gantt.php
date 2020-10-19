@@ -2817,4 +2817,957 @@ class GanttScale {
 	    $this->tableTitle->Align("center","top");
 	    $this->tableTitle->Stroke($img,$xt+($xb-$xt)/2+1,$yt+2);		
 	    $img->SetColor($this->iTableHeaderFrameColor);
-	    $img->SetLineWeight($this->iTableHeaderF
+	    $img->SetLineWeight($this->iTableHeaderFrameWeight);
+	    $img->Rectangle($xt,$yt,$xb,$yb);
+	}
+
+	$this->actinfo->Stroke($img,$xt,$yt,$xb,$yb,$this->tableTitle->iShow);
+
+
+	// Draw the horizontal dividing line		
+	$this->dividerh->Stroke($img,$xt,$yb,$img->width-$img->right_margin,$yb);		
+		
+	// Draw the vertical dividing line
+	// We do the width "manually" since we want the line only to grow
+	// to the left
+	$fancy = $this->divider->iStyle == 'fancy' ;
+	if( $fancy ) {
+	    $this->divider->iStyle = 'solid';
+	}
+
+	$tmp = $this->divider->iWeight;	
+	$this->divider->iWeight=1;
+	$y = $img->height-$img->bottom_margin;
+	for($i=0; $i < $tmp; ++$i ) {
+	    $this->divider->Stroke($img,$xb-$i,$yt,$xb-$i,$y);
+	}
+
+	// Should we draw "fancy" divider
+	if( $fancy ) {
+	    $img->SetLineWeight(1);
+	    $img->SetColor($this->iTableHeaderFrameColor);
+	    $img->Line($xb,$yt,$xb,$y);
+	    $img->Line($xb-$tmp+1,$yt,$xb-$tmp+1,$y);
+	    $img->SetColor('white');
+	    $img->Line($xb-$tmp+2,$yt,$xb-$tmp+2,$y);
+	}
+    }
+
+    // Main entry point to stroke scale
+    function Stroke() {
+	if( !$this->IsRangeSet() )
+	    JpGraphError::RaiseL(6022);
+//("Gantt scale has not been specified.");
+	$img=$this->iImg;
+
+	// If minutes are displayed then hour interval must be 1
+	if( $this->IsDisplayMinute() && $this->hour->GetIntervall() > 1 ) {
+	    JpGraphError::RaiseL(6023);
+//('If you display both hour and minutes the hour intervall must be 1 (Otherwise it doesn\' make sense to display minutes).');
+	}
+		
+	// Stroke all headers. As argument we supply the offset from the
+	// top which depends on any previous headers
+	
+	// First find out the height of each header
+	$offy=$this->StrokeYears(0,true);
+	$offm=$this->StrokeMonths($offy,true);
+	$offw=$this->StrokeWeeks($offm,true);
+	$offd=$this->StrokeDays($offw,true);
+	$offh=$this->StrokeHours($offd,true);
+	$offmin=$this->StrokeMinutes($offh,true);
+
+
+	// ... then we can stroke them in the "backwards order to ensure that
+	// the larger scale gridlines is stroked over the smaller scale gridline
+	$this->StrokeMinutes($offh);
+	$this->StrokeHours($offd);
+	$this->StrokeDays($offw);
+	$this->StrokeWeeks($offm);		
+	$this->StrokeMonths($offy);		
+	$this->StrokeYears(0);
+
+	// Now when we now the oaverall size of the scale headers
+	// we can stroke the overall table headers
+	$this->StrokeTableHeaders($offmin);
+		
+	// Now we can calculate the correct scaling factor for each vertical position
+	$this->iAvailableHeight = $img->height - $img->top_margin - $img->bottom_margin - $offd;		
+	$this->iVertHeaderSize = $offmin;
+	if( $this->iVertSpacing == -1 )
+	    $this->iVertSpacing = $this->iAvailableHeight / $this->iVertLines;
+    }	
+}
+
+
+//===================================================
+// CLASS GanttConstraint
+// Just a structure to store all the values for a constraint
+//===================================================
+class GanttConstraint {
+    public $iConstrainRow;
+    public $iConstrainType;
+    public $iConstrainColor;
+    public $iConstrainArrowSize;
+    public $iConstrainArrowType;
+
+//---------------
+// CONSTRUCTOR
+    function GanttConstraint($aRow,$aType,$aColor,$aArrowSize,$aArrowType){
+	$this->iConstrainType = $aType;
+	$this->iConstrainRow = $aRow;
+	$this->iConstrainColor=$aColor;
+	$this->iConstrainArrowSize=$aArrowSize;
+	$this->iConstrainArrowType=$aArrowType;
+    }
+}
+
+
+//===================================================
+// CLASS GanttPlotObject
+// The common signature for a Gantt object
+//===================================================
+class GanttPlotObject {
+    public $title,$caption;
+    public $csimarea='',$csimtarget='',$csimalt='';
+    public $constraints = array();    
+    public $iCaptionMargin=5;
+    public $iConstrainPos=array();
+    protected $iStart="";				// Start date
+    public $iVPos=0;					// Vertical position
+    protected $iLabelLeftMargin=2;	// Title margin
+		
+    function GanttPlotObject() {
+ 	$this->title = new TextProperty();
+	$this->title->Align("left","center");
+	$this->caption = new TextProperty();
+    }
+
+    function GetCSIMArea() {
+	return $this->csimarea;
+    }
+
+    function SetCSIMTarget($aTarget,$aAlt='') {
+	if( !is_string($aTarget) ) {
+	    $tv = substr(var_export($aTarget,true),0,40);
+	    JpGraphError::RaiseL(6024,$tv);
+//('CSIM Target must be specified as a string.'."\nStart of target is:\n$tv");
+	}
+	if( !is_string($aAlt) ) {
+	    $tv = substr(var_export($aAlt,true),0,40);
+	    JpGraphError::RaiseL(6025,$tv);
+//('CSIM Alt text must be specified as a string.'."\nStart of alt text is:\n$tv");
+	}
+
+        $this->csimtarget=$aTarget;
+        $this->csimalt=$aAlt;
+    }
+    
+    function SetCSIMAlt($aAlt) {
+	if( !is_string($aAlt) ) {
+	    $tv = substr(var_export($aAlt,true),0,40);
+	    JpGraphError::RaiseL(6025,$tv);
+//('CSIM Alt text must be specified as a string.'."\nStart of alt text is:\n$tv");
+	}
+        $this->csimalt=$aAlt;
+    }
+
+    function SetConstrain($aRow,$aType,$aColor='black',$aArrowSize=ARROW_S2,$aArrowType=ARROWT_SOLID) {
+	$this->constraints[] = new GanttConstraint($aRow, $aType, $aColor, $aArrowSize, $aArrowType);
+    }
+
+    function SetConstrainPos($xt,$yt,$xb,$yb) {
+	$this->iConstrainPos = array($xt,$yt,$xb,$yb);
+    }
+
+    /*
+    function GetConstrain() {
+	return array($this->iConstrainRow,$this->iConstrainType);
+    }
+    */
+	
+    function GetMinDate() {
+	return $this->iStart;
+    }
+
+    function GetMaxDate() {
+	return $this->iStart;
+    }
+	
+    function SetCaptionMargin($aMarg) {
+	$this->iCaptionMargin=$aMarg;
+    }
+
+    function GetAbsHeight($aImg) {
+	return 0; 
+    }
+	
+    function GetLineNbr() {
+	return $this->iVPos;
+    }
+
+    function SetLabelLeftMargin($aOff) {
+	$this->iLabelLeftMargin=$aOff;
+    }		
+
+    function StrokeActInfo($aImg,$aScale,$aYPos) {
+	$cols=array();
+	$aScale->actinfo->GetColStart($aImg,$cols,true);
+	$this->title->Stroke($aImg,$cols,$aYPos);		
+    }
+}
+
+//===================================================
+// CLASS Progress
+// Holds parameters for the progress indicator 
+// displyed within a bar
+//===================================================
+class Progress {
+    public $iProgress=-1;
+    public $iPattern=GANTT_SOLID;
+    public $iColor="black", $iFillColor='black';
+    public $iDensity=98, $iHeight=0.65; 
+	
+    function Set($aProg) {
+	if( $aProg < 0.0 || $aProg > 1.0 )
+	    JpGraphError::RaiseL(6027);
+//("Progress value must in range [0, 1]");
+	$this->iProgress = $aProg;
+    }
+
+    function SetPattern($aPattern,$aColor="blue",$aDensity=98) {		
+	$this->iPattern = $aPattern;
+	$this->iColor = $aColor;
+	$this->iDensity = $aDensity;
+    }
+
+    function SetFillColor($aColor) {
+	$this->iFillColor = $aColor;
+    }
+	
+    function SetHeight($aHeight) {
+	$this->iHeight = $aHeight;
+    }
+}
+
+DEFINE('GANTT_HGRID1',0);
+DEFINE('GANTT_HGRID2',1);
+
+//===================================================
+// CLASS HorizontalGridLine
+// Responsible for drawinf horizontal gridlines and filled alternatibg rows
+//===================================================
+class HorizontalGridLine {
+    private $iGraph=NULL;
+    private $iRowColor1 = '', $iRowColor2 = '';
+    private $iShow=false;
+    private $line=null;
+    private $iStart=0; // 0=from left margin, 1=just along header
+
+    function HorizontalGridLine() {
+	$this->line = new LineProperty();
+	$this->line->SetColor('gray@0.4');
+	$this->line->SetStyle('dashed');
+    }
+    
+    function Show($aShow=true) {
+	$this->iShow = $aShow;
+    }
+
+    function SetRowFillColor($aColor1,$aColor2='') {
+	$this->iRowColor1 = $aColor1;
+	$this->iRowColor2 = $aColor2;
+    }
+
+    function SetStart($aStart) {
+	$this->iStart = $aStart;
+    }
+
+    function Stroke($aImg,$aScale) {
+	
+	if( ! $this->iShow ) return;
+
+	// Get horizontal width of line
+	/*
+	$limst = $aScale->iStartDate;
+	$limen = $aScale->iEndDate;
+	$xt = round($aScale->TranslateDate($aScale->iStartDate));
+	$xb = round($aScale->TranslateDate($limen)); 
+	*/
+
+	if( $this->iStart === 0 ) {
+	    $xt = $aImg->left_margin-1;
+	}
+	else {
+	    $xt = round($aScale->TranslateDate($aScale->iStartDate))+1;
+	}
+
+	$xb = $aImg->width-$aImg->right_margin;
+
+	$yt = round($aScale->TranslateVertPos(0));
+	$yb = round($aScale->TranslateVertPos(1));	    
+	$height = $yb - $yt;
+
+	// Loop around for all lines in the chart
+	for($i=0; $i < $aScale->iVertLines; ++$i ) {
+	    $yb = $yt - $height;
+	    $this->line->Stroke($aImg,$xt,$yb,$xb,$yb);
+	    if( $this->iRowColor1 !== '' ) {
+		if( $i % 2 == 0 ) {
+		    $aImg->PushColor($this->iRowColor1);
+		    $aImg->FilledRectangle($xt,$yt,$xb,$yb);
+		    $aImg->PopColor();
+		}
+		elseif( $this->iRowColor2 !== '' ) {
+		    $aImg->PushColor($this->iRowColor2);
+		    $aImg->FilledRectangle($xt,$yt,$xb,$yb);
+		    $aImg->PopColor();
+		}
+	    }
+	    $yt = round($aScale->TranslateVertPos($i+1));
+	}
+	$yb = $yt - $height;
+	$this->line->Stroke($aImg,$xt,$yb,$xb,$yb);
+    }
+}
+
+
+//===================================================
+// CLASS GanttBar
+// Responsible for formatting individual gantt bars
+//===================================================
+class GanttBar extends GanttPlotObject {
+    public $progress;
+    public $leftMark,$rightMark;
+    private $iEnd;
+    private $iHeightFactor=0.5;
+    private $iFillColor="white",$iFrameColor="black";
+    private $iShadow=false,$iShadowColor="darkgray",$iShadowWidth=1,$iShadowFrame="black";
+    private $iPattern=GANTT_RDIAG,$iPatternColor="blue",$iPatternDensity=95;
+//---------------
+// CONSTRUCTOR	
+    function GanttBar($aPos,$aLabel,$aStart,$aEnd,$aCaption="",$aHeightFactor=0.6) {
+	parent::GanttPlotObject();	
+	$this->iStart = $aStart;	
+	// Is the end date given as a date or as number of days added to start date?
+	if( is_string($aEnd) ) {
+	    // If end date has been specified without a time we will asssume
+	    // end date is at the end of that date
+	    if( strpos($aEnd,':') === false )
+		$this->iEnd = strtotime($aEnd)+SECPERDAY-1;
+	    else 
+		$this->iEnd = $aEnd;
+	}
+	elseif(is_int($aEnd) || is_float($aEnd) ) 
+	    $this->iEnd = strtotime($aStart)+round($aEnd*SECPERDAY);
+	$this->iVPos = $aPos;
+	$this->iHeightFactor = $aHeightFactor;
+	$this->title->Set($aLabel);
+	$this->caption = new TextProperty($aCaption);
+	$this->caption->Align("left","center");
+	$this->leftMark =new PlotMark();
+	$this->leftMark->Hide();
+	$this->rightMark=new PlotMark();
+	$this->rightMark->Hide();
+	$this->progress = new Progress();
+    }
+	
+//---------------
+// PUBLIC METHODS	
+    function SetShadow($aShadow=true,$aColor="gray") {
+	$this->iShadow=$aShadow;
+	$this->iShadowColor=$aColor;
+    }
+    
+    function GetMaxDate() {
+	return $this->iEnd;
+    }
+	
+    function SetHeight($aHeight) {
+	$this->iHeightFactor = $aHeight;
+    }
+
+    function SetColor($aColor) {
+	$this->iFrameColor = $aColor;
+    }
+
+    function SetFillColor($aColor) {
+	$this->iFillColor = $aColor;
+    }
+
+    function GetAbsHeight($aImg) {
+	if( is_int($this->iHeightFactor) || $this->leftMark->show || $this->rightMark->show ) {
+	    $m=-1;
+	    if( is_int($this->iHeightFactor) )
+		$m = $this->iHeightFactor;
+	    if( $this->leftMark->show ) 
+		$m = max($m,$this->leftMark->width*2);
+	    if( $this->rightMark->show ) 
+		$m = max($m,$this->rightMark->width*2);
+	    return $m;
+	}
+	else
+	    return -1;
+    }
+	
+    function SetPattern($aPattern,$aColor="blue",$aDensity=95) {		
+	$this->iPattern = $aPattern;
+	$this->iPatternColor = $aColor;
+	$this->iPatternDensity = $aDensity;
+    }
+
+    function Stroke($aImg,$aScale) {
+	$factory = new RectPatternFactory();
+	$prect = $factory->Create($this->iPattern,$this->iPatternColor);
+	$prect->SetDensity($this->iPatternDensity);
+
+	// If height factor is specified as a float between 0,1 then we take it as meaning
+	// percetage of the scale width between horizontal line.
+	// If it is an integer > 1 we take it to mean the absolute height in pixels
+	if( $this->iHeightFactor > -0.0 && $this->iHeightFactor <= 1.1)
+	    $vs = $aScale->GetVertSpacing()*$this->iHeightFactor;
+	elseif(is_int($this->iHeightFactor) && $this->iHeightFactor>2 && $this->iHeightFactor < 200 )
+	    $vs = $this->iHeightFactor;
+	else
+	    JpGraphError::RaiseL(6028,$this->iHeightFactor);
+//("Specified height (".$this->iHeightFactor.") for gantt bar is out of range.");
+	
+	// Clip date to min max dates to show
+	$st = $aScale->NormalizeDate($this->iStart);
+	$en = $aScale->NormalizeDate($this->iEnd);
+	
+
+	$limst = max($st,$aScale->iStartDate);
+	$limen = min($en,$aScale->iEndDate);
+			
+	$xt = round($aScale->TranslateDate($limst));
+	$xb = round($aScale->TranslateDate($limen)); 
+	$yt = round($aScale->TranslateVertPos($this->iVPos)-$vs-($aScale->GetVertSpacing()/2-$vs/2));
+	$yb = round($aScale->TranslateVertPos($this->iVPos)-($aScale->GetVertSpacing()/2-$vs/2));
+	$middle = round($yt+($yb-$yt)/2);
+	$this->StrokeActInfo($aImg,$aScale,$middle);
+
+	// CSIM for title
+	if( ! empty($this->title->csimtarget) ) {
+	    $colwidth = $this->title->GetColWidth($aImg);
+	    $colstarts=array();
+	    $aScale->actinfo->GetColStart($aImg,$colstarts,true);
+	    $n = min(count($colwidth),count($this->title->csimtarget));
+	    for( $i=0; $i < $n; ++$i ) {
+		$title_xt = $colstarts[$i];
+		$title_xb = $title_xt + $colwidth[$i];
+		$coords = "$title_xt,$yt,$title_xb,$yt,$title_xb,$yb,$title_xt,$yb";
+		$this->csimarea .= "<area shape=\"poly\" coords=\"$coords\" href=\"".$this->title->csimtarget[$i]."\"";
+		if( ! empty($this->title->csimalt[$i]) ) {
+		    $tmp = $this->title->csimalt[$i];
+		    $this->csimarea .= " title=\"$tmp\"  alt=\"$tmp\" ";
+		}
+		$this->csimarea .= " />\n";
+	    }
+	}
+
+	// Check if the bar is totally outside the current scale range
+	if( $en <  $aScale->iStartDate || $st > $aScale->iEndDate )
+		return;
+			
+
+	// Remember the positions for the bar
+	$this->SetConstrainPos($xt,$yt,$xb,$yb);
+		
+	$prect->ShowFrame(false);
+	$prect->SetBackground($this->iFillColor);
+	if( $this->iShadow ) {
+	    $aImg->SetColor($this->iFrameColor);
+	    $aImg->ShadowRectangle($xt,$yt,$xb,$yb,$this->iFillColor,$this->iShadowWidth,$this->iShadowColor);				
+	    $prect->SetPos(new Rectangle($xt+1,$yt+1,$xb-$xt-$this->iShadowWidth-2,$yb-$yt-$this->iShadowWidth-2));				
+	    $prect->Stroke($aImg);
+	}
+	else {	
+	    $prect->SetPos(new Rectangle($xt,$yt,$xb-$xt+1,$yb-$yt+1));				
+	    $prect->Stroke($aImg);
+	    $aImg->SetColor($this->iFrameColor);
+	    $aImg->Rectangle($xt,$yt,$xb,$yb);
+	}
+
+	// CSIM for bar
+	if( $this->csimtarget != '' ) {
+
+	    $coords = "$xt,$yt,$xb,$yt,$xb,$yb,$xt,$yb";
+	    $this->csimarea .= "<area shape=\"poly\" coords=\"$coords\" href=\"".
+		              $this->csimtarget."\"";
+	    if( $this->csimalt != '' ) {
+		$tmp = $this->csimalt;
+		$this->csimarea .= " title=\"$tmp\"  alt=\"$tmp\" ";
+	    }
+	    $this->csimarea .= " />\n";
+	}
+
+	// Draw progress bar inside activity bar
+	if( $this->progress->iProgress > 0 ) {
+		
+	    $xtp = $aScale->TranslateDate($st);
+	    $xbp = $aScale->TranslateDate($en);
+	    $len = ($xbp-$xtp)*$this->progress->iProgress;
+
+	    $endpos = $xtp+$len;
+	    if( $endpos > $xt ) {
+		$len -= ($xt-$xtp); 
+
+		// Make sure that the progess bar doesn't extend over the end date
+		if( $xtp+$len-1 > $xb )
+		    $len = $xb - $xtp ;
+		
+		if( $xtp < $xt ) 
+		    $xtp = $xt;
+		
+		$prog = $factory->Create($this->progress->iPattern,$this->progress->iColor);
+		$prog->SetDensity($this->progress->iDensity);
+		$prog->SetBackground($this->progress->iFillColor);
+	    	$barheight = ($yb-$yt+1);
+		if( $this->iShadow ) 
+		    $barheight -= $this->iShadowWidth;
+		$progressheight = floor($barheight*$this->progress->iHeight);
+		$marg = ceil(($barheight-$progressheight)/2);
+	    	$pos = new Rectangle($xtp,$yt + $marg, $len,$barheight-2*$marg);
+		$prog->SetPos($pos);
+		$prog->Stroke($aImg);
+	    }
+	}
+	
+	// We don't plot the end mark if the bar has been capped
+	if( $limst == $st ) {
+	    $y = $middle;
+	    // We treat the RIGHT and LEFT triangle mark a little bi
+	    // special so that these marks are placed right under the
+	    // bar.
+	    if( $this->leftMark->GetType() == MARK_LEFTTRIANGLE ) {
+		$y = $yb ; 
+	    }
+	    $this->leftMark->Stroke($aImg,$xt,$y);
+	}
+	if( $limen == $en ) {
+	    $y = $middle;
+	    // We treat the RIGHT and LEFT triangle mark a little bi
+	    // special so that these marks are placed right under the
+	    // bar.
+	    if( $this->rightMark->GetType() == MARK_RIGHTTRIANGLE ) {
+		$y = $yb ; 
+	    }
+	    $this->rightMark->Stroke($aImg,$xb,$y);
+	    
+	    $margin = $this->iCaptionMargin;
+	    if( $this->rightMark->show ) 
+	    	$margin += $this->rightMark->GetWidth();
+	    $this->caption->Stroke($aImg,$xb+$margin,$middle);		
+	}
+    }
+}
+
+//===================================================
+// CLASS MileStone
+// Responsible for formatting individual milestones
+//===================================================
+class MileStone extends GanttPlotObject {
+    public $mark;
+	
+//---------------
+// CONSTRUCTOR	
+    function MileStone($aVPos,$aLabel,$aDate,$aCaption="") {
+	GanttPlotObject::GanttPlotObject();
+	$this->caption->Set($aCaption);
+	$this->caption->Align("left","center");
+	$this->caption->SetFont(FF_FONT1,FS_BOLD);
+	$this->title->Set($aLabel);
+	$this->title->SetColor("darkred");
+	$this->mark = new PlotMark();
+	$this->mark->SetWidth(10);
+	$this->mark->SetType(MARK_DIAMOND);
+	$this->mark->SetColor("darkred");
+	$this->mark->SetFillColor("darkred");
+	$this->iVPos = $aVPos;
+	$this->iStart = $aDate;
+    }
+	
+//---------------
+// PUBLIC METHODS	
+	
+    function GetAbsHeight($aImg) {
+	return max($this->title->GetHeight($aImg),$this->mark->GetWidth());
+    }
+		
+    function Stroke($aImg,$aScale) {
+	// Put the mark in the middle at the middle of the day
+	$d = $aScale->NormalizeDate($this->iStart)+SECPERDAY/2;
+	$x = $aScale->TranslateDate($d);
+	$y = $aScale->TranslateVertPos($this->iVPos)-($aScale->GetVertSpacing()/2);
+
+	$this->StrokeActInfo($aImg,$aScale,$y);
+
+	// CSIM for title
+	if( ! empty($this->title->csimtarget) ) {
+	    
+	    $yt = round($y - $this->title->GetHeight($aImg)/2);
+	    $yb = round($y + $this->title->GetHeight($aImg)/2);
+
+	    $colwidth = $this->title->GetColWidth($aImg);
+	    $colstarts=array();
+	    $aScale->actinfo->GetColStart($aImg,$colstarts,true);
+	    $n = min(count($colwidth),count($this->title->csimtarget));
+	    for( $i=0; $i < $n; ++$i ) {
+		$title_xt = $colstarts[$i];
+		$title_xb = $title_xt + $colwidth[$i];
+		$coords = "$title_xt,$yt,$title_xb,$yt,$title_xb,$yb,$title_xt,$yb";
+		$this->csimarea .= "<area shape=\"poly\" coords=\"$coords\" href=\"".$this->title->csimtarget[$i]."\"";
+		if( ! empty($this->title->csimalt[$i]) ) {
+		    $tmp = $this->title->csimalt[$i];
+		    $this->csimarea .= " title=\"$tmp\" alt=\"$tmp\" ";
+		}
+		$this->csimarea .= " />\n";
+	    }
+	}
+
+	if( $d <  $aScale->iStartDate || $d > $aScale->iEndDate )
+		return;
+
+	// Remember the coordinates for any constrains linking to
+	// this milestone
+	$w = $this->mark->GetWidth()/2;
+	$this->SetConstrainPos($x,round($y-$w),$x,round($y+$w));
+	
+	// Setup CSIM
+	if( $this->csimtarget != '' ) {
+	    $this->mark->SetCSIMTarget( $this->csimtarget );
+	    $this->mark->SetCSIMAlt( $this->csimalt );
+	}
+		
+	$this->mark->Stroke($aImg,$x,$y);		
+	$this->caption->Stroke($aImg,$x+$this->mark->width/2+$this->iCaptionMargin,$y);
+
+	$this->csimarea .= $this->mark->GetCSIMAreas();
+    }
+}
+
+
+//===================================================
+// CLASS GanttVLine
+// Responsible for formatting individual milestones
+//===================================================
+
+class TextPropertyBelow extends TextProperty {
+    function TextPropertyBelow($aTxt='') {
+	parent::TextProperty($aTxt);
+    }
+
+    function GetColWidth($aImg,$aMargin=0) {
+	// Since we are not stroking the title in the columns
+	// but rather under the graph we want this to return 0.
+	return array(0);
+    }
+}
+
+class GanttVLine extends GanttPlotObject {
+
+    private $iLine,$title_margin=3, $iDayOffset=1;
+	
+//---------------
+// CONSTRUCTOR	
+    function GanttVLine($aDate,$aTitle="",$aColor="black",$aWeight=3,$aStyle="dashed") {
+	GanttPlotObject::GanttPlotObject();
+	$this->iLine = new LineProperty();
+	$this->iLine->SetColor($aColor);
+	$this->iLine->SetWeight($aWeight);
+	$this->iLine->SetStyle($aStyle);
+	$this->iStart = $aDate;
+	$this->title = new TextPropertyBelow();
+	$this->title->Set($aTitle);
+    }
+
+//---------------
+// PUBLIC METHODS	
+
+    function SetDayOffset($aOff=0.5) {
+	if( $aOff < 0.0 || $aOff > 1.0 )
+	    JpGraphError::RaiseL(6029);
+//("Offset for vertical line must be in range [0,1]");
+	$this->iDayOffset = $aOff;
+    }
+	
+    function SetTitleMargin($aMarg) {
+	$this->title_margin = $aMarg;
+    }
+	
+    function Stroke($aImg,$aScale) {
+	$d = $aScale->NormalizeDate($this->iStart);
+	if( $d <  $aScale->iStartDate || $d > $aScale->iEndDate )
+	    return;	
+	if($this->iDayOffset != 0.0)
+	    $d += 24*60*60*$this->iDayOffset;	
+	$x = $aScale->TranslateDate($d);	
+	$y1 = $aScale->iVertHeaderSize+$aImg->top_margin;
+	$y2 = $aImg->height - $aImg->bottom_margin;	
+	$this->iLine->Stroke($aImg,$x,$y1,$x,$y2);
+	$this->title->Align("center","top");
+	$this->title->Stroke($aImg,$x,$y2+$this->title_margin);
+    }	
+}
+
+//===================================================
+// CLASS LinkArrow
+// Handles the drawing of a an arrow 
+//===================================================
+class LinkArrow {
+    private $ix,$iy;
+    private $isizespec = array(
+	array(2,3),array(3,5),array(3,8),array(6,15),array(8,22));
+    private $iDirection=ARROW_DOWN,$iType=ARROWT_SOLID,$iSize=ARROW_S2;
+    private $iColor='black';
+
+    function LinkArrow($x,$y,$aDirection,$aType=ARROWT_SOLID,$aSize=ARROW_S2) {
+	$this->iDirection = $aDirection;
+	$this->iType = $aType;
+	$this->iSize = $aSize;
+	$this->ix = $x;
+	$this->iy = $y;
+    }
+    
+    function SetColor($aColor) {
+	$this->iColor = $aColor;
+    }
+
+    function SetSize($aSize) {
+	$this->iSize = $aSize;
+    }
+
+    function SetType($aType) {
+	$this->iType = $aType;
+    }
+
+    function Stroke($aImg) {
+	list($dx,$dy) = $this->isizespec[$this->iSize];
+	$x = $this->ix;
+	$y = $this->iy;
+	switch ( $this->iDirection ) {
+	    case ARROW_DOWN:
+		$c = array($x,$y,$x-$dx,$y-$dy,$x+$dx,$y-$dy,$x,$y);
+		break;
+	    case ARROW_UP:
+		$c = array($x,$y,$x-$dx,$y+$dy,$x+$dx,$y+$dy,$x,$y);
+		break;
+	    case ARROW_LEFT:
+		$c = array($x,$y,$x+$dy,$y-$dx,$x+$dy,$y+$dx,$x,$y);
+		break;
+	    case ARROW_RIGHT:
+		$c = array($x,$y,$x-$dy,$y-$dx,$x-$dy,$y+$dx,$x,$y);
+		break;
+	    default:
+		JpGraphError::RaiseL(6030);
+//('Unknown arrow direction for link.');
+		die();
+		break;
+	}
+	$aImg->SetColor($this->iColor);
+	switch( $this->iType ) {
+	    case ARROWT_SOLID:
+		$aImg->FilledPolygon($c);
+		break;
+	    case ARROWT_OPEN:
+		$aImg->Polygon($c);
+		break;
+	    default:
+		JpGraphError::RaiseL(6031);
+//('Unknown arrow type for link.');
+		die();
+		break;		
+	}
+    }
+}
+
+//===================================================
+// CLASS GanttLink
+// Handles the drawing of a link line between 2 points
+//===================================================
+
+class GanttLink {
+    private $ix1,$ix2,$iy1,$iy2;
+    private $iPathType=2,$iPathExtend=15;
+    private $iColor='black',$iWeight=1;
+    private $iArrowSize=ARROW_S2,$iArrowType=ARROWT_SOLID;
+
+    function GanttLink($x1=0,$y1=0,$x2=0,$y2=0) {
+	$this->ix1 = $x1;
+	$this->ix2 = $x2;
+	$this->iy1 = $y1;
+	$this->iy2 = $y2;
+    }
+
+    function SetPos($x1,$y1,$x2,$y2) {
+	$this->ix1 = $x1;
+	$this->ix2 = $x2;
+	$this->iy1 = $y1;
+	$this->iy2 = $y2;
+    }
+
+    function SetPath($aPath) {
+	$this->iPathType = $aPath;
+    }
+
+    function SetColor($aColor) {
+	$this->iColor = $aColor;
+    }
+
+    function SetArrow($aSize,$aType=ARROWT_SOLID) {
+	$this->iArrowSize = $aSize;
+	$this->iArrowType = $aType;
+    }
+    
+    function SetWeight($aWeight) {
+	$this->iWeight = $aWeight;
+    }
+
+    function Stroke($aImg) {
+	// The way the path for the arrow is constructed is partly based
+	// on some heuristics. This is not an exact science but draws the
+	// path in a way that, for me, makes esthetic sence. For example
+	// if the start and end activities are very close we make a small
+	// detour to endter the target horixontally. If there are more
+	// space between axctivities then no suh detour is made and the 
+	// target is "hit" directly vertical. I have tried to keep this
+	// simple. no doubt this could become almost infinitive complex
+	// and have some real AI. Feel free to modify this.
+	// This will no-doubt be tweaked as times go by. One design aim
+	// is to avoid having the user choose what types of arrow
+	// he wants.
+
+	// The arrow is drawn between (x1,y1) to (x2,y2)
+	$x1 = $this->ix1 ;
+	$x2 = $this->ix2 ;
+	$y1 = $this->iy1 ;
+	$y2 = $this->iy2 ;
+
+	// Depending on if the target is below or above we have to
+	// handle thi different.
+	if( $y2 > $y1 ) {
+	    $arrowtype = ARROW_DOWN;
+	    $midy = round(($y2-$y1)/2+$y1);
+	    if( $x2 > $x1 ) {
+		switch ( $this->iPathType  ) {
+		    case 0:
+			$c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			break;
+		    case 1:
+		    case 2:
+		    case 3:
+			$c = array($x1,$y1,$x2,$y1,$x2,$y2);
+			break;
+		    default:
+			JpGraphError::RaiseL(6032,$this->iPathType);
+//('Internal error: Unknown path type (='.$this->iPathType .') specified for link.');
+			exit(1);
+			break;
+		}
+	    }
+	    else {
+		switch ( $this->iPathType  ) {
+		    case 0:
+		    case 1:
+			$c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			break;
+		    case 2:
+			// Always extend out horizontally a bit from the first point
+			// If we draw a link back in time (end to start) and the bars 
+			// are very close we also change the path so it comes in from 
+			// the left on the activity
+			$c = array($x1,$y1,$x1+$this->iPathExtend,$y1,
+				   $x1+$this->iPathExtend,$midy,
+				   $x2,$midy,$x2,$y2);
+			break;
+		    case 3:
+			if( $y2-$midy < 6 ) {
+			    $c = array($x1,$y1,$x1,$midy,
+				       $x2-$this->iPathExtend,$midy,
+				       $x2-$this->iPathExtend,$y2,
+				       $x2,$y2);
+			    $arrowtype = ARROW_RIGHT;
+			}
+			else {
+			    $c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			}
+			break;
+		    default:
+			JpGraphError::RaiseL(6032,$this->iPathType);
+//('Internal error: Unknown path type specified for link.');
+			exit(1);
+			break;
+		}
+	    }
+	    $arrow = new LinkArrow($x2,$y2,$arrowtype);
+	}
+	else {
+	    // Y2 < Y1
+	    $arrowtype = ARROW_UP;
+	    $midy = round(($y1-$y2)/2+$y2);
+	    if( $x2 > $x1 ) {
+		switch ( $this->iPathType  ) {
+		    case 0:
+		    case 1:
+			$c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			break;
+		    case 3:
+			if( $midy-$y2 < 8 ) {
+			    $arrowtype = ARROW_RIGHT;
+			    $c = array($x1,$y1,$x1,$y2,$x2,$y2);
+			}
+			else {
+			    $c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			}
+			break;
+		    default:
+			JpGraphError::RaiseL(6032,$this->iPathType);
+//('Internal error: Unknown path type specified for link.');
+			break;
+		}
+	    }
+	    else {
+		switch ( $this->iPathType  ) {
+		    case 0:
+		    case 1:
+			$c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			break;
+		    case 2:
+			// Always extend out horizontally a bit from the first point
+			$c = array($x1,$y1,$x1+$this->iPathExtend,$y1,
+				   $x1+$this->iPathExtend,$midy,
+				   $x2,$midy,$x2,$y2);
+			break;
+		    case 3:
+			if( $midy-$y2 < 16 ) {
+			    $arrowtype = ARROW_RIGHT;
+			    $c = array($x1,$y1,$x1,$midy,$x2-$this->iPathExtend,$midy,
+				       $x2-$this->iPathExtend,$y2,
+				       $x2,$y2);
+			}
+			else {
+			    $c = array($x1,$y1,$x1,$midy,$x2,$midy,$x2,$y2);
+			}
+			break;
+		    default:
+			JpGraphError::RaiseL(6032,$this->iPathType);
+//('Internal error: Unknown path type specified for link.');
+			break;
+		}
+	    }
+	    $arrow = new LinkArrow($x2,$y2,$arrowtype);
+	}
+	$aImg->SetColor($this->iColor);
+	$aImg->SetLineWeight($this->iWeight);
+	$aImg->Polygon($c);
+	$aImg->SetLineWeight(1);
+	$arrow->SetColor($this->iColor);
+	$arrow->SetSize($this->iArrowSize);
+	$arrow->SetType($this->iArrowType);
+	$arrow->Stroke($aImg);
+    }
+}
+
+// <EOF>
+?>
