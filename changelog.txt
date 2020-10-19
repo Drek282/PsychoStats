@@ -22,6 +22,7 @@ Version 3.2.6b (in progress)
 * [Fixed] Rosenstein's fix for SQL injection vulnerability from Jul 11, 2013
 * [Fixed] Broken warnings in awards edit page in the Admin CP.
 * [Changed] Bonuses resolution changed to one decimal place.
+* [Added] Incomplete support for team wins and losses in Firearms.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
