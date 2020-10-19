@@ -996,11 +996,4 @@ sub logcompare {
 	); 
 }
 
-# event to capture the end of a game for mods that don't have that and easy way to do that
-# hacky and kludgy, but it will do until I come up with something better
-# I don't want to rewrite event_logstartend
-# this captures the "pausable" cvar.
-# ignored here.
-sub event_endgame { }
-
 1;
