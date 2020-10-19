@@ -23,6 +23,8 @@ Version 3.2.6b (in progress)
 * [Fixed] Broken warnings in awards edit page in the Admin CP.
 * [Changed] Bonuses resolution changed to one decimal place.
 * [Added] Incomplete support for team wins and losses in Firearms.
+* [Added] Casually Crackers mod specific themes.
+* [Added] Drek's plugin pack to do various things such as remove FFKills from stats for servers that don't have FF enabled.
 
 Version 3.2.5b (10/04/2020)
 * [Fixed] Default theme player page now honours flag image permissions.
