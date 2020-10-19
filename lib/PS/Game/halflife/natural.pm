@@ -47,6 +47,8 @@ sub event_logstartend {
 	# reset some tracking vars
 #	map { undef $self->{$_} } qw( ns_commander );
 	$self->{ns_commander} = undef;
+	
+    $self->save(1);
 }
 
 sub event_ns_teamtrigger {

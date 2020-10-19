@@ -21,6 +21,8 @@ The plan for the following issues is to either fix them, or improve them, in fut
 
 The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
 
+The team wins and losses for Firearms don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.
+
 The filter for bots isn't working properly in Natural Selection.
 
 The weapon images for TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
@@ -33,8 +35,6 @@ The Firearms heatmaps have not all been tested, some are working as intended, so
 Future Plans
 
 Heat map overviews and support for Firearms and Team Fortress Classic.
-
-Add support for team wins on maps other than push maps for Firearms.
 
 If it's possible, support for Alien Swarm: Reactive Drop.
 

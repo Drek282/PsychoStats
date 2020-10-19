@@ -43,10 +43,8 @@ sub event_logstartend {
 	$self->SUPER::event_logstartend($timestamp, $args);
 
 	return unless lc $startedorclosed eq 'started';
-
-	# reset some tracking vars
-#	map { undef $self->{$_} } qw( ns_commander );
-	$self->{ns_commander} = undef;
+	
+    $self->save(1);
 }
 
 sub event_tfc_teamtrigger {
