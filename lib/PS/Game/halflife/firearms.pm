@@ -333,10 +333,8 @@ sub event_teamtrigger {
 		
 		if ($team eq 'red_force') {
             $RF_SCORE++;
-            print $m->{mapid} . " / " . $team . ": " . $RF_SCORE . "\n";
         } else {
             $BF_SCORE++;
-            print $m->{mapid} . " / " . $team . ": " . $BF_SCORE . "\n";
         }
 		
 	} elsif ($trigger eq "capturedallpoints") {
@@ -379,12 +377,6 @@ sub event_teamtrigger {
 # catures the pausable 0 cvar
 # hacky and kludgy but the best I could come up with
 sub event_endgame {
-    
-    print "EG RF\: " . $RF_SCORE . "\n";
-    print "EG BF\: " . $BF_SCORE . "\n";
-    
-    
-    
 	my ($self, $timestamp, $args) = @_;
 	my ($team, $numplrs) = @$args;
 	$team = lc $team;
