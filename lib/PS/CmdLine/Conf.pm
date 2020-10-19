@@ -82,6 +82,8 @@ sub _getOptions {
 
 __DATA__
 
+=pod
+
 =head1 NAME
 
 PsychoStats - Comprehensive Statistics
@@ -108,7 +110,9 @@ Commandline Configuration Helper *** NOT COMPLETED ***
 
 =item conf.pl -u <conf_type> <section.variable> <value> 
 
-=back 8
+=back
+
+=back
 
 =head1 COMMANDS
 
@@ -120,4 +124,10 @@ Dumps the configuration from the database matching the <conf_type>
 specified (eg: main) into a plain text file. If no filename is specified 
 then "<conf_type>.cfg" is used by default. And if a filename of "-" is 
 used then the config is written to STDOUT.
+
+=back
+
+=back
+
+=cut
 

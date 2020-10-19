@@ -180,6 +180,8 @@ sub _sanitize {
 
 __DATA__
 
+=pod
+
 =head1 NAME
 
 PsychoStats - Comprehensive Statistics
@@ -200,7 +202,7 @@ PsychoStats Heatmap Generator
 
 =item heat.pl -xml <path/to/heat.xml> <map>
 
-=back 4
+=back
 
 =item B<Generate a series of heatmaps>
 
@@ -210,7 +212,9 @@ PsychoStats Heatmap Generator
 
 =item heat.pl -hourly -format "%m_%h.png" <map> 
 
-=back 8
+=back
+
+=back
 
 =head1 COMMANDS
 
