@@ -1081,12 +1081,30 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='obj_willow'>
+  <minx>-2940</minx>
+  <miny>-3465</miny>
+  <maxx>3970</maxx>
+  <maxy>2215</maxy>
+  <res>600x491</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='ps_bridge'>
   <minx>-3885</minx>
   <miny>-3860</miny>
   <maxx>3445</maxx>
   <maxy>3705</maxy>
   <res>600x457</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ps_coldwar'>
+  <minx>-4040</minx>
+  <miny>-4015</miny>
+  <maxx>2660</maxx>
+  <maxy>3550</maxy>
+  <res>600x530</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
