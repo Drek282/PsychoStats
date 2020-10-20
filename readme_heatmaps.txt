@@ -32,25 +32,18 @@ Note that you may have to use the "+jump" command to remove the ready room from 
 
 Creating the Heatmap Overlays:
 
-You create the overlays by starting a listenserver in developer mode.  To start your game you should add the following command to your game launch options in Steam.  To find those options right click on the game in your games list, choose properties, then click on Set Launch Options:
-
--dev
-
-When you start the game you choose the option to create a game.
+It is almost impossible to get the necessary coordinates for every map without using noclip.  The only reliable way I know to have access to noclip is by installing Admin Mod.  It might also be available on AMX Mod X using the AdminModX plugin.  I have not tested that.  For Admin Mod you will need to enable the cheats plugin.  Once you've installed Admin Mod and given your user the appropriate permissions, you can just start up the game normally and choose the option "Create Game" from the start screen for the game.  Your user on a listenserver will be "STEAM_ID_LAN".  I would recommend using Metamod-P if you are not running one of the more popular mods.
 
 Valve suggests setting your video resolution to 1024x768 32 to generate the overview.
-
-Noclip is a very valuable tool when you are trying to get the coords of the map.  noclip is not available on most mods, however, you can get it by installing Admin Mod, or AMXModX with the AdminModX plugin.  I'm not going to go into details here on how to do that, other than to say I would recommend Admin Mod and you will need to enable the cheats plugin.  Your user on a listenserver will be "STEAM_ID_LAN".  If you are working with a mod that isn't one of the popular mods, you will want to use Metamod-P.  You can google that.  If you do this, leave out the "-dev" in your launch options.
 
 To see the overview use the following commands in the console:
 
 (The "snapshot" command is what will take the screenshot.  Typically that is bound to F5.)
 
+sv_cheats 1
 dev_overview 2
 hud_draw 0
 crosshair 0.0
-
-Note that you will need to set sv_cheats 1 in the console for these commands to work.
 
 Editing Steps:
 
@@ -77,4 +70,4 @@ Editing Steps:
 
 Editing the heat.xml File:
 
-What you need to do is go to the farthest map point in each map coordinate and use the "status" command in the console to find your position.  You then use that position as the limits for your map in the heat.xml file.  There are lots of examples there of how that should look.  If noclip doesn't work in your mod, getting those coordinates can be a challenge.
+What you need to do is go to the farthest map point in each map coordinate and use the "status" command, or the Admin Mod command "admin_userorigin [any unique part of your player name]", in the console to find your position.  Note that you need to find the farthest visible point in each cardinal direction on your map even if those points are not in a playing area.  You then use that position as the limits for your map in the heat.xml file.  There are lots of examples there of how that should look.  Your chances of getting those coordinates without using noclip are very small.
