@@ -1037,20 +1037,20 @@
   <fliph>0</fliph>
  </map>
  <map name='obj_armory'>
-  <minx>-4000</minx>
-  <miny>-740</miny>
-  <maxx>3800</maxx>
-  <maxy>3830</maxy>
-  <res>600x443</res>
+  <minx>-3705</minx>
+  <miny>-1690</miny>
+  <maxx>2545</maxx>
+  <maxy>3840</maxy>
+  <res>600x536</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
  <map name='obj_bocage'>
-  <minx>-1730</minx>
-  <miny>-3915</miny>
-  <maxx>3860</maxx>
-  <maxy>3895</maxy>
-  <res>600x411</res>
+  <minx>-3325</minx>
+  <miny>-3900</miny>
+  <maxx>3855</maxx>
+  <maxy>3900</maxy>
+  <res>600x549</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
