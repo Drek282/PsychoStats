@@ -1126,6 +1126,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='ps_river'>
+  <minx>-3895</minx>
+  <miny>-3895</miny>
+  <maxx>1590</maxx>
+  <maxy>3970</maxy>
+  <res>600x420</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='ps_storm_r1'>
   <minx>-3950</minx>
   <miny>-1895</miny>
