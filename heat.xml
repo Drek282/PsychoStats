@@ -1135,6 +1135,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='ps_splinter'>
+  <minx>-3725</minx>
+  <miny>-2645</miny>
+  <maxx>3830</maxx>
+  <maxy>3035</maxy>
+  <res>600x450</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='ps_storm_r1'>
   <minx>-3950</minx>
   <miny>-1895</miny>
