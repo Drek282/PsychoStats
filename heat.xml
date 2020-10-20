@@ -1091,10 +1091,10 @@
   <fliph>0</fliph>
  </map>
  <map name='ps_bridge'>
-  <minx>-3885</minx>
-  <miny>-3860</miny>
-  <maxx>3445</maxx>
-  <maxy>3705</maxy>
+  <minx>-3330</minx>
+  <miny>-3280</miny>
+  <maxx>1630</maxx>
+  <maxy>3230</maxy>
   <res>600x457</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
