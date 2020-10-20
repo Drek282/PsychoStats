@@ -1111,9 +1111,9 @@
  <map name='ps_crash'>
   <minx>-2400</minx>
   <miny>-3705</miny>
-  <maxx>3550</maxx>
+  <maxx>3700</maxx>
   <maxy>3045</maxy>
-  <res>600x530</res>
+  <res>600x542</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1137,10 +1137,10 @@
  </map>
  <map name='ps_splinter'>
   <minx>-3725</minx>
-  <miny>-2645</miny>
+  <miny>-2720</miny>
   <maxx>3830</maxx>
   <maxy>3035</maxy>
-  <res>600x450</res>
+  <res>600x454</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
