@@ -1243,4 +1243,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='2fort'>
+  <minx>-1730</minx>
+  <miny>-3960</miny>
+  <maxx>1720</maxx>
+  <maxy>3960</maxy>
+  <res>600x264</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
