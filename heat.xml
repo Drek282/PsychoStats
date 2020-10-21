@@ -1216,6 +1216,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='tc_golan'>
+  <minx>-3520</minx>
+  <miny>-3925</miny>
+  <maxx>3940</maxx>
+  <maxy>3705</maxy>
+  <res>600x585</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='tc_iwojima'>
   <minx>-3130</minx>
   <miny>-1015</miny>
