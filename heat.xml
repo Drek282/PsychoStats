@@ -1189,6 +1189,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='sdtc_balcome'>
+  <minx>-1395</minx>
+  <miny>-3710</miny>
+  <maxx>2560</maxx>
+  <maxy>3775</maxy>
+  <res>600x319</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='tc_iwojima'>
   <minx>-3130</minx>
   <miny>-1015</miny>
