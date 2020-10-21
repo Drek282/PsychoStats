@@ -1180,6 +1180,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='sd_oberland'>
+  <minx>-2425</minx>
+  <miny>-3880</miny>
+  <maxx>3545</maxx>
+  <maxy>3335</maxy>
+  <res>600x466</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='tc_iwojima'>
   <minx>-3130</minx>
   <miny>-1015</miny>
