@@ -1,6 +1,9 @@
 --- DREK ---
 
 
+Version 3.2.7b (in progress)
+
+
 Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
 * [Fixed] Removed duplicate entries from heat.xml.
@@ -21,7 +24,7 @@ Version 3.2.6b (10/21/2020)
 * [Added] wakachamo's cod fixes from Aug 30, 2012
 * [Fixed] Rosenstein's fix for SQL injection vulnerability from Jul 11, 2013
 * [Fixed] Broken warnings in awards edit page in the Admin CP.
-* [Changed] Bonuses resolution changed to one decimal place.
+* [Changed] Bonuses resolution to one decimal place.
 * [Added] Incomplete support for team wins and losses in Firearms.
 * [Added] Casually Crackers mod specific themes.
 * [Added] Drek's plugin pack to do various things such as remove FFKills from stats for servers that don't have FF enabled.
