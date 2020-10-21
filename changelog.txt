@@ -1,7 +1,7 @@
 --- DREK ---
 
 
-Version 3.2.6b (in progress)
+Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
 * [Fixed] Removed duplicate entries from heat.xml.
 * [Fixed] Team joins now work for Firearms.
