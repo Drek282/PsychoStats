@@ -36,7 +36,7 @@ Editing users in the Admin CP is broken.
 
 Future Plans
 
-Heat map overviews and support for Firearms and Team Fortress Classic.
+Heat map overviews and support for Team Fortress Classic.
 
 If it's possible, support for Alien Swarm: Reactive Drop.
 
