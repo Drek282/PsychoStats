@@ -1198,6 +1198,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='tc_basrah'>
+  <minx>-2865</minx>
+  <miny>-2290</miny>
+  <maxx>3305</maxx>
+  <maxy>2270</maxy>
+  <res>600x444</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='tc_iwojima'>
   <minx>-3130</minx>
   <miny>-1015</miny>
