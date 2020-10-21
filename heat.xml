@@ -1252,4 +1252,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='2morfort'>
+  <minx>-1505</minx>
+  <miny>-4010</miny>
+  <maxx>1180</maxx>
+  <maxy>420</maxy>
+  <res>600x364</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
