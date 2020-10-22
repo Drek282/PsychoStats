@@ -60,6 +60,8 @@ Heat map overviews and support for Team Fortress Classic.
 If it's possible, support for Alien Swarm: Reactive Drop.
 
 
+
+
 Credits
 
 I want to express my admiration and gratitude to Jason Morriss, a.k.a. Stormtrooper, for all his work. This software deserves to be used. The period between 2000 and 2005 and all the old Half-Life and Source mods represent a golden age in pc game modding. Those games deserve to be played. With a little massaging most of them still run very well on new hardware and new operating systems.
