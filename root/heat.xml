@@ -1306,4 +1306,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='betrayed'>
+  <minx>-3560</minx>
+  <miny>-3960</miny>
+  <maxx>4030</maxx>
+  <maxy>4050</maxy>
+  <res>600x572</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
