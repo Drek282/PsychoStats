@@ -1,18 +1,16 @@
-= PsychoStats QUICK Installation = 
+= PsychoStats QUICK Installation =
 
-For those that are too impatient follow the quick step guide below.
+== IMPORTANT ==
 
-== Quick Note ==
+PsychoStats has two parts. The local Perl scripts in the 'root' folder that
+do all the database updates and stats processing. And the PHP 'www' files that
+make up the web front end that allow you to view the stats web pages on your
+website.
 
-PsychoStats has two parts. The local perl scripts that do all the database 
-updates and stats processing. And the 'upload' files that make up all of the 
-PHP files that allow you to view the stats web pages on your website. Anything
-not in the 'upload' directory is considered a local file.
-
-The only suggestion I can make is that the local files SHOULD NEVER BE 
-located inside your website directory tree. If you put it somewhere where the 
-webserver can access it then any user on the Internet would be able to read 
-your stats.cfg file and see your database settings. You've been warned.
+The local 'root' files SHOULD NEVER BE located inside your website directory
+tree.  If you put it somewhere where the webserver can access it then any user
+on the Internet would be able to read your stats.cfg file and see your database
+settings. You have been warned.
 
 == QUICK INSTALLATION ==
 
@@ -51,6 +49,11 @@ install process.
 5) Browse to the stats installation wizard with your browser and follow the
 instructions:
 	http[s]://[domain|localhost]/[stats folder name if any]/install/
+
+== IMPORTANT ==
+
+Make sure you delete your 'install' folder once you have finished the installation
+process.  That folder is an extreme security risk.  You have been warned.
 
 6) The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere
 as long as your user has executable permissions and you can access your PsychStats database
