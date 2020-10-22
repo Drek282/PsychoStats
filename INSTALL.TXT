@@ -20,7 +20,6 @@ your stats.cfg file and see your database settings. You've been warned.
 that looks like this:
 
 * \addons
-
 * \root
 * \upload
 * \scripts
