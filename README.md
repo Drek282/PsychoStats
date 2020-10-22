@@ -19,7 +19,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
 
-*The plan for the following issues is to either fix them, or improve them, in future versions.*
+*The plan for the following issues is to either fix them, or improve them, in future versions:*
 
 * The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
 
