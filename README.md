@@ -33,6 +33,17 @@ The Firearms and TFC heatmaps are mostly untested, some are working as intended,
 
 Editing users in the Admin CP is broken.
 
+One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
+
+
+Stuff that Remains Untested
+
+PsychoQuery has not been tested.
+
+PsychoLive has not been tested.
+
+Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
+
 
 Future Plans
 
