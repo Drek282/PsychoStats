@@ -1270,4 +1270,22 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='badlands'>
+  <minx>-3200</minx>
+  <miny>-3630</miny>
+  <maxx>3190</maxx>
+  <maxy>3615</maxy>
+  <res>600x530</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bam'>
+  <minx>-2650</minx>
+  <miny>-3200</miny>
+  <maxx>2650</maxx>
+  <maxy>3200</maxy>
+  <res>600x530</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
