@@ -1246,7 +1246,7 @@
  <map name='2fort'>
   <minx>-1730</minx>
   <miny>-3960</miny>
-  <maxx>1720</maxx>
+  <maxx>1730</maxx>
   <maxy>3960</maxy>
   <res>600x264</res>
   <flipv>1</flipv>
@@ -1258,6 +1258,15 @@
   <maxx>1180</maxx>
   <maxy>420</maxy>
   <res>600x364</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='avanti'>
+  <minx>-1650</minx>
+  <miny>-3270</miny>
+  <maxx>2255</maxx>
+  <maxy>3590</maxy>
+  <res>600x342</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
