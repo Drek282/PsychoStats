@@ -1297,4 +1297,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='bases_r2'>
+  <minx>-1595</minx>
+  <miny>-2965</miny>
+  <maxx>1540</maxx>
+  <maxy>2965</maxy>
+  <res>600x321</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
