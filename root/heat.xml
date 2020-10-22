@@ -1315,4 +1315,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='casbah'>
+  <minx>-2080</minx>
+  <miny>-3845</miny>
+  <maxx>3190</maxx>
+  <maxy>3570</maxy>
+  <res>600x429</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
