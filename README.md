@@ -15,6 +15,8 @@ If you don't like those changes they are easy to edit in the Admin CP.  One othe
 Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained.  The only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to Stormtrooper's email address have been removed.
 
 
+
+
 Known Issues
 
 Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
@@ -38,6 +40,8 @@ Editing users in the Admin CP is broken.
 One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
 
 
+
+
 Stuff that Remains Untested
 
 PsychoQuery has not been tested.
@@ -45,6 +49,8 @@ PsychoQuery has not been tested.
 PsychoLive has not been tested.
 
 Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
+
+
 
 
 Future Plans
