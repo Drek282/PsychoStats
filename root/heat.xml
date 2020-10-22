@@ -1284,7 +1284,16 @@
   <miny>-3200</miny>
   <maxx>2650</maxx>
   <maxy>3200</maxy>
-  <res>600x530</res>
+  <res>600x498</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bases2k1'>
+  <minx>-1450</minx>
+  <miny>-3730</miny>
+  <maxx>3320</maxx>
+  <maxy>3045</maxy>
+  <res>600x422</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
