@@ -15,57 +15,49 @@ If you don't like those changes they are easy to edit in the Admin CP.  One othe
 Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained.  The only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to Stormtrooper's email address have been removed.
 
 
+## **Known Issues**
+
+* Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
+
+*The plan for the following issues is to either fix them, or improve them, in future versions.*
+
+* The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
+
+* The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
+
+* The filter for bots isn't working properly in Natural Selection.
+
+* The weapon images for TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
+
+* The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
+
+* The Firearms and TFC heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
+
+* Editing users in the Admin CP is broken.
+
+* One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
 
 
-Known Issues
+## **Stuff that Remains Untested**
 
-Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
+* PsychoQuery has not been tested.
 
-The plan for the following issues is to either fix them, or improve them, in future versions.
+* PsychoLive has not been tested.
 
-The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
-
-The team wins and losses for Firearms don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
-
-The filter for bots isn't working properly in Natural Selection.
-
-The weapon images for TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
-
-The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
-
-The Firearms and TFC heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
-
-Editing users in the Admin CP is broken.
-
-One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
+* Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
 
 
+## **Future Plans**
+
+* Heat map overviews and support for Team Fortress Classic.
+
+* If it's possible, support for Alien Swarm: Reactive Drop.
 
 
-Stuff that Remains Untested
-
-PsychoQuery has not been tested.
-
-PsychoLive has not been tested.
-
-Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
-
-
-
-
-Future Plans
-
-Heat map overviews and support for Team Fortress Classic.
-
-If it's possible, support for Alien Swarm: Reactive Drop.
-
-
-
-
-Credits
+## **Credits**
 
 I want to express my admiration and gratitude to Jason Morriss, a.k.a. Stormtrooper, for all his work. This software deserves to be used. The period between 2000 and 2005 and all the old Half-Life and Source mods represent a golden age in pc game modding. Those games deserve to be played. With a little massaging most of them still run very well on new hardware and new operating systems.
 
 Kudos to Valve as well for maintaining their back catalogue.
 
-Credit to wakachamo and Rosenstein for their contributions.
+Credit to wakachamo and Rosenstein for their contributions.  Thanks also to RoboCop from APG and QuakerOates for their support and encouragement.
