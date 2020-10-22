@@ -43,7 +43,7 @@ define("CLASS_PSYCHOSTATS_PHP", 1);
 // automatically updated by packaging script when a release is made.
 // this may differ from the version stored in the database, differences may indicate 
 // an invalid installation.
-define('PSYCHOSTATS_VERSION', '3.2.6b');
+define('PSYCHOSTATS_VERSION', '3.2.7b');
 
 /**
  * PsychoStats factory class. This is a self contained API class for PsychoStats. It can be included almost
