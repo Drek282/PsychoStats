@@ -3,6 +3,7 @@
 
 Version 3.2.7b (in progress)
 * [Added] TFC heatmaps.
+* [Changed] Directory structure to clarify installation and usage.
 
 
 Version 3.2.6b (10/21/2020)
