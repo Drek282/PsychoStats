@@ -8,6 +8,19 @@ All of the versions on this repository should be considered beta software as at 
 
 There was one serious security vulnerability that I am aware of, and that has been fixed.  Most of the "fixes" were already present in the code, as Stormtrooper was aware of some of the changes to PHP that had, at that time, recently been made, or had been announced. Very little had to actually be rewritten, and where rewriting was required the changes were pretty minor. There were a few minor changes with regard to mysqli syntax. As far as I am aware all the obsolete and deprecated code has been fixed.
 
+This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4, Gun Game and Soldat:
+
+* Counter-Strike
+* Counter-Strike: Source
+* Day of Defeat
+* Day of Defeat: Source
+* Firearms 3.0
+* Half-Life 2 Death Match
+* Half-Life Death Match
+* Natural Selection
+* Team Fortress 2
+* Team Fortress Classic
+
 I have, for the most part, tried not to make changes that change the way Psychostats works, by default. However, I have made one or two changes that reflect my own personal biases, and for my own convenience when faced with reinstalling Psychostats hundreds of times as I worked on it. One of those is that the bonus for an ffkill is now -10.  I also believe that winning the game or round is really the entire point, far more important than k:d ratios, this is reflected in the bonuses I have added for team wins.
 
 If you don't like those changes they are easy to edit in the Admin CP.  One other significant change is that I have changed the resolution for bonuses to one decimal place, so you can now create bonuses that are 0.1 etc.  There were bonuses for events that can happen very often, such as medic heals in TFC, that were too large if they were a full point or more.
