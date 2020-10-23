@@ -53,10 +53,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Stuff that Remains Untested**
 
-* PsychoQuery has not been tested.
-
-* PsychoLive has not been tested.
-
 * Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
 
 

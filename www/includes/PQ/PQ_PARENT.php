@@ -118,7 +118,7 @@ function query_rules() {
 function query_ping() {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'ping' server query", E_USER_WARNING);
 }
-function query_rcon() {
+function query_rcon($command, $password=NULL, $ip=NULL) {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'rcon' server query", E_USER_WARNING);
 }
 function query_master() {
