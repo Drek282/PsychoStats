@@ -1342,4 +1342,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='cz2'>
+  <minx>-2385</minx>
+  <miny>-3200</miny>
+  <maxx>2665</maxx>
+  <maxy>3710</maxy>
+  <res>600x441</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
