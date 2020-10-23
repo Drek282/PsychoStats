@@ -1333,4 +1333,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='cydonia2'>
+  <minx>-1335</minx>
+  <miny>-3800</miny>
+  <maxx>1335</maxx>
+  <maxy>3800</maxy>
+  <res>600x213</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
