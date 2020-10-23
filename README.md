@@ -50,12 +50,12 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
 
+* User login is broken in the CC themes.
+
 
 ## **Stuff that Remains Untested**
 
 * Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are Firearms 3.0, Natural Selection and Team Fortress Classic.
-
-* User registration and login.
 
 
 ## **Future Plans**
