@@ -51,8 +51,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Heat map overviews and support for Team Fortress Classic.
 
-* If it's possible, support for Alien Swarm: Reactive Drop.
-
 
 ## **Credits**
 
