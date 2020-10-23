@@ -12,7 +12,7 @@ These are a modification of the default PsychoStats 3.1 theme, and as such most 
 
 Requirements:
 
-A working PsychoStats >= 3.2 installation.  These themes do not include the PsychoLive functionality.
+A working PsychoStats >= 3.2 installation.  These themes do not PsychoLive or PsychoQuery.
 
 Installation:
 
