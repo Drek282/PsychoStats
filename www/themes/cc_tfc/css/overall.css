@@ -1,85 +1,79 @@
 /**
-	overall.css
+	overall.css 
 	Global and overall header/footer styles.
 
-	I've tried to make the overall styles 3rd party friendly so that not many global tags are redefined.
-	I wrap a lot of content	into id tags and set styles around those ids. So PsychoStats can be integrated
+	I've tried to make the overall styles 3rd party friendly so that not many global tags are redefined. 
+	I wrap a lot of content	into id tags and set styles around those ids. So PsychoStats can be integrated 
 	into another page w/o much fuss. Of course, if you use an iframe then none of this matters.
 
 */
 
-* {
+body.psychostats {
+	background: #d5be84;
+	margin: 0;
+	padding: 0;
+	color: #777777;
+	border: 1px solid #999999 ;
+}
+
+/* This container wraps up everything on the page so styles can be applied
+ * globally within the context of PsychoStats only.
+**/
+#ps-container * {
 	margin: 0;
 	padding: 0;
 }
 
-body {
-	font-family: Tahoma, Sans-serif;
-	font-size: 10px;
-	color: #777777;
-	background-color: #d5be84;
-	border: 1px solid #999999 ;
-	margin: 0px;
+#ps-container {
+	font-size: 80%;
+	font-family: Tahoma,Arial,sans-serif;
+	background: #efe1b4;
 }
 
-a {
-	font-size:		10pt;
-	font-family:	Tahoma, Sans-serif;
+#ps-container a,
+#ps-container a:link,
+#ps-container a:visited,
+#ps-container a:hover,
+#ps-container a:active {	/* LVHA */
+	color: #330000;
+	text-decoration: none;
+}
+#ps-container a:hover {
+	color: #660000;
 }
 
-a:link, a:visited, a:hover, a:active {
-	text-decoration:	none;
-	color:		#330000;
-	font-size:		10pt;
-	font-family:	Tahoma, Sans-serif;
-}
-
-a:hover, a:active {
-	color:		#660000;
-}
-
-img {
+#ps-container img {
 	border: none;
 	vertical-align: middle;
 }
 
-acronym {
+#ps-container acronym {
 	font-size: 100%;
 }
 
 /* --- OVERALL MENU --------------------------------------- */
-
 #ps-overall-menu {
-	vertical-align: 	middle;
-	border-top:		1px solid #999999;
-	border-bottom:	1px solid #999999;
-	width:		100%;
-	line-height:	28px;	/* Setting the line-height allows the menu to vertically align */
-	background: 	url(../img/header-menu-bg.gif) repeat;
+	line-height: 28px;	/* Setting the line-height allows the menu to vertically align */
+	background: url(../img/header-menu-bg.gif) repeat;
 }
-
 #ps-overall-menu ul {
 	margin: 0 1em;
 }
-
 #ps-overall-menu ul li {
 	display: inline;
 	background: url(../img/header-menu-sep.gif) no-repeat 0 50%;
 	padding-left: 12px;
 	font-weight: bold;
 }
-
 #ps-overall-menu li.first {
 	background-image: none;
 	padding-left: 0;
 }
-
-#ps-overall-menu a {
-	color:		#5d3231;
+#ps-container #ps-overall-menu a {
+	color: #5d3231;
 }
-
-#ps-overall-menu a:hover {
-	color:		#b66358;
+#ps-container #ps-overall-menu a:hover {
+	color: #b66358;
 }
 
 #ps-menu-right {
@@ -93,25 +87,24 @@ acronym {
 
 /* --- OVERALL FOOTER ------------------------------------- */
 #ps-overall-footer {
+	font-size: 80%;
 	background: #e7cebd;
 	margin-top: 2em;
-	min-height: 50px;					/* FF  */
-	height: expression(this.height = 50 + 'px');		/* IE6 */
+	min-height: 41px;					/* FF  */
+	height: expression(this.height = 41 + 'px');		/* IE6 */
 	overflow: hidden;
 	position: relative;
 	width: 100%;
 	clear: left;
+	text-align: center;
 }
 #ps-footer-middle {
-	font-size: 80%;
-	text-align: center;
 	margin-top: 5px;
 }
 
 #ps-overall-footer div.language,
 #ps-overall-footer div.theme
 {
-	font-size: 80%;
 	float: left;
 	margin-left: 0.5em;
 	line-height: 3em !important;		/* FF */
@@ -119,9 +112,10 @@ acronym {
 	font-weight: bold;
 }
 #ps-overall-footer select {
-	background-color: #ffffff;
-	border: 1px solid #666666;
+	background-color: #CCC;
+	border: 1px solid gray;
 	padding: 2px;
+	margin: 0;
 	font-size: 90%;
 }
 #ps-overall-footer select option {
@@ -154,7 +148,7 @@ acronym {
 	width: 60px;
 	text-align: right;
 }
-#ps-login-inner button,
+#ps-login-inner button, 
 #ps-search-inner button {
 	vertical-align: bottom;
 	border: none;
@@ -173,9 +167,7 @@ acronym {
 	font-size: 8pt;
 }
 #ps-login-popup input.field {
-	color: #777777;
-	border: 1px solid #777777;
-	background: #000000;
+	border: 1px solid gray;
 	width: 100px;
 }
 #ps-login-options a {
@@ -191,9 +183,9 @@ acronym {
 	position: absolute;
 	padding: 2em;
 	text-align: left;
-	background: #dddddd;
-	color: #CC6600;
-	border: 1px solid #999999;
+	background: #9BB39B;
+	color: #F4FFDE;
+	border: 1px solid black;
 	width: 300px;
 	font-size: 110%;
 }
@@ -208,34 +200,33 @@ acronym {
 	z-index: 65535;
 }
 #ps-search-popup input.field {
-	color: #888888;
-	background: #000000 url(../img/search-input-icon.gif) no-repeat 0 50%;
-	border: 1px solid #888888;
+	background: white url(../img/search-input-icon.gif) no-repeat 0 50%;
+	border: 1px solid gray;
 	width: 155px;
 	padding-left: 17px;
 }
-input.search { /* generic search class */
-	background: #ffffff url(../img/search-input-icon.gif) no-repeat 0 50%;
+#ps-container input.search { /* generic search class */
+	background: white url(../img/search-input-icon.gif) no-repeat 0 50%;
 	padding-left: 17px;
-	border: 1px solid #888888;
+	border: 1px solid gray;
 	width: 125px;
 }
 
-.gmapinfo {
+#ps-container .gmapinfo {
 	text-align: left;
-	font-size: 90%;
+	font-size: 80%;
 }
-.gmapinfo h4 {
+#ps-container .gmapinfo h4 {
 	text-align: center;
-	border-bottom: 1px solid #888888;
+	border-bottom: 1px solid gray;
 	font-size: 110%;
 }
-.gmapinfo label {
+#ps-container .gmapinfo label {
 	font-weight: bold;
 	float: left;
-	width: 50px;
+	width: 70px;
 }
-.gmapinfo span {
+#ps-container .gmapinfo span {
 	clear: right;
 }
 

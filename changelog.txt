@@ -6,6 +6,8 @@ Version 3.2.7b (in progress)
 * [Changed] Directory structure to clarify installation and usage.
 * [Updated] Installation instructions.
 * [Fixed] PsychoQuery error.
+* [Updated] CC themes are now based on 3.2.x code and fully support PsychoLive and PsychoQuery.
+* [Added] Natural Selection map images for PsychoQuery.
 
 
 Version 3.2.6b (10/21/2020)

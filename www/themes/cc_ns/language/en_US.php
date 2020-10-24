@@ -22,7 +22,7 @@ if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FIL
 
 class PsychoLanguage_cc_ns_en_US extends PsychoLanguage {
 
-function PsychoLanguage_default_en_US() {
+function PsychoLanguage_cc_ns_en_US() {
 	$this->PsychoLanguage();
 	// You can set a locale if you want (which will affect certain system calls)
 	// however, setting a locale is not 100% portable between systems and setlocale is not
@@ -138,9 +138,9 @@ function PsychoLanguage_default_en_US() {
 		'',
 	'Blue Force' =>
 		'',
-	'Blue Wins' =>
-		'',
 	'Blue Force Wins' =>
+		'',
+	'Blue Wins' =>
 		'',
 	'bombs defused' =>
 		'',
@@ -760,15 +760,15 @@ function PsychoLanguage_default_en_US() {
 		'',
 	'Red' =>
 		'',
-	'Red Force' =>
-		'',
 	'Red / Blue Wins' =>
+		'',
+	'Red Force' =>
 		'',
 	'Red Force / Blue Force Wins' =>
 		'',
-	'Red Wins' =>
-		'',
 	'Red Force Wins' =>
+		'',
+	'Red Wins' =>
 		'',
 	'Register' =>
 		'',

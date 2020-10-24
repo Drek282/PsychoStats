@@ -76,6 +76,16 @@
 	<span>{if $plr.activity != -1}{$plr.activity}%{else}-{/if}</span>
 {**}
 </p>
+{if $plr.commanderwon}
+<p>
+	<label><#Commander Wins#></label>
+	<span>{$plr.commanderwon|commify}</span>
+</p>
+{/if}
+<p>
+	<label><#Structures Destroyed#></label>
+    <span>{$plr.structuresdestroyed|commify}</span>
+</p>
 <p>
 	<label><#Bonus Points#></label>
 	<span>{$plr.totalbonus|commify}</span>
@@ -83,6 +93,10 @@
 <p>
 	<label><#Total Games#></label>
 	<span>{$plr.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$plr.rounds|commify}</span>
 </p>
 <p>
 	<label><#Maps Played#></label>
@@ -185,6 +199,14 @@
 <p>
 	<label><#Death Streak#></label>
 	<span>{$plr.deaths_streak|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$plr.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$plr.damage|commify}</span>
 </p>
 <p>
 	<label><#Suicides#></label>

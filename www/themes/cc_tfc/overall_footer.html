@@ -17,12 +17,18 @@
 	</div>
 {/if}
 	<div class="poweredby">
-		<br/>Powered by PsychoStats {ps->version}
+		<#Powered by#> PsychoStats {ps->version}
 		{if $show_benchmark}
-		-- Page loaded in <!--PAGE_BENCHMARK--> seconds with {db->totalqueries} SQL queries
+		-- <#Page loaded in#> <!--PAGE_BENCHMARK--> <#seconds with#> {db->totalqueries} <#SQL queries#>
 		{/if}
+		{if ps_user_is_admin()}
+		<br/><strong>[ <a href="{url _base='admin/index.php'}"><#Login to admin control panel#></a> ]</strong>
+		{/if}
+		<br/><a href="http://validator.w3.org/check?uri=referer">W3C XHTML 1.0</a>
 	</div>
 </div>
 </div>
+
+</div>{* #ps-container *}
 </body>
 </html>

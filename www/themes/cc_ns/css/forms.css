@@ -1,19 +1,19 @@
 /* --- FORM styles ------------------------------- */
-.ps-form-container { text-align: center; margin: 0 auto; }
+#ps-container .ps-form-container { text-align: center; margin: 0 auto; }
 
-.ps-form form {
+#ps-container .ps-form form {
 	margin: 0 auto;
 	padding: 0.5em;
 	max-width: 620px;
 /*	min-width: 560px;*/
 	width: 590px;
 	text-align: left;
-/*	background: #222222; */
-	background: #f9e6ab; /* aliceblue; */
-	border: 1px solid #3a3c40;
+/*	background: #BABCC1; */
+	background: #F0F8FF; /* aliceblue; */
+	border: 1px solid #3A3C40;
 }
 
-.ps-form form fieldset {
+#ps-container .ps-form form fieldset {
 	border-color: #747881;
 	border-style: solid none none;
 	border-width: 3px 0 0;
@@ -23,7 +23,7 @@
 	padding: 10px;
 }
 
-.ps-form form fieldset legend {
+#ps-container .ps-form form fieldset legend {
 	line-height: 150%;
 	color: #000000;
 	font-size: 150%;
@@ -32,22 +32,22 @@
 	padding: 0 5px;
 }
 
-.ps-form form div {
+#ps-container .ps-form form div {
 	clear: left;
 	display: block;
 	margin: 5px 0pt 0pt;
 	padding: 1px 3px;
 	width: 354px;
 }
-fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
+#ps-container fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 	padding: 0;
 }
 
-.ps-form form fieldset div.inline-notes,
-.ps-form form fieldset div.inline-warn,
-.ps-form form fieldset div.notes
+#ps-container .ps-form form fieldset div.inline-notes,
+#ps-container .ps-form form fieldset div.inline-warn,
+#ps-container .ps-form form fieldset div.notes 
 {
-	background-color: #ffffe1;
+	background-color: #FFFFE1;
 	border: 1px solid #666666;
 	color: #666666;
 	float: right;
@@ -57,16 +57,16 @@ fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 	padding: 5px;
 	width: 158px;
 }
-.ps-form form fieldset div.inline-notes { width: auto; float: none; margin: 5px 0 0; padding: 3px; }
+#ps-container .ps-form form fieldset div.inline-notes { width: auto; float: none; margin: 5px 0 0; padding: 3px; }
 
-.ps-form form fieldset div.inline-notes a,
-.ps-form form fieldset div.notes a
+#ps-container .ps-form form fieldset div.inline-notes a,
+#ps-container .ps-form form fieldset div.notes a 
 {
 	text-decoration: underline;
 }
 
-.ps-form form fieldset div.inline-notes h4,
-.ps-form form fieldset div.notes h4
+#ps-container .ps-form form fieldset div.inline-notes h4,
+#ps-container .ps-form form fieldset div.notes h4 
 {
 	background: transparent url(../img/icons/information.gif) no-repeat left 50%;
 	border-color: #666666;
@@ -77,20 +77,20 @@ fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 	padding: 0 0 3px 20px;
 }
 
-.ps-form form fieldset div.inline-notes p,
-.ps-form form fieldset div.inline-notes ul,
-.ps-form form fieldset div.notes p
+#ps-container .ps-form form fieldset div.inline-notes p,
+#ps-container .ps-form form fieldset div.inline-notes ul,
+#ps-container .ps-form form fieldset div.notes p 
 {
 	color: #666666;
 	margin: 0.5em 0 0;
 }
-.ps-form form fieldset div.inline-notes ul
+#ps-container .ps-form form fieldset div.inline-notes ul
 {
 	margin-left: 2em;
 }
 
-.ps-form form div label small,
-.ps-form form div label {
+#ps-container .ps-form form div label small, 
+#ps-container .ps-form form div label {
 	display: block;
 	float: left;
 	margin: 0 0 5px;
@@ -99,12 +99,12 @@ fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 	width: 135px;		/* main align */
 	font-weight: bold;
 }
-.ps-form form div label small {
+#ps-container .ps-form form div label small {
 	font-weight: normal;
 	text-align: left;
 }
 
-.ps-form form div p.small {
+#ps-container .ps-form form div p.small {
 	display: block;
 	padding: 0 3px;
 	font-size: 88%;
@@ -113,34 +113,34 @@ fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 	margin-bottom: 0.5em;
 }
 
-.ps-form form div p.err { display: none; }
-.ps-form form div.err p.err, div.err p.err {
+#ps-container .ps-form form div p.err { display: none; }
+#ps-container .ps-form form div.err p.err, div.err p.err { 
 	display: block;
 	background: url(../img/icons/error.gif) no-repeat 0 50%;
 	padding-left: 20px;
 	margin-left: 104px;
 	font-size: 90%;
 	font-weight: bold;
-	color: #ff0000;
+	color: #FF0000;
 	height: 16px;
 }
 
-.ps-form form div.err, div.err {
+#ps-container .ps-form form div.err, div.err {
 	border: 1px solid #FF0000;
-	background: #ffffe1;
+	background: #FFFFE1;
 	padding: 2px;
 }
 
-.ps-form form div.fatal, div.fatal {
+#ps-container .ps-form form div.fatal, div.fatal {
 	padding: 0.5em 0.5em 0.5em 30px;
 	margin-bottom: 1em;
 	background: #B75E52 url(../img/icons/error.gif) no-repeat 5px 50%;
-	border: 1px solid #000000;
-	color: #ffffff;
+	border: 1px solid black;
+	color: #FFFFFF;
 }
-.ps-form form div.fatal h4, div.fatal h4 {
-	border-bottom: 1px solid #000000;
-	color: #ffcebf;
+#ps-container .ps-form form div.fatal h4, div.fatal h4 {
+	border-bottom: 1px solid black;
+	color: #FFCEBF;
 }
 
 /*
@@ -161,57 +161,57 @@ fieldset .ps-table-frame div {	/* nested tables inside a form should not pad */
 
 /* --- Input styles ---------------------- */
 
-.ps-form form div input.field,
-.ps-form form div select,
-.ps-form form div textarea,
-.ps-form form div span.readonly
+#ps-container .ps-form form div input.field, 
+#ps-container .ps-form form div select, 
+#ps-container .ps-form form div textarea, 
+#ps-container .ps-form form div span.readonly
 {
 	margin: 0;
 	padding: 1px;
 	color: #000000;
-	background-color: #ffffff;
-	border-top: 1px solid #666666;
-	border-left: 1px solid #666666;
-	border-bottom: 1px solid #aaaaaa;
-	border-right: 1px solid #aaaaaa;
+	background-color: #FFFFFF;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	border-bottom: 1px solid #aaa;
+	border-right: 1px solid #aaa;
 	width: 200px;
 	font-family: Helvetica,"trebuchet ms",arial,sans-serif;
 	font-size: 100%;
 }
-.ps-form form div span.readonly { background-color: #eeeeee; }
-.ps-form form div textarea { overflow: auto; }
+#ps-container .ps-form form div span.readonly { background-color: #EEE; }
+#ps-container .ps-form form div textarea { overflow: auto; }
 
-.ps-form form div input.checkbox,
-.ps-form form div input.radio
-{
-	width: auto;
-	border: none;
+#ps-container .ps-form form div input.checkbox, 
+#ps-container .ps-form form div input.radio
+{ 
+	width: auto; 
+	border: none; 
 }
-.ps-form form div textarea.medium {
+#ps-container .ps-form form div textarea.medium {
 	width: 300px;
 }
-.ps-form form div textarea.long,
-.ps-form form div input.long,
-.ps-form form div select.long {
+#ps-container .ps-form form div textarea.long, 
+#ps-container .ps-form form div input.long,
+#ps-container .ps-form form div select.long {
 	width: 400px;
 }
-.ps-form form div input.short {
+#ps-container .ps-form form div input.short {
 	width: 50px;
 }
 
-.ps-form form fieldset div.submit {
+#ps-container .ps-form form fieldset div.submit {
 	width: auto;
 	text-align: center;
 }
 
-.ps-form form label.for {
+#ps-container .ps-form form label.for {
 	float: none;
 	width: auto;
 	display: inline;
 }
 
 /**/
-div.submit input.btn {
+#ps-container div.submit input.btn {
 /*
 	background-color: ButtonFace;
 	background-repeat: no-repeat;
@@ -222,28 +222,28 @@ div.submit input.btn {
 	margin: 0 0.5em;
 }
 /**
-div.submit input.login {
+div.submit input.login { 
 	background-image: url(../img/icons/user_go.gif);
 }
-div.submit input.cancel {
+div.submit input.cancel { 
 	background-image: url(../img/icons/cancel.gif);
 }
-div.submit input.delete {
+div.submit input.delete { 
 	background-image: url(../img/icons/delete.gif);
 }
-div.submit input.save {
+div.submit input.save { 
 	background-image: url(../img/icons/accept.gif);
 }
-div.submit input.new {
+div.submit input.new { 
 	background-image: url(../img/icons/textfield_add.gif);
 }
-div.submit input.test {
+div.submit input.test { 
 	background-image: url(../img/icons/cog.gif);
 }
-div.submit input.reset {
+div.submit input.reset { 
 	background-image: url(../img/icons/cog.gif);
 }
-div.submit input.register {
+div.submit input.register { 
 	background-image: url(../img/icons/user_green.gif);
 }
 /**/
@@ -254,27 +254,27 @@ div.submit input.register {
 	margin: 0 2em;
 	padding: 0.25em;
 	font-size: 90%;
-	color: #000000;
+	color: black;
 }
 
-.ps-table-header .links {
+#ps-container .ps-table-header .links {
 	float: left;
 	font-weight: bold;
 }
-.ps-table tr td.idx {
+#ps-container .ps-table tr td.idx { 
 	width: 50px;
 }
-.ps-table tr td.item {
+#ps-container .ps-table tr td.item {
 	text-align: left;
 	font-weight: bold;
 }
 
-.ps-table tr.sep-row-top td {
-	border-top: 2px #888888;
+#ps-container .ps-table tr.sep-row-top td {
+	border-top: 2px solid gray;
 }
 
-.left { float: left; }
-.right { float: right; }
+#ps-container .left { float: left; }
+#ps-container .right { float: right; }
 
 /* --- Custom form alternations ---------------- */
 #ps-login-form .ps-form form {
@@ -288,19 +288,19 @@ div.submit input.register {
 	width: 115px;
 }
 
-.ps-form form div {
+#ps-container .ps-form form div {
 	width: auto;
 }
-.ps-form form div.block {
+#ps-container .ps-form form div.block {
 	padding: 0;
 }
 
 #ps-conf-form {
-	background: #f0f88f; /*aliceblue;*/
-	border-left: 1px solid #000000;
-	border-right: 1px solid #000000;
-	border-bottom: 1px solid #000000;
-}
+	background: #F0F8FF; /*aliceblue;*/
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+}	
 #ps-conf-form .ps-form form {
 	max-width: none;
 /*	min-width: none;*/
@@ -327,8 +327,8 @@ div.submit input.register {
 }
 #ps-conf-form .ps-form form div.help {
 }
-#ps-conf-form .ps-form form div input.field,
-#ps-conf-form .ps-form form div select,
+#ps-conf-form .ps-form form div input.field, 
+#ps-conf-form .ps-form form div select, 
 #ps-conf-form .ps-form form div textarea {
 	width: auto;
 }
@@ -355,19 +355,19 @@ div.submit input.register {
 
 
 /* autocomplete styles */
-.autocomplete
+#ps-container .autocomplete
 {
-	border: 1px solid #6fbeff;
+	border: 1px solid #6FBEFF;
 	width: 250px;
-	background-color: #eff8ff;
+	background-color: #EFF8FF;
 }
-.autocomplete ul li
+#ps-container .autocomplete ul li
 {
 	padding: 2px 10px;
 	white-space: nowrap;
 	font-size: 11px;
 }
-.select-autocomplete
+#ps-container .select-autocomplete
 {
 	background-color: #d2fb8f;
 }

@@ -7,8 +7,8 @@
 	<div id="ps-page-title">
 		<div class="inner">
 {if $map.total_heatmaps}
-			<span>[
-				<a href="{url _base='mapheat.php' id=$map.mapid}"><#View Heatmap#></a>
+			<span>[ 
+				<a href="{url _base='mapheat.php' id=$map.mapid}"><#View Heatmap#></a> 
 			]</span>
 {/if}
 			<h1><#Map Statistics#> :: {$map.uniqueid|escape}</h1>
@@ -29,12 +29,21 @@
 	<span>{$map.kills|commify}</span>
 </p>
 <p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $map.ffkills}<em>{$map.ffkillspct}%</em>{/if}
+	<span>{$map.ffkills|commify}</span>
+</p>
+<p class="substat">
 	<label><#Suicides#></label>
 	<span>{$map.suicides|commify}</span>
 </p>
 <p>
 	<label><#Total Games#></label>
 	<span>{$map.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$map.rounds|commify}</span>
 </p>
 <p>
 	<label><#Connections#></label>

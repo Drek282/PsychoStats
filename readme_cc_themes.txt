@@ -12,7 +12,7 @@ These are a modification of the default PsychoStats 3.1 theme, and as such most 
 
 Requirements:
 
-A working PsychoStats >= 3.2 installation.  These themes do not PsychoLive or PsychoQuery.
+A working PsychoStats >= 3.2 installation.
 
 Installation:
 
@@ -25,6 +25,8 @@ If you have any questions I can be reached at doxology@rogers.com.
 Drek
 
 Changelog:
+
+0.5 - themes are now based on 3.2.x code and fully support PsychoLive and PsychoQuery.
 
 0.4 - removed the link to psychostats.com from the overal_footer.html
     - player page now honours flag permissions

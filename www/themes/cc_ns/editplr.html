@@ -26,7 +26,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-plrname">{$errors.plrname|escape}</p>
 	<label><#Name#>:</label>
 	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field" />
-	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox" /> Locked?</label>
+	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox" /> <#Locked?#></label>
 </div>
 
 <div{if $errors.icon} class="err"{/if}>

@@ -17,8 +17,8 @@ $(function(){ldelim}
 
 	<div id="ps-page-title">
 		<div class="inner">
-			<span>[
-				<a href="{url _base='map.php' id=$map.mapid}"><#View Statistics#></a>
+			<span>[ 
+				<a href="{url _base='map.php' id=$map.mapid}"><#View Statistics#></a> 
 			]</span>
 			<h1><#Heatmaps#> :: {$map.uniqueid|escape}</h1>
 			<h2>{$map.uniqueid|escape} <#has been played for#> {$map.onlinetime|elapsedtime}</h2>
@@ -37,9 +37,22 @@ $(function(){ldelim}
 	<label><#Total Kills#></label>
 	<span>{$map.kills|commify}</span>
 </p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $map.ffkills}<em>{$map.ffkillspct}%</em>{/if}
+	<span>{$map.ffkills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Suicides#></label>
+	<span>{$map.suicides|commify}</span>
+</p>
 <p>
 	<label><#Total Games#></label>
 	<span>{$map.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$map.rounds|commify}</span>
 </p>
 <p>
 	<label><#Connections#></label>
@@ -109,7 +122,7 @@ $(function(){ldelim}
 	<div class="heatmap-progress">{pctbar width=200 pct=70}</div>
 
 
-</div>
+</div> {* end ps-main-content *}
 
 </div> {* end ps-main *}
 

@@ -6,16 +6,16 @@
 
 	<div id="ps-page-title">
 		<div class="inner">
-			<span>[
-			<a href="{url _base='player.php' id=$plr.plrid}"><#View Statistics#></a>
+			<span>[ 
+			<a href="{url _base='player.php' id=$plr.plrid}"><#View Statistics#></a> 
 				{if ps_user_can_edit_player($plr)}
 				| <a href="{url _base='editplr.php' _ref=1  id=$plr.plrid}"><#Edit Player#></a>
 				{/if}
 			]</span>
 			<h1><#Player History#> :: {$plr.name|escape}</h1>
 			{if $plr.clanid}
-			<span><#Clan member#> [
-				<a href="{url _base='clan.php' id=$plr.clanid}">{$plr.clan.clantag|escape}</a>
+			<span><#Clan member#> [ 
+				<a href="{url _base='clan.php' id=$plr.clanid}">{$plr.clan.clantag|escape}</a> 
 				{if ps_user_can_edit_clan($plr.clanid, $plr)}
 				| <a href="{url _base='editclan.php' _ref=1 id=$plr.clanid}"><#Edit Clan#></a>
 				{/if}
@@ -28,7 +28,9 @@
 			<h2>{flagimg cc=$plr.cc} {iconimg icon=$plr.icon} {$plr.name|escape} <#is not ranked#></h2>
 			{/if}
 		</div>
-		{include file="player_profile.html"}
+		{if $conf.theme.permissions.show_plr_profile}
+			{include file="../default/player_profile.html"}
+		{/if}
 	</div>
 
 {if $plr.logo}<div class="ps-plr-logo">{$plr.logo}</div>{/if}
@@ -43,8 +45,15 @@
 	{ofc url="player.php?ofc=skill&id=`$id`" width=287 height=180}
 </div>
 
+<div id="ps-id-plrsess" class="ps-column-frame{if $shades.s_plrsess} s-closed{/if}">
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player Session Chart#></span></a></div>
+<div id="s-plrsess" class="ps-column-content" style="text-align: center">
+	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]" />
+</div>
+</div>
+
 <div class="ps-column-frame">
-<div class="ps-column-header"><a href="" onclick="return false"><span>Player Rundown</span></a></div>
+<div class="ps-column-header"><a href="" onclick="return false"><span><#Player Rundown#></span></a></div>
 <div id="s-plr-rundown" class="ps-column-content">
 <p class="hl firstrow">
 	<label><#Rank#></label>
@@ -73,6 +82,10 @@
 <p>
 	<label><#Total Games#></label>
 	<span>{$plr.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$plr.rounds|commify}</span>
 </p>
 <p>
 	<label><#Maps Played#></label>
@@ -129,9 +142,6 @@
 	</div>
 	<!---->
 
-	<img src="{url _base='imgsess.php' id=$plr.plrid}" />
-
-{*
 	<!--#SESSIONS#-->
 	<a name="sessions"></a>
 	<div class="ps-table-frame">
@@ -142,7 +152,6 @@
 	</div>
 	</div>
 	<!---->
-*}
 
 </div> {* end ps-main-content *}
 </div> {* end ps-main *}

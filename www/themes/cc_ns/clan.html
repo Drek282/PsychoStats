@@ -7,7 +7,7 @@
 	<div id="ps-page-title">
 		<div class="inner">
 {if ps_user_can_edit_clan($clan)}
-		<span>[
+		<span>[ 
 			<a href="{url _base='editclan.php' _ref=1 id=$clan.clanid}"><#Edit Clan#></a>
 		]</span>
 {/if}
@@ -15,8 +15,6 @@
 		<h2>{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong></h2>
 		</div>
 	</div>
-
-{if $clan.logo}<div class="ps-clan-logo">{$clan.logo}</div>{/if}
 
 <!--left column block -->
 <div id="ps-main-column">
@@ -45,6 +43,10 @@
 <p>
 	<label><#Total Games#></label>
 	<span>{$clan.games|commify}</span>
+</p>
+<p>
+	<label><#Total Rounds#></label>
+	<span>{$clan.rounds|commify}</span>
 </p>
 <p>
 	<label><#Maps Played#></label>
@@ -81,6 +83,11 @@
 	<span>{$clan.kills|commify}</span>
 </p>
 <p class="substat">
+	<label><#Headshot Kills#></label>
+	{if $clan.headshotkills}<em>{$clan.headshotkillspct}%</em>{/if}
+	<span>{$clan.headshotkills|commify}</span>
+</p>
+<p class="substat">
 	<label><#Friendly Fire#></label>
 	{if $clan.ffkills}<em>{$clan.ffkillspct}%</em>{/if}
 	<span>{$clan.ffkills|commify}</span>
@@ -93,6 +100,18 @@
 	<label><#Friendly Fire#></label>
 	{if $clan.ffdeaths}<em>{$clan.ffdeathspct}%</em>{/if}
 	<span>{$clan.ffdeaths|commify}</span>
+</p>
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$clan.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$clan.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$clan.hits|commify}</span>
 </p>
 <p>
 	<label><#Kills per Death#></label>
@@ -109,6 +128,14 @@
 <p>
 	<label><#Death Streak#></label>
 	<span>{$clan.deaths_streak|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$clan.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$clan.damage|commify}</span>
 </p>
 <p>
 	<label><#Suicides#></label>

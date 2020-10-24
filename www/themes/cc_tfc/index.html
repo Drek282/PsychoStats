@@ -4,7 +4,7 @@
 <!--inner container for the content-->
 <div id="ps-main">
 
-{*
+{* 
 <!--optional navigation block-->
 <div id="ps-main-nav">
 	this is the navagation block
@@ -17,7 +17,9 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<span>
-			<input id='q-hdr' name="q" value="{$q|escape}" class="field search"/>
+			<input id='q-hdr' name="q" value="{if $results}{$results.phrase|escape}{else}{$q|escape}{/if}" class="field search"/>
+			<input name="sort" value="{$sort|escape}" type="hidden" />
+			<input name="order" value="{$order|escape}" type="hidden" />
 {*
 			<input type="image" src="{theme->url}/img/icons/bullet_go.gif" style="vertical-align: middle" />
 *}
@@ -30,7 +32,6 @@
 			<strong>{$total.ranked|commify}</strong> <#players rank out of#> <strong>{$total.absolute|commify}</strong> <#total#>
 {/if}
 		</h2>
-		Psychostats last updated {$conf.info.stats.lastupdate|datetime}
 		</div>
 	</div>
 </form>
@@ -40,7 +41,7 @@
 	<div class="ps-table-inner">
 	{$players_table}
 	</div>
-	{if $totalplayers}<div class="ps-table-footer">{$pager}</div>{/if}
+	{if $total.ranked}<div class="ps-table-footer">{$pager}</div>{/if}
 	</div>
 
 </div> {* end ps-main-content *}

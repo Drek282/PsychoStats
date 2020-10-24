@@ -8,7 +8,8 @@ function servers_page_on_load() {
 	online('-');
 	kills('-');
 	stopTimer();
-	for (var i in servers) {
+	
+	for (var i=0; i < servers.length; i++) {
 		query(servers[i].id, true);
 	}
 

@@ -23,6 +23,75 @@
 	<label><#Total Kills#></label>
 	<span>{$weapon.kills|commify}</span>
 </p>
+<p class="substat">
+	<label><#Headshot Kills#></label>
+	{if $weapon.headshotkills}<em>{$weapon.headshotkillspct}%</em>{/if}
+	<span>{$weapon.headshotkills|commify}</span>
+</p>
+<p class="substat">
+	<label><#Friendly Fire#></label>
+	{if $weapon.ffkills}<em>{$weapon.ffkillspct}%</em>{/if}
+	<span>{$weapon.ffkills|commify}</span>
+</p>
+<p class="hl">
+	<label><#Overall Accuracy#></label>
+	<span>{$weapon.accuracy}%</span>
+</p>
+<p class="substat">
+	<label><#Shots Fired#></label>
+	<span>{$weapon.shots|commify}</span>
+</p>
+<p class="substat">
+	<label><#Shots Hit#></label>
+	<span>{$weapon.hits|commify}</span>
+</p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$weapon.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$weapon.damage|commify}</span>
+</p>
+<p class="hl">
+	<label><#Hitbox Zones#></label>
+	<span></span>
+</p>
+<p class="substat">
+	<label><#Head#></label>
+	{if $weapon.shot_headpct}<em>{pctbar pct=$weapon.shot_headpct}</em>{/if}
+	<span>{$weapon.shot_head|commify}</span>
+</p>
+<p class="substat">
+	<label><#Chest#></label>
+	{if $weapon.shot_chestpct}<em>{pctbar pct=$weapon.shot_chestpct}</em>{/if}
+	<span>{$weapon.shot_chest|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Arm#></label>
+	{if $weapon.shot_leftarmpct}<em>{pctbar pct=$weapon.shot_leftarmpct}</em>{/if}
+	<span>{$weapon.shot_leftarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Arm#></label>
+	{if $weapon.shot_rightarmpct}<em>{pctbar pct=$weapon.shot_rightarmpct}</em>{/if}
+	<span>{$weapon.shot_rightarm|commify}</span>
+</p>
+<p class="substat">
+	<label><#Stomach#></label>
+	{if $weapon.shot_stomachpct}<em>{pctbar pct=$weapon.shot_stomachpct}</em>{/if}
+	<span>{$weapon.shot_stomach|commify}</span>
+</p>
+<p class="substat">
+	<label><#Left Leg#></label>
+	{if $weapon.shot_leftlegpct}<em>{pctbar pct=$weapon.shot_leftlegpct}</em>{/if}
+	<span>{$weapon.shot_leftleg|commify}</span>
+</p>
+<p class="substat">
+	<label><#Right Leg#></label>
+	{if $weapon.shot_rightlegpct}<em>{pctbar pct=$weapon.shot_rightlegpct}</em>{/if}
+	<span>{$weapon.shot_rightleg|commify}</span>
+</p>
 </div>
 </div>
 

@@ -16,7 +16,7 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<h1><#Weapon Statistics#></h1>
-		<h2><strong>{$totalweapons|commify}</strong> <#weapons have killed#> <strong>{$totalkills|commify}</strong> <#players#></h2>
+		<h2><strong>{$totalweapons|commify}</strong> <#weapons have killed#> <strong>{$totalkills|commify}</strong> <#players#> {if $totaldamage}<#and have done#> <strong>{$totaldamage|commify}</strong> <#in damage#>{/if}</h2>
 		</div>
 	</div>
 

@@ -98,8 +98,9 @@ function makeInfo(o) {
 
 	$('.rank', dom).html(o.attr('rank') + ' <em>(Skill: ' + o.attr('skill') + ')</em>');
 	$('.kills', dom).html(o.attr('kills') + ' <em>(Headshots: ' + o.attr('headshotkills') + ')</em>');
+	$('.kpd', dom).html(o.attr('kpd'));
 	$('.onlinetime', dom).html(o.attr('onlinetime'));
-//	$('.activity', dom).html(o.attr('activity') + '%');
+	$('.activity', dom).html(o.attr('activity') + '%');
 	var bar = $('.pct-bar', dom);
 	var pct = o.attr('activity');
 	bar.attr('title', "Activity " + pct + "%");

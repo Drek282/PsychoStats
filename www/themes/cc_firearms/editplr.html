@@ -26,7 +26,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-plrname">{$errors.plrname|escape}</p>
 	<label><#Name#>:</label>
 	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field" />
-	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox" /> Locked?</label>
+	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox" /> <#Locked?#></label>
 </div>
 
 <div{if $errors.icon} class="err"{/if}>
@@ -43,7 +43,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
 	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
-	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.gif{else}{theme->url}/img/spacer.gif{/if}" />
+	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.png{else}{theme->url}/img/spacer.gif{/if}" />
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
 *}

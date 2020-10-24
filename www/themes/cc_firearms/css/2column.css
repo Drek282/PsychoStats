@@ -1,7 +1,7 @@
-/*
+/* 
 	2column.css
 
-	overrides a couple of styles in overall.css and content.css so that a page can have a
+	overrides a couple of styles in overall.css and content.css so that a page can have a 
 	fixed width left-hand column and a liquid content block on the remaining portion of the page.
 */
 
@@ -9,7 +9,7 @@
 	margin: 0 5px 0 310px;	/* left margin should be a little larger than the ps-main-column width */
 }
 
-/* this is the container for the left column. you shouldn't apply padding or margins to this.
+/* this is the container for the left column. you shouldn't apply padding or margins to this. 
    use inner content/block divs to control padding, etc. */
 #ps-main-column {
 	display: inline;
@@ -17,33 +17,33 @@
 	width: 300px;
 }
 
-.ps-column-frame {
-	border: 1px solid #aaaaaa ;
+#ps-container .ps-column-frame {
 	margin-left: 1em;
 	margin-bottom: 1em;
 }
-.ps-column-sep {
+#ps-container .ps-column-sep {
 	margin-left: 1em;
 	margin-bottom: 0.5em;
-	border-top: 1px dashed #888888;
+	border-top: 1px dashed gray;
 }
-.ps-column-sep2 {
+#ps-container .ps-column-sep2 {
 	margin-left: 1em;
 	margin-bottom: 0.5em;
 	overflow: hidden;
 }
 .ps-column-sep2 p,
-.ps-column-sep p
+.ps-column-sep p 
 {
 	text-align: center;
 	font-size: 80%;
-	color: #aaaaaa;
+	color: #666;
 }
 
-.ps-column-header {
+#ps-container .ps-column-header {
 	line-height: 19px;
+	background: url(../img/table-header-bg.gif) repeat;
 	padding: 0 0.3em;
-	border: 1px #888888;
+	border: 1px solid gray;
 	text-align: center;
 	font-weight: bold;
 }
@@ -53,7 +53,7 @@
 	background: url(../img/exp_minus.gif) no-repeat 100% 50%;
 	cursor: pointer;
 }
-.s-closed .ps-column-header span {
+.s-closed .ps-column-header span { 
 	background: url(../img/exp_plus.gif) no-repeat 100% 50%;
 }
 .s-closed .ps-column-content {
@@ -65,37 +65,37 @@
 .ps-column-header a:visited,
 .ps-column-header a:hover,
 .ps-column-header a:active
-{
-	color: CC6600;
+{ 
+	color: black;
 }
 
 .ps-column-content {
-	border-left: 1px #888888;
-	border-right: 1px #888888;
-	border-bottom: 1px #888888;
-	background: #dddddd;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	background: #EEEEEE;
 	font-size: 100%;
 	clear: both;
 }
-.ps-column-content p,
-.ps-column-content p.hl,
-.ps-column-content p.substat
+#ps-container .ps-column-content p,
+#ps-container .ps-column-content p.hl,
+#ps-container .ps-column-content p.substat
 {					/* each <p>...</p> is a row */
 /*	margin-bottom: 0.3em; */
-	border-top: 1px solid #666666;
+	border-top: 1px solid #DDDDDD;
 	line-height: 1.5em;
 	padding: 0.1em 0.3em 0 0.3em;
 	clear: left;			/* IE7 */
 	min-height: 1.5em;
 }
 .ps-column-content p.hl {
-	background-color: #cccccc;
-	border-top: 1px solid #888888;
+	background-color: #e4dcce;
+	border-top: 1px solid #a29490;
 }
-.ps-column-content p.substat  {
+#ps-container .ps-column-content p.substat  {
 	margin-left: 1.5em;
 	border: none;
-/*	border-bottom: 1px dashed #AAAAAA; */
+/*	border-bottom: 1px dashed #dddddd; */
 }
 .ps-column-content p.selected {
 	background: lightyellow;
@@ -120,8 +120,6 @@
 {
 	float: none;
 	text-align: left;
-	margin-top: auto;
-	margin-bottom: auto;
 }
 .ps-column-content p em {		/* stat% */
 /*
@@ -156,25 +154,25 @@
 }
 
 .ps-column-content p.even {
-	background-color: #bbbbbb;
+	background-color: #E7E7E7;
 }
 
 /* --- CLEAR FLOATS ------------ */
-#ps-main-column:after,
+#ps-main-column:after, 
 #ps-main-content:after,
 .ps-column-content p:after,
 .spacer:after
 {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
 	visibility: hidden;
 }
 
 * html #ps-main-content,
-* html .ps-column-content p
-{
-	height:1%;
+* html .ps-column-content p 
+{ 
+	height:1%; 
 }
 
