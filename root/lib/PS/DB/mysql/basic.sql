@@ -122,7 +122,7 @@ CREATE TABLE `ps_config_overlays` (
   `height` smallint(5) unsigned NOT NULL,
   `flipv` tinyint(1) unsigned NOT NULL,
   `fliph` tinyint(1) unsigned NOT NULL,
-  `rotate` smallint(6) NOT NULL,
+  `rotate` smallint(6) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `gametype` (`gametype`,`modtype`,`map`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

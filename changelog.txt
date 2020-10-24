@@ -10,6 +10,7 @@ Version 3.2.7b (in progress)
 * [Added] Natural Selection map images for PsychoQuery.
 * [Changed] CC mod specific themes are now child themes of a non-mod specific cc_default theme.
 * [Removed] Flash hitbox from CC themes.
+* [Fixed] Broken overlay edit and import.
 
 
 Version 3.2.6b (10/21/2020)
