@@ -8,6 +8,8 @@ Version 3.2.7b (in progress)
 * [Fixed] PsychoQuery error.
 * [Updated] CC themes are now based on 3.2.x code and fully support PsychoLive and PsychoQuery.
 * [Added] Natural Selection map images for PsychoQuery.
+* [Changed] CC mod specific themes are now child themes of a non-mod specific cc_default theme.
+* [Removed] Flash hitbox from CC themes.
 
 
 Version 3.2.6b (10/21/2020)

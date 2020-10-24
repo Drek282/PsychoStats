@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <theme>
 	<name>cc_ns</name>
-	<parent></parent>
+	<parent>cc_default</parent>
 	<version>0.5</version>
 	<title>Casually Crackers Natural Selection Theme</title>
 	<author>Stormtrooper (modded by Drek)</author>

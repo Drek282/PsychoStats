@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <theme>
-	<name>cc_firearms</name>
-	<parent>cc_default</parent>
+	<name>cc_default</name>
+	<parent></parent>
 	<version>0.5</version>
 	<title>Casually Crackers Firearms Theme</title>
 	<author>Stormtrooper (modded by Drek)</author>
