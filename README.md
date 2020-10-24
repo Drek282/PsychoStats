@@ -50,8 +50,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
 
-* User login is broken in the CC themes.
-
 
 ## **Stuff that Remains Untested**
 
