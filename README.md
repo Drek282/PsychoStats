@@ -61,6 +61,7 @@ Most of the links and references to psychostats.com have been removed as that do
 ## **Future Plans**
 
 * Heat map overviews and support for Team Fortress Classic.
+* Update overlays data.
 
 
 ## **Credits**
