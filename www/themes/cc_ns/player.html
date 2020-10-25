@@ -183,6 +183,14 @@
 	<label><#Shots Hit#></label>
 	<span>{$plr.hits|commify}</span>
 </p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$plr.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$plr.damage|commify}</span>
+</p>
 {/if}
 <p>
 	<label><#Kills per Death#></label>
@@ -199,14 +207,6 @@
 <p>
 	<label><#Death Streak#></label>
 	<span>{$plr.deaths_streak|commify}</span>
-</p>
-<p>
-	<label><#Shots per Kill#></label>
-	<span>{$plr.shotsperkill}</span>
-</p>
-<p>
-	<label><#Damage Done#></label>
-	<span>{$plr.damage|commify}</span>
 </p>
 <p>
 	<label><#Suicides#></label>
@@ -296,32 +296,6 @@
 	</div>
 	</div>
 	<!---->
-
-{if $conf.theme.permissions.show_hitbox}
-	<div class="ps-table-frame{if $shades.s_hitbox} s-closed{/if}">
-	<div class="ps-frame-header"><a href="" onclick="return false"><span><#Player Hitbox#></span></a></div>
-	<div id="s-hitbox" class="ps-table-inner">
-
-		<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="277" height="330">
-		<param name="allowScriptAccess" value="sameDomain" />
-		<param name="movie" value="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" />
-		<param name="quality" value="high" />
-		<param name="bgcolor" value="{$hitbox_bgcolor|default:'#C4C4C4'}" />
-		<embed src="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" 
-			quality="high" 
-			bgcolor="{$hitbox_bgcolor|default:'#C4C4C4'}" 
-			width="277" 
-			height="330" 
-			name="hitbox" 
-			align="middle" 
-			allowScriptAccess="sameDomain" 
-			type="application/x-shockwave-flash" 
-			pluginspage="http://www.macromedia.com/go/getflashplayer" />
-		</object>
-
-	</div>
-	</div>
-{/if}
 
 	<!--#WEAPONS#-->
 	<a name="weapons"></a>

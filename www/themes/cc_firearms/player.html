@@ -181,6 +181,14 @@
 	<label><#Shots Hit#></label>
 	<span>{$plr.hits|commify}</span>
 </p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$plr.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$plr.damage|commify}</span>
+</p>
 {/if}
 <p>
 	<label><#Kills per Death#></label>
@@ -197,14 +205,6 @@
 <p>
 	<label><#Death Streak#></label>
 	<span>{$plr.deaths_streak|commify}</span>
-</p>
-<p>
-	<label><#Shots per Kill#></label>
-	<span>{$plr.shotsperkill}</span>
-</p>
-<p>
-	<label><#Damage Done#></label>
-	<span>{$plr.damage|commify}</span>
 </p>
 <p>
 	<label><#Suicides#></label>
