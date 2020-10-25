@@ -766,6 +766,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='co_blackmesa_r5a'>
+  <minx>-915</minx>
+  <miny>-2790</miny>
+  <maxx>3295</maxx>
+  <maxy>915</maxy>
+  <res>600x426</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='co_core'>
   <minx>-1958</minx>
   <miny>-1191</miny>
@@ -790,6 +799,15 @@
   <maxx>973</maxx>
   <maxy>1929</maxy>
   <res>317x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='co_freefall_b2b'>
+  <minx>-4020</minx>
+  <miny>-1175</miny>
+  <maxx>770</maxx>
+  <maxy>3095</maxy>
+  <res>600x551</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -847,6 +865,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='co_spacefall_b12'>
+  <minx>-2320</minx>
+  <miny>-1560</miny>
+  <maxx>3645</maxx>
+  <maxy>3925</maxy>
+  <res>600x531</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='co_ulysses'>
   <minx>-1456</minx>
   <miny>-1841</miny>
@@ -862,6 +889,15 @@
   <maxx>3110</maxx>
   <maxy>1602</maxy>
   <res>338x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='co_volcanodrop'>
+  <minx>-2560</minx>
+  <miny>-1600</miny>
+  <maxx>1465</maxx>
+  <maxy>3570</maxy>
+  <res>600x466</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
