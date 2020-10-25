@@ -82,25 +82,32 @@
 	<label><#Total Kills#></label>
 	<span>{$clan.kills|commify}</span>
 </p>
+{if $clan.headshotkills}
 <p class="substat">
 	<label><#Headshot Kills#></label>
-	{if $clan.headshotkills}<em>{$clan.headshotkillspct}%</em>{/if}
+	<em>{$clan.headshotkillspct}%</em>
 	<span>{$clan.headshotkills|commify}</span>
 </p>
+{/if}
+{if $clan.ffkills}
 <p class="substat">
 	<label><#Friendly Fire#></label>
 	{if $clan.ffkills}<em>{$clan.ffkillspct}%</em>{/if}
 	<span>{$clan.ffkills|commify}</span>
 </p>
+{/if}
 <p class="hl">
 	<label><#Total Deaths#></label>
 	<span>{$clan.deaths|commify}</span>
 </p>
+{if $clan.ffdeaths}
 <p class="substat">
 	<label><#Friendly Fire#></label>
-	{if $clan.ffdeaths}<em>{$clan.ffdeathspct}%</em>{/if}
+	<em>{$clan.ffdeathspct}%</em>
 	<span>{$clan.ffdeaths|commify}</span>
 </p>
+{/if}
+{if $clan.shots}
 <p class="hl">
 	<label><#Overall Accuracy#></label>
 	<span>{$clan.accuracy}%</span>
@@ -113,6 +120,15 @@
 	<label><#Shots Hit#></label>
 	<span>{$clan.hits|commify}</span>
 </p>
+<p>
+	<label><#Shots per Kill#></label>
+	<span>{$clan.shotsperkill}</span>
+</p>
+<p>
+	<label><#Damage Done#></label>
+	<span>{$clan.damage|commify}</span>
+</p>
+{/if}
 <p>
 	<label><#Kills per Death#></label>
 	<span>{$clan.killsperdeath}</span>
@@ -128,14 +144,6 @@
 <p>
 	<label><#Death Streak#></label>
 	<span>{$clan.deaths_streak|commify}</span>
-</p>
-<p>
-	<label><#Shots per Kill#></label>
-	<span>{$clan.shotsperkill}</span>
-</p>
-<p>
-	<label><#Damage Done#></label>
-	<span>{$clan.damage|commify}</span>
 </p>
 <p>
 	<label><#Suicides#></label>

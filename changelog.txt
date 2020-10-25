@@ -15,6 +15,7 @@ Version 3.2.7b (in progress)
 * [Added] Conditionals to weapon pages on default themes so that they don't show irrelevant data.
 * [Moved] More fields on player pages to conditionals on all themes so that they don't show irrelevant data.
 * [Removed] Hitbox code on player pages on all themes.
+* [Added] Conditionals to map and clan pages on default themes so they don't show irrelevant data.
 
 
 Version 3.2.6b (10/21/2020)
