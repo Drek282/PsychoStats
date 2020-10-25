@@ -23,16 +23,21 @@
 	<label><#Total Kills#></label>
 	<span>{$weapon.kills|commify}</span>
 </p>
+{if $weapon.headshotkills}
 <p class="substat">
 	<label><#Headshot Kills#></label>
 	{if $weapon.headshotkills}<em>{$weapon.headshotkillspct}%</em>{/if}
 	<span>{$weapon.headshotkills|commify}</span>
 </p>
+{/if}
+{if $weapon.ffkills}
 <p class="substat">
 	<label><#Friendly Fire#></label>
-	{if $weapon.ffkills}<em>{$weapon.ffkillspct}%</em>{/if}
+	<em>{$weapon.ffkillspct}%</em>
 	<span>{$weapon.ffkills|commify}</span>
 </p>
+{/if}
+{if $weapon.shots}
 <p class="hl">
 	<label><#Overall Accuracy#></label>
 	<span>{$weapon.accuracy}%</span>
@@ -92,6 +97,7 @@
 	{if $weapon.shot_rightlegpct}<em>{pctbar pct=$weapon.shot_rightlegpct}</em>{/if}
 	<span>{$weapon.shot_rightleg|commify}</span>
 </p>
+{/if}
 </div>
 </div>
 

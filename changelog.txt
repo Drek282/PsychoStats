@@ -12,6 +12,7 @@ Version 3.2.7b (in progress)
 * [Removed] Flash hitbox from CC themes.
 * [Fixed] Broken overlay edit and import.
 * [Added] Overlays to database.
+* [Added] Conditionals to weapons page on default themes so that they don't show irrelevant data.
 
 
 Version 3.2.6b (10/21/2020)

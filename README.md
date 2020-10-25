@@ -61,7 +61,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * Heat map overviews and support for Team Fortress Classic.
 * Update overlays data.
 * Add map pictures for Firearms and Team Fortress Classic.
-* Add conditionals to weapon page so that it doesn't show missing data.
 
 
 ## **Credits**
