@@ -46,8 +46,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
 
-* Editing users in the Admin CP is broken.
-
 * One person has reported that the Call of Duty 4 support is broken, however he wasn't using Wakachamo's latest fixes, as far as I know.
 
 

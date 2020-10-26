@@ -179,6 +179,7 @@ if ($submit) {
 		unset($input['accesslevel']);
 
 		$input['cc'] = strtoupper($input['cc']);
+        if (!$input['namelocked']) $input['namelocked'] = 0;
 
 		// save a NEW user record if this player didn't have one
 		$inserted = false;

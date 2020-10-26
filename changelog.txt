@@ -17,6 +17,7 @@ Version 3.2.7b (in progress)
 * [Removed] Hitbox code on player pages on all themes.
 * [Added] Conditionals to map, heatmaps and clan pages on default themes so they don't show irrelevant data.
 * [Changed] Players and Rules view in PsychoQuery now shows the full list of players and rules instead of a scroll bar.
+* [Fixed] Player edit in Admin CP.
 
 
 Version 3.2.6b (10/21/2020)
