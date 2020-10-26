@@ -37,11 +37,13 @@ $(function(){ldelim}
 	<label><#Total Kills#></label>
 	<span>{$map.kills|commify}</span>
 </p>
+{if $map.ffkills}
 <p class="substat">
 	<label><#Friendly Fire#></label>
-	{if $map.ffkills}<em>{$map.ffkillspct}%</em>{/if}
+	<em>{$map.ffkillspct}%</em>
 	<span>{$map.ffkills|commify}</span>
 </p>
+{/if}
 <p class="substat">
 	<label><#Suicides#></label>
 	<span>{$map.suicides|commify}</span>
