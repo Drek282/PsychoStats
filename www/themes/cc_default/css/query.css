@@ -48,8 +48,6 @@
 
 .ps-server-main .content,
 .ps-server-main .details,
-.ps-server-main .players,
-.ps-server-main .rules,
 .ps-server-main .rcon {
 	font-size: 80%;
 	height: 101px !important;	/* FF */
@@ -60,7 +58,9 @@
 
 .ps-server-main .players,
 .ps-server-main .rules{
-	overflow: auto;
+	font-size: 80%;
+    length: 100% !important;
+    length: 100%;
 }
 .ps-server-main table {
 	width: 270px;
