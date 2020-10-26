@@ -38,15 +38,6 @@ sub _init {
 	return $self;
 }
 
-# override default event so we can reset per-log variables
-sub event_logstartend {
-	my ($self, $timestamp, $args) = @_;
-	my ($startedorclosed) = @$args;
-	$self->SUPER::event_logstartend($timestamp, $args);
-
-	return unless lc $startedorclosed eq 'started';
-}
-
 # player teams are now detected from their player signature for all events.
 # the only reason we need this event now is to add 1 to the proper 'joined' stat.
 sub event_joined_team {
@@ -141,7 +132,7 @@ sub event_firearms_ffkill {
 	my $p2 = $self->get_plr($victim) || return;
 	$self->_do_connected($timestamp, $p1) unless $p1->{_connected};
 	$self->_do_connected($timestamp, $p2) unless $p2->{_connected};
-
+	
 	$p1->{basic}{lasttime} = $timestamp;
 	$p2->{basic}{lasttime} = $timestamp;
 	return unless $self->minconnected;
@@ -153,28 +144,28 @@ sub event_firearms_ffkill {
 	# I directly access the player variables in the objects (bad OO design), 
 	# but the speed advantage is too great to do it the "proper" way.
 
-	$p1->update_streak('kills', 'deaths');
+#	$p1->update_streak('kills', 'deaths');
 #	$p1->{basic}{kills}++;
-	$p1->{mod}{ $p1->{team} . "kills"}++ if $p1->{team};		# Kills while ON the team
+#	$p1->{mod}{ $p1->{team} . "kills"}++ if $p1->{team};		# Kills while ON the team
 #	$p1->{mod}{ $p2->{team} . "kills"}++;				# Kills against the team
-	$p1->{mod_maps}{ $m->{mapid} }{ $p1->{team} . "kills"}++ if $p1->{team};
-	$p1->{maps}{ $m->{mapid} }{kills}++;
-	$p1->{victims}{ $p2->{plrid} }{kills}++;
+#	$p1->{mod_maps}{ $m->{mapid} }{ $p1->{team} . "kills"}++ if $p1->{team};
+#	$p1->{maps}{ $m->{mapid} }{kills}++;
+#	$p1->{victims}{ $p2->{plrid} }{kills}++;
 
 	$p2->{isdead} = 1;
-	$p2->update_streak('deaths', 'kills');
+#	$p2->update_streak('deaths', 'kills');
 #	$p2->{basic}{deaths}++;
-	$p2->{mod}{ $p2->{team} . "deaths"}++ if $p2->{team};		# Deaths while ON the team
+#	$p2->{mod}{ $p2->{team} . "deaths"}++ if $p2->{team};		# Deaths while ON the team
 #	$p2->{mod}{ $p1->{team} . "deaths"}++;				# Deaths against the team
-	$p2->{mod_maps}{ $m->{mapid} }{ $p2->{team} . "deaths"}++ if $p2->{team};
-	$p2->{maps}{ $m->{mapid} }{deaths}++;
-	$p2->{victims}{ $p1->{plrid} }{deaths}++;
+#	$p2->{mod_maps}{ $m->{mapid} }{ $p2->{team} . "deaths"}++ if $p2->{team};
+#   $p2->{maps}{ $m->{mapid} }{deaths}++;
+#	$p2->{victims}{ $p1->{plrid} }{deaths}++;
 #	$p2->{roundtime} = $self->{roundstart} ? $timestamp - $self->{roundstart} : undef;
 
 	$m->{basic}{lasttime} = $timestamp;
 #	$m->{basic}{kills}++;
-	$m->{mod}{ $p1->{team} . 'kills'}++ if $p1->{team};		# kills on the team
-	$m->hourly('kills', $timestamp);
+#	$m->{mod}{ $p1->{team} . 'kills'}++ if $p1->{team};		# kills on the team
+#	$m->hourly('kills', $timestamp);
 
     $p1->{maps}{ $m->{mapid} }{ffkills}++;
     $p1->{basic}{ffkills}++;
@@ -374,10 +365,17 @@ sub event_teamtrigger {
 	$self->plrbonus($trigger, 'enactor_team', $enactor_team, 'victim_team', $victim_team);
 }
 
-# catures the pausable 0 cvar
-# hacky and kludgy but the best I could come up with
-sub event_endgame {
+# override default event so we can reset per-log variables
+sub event_logstartend {
 	my ($self, $timestamp, $args) = @_;
+	my ($startedorclosed) = @$args;
+	$self->SUPER::event_logstartend($timestamp, $args);
+	
+	if (lc $startedorclosed eq 'started') {
+        $self->save(1);
+        return;
+    }
+    
 	my ($team, $numplrs) = @$args;
 	$team = lc $team;
 
