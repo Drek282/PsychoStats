@@ -1396,4 +1396,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='epicenter'>
+  <minx>-1635</minx>
+  <miny>-2935</miny>
+  <maxx>2475</maxx>
+  <maxy>3005</maxy>
+  <res>600x415</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
