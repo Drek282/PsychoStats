@@ -1,4 +1,4 @@
-## Welcome to Drek's Psychostats Page
+## Welcome to Drek's PsychoStats Repository
 
 PsychoStats is the defining game stats software of the golden age of PC game modding, between the years of 2000 and 2005. It was created for the game and it's mods that dominated that golden age, Half-Life and Source, with mods like Counter-Strike, Day of Defeat, Earth's Special Forces, and so many others that there are truly too many to mention.
 
