@@ -2463,6 +2463,9 @@ function get_overlay($map, $gametype = false, $modtype = false) {
 	if ($modtype === false) {
 		$modtype = $this->modtype();
 	}
+	if ($modtype == 'ns') {
+		$modtype = 'natural';
+	}
 	if ($modtype == 'tf') {
 		$modtype = 'tf2';
 	}
