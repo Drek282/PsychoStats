@@ -7,6 +7,7 @@ Version 3.2.7b (in progress)
 * [Updated] Installation instructions.
 * [Fixed] PsychoQuery error.
 * [Updated] CC themes are now based on 3.2.x code and fully support PsychoLive and PsychoQuery.
+* [Added] Firearms map images.
 * [Added] Natural Selection map images.
 * [Changed] CC mod specific themes are now child themes of a non-mod specific cc_default theme.
 * [Removed] Flash hitbox from CC themes.
