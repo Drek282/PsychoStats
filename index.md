@@ -1,37 +1,7 @@
-## Welcome to GitHub Pages
+## Welcome to Drek's Psychostats Page
 
-You can use the [editor on GitHub](https://github.com/Drek282/PsychoStats/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+PsychoStats is the defining game stats software of the golden age of PC game modding, between the years of 2000 and 2005. It was created for the game and it's mods that dominated that golden age, Half-Life and Source, with mods like Counter-Strike, Day of Defeat, Earth's Special Forces, and so many others that there are truly too many to mention.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+PsychoStats parses server logs and generates statistics based on those logs. Those statistics are stored in a database which is accessed by a web portal that displays those statistics. The stats parsing scripts are written in Perl while the web front end is written in PHP. This version of PsychoStats is working on PHP 7.4.11 and MariaDB 10.3.24.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Drek282/PsychoStats/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+All of the versions on this repository should be considered beta software as at this time I simply do not have the capacity or the access to game servers to thoroughly test releases. I know that prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers. The base PsychoStats code should be robust and stable, and the changes I have made have been relatively minor, so it stands to reason that the code is still robust and stable, but I can make no guarantees, so use this software at your own risk.
