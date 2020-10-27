@@ -1387,4 +1387,13 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='dustbowl'>
+  <minx>-3940</minx>
+  <miny>-2830</miny>
+  <maxx>3065</maxx>
+  <maxy>3370</maxy>
+  <res>600x530</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
