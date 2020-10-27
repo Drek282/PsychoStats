@@ -166,16 +166,18 @@ sub event_firearms_ffkill {
 #	$m->{basic}{kills}++;
 #	$m->{mod}{ $p1->{team} . 'kills'}++ if $p1->{team};		# kills on the team
 #	$m->hourly('kills', $timestamp);
+    
+	if (($p1->{team} and $p2->{team}) and ($p1->{team} eq $p2->{team})) {
+        $p1->{maps}{ $m->{mapid} }{ffkills}++;
+        $p1->{basic}{ffkills}++;
 
-    $p1->{maps}{ $m->{mapid} }{ffkills}++;
-    $p1->{basic}{ffkills}++;
+        $p2->{maps}{ $m->{mapid} }{ffdeaths}++;
+        $p2->{basic}{ffdeaths}++;
 
-    $p2->{maps}{ $m->{mapid} }{ffdeaths}++;
-    $p2->{basic}{ffdeaths}++;
+        $m->{basic}{ffkills}++;
 
-#    $m->{basic}{ffkills}++;
-
-    $self->plrbonus('ffkill', 'enactor', $p1);
+        $self->plrbonus('ffkill', 'enactor', $p1);
+    }
 }
 
 sub event_plrtrigger {
