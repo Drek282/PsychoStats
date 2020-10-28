@@ -1034,7 +1034,7 @@ function query_to_tokens($string) {
 	}
        
 	// tokenize string into individual characters
-	$chars = str_split($x);
+	$chars = multib_str_split($x);
 	$mode = 'normal';
 	$token = '';
 	$tokens = array();
@@ -1076,6 +1076,32 @@ function query_to_tokens($string) {
 
 	return $tokens;
 }   
+
+/*
+    * function mb_str_split
+    * Multibyte safe str_split function. Splits a string into an array with
+    * 1 character per element (note: 1 char does not always mean 1 byte).
+    * 
+    * @param string  $str  string to split.
+    * @param integer  $length  character length of each array index. 
+    * @return array  Array of characters
+*/
+function multib_str_split($str, $length = 1) {
+	// fall back to old str_split if mb_ functions are not available.
+	if (!function_exists('mb_substr')) {
+		return str_split($str, $length);
+	}
+
+	if ($length < 1) return FALSE;
+
+	$result = array();
+
+	for ($i = 0; $i < mb_strlen($str); $i += $length) {
+		$result[] = mb_substr($str, $i, $length);
+	}
+
+	return $result;
+}
 
 // returns true if the variable given is not empty. Used as a callback function.
 function not_empty($i) {
