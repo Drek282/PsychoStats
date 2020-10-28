@@ -20,7 +20,7 @@ Version 3.2.7b (in progress)
 * [Changed] Players and Rules view in PsychoQuery now shows the full list of players and rules instead of a scroll bar.
 * [Fixed] Player edit in Admin CP.
 * [Fixed] Natural Selection mod name issues.
-* [Replaced] mb_str_split function with str_split as mb_str_split is only available in PHP 7.4+.
+* [Fixed] Broken search function.
 
 
 Version 3.2.6b (10/21/2020)
