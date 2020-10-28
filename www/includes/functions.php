@@ -1087,11 +1087,6 @@ function query_to_tokens($string) {
     * @return array  Array of characters
 */
 function multib_str_split($str, $length = 1) {
-	// fall back to old str_split if mb_ functions are not available.
-	if (!function_exists('mb_substr')) {
-		return str_split($str, $length);
-	}
-
 	if ($length < 1) return FALSE;
 
 	$result = array();
