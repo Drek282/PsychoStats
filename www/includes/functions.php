@@ -1034,7 +1034,7 @@ function query_to_tokens($string) {
 	}
        
 	// tokenize string into individual characters
-	$chars = mb_str_split($x);
+	$chars = str_split($x);
 	$mode = 'normal';
 	$token = '';
 	$tokens = array();
