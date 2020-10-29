@@ -46,6 +46,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
 
+* The COD4 PsychoQuery is broken, not completely, but it's broken.
+
 
 ## **Stuff that Remains Untested**
 
@@ -57,6 +59,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Heat map overviews and support for Team Fortress Classic.
 * Update overlays data.
 * Add map pictures for Team Fortress Classic.
+* Fix PsychoQuery for COD4.
 
 
 ## **Credits**
