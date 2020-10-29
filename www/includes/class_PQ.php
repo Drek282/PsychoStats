@@ -105,6 +105,7 @@ if (!function_exists('pq_query_types')) {
 # so I'm commenting them out for now.
 #		$q['gamespy'] 		= 'Gamespy (partial support)';
 		$q['quake3'] 		= 'Quake 3';
+		$q['cod4']          = 'Call of Duty 4';
 		return $q;
 	}
 }

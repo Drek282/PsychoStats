@@ -21,6 +21,7 @@ Version 3.2.7b (in progress)
 * [Fixed] Player edit in Admin CP.
 * [Fixed] Natural Selection mod name issues.
 * [Fixed] Broken search function.
+* [Added] Live server support for COD4.
 
 
 Version 3.2.6b (10/21/2020)

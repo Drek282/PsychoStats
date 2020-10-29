@@ -32,6 +32,7 @@
 		Current game support:		(supported)
 			Halflife 1		(info, rcon)
 			Halflife 2 (source)	(info, rcon, master)
+			COD4            (info)
 			GameSpy			(info) -- Only games supporting the newer GS network protocol
 			Quake 3			(info, master)
 */
@@ -115,7 +116,7 @@ function query_players() {
 function query_rules() {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'rules' server query", E_USER_WARNING);
 }
-function query_ping() {
+function query_ping($ip) {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'ping' server query", E_USER_WARNING);
 }
 function query_rcon($command, $password=NULL, $ip=NULL) {
