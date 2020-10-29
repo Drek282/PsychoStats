@@ -48,6 +48,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The COD4 PsychoQuery is broken, not completely, but it's broken.
 
+* COD4 timestamps are broken, dates and times in the stats when it comes to COD4 are completely unreliable.
+
 
 ## **Stuff that Remains Untested**
 
