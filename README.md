@@ -48,6 +48,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * COD4 support is pretty broken, and at this time probably beyond the scope of my skills to fix it.
 
+* The live servers players tab is showing bad data for HL1 mods.
+
 
 ## **Stuff that Remains Untested**
 
