@@ -46,9 +46,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
 
-* The COD4 PsychoQuery is broken, not completely, but it's broken.
-
-* COD4 timestamps are broken, dates and times in the stats when it comes to COD4 are completely unreliable.
+* COD4 support is pretty broken, and at this time probably beyond the scope of my skills to fix it.
 
 
 ## **Stuff that Remains Untested**
