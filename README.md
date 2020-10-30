@@ -59,7 +59,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Heat map overviews and support for Team Fortress Classic.
 * Update overlays data.
 * Add map pictures for Team Fortress Classic.
-* Fix PsychoQuery for COD4.
+* Update the player profile social options.
 
 
 ## **Credits**
