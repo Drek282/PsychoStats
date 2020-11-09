@@ -165,9 +165,9 @@ function total_heatmap_images($mapid, $criteria = array()) {
 // private function. modifies the label given depending on the 'who' setting
 function _who_label($label, $who = false) {
 	switch ($who) {
-		case 'both': 	$label .= '(Kills and Deaths)'; break;
-		case 'victim': 	$label .= 'Victim map'; break;
-		case 'killer': 	$label .= 'Killer map'; break;
+		case 'both': 	$label .= '(killers and deaths locations)'; break;
+		case 'victim': 	$label .= 'deaths locations'; break;
+		case 'killer': 	$label .= 'killers locations'; break;
 	}
 	return $label;
 }
