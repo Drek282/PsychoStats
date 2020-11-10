@@ -299,6 +299,13 @@ map that is coloured differently, to avoid confusion.  You can generate both
 victim and killer maps and the heatmap will give the user the option of which
 they wish to view
 
+=item B<-who2='both'>
+
+If you specify both who and who2 you can generate a heatmap that includes both
+killer and victim locations.  The following command will generate such a map:
+
+heat.pl -who='victim' -who2='killer' -cold
+
 =item B<-xmlpath> [path]
 
 Path to optional XML files for each map. heat.xml is loaded first, then each
