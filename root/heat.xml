@@ -1086,7 +1086,7 @@
   <miny>-3900</miny>
   <maxx>3855</maxx>
   <maxy>3900</maxy>
-  <res>600x549</res>
+  <res>549x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1402,6 +1402,42 @@
   <maxx>2475</maxx>
   <maxy>3005</maxy>
   <res>600x415</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='flagrun'>
+  <minx>-3710</minx>
+  <miny>-940</miny>
+  <maxx>3710</maxx>
+  <maxy>2495</maxy>
+  <res>600x276</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='fortsake2'>
+  <minx>-1985</minx>
+  <miny>-3895</miny>
+  <maxx>2170</maxx>
+  <maxy>700</maxy>
+  <res>600x542</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='hunted'>
+  <minx>-2600</minx>
+  <miny>-2215</miny>
+  <maxx>1740</maxx>
+  <maxy>2040</maxy>
+  <res>600x590</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='mulch_trench'>
+  <minx>-3380</minx>
+  <miny>-875</miny>
+  <maxx>3515</maxx>
+  <maxy>1300</maxy>
+  <res>600x359</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>

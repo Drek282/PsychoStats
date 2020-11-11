@@ -71,6 +71,8 @@ Editing Steps:
 
 10. Save the file as a png file to preserve the transparency.
 
+11. If your heatmap doesn't match up with the overlay, try rotating the map 90°.
+
 
 Editing the heat.xml File:
 
