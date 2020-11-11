@@ -1285,7 +1285,7 @@
   <maxx>1730</maxx>
   <maxy>3960</maxy>
   <res>600x264</res>
-  <flipv>1</flipv>
+  <flipv>0</flipv>
   <fliph>0</fliph>
  </map>
  <map name='2morfort'>
