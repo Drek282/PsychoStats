@@ -301,10 +301,10 @@ they wish to view
 
 =item B<-who2='both'>
 
-If you specify both who and who2 you can generate a heatmap that includes both
+If you specify who2 you can generate a heatmap that includes both
 killer and victim locations.  The following command will generate such a map:
 
-heat.pl -who='victim' -who2='killer' -cold
+heat.pl -who2='killer'
 
 =item B<-xmlpath> [path]
 
