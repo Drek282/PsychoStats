@@ -1131,7 +1131,7 @@
   <miny>-3280</miny>
   <maxx>1630</maxx>
   <maxy>3230</maxy>
-  <res>600x457</res>
+  <res>457x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
