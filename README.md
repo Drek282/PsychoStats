@@ -44,7 +44,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
 
-* The Firearms, TFC and a few Natural Selection heatmaps are mostly untested, some are working as intended, some are not matching up with the data and I have been unable to ascertain why.
+* The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
 * COD4 support is pretty broken, and at this time probably beyond the scope of my skills to fix it.
 
