@@ -1441,4 +1441,31 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='murderball'>
+  <minx>-3240</minx>
+  <miny>-2355</miny>
+  <maxx>1680</maxx>
+  <maxy>2460</maxy>
+  <res>600x586</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='nml'>
+  <minx>-1330</minx>
+  <miny>-3325</miny>
+  <maxx>1445</maxx>
+  <maxy>3885</maxy>
+  <res>600x232</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='nml3'>
+  <minx>-4015</minx>
+  <miny>-4010</miny>
+  <maxx>4005</maxx>
+  <maxy>3810</maxy>
+  <res>600x585</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
