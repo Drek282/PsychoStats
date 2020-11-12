@@ -23,6 +23,7 @@ Version 3.2.7b (in progress)
 * [Fixed] Broken search function.
 * [Added] Live server support for COD4.
 * [Improved] Heatmap naming (victims map shows first, names are clearer).
+* [Updated] Social options for clan and player profiles.
 
 
 Version 3.2.6b (10/21/2020)
