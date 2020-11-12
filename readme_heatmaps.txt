@@ -34,11 +34,9 @@ Creating the Heatmap Overlays:
 
 It is almost impossible to get the necessary coordinates for every map without using noclip.  The only reliable way I know to have access to noclip is by installing Admin Mod or AMXModX with the AdminModX plugin.  For Admin Mod you will need to enable the cheats plugin.  Once you've installed Admin Mod and given your user the appropriate permissions, you can just start up the game normally and choose the option "Create Game" from the start screen for the game.  Your user on a listenserver will be "STEAM_ID_LAN".  I would recommend using Metamod-P if you are not running one of the more popular mods.
 
-On Firearms I was able to get the latest official AdminMod working with the latest version of Metamod-P using wine to run the Windows versions.  On TFC I was able to get the latest official AMXModX working with the metamod version that came with AMXModX, using the native Linux versions, however, I had to rename the metamod_i386.so to metamod.so.  TFC does not like game dlls on Linux that use the old _i386 naming convetion.  In both cases it took me a full day of trial and error to get it working.
+On Firearms on Linux I was able to get the latest official AdminMod working with the latest version of Metamod-P using wine to run the Windows versions.  On TFC I was able to get the latest official AMXModX working with the metamod version that came with AMXModX, using the native Linux versions, however, I had to rename the metamod_i386.so to metamod.so.  TFC does not like game dlls on Linux that use the old _i386 naming convetion.  In both cases it took me a full day of trial and error to get it working.
 
-The documentation for Admin Mod and AMX Mod X are both very good, you can find them on google.  They will run on listenserver, but as I said, depending on the mod, you may need to try different versions of Metamod, or you may need to rename libraries that use the _i386 naming convention.  For Firearms I also had to use the Metamod config.ini file to force load the game library.  Good luck, I'm rooting for you.
-
-Valve suggests setting your video resolution to 1024x768 32 to generate the overview.
+The documentation for Admin Mod and AMX Mod X are both very good, you can find them on google.  They will run on listenserver, but as I said, depending on the mod, you may need to try different versions of Metamod, or on Linux you may need to rename libraries that use the _i386 naming convention.  For Firearms I also had to use the Metamod config.ini file to force load the game library.  Good luck, I'm rooting for you.
 
 To see the overview use the following commands in the console:
 
