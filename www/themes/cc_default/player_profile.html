@@ -8,7 +8,7 @@
 	{/if}
 	{if $plr.steam_community_url}
 	<div class="row">
-		<label><#Steam Profile#>:</label>
+		<label><#Steam Profile Page#>:</label>
 		<p><a href="{$plr.steam_community_url|escape}">{$plr.steam_community_url|escape}</a> <em class="add-friend">(<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
 	</div>
 	{/if}
@@ -21,16 +21,16 @@
 		<p>{if $plr.email}<a href="mailto:{$plr.email|escape}">{$plr.email|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#AIM Name#>:</label>
-		<p>{if $plr.aim}<a href="aim:goim?screenname={$plr.aim|escape}">{$plr.aim|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Discord Nick#>:</label>
+		<p>{if $plr.discord}<a href="aim:goim?screenname={$plr.discord|escape}">{$plr.discord|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#ICQ Number#>:</label>
-		<p>{if $plr.icq}<a href="http://wwp.icq.com/scripts/search.dll?to={$plr.icq|escape}">{$plr.icq|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Youtube Channel#>:</label>
+		<p>{if $plr.youtube}<a href="http://wwp.icq.com/scripts/search.dll?to={$plr.youtube|escape}">{$plr.youtube|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#MSN Messenger#>:</label>
-		<p>{if $plr.msn}{$plr.msn|escape}{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Steam Profile Page#>:</label>
+		<p>{if $plr.steamprofile}{$plr.steamprofile|escape}{else}<em><#Not Set#></em>{/if}</p>
 {*
 {if !ps_user_logged_in() and $show_login}
 		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>

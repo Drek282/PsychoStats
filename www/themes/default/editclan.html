@@ -75,25 +75,25 @@ clanid = parseInt({$clan.clanid});
 <div{if $errors.email} class="err"{/if}>
 	<p class="err" id="err-email">{$errors.email|escape}</p>
 	<label><#Email#>:</label>
-	<input name="email" value="{$form.email|escape}" type="text" class="field" />
+	<input name="email" value="{$form.email|escape}" type="text" class="field long" />
 </div>
 
-<div{if $errors.aim} class="err"{/if}>
-	<p class="err" id="err-aim">{$errors.aim|escape}</p>
-	<label><#AIM#>:</label>
-	<input name="aim" value="{$form.aim|escape}" type="text" class="field" />
+<div{if $errors.discord} class="err"{/if}>
+	<p class="err" id="err-discord">{$errors.discord|escape}</p>
+	<label><#Discord Nick#>:</label>
+	<input name="discord" value="{$form.discord|escape}" type="text" class="field long" />
 </div>
 
-<div{if $errors.icq} class="err"{/if}>
-	<p class="err" id="err-icq">{$errors.icq|escape}</p>
-	<label><#ICQ#>:</label>
-	<input name="icq" value="{$form.icq|escape}" type="text" class="field" />
+<div{if $errors.youtube} class="err"{/if}>
+	<p class="err" id="err-youtube">{$errors.youtube|escape}</p>
+	<label><#Youtube Channel#>:</label>
+	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
 </div>
 
-<div{if $errors.msn} class="err"{/if}>
-	<p class="err" id="err-msn">{$errors.msn|escape}</p>
-	<label><#MSN#>:</label>
-	<input name="msn" value="{$form.msn|escape}" type="text" class="field" />
+<div{if $errors.steamprofile} class="err"{/if}>
+	<p class="err" id="err-steamprofile">{$errors.steamprofile|escape}</p>
+	<label><#Steam Profile Page#>:</label>
+	<input name="steamprofile" value="{$form.steamprofile|escape}" type="text" class="field long" />
 </div>
 
 </fieldset>
@@ -123,7 +123,7 @@ clanid = parseInt({$clan.clanid});
 	</p>
 </div>
 <div>
-	<p class="err" id="err-member">{$errors.msn|escape}</p>
+	<p class="err" id="err-member">{$errors.steamprofile|escape}</p>
 	{include file='ajax.html' float='right'}
 	<label><#Add New Member#>:</label>
 	<input id="member" value="" type="text" class="field" autocomplete="off" />

@@ -171,9 +171,9 @@ $form = $cms->new_form();
 $form->default_modifier('trim');
 $form->field('clanname');	// 'clanname' is used instead of 'name' to avoid conflicts with some software (nuke)
 $form->field('email');
-$form->field('aim');
-$form->field('icq');
-$form->field('msn');
+$form->field('discord');
+$form->field('youtube');
+$form->field('steamprofile');
 $form->field('website');
 $form->field('icon');
 $form->field('cc');
