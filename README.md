@@ -57,6 +57,7 @@ Most of the links and references to psychostats.com have been removed as that do
 ## **Future Plans**
 
 * Add map pictures for Team Fortress Classic.
+* See if I can fix COD4X support.
 
 
 ## **Credits**
