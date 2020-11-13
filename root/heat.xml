@@ -1468,4 +1468,40 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='nuclear'>
+  <minx>-3090</minx>
+  <miny>-2625</miny>
+  <maxx>1275</maxx>
+  <maxy>3070</maxy>
+  <res>600x578</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='openfire'>
+  <minx>-3425</minx>
+  <miny>-1740</miny>
+  <maxx>2320</maxx>
+  <maxy>1350</maxy>
+  <res>600x322</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='osaka'>
+  <minx>-3825</minx>
+  <miny>-3970</miny>
+  <maxx>3990</maxx>
+  <maxy>3970</maxy>
+  <res>600x591</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='push'>
+  <minx>-1505</minx>
+  <miny>-3515</miny>
+  <maxx>1470</maxx>
+  <maxy>3520</maxy>
+  <res>600x257</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
