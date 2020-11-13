@@ -1504,4 +1504,58 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='ravelin'>
+  <minx>-1500</minx>
+  <miny>-3905</miny>
+  <maxx>1490</maxx>
+  <maxy>3915</maxy>
+  <res>600x230</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='rock2'>
+  <minx>-2745</minx>
+  <miny>-3925</miny>
+  <maxx>2750</maxx>
+  <maxy>3930</maxy>
+  <res>600x420</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='totalwar'>
+  <minx>-3650</minx>
+  <miny>-1270</miny>
+  <maxx>3630</maxx>
+  <maxy>1280</maxy>
+  <res>600x211</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='turkeyburgers'>
+  <minx>-90</minx>
+  <miny>110</miny>
+  <maxx>1940</maxx>
+  <maxy>1745</maxy>
+  <res>600x437</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='warpath'>
+  <minx>-3715</minx>
+  <miny>-2985</miny>
+  <maxx>3920</maxx>
+  <maxy>2975</maxy>
+  <res>600x468</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='well'>
+  <minx>-1470</minx>
+  <miny>-4035</miny>
+  <maxx>1460</maxx>
+  <maxy>4040</maxy>
+  <res>600x218</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
 </maps>
