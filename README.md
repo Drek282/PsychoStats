@@ -34,6 +34,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 *The plan for the following issues is to either fix them, or improve them, in future versions:*
 
+* One of the biggest problems with PsychoStats is that psychostats.com no longer hosts the extensive documentation that it once did.  At this point I have no plans to create a new, comprehensive wiki, but I am trying to add useful information to the various readme's and help menus where I see the opportunity.
+
 * The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
 
 * The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
