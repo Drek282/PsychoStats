@@ -55,7 +55,7 @@ Make sure you delete your 'install' folder once you have finished the installati
 process.  That folder is an extreme security risk.  You have been warned.
 
 6) The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere
-as long as your user has executable permissions and you can access your PsychStats database
+as long as your user has executable permissions and you can access your PsychoStats database
 from that machine, other than a web accessible folder.  Edit the 'stats.cfg' in that folder
 with your PsychoStats database name, user and password.
 
