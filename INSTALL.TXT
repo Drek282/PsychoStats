@@ -19,7 +19,6 @@ that looks like this:
 
 * \addons
 * \root
-* \upload
 * \scripts
 * \www
 ** changelog.txt
@@ -48,7 +47,7 @@ install process.
 
 5) Browse to the stats installation wizard with your browser and follow the
 instructions:
-	http[s]://[domain|localhost]/[stats folder name if any]/install/
+	http[s]://[domain|localhost]/[stats folder name if any/]install/
 
 == IMPORTANT ==
 
@@ -63,8 +62,8 @@ with your PsychoStats database name, user and password.
 == Security Notes ==
 
 Common sense is your best protection.  You want a distinct PsychoStats database user that
-only has permissions on the PsychoStats database.  Never run the PsychoStats scripts as root.
-Never use your MySQL/MariaDB super user as your PsychoStats user.
+only has permissions on the PsychoStats database.  Never run the PsychoStats scripts as root
+in Linux.  Never use your MySQL/MariaDB super user as your PsychoStats user.
 
 The config.php and stats.cfg files contain your PsychoStats database user name and password,
 once the config.php file has been written in the install process, and once you've entered your
