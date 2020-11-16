@@ -62,6 +62,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Add map pictures for Team Fortress Classic.
 * See if I can fix COD4X support.
+* Support for The Battle Grounds III.
 
 
 ## **Credits**
