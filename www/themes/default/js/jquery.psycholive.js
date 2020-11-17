@@ -1286,6 +1286,11 @@
 			if (this.game.gametype == 'halflife') {
 				if (t == 1) {
 					name = 'SPECTATOR';
+				} else if (this.game.modtype == 'bg3') {
+					switch (t) {
+						case 2: name = 'AMERICANS'; break;
+						case 3: name = 'BRITISH'; break;
+					}
 				} else if (this.game.modtype == 'cstrike') {
 					switch (t) {
 						case 2: name = 'TERRORIST'; break;
@@ -1296,7 +1301,12 @@
 						case 2: name = 'ALLIES'; break;
 						case 3: name = 'AXIS'; break;
 					}
-				} else if (this.game.modtype == 'tf' || this.game.modtype == 'tf2') {
+				} else if (this.game.modtype == 'firearms') {
+					switch (t) {
+						case 2: name = 'RED_FORCE'; break;
+						case 3: name = 'BLUE_FORCE'; break;
+					}
+				} else if (this.game.modtype == 'tf' || this.game.modtype == 'tf2' || this.game.modtype == 'tfc') {
 					switch (t) {
 						case 2: name = 'RED'; break;
 						case 3: name = 'BLUE'; break;
@@ -2374,8 +2384,8 @@
 
 		decals_url:		'',		// base URL for decal images
 		decals: 		{		// decal image definitions
-			entity_bomb: 	'item-bomb.png',
-			timer: 		'timer.png',
+			entity_bomb: 	'item-bomb.gif',
+			timer: 		'timer.gif',
 			no_overlay: 	'no_overlay.gif'
 		}
 	};

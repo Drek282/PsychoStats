@@ -3,7 +3,7 @@
 	<name>cc_default</name>
 	<parent></parent>
 	<version>0.5</version>
-	<title>Casually Crackers Firearms Theme</title>
+	<title>Casually Crackers Default Theme</title>
 	<author>Stormtrooper (modded by Drek)</author>
 	<website></website>
 	<source>themes/cc_firearms/theme.xml</source>

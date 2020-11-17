@@ -39,6 +39,7 @@ $gametypes = array(
 	'soldat'	=> "Soldat"
 );
 $modtypes = array(
+	'bg3'	=> "The Battle Grounds III",
 	'cstrike'	=> "Counter Strike",
 	'dod'		=> "Day of Defeat",
 	'firearms'	=> "Firearms",
@@ -52,7 +53,7 @@ $modtypes = array(
 );
 
 $gamesupport = array(
-	'halflife'	=> array( 'cstrike','dod','firearms','gungame','hldm','natural','tf2','tfc' ),
+	'halflife'	=> array( 'bg3', 'cstrike','dod','firearms','gungame','hldm','natural','tf2','tfc' ),
 	'cod'		=> array( ),
 	'soldat'	=> array( ),
 );
