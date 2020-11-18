@@ -10,6 +10,7 @@ There was one serious security vulnerability that I am aware of, and that has be
 
 This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4, Gun Game and Soldat:
 
+* The Battle Grounds III
 * Counter-Strike
 * Counter-Strike: Source
 * Day of Defeat
@@ -49,6 +50,8 @@ Most of the links and references to psychostats.com have been removed as that do
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
 * COD4 support is pretty broken, and at this time probably beyond the scope of my skills to fix it.
+
+* So far The Battle Grounds III support is very basic.
 
 
 ## **Stuff that Remains Untested**
