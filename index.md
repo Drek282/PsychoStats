@@ -8,6 +8,7 @@ All of the versions on this repository should be considered beta software as at 
 
 This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4, Gun Game and Soldat:
 
+* The Battle Grounds III
 * Counter-Strike
 * Counter-Strike: Source
 * Day of Defeat
