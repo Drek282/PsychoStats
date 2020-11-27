@@ -83,14 +83,6 @@ function index_table_mod(&$table) {
 // Add or remove columns from roles.php listing
 function roles_table_mod(&$table) { 
 	global $cms;
-	$table->insert_columns(
-		array( 
-			'backstabkills' => array( 'label' => $cms->trans('BS'), 'modifier' => 'commify', 'tooltip' => $cms->trans("Backstab Kills") ),
-			'backstabkillspct' => array( 'label' => $cms->trans('BS%'), 'modifier' => '%s%%', 'tooltip' => $cms->trans("Backstab Kills Percentage") ),
-		),
-		'headshotkillspct',
-		true
-	);
 }
 
 function player_roles_table_mod(&$table) {
@@ -121,6 +113,27 @@ function player_left_column_mod(&$plr, &$theme) {
 	$tpl = 'player_left_column_mod';
 	if ($theme->template_found($tpl, false)) {
 		$actions = array();
+		$joined = $plr['joinedbritish'] + $plr['joinedamericans'];
+		if ($joined) {
+			$pct1 = sprintf('%0.02f', $plr['joinedbritish'] / $joined * 100);
+			$pct2 = sprintf('%0.02f', $plr['joinedamericans'] / $joined * 100);
+		} else {
+			$pct1 = $pct2 = 0;
+		}
+		
+		$actions['joined'] = array(
+			'label'	=> $cms->trans("British / Americans Joins"),
+			'type'	=> 'dual_bar',
+			'value'	=> array(
+				'pct1'	 	=> $pct1,
+				'pct2'	 	=> $pct2,
+				'title1'	=> $plr['joinedbritish'] . ' ' . $cms->trans('british') . ' (' . $pct1 . '%)',
+				'title2'	=> $plr['joinedamericans'] . ' ' . $cms->trans('ally') . ' (' . $pct2 . '%)',
+				'color1'	=> 'cc0000',
+				'color2'	=> '00cc00',
+				'width'		=> 130
+			)
+		);
 
 		foreach (array('won','flagscaptured') as $var) {
 			$actions[$var] = array(

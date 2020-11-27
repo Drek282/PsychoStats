@@ -36,36 +36,6 @@ sub _init {
 	return $self;
 }
 
-# add some extra stats from a kill (called from event_kill)
-# p1 	= killer
-# p2 	= victim
-# w 	= weapon
-# m 	= map
-# r1 	= killer role (might be undef)
-# r2 	= victim role (which could be the same object as killer)
-# props = extra properties hash
-sub mod_event_kill {
-	my ($self, $p1, $p2, $w, $m, $r1, $r2, $props) = @_;
-	
-	my $custom = $props->{customkill};
-	if ($custom) {	# headshot, backstab
-		my $key = ($custom eq 'headshot') ? 'basic' : 'mod';
-
-		$p1->{victims}{ $p2->{plrid} }{$custom . 'kills'}++;
-		$p1->{mod_maps}{ $m->{mapid} }{$custom . 'kills'}++;
-		$p1->{mod_roles}{ $r1->{roleid} }{$custom . 'kills'}++ if $r1;
-
-		$p1->{$key}{$custom . 'kills'}++;
-		$p2->{$key}{$custom . 'deaths'}++;
-		$r1->{$key}{$custom . 'kills'}++ if $r1;
-		$r2->{$key}{$custom . 'deaths'}++ if $r2;
-		$m->{$key}{$custom  . 'kills'}++;
-		$w->{$key}{$custom  . 'kills'}++;
-	}
-
-	return 0;
-}
-
 sub event_plrtrigger {
 	my ($self, $timestamp, $args) = @_;
 	my ($plrstr, $trigger, $plrstr2, $propstr) = @$args;
