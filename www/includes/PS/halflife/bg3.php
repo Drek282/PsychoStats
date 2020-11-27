@@ -70,14 +70,6 @@ function maps_table_mod(&$table) {
 // Add or remove columns from index.php listing
 function index_table_mod(&$table) {
 	global $cms;
-	$table->remove_columns(array( 'headshotkills', 'headshotkillspct' ));
-	$table->insert_columns(
-		array(
-			'flagscaptured' => array( 'label' => $cms->trans('Intel'), 'tooltip' => $cms->trans("Flags Captured") ),
-		),
-		'onlinetime',
-		false
-	);
 }
 
 // Add or remove columns from roles.php listing
