@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <theme>
-	<name>cc_firearms</name>
+	<name>cc_default-firearms</name>
 	<parent>cc_default</parent>
 	<version>0.5</version>
 	<title>Casually Crackers Firearms Theme</title>
 	<author>Stormtrooper (modded by Drek)</author>
 	<website></website>
-	<source>themes/cc_firearms/theme.xml</source>
+	<source>themes/cc_default-firearms/theme.xml</source>
 	<image></image>
 	<file></file>
 	<description>Default PsychoStats theme modded for Firearms with the colour scheme of a Casual Cracker</description>

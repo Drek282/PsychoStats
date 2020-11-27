@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 <theme>
-	<name>cc_tfc</name>
+	<name>cc_default-tfc</name>
 	<parent>cc_default</parent>
 	<version>0.5</version>
 	<title>Casually Crackers Team Fortress Classic Theme</title>
 	<author>Stormtrooper (modded by Drek)</author>
 	<website></website>
-	<source>themes/cc_tfc/theme.xml</source>
+	<source>themes/cc_default-tfc/theme.xml</source>
 	<image></image>
 	<file></file>
 	<description>Default PsychoStats theme modded for Team Fortress Classic with the colour scheme of a Casual Cracker</description>

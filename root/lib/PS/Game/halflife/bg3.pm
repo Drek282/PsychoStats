@@ -33,9 +33,6 @@ sub _init {
 	my $self = shift;
 	$self->SUPER::_init;
 
-	# load the kill assist calculation. used in plrtrigger().
-	$self->add_calcskill_func('killassist', $self->{conf}->get_main('calcskill_kill'));
-
 	return $self;
 }
 
@@ -49,10 +46,6 @@ sub _init {
 # props = extra properties hash
 sub mod_event_kill {
 	my ($self, $p1, $p2, $w, $m, $r1, $r2, $props) = @_;
-
-	# used for kill assists
-	$self->{last_kill_weapon} = $w;
-	$self->{last_kill_role} = $r1;
 	
 	my $custom = $props->{customkill};
 	if ($custom) {	# headshot, backstab
@@ -96,80 +89,13 @@ sub event_plrtrigger {
 		my $props = $self->parseprops($propstr);
 		return unless $p1->{uid} and $props->{address};
 		$self->{ipcache}{$p1->{uid}} = ip2int($props->{address});
-
-	} elsif ($trigger eq 'kill assist') {
-		$p2 = $self->get_plr($plrstr2);
-		if ($p2) {
-			@vars = ( $p1->{team} . 'assists', 'assists' );
-			$p1->{mod_roles}{ $r1->{roleid} }{assists}++ if $r1;
-			$self->plrbonus('kill_assist', 'enactor', $p1);
-			$self->calcskill_killassist_func($p1, $p2, $self->{last_kill_weapon});
-		}
 		
 	} elsif ($trigger eq 'flagevent') {
 		my $props = $self->parseprops($propstr);
-		if ($props->{event} eq "defended") {
-			@vars = ( $p1->{team} . 'flagsdefended', 'flagsdefended' );
-			$self->plrbonus('flag_defended','enactor',$p1);
-
-		} elsif ($props->{event} eq "picked up") {
-			@vars = ( $p1->{team} . 'flagspickedup', 'flagspickedup' );
-
-		} elsif ($props->{event} eq "dropped") {
-			@vars = ( $p1->{team} . 'flagsdropped', 'flagsdropped' );
-
-		} elsif ($props->{event} eq "captured") {
+		if ($props->{event} eq "captured") {
 			@vars = ( $p1->{team} . 'flagscaptured', 'flagscaptured' );
 			$self->plrbonus('flag_captured', 'enactor', $p1);
 		}
-
-	} elsif ($trigger eq 'killedobject') {
-		my $props = $self->parseprops($propstr);
-		$p2 = $props->{objectowner} ? $self->get_plr($props->{objectowner}) : undef;
-		if ($props->{object} eq "OBJ_DISPENSER") {
-			@vars = ( 'dispenserdestroy' );
-
-		} elsif ($props->{object} eq "OBJ_SENTRYGUN") {
-			@vars = ( 'sentrydestroy' );
-			# do not give points to the object owner if they kill their own object
-			if (!$p2 or $p1->plrid != $p2->plrid) {
-				$self->plrbonus('killedsentry', 'enactor', $p1);	# depreciated; REMOVEME
-				$self->plrbonus('sentrydestroy', 'enactor', $p1);
-			}
-
-		} elsif ($props->{object} eq "OBJ_TELEPORTER_ENTRANCE" || $props->{object} eq "OBJ_TELEPORTER_EXIT") {
-			@vars = ( 'teleporterdestroy' );
-			# do not give points to the object owner if they kill their own object
-			$self->plrbonus('teleporterdestroy', 'enactor', $p1) if !$p2 or $p1->plrid != $p2->plrid;
-
-		} elsif ($props->{object} eq "OBJ_ATTACHMENT_SAPPER") {
-			@vars = ( 'sapperdestroy' );
-			# do not give points to the object owner if they kill their own object
-			$self->plrbonus('sapperdestroy', 'enactor', $p1) if !$p2 or $p1->plrid != $p2->plrid;
-
-		}
-		push(@vars, 'itemsdestroyed');
-
-	} elsif ($trigger eq 'revenge') {
-		@vars = ( 'revenge' );
-		$p2 = $self->get_plr($plrstr2);
-		$self->plrbonus($trigger, 'victim', $p2) if $p2;	# 'enactor' will get their bonus below...
-
-	} elsif ($trigger eq 'builtobject') {
-		@vars = ( 'itemsbuilt' );
-		# player built something... good for them.
-
-	} elsif ($trigger eq 'chargedeployed') {
-		# ... something to do with the medic charge gun thingy ...
-		@vars = ( 'chargedeployed' );
-
-	} elsif ($trigger eq 'domination') {
-		@vars = ( 'dominations' );
-		$p2 = $self->get_plr($plrstr2);
-		$self->plrbonus($trigger, 'victim', $p2) if $p2;	# 'enactor' will get their bonus below...
-
-	} elsif ($trigger eq 'captureblocked') {
-		@vars = ( $p1->{team} . 'captureblocked', 'captureblocked' );
 
 	} elsif ($trigger =~ /^(time|latency|amx_|game_idle_kick)/) {
 
@@ -240,7 +166,7 @@ sub event_teamtrigger {
 		$m->{mod}{$trigger}++;
 		$m->{mod}{$team . $trigger}++;
 		my $team1 = $self->get_team($team, 1);
-		my $team2 = $self->get_team($team eq 'red' ? 'blue' : 'red', 1);
+		my $team2 = $self->get_team($team eq 'british' ? 'americans' : 'british', 1);
 		$self->plrbonus($trigger, 'enactor', $players, 'enactor_team', $team1, 'victim_team', $team2);
 	} elsif ($trigger eq 'intermission_win_limit') {
 		# uhm.... what?
@@ -258,8 +184,8 @@ sub event_round {
 		my $m = $self->get_map;
 		my $props = $self->parseprops($propstr);
 		my $team = $self->team_normal($props->{winner}) || return;
-		return unless $team eq 'red' or $team eq 'blue';
-		my $team2 = $team eq 'red' ? 'blue' : 'red';
+		return unless $team eq 'british' or $team eq 'americans';
+		my $team2 = $team eq 'british' ? 'americans' : 'british';
 		my $winners = $self->get_team($team, 1);
 		my $losers  = $self->get_team($team2, 1);
 		my $var = $team . 'won';

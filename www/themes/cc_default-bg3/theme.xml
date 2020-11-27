@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>cc_default-bg3</name>
+	<parent>cc_default</parent>
+	<version>0.5</version>
+	<title>Casually Crackers The Battle Grounds III Theme</title>
+	<author>Stormtrooper (modded by Drek)</author>
+	<website></website>
+	<source>themes/cc_default-bg3/theme.xml</source>
+	<image></image>
+	<file></file>
+	<description>Default PsychoStats theme modded for The Battle Grounds III with the colour scheme of a Casual Cracker</description>
+</theme>

@@ -17,59 +17,28 @@ var $class = 'PS::halflife::bg3';
 var $use_roles = true;
 
 var $CLAN_MODTYPES = array(
-	'redkills'		=> '+',
-	'bluekills'		=> '+',
-	'reddeaths'		=> '+',
-	'bluedeaths'		=> '+',
+	'britishkills'		=> '+',
+	'americanskills'		=> '+',
+	'britishdeaths'		=> '+',
+	'americansdeaths'		=> '+',
 
-	'redwon'		=> '+',
-	'redwonpct'		=> array( 'percent2', 'redwon', 'bluewon' ),
-	'bluewon'		=> '+',
-	'bluewonpct'		=> array( 'percent2', 'bluewon', 'redwon' ),
-	'redlost'		=> '+',
-	'bluelost'		=> '+',
+	'britishwon'		=> '+',
+	'britishwonpct'		=> array( 'percent2', 'britishwon', 'americanswon' ),
+	'americanswon'		=> '+',
+	'americanswonpct'		=> array( 'percent2', 'americanswon', 'britishwon' ),
+	'britishlost'		=> '+',
+	'americanslost'		=> '+',
 
-	'assists'		=> '+',
-	'redassists'		=> '+',
-	'blueassists'		=> '+',
+	'flagscaptubritish'		=> '+',
 
-	'flagscaptured'		=> '+',
-	'pointcaptured'		=> '+',
+	'britishflagscaptured'	=> '+',
+	'britishflagscapturedpct'	=> array( 'percent', 'britishflagscaptured', 'flagscaptured' ),
 
-	'redcaptureblocked'	=> '+',
-	'redcaptureblockedpct'	=> array( 'percent', 'redcaptureblocked', 'captureblocked' ),
-	'redpointcaptured'	=> '+',
-	'redpointcapturedpct'	=> array( 'percent', 'redpointcaptured', 'pointcaptured' ),
-	'redflagsdefended'	=> '+',
-	'redflagsdefendedpct'	=> array( 'percent', 'redflagsdefended', 'flagsdefended' ),
-	'redflagsdropped'	=> '+',
-	'redflagspickedup'	=> '+',
-	'redflagscaptured'	=> '+',
-	'redflagscapturedpct'	=> array( 'percent', 'redflagscaptured', 'flagscaptured' ),
+	'americansflagscaptured'	=> '+',
+	'americansflagscapturedpct'	=> array( 'percent', 'americansflagscaptured', 'flagscaptured' ),
 
-	'bluecaptureblocked'	=> '+',
-	'bluecaptureblockedpct'	=> array( 'percent', 'bluecaptureblocked', 'captureblocked' ),
-	'bluepointcaptured'	=> '+',
-	'bluepointcapturedpct'	=> array( 'percent', 'bluepointcaptured', 'pointcaptured' ),
-	'blueflagsdefended'	=> '+',
-	'blueflagsdefendedpct'	=> array( 'percent', 'blueflagsdefended', 'flagsdefended' ),
-	'blueflagsdropped'	=> '+',
-	'blueflagspickedup'	=> '+',
-	'blueflagscaptured'	=> '+',
-	'blueflagscapturedpct'	=> array( 'percent', 'blueflagscaptured', 'flagscaptured' ),
-
-	'dispenserdestroy'	=> '+',
-	'sentrydestroy'		=> '+',
-	'sapperdestroy'		=> '+',
-	'teleporterdestroy'	=> '+',
-	'dominations'		=> '+',
-	'backstabkills'		=> '+',
-	'itemsbuilt'		=> '+',
-	'chargedeployed'	=> '+',
-	'revenge'		=> '+',
-
-	'joinedred'		=> '+',
-	'joinedblue'		=> '+'
+	'joinedbritish'		=> '+',
+	'joinedamericans'		=> '+'
 );
 
 function PS_halflife_bg3(&$db) {
@@ -79,16 +48,10 @@ function PS_halflife_bg3(&$db) {
 
 function add_map_player_list_mod($map, $setup = array()) {
 	global $cms;
-	$this->add_map_player_list('backstabkills',  $setup + array('label' => $cms->trans("Most Backstabs")) );
-	$this->add_map_player_list('dominations',  $setup + array('label' => $cms->trans("Most Dominations")) );
 
 	$prefix = substr($map['uniqueid'], 0, 3);
 	if ($prefix == 'ctf') {
-		$this->add_map_player_list('flagscaptured', $setup + array('label' => $cms->trans("Most Intel Captured")) );
-		$this->add_map_player_list('flagsdefended', $setup + array('label' => $cms->trans("Most Intel Recovered")) );
-	} else {
-		$this->add_map_player_list('captureblocked', $setup + array('label' => $cms->trans("Most Blocked Captures")) );
-		$this->add_map_player_list('pointcaptured', $setup + array('label' => $cms->trans("Most Points Captured")) );
+		$this->add_map_player_list('flagscaptured', $setup + array('label' => $cms->trans("Most Flags Captured")) );
 	}
 }
 
@@ -97,7 +60,7 @@ function maps_table_mod(&$table) {
 	global $cms;
 	$table->insert_columns(
 		array( 
-			'bluewonpct' => array( 'label' => $cms->trans('Wins'), 'tooltip' => $cms->trans("Red / Blue Wins"), 'callback' => array(&$this, 'team_wins') ), 
+			'americanswonpct' => array( 'label' => $cms->trans('Wins'), 'tooltip' => $cms->trans("British / Amerians Wins"), 'callback' => array(&$this, 'team_wins') ), 
 		),
 		'rounds',
 		true
@@ -109,11 +72,8 @@ function index_table_mod(&$table) {
 	global $cms;
 	$table->remove_columns(array( 'headshotkills', 'headshotkillspct' ));
 	$table->insert_columns(
-		array( 
-			'dominations' => array( 'label' => $cms->trans('Dom'), 'tooltip' => $cms->trans("Dominations") ), 
-			'assists' => array( 'label' => $cms->trans('Assists'), 'tooltip' => $cms->trans("Kill Assists") ), 
-			'flagscaptured' => array( 'label' => $cms->trans('Intel'), 'tooltip' => $cms->trans("Intelligence captured") ), 
-			'pointcaptured' => array( 'label' => $cms->trans('CP'), 'tooltip' => $cms->trans("Captured points") ), 
+		array(
+			'flagscaptured' => array( 'label' => $cms->trans('Intel'), 'tooltip' => $cms->trans("Flags Captured") ),
 		),
 		'onlinetime',
 		false
@@ -154,28 +114,24 @@ function player_left_column_mod(&$plr, &$theme) {
 	static $strings = array();
 	if (!$strings) {
 		$strings = array(
-			'won'			=> $cms->trans("Red / Blue Wins"),
-			'flagscaptured'		=> $cms->trans("Intel Captured"),
-			'flagsdefended'		=> $cms->trans("Intel Recovered"),
-			'captureblocked'	=> $cms->trans("Captures Blocked"),
-			'pointcaptured'		=> $cms->trans("Points Captured")
+			'won'			=> $cms->trans("British / Americans Wins"),
+			'flagscaptured'		=> $cms->trans("Flags Captured")
 		);
 	}
 	$tpl = 'player_left_column_mod';
 	if ($theme->template_found($tpl, false)) {
 		$actions = array();
 
-		foreach (array('won','flagscaptured', 'flagsdefended',
-			       'captureblocked', 'pointcaptured') as $var) {
+		foreach (array('won','flagscaptured') as $var) {
 			$actions[$var] = array(
 				'what'	=> $var,
 				'label'	=> $strings[$var],
 				'type'	=> 'dual_bar',
 				'value'	=> array(
-					'pct1'	 	=> $plr['red' . $var . 'pct'],
-					'pct2'	 	=> $plr['blue' . $var . 'pct'],
-					'title1'	=> $plr['red' . $var] . ' ' . $cms->trans('Red') . ' (' . $plr['red' . $var . 'pct'] . '%)',
-					'title2'	=> $plr['blue' . $var] . ' ' . $cms->trans('Blue') . ' (' . $plr['blue' . $var . 'pct'] . '%)',
+					'pct1'	 	=> $plr['british' . $var . 'pct'],
+					'pct2'	 	=> $plr['americans' . $var . 'pct'],
+					'title1'	=> $plr['british' . $var] . ' ' . $cms->trans('British') . ' (' . $plr['british' . $var . 'pct'] . '%)',
+					'title2'	=> $plr['americans' . $var] . ' ' . $cms->trans('Americans') . ' (' . $plr['americans' . $var . 'pct'] . '%)',
 					'color1'	=> 'cc0000',
 					'color2'	=> '0000cc',
 					'width'		=> 130
@@ -205,10 +161,10 @@ function player_left_column_mod(&$plr, &$theme) {
 function team_wins($value, $data) {
 	global $cms;
 	$bar = dual_bar(array(
-		'pct1'	=> $data['redwonpct'], 
-		'pct2'	=> $data['bluewonpct'],
-		'title1'=> $data['redwon'] . " " . $cms->trans("Red Wins") . " (" . $data['redwonpct'] . "%)",
-		'title2'=> $data['bluewon'] . " " . $cms->trans("Blue Wins") . " (" . $data['bluewonpct'] . "%)",
+		'pct1'	=> $data['britishwonpct'], 
+		'pct2'	=> $data['americanswonpct'],
+		'title1'=> $data['britishwon'] . " " . $cms->trans("British Wins") . " (" . $data['britishwonpct'] . "%)",
+		'title2'=> $data['americanswon'] . " " . $cms->trans("Americans Wins") . " (" . $data['americanswonpct'] . "%)",
 		'color1'=> 'cc0000',
 		'color2'=> '0000cc',
 	));

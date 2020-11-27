@@ -28,54 +28,26 @@ use base qw( PS::Map::halflife );
 our $VERSION = '1.00.' . (('$Rev: 450 $' =~ /(\d+)/)[0] || '000');
 
 our $TYPES = {
-	redkills		=> '+',
-	bluekills		=> '+',
+	britishkills		=> '+',
+	americanskills		=> '+',
 
-	redwon			=> '+',
-	redwonpct		=> [ percent2 => qw( redwon bluewon ) ],
-	bluewon			=> '+',
-	bluewonpct		=> [ percent2 => qw( bluewon redwon ) ],
-	redlost			=> '+',
-	bluelost		=> '+',
-
-	assists			=> '+',
-	redassists		=> '+',
-	blueassists		=> '+',
+	britishwon			=> '+',
+	britishwonpct		=> [ percent2 => qw( britishwon americanswon ) ],
+	americanswon			=> '+',
+	americanswonpct		=> [ percent2 => qw( americanswon britishwon ) ],
+	britishlost			=> '+',
+	americanslost		=> '+',
 
 	flagscaptured		=> '+',
-	flagsdefended		=> '+',
-#	flagsdropped		=> '+',
-	captureblocked		=> '+', 
-	pointcaptured		=> '+',
 
-	redflagscaptured	=> '+',
-	redflagscapturedpct	=> [ percent => qw( redflagscaptured flagscaptured ) ],
-	redflagsdefended	=> '+',
-	redflagsdefendedpct	=> [ percent => qw( redflagsdefended flagsdefended ) ],
-	redcaptureblocked	=> '+',
-	redpointcaptured	=> '+',
-	redflagsdropped		=> '+',
-	redflagspickedup	=> '+',
+	britishflagscaptured	=> '+',
+	britishflagscapturedpct	=> [ percent => qw( britishflagscaptured flagscaptured ) ],
 
-	bluecaptureblocked	=> '+',
-	bluepointcaptured	=> '+',
-	blueflagsdefended	=> '+',
-	blueflagsdropped	=> '+',
-	blueflagspickedup	=> '+',
-	blueflagscaptured	=> '+',
-	blueflagscapturedpct	=> [ percent => qw( blueflagscaptured flagscaptured ) ],
+	americansflagscaptured	=> '+',
+	americansflagscapturedpct	=> [ percent => qw( americansflagscaptured flagscaptured ) ],
 
-	itemsdestroyed		=> '+',
-	dispenserdestroy	=> '+',
-	sentrydestroy		=> '+',
-	sapperdestroy		=> '+',
-	teleporterdestroy	=> '+',
-
-	dominations		=> '+',
-	backstabkills		=> '+',
-
-	joinedred		=> '+',
-	joinedblue		=> '+',
+	joinedbritish		=> '+',
+	joinedamericans		=> '+',
 };
 
 # override parent methods to combine types

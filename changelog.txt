@@ -25,6 +25,7 @@ Version 3.2.7b (in progress)
 * [Improved] Heatmap naming (victims map shows first, names are clearer).
 * [Updated] Social options for clan and player profiles.
 * [Added] The Battle Grounds III support.
+* [Fixed] Renamed CC themes to match default naming convention for parent/child themes.
 
 
 Version 3.2.6b (10/21/2020)

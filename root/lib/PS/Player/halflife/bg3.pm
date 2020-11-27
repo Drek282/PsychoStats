@@ -28,65 +28,28 @@ use base qw( PS::Player::halflife );
 our $VERSION = '1.00.' . (('$Rev: 450 $' =~ /(\d+)/)[0] || '000');
 
 our $TYPES = {
-	redkills		=> '+',
-	bluekills		=> '+',
-	reddeaths		=> '+',
-	bluedeaths		=> '+',
+	britishkills		=> '+',
+	americanskills		=> '+',
+	britishdeaths		=> '+',
+	americansdeaths		=> '+',
 
-	redwon			=> '+',
-	redwonpct		=> [ percent2 => qw( redwon bluewon ) ],
-	bluewon			=> '+',
-	bluewonpct		=> [ percent2 => qw( bluewon redwon ) ],
-	redlost			=> '+',
-	bluelost		=> '+',
-
-	assists			=> '+',
-	redassists		=> '+',
-	blueassists		=> '+',
+	britishwon			=> '+',
+	britishwonpct		=> [ percent2 => qw( britishwon americanswon ) ],
+	americanswon			=> '+',
+	americanswonpct		=> [ percent2 => qw( americanswon britishwon ) ],
+	britishlost			=> '+',
+	americanslost		=> '+',
 
 	flagscaptured		=> '+',
-	flagsdefended		=> '+',
-#	flagsdropped		=> '+',
-	captureblocked		=> '+', 
-	pointcaptured		=> '+',
 
-	redflagscaptured	=> '+',
-	redflagscapturedpct	=> [ percent => qw( redflagscaptured flagscaptured ) ],
-	redflagsdefended	=> '+',
-	redflagsdefendedpct	=> [ percent => qw( redflagsdefended flagsdefended ) ],
-	redcaptureblocked	=> '+',
-	redcaptureblockedpct	=> [ percent => qw( redcaptureblocked captureblocked ) ],
-	redpointcaptured	=> '+',
-	redpointcapturedpct	=> [ percent => qw( redpointcaptured pointcaptured ) ],
-	redflagsdropped		=> '+',
-	redflagspickedup	=> '+',
+	britishflagscaptured	=> '+',
+	britishflagscapturedpct	=> [ percent => qw( britishflagscaptured flagscaptured ) ],
 
-	blueflagscaptured	=> '+',
-	blueflagscapturedpct	=> [ percent => qw( blueflagscaptured flagscaptured ) ],
-	blueflagsdefended	=> '+',
-	blueflagsdefendedpct	=> [ percent => qw( blueflagsdefended flagsdefended ) ],
-	bluecaptureblocked	=> '+',
-	bluecaptureblockedpct	=> [ percent => qw( bluecaptureblocked captureblocked ) ],
-	bluepointcaptured	=> '+',
-	bluepointcapturedpct	=> [ percent => qw( bluepointcaptured pointcaptured ) ],
-	blueflagsdropped	=> '+',
-	blueflagspickedup	=> '+',
+	americansflagscaptured	=> '+',
+	americansflagscapturedpct	=> [ percent => qw( americansflagscaptured flagscaptured ) ],
 
-	itemsbuilt		=> '+',
-	itemsdestroyed		=> '+',
-	dispenserdestroy	=> '+',
-	sentrydestroy		=> '+',
-	sapperdestroy		=> '+',
-	teleporterdestroy	=> '+',
-
-	dominations		=> '+',
-	backstabkills		=> '+',
-	backstabkillspct	=> [ percent => qw( backstabkills kills ) ],
-	revenge			=> '+',
-	chargedeployed		=> '+',
-
-	joinedred		=> '+',
-	joinedblue		=> '+',
+	joinedbritish		=> '+',
+	joinedamericans		=> '+',
 };
 
 # Player map stats are the same as the basic stats
@@ -94,12 +57,6 @@ our $TYPES_MAPS = { %$TYPES };
 
 # Player roles only save a sub-set of stats
 our $TYPES_ROLES = {
-	assists			=> '+',
-	dominations		=> '+',
-	backstabkills		=> '+',
-	backstabkillspct	=> [ percent => qw( backstabkills kills ) ],
-	itemsbuilt		=> '+',
-	itemsdestroyed		=> '+',
 };
 
 # override parent methods to combine types
