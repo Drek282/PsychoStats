@@ -49,10 +49,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
-* COD4 support is pretty broken, and at this time probably beyond the scope of my skills to fix it.
-
-* So far The Battle Grounds III support is very basic.
-
 
 ## **Stuff that Remains Untested**
 
@@ -63,9 +59,10 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Future Plans**
 
-* Add map pictures for Team Fortress Classic.
-* See if I can fix COD4X support.
-* Support for The Battle Grounds III.
+* Map images for Team Fortress Classic.
+* Add COD4X support.
+* Heatmap support for The Battle Grounds III.
+* Map images for The Battle Grounds III.
 
 
 ## **Credits**
