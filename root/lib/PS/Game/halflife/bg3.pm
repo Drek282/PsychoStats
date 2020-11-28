@@ -60,13 +60,11 @@ sub event_plrtrigger {
 		return unless $p1->{uid} and $props->{address};
 		$self->{ipcache}{$p1->{uid}} = ip2int($props->{address});
 		
-	} elsif ($trigger eq 'flagevent') {
-		my $props = $self->parseprops($propstr);
-		if ($props->{event} eq "captured") {
-			@vars = ( $p1->{team} . 'flagscaptured', 'flagscaptured' );
-			$self->plrbonus('flag_captured', 'enactor', $p1);
-		}
-
+	} elsif ($trigger eq 'ctf_flag_capture')  {	
+		$p1 = $self->get_plr($plrstr);
+        @vars = ( 'flag_captured' );
+		$self->plrbonus('flag_captured', 'enactor', $p1);
+		
 	} elsif ($trigger =~ /^(time|latency|amx_|game_idle_kick)/) {
 
 	} else {
@@ -102,44 +100,61 @@ sub event_teamtrigger {
 
         $trigger = lc $trigger;
 
-	if ($trigger eq "pointcaptured") {
-		my $props = $self->parseprops($propstr);
-		my $roles = {};
-		my $players = [];
-		my $list = [];
-		my $i = 1;
-
-		# old style (player "") (player "") ...
-		if (ref $props->{player}) {			# array of player strings
-			push(@$list, @{$props->{player}});
-		} elsif (defined $props->{player}) {		# 1 player string
-			push(@$list, $props->{player});
-		}
-
-		# new style (player1 "") (player2 "") ...
-		while (exists $props->{'player' . $i}) {
-			push(@$list, $props->{'player' . $i++});
-		}
-
-		return unless @$list;
-		foreach my $plrstr (@$list) {
-			my $p1 = $self->get_plr($plrstr) || next;
-#			my $r1 = $self->get_role($p1->{roleid}, $team);
-			$p1->{mod}{$trigger}++;
-			$p1->{mod}{$team . $trigger}++;
-			$p1->{mod_maps}{ $m->{mapid} }{$trigger}++;
-			$p1->{mod_roles}{$trigger}++;
-#			$roles->{ $r1->{roleid} } = $r1 if $r1;		# keep track of which roles are involved
-			push(@$players, $p1);				# keep track of each player
-		}
-#		$roles->{$_}{mod}{$trigger}++ for keys %$roles;		# give point to each unique role
-		$m->{mod}{$trigger}++;
-		$m->{mod}{$team . $trigger}++;
-		my $team1 = $self->get_team($team, 1);
-		my $team2 = $self->get_team($team eq 'british' ? 'americans' : 'british', 1);
-		$self->plrbonus($trigger, 'enactor', $players, 'enactor_team', $team1, 'victim_team', $team2);
-	} elsif ($trigger eq 'intermission_win_limit') {
-		# uhm.... what?
+	if ($trigger eq "map_win") {
+        my ($team, $numplrs) = @$args;
+        $team = lc $team;
+        
+        
+        # if there's no team score known yet, record it and return.
+        # there are always 2 'team scored' events per round.
+        if (!$self->{map_win}) {
+            $self->{map_win} = { team => $team, numplrs => $numplrs };
+            return;
+        }
+        
+        my $m = $self->get_map;
+        my $teams = {
+            british	=> $self->get_team('british', 1) || [],
+            americans	=> $self->get_team('americans',   1) || [],
+        };
+        
+        # increase everyone's rounds
+        $m->{basic}{rounds}++;
+        for (@{$teams->{british}}, @{$teams->{british}}) {
+            $_->{basic}{rounds}++;
+            $_->{maps}{ $m->{mapid} }{rounds}++;
+        }
+        
+        # determine who won and lost
+        my ($won, $lost, $teamwon, $teamlost);
+        if ($team eq 'americans') {
+            $teamwon  = 'americans';
+            $teamlost = 'british';
+            $won  = $teams->{ $teamwon };
+            $lost = $teams->{ $teamlost };
+        } elsif ($team eq 'british') {
+            $teamwon  = 'british';
+            $teamlost = 'americans';
+            $won  = $teams->{ $teamwon };
+            $lost = $teams->{ $teamlost };
+        }
+        
+        # clear the previous team score
+        $self->{map_win} = undef;
+        
+        # assign won/lost values to all players
+        $m->{mod}{$teamwon  . 'won'}++;
+        $m->{mod}{$teamlost . 'lost'}++;
+        for (@$won) {
+            $_->{mod}{$teamwon.'won'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamwon.'won'}++;
+        }
+        for (@$lost) {
+            $_->{mod}{$teamlost.'lost'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamlost.'lost'}++;
+        }
+        $self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
+        
 	} else {
 		print "Unknown team trigger: $trigger from src $self->{_src} line $self->{_line}: $self->{_event}\n";
 	}
