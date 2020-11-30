@@ -26,6 +26,7 @@ Version 3.2.7b (in progress)
 * [Updated] Social options for clan and player profiles.
 * [Added] The Battle Grounds III support.
 * [Fixed] Renamed CC themes to match default naming convention for parent/child themes.
+* [Improved] Team Fortress Classic weapon images.
 
 
 Version 3.2.6b (10/21/2020)

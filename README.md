@@ -43,8 +43,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The filter for bots isn't working properly in Natural Selection.
 
-* The weapon images for TFC are hack jobs mostly stolen from TF2. I'm not an artist and can only copy, paste and modify. Maybe someone else will improve on them.
-
 * The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
@@ -63,6 +61,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Add COD4X support.
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
+* Add role images where possible.
 
 
 ## **Credits**
