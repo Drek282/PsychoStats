@@ -8,7 +8,7 @@ All of the versions on this repository should be considered beta software as at 
 
 There was one serious security vulnerability that I am aware of, and that has been fixed.  Most of the "fixes" were already present in the code, as Stormtrooper was aware of some of the changes to PHP that had, at that time, recently been made, or had been announced. Very little had to actually be rewritten, and where rewriting was required the changes were pretty minor. There were a few minor changes with regard to mysqli syntax. As far as I am aware all the obsolete and deprecated code has been fixed.
 
-This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4, Gun Game and Soldat:
+This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4 and Soldat:
 
 * The Battle Grounds III
 * Counter-Strike
@@ -16,6 +16,7 @@ This version of PsychoStats currently supports the following Half-Life and Sourc
 * Day of Defeat
 * Day of Defeat: Source
 * Firearms 3.0
+* Gun Game
 * Half-Life 2 Death Match
 * Half-Life Death Match
 * Natural Selection
@@ -43,14 +44,14 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The filter for bots isn't working properly in Natural Selection.
 
-* The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.  I haven't simply deleted the code because I have the insane hope that myself, or someone else, might be able to translate it to HTML5.
+* The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
 
 ## **Stuff that Remains Untested**
 
-* Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are The Battle Grounds III, Firearms 3.0, Natural Selection, Team Fortress Classic and Call of Duty 4 X.
+* Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are The Battle Grounds III, Firearms 3.0, Natural Selection and Team Fortress Classic.
 
 * The contents of the "scripts" folder are largely unexplored.  Most of them should be self explanatory but they should be considered untested.
 
@@ -61,7 +62,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * Add COD4X support.
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
-* Add role images where possible.
 
 
 ## **Credits**
