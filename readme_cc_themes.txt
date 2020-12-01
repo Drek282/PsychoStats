@@ -1,6 +1,6 @@
 Introduction:
 
-This is a collection of three child mod specific themes, one for Firearms, one for Natural Selection and one for TFC.  The cc_default parent theme is not mod specific.  The colour palette is based on the colours you find in a Ritz cracker.  The mod specific player pages are modded to include data specific to the mods.  Most of the images in the parent theme have been removed, and the few that remain have been highly optimized.  These themes should load faster and require less bandwidth than the PsychoStats default theme.  The header has also been removed which makes these themes ideal for displaying in an iframe on a website with it's own header.
+This is a collection of four child mod specific themes, one for The Battle Grounds III, one for Firearms 3.0, one for Natural Selection and one for TFC.  The cc_default parent theme is not mod specific.  The colour palette is based on the colours you find in a Ritz cracker and the inside of an Onos' stomach from Natural Selection.  The mod specific player pages are modded to include data specific to the mods.  Most of the images in the parent theme have been removed, and the few that remain have been highly optimized.  These themes should load faster and require less bandwidth than the PsychoStats default theme.  The header has also been removed which makes these themes ideal for displaying in an iframe on a website with it's own header.
 
 Disclaimer:
 
