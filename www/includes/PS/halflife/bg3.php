@@ -98,7 +98,7 @@ function player_left_column_mod(&$plr, &$theme) {
 	static $strings = array();
 	if (!$strings) {
 		$strings = array(
-			'won'			=> $cms->trans("British / Americans Wins"),
+			'won'			=> $cms->trans("British / American Wins"),
 			'flagscaptured'		=> $cms->trans("Flags Captured")
 		);
 	}
@@ -114,7 +114,7 @@ function player_left_column_mod(&$plr, &$theme) {
 		}
 		
 		$actions['joined'] = array(
-			'label'	=> $cms->trans("British / Americans Joins"),
+			'label'	=> $cms->trans("British / American Joins"),
 			'type'	=> 'dual_bar',
 			'value'	=> array(
 				'pct1'	 	=> $pct1,
@@ -136,7 +136,7 @@ function player_left_column_mod(&$plr, &$theme) {
 					'pct1'	 	=> $plr['british' . $var . 'pct'],
 					'pct2'	 	=> $plr['americans' . $var . 'pct'],
 					'title1'	=> $plr['british' . $var] . ' ' . $cms->trans('British') . ' (' . $plr['british' . $var . 'pct'] . '%)',
-					'title2'	=> $plr['americans' . $var] . ' ' . $cms->trans('Americans') . ' (' . $plr['americans' . $var . 'pct'] . '%)',
+					'title2'	=> $plr['americans' . $var] . ' ' . $cms->trans('American') . ' (' . $plr['americans' . $var . 'pct'] . '%)',
 					'color1'	=> 'cc0000',
 					'color2'	=> '0000cc',
 					'width'		=> 130
@@ -169,7 +169,7 @@ function team_wins($value, $data) {
 		'pct1'	=> $data['britishwonpct'], 
 		'pct2'	=> $data['americanswonpct'],
 		'title1'=> $data['britishwon'] . " " . $cms->trans("British Wins") . " (" . $data['britishwonpct'] . "%)",
-		'title2'=> $data['americanswon'] . " " . $cms->trans("Americans Wins") . " (" . $data['americanswonpct'] . "%)",
+		'title2'=> $data['americanswon'] . " " . $cms->trans("American Wins") . " (" . $data['americanswonpct'] . "%)",
 		'color1'=> 'cc0000',
 		'color2'=> '0000cc',
 	));
