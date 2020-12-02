@@ -75,6 +75,14 @@ function index_table_mod(&$table) {
 // Add or remove columns from roles.php listing
 function roles_table_mod(&$table) { 
 	global $cms;
+	$table->insert_columns(
+		array( 
+			'backstabkills' => array( 'label' => $cms->trans('BS'), 'modifier' => 'commify', 'tooltip' => $cms->trans("Backstab Kills") ),
+			'backstabkillspct' => array( 'label' => $cms->trans('BS%'), 'modifier' => '%s%%', 'tooltip' => $cms->trans("Backstab Kills Percentage") ),
+		),
+		'headshotkillspct',
+		true
+	);
 }
 
 function player_roles_table_mod(&$table) {

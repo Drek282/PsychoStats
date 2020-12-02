@@ -28,6 +28,12 @@ use base qw( PS::Role::halflife );
 our $VERSION = '1.00.' . (('$Rev: 450 $' =~ /(\d+)/)[0] || '000');
 
 our $TYPES = {
+	assists			=> '+',
+	dominations		=> '+',
+	backstabkills		=> '+',
+	backstabkillspct	=> [ percent => qw( backstabkills kills ) ],
+	itemsbuilt		=> '+',
+	itemsdestroyed		=> '+',
 };
 
 sub get_types { return { %{$_[0]->SUPER::get_types}, %$TYPES } }
