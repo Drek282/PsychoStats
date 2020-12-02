@@ -51,6 +51,28 @@ sub event_logstartend {
     $self->save(1);
 }
 
+# player teams are now detected from their player signature for all events.
+# the only reason we need this event now is to add 1 to the proper 'joined' stat.
+sub event_joined_team {
+	my ($self, $timestamp, $args) = @_;
+	my ($plrstr, $team, $props) = @$args;
+	my $p1 = $self->get_plr($plrstr) || return;
+	my $m = $self->get_map;
+	$self->_do_connected($timestamp, $p1) unless $p1->{_connected};
+	
+	my $normal_team = $self->team_normal($team);
+	
+	$p1->team($normal_team);
+	$p1->{basic}{lasttime} = $timestamp;
+
+	# now for the all-important stat... how many times we joined this team.
+	if ($normal_team) {
+		$p1->{mod_maps}{ $m->{mapid} }{'joined' . $normal_team}++;
+		$p1->{mod}{'joined' . $normal_team}++;
+		$m->{mod}{'joined' . $normal_team}++;
+	}
+}
+
 sub event_ns_teamtrigger {
 	my ($self, $timestamp, $args) = @_;
 	my ($team, $trigger, $props) = @$args;

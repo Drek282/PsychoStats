@@ -27,6 +27,7 @@ Version 3.2.7b (in progress)
 * [Added] The Battle Grounds III support.
 * [Fixed] Renamed CC themes to match default naming convention for parent/child themes.
 * [Improved] Team Fortress Classic weapon images.
+* [Fixed] Team joins not being parsed for Natural Selection.
 
 
 Version 3.2.6b (10/21/2020)
