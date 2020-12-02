@@ -52,6 +52,7 @@ sub event_plrtrigger {
 	$trigger = lc $trigger;
 	
 	my @vars = ();
+	
 	if ($trigger eq 'weaponstats' or $trigger eq 'weaponstats2') {
 		$self->event_weaponstats($timestamp, $args);
 
@@ -62,9 +63,12 @@ sub event_plrtrigger {
 		
 	} elsif ($trigger eq 'ctf_flag_capture')  {	
 		$p1 = $self->get_plr($plrstr);
-        @vars = ( 'flag_captured' );
+        @vars = ( $p1->{team} . 'flagscaptured', 'flagscaptured' );
 		$self->plrbonus('flag_captured', 'enactor', $p1);
-		
+
+# ---------
+
+	# extra statsme / amx triggers
 	} elsif ($trigger =~ /^(time|latency|amx_|game_idle_kick)/) {
 
 	} else {

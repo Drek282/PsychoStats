@@ -138,6 +138,9 @@ sub event_plrtrigger {
 		}
 	}
 
+	# allow bonuses on the raw trigger event
+	$self->plrbonus($trigger, 'enactor', $p1);
+
 	foreach my $var (@vars1) {
 		$p1->{mod_maps}{ $m->{mapid} }{$var} += $value1;
 		$p1->{mod}{$var} += $value1;
