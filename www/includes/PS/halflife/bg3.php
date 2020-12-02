@@ -29,7 +29,7 @@ var $CLAN_MODTYPES = array(
 	'britishlost'		=> '+',
 	'americanslost'		=> '+',
 
-	'flagscaptubritish'		=> '+',
+	'flagscaptured'		=> '+',
 
 	'britishflagscaptured'	=> '+',
 	'britishflagscapturedpct'	=> array( 'percent', 'britishflagscaptured', 'flagscaptured' ),

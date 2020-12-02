@@ -48,8 +48,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
-* Clans aren't being shown on the clan page in The Battle Grounds III.
-
 
 ## **Stuff that Remains Untested**
 
