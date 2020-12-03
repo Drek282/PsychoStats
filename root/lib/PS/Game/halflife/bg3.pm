@@ -179,43 +179,6 @@ sub event_teamtrigger {
 	}
 }
 
-sub event_round {
-	my ($self, $timestamp, $args) = @_;
-	my ($trigger, $propstr) = @$args;
-
-	$trigger = lc $trigger;
-	if ($trigger eq 'round_win' or $trigger eq 'mini_round_win') {
-		my $m = $self->get_map;
-		my $props = $self->parseprops($propstr);
-		my $team = $self->team_normal($props->{winner}) || return;
-		return unless $team eq 'british' or $team eq 'americans';
-		my $team2 = $team eq 'british' ? 'americans' : 'british';
-		my $winners = $self->get_team($team, 1);
-		my $losers  = $self->get_team($team2, 1);
-		my $var = $team . 'won';
-		my $var2 = $team2 . 'lost';
-
-		$self->plrbonus($trigger, 'enactor_team', $winners, 'victim_team', $losers);
-		$m->{mod}{$var}++;
-		$m->{mod}{$var2}++;
-		foreach my $p1 (@$winners) {
-			$p1->{basic}{rounds}++;
-			$p1->{maps}{ $m->{mapid} }{basic}{rounds}++;
-			$p1->{mod_maps}{ $m->{mapid} }{$var}++;
-			$p1->{mod}{$var}++;
-		}
-		foreach my $p1 (@$losers) {
-			$p1->{basic}{rounds}++;
-			$p1->{maps}{ $m->{mapid} }{basic}{rounds}++;
-			$p1->{mod_maps}{ $m->{mapid} }{$var2}++;
-			$p1->{mod}{$var2}++;
-		}
-	} else {
-		$self->SUPER::event_round($timestamp, $args);
-	}
-
-}
-
 sub has_mod_tables { 1 }
 
 1;
