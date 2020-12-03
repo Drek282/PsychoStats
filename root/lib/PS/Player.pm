@@ -1166,10 +1166,10 @@ sub save_map {
 
 # returns true if the player is a bot
 sub is_bot {
-my $bot_check = substr($_[0]->uniqueid,0,1);
-
-return 1 if substr($_[0]->uniqueid,0,3) eq 'BOT';
-return 1 if looks_like_number( $bot_check );
+    my $bot_check = substr($_[0]->uniqueid,0,1);
+    
+    return 1 if substr($_[0]->uniqueid,0,3) eq 'BOT';
+    return 1 if looks_like_number( $bot_check );
 }
 
 # returns true if the gametype:modtype has extra mod tables

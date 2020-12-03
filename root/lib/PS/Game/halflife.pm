@@ -24,6 +24,7 @@ package PS::Game::halflife;
 use strict;
 use warnings;
 use base qw( PS::Game );
+use Scalar::Util qw( looks_like_number );
 
 use util qw( :net :date bench print_r );
 use Encode qw(encode decode);
@@ -179,15 +180,19 @@ sub get_plr {
 	}
 
 	$str = $plrstr;
+    
 	# using multiple substr calls inplace of a single regex is a lot faster 
 	$team = substr($str, rindex($str,'<'), 128, '');
 	$team = $self->team_normal(substr($team, 1, -1));
 
 	$worldid = substr($str, rindex($str,'<'), 128, '');
 	$worldid = substr($worldid, 1, -1);
+    $worldid =~ s/^\[//;
+    $worldid =~ s/\]$//;
 
 	$uid = substr($str, rindex($str,'<'), 128, '');
 	$uid = substr($uid, 1, -1);
+    
 	if (!$worldid or $uid eq '-1') {		# ignore any players with an ID of -1 ... its invalid!
 		$::ERR->debug1("Ignoring invalid player identifier from logsource '$self->{_src}' line '$self->{_line}': '$plrstr'",3);
 		return undef;
@@ -197,11 +202,13 @@ sub get_plr {
 	$name =~ s/^\s+//;
 	$name =~ s/\s+$//;
 	$name = 'unnamed' if $name eq '';		# do not allow blank names, period.
+    
 #	$origname = $name;				# original name before any possible aliases are found
 	$ipaddr = exists $self->{ipcache}{$uid} ? $self->{ipcache}{$uid} : 0;
 
 	# For BOTS: replace STEAMID's with the player name otherwise all bots will be combined into the same STEAMID
-	if ($worldid eq 'BOT' or $worldid eq '0') {
+    my $bot_check = substr($worldid,0,1);
+	if ($worldid eq 'BOT' or $worldid eq '0' or looks_like_number( $bot_check )) {
 		return undef if $self->{ignore_bots};
 		$worldid = "BOT:" . lc substr($name, 0, 124);	# limit the total characters (128 - 4)
 	}

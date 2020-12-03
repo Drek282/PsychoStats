@@ -67,28 +67,6 @@ function maps_table_mod(&$table) {
 	);
 }
 
-// Add or remove columns from index.php listing
-function index_table_mod(&$table) {
-	global $cms;
-}
-
-// Add or remove columns from roles.php listing
-function roles_table_mod(&$table) { 
-	global $cms;
-	$table->insert_columns(
-		array( 
-			'backstabkills' => array( 'label' => $cms->trans('BS'), 'modifier' => 'commify', 'tooltip' => $cms->trans("Backstab Kills") ),
-			'backstabkillspct' => array( 'label' => $cms->trans('BS%'), 'modifier' => '%s%%', 'tooltip' => $cms->trans("Backstab Kills Percentage") ),
-		),
-		'headshotkillspct',
-		true
-	);
-}
-
-function player_roles_table_mod(&$table) {
-	$this->roles_table_mod($table);
-}
-
 function map_left_column_mod(&$map, &$theme) {
 	// maps and players have the same stats ...
 	$this->player_left_column_mod($map, $theme);
@@ -127,10 +105,10 @@ function player_left_column_mod(&$plr, &$theme) {
 			'value'	=> array(
 				'pct1'	 	=> $pct1,
 				'pct2'	 	=> $pct2,
-				'title1'	=> $plr['joinedbritish'] . ' ' . $cms->trans('british') . ' (' . $pct1 . '%)',
-				'title2'	=> $plr['joinedamericans'] . ' ' . $cms->trans('ally') . ' (' . $pct2 . '%)',
+				'title1'	=> $plr['joinedbritish'] . ' ' . $cms->trans('British') . ' (' . $pct1 . '%)',
+				'title2'	=> $plr['joinedamericans'] . ' ' . $cms->trans('American') . ' (' . $pct2 . '%)',
 				'color1'	=> 'cc0000',
-				'color2'	=> '00cc00',
+				'color2'	=> '0000cc',
 				'width'		=> 130
 			)
 		);

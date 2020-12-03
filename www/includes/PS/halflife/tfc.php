@@ -72,7 +72,7 @@ function maps_table_mod(&$table) {
 	global $cms;
 	$table->insert_columns(
 		array( 
-			'bluewonpct' => array( 'label' => $cms->trans('Wins'), 'tooltip' => $cms->trans("Red / Blue / Green / Yellow Wins"), 'callback' => array(&$this, 'team_wins') ), 
+			'bluewonpct' => array( 'label' => $cms->trans('Wins'), 'tooltip' => $cms->trans("Red / Blue Wins"), 'callback' => array(&$this, 'team_wins') ), 
 		),
 		'rounds',
 		true

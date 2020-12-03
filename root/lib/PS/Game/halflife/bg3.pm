@@ -36,6 +36,26 @@ sub _init {
 	return $self;
 }
 
+# override default event so we can reset per-log variables
+sub event_logstartend {
+	my ($self, $timestamp, $args) = @_;
+	my ($startedorclosed) = @$args;
+	$self->SUPER::event_logstartend($timestamp, $args);
+
+	return unless lc $startedorclosed eq 'started';
+	
+    $self->save(1);
+}
+
+# normalize a role name
+sub role_normal {
+	my ($self, $rolestr) = @_;
+	my $role = lc $rolestr;
+        $role =~ s/^a\s//;
+        $role =~ s/\s/_/;
+	return $role;
+}
+
 sub event_plrtrigger {
 	my ($self, $timestamp, $args) = @_;
 	my ($plrstr, $trigger, $plrstr2, $propstr) = @$args;
@@ -46,7 +66,6 @@ sub event_plrtrigger {
 
 	$p1->{basic}{lasttime} = $timestamp;
 	return unless $self->minconnected;
-	my $r1 = $self->get_role($p1->{role}, $p1->{team});
 	my $m = $self->get_map;
 
 	$trigger = lc $trigger;
@@ -83,10 +102,6 @@ sub event_plrtrigger {
 	foreach my $var (@vars) {
 		$p1->{mod_maps}{ $m->{mapid} }{$var}++;
 		$p1->{mod}{$var}++;
-		if ($r1) {
-			$p1->{mod_roles}{ $r1->{roleid} }{$var}++;
-			$r1->{mod}{$var}++;
-		}
 		$m->{mod}{$var}++;
 	}
 }
@@ -201,14 +216,6 @@ sub event_round {
 
 }
 
-sub event_logstartend {
-	my ($self, $timestamp, $args) = @_;
-	$self->SUPER::event_logstartend($timestamp, $args);
-	$self->{last_kill_weapon} = undef;
-	$self->{last_kill_role} = undef;
-}
-
 sub has_mod_tables { 1 }
-sub has_roles { 1 }
 
 1;
