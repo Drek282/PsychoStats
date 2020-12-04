@@ -62,6 +62,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Add COD4X support.
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
+* Improve display on smartphones.
 
 
 ## **Credits**
