@@ -47,33 +47,6 @@ sub event_logstartend {
     $self->save(1);
 }
 
-sub event_tfc_teamtrigger {
-	my ($self, $timestamp, $args) = @_;
-	my ($team, $trigger, $props) = @$args;
-	my ($team2);
-
-	return unless $self->minconnected;
-	my $m = $self->get_map;
-
-	my @vars = ();
-	$team = lc $team;
-
-	$trigger = lc $trigger;
-	if ($trigger eq '') {
-	} elsif ($trigger eq '') {
-	} else {
-		if ($self->{report_unknown}) {
-			$self->warn("Unknown team trigger '$trigger' from src $self->{_src} line $self->{_line}: $self->{_event}");
-		}
-	}
-
-#	foreach my $var (@vars) {
-#		$p1->{mod_maps}{ $m->{mapid} }{$var}++;
-#		$p1->{mod}{$var}++;
-#		$m->{mod}{$var}++;
-#	}
-}
-
 sub event_plrtrigger {
 	my ($self, $timestamp, $args) = @_;
 	my ($plrstr, $trigger, $plrstr2, $propstr) = @$args;
