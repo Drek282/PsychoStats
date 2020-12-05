@@ -63,7 +63,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
 * Improve display on smartphones.
-* Fix role support for The Battle Grounds III.
+* Fix roles support for The Battle Grounds III.
 
 
 ## **Credits**
