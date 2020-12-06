@@ -29,7 +29,7 @@ Version 3.2.7b (in progress)
 * [Improved] Team Fortress Classic weapon images.
 * [Fixed] Team joins not being parsed for Natural Selection.
 * [Fixed] Bot detection for Natural Selection.
-
+* [Removed] The valitator.w3.org referer link in all the themes.
 
 Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
