@@ -48,7 +48,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Roles support is broken in The Battle Grounds III.
 
-* PsychoStats is decidedly *not* mobile friendly.
+* PsychoStats is decidedly **not** mobile friendly.
 
 
 ## **Stuff that Remains Untested**
