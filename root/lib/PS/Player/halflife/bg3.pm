@@ -55,8 +55,9 @@ our $TYPES = {
 # Player map stats are the same as the basic stats
 our $TYPES_MAPS = { %$TYPES };
 
-# Player roles only save a sub-set of stats
-our $TYPES_ROLES = {
+our $TYPES_ROLES = { 
+	'plrid'		=> '=',
+	%$PS::Role::TYPES 
 };
 
 # override parent methods to combine types
@@ -70,20 +71,19 @@ sub mod_types_maps { $TYPES_MAPS };
 sub mod_types_roles { $TYPES_ROLES };
 
 sub _init {
-        my $self = shift;
-        $self->SUPER::_init;
+	my $self = shift;
+	$self->SUPER::_init;
 
 	$self->{role} = '';
 	$self->{roles} = {};
 	$self->{mod} = {};
 	$self->{mod_roles} = {};
 
-        return $self;
+	return $self;
 }
 
 sub has_mod_tables { 1 }
 
-sub has_roles { 1 }
-sub has_mod_roles { 1 }
+#sub has_roles { 1 }
 
 1;
