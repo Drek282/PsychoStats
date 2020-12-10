@@ -1090,6 +1090,15 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='obj_paradise'>
+  <minx>-3590</minx>
+  <miny>-3200</miny>
+  <maxx>3825</maxx>
+  <maxy>3960</maxy>
+  <res>600x580</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='obj_sweden'>
   <minx>-4040</minx>
   <miny>-1285</miny>
@@ -1267,6 +1276,24 @@
   <maxx>1880</maxx>
   <maxy>1650</maxy>
   <res>600x326</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='tc_okinawa_b4'>
+  <minx>-1915</minx>
+  <miny>-3960</miny>
+  <maxx>1735</maxx>
+  <maxy>4000</maxy>
+  <res>600x275</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='tc_rubble'>
+  <minx>-1070</minx>
+  <miny>-890</miny>
+  <maxx>2560</maxx>
+  <maxy>1655</maxy>
+  <res>600x428</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
