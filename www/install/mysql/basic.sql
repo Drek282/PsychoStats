@@ -532,7 +532,8 @@ CREATE TABLE `ps_plr_weapons` (
   `shot_leftleg` smallint(5) unsigned NOT NULL default '0',
   `shot_rightleg` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`),
-  KEY `plrweaps` (`plrid`,`weaponid`)
+  KEY `plrweaps` (`plrid`,`weaponid`),
+  KEY `statdate` (`statdate`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 CREATE TABLE `ps_plugins` (
   `plugin` varchar(64) NOT NULL,
