@@ -74,4 +74,4 @@ I want to express my admiration and gratitude to Jason Morriss, a.k.a. Stormtroo
 
 Kudos to Valve as well for maintaining their back catalogue.
 
-Credit to wakachamo and Rosenstein for their contributions.  Thanks also to RoboCop from APG and QuakerOates for their support and encouragement.
+Credit to wakachamo, Rosenstein and Solomenka for their contributions.  Thanks also to RoboCop from APG and QuakerOates for their support and encouragement.
