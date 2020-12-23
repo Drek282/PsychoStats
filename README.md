@@ -50,6 +50,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * PsychoStats is decidedly **not** mobile friendly.
 
+* The live server views can be flakey and unreliable.
+
 
 ## **Stuff that Remains Untested**
 
@@ -66,6 +68,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Map images for The Battle Grounds III.
 * Improve display on mobile devices.
 * Fix roles support for The Battle Grounds III.
+* Replace the PsychoQuery code with a more up to date query library.
 
 
 ## **Credits**
