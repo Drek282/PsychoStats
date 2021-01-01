@@ -17,6 +17,11 @@ heat.pl -who2='killer'
 heat.pl
 heat.pl -who='killer' -cold
 
+If you find that the heatmaps aren't showing the heat data as expected, you may need to either truncate the ps_heatmaps data table every time you generate your heatmaps, or delete the contents of the folder you store your heatmaps in every time you generate the data.  If you use a bash script to udpate your heatmaps, the following command should clear the heatmaps data table for you.
+
+echo "TRUNCATE TABLE ps_heatmaps" | mysql -u"[MySQL PsychoStats user name" -D"[MySQL PsychoStats database name" -p"MySQL Psychostats database password"
+
+The other option is to store the heatmaps in a folder and have a command in the script that updates your PsychoStats to delete the contents of that folder before you run the commands that generate the heatmaps.
 
 Creating the Heatmap Overlays:
 
