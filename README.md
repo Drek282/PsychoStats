@@ -8,6 +8,8 @@ All of the versions on this repository should be considered beta software as at 
 
 There was one serious security vulnerability that I am aware of, and that has been fixed.  Most of the "fixes" were already present in the code, as Stormtrooper was aware of some of the changes to PHP that had, at that time, recently been made, or had been announced. Very little had to actually be rewritten, and where rewriting was required the changes were pretty minor. There were a few minor changes with regard to mysqli syntax. As far as I am aware all the obsolete and deprecated code has been fixed.
 
+Flag icon images have been converted from png to gif.  There is a slight decrease in image quality that I don't think is noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the gif images are about half the size, require less bandwidth and will load faster.
+
 This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4 and Soldat:
 
 * The Battle Grounds III
