@@ -38,7 +38,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 *The plan for the following issues is to either fix them, or improve them, in future versions:*
 
-* One of the biggest problems with PsychoStats is that psychostats.com no longer hosts the extensive documentation that it once did.  At this point I have no plans to create a new, comprehensive wiki, but I am trying to add useful information to the various readme's and help menus where I see the opportunity.
+* One of the biggest problems with PsychoStats is that psychostats.com no longer hosts the documentation that it once did.
 
 * The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
 
@@ -71,6 +71,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Improve display on mobile devices.
 * Fix roles support for The Battle Grounds III.
 * Replace the PsychoQuery code with a more up to date query library.
+* I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
 
 
 ## **Credits**
