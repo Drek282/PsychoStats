@@ -48,6 +48,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
+* A lot of html errors and warnings to be fixed.
+
 * Roles support is broken in The Battle Grounds III.
 
 * PsychoStats is decidedly **not** mobile friendly.
