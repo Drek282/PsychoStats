@@ -14,7 +14,7 @@
 	<theme>
 		<!-- Define overall stylesheets for all pages -->
 		<css href="css/overall.css" />
-		<css media="screen,projection,print" href="css/content.css" />
+		<css media="screen,print" href="css/content.css" />
 		<css media="print" href="print.css" />
 		<!-- Define overall javascripts for all pages -->
 		<script>var themeurl = 'themes/acp';</script>

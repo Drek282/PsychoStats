@@ -70,7 +70,7 @@
 
 		{if !$dbtest.tbl_drop}
 		<p class="row"><span class="warn">DROP privilege is not OK</span></p>
-		<p class="row"><span>Not being able to drop a table is <b>not required</b> unless you attempt to reset the player stats from the <acronym title="Admin control Panel">ACP</acronym> at a later date.</span></p>
+		<p class="row"><span>Not being able to drop a table is <b>not required</b> unless you attempt to reset the player stats from the <abbr title="Admin control Panel">ACP</abbr> at a later date.</span></p>
 		<p class="row"><span>Note: A test table was created '<b>{$dbtest.table}</b>' for these tests and could not be deleted. You should manually delete this table with another mysql user if possible.</span></p>
 		{else}
 		<p class="row"><span class="good">DROP privilege is OK</span></p>
@@ -109,7 +109,7 @@
 <p class="row right"><strong>Your database settings have been verified! Click "Next" to continue!</strong></p>
 {/if}
 
-<script type="text/javascript">
+<script>
 	allow_next = {if $allow_next}true{else}false{/if};
 </script>
 

@@ -353,7 +353,7 @@ function dash_if_empty($val) {
 }
 
 function dmg($dmg) {
-	return "<acronym title='" . commify($dmg) . "'>" . abbrnum0($dmg) . "</acronym>";
+	return "<abbr title='" . commify($dmg) . "'>" . abbrnum0($dmg) . "</abbr>";
 }
 
 function session_skill($val, $sess) {

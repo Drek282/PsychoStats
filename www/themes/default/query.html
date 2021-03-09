@@ -28,7 +28,7 @@
 {if $server.timedout}
 		<span id="timeout-{$server.id}" class="timeout"><center><#Server timed out#> <a href="javascript:query({$server.id}, true)"><#Click here to refresh#></a></center></span>
 {else}
-		<p><label><#Server#>:</label> <a href="{$server.connect_url}"><acronym title="<#Click to connect#>">{$server.host|escape}:{$server.port}</acronym></a> <span class="ping">(<#ping#>: {$server.ping}<#ms#>)</span></p>
+		<p><label><#Server#>:</label> <a href="{$server.connect_url}"><abbr title="<#Click to connect#>">{$server.host|escape}:{$server.port}</abbr></a> <span class="ping">(<#ping#>: {$server.ping}<#ms#>)</span></p>
 		<p><label><#Type#>:</label> {$server.serveros} {$server.servertype}</p>
 		<p><label><#Game#>:</label> {$server.gamename|escape}</p>
 		<p><label><#Secure#>:</label> {if $server.serversecure}<#VAC secured#>{else}<#Not VAC secured#>{/if}</p>
@@ -97,7 +97,7 @@
 {*
 // This will allow the quick stats on the server page to update
 *}
-<script type="text/javascript">
+<script>
 //<![CDATA[
 // this will be true if the query output is embedded within the PS server page.
 // this check is put in place so that query.php output can be used elsewhere.

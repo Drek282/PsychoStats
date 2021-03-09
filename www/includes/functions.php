@@ -262,7 +262,7 @@ function rank_change($args = array()) {
 
 		$output = sprintf("<img src='%s' alt='%s' title='%s' %s/>", $img, $alt, $alt, $args['attr']);
 #		if ($args['acronym']) {
-#			$output = "<acronym title='$alt'>$output</acronym>";
+#			$output = "<abbr title='$alt'>$output</abbr>";
 #		}
 		$output = "<span class='rankchange-$dir'>$output</span>";
 	}
@@ -323,7 +323,7 @@ function skill_change($args = array()) {
 
 		$output = sprintf("<img src='%s' alt='%s' title='%s' %s/>", $img, $alt, $alt, $args['attr']);
 #		if ($args['acronym']) {
-#			$output = "<acronym title='$alt'>$output</acronym>";
+#			$output = "<abbr title='$alt'>$output</abbr>";
 #		}
 		$output = "<span class='skillchange-$dir'>$output</span>";
 	}

@@ -161,7 +161,7 @@ function assign_request_vars($list, $globalize = false) {
 // allows pages to insert extra CSS links within the overall_header.
 // $href is a relative URL to the css file (within the current theme_url).
 // $media is the media type to use (optional).
-function add_css($href, $media='screen,projection,print') {
+function add_css($href, $media='screen,print') {
 	$this->css_links[$href] = array( 'href' => $href, 'media' => $media );
 }
 
@@ -256,7 +256,7 @@ function css_links($theme = null) {
 			// ignore fully qualified sources and output them as
 			// their own <link> tag, regardless.
 			$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s' />\n", 
-				$css['media'] ? $css['media'] : 'screen,projection,print', $css['href']
+				$css['media'] ? $css['media'] : 'screen,print', $css['href']
 			);
 		} elseif ($css['style']) {
 			// embedded styles
@@ -267,7 +267,7 @@ function css_links($theme = null) {
 			if ($res and $res['resource_name']) {
 				//$files[] = $res['resource_name'];
 				$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s' />\n", 
-					$css['media'] ? $css['media'] : 'screen,projection,print',
+					$css['media'] ? $css['media'] : 'screen,print',
 					$this->url($res['resource_theme']) . '/' . $css['href']
 				);
 			}
@@ -312,10 +312,10 @@ function js_sources($theme = null) {
 		if (substr($js['src'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
 			// their own <script> tag, regardless.
-			$out .= sprintf("<script src='%s' type='text/javascript'></script>\n",  $js['src']);
+			$out .= sprintf("<script src='%s'></script>\n",  $js['src']);
 		} elseif ($js['script']) {
 			// embedded JS
-			$out .= "<script type='text/javascript'>" . $js['script'] . "</script>\n";
+			$out .= "<script>" . $js['script'] . "</script>\n";
 		} else {
 			// javascript file
 			$res = $this->template_found($js['src'], false, false);
@@ -331,13 +331,13 @@ function js_sources($theme = null) {
 			// combine all sources into a single request
 			if ($files) {
 				$src = implode(',', $files);
-				$out .= sprintf("<script src='%s' type='text/javascript'></script>\n",
+				$out .= sprintf("<script src='%s'></script>\n",
 					ps_url_wrapper(array( '_base' => 'script.php', 'src' => $src))
 				);
 			}
 		} else {
 			foreach ($files as $f) {
-				$out .= sprintf("<script src='%s' type='text/javascript'></script>\n",
+				$out .= sprintf("<script src='%s'></script>\n",
 					$this->theme_url . '/' . $f
 				);
 			}

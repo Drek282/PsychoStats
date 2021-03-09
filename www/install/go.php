@@ -46,7 +46,7 @@ $ajax_request = (!empty($a)) ? true : false;
 // to the install index, which destroyed the previous cookie (and the DB settings)
 if ($install != $opts['install']) {
 	if ($ajax_request) {
-		print "<script type='text/javascript'>window.location = 'index.php?re=1';</script>";
+		print "<script>window.location = 'index.php?re=1';</script>";
 		exit;
 	} else {
 		gotopage("index.php?re=1");

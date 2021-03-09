@@ -237,7 +237,7 @@ function draw($print=FALSE) {
 	$output .= ($this->conf['show_timeurl']) ? sprintf("<a href='%s'>&gt;&gt;</a>", $this->timeurl($nextmonth)) : '&nbsp;';
 	$output .= "</td></tr>\n";
 
-	$output .= "<tr class='calendar-hdr'><td width='$width' class='calendar-hdr-week'><acronym title='Week #'>Wk</acronym></td>";
+	$output .= "<tr class='calendar-hdr'><td width='$width' class='calendar-hdr-week'><abbr title='Week #'>Wk</abbr></td>";
 	foreach ($this->dotw as $col) {
 		$class = strtolower($col);
 		$output .= "<td width='$width' class='calendar-hdr-$class'>$col</td>";

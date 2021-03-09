@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 delete_message = "<#Are you sure you want to delete the selected users?#>";
 </script>
 <!--outermost page container for all content-->
@@ -48,7 +48,7 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 			<th><p><a href=""><span class="asc"><#Player#></span></a></p></th>
 			<th><p><a href=""><span class="asc"><#Access#></span></a></p></th>
 			<th><p><a href=""><span class="asc"><#Confirmed#></span></a></p></th>
-			<th><p><acronym title="<#Select All#>"><input id="select-all" type="checkbox" /></acronym></p></th>
+			<th><p><abbr title="<#Select All#>"><input id="select-all" type="checkbox" /></abbr></p></th>
 		</tr>
 {foreach name="user" from=$users item='u'}
 		<tr{cycle values=", class='even'"} id="row-{$smarty.foreach.user.index}">

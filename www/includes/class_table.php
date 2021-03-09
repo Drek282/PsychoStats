@@ -95,7 +95,7 @@ function header_sort() {
 		$hdr_attr = $this->header_attr[$key];
 		$label = is_array($cell) ? $cell['label'] : $cell;
 		if ($cell['tooltip']) {
-			$label = sprintf("<acronym title='%s'>%s</acronym>", $cell['tooltip'], $label);
+			$label = sprintf("<abbr title='%s'>%s</abbr>", $cell['tooltip'], $label);
 		}
 		if ($key and !$cell['nosort']) {
 			$url = array_merge($this->sort_baseurl, array( 

@@ -144,9 +144,9 @@
 		<td>{$p.deaths|commify}</td>
 		<td>{$p.headshotkills|commify}</td>
 		<td>{$p.headshotkillspct}%</td>
-		<td><acronym title="{$p.hits} <#hits#> / {$p.shots} <#shots#>">{$p.accuracy}%</acronym></td>
+		<td><abbr title="{$p.hits} <#hits#> / {$p.shots} <#shots#>">{$p.accuracy}%</abbr></td>
 		<td>{$p.shotsperkill}</td>
-		<td><acronym title="{$p.damage|commify}">{$p.damage|abbrnum:0}</acronym></td>
+		<td><abbr title="{$p.damage|commify}">{$p.damage|abbrnum:0}</abbr></td>
 	</tr>
 {/foreach}
 	</table>

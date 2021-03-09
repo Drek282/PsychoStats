@@ -124,7 +124,7 @@ if ($role['roleid']) {
 }
 
 function dmg($dmg) {
-	return "<acronym title='" . commify($dmg) . "'>" . abbrnum0($dmg) . "</acronym>";
+	return "<abbr title='" . commify($dmg) . "'>" . abbrnum0($dmg) . "</abbr>";
 }
 
 ?>

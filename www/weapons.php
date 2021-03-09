@@ -167,7 +167,7 @@ function headshotkills_pct($name, $weapon) {
 }
 
 function abbr_dmg($name, $weapon) {
-	return "<acronym title='" . commify($weapon['damage']) . "'>" . abbrnum0($weapon['damage'],1) . "</acronym>";
+	return "<abbr title='" . commify($weapon['damage']) . "'>" . abbrnum0($weapon['damage'],1) . "</abbr>";
 }
 
 ?>

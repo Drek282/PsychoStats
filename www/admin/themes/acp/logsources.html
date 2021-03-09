@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 delete_message = "<#Are you sure you want to delete the log source?#>";
 
 </script>
@@ -32,7 +32,7 @@ delete_message = "<#Are you sure you want to delete the log source?#>";
 			<th class="active"><p><span class="asc"><#Order#></span></p></th>
 			<th><p><span class="asc"><#Log Source#></span></p></th>
 			<th><p><span class="asc"><#Updated#></span></p></th>
-			<th><p><span class="asc"><acronym title="<#Enabled?#>">?</acronym></span></p></th>
+			<th><p><span class="asc"><abbr title="<#Enabled?#>">?</abbr></span></p></th>
 		</tr>
 {foreach from=$logsources item='log'}
 		<tr{cycle values=", class='even'"}>

@@ -9,7 +9,7 @@
 	<p class="row"><span class="bad">{$e|escape}</span></p>
 {/foreach}
 
-<script type="text/javascript">
+<script>
 	allow_next = {if $can_write or $nosave}true{else}false{/if};
 	compiledir = '{$compiledir|escape:'javascript'}';
 	$('#compiledir').val(compiledir);

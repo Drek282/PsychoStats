@@ -73,7 +73,7 @@ $db->connect();
 
 if (!$db->connected) {
 	if ($ajax_request) {
-		print "<script type='text/javascript'>window.location = 'go.php?s=db&re=1&install=" . urlencode($install) . "';</script>";
+		print "<script>window.location = 'go.php?s=db&re=1&install=" . urlencode($install) . "';</script>";
 		exit;
 	} else {
 		gotopage("go.php?s=db&re=1&install=" . urlencode($install));

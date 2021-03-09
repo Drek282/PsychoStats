@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script>
 delete_message = "<#Are you sure you want to delete the selected players?#>\n<#Deleting a player does not prevent them from re-appearing in the stats.#>";
 </script>
 <!--outermost page container for all content-->
@@ -41,7 +41,7 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 			<th><p><span class="asc"><#User#></span></p></th>
 			<th><p><span class="asc"><#Skill#></span></p></th>
 			<th><p><span class="asc"><#Ranked#></span></p></th>
-			<th><p><acronym title="<#Select All#>"><input id="delete-all" type="checkbox" /></acronym></p></th>
+			<th><p><abbr title="<#Select All#>"><input id="delete-all" type="checkbox" /></abbr></p></th>
 		</tr>
 {foreach name="plr" from=$players item='p'}
 		<tr{cycle values=", class='even'"} id="row-{$smarty.foreach.plr.index}">
