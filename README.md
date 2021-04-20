@@ -68,7 +68,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Map images for Team Fortress Classic.
 * Add COD4X support.
-* Add Fistful of Frags support.
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
 * Improve display on mobile devices.
