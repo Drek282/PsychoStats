@@ -76,6 +76,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
 * Full PHP 8.x compatibility.
 * Clean up obsolete and deprecated html.
+* Fistful of Frags support.
 
 ## **Credits**
 
