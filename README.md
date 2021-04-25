@@ -44,8 +44,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
 
-* The Flash hit box graphic no longer works on most browsers because Flash is about to become entirely extinct.
-
 * The Firearms, TFC and a few Natural Selection heatmaps are mostly untested.  I won't be able to ensure that they are all working as intended until I have data for all of them.
 
 * Roles support is broken in The Battle Grounds III.
@@ -77,6 +75,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Full PHP 8.x compatibility.
 * Clean up obsolete and deprecated html.
 * Fistful of Frags support.
+* Add flash hitbox to CC themes.
 
 ## **Credits**
 
