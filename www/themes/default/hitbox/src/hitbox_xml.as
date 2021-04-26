@@ -1,5 +1,5 @@
-﻿var conf_xml_file:String 	= _root.confxml ? _root.confxml : "xml/config.xml";
-var data_xml_file:String 	= _root.weaponxml ? _root.weaponxml + '?xml=w&id=' + (isNaN(_root.id) ? 0 : _root.id) : "xml/weapons.xml";
+﻿var conf_xml_file:String 	= _root.confxml ? _root.confxml : "hitbox/config.xml";
+var data_xml_file:String 	= _root.weaponxml ? _root.weaponxml + '?xml=w&id=' + (isNaN(_root.id) ? 0 : _root.id) : "hitbox/weapons.xml";
 var hitbox:Object 			= new Object();
 var weapons:Array 			= new Array();
 var conf_xml:XML 			= new XML();
