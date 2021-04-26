@@ -112,7 +112,7 @@ if (!is_array($config_layout[$s])) {
 }
 
 
-$cms->crumb("Config", ps_url_wrapper(array( '_base' => $PHP_SCNM, 'ct' => $ct )));
+$cms->crumb("Config", ps_url_wrapper(array( '_base' => PHP_SCNM, 'ct' => $ct )));
 $cms->crumb($ct);
 
 $form = $cms->new_form();

@@ -26,7 +26,7 @@ include("../includes/common.php");
 include("./common.php");
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));
-$cms->crumb('Awards', ps_url_wrapper($PHP_SCNM));
+$cms->crumb('Awards', ps_url_wrapper(PHP_SCNM));
 
 $validfields = array('ref','start','limit','order','sort','type','gametype','modtype','filter','move','ajax','id');
 $cms->theme->assign_request_vars($validfields, true);

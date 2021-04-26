@@ -94,7 +94,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper(array('_base' => 'manage.php' )));
-$cms->crumb('Users', ps_url_wrapper(array('_base' => $PHP_SCNM )));
+$cms->crumb('Users', ps_url_wrapper(array('_base' => PHP_SCNM )));
 
 
 // assign variables to the theme

@@ -305,14 +305,14 @@ function draw($print=FALSE) {
 }
 
 function timeurl($time) {
-	$PHP_SCNM = $_SERVER['SCRIPT_NAME'];
+	PHP_SCNM = $_SERVER['SCRIPT_NAME'];
 	if (!$this->conf['show_timeurl']) return '';
 	$url = '';
 	if ($this->conf['timeurl_callback'] and function_exists($this->conf['timeurl_callback'])) {
 		$func = $this->conf['timeurl_callback'];
 		$url = $func($this, $time);
 	} else {
-		$url = sprintf("$PHP_SCNM?%s=%d", $this->conf['timevar'], $time);
+		$url = sprintf("PHP_SCNM?%s=%d", $this->conf['timevar'], $time);
 		if ($this->conf['timeurl']) $url .= "&amp;" . $this->conf['timeurl'];
 	}
 	return $url;

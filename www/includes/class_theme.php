@@ -135,8 +135,8 @@ function PsychoTheme(&$cms, $args = array()) {
 	$this->assign_by_ref('theme_name', $this->theme);
 	$this->assign_by_ref('language', $this->language);
 	$this->assign(array(
-		'PHP_SCNM'		=> ps_escape_html($PHP_SCNM),
-		'SELF'			=> ps_escape_html($PHP_SCNM),
+		'PHP_SCNM'		=> ps_escape_html(PHP_SCNM),
+		'SELF'			=> ps_escape_html(PHP_SCNM),
 	));
 
 	// allow theme access to a couple methods of our objects

@@ -54,8 +54,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Lots of obsolete and deprecated html to still be cleaned up.
 
-* Player hitbox is untested.
-
 
 ## **Stuff that Remains Untested**
 

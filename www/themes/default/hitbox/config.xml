@@ -1,5 +1,5 @@
 <?xml version="1.0" ?> 
 <hitbox>
 	<title>%s Hitbox</title>
-	<target>12</target>
+	<bullets>12</bullets>
 </hitbox>

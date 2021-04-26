@@ -52,7 +52,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));
-$cms->crumb('Player Aliases', ps_url_wrapper($PHP_SCNM));
+$cms->crumb('Player Aliases', ps_url_wrapper(PHP_SCNM));
 
 // assign variables to the theme
 $cms->theme->assign(array(
