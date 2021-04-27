@@ -75,7 +75,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * Full PHP 8.x compatibility.
 * Clean up obsolete and deprecated html.
 * Fistful of Frags support.
-* Add flash hitbox to CC themes.
 
 ## **Credits**
 
