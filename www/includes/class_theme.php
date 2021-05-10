@@ -50,6 +50,11 @@ define("CLASS_THEME_PHP", 1);
 if (!defined("SMARTY_DIR")) define("SMARTY_DIR", __DIR__ . "/smarty/");
 require_once(SMARTY_DIR . 'Smarty.class.php');
 
+define('PHP_SCNM', $_SERVER['SCRIPT_NAME']);		// this is used so much we make sure it's global
+// Sanitize PHP_SELF and avoid XSS attacks.
+// We use the constant in places we know we'll be outputting $PHP_SELF to the user
+define('SAFE_PHP_SCNM', htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, 'UTF-8'));
+
 class PsychoTheme extends Smarty {
 var $buffer 		= '';
 var $theme_url		= null;
