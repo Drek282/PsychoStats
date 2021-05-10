@@ -56,7 +56,7 @@ define('PSYCHOSTATS_VERSION', '3.2.7b');
 class PsychoStats {
 
 // Factory function to create the object. This is not a class method.
-public static function & create($dbconf = array(), $gametype = null, $modtype = null) {
+public static function &create($dbconf = array(), $gametype = null, $modtype = null) {
 	$db = null;
 	if (isset($dbconf['dbhandle'])) {
 		$db =& $dbconf['dbhandle'];
