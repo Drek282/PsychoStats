@@ -35,6 +35,7 @@ Version 3.2.7b (in progress)
 * [Revert and Fixed] Return of flash hitbox using Ruffle flash emulator, thanks to Rosenstein.
 * [Changed] Flash hitbox moved from main player column to side column.
 * [Fixed] Missing public static function declarations.
+* [Fixed] Broken global variables in class_theme.php.  Thanks Rosentein.
 
 Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
