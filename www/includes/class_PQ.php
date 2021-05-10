@@ -46,7 +46,7 @@ include_once(__DIR__ . "/PQ/PQ_PARENT.php");
 class PQ {
 
 // Our factory method to create a valid object for our querytype specified
-function &create($conf) {
+public static function &create($conf) {
 	if (!is_array($conf)) {			// force $conf into an array.
 		$ip = $conf;			// If $conf is not an array it's assumed to be an ipaddr[:port]
 		$conf = array( 'ip' => $ip );

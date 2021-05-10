@@ -33,7 +33,7 @@ include_once(__DIR__ . "/DB/DB_PARENT.php");
 class PsychoDB {
 
 // Our factory method to create a valid object for our specified database
-function &create($conf=array()) {
+public static function &create($conf=array()) {
 	if (!is_array($conf)) {				// force $conf into an array.
 		$dbhost = $conf;			// If $conf is not an array it's assumed to be a host[:port]
 		$conf = array( 'dbhost' => $dbhost );
