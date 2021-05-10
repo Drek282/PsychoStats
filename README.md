@@ -52,7 +52,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The live server views can be flakey and unreliable.
 
-* Lots of deprecated PHP to be cleaned up.
+* Mcrypt is deprecated/obsolete.
 
 * Lots of obsolete and deprecated html to still be cleaned up.
 
