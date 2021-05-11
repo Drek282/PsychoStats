@@ -558,6 +558,7 @@ function language_dir($theme = null) {
 
 // Translate a string phrase, or return the original string if no translation is available.
 function trans($str, $args = array()) {
+    global $str;
 	return $this->lang->gettext($str, $args);
 }
 
