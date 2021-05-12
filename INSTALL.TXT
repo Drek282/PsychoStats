@@ -32,11 +32,10 @@ know how to set that up, Google is your friend.  It's fairly simple and there is
 lots of information on how to do that on the web.  Make sure your user has full
 permissions on the database.
 
-To be absolutely clear you will need to create the database first, then make sure
-your user has full permissions on that database.  It isn't enough to use your super
-user, something you should never do anyway.  You need to create a database, and
-create a user, then enter that information into the stats.cfg file and the appropriate
-fields during the web install process.
+For security reasons you should create the database first, then make sure
+your user has full permissions on that database.  However, for testing purposes
+you can create a user with broader permissions, or use your super user, and the
+install process will create the database for you.
 
 3) You will need to have Perl installed to run the stats generation scripts, and
 your web hosting will need to have PHP installed on it.  Note that there are a
