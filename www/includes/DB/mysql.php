@@ -87,7 +87,7 @@ function selectdb($dbname = null) {
 
 // Sends a query ...
 function query($cmd) {
-//	if (!$this->connected) return false;
+	if (!$this->connected) return false;
 	$this->totalqueries++;
 	$this->lastcmd = $cmd;
 	$this->queries[] = $cmd;

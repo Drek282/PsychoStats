@@ -32,10 +32,8 @@ know how to set that up, Google is your friend.  It's fairly simple and there is
 lots of information on how to do that on the web.  Make sure your user has full
 permissions on the database.
 
-For security reasons you should create the database first, then make sure
-your user has full permissions on that database.  However, for testing purposes
-you can create a user with broader permissions, or use your super user, and the
-install process will create the database for you.
+To be clear you need to create the database first, then make sure your user has
+full permissions on that database, before you run the installer.
 
 3) You will need to have Perl installed to run the stats generation scripts, and
 your web hosting will need to have PHP installed on it.  Note that there are a
