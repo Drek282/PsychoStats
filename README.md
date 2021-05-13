@@ -1,6 +1,6 @@
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 5.3.0+ and MySQL 4.1.13+.
 
-This version has been tested on PHP 7.4.11 and MariaDB 10.3.24 but it should work on any version of PHP and MySQL from 5.3.0 and 4.1.13, respectively, up to PHP 7.x.x.  ***This version of PsychoStats is not yet compatible with PHP 8.x.x.***
+This version has been tested on PHP 7.4.11 and MariaDB 10.3.24 but it should work on any version of PHP and MySQL from 5.3.0 and 4.1.13, respectively, up to PHP 7.x.x.  ****This version of PsychoStats is not yet compatible with PHP 8.x.x.****
 
 This version was created without any input from Stormtrooper. The only objective was to get a pretty terrific piece of old software working again. I am Drek, the author of the updates. I am not a coder. I know enough about scripting to have managed most of the fixes without too much trouble.  However, I can make no guaratees about security or best practices.  Use this software at your own risk.
 
