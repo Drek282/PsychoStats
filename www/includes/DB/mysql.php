@@ -55,7 +55,7 @@ function connect($force_select = false) {
 	}
 
 	$host = !$this->dbport ? $this->dbhost : "$this->dbhost:$this->dbport";
-	$this->dbh = @mysqli_connect($host, $this->dbuser, $this->dbpass, $this->dbname);
+	$this->dbh = @mysqli_connect($host, $this->dbuser, $this->dbpass); // remove @ from mysqli_connect to see errors
 	$this->connected = ($this->dbh);
 	if ($this->connected and (!$this->conf['delaydb'] or $force_select)) {
 		$this->selected = $this->selectdb();
