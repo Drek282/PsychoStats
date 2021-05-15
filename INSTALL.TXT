@@ -32,8 +32,11 @@ know how to set that up, Google is your friend.  It's fairly simple and there is
 lots of information on how to do that on the web.  Make sure your user has full
 permissions on the database.
 
-To be clear you need to create the database first, then make sure your user has
-full permissions on that database, before you run the installer.
+You should not use a database super user for PsychoStats, especially in a production
+context.  You should create a user then create a database, then make sure your user
+has full permissions on that database, before you run the installer.  However, for test
+purposes, in a local network environment you can use a database user with general
+permissions and the installer will create the database for you.
 
 3) You will need to have Perl installed to run the stats generation scripts, and
 your web hosting will need to have PHP installed on it.  Note that there are a
