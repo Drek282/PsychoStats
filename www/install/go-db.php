@@ -85,13 +85,13 @@ function do_test(&$t, $skip_create = false) {
 	}
 
 	// don't bother doing any more tests if the DB version is too low
-//	if (!$t['min_ver']) return false;
+	if (!$t['min_ver']) return false;
 
 	// the dbname was invalid, so lets try and create it...
 	if (!$t['selected']) {
 		if ($db->dbexists($db->dbname)) {
 			$t['exists'] = true;
-		} else if (!$skip_create and $db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci")) {
+		} else if (!$skip_create and $db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) { // switch charset & collation from utf8_general_ci to utf8mb4_unicode_ci
 			array_pop($db->errors);
 			$t['created'] = true;
 		}
@@ -131,7 +131,7 @@ function do_test(&$t, $skip_create = false) {
 		$t['table'] = $tbl;
 		$t['tbl_create'] = $db->query(
 			"CREATE TABLE " . $db->qi($tbl) . " ( id INT UNSIGNED NOT NULL ) " . 
-			"ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci "
+			"ENGINE = MYISAM CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci "
 		);
 		if ($t['tbl_create']) {
 			// attempt an insert
