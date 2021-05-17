@@ -108,14 +108,14 @@ function do_test(&$t, $skip_create = false) {
 		$db2 = $db->copy();
 		$db2->selectdb('information_schema');
 		list($charset) = $db2->fetch_list("SELECT DEFAULT_CHARACTER_SET_NAME FROM SCHEMATA WHERE SCHEMA_NAME=" . $db->escape($db->dbname, true));
-		$t['charset'] = ($charset == 'utf8');
+		$t['charset'] = ($charset == 'utf8mb4');
 		$t['charset_str'] = $charset;
 		unset($db2);
 		$db->selectdb();	// both DB objects will be using the same DB resource, so change the DB back.
 	} else {
 		list($x,$str) = $db->fetch_row(0,"SHOW CREATE DATABASE " . $db->qi($db->dbname));
 		if (preg_match('/CHARACTER SETs (\S+)/', $str, $m)) {
-			$t['charset'] = ($m[1] == 'utf8');
+			$t['charset'] = ($m[1] == 'utf8mb4');
 			$t['charset_str'] = $m[1];
 		} else {
 			// do not do anything if we can't determine the charset. Incase there is a difference in 
