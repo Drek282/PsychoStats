@@ -85,13 +85,13 @@ function do_test(&$t, $skip_create = false) {
 	}
 
 	// don't bother doing any more tests if the DB version is too low
-//	if (!$t['min_ver']) return false;
+	if (!$t['min_ver']) return false;
 
 	// the dbname was invalid, so lets try and create it...
 	if (!$t['selected']) {
 		if ($db->dbexists($db->dbname)) {
 			$t['exists'] = true;
-		} else if (!$skip_create and $db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci")) {
+		} else if (!$skip_create and $db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) { // switch charset & collation from utf8_general_ci to utf8mb4_unicode_ci
 			array_pop($db->errors);
 			$t['created'] = true;
 		}
@@ -108,14 +108,14 @@ function do_test(&$t, $skip_create = false) {
 		$db2 = $db->copy();
 		$db2->selectdb('information_schema');
 		list($charset) = $db2->fetch_list("SELECT DEFAULT_CHARACTER_SET_NAME FROM SCHEMATA WHERE SCHEMA_NAME=" . $db->escape($db->dbname, true));
-		$t['charset'] = ($charset == 'utf8');
+		$t['charset'] = ($charset == 'utf8mb4');
 		$t['charset_str'] = $charset;
 		unset($db2);
 		$db->selectdb();	// both DB objects will be using the same DB resource, so change the DB back.
 	} else {
 		list($x,$str) = $db->fetch_row(0,"SHOW CREATE DATABASE " . $db->qi($db->dbname));
 		if (preg_match('/CHARACTER SETs (\S+)/', $str, $m)) {
-			$t['charset'] = ($m[1] == 'utf8');
+			$t['charset'] = ($m[1] == 'utf8mb4');
 			$t['charset_str'] = $m[1];
 		} else {
 			// do not do anything if we can't determine the charset. Incase there is a difference in 
@@ -131,7 +131,7 @@ function do_test(&$t, $skip_create = false) {
 		$t['table'] = $tbl;
 		$t['tbl_create'] = $db->query(
 			"CREATE TABLE " . $db->qi($tbl) . " ( id INT UNSIGNED NOT NULL ) " . 
-			"ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci "
+			"ENGINE = MYISAM CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci "
 		);
 		if ($t['tbl_create']) {
 			// attempt an insert
