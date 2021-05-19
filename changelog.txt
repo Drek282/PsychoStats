@@ -30,7 +30,8 @@ Version 3.2.7b (in progress)
 * [Fixed] Team joins not being parsed for Natural Selection.
 * [Fixed] Bot detection for Natural Selection.
 * [Removed] The valitator.w3.org referer link in all the themes.
-* [Changed] Map icon images converted from png to gif.
+* [Added] webp image support.
+* [Changed] Map icon images converted from png to webp.
 * [Fixed] Cleaned up deprecated and obsolete html.
 * [Revert and Fixed] Return of flash hitbox using Ruffle flash emulator, thanks to Rosenstein.
 * [Changed] Flash hitbox moved from main player column to side column.

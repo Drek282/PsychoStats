@@ -188,7 +188,7 @@ if ($upload) {
 // load the icons
 $icons = array();
 $ext = $ps->conf['theme']['images']['search_ext'];
-if (empty($ext)) $ext = 'png, jpg, gif';
+if (empty($ext)) $ext = 'png, jpg, gif, webp';
 $list = explode(',',$ext);
 $list = array_map('trim', $list);
 $match = '\\.(' . implode('|', $list) . ')$';
@@ -249,7 +249,7 @@ function validate_img($file) {
 	global $form, $cms, $ps;
 	$c = $ps->conf['theme']['icons'];
 	$ext = $ps->conf['theme']['images']['search_ext'];
-	if (empty($ext)) $ext = 'png, jpg, gif';
+	if (empty($ext)) $ext = 'png, jpg, gif, webp';
 	$list = explode(',',$ext);
 	$list = array_map('trim', $list);
 	$match = '\\.(' . implode('|', $list) . ')$';

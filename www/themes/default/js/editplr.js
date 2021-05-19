@@ -3,7 +3,7 @@ $(document).ready(function(){
 		if (this.value.length != 2) {
 			$('#flag-img')[0].src = $('#blank-icon')[0].src;
 		} else {
-			var url = flags_url + '/' + this.value.toLowerCase() + '.png';
+			var url = flags_url + '/' + this.value.toLowerCase() + '.webp';
 			// if the img exists then we set the img source to the url.
 			// this prevents IE from causing a broken img appearing
 			// when an unknown CC is entered.
