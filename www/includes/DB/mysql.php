@@ -67,7 +67,7 @@ function connect($force_select = false) {
 		);
 	}
 
-	$this->query("SET NAMES 'utf8'");
+	$this->query("SET NAMES 'utf8mb4'");
 
 	return ($this->connected && $this->selected);
 }
@@ -75,7 +75,7 @@ function connect($force_select = false) {
 function selectdb($dbname = null) {
 	if (!$this->dbh) return false;
 	if (empty($dbname)) $dbname = $this->dbname;
-	$ok = @mysqli_select_db($dbname);
+	$ok = @mysqli_select_db($this->dbh, $dbname);
 	if (!$ok) {
 		$this->error(@mysqli_error());
 		$this->_fatal(sprintf("Error accessing database '<b>%s</b>' on server <b>%s</b> using username '<b>%s</b>'", 
