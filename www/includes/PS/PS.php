@@ -1787,7 +1787,7 @@ function import_config($source, $forcetype = false, $opts = array()) {
 			$this->_update_layout($type);
 			$section = '';
 		} 
-		if ($line{0} == '#') continue; 		// ignore comments;
+		if ($line[0] == '#') continue; 		// ignore comments;
 
 		if (preg_match('/^\[([^\]]+)\]/', $line, $m)) {
 			$section = $m[1];
@@ -2536,7 +2536,7 @@ function build_map_stats() {
 			for ($i=0; $i < count($stats[$var]['players']); $i++) {
 				$stats[$var]['players'][$i]['value'] = $modifier($stats[$var]['players'][$i]['value']);
 			}
-		} elseif (strpos('%', $o['modifier']) !== false) {
+		} elseif (!empty($o['modifier']) and strpos('%', strval($o['modifier'])) !== false) {
 			for ($i=0; $i < count($stats[$var]['players']); $i++) {
 				$stats[$var]['players'][$i]['value'] = sprintf($o['modifier'], $stats[$var]['players'][$i]['value']);
 			}
