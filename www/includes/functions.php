@@ -361,7 +361,7 @@ function url($arg = array()) {
 	$i = (strpos($base, '?') === FALSE) ? 0 : 1;
 
 	foreach ($arg as $key => $value) {
-		if ($key{0} == '_') continue;		// ignore any param starting with '_'
+		if ($key[0] == '_') continue;		// ignore any param starting with '_'
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		$base .= "$key=";			// do not encode keys
 		$base .= $enc ? $encodefunc($value) : $value;
@@ -805,7 +805,7 @@ function catfile() {
   $path = array_shift($args);
   foreach ($args as $part) {
     if (substr($path, -1, 1) == '/') $path = substr($path, 0, -1);
-    if ($part != '' and $part{0} != '/') $part = '/' . $part;
+    if ($part != '' and $part[0] != '/') $part = '/' . $part;
     $path .= $part;
   }
   // remove the trailing slash if it's present
