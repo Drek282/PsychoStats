@@ -64,8 +64,10 @@ var $plugin_warnings	= array();
 var $breadcrumbs	= array();
 var $plugin_dir;
 
-//function __construct($conf=array()) { return $this->PsychoCMS($conf); }	// PHP5
-function PsychoCMS($conf=array()) {						// PHP4
+function __construct($conf=array()) {
+//    return $this->PsychoCMS($conf);
+//}	// PHP5
+//function PsychoCMS($conf=array()) {						// PHP4
 	$conf += array(
 		'dbhandle'	=> null,
 		'session'	=> null,
@@ -92,6 +94,10 @@ function PsychoCMS($conf=array()) {						// PHP4
 
 	// where are our plugins?
 	$this->plugin_dir = $conf['plugin_dir'];
+}
+ 
+function PsychoCMS() {
+        self::__construct();
 }
 
 // must be called after 'new'
@@ -673,7 +679,9 @@ class PsychoPlugin {
 	var $errstr = '';
 
 //function __construct() { $this->PsychoPlugin(); }
-function PsychoPlugin() { /* nop */ }
+function __construct() { /* nop */ }
+
+function PsychoPlugin() { self::__construct(); }
 
 // called when the plugin is loaded. This is called on every page request.
 function load(&$cms) {
