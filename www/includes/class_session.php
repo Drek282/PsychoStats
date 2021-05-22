@@ -62,7 +62,7 @@ var $sessdata = array(				// stores all the session data (stored in the database
 );
 
 // session constructor. Sets defaults and will automatically start a new session or load an existing one
-function PsychoSession($_config = array()) {
+function __construct($_config = array()) {
 	$this->config = array(
 		'cms'			=> null,			// a CMS object MUST be passed in
 		'dbhandle'		=> 0,
@@ -123,6 +123,10 @@ function PsychoSession($_config = array()) {
 	$this->is_bot();
 
 	if (!$this->config['delaystart']) $this->start();		// start session if its not 'delayed'
+}
+ 
+function PsychoSession() {
+        self::__construct();
 }
 
 // gets/sets the admin flag of the session
