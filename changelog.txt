@@ -31,11 +31,12 @@ Version 3.2.7b (in progress)
 * [Fixed] Bot detection for Natural Selection.
 * [Removed] The valitator.w3.org referer link in all the themes.
 * [Added] webp image support.
-* [Changed] Map icon images converted from png to webp.
+* [Changed] Flag icon images converted from png to webp.
 * [Fixed] Cleaned up deprecated and obsolete html.
 * [Revert and Fixed] Return of flash hitbox using Ruffle flash emulator, thanks to Rosenstein.
 * [Changed] Flash hitbox moved from main player column to side column.
 * [Fixed] Broken mysqli_connect function, thanks Rosenstein.
+* [Changed] Map and overlay immages converted to webp for Firearms, Natural Selection and Team Fortress Classic.
 
 Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
