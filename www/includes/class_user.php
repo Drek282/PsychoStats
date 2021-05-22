@@ -58,9 +58,13 @@ var $autherr = "";
 var $loaded = false;
 var $loaderr = "";
 
-function PsychoUser(&$session, &$db) {
+function __construct(&$session, &$db) {
 	$this->session =& $session;
 	$this->db =& $db;
+}
+ 
+function PsychoUser() {
+        self::__construct();
 }
 
 // loads the user information from the database.
