@@ -46,7 +46,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
 	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
-	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.gif{else}{theme->url}/img/spacer.gif{/if}" />
+	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" />
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
 *}
