@@ -35,8 +35,12 @@ class PS_Heatmap {
 var $ps = null;
 
 // $ps is an PS object
-function PS_Heatmap(&$ps) {
+function __construct(&$ps) {
 	$this->ps = &$ps;
+}
+ 
+function PS_Heatmap() {
+        self::__construct();
 }
 
 // returns a list of available heatmaps for the map specified
