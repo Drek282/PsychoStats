@@ -72,7 +72,7 @@ var $fetch_compile	= true;
 var $_page_title	= '';
 
 //function __construct($cms, $args = array()) { $this->PsychoTheme($cms, $args); }
-function PsychoTheme(&$cms, $args = array()) {
+function __construct(&$cms, $args = array()) {
 	$this->Smarty();
 	$this->cms =& $cms;
 
@@ -143,6 +143,10 @@ function PsychoTheme(&$cms, $args = array()) {
 	$this->register_object('theme', $this, array( 'css_links', 'js_sources', 'meta_tags', 'url', 'parent_url' ), false);
 	$this->register_object('db', $this->cms->db, array( 'totalqueries' ), false);
 }  // end of constructor
+ 
+function PsychoTheme() {
+        self::__construct();
+}
 
 // assigns a list of request variable names to the theme by referernce so the theme can use them 
 // and the script can continue to change them before the final output.
@@ -936,11 +940,15 @@ var $xml = '';
 var $styles = array();
 var $def = null;
 
-function PsychoThemeStyles($xml = null, $root = 'styles') {
+function __construct($xml = null, $root = 'styles') {
 	if ($xml) {
 		return $this->load($xml, $root);
 	}
 	return false;
+}
+ 
+function PsychoThemeStyles() {
+        self::__construct();
 }
 
 function load($xml, $root = 'styles') {
