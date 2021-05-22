@@ -39,13 +39,17 @@ class Timer {
   var $_stop = 0;
 
   // constructor: Starts a main timer called 'MAIN' by default
-  function Timer($precision=5, $default=true) {
+  function __construct($precision=5, $default=true) {
     $this->_precision = $precision;
     if ($default) {
       $this->_default = true;
       $this->addmarker("MAIN");
     }
   }
+ 
+function Timer() {
+        self::__construct();
+}
 
   // stop tracking time passing. After called, all functions will no longer see time pass
   function stop() {

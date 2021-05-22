@@ -58,6 +58,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Battle Grounds support needs to be updated.
 
+* Heatmaps are broken in TFC.
+
 
 ## **Stuff that Remains Untested**
 
