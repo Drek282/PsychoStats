@@ -34,10 +34,14 @@ class PsychoLanguage {
 var $map = array();
 
 // Constructor
-function PsychoLanguage() { 
+function __construct() { 
 	$this->map = array(
 		// language map would go here (in sub-classes)
 	);
+}
+ 
+function PsychoLanguage() {
+        self::__construct();
 }
 
 /** 
