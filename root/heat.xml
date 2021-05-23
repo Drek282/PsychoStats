@@ -1109,11 +1109,11 @@
   <fliph>0</fliph>
  </map>
  <map name='obj_thanatos'>
-  <minx>-4040</minx>
-  <miny>-1285</miny>
-  <maxx>3600</maxx>
-  <maxy>3560</maxy>
-  <res>600x591</res>
+  <minx>-3885</minx>
+  <miny>-3860</miny>
+  <maxx>3445</maxx>
+  <maxy>3705</maxy>
+  <res>591x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1122,7 +1122,7 @@
   <miny>-3925</miny>
   <maxx>3115</maxx>
   <maxy>3985</maxy>
-  <res>600x503</res>
+  <res>503x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1149,7 +1149,7 @@
   <miny>-4015</miny>
   <maxx>2660</maxx>
   <maxy>3550</maxy>
-  <res>600x529</res>
+  <res>529x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1212,12 +1212,12 @@
   <miny>-3965</miny>
   <maxx>3980</maxx>
   <maxy>1255</maxy>
-  <res>600x290</res>
+  <res>600x459</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
  <map name='sd_force'>
-  <minx>-3555</minx>
+  <minx>-4095</minx>
   <miny>-3575</miny>
   <maxx>2835</maxx>
   <maxy>2425</maxy>
@@ -1230,7 +1230,7 @@
   <miny>-3880</miny>
   <maxx>3545</maxx>
   <maxy>3335</maxy>
-  <res>600x466</res>
+  <res>466x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
