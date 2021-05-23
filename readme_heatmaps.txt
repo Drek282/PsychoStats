@@ -49,6 +49,8 @@ On Firearms on Linux I was able to get the latest official AdminMod working with
 
 The documentation for Admin Mod and AMX Mod X are both very good, you can find them on google.  They will run on listenserver, but as I said, depending on the mod, you may need to try different versions of Metamod, or on Linux you may need to rename libraries that use the _i386 naming convention.  For Firearms I also had to use the Metamod config.ini file to force load the game library.  Good luck, I'm rooting for you.
 
+What you will want to do is move to the farthest point for the four cardinal points in the map and take your position there.  There are a few commands that will do that for you.  When you orient your overview the hights -y value, which is south, should be the bottom point of the heatmap overview.
+
 To see the overview use the following commands in the console:
 
 (The "snapshot" command is what will take the screenshot.  Typically that is bound to F5.)
