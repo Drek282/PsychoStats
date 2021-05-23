@@ -79,7 +79,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Clean up deprecated PHP.
 * Clean up obsolete and deprecated html.
 * Update The Battle Grounds III support.
-* Fix the orientation on heatmaps for Firearms, Natural Selection and TFC.
+* Fix heatmaps for Firearms, Natural Selection and TFC.
 
 ## **Credits**
 
