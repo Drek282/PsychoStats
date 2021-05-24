@@ -56,6 +56,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The Battle Grounds support needs to be updated.
 
+* Missing events for Team Fortress Classic.
+
 
 ## **Stuff that Remains Untested**
 
@@ -77,6 +79,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Clean up deprecated PHP.
 * Clean up obsolete and deprecated html.
 * Update The Battle Grounds III support.
+* Add missing TFC events.
 
 ## **Credits**
 
