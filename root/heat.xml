@@ -1217,9 +1217,9 @@
   <fliph>0</fliph>
  </map>
  <map name='sd_force'>
-  <minx>-4095</minx>
+  <minx>-3555</minx>
   <miny>-3575</miny>
-  <maxx>2835</maxx>
+  <maxx>3450</maxx>
   <maxy>2425</maxy>
   <res>600x513</res>
   <flipv>1</flipv>
@@ -1271,10 +1271,10 @@
   <fliph>0</fliph>
  </map>
  <map name='tc_iwojima'>
-  <minx>-3130</minx>
-  <miny>-1015</miny>
-  <maxx>1880</maxx>
-  <maxy>1650</maxy>
+  <minx>-3180</minx>
+  <miny>-1140</miny>
+  <maxx>1975</maxx>
+  <maxy>1705</maxy>
   <res>600x326</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
