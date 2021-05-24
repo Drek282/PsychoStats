@@ -758,16 +758,16 @@
   <fliph>0</fliph>
  </map>
  <map name='co_angst'>
-  <minx>-702</minx>
-  <miny>-1781</miny>
-  <maxx>1382</maxx>
-  <maxy>2534</maxy>
+  <minx>-705</minx>
+  <miny>-1785</miny>
+  <maxx>1385</maxx>
+  <maxy>2535</maxy>
   <res>295x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
  <map name='co_blackmesa_r5a'>
-  <minx>-915</minx>
+  <minx>-1915</minx>
   <miny>-2790</miny>
   <maxx>3295</maxx>
   <maxy>915</maxy>
@@ -803,10 +803,10 @@
   <fliph>0</fliph>
  </map>
  <map name='co_freefall_b2b'>
-  <minx>-4020</minx>
+  <minx>-4070</minx>
   <miny>-1175</miny>
-  <maxx>770</maxx>
-  <maxy>3095</maxy>
+  <maxx>570</maxx>
+  <maxy>3945</maxy>
   <res>551x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
@@ -869,7 +869,7 @@
   <minx>-2320</minx>
   <miny>-1560</miny>
   <maxx>3645</maxx>
-  <maxy>3925</maxy>
+  <maxy>3725</maxy>
   <res>600x531</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
