@@ -161,8 +161,8 @@ function dual_bar($args = array()) {
 	$args += array(
 		'pct1'		=> 0,
 		'pct2'		=> 0,
-        'color1'	=> 'ff0000',
-        'color2'	=> '0000ff',
+		'color1'	=> 'ff0000',
+		'color2'	=> '0000ff',
 		'title1'	=> null,
 		'title2'	=> null,
 		'width'		=> null,
@@ -465,7 +465,7 @@ function rtrim_all(&$ary, $trimtags=0) {
 		return;
 	}
 	reset($ary);
-    while ($key = key($ary) && $val = current($ary)) {
+	while ($key = key($ary) && $val = current($ary)) {
 //	while (list($key,$val) = each($ary)) {
 		if ($trimtags) $ary[$key] = strip_tags($val);
 		$ary[$key] = rtrim($ary[$key]);
@@ -498,7 +498,7 @@ function stripslashes_all(&$ary) {
 		return;
 	}
 	reset($ary);
-    while ($key = key($ary) && $val = current($ary)) {
+	while ($key = key($ary) && $val = current($ary)) {
 //	while (list($key,$val) = each($ary)) {
 		if (is_array($ary[$key])) {
 			stripslashes_all($ary[$key]);
@@ -804,9 +804,9 @@ function catfile() {
   $args = str_replace(array('\\\\','\\'), '/', $args);
   $path = array_shift($args);
   foreach ($args as $part) {
-    if (substr($path, -1, 1) == '/') $path = substr($path, 0, -1);
-    if ($part != '' and $part[0] != '/') $part = '/' . $part;
-    $path .= $part;
+	if (substr($path, -1, 1) == '/') $path = substr($path, 0, -1);
+	if ($part != '' and $part[0] != '/') $part = '/' . $part;
+	$path .= $part;
   }
   // remove the trailing slash if it's present
   if (substr($path, -1, 1) == '/') $path = substr($path, 0, -1);
@@ -928,13 +928,13 @@ function print_xml($data, $clear_ob = true, $send_ct = true, $do_exit = true) {
 }
 
 /*
-    * function gradient
-    * Returns a linear gradient array between 2 numbers
-    * 
-    * @param integer  $low  Low gradient value
-    * @param integer  $high  High gradient value
-    * @param integer  $totalsteps  Number of steps between low..high.
-    * @return array  An array of gradient values
+	* function gradient
+	* Returns a linear gradient array between 2 numbers
+	* 
+	* @param integer  $low  Low gradient value
+	* @param integer  $high  High gradient value
+	* @param integer  $totalsteps  Number of steps between low..high.
+	* @return array  An array of gradient values
 */
 function gradient($low, $high, $totalsteps) {
 	$steps = $totalsteps - 1;
@@ -981,12 +981,12 @@ function array_values_by_key(&$ary, $key) {
 }
 
 /*
-    * function mkdir_recursive
-    * works like mkdir() but will work recursively in PHP4 or PHP5.
-    * 
-    * @param string $path  Directory to create
-    * @param integer $mode  Permissions for the file
-    * @return mixed
+	* function mkdir_recursive
+	* works like mkdir() but will work recursively in PHP4 or PHP5.
+	* 
+	* @param string $path  Directory to create
+	* @param integer $mode  Permissions for the file
+	* @return mixed
 */
 function mkdir_recursive($path, $mode = 0777) {
 	if (version_compare(PHP_VERSION, '5.0.0', '>=')) {
@@ -998,29 +998,29 @@ function mkdir_recursive($path, $mode = 0777) {
 }
 
 /*
-    * function coalesce
-    * Returns the first non-empty value.
-    * 
-    * @param mixed,mixed[,mixed,...]	2 or more parmaters to check
-    * @return mixed
+	* function coalesce
+	* Returns the first non-empty value.
+	* 
+	* @param mixed,mixed[,mixed,...]	2 or more parmaters to check
+	* @return mixed
 */
 function coalesce() {
 	$args = func_get_args();
 	foreach ($args as $arg) {
-	    if (!empty($arg)) {
+		if (!empty($arg)) {
 		return $arg;
-	    }
+		}
 	}
 	return $args[0];
 }
 
 /*
-    * function query_to_tokens
-    * Tokenizes a string phrase for search queries and accounts for double
-    * quoted strings properly (Multibyte safe).
-    * 
-    * @param string $string  Query string to tokenize
-    * @return array  An array of query tokens (phrases)
+	* function query_to_tokens
+	* Tokenizes a string phrase for search queries and accounts for double
+	* quoted strings properly (Multibyte safe).
+	* 
+	* @param string $string  Query string to tokenize
+	* @return array  An array of query tokens (phrases)
 */
 function query_to_tokens($string) {
 	if (!is_string($string)) {
@@ -1032,7 +1032,7 @@ function query_to_tokens($string) {
 	if (empty($x)) {
 		return array();
 	}
-       
+	   
 	// tokenize string into individual characters
 	$chars = multib_str_split($x);
 	$mode = 'normal';
@@ -1056,7 +1056,7 @@ function query_to_tokens($string) {
 					$token .= $chars[$i];
 				}
 				break;
-       
+	   
 			case 'quoting':
 				if ($chars[$i] == '"') {
 					if ($token != '') {
@@ -1078,13 +1078,13 @@ function query_to_tokens($string) {
 }   
 
 /*
-    * function mb_str_split
-    * Multibyte safe str_split function. Splits a string into an array with
-    * 1 character per element (note: 1 char does not always mean 1 byte).
-    * 
-    * @param string  $str  string to split.
-    * @param integer  $length  character length of each array index. 
-    * @return array  Array of characters
+	* function mb_str_split
+	* Multibyte safe str_split function. Splits a string into an array with
+	* 1 character per element (note: 1 char does not always mean 1 byte).
+	* 
+	* @param string  $str  string to split.
+	* @param integer  $length  character length of each array index. 
+	* @return array  Array of characters
 */
 function multib_str_split($str, $length = 1) {
 	if ($length < 1) return FALSE;
@@ -1135,7 +1135,7 @@ function getEarthDistance($lat_from, $long_from, $lat_to, $long_to, $unit='k') {
 	/*** convert longitude and latitude to radians ***/
 	$lat_from  *= $degreeRadius;
 	$long_from *= $degreeRadius;
-	$lat_to    *= $degreeRadius;
+	$lat_to	   *= $degreeRadius;
 	$long_to   *= $degreeRadius;
 	
 	/*** apply the Great Circle Distance Formula ***/
@@ -1194,4 +1194,37 @@ if (!function_exists('json_encode')) {
 	}
 }
 
+/**
+ * Recursively deletes a directory tree.
+ *
+ * @param string $folder		 The directory path.
+ * @param bool   $keepRootFolder Whether to keep the top-level folder.
+ *
+ * @return bool TRUE on success, otherwise FALSE.
+ * Source - https://gist.github.com/mindplay-dk/a4aad91f5a4f1283a5e2#gistcomment-2036828
+ **/
+function deleteTree($folder, $keepRootFolder) {
+	// Handle bad arguments.
+	if (empty($folder) || !file_exists($folder)) {
+		return true; // No such file/folder exists.
+	} elseif (is_file($folder) || is_link($folder)) {
+		return @unlink($folder); // Delete file/link.
+	}
+
+// Delete all children.
+	$files = new \RecursiveIteratorIterator(
+		new \RecursiveDirectoryIterator($folder, \RecursiveDirectoryIterator::SKIP_DOTS),
+		\RecursiveIteratorIterator::CHILD_FIRST
+	);
+
+	foreach ($files as $fileinfo) {
+		$action = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
+		if (!@$action($fileinfo->getRealPath())) {
+			return false; // Abort due to the failure.
+		}
+	}
+
+// Delete the root folder itself?
+	return (!$keepRootFolder ? @rmdir($folder) : true);
+}
 ?>
