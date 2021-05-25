@@ -68,7 +68,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Future Plans**
 
-* Map images for Team Fortress Classic.
 * Add COD4X support.
 * Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.

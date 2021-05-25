@@ -38,6 +38,7 @@ Version 3.2.7b (in progress)
 * [Fixed] Broken mysqli_connect function, thanks Rosenstein.
 * [Changed] Map and overlay immages converted to webp for Firearms, Natural Selection and Team Fortress Classic.
 * [Fixed] heat.xml and heatmap overlays for Firearms, Natural Selection and Team Fortress Classic.
+* [Added] TFC map images.
 
 Version 3.2.6b (10/21/2020)
 * [Added] Missing Team Fortress Classic weapon images.
