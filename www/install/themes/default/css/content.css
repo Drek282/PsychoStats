@@ -396,6 +396,7 @@ blockquote.fatal {
 	border-right: 1px solid blue;
 }
 #results p.success {
+	width: 94.5%;
 	color: blue;
 	background-color: lightblue;
 	padding: 0.5em;
@@ -552,5 +553,8 @@ blockquote.fatal {
 #newer a {
 	color: blue;
 	text-decoration: underline;
+}
+input:disabled {
+	cursor: not-allowed;
 }
 
