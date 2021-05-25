@@ -63,8 +63,8 @@ to your PsychoStats web folder again.
 
 6) The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere
 as long as your user has executable permissions and you can access your PsychoStats database
-from that machine, other than a web accessible folder.  Edit the 'stats.cfg' in that folder
-with your PsychoStats database name, user and password.
+from that machine.  The contents of the 'root' folder should not be exposed to the web.
+Edit the 'stats.cfg' in that folder with your PsychoStats database name, user and password.
 
 == Security Notes ==
 
