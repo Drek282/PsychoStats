@@ -53,7 +53,7 @@ install process.
 
 5) Browse to the stats installation wizard with your browser and follow the
 instructions:
-	http[s]://[domain|localhost]/[stats folder name if any/]install/
+	http[s]://[domain|localhost]/[stats folder name if any]/install/
 
 == IMPORTANT ==
 
