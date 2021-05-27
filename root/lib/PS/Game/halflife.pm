@@ -954,7 +954,7 @@ sub parseprops {
 	my $props = {};
 	$str = '' if !defined $str;
 #	$str =~ s/\s+$//;
-	while ($str =~ s/^\s*\((\S+)(?:\s+"([^"]*|.*?(?:<[^>]*>))")?\)//) {	# (variable "value")
+	while ($str =~ s/^\s*\((\S+)(?:\s+"([^"]*|.*?(?:<[^>]*>))")?(\s)?\)//) {	# (variable "value")
 		$var = $1;
 		$val = (defined $2) ? $2 : 1;			# if "value" doesn't exist the var is a true 'boolean' 
 		if (exists $props->{$var}) {
