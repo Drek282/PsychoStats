@@ -851,7 +851,7 @@ sub event_tfc_teamscore {
 
 	# increase everyone's rounds
 	$m->{basic}{rounds}++;
-	for (@{$teams->{red}}, @{$teams->{red}}) {
+	for (@{$teams->{red}}, @{$teams->{blue}}) {
 		$_->{basic}{rounds}++;
 		$_->{maps}{ $m->{mapid} }{rounds}++;
 	}

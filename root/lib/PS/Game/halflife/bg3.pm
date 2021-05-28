@@ -139,7 +139,7 @@ sub event_teamtrigger {
         
         # increase everyone's rounds
         $m->{basic}{rounds}++;
-        for (@{$teams->{british}}, @{$teams->{british}}) {
+        for (@{$teams->{americans}}, @{$teams->{british}}) {
             $_->{basic}{rounds}++;
             $_->{maps}{ $m->{mapid} }{rounds}++;
         }
