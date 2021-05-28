@@ -47,9 +47,6 @@ sub event_logstartend {
     $self->save(1);
 }
 
-# Roles disabled for now.
-sub event_changed_role { }
-
 # normalize a role name
 sub role_normal {
 	my ($self, $rolestr) = @_;

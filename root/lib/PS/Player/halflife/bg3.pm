@@ -84,6 +84,6 @@ sub _init {
 
 sub has_mod_tables { 1 }
 
-#sub has_roles { 1 }
+sub has_roles { 1 }
 
 1;

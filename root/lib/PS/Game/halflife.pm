@@ -575,9 +575,9 @@ sub event_changed_name {
 sub event_changed_role {
 	my ($self, $timestamp, $args) = @_;
 	my ($plrstr, $role) = @$args;
-#	print "BEFORE: $plrstr\n";
+#	print "BEFORE:  $plrstr\n";
 	my $p1 = $self->get_plr($plrstr) || return;
-#	print "AFTER:  $plrstr\n";
+#	print "AFTER:  $p1\n";
 	$role = $self->role_normal($role); 
 	$p1->{role} = $role;
 #	print_r($p1->{roles}) if $p1->worldid eq 'STEAM_0:0:1179775';
