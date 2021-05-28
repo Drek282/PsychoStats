@@ -10,7 +10,7 @@ There was one serious security vulnerability that I am aware of, and that has be
 
 Flag icon images and many map and overlay images have been converted from jpg and png to webp.  There is a slight decrease in image quality that I don't think is noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the webp images are much smaller, require less bandwidth and will load faster.
 
-This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4 and Soldat:
+This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Soldat:
 
 * The Battle Grounds III
 * Counter-Strike
