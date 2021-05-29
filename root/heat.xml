@@ -767,11 +767,11 @@
   <fliph>0</fliph>
  </map>
  <map name='co_blackmesa_r5a'>
-  <minx>-1915</minx>
-  <miny>-2790</miny>
-  <maxx>3295</maxx>
-  <maxy>915</maxy>
-  <res>600x426</res>
+  <minx>-1930</minx>
+  <miny>-1710</miny>
+  <maxx>3330</maxx>
+  <maxy>930</maxy>
+  <res>600x299</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
