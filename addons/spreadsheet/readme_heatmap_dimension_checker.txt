@@ -1,0 +1,1 @@
+The Heatmap Dimension Checker spreadsheet is a simple way to check to see if your heatmap is oriented correctly and the xml numbers work.  You basically enter your map information and it does that for you.  I'm not going to do a lot of explaining.  You  will need to know something about spreadsheets to understand it and if you do it is pretty self explanatory.
