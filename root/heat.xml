@@ -803,11 +803,11 @@
   <fliph>0</fliph>
  </map>
  <map name='co_freefall_b2b'>
-  <minx>-4070</minx>
-  <miny>-1175</miny>
-  <maxx>570</maxx>
-  <maxy>3945</maxy>
-  <res>551x600</res>
+  <minx>-2280</minx>
+  <miny>-1235</miny>
+  <maxx>740</maxx>
+  <maxy>1640</maxy>
+  <res>600x579</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -866,11 +866,11 @@
   <fliph>0</fliph>
  </map>
  <map name='co_spacefall_b12'>
-  <minx>-2320</minx>
-  <miny>-1560</miny>
-  <maxx>3645</maxx>
-  <maxy>3725</maxy>
-  <res>600x531</res>
+  <minx>-2595</minx>
+  <miny>-1650</miny>
+  <maxx>125</maxx>
+  <maxy>510</maxy>
+  <res>600x482</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -893,11 +893,11 @@
   <fliph>0</fliph>
  </map>
  <map name='co_volcanodrop'>
-  <minx>-2560</minx>
-  <miny>-1600</miny>
-  <maxx>1465</maxx>
-  <maxy>3570</maxy>
-  <res>466x600</res>
+  <minx>-0</minx>
+  <miny>-1610</miny>
+  <maxx>1475</maxx>
+  <maxy>2435</maxy>
+  <res>219x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
@@ -1582,6 +1582,123 @@
   <maxx>1460</maxx>
   <maxy>4040</maxy>
   <res>600x218</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_ambush'>
+  <minx>-5380</minx>
+  <miny>-6130</miny>
+  <maxx>5080</maxx>
+  <maxy>15</maxy>
+  <res>600x352</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_canal'>
+  <minx>-1920</minx>
+  <miny>-2280</miny>
+  <maxx>3215</maxx>
+  <maxy>2245</maxy>
+  <res>600x529</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_ft_stmathieu'>
+  <minx>-3000</minx>
+  <miny>-5360</miny>
+  <maxx>5400</maxx>
+  <maxy>2405</maxy>
+  <res>600x554</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_freemans_farm'>
+  <minx>-2605</minx>
+  <miny>-5145</miny>
+  <maxx>2575</maxx>
+  <maxy>5180</maxy>
+  <res>300x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_maricopa'>
+  <minx>-6040</minx>
+  <miny>-5880</miny>
+  <maxx>3095</maxx>
+  <maxy>2445</maxy>
+  <res>600x544</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_plateau'>
+  <minx>-3065</minx>
+  <miny>-4635</miny>
+  <maxx>3090</maxx>
+  <maxy>4625</maxy>
+  <res>401x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_snowlake'>
+  <minx>-2440</minx>
+  <miny>-2835</miny>
+  <maxx>4095</maxx>
+  <maxy>6880</maxy>
+  <res>415x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_townguard'>
+  <minx>-2820</minx>
+  <miny>-2770</miny>
+  <maxx>2795</maxx>
+  <maxy>3625</maxy>
+  <res>390x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_trenton'>
+  <minx>-3300</minx>
+  <miny>-2005</miny>
+  <maxx>1915</maxx>
+  <maxy>1775</maxy>
+  <res>600x435</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_winterisle'>
+  <minx>-2440</minx>
+  <miny>-3300</miny>
+  <maxx>1650</maxx>
+  <maxy>2830</maxy>
+  <res>399x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_woodland'>
+  <minx>-2795</minx>
+  <miny>-3875</miny>
+  <maxx>1440</maxx>
+  <maxy>3120</maxy>
+  <res>367x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='bg_wrecked'>
+  <minx>-710</minx>
+  <miny>-4200</miny>
+  <maxx>3900</maxx>
+  <maxy>2090</maxy>
+  <res>443x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_stonefort'>
+  <minx>-4490</minx>
+  <miny>-645</miny>
+  <maxx>2705</maxx>
+  <maxy>2030</maxy>
+  <res>600x223</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
