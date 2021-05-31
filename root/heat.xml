@@ -1693,12 +1693,147 @@
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
+ <map name='ctf_mill_creek'>
+  <minx>-3650</minx>
+  <miny>-3095</miny>
+  <maxx>4675</maxx>
+  <maxy>3335</maxy>
+  <res>600x467</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_river'>
+  <minx>-870</minx>
+  <miny>-3110</miny>
+  <maxx>1890</maxx>
+  <maxy>3355</maxy>
+  <res>258x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='ctf_road'>
+  <minx>-4755</minx>
+  <miny>-3905</miny>
+  <maxx>2240</maxx>
+  <maxy>-1715</maxy>
+  <res>600x189</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
  <map name='ctf_stonefort'>
   <minx>-4490</minx>
   <miny>-645</miny>
   <maxx>2705</maxx>
   <maxy>2030</maxy>
   <res>600x223</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_alpinepass'>
+  <minx>-10640</minx>
+  <miny>-10730</miny>
+  <maxx>8060</maxx>
+  <maxy>10795</maxy>
+  <res>525x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_autumn'>
+  <minx>-10380</minx>
+  <miny>-10375</miny>
+  <maxx>10435</maxx>
+  <maxy>10365</maxy>
+  <res>600x599</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_battleofconcord'>
+  <minx>-10350</minx>
+  <miny>-7860</miny>
+  <maxx>10185</maxx>
+  <maxy>7940</maxy>
+  <res>600x459</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_battleofvalcourisland'>
+  <minx>-9725</minx>
+  <miny>-8190</miny>
+  <maxx>9755</maxx>
+  <maxy>8085</maxy>
+  <res>600x504</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_continental'>
+  <minx>-7930</minx>
+  <miny>-7940</miny>
+  <maxx>7940</maxx>
+  <maxy>7945</maxy>
+  <res>600x599</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_nativevalley'>
+  <minx>-6200</minx>
+  <miny>-6200</miny>
+  <maxx>6200</maxx>
+  <maxy>6200</maxy>
+  <res>600x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='lb_princeton'>
+  <minx>-7280</minx>
+  <miny>-5160</miny>
+  <maxx>11300</maxx>
+  <maxy>13385</maxy>
+  <res>600x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='sg_deroga'>
+  <minx>-4635</minx>
+  <miny>-4640</miny>
+  <maxx>3670</maxx>
+  <maxy>3595</maxy>
+  <res>599x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='sg_fall'>
+  <minx>-885</minx>
+  <miny>-1190</miny>
+  <maxx>4165</maxx>
+  <maxy>1345</maxy>
+  <res>600x300</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='sg_ravine'>
+  <minx>-1945</minx>
+  <miny>-3220</miny>
+  <maxx>1920</maxx>
+  <maxy>2790</maxy>
+  <res>391x600</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='sg_siege'>
+  <minx>-1715</minx>
+  <miny>-1260</miny>
+  <maxx>2490</maxx>
+  <maxy>1245</maxy>
+  <res>600x356</res>
+  <flipv>1</flipv>
+  <fliph>0</fliph>
+ </map>
+ <map name='sq'>
+  <minx>-475</minx>
+  <miny>-450</miny>
+  <maxx>750</maxx>
+  <maxy>1470</maxy>
+  <res>381x600</res>
   <flipv>1</flipv>
   <fliph>0</fliph>
  </map>
