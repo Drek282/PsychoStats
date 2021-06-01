@@ -67,7 +67,6 @@ Most of the links and references to psychostats.com have been removed as that do
 ## **Future Plans**
 
 * Considering dropping COD support altogether.
-* Heatmap support for The Battle Grounds III.
 * Map images for The Battle Grounds III.
 * Improve display on mobile devices.
 * Fix roles support for The Battle Grounds III.
@@ -76,6 +75,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Clean up deprecated PHP.
 * Clean up obsolete and deprecated html.
 * Add missing TFC events.
+
 
 ## **Credits**
 
