@@ -93,6 +93,11 @@ sub event_plrtrigger {
         @vars1 = ( 'bandage' );
 		$self->plrbonus('medic_heal', 'enactor', $p1);
 
+	} elsif ($trigger eq 'spy_tranq') {
+		$p1 = $self->get_plr($plrstr);
+        @vars1 = ( 'tranquilizer' );
+		$self->plrbonus('spy_tranquilizer', 'enactor', $p1);
+
 	} elsif ($trigger eq 'built_dispenser') {
 		@vars1 = ( 'structuresbuilt' );
 
@@ -434,6 +439,16 @@ sub event_plrtrigger {
         @vars1 = ( 'mapspecial' );
 		$self->plrbonus('mapspecial', 'enactor', $p1);
 		
+	} elsif ($trigger eq '%s destroyed the BLUE power generator!') {
+		$p1 = $self->get_plr($plrstr);
+        @vars1 = ( 'mapspecial' );
+		$self->plrbonus('mapspecial', 'enactor', $p1);
+		
+	} elsif ($trigger eq '%s destroyed the RED power generator!') {
+		$p1 = $self->get_plr($plrstr);
+        @vars1 = ( 'mapspecial' );
+		$self->plrbonus('mapspecial', 'enactor', $p1);
+		
 	} elsif ($trigger eq 'forced respawn') {
         my ($self, $timestamp, $args) = @_;
         my ($team, $score, $numplrs) = @$args;
@@ -518,6 +533,82 @@ sub event_plrtrigger {
         $self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
 		
 	} elsif ($trigger eq '#blue_wins_forcerespawn') {
+        my ($self, $timestamp, $args) = @_;
+        my ($team, $score, $numplrs) = @$args;
+        $team = lc $team;
+		
+        my $m = $self->get_map;
+        my $teams = {
+            red	=> $self->get_team('red', 1) || [],
+            blue	=> $self->get_team('blue',   1) || [],
+        };
+
+        # increase everyone's rounds
+        $m->{basic}{rounds}++;
+        for (@{$teams->{red}}, @{$teams->{blue}}) {
+            $_->{basic}{rounds}++;
+            $_->{maps}{ $m->{mapid} }{rounds}++;
+        }
+        
+        # determine who won and lost
+        my ($won, $lost, $teamwon, $teamlost);
+		$teamwon  = 'blue';
+		$teamlost = 'red';
+		$won  = $teams->{ $teamwon };
+		$lost = $teams->{ $teamlost };
+        
+        # assign won/lost values to all players
+        $m->{mod}{$teamwon  . 'won'}++;
+        $m->{mod}{$teamlost . 'lost'}++;
+        for (@$won) {
+            $_->{mod}{$teamwon.'won'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamwon.'won'}++;
+        }
+        for (@$lost) {
+            $_->{mod}{$teamlost.'lost'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamlost.'lost'}++;
+        }
+        $self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
+		
+	} elsif ($trigger eq '%s captured the BLUE base!') {
+        my ($self, $timestamp, $args) = @_;
+        my ($team, $score, $numplrs) = @$args;
+        $team = lc $team;
+		
+        my $m = $self->get_map;
+        my $teams = {
+            red	=> $self->get_team('red', 1) || [],
+            blue	=> $self->get_team('blue',   1) || [],
+        };
+
+        # increase everyone's rounds
+        $m->{basic}{rounds}++;
+        for (@{$teams->{red}}, @{$teams->{blue}}) {
+            $_->{basic}{rounds}++;
+            $_->{maps}{ $m->{mapid} }{rounds}++;
+        }
+        
+        # determine who won and lost
+        my ($won, $lost, $teamwon, $teamlost);
+		$teamwon  = 'red';
+		$teamlost = 'blue';
+		$won  = $teams->{ $teamwon };
+		$lost = $teams->{ $teamlost };
+        
+        # assign won/lost values to all players
+        $m->{mod}{$teamwon  . 'won'}++;
+        $m->{mod}{$teamlost . 'lost'}++;
+        for (@$won) {
+            $_->{mod}{$teamwon.'won'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamwon.'won'}++;
+        }
+        for (@$lost) {
+            $_->{mod}{$teamlost.'lost'}++;
+            $_->{mod_maps}{ $m->{mapid} }{$teamlost.'lost'}++;
+        }
+        $self->plrbonus('round_win', 'enactor_team', $won, 'victim_team', $lost);
+		
+	} elsif ($trigger eq '%s captured the RED base!') {
         my ($self, $timestamp, $args) = @_;
         my ($team, $score, $numplrs) = @$args;
         $team = lc $team;
@@ -773,6 +864,8 @@ sub event_plrtrigger {
 	} elsif ($trigger eq '#blue cap pt3') {
 	} elsif ($trigger eq '#red cap pt4') {
 	} elsif ($trigger eq '#blue cap pt4') {
+	} elsif ($trigger eq '#red cap pt5') {
+	} elsif ($trigger eq '#blue cap pt5') {
 	} elsif ($trigger eq '#red cap, move red') {
 	} elsif ($trigger eq '#red cap, move blue') {
 	} elsif ($trigger eq '#blue cap, move blue') {

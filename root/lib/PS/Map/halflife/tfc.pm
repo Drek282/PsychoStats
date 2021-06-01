@@ -68,6 +68,7 @@ our $TYPES = {
     capturepoint    => '+',
     mapspecial      => '+',
     bandage         => '+',
+    tranquilizer         => '+',
 };
 
 # override parent methods to combine types
