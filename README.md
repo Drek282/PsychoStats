@@ -44,7 +44,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
 
-* Roles support is broken in The Battle Grounds III and Team Fortress Classic.
+* Roles support is broken.
 
 * PsychoStats is decidedly **not** mobile friendly.
 
