@@ -14,7 +14,7 @@ include_once(dirname(__DIR__) . '/halflife.php');
 class PS_halflife_bg3 extends PS_halflife {
 
 var $class = 'PS::halflife::bg3';
-var $use_roles = false;
+var $use_roles = true;
 
 var $CLAN_MODTYPES = array(
 	'britishkills'		=> '+',

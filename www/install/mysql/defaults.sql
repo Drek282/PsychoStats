@@ -33,7 +33,7 @@ INSERT INTO `ps_config_events` (`id`, `gametype`, `modtype`, `eventname`, `alias
 (30,'halflife','dod','plrtrigger','','/^\"(.+(?:<[^>]*>))\" triggered(?: a)? \"([^\"]+)\"(.*)/',300,0,''),
 (31,'halflife','dod','dods_scores','','/^Team \"([^\"]+)\" (scored|captured)/',310,1,''),
 (32,'halflife','dod','dods_ignore1','','/^\"(.+(?:<[^>]*>))\" blocked/',320,1,''),
-(33,'halflife','bg3|dod|tf2|natural|tfc','changed_role','','/^\"(.+(?:<[^>]*>))\" changed role to \"([^\"]+)\"/',330,0,''),
+(33,'halflife','','changed_role','','/^\"(.+(?:<[^>]*>))\" changed role to \"([^\"]+)\"/',330,0,''),
 (34,'halflife','dod','dod_objitem','','/^\"(.+(?:<[^>]*>))\" triggered an objective item/',340,1,''),
 (35,'halflife','dod','dod_teamscore','','/^\"([^\"]+)\" scored \"([^\"]+)\" with \"([^\"]+)\" players/',350,0,''),
 (36,'halflife','dod','teamtrigger','','/^Team \"([^\"]+)\" triggered(?: a)? \"([^\"]+)\"(.*)/',360,0,''),
