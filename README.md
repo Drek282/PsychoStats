@@ -56,8 +56,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Missing events for Team Fortress Classic.
 
-* Player edit page is not displaying the correct player name.
-
 
 ## **Stuff that Remains Untested**
 
