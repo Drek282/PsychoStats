@@ -56,6 +56,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Missing events for Team Fortress Classic.
 
+* A bunch of "stuff" is broken right now, we are looking into it.
+
 
 ## **Stuff that Remains Untested**
 
@@ -67,8 +69,6 @@ Most of the links and references to psychostats.com have been removed as that do
 ## **Future Plans**
 
 * Considering dropping COD support altogether.
-* Heatmap support for The Battle Grounds III.
-* Map images for The Battle Grounds III.
 * Improve display on mobile devices.
 * Fix roles support for The Battle Grounds III.
 * I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
