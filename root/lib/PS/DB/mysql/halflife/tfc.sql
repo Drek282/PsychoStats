@@ -38,7 +38,6 @@ CREATE TABLE `ps_map_data_halflife_tfc` (
   `capturepoint` smallint(5) unsigned NOT NULL default '0',
   `mapspecial` smallint(5) unsigned NOT NULL default '0',
   `bandage` smallint(5) unsigned NOT NULL default '0',
-  `tranquilizer` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 CREATE TABLE `ps_plr_data_halflife_tfc` (
@@ -85,7 +84,6 @@ CREATE TABLE `ps_plr_data_halflife_tfc` (
   `capturepoint` smallint(5) unsigned NOT NULL default '0',
   `mapspecial` smallint(5) unsigned NOT NULL default '0',
   `bandage` smallint(5) unsigned NOT NULL default '0',
-  `tranquilizer` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 CREATE TABLE `ps_plr_maps_halflife_tfc` (
@@ -132,6 +130,5 @@ CREATE TABLE `ps_plr_maps_halflife_tfc` (
   `capturepoint` smallint(5) unsigned NOT NULL default '0',
   `mapspecial` smallint(5) unsigned NOT NULL default '0',
   `bandage` smallint(5) unsigned NOT NULL default '0',
-  `tranquilizer` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

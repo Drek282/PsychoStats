@@ -72,7 +72,6 @@ our $TYPES = {
     capturepoint    => '+',
     mapspecial      => '+',
     bandage         => '+',
-    tranquilizer         => '+',
 };
 
 # Player map stats are the same as the basic stats

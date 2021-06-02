@@ -14,7 +14,7 @@ include_once(dirname(__DIR__) . '/halflife.php');
 class PS_halflife_tfc extends PS_halflife {
 
 var $class = 'PS::halflife::tfc';
-var $use_roles = false;
+var $use_roles = true;
 
 var $CLAN_MODTYPES = array(
 	'bluekills'		=> '+',
@@ -60,7 +60,6 @@ var $CLAN_MODTYPES = array(
     'capturepoint'  => '+',
     'mapspecial'    => '+',
     'bandage'       => '+',
-    'tranquilizer'       => '+',
 );
 
 function PS_halflife_tfc(&$db) {
