@@ -1093,7 +1093,7 @@ sub save {
             
     # if player is a bot assign country code
     if (substr($worldid, 0, 3) eq 'BOT') {
-        $cc = 'a2';
+        $cc = 'A2';
 		$db->update($db->{t_plr_profile}, [ cc => $cc ], [ uniqueid => $self->uniqueid ]) if defined $cc and $cc ne '';
     }
 
