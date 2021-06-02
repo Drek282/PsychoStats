@@ -1090,12 +1090,18 @@ sub save {
 			$self->last_used_name;
 		} # else 'first'
 	};
+            
+    # if player is a bot assign country code
+    if (substr($worldid, 0, 3) eq 'BOT') {
+        $cc = 'a2';
+		$db->update($db->{t_plr_profile}, [ cc => $cc ], [ uniqueid => $self->uniqueid ]) if defined $cc and $cc ne '';
+    }
 
 	# update the player's country code if one is not already set
-        if ((!defined $cc or $cc eq '') and $ipaddr) {
+    if ((!defined $cc or $cc eq '') and $ipaddr) {
 		$cc = $db->select($db->{t_geoip_ip}, 'cc', "$ipaddr BETWEEN " . $db->qi('start') . " AND " . $db->qi('end'));
 		$db->update($db->{t_plr_profile}, [ cc => $cc ], [ uniqueid => $self->uniqueid ]) if defined $cc and $cc ne '';
-        }
+    }
 
 	$db->commit unless $nocommit;
 
