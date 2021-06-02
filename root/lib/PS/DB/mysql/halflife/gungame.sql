@@ -24,7 +24,7 @@ CREATE TABLE `ps_map_data_halflife_gungame` (
   `lvlslost` smallint(5) unsigned NOT NULL default '0',
   `winsgained` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_data_halflife_gungame` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `ctkills` smallint(5) unsigned NOT NULL default '0',
@@ -57,7 +57,7 @@ CREATE TABLE `ps_plr_data_halflife_gungame` (
   `winsgained` smallint(5) unsigned NOT NULL default '0',
   `winsgiven` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_maps_halflife_gungame` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `ctkills` smallint(5) unsigned NOT NULL default '0',
@@ -90,4 +90,4 @@ CREATE TABLE `ps_plr_maps_halflife_gungame` (
   `winsgained` smallint(5) unsigned NOT NULL default '0',
   `winsgiven` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;

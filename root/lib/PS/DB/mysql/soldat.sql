@@ -17,7 +17,7 @@ CREATE TABLE `ps_map_data_soldat` (
   `joinedalpha` smallint(5) unsigned NOT NULL default '0',
   `joinedbravo` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_data_soldat` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `alphakills` smallint(5) unsigned NOT NULL default '0',
@@ -39,7 +39,7 @@ CREATE TABLE `ps_plr_data_soldat` (
   `joinedalpha` smallint(5) unsigned NOT NULL default '0',
   `joinedbravo` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_maps_soldat` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `alphakills` smallint(5) unsigned NOT NULL default '0',
@@ -61,4 +61,4 @@ CREATE TABLE `ps_plr_maps_soldat` (
   `joinedalpha` smallint(5) unsigned NOT NULL default '0',
   `joinedbravo` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;

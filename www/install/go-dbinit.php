@@ -181,7 +181,7 @@ function do_init($games, $mods) {
 	if ($dropdb || !$db->dbexists($db->dbname)) {
 		$exists = array();
 		if (!$db->dbexists($db->dbname) || $db->dropdb($db->dbname)) {
-			if ($db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")) {
+			if ($db->createdb($db->dbname, "DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci")) {
 				$actions[$db->dbname] = array( 'status' => 'good', 'msg' => "RECREATED DATABASE '$db->dbname'" );
 				$db->selectdb();
                 $db->clear_errors();

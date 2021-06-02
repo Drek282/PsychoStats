@@ -44,7 +44,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
 
-* Roles support is broken in The Battle Grounds III.
+* Roles support is broken in The Battle Grounds III and Team Fortress Classic.
 
 * PsychoStats is decidedly **not** mobile friendly.
 
@@ -55,8 +55,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * Some obsolete and deprecated html and php still to be cleaned up.
 
 * Missing events for Team Fortress Classic.
-
-* A bunch of "stuff" is broken right now, we are looking into it.
 
 
 ## **Stuff that Remains Untested**
@@ -70,7 +68,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Considering dropping COD support altogether.
 * Improve display on mobile devices.
-* Fix roles support for The Battle Grounds III.
+* Fix roles support for The Battle Grounds III and Team Fortress Classic.
 * I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
 * Full PHP 8.x compatibility.
 * Clean up deprecated PHP.

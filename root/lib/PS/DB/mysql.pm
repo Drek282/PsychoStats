@@ -62,8 +62,8 @@ sub init {
 
 	my $ver = $self->version(2);
 	if ($ver >= 4.1) {
-		$self->{dbh}->do("SET NAMES 'utf8'");
-		$self->{dbh}->do("SET CHARACTER SET 'utf8'");
+		$self->{dbh}->do("SET NAMES 'utf8mb4'");
+		$self->{dbh}->do("SET CHARACTER SET 'utf8mb4'");
 	}
 	if ($ver >= 5) {
 		# disable strict mode, to avoid some common errors regarding table inserts.
@@ -157,7 +157,7 @@ sub create_index {
 	$self->query($cmd) or $self->fatal("Error creating index on table $tablename: $self->errstr");
 }
 
-sub _create_footer { ") DEFAULT CHARACTER SET utf8" }
+sub _create_footer { ") DEFAULT CHARACTER SET utf8mb4" }
 
 sub errno { $_[0]->{dbh}{mysql_errno} }
 

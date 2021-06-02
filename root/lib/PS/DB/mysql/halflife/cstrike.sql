@@ -20,7 +20,7 @@ CREATE TABLE `ps_map_data_halflife_cstrike` (
   `terroristwon` smallint(5) unsigned NOT NULL default '0',
   `terroristlost` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_data_halflife_cstrike` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `ctkills` smallint(5) unsigned NOT NULL default '0',
@@ -47,7 +47,7 @@ CREATE TABLE `ps_plr_data_halflife_cstrike` (
   `terroristwon` smallint(5) unsigned NOT NULL default '0',
   `terroristlost` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 CREATE TABLE `ps_plr_maps_halflife_cstrike` (
   `dataid` int(10) unsigned NOT NULL default '0',
   `ctkills` smallint(5) unsigned NOT NULL default '0',
@@ -74,4 +74,4 @@ CREATE TABLE `ps_plr_maps_halflife_cstrike` (
   `terroristwon` smallint(5) unsigned NOT NULL default '0',
   `terroristlost` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;

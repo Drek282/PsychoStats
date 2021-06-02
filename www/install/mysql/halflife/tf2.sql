@@ -37,7 +37,7 @@ CREATE TABLE `ps_map_data_halflife_tf2` (
   `assists` smallint unsigned NOT NULL default '0',
   `backstabkills` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_data_halflife_tf2` (
   `dataid` int unsigned NOT NULL default '0',
   `redkills` smallint unsigned NOT NULL default '0',
@@ -81,7 +81,7 @@ CREATE TABLE `ps_plr_data_halflife_tf2` (
   `revenge` smallint unsigned NOT NULL default '0',
   `chargedeployed` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_maps_halflife_tf2` (
   `dataid` int unsigned NOT NULL default '0',
   `redkills` smallint unsigned NOT NULL default '0',
@@ -125,7 +125,7 @@ CREATE TABLE `ps_plr_maps_halflife_tf2` (
   `revenge` smallint unsigned NOT NULL default '0',
   `chargedeployed` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_roles_halflife_tf2` (
   `dataid` int unsigned NOT NULL default '0',
   `assists` smallint unsigned NOT NULL default '0',
@@ -134,7 +134,7 @@ CREATE TABLE `ps_plr_roles_halflife_tf2` (
   `itemsbuilt` smallint unsigned NOT NULL default '0',
   `itemsdestroyed` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_role_data_halflife_tf2` (
   `dataid` int unsigned NOT NULL default '0',
   `assists` smallint unsigned NOT NULL default '0',
@@ -143,4 +143,4 @@ CREATE TABLE `ps_role_data_halflife_tf2` (
   `itemsbuilt` smallint unsigned NOT NULL default '0',
   `itemsdestroyed` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;

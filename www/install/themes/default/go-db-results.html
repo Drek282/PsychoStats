@@ -56,7 +56,7 @@
 		{if !$dbtest.charset}
 		<p class="row"><span class="warn">Default charset for DB '{$dbname|escape}' is not UTF8 (current: {$dbtest.charset_str|escape}) and might cause problems.</span></p>
 		<p class="row"><span>
-			If the database is not using utf8 character set you might encounter problems with 
+			If the database is not using utf8mb4 character set you might encounter problems with 
 			players that have non-ascii names. If you want to re-create the database you can do so in the next
 			step of the installation.
 		</span></p>

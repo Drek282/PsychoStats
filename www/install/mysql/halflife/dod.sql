@@ -21,7 +21,7 @@ CREATE TABLE `ps_map_data_halflife_dod` (
   `alliesscore` smallint unsigned NOT NULL default '0',
   `axisscore` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_data_halflife_dod` (
   `dataid` int unsigned NOT NULL default '0',
   `allieskills` smallint unsigned NOT NULL default '0',
@@ -47,7 +47,7 @@ CREATE TABLE `ps_plr_data_halflife_dod` (
   `alliesscore` smallint unsigned NOT NULL default '0',
   `axisscore` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_maps_halflife_dod` (
   `dataid` int unsigned NOT NULL default '0',
   `allieskills` smallint unsigned NOT NULL default '0',
@@ -73,4 +73,4 @@ CREATE TABLE `ps_plr_maps_halflife_dod` (
   `alliesscore` smallint unsigned NOT NULL default '0',
   `axisscore` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;

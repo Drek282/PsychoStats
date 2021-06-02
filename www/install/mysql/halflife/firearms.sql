@@ -13,7 +13,7 @@ CREATE TABLE `ps_map_data_halflife_firearms` (
   `medevac` smallint unsigned NOT NULL default '0',
   `capturepoint` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_data_halflife_firearms` (
   `dataid` int unsigned NOT NULL default '0',
   `red_forcekills` smallint unsigned NOT NULL default '0',
@@ -31,7 +31,7 @@ CREATE TABLE `ps_plr_data_halflife_firearms` (
   `medevac` smallint unsigned NOT NULL default '0',
   `capturepoint` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_plr_maps_halflife_firearms` (
   `dataid` int unsigned NOT NULL default '0',
   `red_forcekills` smallint unsigned NOT NULL default '0',
@@ -49,4 +49,4 @@ CREATE TABLE `ps_plr_maps_halflife_firearms` (
   `medevac` smallint unsigned NOT NULL default '0',
   `capturepoint` smallint unsigned NOT NULL default '0',
   PRIMARY KEY  (`dataid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
