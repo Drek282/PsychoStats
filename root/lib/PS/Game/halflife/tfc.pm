@@ -773,6 +773,8 @@ sub event_plrtrigger {
 	} elsif ($trigger eq '#blue cap pt3') {
 	} elsif ($trigger eq '#red cap pt4') {
 	} elsif ($trigger eq '#blue cap pt4') {
+	} elsif ($trigger eq '#red cap pt5') {
+	} elsif ($trigger eq '#blue cap pt5') {
 	} elsif ($trigger eq '#red cap, move red') {
 	} elsif ($trigger eq '#red cap, move blue') {
 	} elsif ($trigger eq '#blue cap, move blue') {
@@ -798,6 +800,7 @@ sub event_plrtrigger {
 	} elsif ($trigger eq 'concussion_grenade') {
 	} elsif ($trigger eq 'hallucination_grenade') {
 	} elsif ($trigger eq 'medic_infection') {
+	} elsif ($trigger eq 'spy_tranq') {
 
 # ---------
 
