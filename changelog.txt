@@ -2,6 +2,7 @@
 
 
 Version 3.2.8b (in progress)
+* [Updated] Map overlay sql.
 
 
 Version 3.2.7b (06/03/2021)
