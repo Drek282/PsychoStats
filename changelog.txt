@@ -1,7 +1,10 @@
 --- DREK ---
 
 
-Version 3.2.7b (in progress)
+Version 3.2.8b (in progress)
+
+
+Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
 * [Changed] Directory structure to clarify installation and usage.
 * [Updated] Installation instructions.
