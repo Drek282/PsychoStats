@@ -52,6 +52,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Some obsolete and deprecated html and php still to be cleaned up.
 
+* Roles support for The Battle Grounds III is not yet complete.
+
 
 ## **Stuff that Remains Untested**
 
