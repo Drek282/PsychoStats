@@ -54,11 +54,9 @@
 
 	{if $dbtest.selected}
 		{if !$dbtest.charset}
-		<p class="row"><span class="warn">Default charset for DB '{$dbname|escape}' is not UTF8 (current: {$dbtest.charset_str|escape}) and might cause problems.</span></p>
+		<p class="row"><span class="warn">Default charset for DB '{$dbname|escape}' is not UTF8MB4 (current: {$dbtest.charset_str|escape}) and might cause problems.</span></p>
 		<p class="row"><span>
-			If the database is not using utf8mb4 character set you might encounter problems with 
-			players that have non-ascii names. If you want to re-create the database you can do so in the next
-			step of the installation.
+			If the database is not using the new utf8mb4 character set various functionality will break.  You can manually go through your old database and change the character encoding to utfmb4_general_ci.  If you want to re-create the database using the new character encoding you can do so in the next step of the installation.  The install process will not do that for you unless you check "Drop and recreate database".
 		</span></p>
 		{/if}
 
