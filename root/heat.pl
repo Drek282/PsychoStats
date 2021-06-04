@@ -2,7 +2,7 @@
 #
 #	This file is part of PsychoStats.
 #
-#	Written by Jason Morriss
+#	Written by Jason Morriss <stormtrooper@psychostats.com>
 #	Copyright 2008 Jason Morriss
 #
 #	PsychoStats is free software: you can redistribute it and/or modify
@@ -18,10 +18,10 @@
 #	You should have received a copy of the GNU General Public License
 #	along with PsychoStats.  If not, see <http://www.gnu.org/licenses/>.
 #
-#	$Id: heat.pl 419 2008-04-27 15:14:09Z lifo $
+#	$Id: heat.pl 546 2008-08-24 22:51:53Z lifo $
 #
 
-BEGIN { # FindBin isn't going to work on systems that run the stats.pl as SETUID
+BEGIN { # FindBin isn't going to work on systems that run as SETUID
 	use FindBin; 
 	use lib $FindBin::Bin;
 	use lib $FindBin::Bin . "/lib";
@@ -31,7 +31,6 @@ use strict;
 use warnings;
 
 use File::Spec::Functions qw( catfile splitpath );
-use XML::Simple;
 use Digest::SHA1 qw( sha1_hex );
 use PS::CmdLine::Heatmap;
 use PS::DB;
@@ -41,7 +40,7 @@ use PS::ErrLog;
 use PS::Heatmap;
 use util qw( expandlist print_r abbrnum );
 
-our $VERSION = '1.00.' . (('$Rev: 419 $' =~ /(\d+)/) || '000')[0];
+our $VERSION = '1.00.' . (('$Rev: 546 $' =~ /(\d+)/)[0] || '000');
 
 our $DEBUG = 0;					# Global DEBUG level
 our $DEBUGFILE = undef;				# Global debug file to write debug info too
@@ -57,6 +56,7 @@ $opt = new PS::CmdLine::Heatmap;		# Initialize command line paramaters
 # display our version and exit
 if ($opt->get('version')) {
 	print "PsychoHeat version $VERSION\n";
+	print "Website: http://www.psychostats.com/\n";
 	print "Perl version " . sprintf("%vd", $^V) . " ($^O)\n";
 	exit;
 }
@@ -101,8 +101,32 @@ $ERR = new PS::ErrLog($conf, $db);			# Now all error messages will be logged to 
 # -------------------------------- HEATMAP CODE STARTS HERE -----------------------------------------------------
 
 # read in our map info XML file that defines heatmap dimensions, etc...
-my $mapxml  = $opt->mapinfo || catfile($FindBin::RealBin, 'heat.xml');
-my $mapinfo = XMLin($mapxml, NormaliseSpace => 2, SuppressEmpty => undef)->{map};
+my $mapxml  = $opt->mapinfo || undef; #catfile($FindBin::RealBin, 'heat.xml');
+my $mapinfo;
+
+if ($mapxml) {
+	# load mapinfo from XML file; only 'use' the XML::Simple if needed
+	eval "use XML::Simple";
+	$mapinfo = XMLin($mapxml, NormaliseSpace => 2, SuppressEmpty => undef)->{map};
+} else {
+	# load mapinfo from database
+	$mapinfo = {};
+	my $gametype = $opt->gametype; #$conf->get_main('gametype');
+	my $modtype  = $opt->modtype; #$conf->get_main('modtype');
+	my $cmd = "SELECT * FROM $db->{t_config_overlays} ";
+	if ($gametype and $modtype) {
+		$cmd .= sprintf("WHERE gametype=%s AND modtype=%s ", $db->quote($gametype), $db->quote($modtype));
+	} elsif ($gametype) {
+		$cmd .= sprintf("WHERE gametype=%s ", $db->quote($gametype));
+	} elsif ($modtype) {
+		$cmd .= sprintf("WHERE modtype=%s ", $db->quote($modtype));
+	}
+	my @list = $db->get_rows_hash($cmd);
+	foreach my $m (@list) {
+		$m->{res} = $m->{width} . 'x' . $m->{height};
+		$mapinfo->{$m->{map}} = $m;
+	}
+}
 #use Data::Dumper; print Dumper($mapinfo); exit;
 
 # Create a list of maps to generate heat images for. If no map is specified we assume 'all'
@@ -128,15 +152,24 @@ if ($opt->mapname and lc $opt->mapname ne 'all') {
 }
 
 { # private scope
+	my ($xml, $file);
 	my @ignored = ();
+	my $xmlpath = defined $opt->xmlpath ? $opt->xmlpath : '.';
 	foreach my $mapname (keys %$maplist) {
+		# try to load an XML file for each map (which will override any values found in heat.xml)
+		$file = catfile($xmlpath, $mapname . '.xml');
+		$xml = -f $file ? XMLin($file, NormaliseSpace => 2, SuppressEmpty => undef) : undef;
+		if ($xml) {
+			$mapinfo->{$mapname} = $xml;
+		}
 		unless (exists $mapinfo->{$mapname}) {
 			delete $maplist->{$mapname};
 			push(@ignored, $mapname);
 		}
 	}
 	if (@ignored) {
-		warn("Ignoring maps with no mapinfo available: " . join(", ", map { "'$_'" } @ignored) . ".\n") unless $opt->quiet;
+#		warn("Ignoring maps with no mapinfo available: " . join(", ", map { "'$_'" } @ignored) . ".\n") unless $opt->quiet;
+		warn(sprintf("Ignoring %d maps with no mapinfo available.\n", scalar @ignored));
 	}
 }
 
@@ -319,7 +352,8 @@ while (my ($mapname, $mapid) = each(%$maplist)) {
 		maxx		=> $info->{maxx},
 		maxy		=> $info->{maxy},
 		flip_vertical 	=> $info->{flipv},
-		flip_horizontal => $info->{fliph}
+		flip_horizontal => $info->{fliph},
+		rotate		=> $info->{rotate},
 	};
 	my $heat = new PS::Heatmap($heatmap_opts);
 
@@ -381,7 +415,7 @@ sub get_resolution {
 		($res->{width}, $res->{height}) = split(/x/, $info);
 	} else {
 		# if we know where the overlay images are then use Image::Size to determine the size
-		die "Unable to determine resolution for map $map.\n";
+		warn "Unable to determine resolution for map $map.\n";
 	}
 	return $res;
 }
@@ -462,7 +496,7 @@ sub get_data {
 	$where ||= '';
 	@$datax = ();	# clear the data arrays
 	@$datay = ();
-	my $limit = $hc->{limit} || 5500;
+	my $limit = $hc->{limit} || 10000;
 	my $cmd = "SELECT " . $hc->{$hc->{wkey}.'_x'} . "," . $hc->{$hc->{wkey}.'_y'} . " FROM $db->{t_map_spatial} WHERE mapid=$hc->{mapid} ";
 	$cmd .= $where if $where;
 	$cmd .= "LIMIT $limit";

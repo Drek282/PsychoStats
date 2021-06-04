@@ -49,6 +49,8 @@ On Firearms on Linux I was able to get the latest official AdminMod working with
 
 The documentation for Admin Mod and AMX Mod X are both very good, you can find them on google.  They will run on listenserver, but as I said, depending on the mod, you may need to try different versions of Metamod, or on Linux you may need to rename libraries that use the _i386 naming convention.  For Firearms I also had to use the Metamod config.ini file to force load the game library.  Good luck, I'm rooting for you.
 
+For Half-Life 2/Source games you will not need to use a third party plugin.  Google is your friend, there are instructions available from more than one source on how to capture  overlay images in Half-Life 2/Source engine games.
+
 What you will want to do is move to the farthest point for the four cardinal points in the map and take your position there.  There are a few commands that will do that for you.  When you orient your overview the lowest y value, which is south, should be the bottom point of the heatmap overview.
 
 To see the overview use the following commands in the console:
@@ -85,9 +87,11 @@ Editing Steps:
 11. If your heatmap doesn't match up with the overlay, try rotating the map 90°.
 
 
-Editing the heat.xml File:
+Adding the Overlay Data to the Database:
 
-What you need to do is go to the farthest map point in each map coordinate and use the "status" command, or the Admin Mod command "admin_userorigin [any unique part of your player name]", in the console to find your position.  Note that you need to find the farthest visible point in each cardinal direction on your map even if those points are not in a playing area.  You then use that position as the limits for your map in the heat.xml file.  There are lots of examples there of how that should look.  Your chances of getting those coordinates without using noclip are very small.
+A copy of the old heat.xml file is in the addons/heatmaps folder.  However any heatmaps you wish to add should be added to the database.  You no longer need to use that file.  You can either add the overlay data to the heat.xml file then upload that through the admin control panel, or you can add the map overlay information one at a time through the admin control panel.
+
+What you need to do is go to the farthest map point in each map coordinate for the farthest point on your map overlay image and use the "status" command, the "getpos" command for Half-Life 2 games, or the Admin Mod command "admin_userorigin [any unique part of your player name]", in the console to find your position.  Note that you need to find the farthest visible point in each cardinal direction on your map even if those points are not in a playing area.  You then use that position as the limits for your map in the heat.xml file.  There are lots of examples there of how that should look.  Your chances of getting those coordinates without using noclip are very small.
 
 For reference the absolute map coords for Half-Life maps are +/- 4096 for every axis, for Half-Life 2/Source they are +/- 16384 for every axis.
 
