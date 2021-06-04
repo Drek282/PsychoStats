@@ -12,7 +12,7 @@ tree.  If you put it somewhere where the webserver can access it then any user
 on the Internet would be able to read your stats.cfg file and see your database
 settings. You have been warned.
 
-== IF YOU ARE UPGRADING ==
+== IF YOU ARE UPGRADING FROM A PREVIOUS VERSION OF PSYCHOSTATS ==
 
 There is no option currenty for a graceful or automated upgrade.  Any database
 generated with any version of PsychoStats earlier than the released version of
