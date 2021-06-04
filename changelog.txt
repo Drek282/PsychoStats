@@ -5,6 +5,7 @@ Version 3.2.8b (in progress)
 * [Updated] Map overlay sql.
 * [Added] Skill and rank same icons, thanks Rosenstein.
 * [Improved] Skill and rank icons converted to gif, smaller file sizes.
+* [Revert] Reinstated heat.pl from PsychoStats version 3.2.2b.
 
 
 Version 3.2.7b (06/03/2021)
