@@ -12,6 +12,18 @@ tree.  If you put it somewhere where the webserver can access it then any user
 on the Internet would be able to read your stats.cfg file and see your database
 settings. You have been warned.
 
+== IF YOU ARE UPGRADING ==
+
+There is no option currenty for a graceful or automated upgrade.  Any database
+generated with any version of PsychoStats earlier than the released version of
+PsychoStats 3.2.7b will not work well with any more recent version.  This is
+because the old deprecated and soon to be obsolete MySQL character encoding has
+been changed from utf8_general_ci to utf8mb4_general_ci.
+
+You can try going through your old database and changing the character encoding
+on all the tables, but you are probably better off to go with a fresh install
+where you drop and recreate the database.
+
 == QUICK INSTALLATION ==
 
 1) If you've already unzipped the archive you will have a directory structure
