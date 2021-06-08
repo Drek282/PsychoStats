@@ -1,4 +1,4 @@
-### PsychoStats Installation
+# PsychoStats Installation
 
 
 ## BASICS
@@ -73,13 +73,13 @@ You should not use a database super user for PsychoStats, especially in a produc
 5. Browse to the stats installation wizard with your browser and follow the instructions:  
 	http[s]://[domain|localhost]/[stats folder name if any]/install/
 
-# IMPORTANT
+### IMPORTANT
 
 The install process will automatically delete your install folder when it is completed.  If you need to run the install process again you will need to upload the install folder to your PsychoStats web folder again along with the game specific install files.
 
 6. The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere as long as your user has executable permissions and you can access your PsychoStats database from that machine.  The contents of the 'root' folder should not be exposed to the web.  Edit the 'stats.cfg' in that folder with your PsychoStats database name, user and password.
 
-# Security Notes
+### Security Notes
 
 Common sense is your best protection.  You want a distinct PsychoStats database user that only has permissions on the PsychoStats database.  Never run the PsychoStats scripts as root in Linux.  Never use your MySQL/MariaDB super user as your PsychoStats user.
 
