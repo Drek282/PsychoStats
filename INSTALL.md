@@ -57,7 +57,7 @@ You can try going through your old database and changing the character encoding 
 \scripts  
 \www  
 changelog.txt  
-INSTALL.TXT  
+INSTALL.md  
 license.txt  
 readme_*.txt  
 README.md  
