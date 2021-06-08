@@ -18,7 +18,6 @@ You should install the game files after you install the base files, and overwrit
 You can find the game modules at the following links:
 
 Officially supported:
-
 ***We are always looking for server logs to allow for testing and improved game support.***
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
@@ -34,7 +33,6 @@ Officially supported:
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
 
 Not officially supported and likely not functional:
-
 ***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
