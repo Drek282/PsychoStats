@@ -6,8 +6,7 @@ PsychoStats parses server logs and generates statistics based on those logs. Tho
 
 All of the versions on this repository should be considered beta software as at this time I simply do not have the capacity or the access to game servers to thoroughly test releases. I know that prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers. The base PsychoStats code should be robust and stable, and the changes I have made have been relatively minor, so it stands to reason that the code is still robust and stable, but I can make no guarantees.  Use this software at your own risk.
 
-This version of PsychoStats currently supports the following games:
-
+This version of PsychoStats currently supports the following games:  
 ***We are always looking for server logs to allow for testing and improved game support.***
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
@@ -23,8 +22,7 @@ This version of PsychoStats currently supports the following games:
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
 
 
-There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:
-
+There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:  
 ***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
