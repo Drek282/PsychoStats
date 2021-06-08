@@ -6,17 +6,28 @@ PsychoStats parses server logs and generates statistics based on those logs. Tho
 
 All of the versions on this repository should be considered beta software as at this time I simply do not have the capacity or the access to game servers to thoroughly test releases. I know that prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers. The base PsychoStats code should be robust and stable, and the changes I have made have been relatively minor, so it stands to reason that the code is still robust and stable, but I can make no guarantees.  Use this software at your own risk.
 
-This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Call of Duty 4 and Soldat:
+This version of PsychoStats currently supports the following games:
 
-* The Battle Grounds III
-* Counter-Strike
-* Counter-Strike: Source
-* Day of Defeat
-* Day of Defeat: Source
-* Firearms 3.0
-* Gun Game
-* Half-Life 2 Death Match
-* Half-Life Death Match
-* Natural Selection
-* Team Fortress 2
-* Team Fortress Classic
+***We are always looking for server logs to allow for testing and improved game support.***
+
+* [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
+* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
+* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
+* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
+* [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
+* [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
+* [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
+* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
+* [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
+* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
+* [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
+
+
+There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:
+
+***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
+
+* [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
+* [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
+* [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
+* [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
