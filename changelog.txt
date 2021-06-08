@@ -6,6 +6,13 @@ Version 3.2.8b (in progress)
 * [Added] Skill and rank same icons, thanks Rosenstein.
 * [Improved] Skill and rank icons converted to gif, smaller file sizes.
 * [Revert] Reinstated heat.pl from PsychoStats version 3.2.2b.
+* [Changed] Repository divided into base and game and mod submodules.
+* [Changed] Half-Life game support separated from Source game support.
+* [Added] Weapon and roles for the games I have them for to games sql.
+* [Removed] Unnecessary sql files from root folders.
+* [Changed] Installation instructions converted from plain text to markdown.
+* [Changed] Support for Call of Duty 4, Call of Duty 4X, Gun Game and Soldat now considered unofficial, untested and non-functional.
+* [Added] Checks to see if PsychoStats has been properly installed.
 
 
 Version 3.2.7b (06/03/2021)

@@ -62,7 +62,11 @@ $dbuser = '';
 $dbpass = '';
 $dbtblprefix = 'ps_';
 $site_url = '';
-@include_once(PS_ROOTDIR . "/config.php");
+if (file_exists(PS_ROOTDIR . "/config.php")) @include_once(PS_ROOTDIR . "/config.php");
+else {
+        echo "You must install game support before you can install PsychoStats, please see INSTALL.md for details.";
+        exit;
+}
 
 // Initialize our global variables for PsychoStats. 
 // Lets be nice to the global Name Space.

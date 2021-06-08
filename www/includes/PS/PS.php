@@ -2463,6 +2463,12 @@ function get_overlay($map, $gametype = false, $modtype = false) {
 	if ($modtype === false) {
 		$modtype = $this->modtype();
 	}
+	if ($modtype == 'cstrike' and $gametype == 'source') {
+		$modtype = 'cstrikes';
+	}
+	if ($modtype == 'dod' and $gametype == 'source') {
+		$modtype = 'dods';
+	}
 	if ($modtype == 'ns') {
 		$modtype = 'natural';
 	}

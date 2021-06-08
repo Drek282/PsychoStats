@@ -166,8 +166,10 @@ if (!$opt->get('noconfig')) {
 		PS::Debug->debug("Loading DB config from stats.cfg");
 		$dbconf = PS::Config->loadfile( catfile($FindBin::Bin, 'stats.cfg') );
 	} else {
-		PS::Debug->debug("Loading DB config from __DATA__");
-		$dbconf = PS::Config->loadfile( *DATA );
+        print "You must install game support before you can use PsychoStats, please see INSTALL.md for details.\n";
+        exit;
+#		PS::Debug->debug("Loading DB config from __DATA__");
+#		$dbconf = PS::Config->loadfile( *DATA );
 	}
 } else {
 	PS::Debug->debug("-noconfig specified, No DB config loaded.");

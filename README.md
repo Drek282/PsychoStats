@@ -1,9 +1,5 @@
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 5.3.0+ and MySQL 4.1.13+.
 
-***This repository is in the process of being split up into a base repository with submodules containing the support for individual games and mods.  Stay tuned.***
-
-This version has been tested on PHP 7.4.11 and MariaDB 10.3.24 but it should work on any version of PHP and MySQL from 5.3.0 and 4.1.13, respectively, up to PHP 7.x.x.  ***This version of PsychoStats is not yet compatible with PHP 8.x.x.***
-
 Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.
 
 This version was created without any input from Stormtrooper. The only objective was to get a pretty terrific piece of old software working again. I am Drek, the author of the updates. I am not a coder. I know enough about scripting to have managed most of the fixes without too much trouble.  However, I can make no guaratees about security or best practices.  Use this software at your own risk.
@@ -14,20 +10,29 @@ There was one serious security vulnerability that I am aware of, and that has be
 
 Flag icon images and many map and overlay images have been converted from jpg and png to webp.  There is a slight decrease in image quality that I don't think is noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the webp images are much smaller, require less bandwidth and will load faster.
 
-This version of PsychoStats currently supports the following Half-Life and Source mods and games as well as Soldat:
+This version of PsychoStats currently supports the following games:
+***We are always looking for server logs to allow for testing and improved game support.***
 
-* The Battle Grounds III
-* Counter-Strike
-* Counter-Strike: Source
-* Day of Defeat
-* Day of Defeat: Source
-* Firearms 3.0
-* Gun Game
-* Half-Life 2 Death Match
-* Half-Life Death Match
-* Natural Selection
-* Team Fortress 2
-* Team Fortress Classic
+* [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
+* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
+* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
+* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
+* [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
+* [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
+* [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
+* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
+* [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
+* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
+* [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
+
+
+There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:
+***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
+
+* [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
+* [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
+* [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
+* [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
 
 I have, for the most part, tried not to make changes that change the way Psychostats works, by default. However, I have made one or two changes that reflect my own personal biases, and for my own convenience when faced with reinstalling Psychostats hundreds of times as I worked on it. One of those is that the bonus for an ffkill is now -10.  I also believe that winning the game or round is really the entire point, far more important than k:d ratios, this is reflected in the bonuses I have added for team wins.
 

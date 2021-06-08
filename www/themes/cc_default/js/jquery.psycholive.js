@@ -2285,12 +2285,9 @@
 	function team_names(gametype, modtype) {
 		if (gametype == 'halflife') {
 			switch (modtype) {
-				case 'bg3': return [ 'AMERICANS', 'BRITISH' ];
 				case 'cstrike': return [ 'CT', 'TERRORIST' ];
-				case 'firearms': 	return [ 'RED_FORCE', 'BLUE_FORCE' ];
 				case 'tf2':
-				case 'tf': 	return [ 'RED', 'BLUE' ];
-				case 'tfc': 	return [ 'RED', 'BLUE' ];
+				case 'tf': 	return [ 'BLUE', 'RED' ];
 				case 'dod': 	return [ 'ALLIES', 'AXIS' ];
 			}
 		}
