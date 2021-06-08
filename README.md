@@ -11,6 +11,7 @@ There was one serious security vulnerability that I am aware of, and that has be
 Flag icon images and many map and overlay images have been converted from jpg and png to webp.  There is a slight decrease in image quality that I don't think is noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the webp images are much smaller, require less bandwidth and will load faster.
 
 This version of PsychoStats currently supports the following games:
+
 ***We are always looking for server logs to allow for testing and improved game support.***
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
@@ -27,6 +28,7 @@ This version of PsychoStats currently supports the following games:
 
 
 There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:
+
 ***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
