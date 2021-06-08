@@ -17,7 +17,7 @@ You should install the game files after you install the base files, and overwrit
 
 You can find the game modules at the following links:
 
-Officially supported:
+Officially supported:  
 ***We are always looking for server logs to allow for testing and improved game support.***
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
@@ -32,7 +32,7 @@ Officially supported:
 * [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
 
-Not officially supported and likely not functional:
+Not officially supported and likely not functional:  
 ***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
@@ -52,15 +52,15 @@ You can try going through your old database and changing the character encoding 
 
 1. If you've already unzipped the archive you will have a directory structure that looks like this:
 
-\addons
-\root
-\scripts
-\www
-changelog.txt
-INSTALL.TXT
-license.txt
-readme_*.txt
-README.md
+\addons  
+\root  
+\scripts  
+\www  
+changelog.txt  
+INSTALL.TXT  
+license.txt  
+readme_*.txt  
+README.md  
 
 2. You will need a MySQL or MariaDB database, user and password.  If you don't know how to set that up, Google is your friend.  It's fairly simple and there is a lot of information on how to do that on the web.  Make sure your user has full permissions on the database.
 
@@ -70,7 +70,7 @@ You should not use a database super user for PsychoStats, especially in a produc
 
 4. These instructions assume you already know the basics of hosting a website The specifics of that will depend on your hosting arrangements.  Copy the contents of the 'www' directory to your web hosting folder.  It is recommended that you don't expose your PsychoStats web folder to the public web until you have completed the install process.
 
-5. Browse to the stats installation wizard with your browser and follow the instructions:
+5. Browse to the stats installation wizard with your browser and follow the instructions:  
 	http[s]://[domain|localhost]/[stats folder name if any]/install/
 
 # IMPORTANT
