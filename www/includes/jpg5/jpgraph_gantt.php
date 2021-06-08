@@ -2205,7 +2205,7 @@ class GanttScale {
 		$offset = -3600;
 	}
 	$img=$this->iImg;		
-	return ($aDate-$this->iStartDate-$offset)/SECPERDAY*$this->GetDayWidth()+$img->left_margin+$this->iLabelWidth;;
+	return ($aDate-$this->iStartDate-$offset)/SECPERDAY*$this->GetDayWidth()+$img->left_margin+$this->iLabelWidth;
     }
 
     // Get screen coordinatesz for the vertical position for a bar		
