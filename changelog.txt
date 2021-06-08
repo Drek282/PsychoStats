@@ -13,6 +13,7 @@ Version 3.2.8b (in progress)
 * [Changed] Installation instructions converted from plain text to markdown.
 * [Changed] Support for Call of Duty 4, Call of Duty 4X, Gun Game and Soldat now considered unofficial, untested and non-functional.
 * [Added] Checks to see if PsychoStats has been properly installed.
+* [Fixed] Corrected some The Battle Grounds III role images and added missing roles.
 
 
 Version 3.2.7b (06/03/2021)
