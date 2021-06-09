@@ -38,6 +38,10 @@ sub calcskill_kill_default {
 
 	$kskill += $kbonus;
 	$vskill -= $vbonus;
+	
+	# rounding just because
+	$kskill = floor($kskill + 0.5);
+	$vskill = floor($vskill + 0.5);
 
 	$k->skill($kskill);
 	$v->skill($vskill);
