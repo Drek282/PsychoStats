@@ -14,24 +14,24 @@ This version of PsychoStats currently supports the following games:
 ***We are always looking for server logs to allow for testing and improved game support.***
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
-* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
-* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
-* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
-* [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
+* [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
 * [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
-* [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
-* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
 * [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
 * [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
 
 
-There are also modules available for the following games, but they are untested, not officially supported, and are likely not functional:  
-***If you wish to improve support for these games and have them added back to the officially supported list, we will require server logs.***
+There are also modules available for the following games, but they are untested and may not be functional:  
+***If you wish to improve support for these games we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
-* [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
+* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
+* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
+* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
+* [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
 * [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
+* [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
+* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
 
 I have, for the most part, tried not to make changes that change the way Psychostats works, by default. However, I have made one or two changes that reflect my own personal biases, and for my own convenience when faced with reinstalling Psychostats hundreds of times as I worked on it. One of those is that the bonus for an ffkill is now -10.  I also believe that winning the game or round is really the entire point, far more important than k:d ratios, this is reflected in the bonuses I have added for team wins.
@@ -66,9 +66,11 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Stuff that Remains Untested**
 
-* Most of the mods have not been tested, although my guess is that most of them will work.  The only games and mods that have been tested so far are The Battle Grounds III, Firearms 3.0, Natural Selection and Team Fortress Classic.
+* Most of the mods have not been tested.  The only games that have been tested so far are The Battle Grounds III, Call of Duty 4X, Firearms 3.0, Natural Selection and Team Fortress Classic.
 
-* The contents of the "scripts" folder are largely unexplored.  Most of them should be self explanatory but they should be considered untested.
+* The contents of the "addons" folder are largely unexplored with the exception of the AMX Mod X ps_heatmaps script, which does work.
+
+* The contents of the "scripts" folder are also largely unexplored.  Most of them should be self explanatory but they should be considered untested.
 
 
 ## **Future Plans**
