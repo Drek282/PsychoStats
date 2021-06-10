@@ -15,6 +15,7 @@ Version 3.2.8b (in progress)
 * [Added] Checks to see if PsychoStats has been properly installed.
 * [Fixed] Corrected some The Battle Grounds III role images and added missing roles.
 * [Removed] Stats index page preview from install process.
+* [Fixed] Call of Duty 4X support now considered tested and functional.
 
 
 Version 3.2.7b (06/03/2021)
