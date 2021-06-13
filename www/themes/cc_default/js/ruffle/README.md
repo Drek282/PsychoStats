@@ -1,4 +1,4 @@
-# ruffle-selfhosted Nightly 2021-04-18 
+# ruffle-selfhosted Nightly 2021-06-12 
 
 ruffle-selfhosted is the intended way to get Ruffle onto your website.
 
