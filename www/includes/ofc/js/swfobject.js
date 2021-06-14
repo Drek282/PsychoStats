@@ -89,7 +89,7 @@ deconcept.SWFObject.prototype = {
 				this.addVariable("MMplayerType", "ActiveX");
 				this.setAttribute('swf', this.xiSWFPath);
 			}
-			swfNode = '<object id="'+ this.getAttribute('id') +'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'+ this.getAttribute('width') +'" height="'+ this.getAttribute('height') +'" style="'+ this.getAttribute('style') +'">';
+			swfNode = '<object id="'+ this.getAttribute('id') +'" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" type="application/x-shockwave-flash" width="'+ this.getAttribute('width') +'" height="'+ this.getAttribute('height') +'" style="'+ this.getAttribute('style') +'">';
 			swfNode += '<param name="movie" value="'+ this.getAttribute('swf') +'" />';
 			var params = this.getParams();
 			for(var key in params) {

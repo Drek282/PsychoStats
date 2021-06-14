@@ -61,12 +61,12 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
     $obj_id = 'chart';
     $div_name = 'flashcontent';
     
-    //$out[] = '<script type="text/javascript" src="'. $base .'js/ofc.js"></script>';
+    //$out[] = '<script src="'. $base .'js/ofc.js"></script>';
     
     if( !isset( $open_flash_chart_seqno ) )
     {
         $open_flash_chart_seqno = 1;
-        $out[] = '<script type="text/javascript" src="'. $base .'js/swfobject.js"></script>';
+        $out[] = '<script src="'. $base .'js/swfobject.js"></script>';
     }
     else
     {
@@ -79,7 +79,7 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
     {
 	// Using library for auto-enabling Flash object on IE, disabled-Javascript proof  
     $out[] = '<div id="'. $div_name .'"></div>';
-	$out[] = '<script type="text/javascript">';
+	$out[] = '<script>';
 	$out[] = 'var so = new SWFObject("'. $base .'open-flash-chart.swf", "'. $obj_id .'", "'. $width . '", "' . $height . '", "9", "#FFFFFF");';
 	//$out[] = 'so.addVariable("width", "' . $width . '");';
 	//$out[] = 'so.addVariable("height", "' . $height . '");';
@@ -90,7 +90,7 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 	$out[] = '<noscript>';
     }
 
-    $out[] = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="' . $protocol . '://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" ';
+    $out[] = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" codebase="' . $protocol . '://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" ';
     $out[] = 'width="' . $width . '" height="' . $height . '" id="ie_'. $obj_id .'" align="middle">';
     $out[] = '<param name="allowScriptAccess" value="sameDomain" />';
     $out[] = '<param name="movie" value="'. $base .'open-flash-chart.swf?width='. $width .'&height='. $height . '&data='. $url .'" />';

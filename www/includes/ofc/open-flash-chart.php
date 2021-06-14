@@ -1034,8 +1034,8 @@ class graph
 			$this->set_unique_id();
 		
 			$tmp[] = '<div id="' . $this->unique_id . '"></div>';
-			$tmp[] = '<script type="text/javascript" src="' . $this->js_path . 'swfobject.js"></script>';
-			$tmp[] = '<script type="text/javascript">';
+			$tmp[] = '<script src="' . $this->js_path . 'swfobject.js"></script>';
+			$tmp[] = '<script>';
 			$tmp[] = 'var so = new SWFObject("' . $this->swf_path . 'open-flash-chart.swf", "ofc", "'. $this->width . '", "' . $this->height . '", "9", "#FFFFFF");';
 			$tmp[] = 'so.addVariable("variables","true");';
 		}
