@@ -302,7 +302,7 @@ $cms->filter('player_victim_table_object', $vtable);
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
 //	'hitbox_url'		=> ps_escape_html("weaponxml=$PHP_SELF?id=$id&xml=w") . '&' . ps_escape_html("imgpath=" . dirname($PHP_SELF) . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']),
-    'hitbox_url'		=> 'weaponxml=' . ps_escape_html(PHP_SCNM) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname(PHP_SCNM), '/\\')) . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
+    'hitbox_url'		=> 'weaponxml=' . ps_escape_html(PHP_SCNM) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname(PHP_SCNM), '/\\') . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
 	'weapons_table'		=> $wtable->render(),
 	'sessions_table'	=> $stable->render(),
 	'maps_table'		=> $mtable->render(),
