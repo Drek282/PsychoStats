@@ -15,6 +15,7 @@ This version of PsychoStats currently supports the following games:
 
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
 * [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
+* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
 * [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
 * [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
 * [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
@@ -25,7 +26,6 @@ There are also modules available for the following games, but they are untested 
 ***If you wish to improve support for these games we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
-* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
 * [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
 * [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
 * [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
