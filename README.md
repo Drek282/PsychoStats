@@ -66,8 +66,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Stuff that Remains Untested**
 
-* Most of the mods have not been tested.  The only games that have been tested so far are The Battle Grounds III, Call of Duty 4X, Firearms 3.0, Natural Selection and Team Fortress Classic.
-
 * The contents of the "addons" folder are largely unexplored with the exception of the AMX Mod X ps_heatmaps script, which does work.
 
 * The contents of the "scripts" folder are also largely unexplored.  Most of them should be self explanatory but they should be considered untested.
@@ -75,7 +73,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Future Plans**
 
-* Considering dropping COD support altogether.
 * Improve display on mobile devices.
 * I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
 * Full PHP 8.x compatibility.
