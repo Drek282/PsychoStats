@@ -792,7 +792,7 @@ function get_clan($args = array(), $minimal = false) {
 	if ($minimal) $args['minimal'] = true;
 
 	$values = "clan.clanid,clan.locked,clan.allowrank,cp.*,COUNT(distinct plr.plrid) totalmembers, " . 
-		"ROUND(AVG(skill),2) skill, ROUND(AVG(activity)) activity, ";
+		"ROUND(AVG(skill),0) skill, ROUND(AVG(activity)) activity, ";
 
 	$types = $this->get_types('CLAN');
 	$fields = !empty($args['fields']) ? explode(',',$args['fields']) : array_keys($types);
@@ -1257,7 +1257,7 @@ function get_clan_list($args = array()) {
 		'where'		=> '',
 		'allowall'	=> 0,
 	);
-	$values = "clan.clanid,clan.locked,clan.allowrank,cp.*,COUNT(*) totalmembers, ROUND(AVG(skill),2) skill, ROUND(AVG(activity)) activity, ";
+	$values = "clan.clanid,clan.locked,clan.allowrank,cp.*,COUNT(*) totalmembers, ROUND(AVG(skill),0) skill, ROUND(AVG(activity)) activity, ";
 
 	$types = $this->get_types("CLAN");
 	$fields = !empty($args['fields']) ? explode(',',$args['fields']) : array_keys($types);
