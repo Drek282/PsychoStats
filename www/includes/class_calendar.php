@@ -237,10 +237,10 @@ function draw($print=FALSE) {
 	$output .= ($this->conf['show_timeurl']) ? sprintf("<a href='%s'>&gt;&gt;</a>", $this->timeurl($nextmonth)) : '&nbsp;';
 	$output .= "</td></tr>\n";
 
-	$output .= "<tr class='calendar-hdr'><td width='$width' class='calendar-hdr-week'><abbr title='Week #'>Wk</abbr></td>";
+	$output .= "<tr class='calendar-hdr'><td class='calendar-hdr-week' style='width: $width;'><abbr title='Week #'>Wk</abbr></td>";
 	foreach ($this->dotw as $col) {
 		$class = strtolower($col);
-		$output .= "<td width='$width' class='calendar-hdr-$class'>$col</td>";
+		$output .= "<td class='calendar-hdr-$class' style='width: $width;'>$col</td>";
 	}
 	$output .= "</tr>\n";
 
@@ -255,7 +255,7 @@ function draw($print=FALSE) {
 				: '';
 			$classes = $link ? ' calendar-week-hasdata' : '';
 			if ($link and $ymdthen == $d['date'] and $this->selected() == 'week') $classes .= ' calendar-week-selected';
-			$output .= sprintf("<tr><td width='%s' class='calendar-week%s' %s%s>%s</td>", 
+			$output .= sprintf("<tr><td class='calendar-week%s' style='width: %s;' %s%s>%s</td>", 
 				$width, 
 				$classes,
 				$hover,
@@ -279,7 +279,7 @@ function draw($print=FALSE) {
 		if ($link and $ymdthen == $d['date'] and $this->selected() == 'day') $classes .= ' calendar-cell-selected';
 		if ($d['date'] == $ymdtoday) $classes .= ' calendar-cell-today';
 
-		$output .= sprintf("<td width='%s' class='$classes' %s%s>%s</td>", 
+		$output .= sprintf("<td class='$classes' style='width: %s;' %s%s>%s</td>", 
 			$width,
 			$hover,
 			// the onclick is so any part of the cell will trigger the link

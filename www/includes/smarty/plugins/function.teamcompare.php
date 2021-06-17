@@ -31,8 +31,8 @@ function smarty_function_teamcompare($args, &$smarty)
   $output = "
 <table width='{$args['width']}' align='center' border='0' cellspacing='0' cellpadding='0' style='border: 1px solid #000000'>
   <tr>
-    <td width='{$args['leftwidth']}%' bgcolor='{$args['leftcolor']}'><img src='{$conf['imagesurl']}spacer.gif' border='0' height='{$args['height']}' width='1' /></td>
-    <td width='{$args['rightwidth']}%' bgcolor='{$args['rightcolor']}'><img src='{$conf['imagesurl']}spacer.gif' border='0' height='{$args['height']}' width='1' /></td>
+    <td bgcolor='{$args['leftcolor']}' style='width: {$args['leftwidth']}%;'><img src='{$conf['imagesurl']}spacer.gif' border='0' height='{$args['height']}' width='1' /></td>
+    <td bgcolor='{$args['rightcolor']}' style='width: {$args['rightwidth']}%;'><img src='{$conf['imagesurl']}spacer.gif' border='0' height='{$args['height']}' width='1' /></td>
   </tr>
 </table>
 ";
