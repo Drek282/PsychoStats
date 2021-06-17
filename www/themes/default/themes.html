@@ -24,7 +24,7 @@
 
 <div id="gallery">
 {foreach from=$themes item='t'}
-	<a name="{$t.name|escape}"></a>
+	<a href="{$t.name|escape}"></a>
 	<div class="theme">
 		<h3><a href="{url t=$t.name}">{$t.title|escape}</a></h3>
 		{if $t.image}<div class="preview"><a href="{url t=$t.name}"><img src="{$t.image|escape}" alt="Preview" title="<#Click to select theme#>" /></a></div>{/if}

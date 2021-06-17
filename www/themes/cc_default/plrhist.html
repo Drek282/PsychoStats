@@ -47,7 +47,7 @@
 
 <div id="ps-id-plrsess" class="ps-column-frame{if $shades.s_plrsess} s-closed{/if}">
 <div class="ps-column-header"><a href="" onclick="return false"><span><#Player Session Chart#></span></a></div>
-<div id="s-plrsess" class="ps-column-content" style="text-align: center">
+<div class="ps-column-content" style="text-align: center">
 	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]" />
 </div>
 </div>
@@ -132,7 +132,7 @@
 <div id="ps-main-content" class="ps-page-player">
 
 	<!--#PLRDAYS#-->
-	<a name="history"></a>
+	<a href="history"></a>
 	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$total_days} <#Historical Days#></span></a></div>
 	<div class="ps-table-inner">
@@ -143,7 +143,7 @@
 	<!---->
 
 	<!--#SESSIONS#-->
-	<a name="sessions"></a>
+	<a href="sessions"></a>
 	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalsessions} <#Player Game Sessions#></span></a></div>
 	<div class="ps-table-inner">

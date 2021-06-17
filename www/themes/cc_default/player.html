@@ -254,7 +254,7 @@
 
 <div id="ps-id-plrsess" class="ps-column-frame{if $shades.s_plrsess} s-closed{/if}">
 <div class="ps-column-header"><a href="" onclick="return false"><span><#Player Session Chart#></span></a></div>
-<div id="s-plrsess" class="ps-column-content" style="text-align: center">
+<div class="ps-column-content" style="text-align: center">
 	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]" />
 </div>
 </div>
@@ -324,10 +324,10 @@
 <div id="ps-main-content" class="ps-page-player">
 
 	<!--#SESSIONS#-->
-	<a name="sessions"></a>
+	<a href="sessions"></a>
 	<div class="ps-table-frame{if $shades.s_plrsess} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalsessions} <#Player Game Sessions#></span></a></div>
-	<div id="s-plrsess" class="ps-table-inner">
+	<div class="ps-table-inner">
 	{$sessions_table}
 	{if $sessionpager}<div class="ps-table-footer">{$sessionpager}</div>{/if}
 	</div>
@@ -335,7 +335,7 @@
 	<!---->
 
 	<!--#WEAPONS#-->
-	<a name="weapons"></a>
+	<a href="weapons"></a>
 	<div class="ps-table-frame{if $shades.s_plrweapons} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalweapons} <#Player Weapons#></span></a></div>
 	<div id="s-plrweapons" class="ps-table-inner">
@@ -347,7 +347,7 @@
 
 
 	<!--#MAPS#-->
-	<a name="maps"></a>
+	<a href="maps"></a>
 	<div class="ps-table-frame{if $shades.s_plrmaps} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalmaps} <#Player Maps#></span></a></div>
 	<div id="s-plrmaps" class="ps-table-inner">
@@ -360,7 +360,7 @@
 
 {if $use_roles}
 	<!--#ROLES#-->
-	<a name="roles"></a>
+	<a href="roles"></a>
 	<div class="ps-table-frame{if $shades.s_plrroles} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalroles} <#Player Roles#></span></a></div>
 	<div id="s-plrroles" class="ps-table-inner">
@@ -372,7 +372,7 @@
 {/if}
 
 	<!--#VICTIMS#-->
-	<a name="victims"></a>
+	<a href="victims"></a>
 	<div class="ps-table-frame{if $shades.s_plrvictims} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalvictims|commify} <#Player Victims#></span></a></div>
 	<div id="s-plrvictims" class="ps-table-inner">
