@@ -45,7 +45,7 @@ function smarty_function_confvarlabel($args, &$smarty)
 	$help .= !empty($var['help']) ? '.png' : '-off.png';
 	$id = $var['id'];
 	$labelid = $var['help'] ? " id='label-$id' class='help'" : "";
-	$label = "<label$labelid><img class='helpimg' id='helpimg-$id' src='$help' /> $label</label>";
+	$label = "<label$labelid><img class='helpimg' id='helpimg-$id' src='$help' alt='Information'> $label</label>";
 	return $label;
 }
 
