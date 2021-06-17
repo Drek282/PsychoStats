@@ -90,7 +90,7 @@ div.ps-plr-profile #map {
 	text-align: left;
 	padding: 0.3em;
 	padding-left: 1em;
-	background: #f1f1f1 url(../img/frame-header-bg.gif) repeat-y top left;
+	background: #f1f1f1 url(../img/frame-header-bg.jpg) repeat-y top left;
 	border:  1px solid gray;
 }
 .ps-frame-header span { 
@@ -335,7 +335,7 @@ div.ps-plr-profile #map {
 	padding: 1em;
 	text-align: center;
 	border: 1px solid #999999;
-	background: #460000 url(../img/frame-header-bg.gif);
+	background: #460000 url(../img/frame-header-bg.jpg);
     background-repeat; repeat-y top left;
     background-size: 100%;
 /*
