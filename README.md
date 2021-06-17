@@ -43,15 +43,15 @@ Most of the links and references to psychostats.com have been removed as that do
 
 ## **Known Issues**
 
-* Occassionally GeoIP assigns the wrong nationality to a player. There is nothing that can be done about this.
-
 *The plan for the following issues is to either fix them, or improve them, in future versions:*
+
+* Occassionally GeoIP assigns the wrong nationality to a player.
 
 * One of the biggest problems with PsychoStats is that psychostats.com no longer hosts the documentation that it once did.
 
-* The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested. Some of them are definitely not working as hoped and expected, many of them are, but some are unknowns, especially in TFC. The reasons for this range from my not understanding the events themselves, and what they mean, because I'm not an experienced TFC player, to my weak coding skills, especially with Perl.
+* The events for Firearms and Team Fortress Classic have not been thoroughly analyzed and tested.
 
-* The team wins and losses for Firearms, as well as rounds, don't work extremely well or consistently.  But I'm not sure there is much more I can do with them.  The log support for wins and losses in Firearms just isn't very good.  At this time there is no bonus support for Firearms wins and losses, and no way of changing that that I am aware of.
+* The team wins and losses for Firearms don't work extremely well or consistently.
 
 * PsychoStats is decidedly **not** mobile friendly.
 
@@ -59,7 +59,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Mcrypt is deprecated/obsolete.
 
-* Some obsolete and deprecated html and php still to be cleaned up.
+* Obsolete and deprecated html and php still to be cleaned up.
 
 * Roles support for The Battle Grounds III is not yet complete.
 
@@ -74,7 +74,7 @@ Most of the links and references to psychostats.com have been removed as that do
 ## **Future Plans**
 
 * Improve display on mobile devices.
-* I have found the old PsychoStats documentation on The Wayback Machine, thanks to QuakerOates.  I will be spending some time with that and seeing how it directs further efforts to restore and update functionality.  I will also be looking into transferring the old PsychoStats Wiki to GitHub.
+* Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
 * Full PHP 8.x compatibility.
 * Clean up deprecated PHP.
 * Clean up obsolete and deprecated html.
