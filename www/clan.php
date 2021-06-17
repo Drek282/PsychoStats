@@ -218,7 +218,7 @@ $mtable->columns(array(
 ));
 $mtable->column_attr('uniqueid','class','left');
 $mtable->header_attr('uniqueid', 'colspan', '2');
-$mtable->column_attr('_mapimg', 'width', '40');
+$mtable->column_attr('_mapimg', 'style', 'width: 40px;');
 $ps->clan_maps_table_mod($mtable);
 $cms->filter('clan_maps_table_object', $mtable);
 

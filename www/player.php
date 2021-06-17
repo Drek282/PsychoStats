@@ -249,7 +249,7 @@ $mtable->columns(array(
 ));
 $mtable->column_attr('uniqueid','class','first left');
 $mtable->header_attr('uniqueid', 'colspan', '2');
-$mtable->column_attr('_mapimg', 'width', '40');
+$mtable->column_attr('_mapimg', 'style', 'width: 40px;');
 $ps->player_maps_table_mod($mtable);
 $cms->filter('player_map_table_object', $mtable);
 
