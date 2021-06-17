@@ -232,7 +232,8 @@
                 };
             {/literal}
         </script>
-    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" width="277" height="330">
+    <object type="application/x-shockwave-flash" width="277" height="330">
+    <param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />
     <param name="allowScriptAccess" value="sameDomain" />
     <param name="movie" value="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" />
     <param name="quality" value="high" />
@@ -242,8 +243,7 @@
         bgcolor="{$hitbox_bgcolor|default:'#C4C4C4'}" 
         width="277" 
         height="330" 
-        name="hitbox" 
-        align="middle" 
+        id="hitbox" 
         allowScriptAccess="sameDomain" 
         type="application/x-shockwave-flash" 
         />

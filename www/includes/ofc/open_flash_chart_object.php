@@ -90,13 +90,14 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 	$out[] = '<noscript>';
     }
 
-    $out[] = '<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" type="application/x-shockwave-flash" codebase="' . $protocol . '://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" ';
-    $out[] = 'width="' . $width . '" height="' . $height . '" id="ie_'. $obj_id .'" align="middle">';
+    $out[] = '<object type="application/x-shockwave-flash" ';
+    $out[] = 'width="' . $width . '" height="' . $height . '" id="ie_'. $obj_id .'">';
+    $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />';
     $out[] = '<param name="allowScriptAccess" value="sameDomain" />';
     $out[] = '<param name="movie" value="'. $base .'open-flash-chart.swf?width='. $width .'&height='. $height . '&data='. $url .'" />';
     $out[] = '<param name="quality" value="high" />';
     $out[] = '<param name="bgcolor" value="#FFFFFF" />';
-    $out[] = '<embed src="'. $base .'open-flash-chart.swf?data=' . $url .'" quality="high" bgcolor="#FFFFFF" width="'. $width .'" height="'. $height .'" name="'. $obj_id .'" align="middle" allowScriptAccess="sameDomain" ';
+    $out[] = '<embed src="'. $base .'open-flash-chart.swf?data=' . $url .'" quality="high" bgcolor="#FFFFFF" width="'. $width .'" height="'. $height .'" allowScriptAccess="sameDomain" ';
     $out[] = 'type="application/x-shockwave-flash" pluginspage="' . $protocol . '://www.macromedia.com/go/getflashplayer" id="'. $obj_id .'"/>';
     $out[] = '</object>';
 

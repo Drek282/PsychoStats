@@ -153,6 +153,24 @@
 	width: 50%;
 }
 
+#chart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hitbox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ie_chart {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .ps-column-content p.even {
 	background-color: #E7E7E7;
 }
