@@ -628,8 +628,8 @@ sub _expr_max { "IF($_[1] > $_[3], $_[1], $_[3])" }
 sub _expr_min { "IF($_[3] < $_[1], $_[3], $_[1])" }
 
 # _calc_* methods are called with the prototype: ($self, $quoted_key1, $quoted_key2, ...)
-sub _calc_percent 	{ "IFNULL($_[1] / $_[2] * 100, 0.00)" }
-sub _calc_percent2 	{ "IFNULL($_[1] / ($_[1] + $_[2]) * 100, 0.00)" }
+sub _calc_percent 	{ "ROUND(IFNULL($_[1] / $_[2] * 100, 0.00), 2)" }
+sub _calc_percent2 	{ "ROUND(IFNULL($_[1] / ($_[1] + $_[2]) * 100, 0.00), 2)" }
 sub _calc_ratio 	{ "IFNULL($_[1] / $_[2], $_[1])" }
 sub _calc_ratio_minutes { "IFNULL($_[1] / ($_[2] / 60), 0.00)" }
 
