@@ -2146,7 +2146,7 @@ function weaponimg($w, $args = array()) {
 		'style'		=> '',		// extra styles
 		'class'		=> '',		// class for the image
 		'id'		=> '',		// ID for the image
-		'noid'		=> false,	// if true the ID will not be auto assigned
+		'noid'		=> true,	// if true the ID will not be auto assigned
 		'extra'		=> '',		// extra paramaters
 	);
 	$path = !empty($args['path']) ? $args['path'] : '';
