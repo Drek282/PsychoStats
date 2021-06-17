@@ -59,7 +59,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Mcrypt is deprecated/obsolete.
 
-* Obsolete and deprecated html and php still to be cleaned up.
+* Obsolete and deprecated php still to be cleaned up.
 
 * Roles support for The Battle Grounds III is not yet complete.
 
@@ -77,7 +77,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
 * Full PHP 8.x compatibility.
 * Clean up deprecated PHP.
-* Clean up obsolete and deprecated html.
 * GDPR compliance.
 
 ## **Credits**
