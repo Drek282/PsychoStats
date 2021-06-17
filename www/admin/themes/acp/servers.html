@@ -35,14 +35,14 @@
 {foreach from=$servers item='s'}
 		<tr{cycle values=", class='even'"}>
 			<td class="idx">{strip}
-<a {if !$s.up}style="display: none"{/if} class="up" href="{url move='up' id=$s.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>
-<a {if !$s.down}style="display: none"{/if} class="dn" href="{url move='down' id=$s.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>
+<a {if !$s.up}style="display: none"{/if} class="up" href="{url move='up' id=$s.id}"><img src="{theme->url}/img/icons/arrow_up.png" alt="Move Up"></a>
+<a {if !$s.down}style="display: none"{/if} class="dn" href="{url move='down' id=$s.id}"><img src="{theme->url}/img/icons/arrow_down.png" alt="Move Down"></a>
 			{/strip}</td>
 			<td class="item"><a href="{url _base='servers_edit.php' id=$s.id}">{$s.host|escape}:{$s.port}</a></td>
 			<td>{$s.alt|default:'-'|escape}</td>
 			<td>{$s.querytype|escape}</td>
-			<td><img src="{theme->url}/img/icons/{if $s.rcon}accept{else}stop{/if}.png"/></td>
-			<td><img src="{theme->url}/img/icons/{if $s.enabled}tick{else}cross{/if}.png"/></td>
+			<td><img src="{theme->url}/img/icons/{if $s.rcon}accept{else}stop{/if}.png" alt="{if $s.rcon}Accept{else}Stop{/if}"></td>
+			<td><img src="{theme->url}/img/icons/{if $s.enabled}tick{else}cross{/if}.png" alt="{if $s.enabled}Enable{else}Disable{/if}"></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="6" class="no-data">

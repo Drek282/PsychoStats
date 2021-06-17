@@ -61,14 +61,14 @@
 {foreach from=$awards item='a'}
 		<tr{cycle values=", class='even'"}>
 			<td class="idx">{strip}
-<a {if !$a.up}style="display: none"{/if} class="up" href="{url move='up' id=$a.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>
-<a {if !$a.down}style="display: none"{/if} class="dn" href="{url move='down' id=$a.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>
+<a {if !$a.up}style="display: none"{/if} class="up" href="{url move='up' id=$a.id}"><img src="{theme->url}/img/icons/arrow_up.png" alt="Move Up"></a>
+<a {if !$a.down}style="display: none"{/if} class="dn" href="{url move='down' id=$a.id}"><img src="{theme->url}/img/icons/arrow_down.png" alt="Move Down"></a>
 			{/strip}</td>
 			<td class="item"><a href="{url _base='awards_edit.php' id=$a.id}">{$a.name|escape}</a><span class='sub'>{$a.description|escape}</span></td>
 			<td>{$a.type|escape}</td>
 			<td>{$a.gametype|default:'*'|escape}</td>
 			<td>{$a.modtype|default:'*'|escape}</td>
-			<td><img src="{theme->url}/img/icons/{if $a.enabled}tick{else}cross{/if}.png"/></td>
+			<td><img src="{theme->url}/img/icons/{if $a.enabled}tick{else}cross{/if}.png" alt="{if $a.enabled}Enabled{else}Disabled{/if}"></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="6" class="no-data">

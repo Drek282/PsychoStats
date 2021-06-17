@@ -46,15 +46,15 @@
 		<tr{cycle values=", class='even'"}>
 			<td class="iter">{$smarty.foreach.events.iteration+$start}</td>
 			<td class="idx">{strip}
-<a {if !$e.up}style="display: none"{/if} class="up" href="{url move='up' id=$e.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>
-<a {if !$e.down}style="display: none"{/if} class="dn" href="{url move='down' id=$e.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>
+<a {if !$e.up}style="display: none"{/if} class="up" href="{url move='up' id=$e.id}"><img src="{theme->url}/img/icons/arrow_up.png" alt="Move Up"></a>
+<a {if !$e.down}style="display: none"{/if} class="dn" href="{url move='down' id=$e.id}"><img src="{theme->url}/img/icons/arrow_down.png" alt="Move Down"></a>
 			{/strip}</td>
 			<td class="item"><a href="{url _base='events_edit.php' id=$e.id}">{$e.eventname|escape}</a><span class='sub'>{$e.regex|escape}</span></td>
 			<td>{$e.alias|default:'-'|escape}</td>
 			<td>{$e.codefile|default:'-'|escape}</td>
 			<td>{$e.gametype|default:'*'|escape}</td>
 			<td>{$e.modtype|default:'*'|escape}</td>
-			<td><img src="{theme->url}/img/icons/{if $e.ignore}stop{else}accept{/if}.png" alt="{if $e.ignore}ignore{else}active{/if}" /></td>
+			<td><img src="{theme->url}/img/icons/{if $e.ignore}stop{else}accept{/if}.png" alt="{if $e.ignore}Ignored{else}Active{/if}" /></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="8" class="no-data">

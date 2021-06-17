@@ -49,7 +49,7 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 			<td>[ <a href="{url _base='../player.php' id=$p.plrid}"><#stats#></a> ]</td>
 			<td>{if $p.userid}<a href="{url _base='users_edit.php' _ref=1 id=$p.userid}">{$p.username|escape}</a>{else}-{/if}</td>
 			<td>{$p.skill|escape}</td>
-			<td><img src="{theme->url}/img/icons/{if $p.allowrank}tick{else}cross{/if}.png"/></td>
+			<td><img src="{theme->url}/img/icons/{if $p.allowrank}tick{else}cross{/if}.png" alt="{if $p.allowrank}Allow Player to Rank{else}Disallow Rank{/if}"></td>
 			<td><input name="del[]" value="{$p.plrid}" type="checkbox" /></td>
 		</tr>
 {foreachelse}

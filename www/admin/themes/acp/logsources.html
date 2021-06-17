@@ -37,8 +37,8 @@ delete_message = "<#Are you sure you want to delete the log source?#>";
 {foreach from=$logsources item='log'}
 		<tr{cycle values=", class='even'"}>
 			<td class="idx">{strip}
-<a {if !$log.up}style="display: none"{/if} class="up" href="{url move='up' id=$log.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>
-<a {if !$log.down}style="display: none"{/if} class="dn" href="{url move='down' id=$log.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>
+<a {if !$log.up}style="display: none"{/if} class="up" href="{url move='up' id=$log.id}"><img src="{theme->url}/img/icons/arrow_up.png" alt="Move Up"></a>
+<a {if !$log.down}style="display: none"{/if} class="dn" href="{url move='down' id=$log.id}"><img src="{theme->url}/img/icons/arrow_down.png" alt="Move Down"></a>
 			{/strip}</td>
 			<td class="item"><a href="{url _base='logsources_edit.php' id=$log.id}">{$log.logsource|escape}</a>
 {if $log.lastupdate}
@@ -46,7 +46,7 @@ delete_message = "<#Are you sure you want to delete the log source?#>";
 {/if}
 			</td>
 			<td class="smaller">{if $log.lastupdate}{$log.lastupdate|datetime}{else}-{/if}</td>
-			<td><a class="toggle" href="{url toggle=1 id=$log.id}"><img src="{theme->url}/img/icons/{if $log.enabled}tick{else}cross{/if}.png"/></a></td>
+			<td><a class="toggle" href="{url toggle=1 id=$log.id}"><img src="{theme->url}/img/icons/{if $log.enabled}tick{else}cross{/if}.png" alt="{if $log.enabled}Enabled{else}Disabled{/if}"></a></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="4" class="no-data">
@@ -60,7 +60,7 @@ delete_message = "<#Are you sure you want to delete the log source?#>";
 	</div>
 	<div class="ps-table-footer">
 		<div class="legend">
-			<p>Click on the check <img src="{theme->url}/img/icons/tick.png"/> or cross <img src="{theme->url}/img/icons/cross.png"/> to quickly enable or disable the log source.</p>
+			<p>Click on the check <img src="{theme->url}/img/icons/tick.png" alt="Enable"> or cross <img src="{theme->url}/img/icons/cross.png" alt="Disable"> to quickly enable or disable the log source.</p>
 			<p><b><#Time#></b> is the last timestamp read from the log source.</p>
 			<p><b><#Map#></b> is the known map to be active from the log source.</p>
 			<p><b><#File#></b> is the last file read from the log source (and the last line read).</p>

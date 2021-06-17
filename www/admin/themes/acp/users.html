@@ -55,7 +55,7 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 			<td class="item"><a href="{url _base='users_edit.php' _ref=1 id=$u.userid}">{$u.username|escape}</a></td>
 			<td class="item">{if $u.plrid}<a href="{url _base='players_edit.php' _ref=1 id=$u.plrid}">{$u.name|escape}</a>{else}-{/if}</td>
 			<td>{user->acl_str acl=$u.accesslevel}</td>
-			<td><img src="{theme->url}/img/icons/{if $u.confirmed}tick{else}cross{/if}.png"/></td>
+			<td><img src="{theme->url}/img/icons/{if $u.confirmed}tick{else}cross{/if}.png" alt="{if $u.confirmed}Confirmed{else}Not Confirmed{/if}"></td>
 			<td>{if $u.userid != $user.userid}<input name="sel[]" value="{$u.userid}" type="checkbox" />{else}-{/if}</td>
 		</tr>
 {foreachelse}

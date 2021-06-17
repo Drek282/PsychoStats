@@ -33,8 +33,8 @@
 {foreach from=$clantags item='c'}
 		<tr{cycle values=", class='even'"}>
 			<td class="idx">{strip}
-{if $c.up}<a href="{url move='up' id=$c.id}"><img src="{theme->url}/img/icons/arrow_up.png"/></a>{/if}
-{if $c.down}<a href="{url move='down' id=$c.id}"><img src="{theme->url}/img/icons/arrow_down.png"/></a>{/if}
+{if $c.up}<a href="{url move='up' id=$c.id}"><img src="{theme->url}/img/icons/arrow_up.png" alt="Move Up"></a>{/if}
+{if $c.down}<a href="{url move='down' id=$c.id}"><img src="{theme->url}/img/icons/arrow_down.png" alt="Move Down"></a>{/if}
 			{/strip}</td>
 			<td class="item"><a href="{url _base='clantags_edit.php' id=$c.id}">{$c.clantag|escape}</a></td>
 			<td>{$c.overridetag|escape}</td>
