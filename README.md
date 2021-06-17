@@ -78,6 +78,7 @@ Most of the links and references to psychostats.com have been removed as that do
 * Full PHP 8.x compatibility.
 * Clean up deprecated PHP.
 * Clean up obsolete and deprecated html.
+* GDPR compliance.
 
 ## **Credits**
 
