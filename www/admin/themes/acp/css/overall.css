@@ -153,6 +153,12 @@ acronym {
 #ps-login-popup input.field {
 	margin: 0 0.2em 0 0.2em;
 }
+div#ps-login-inner {
+    text-align: center;
+}
+#ps-login-inner a {
+    font-size: larger;
+}
 #ps-login-inner p {
 	margin-bottom: 0.2em;
 }
