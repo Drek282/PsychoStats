@@ -22,14 +22,14 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 {if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
 
 <div{if $errors.enabled} class="err"{/if}>
-	<p class="err" id="err-enabled">{$errors.enabled|escape}</p>
+	<p class="err">{$errors.enabled|escape}</p>
 	<label><#Enabled?#></label>
 	<label class="for" for="enabled1"><input id="enabled1" name="enabled" value="1" {if  $form.enabled}checked="" {/if}type="radio" class="radio" /> Yes</label>
 	<label class="for" for="enabled2"><input id="enabled2" name="enabled" value="0" {if !$form.enabled}checked="" {/if}type="radio" class="radio" /> No</label>
 </div>
 
 <div{if $errors.negative} class="err"{/if}>
-	<p class="err" id="err-negative">{$errors.negative|escape}</p>
+	<p class="err">{$errors.negative|escape}</p>
 	<label><#Negative Award?#></label>
 	<label class="for" for="negative1"><input id="negative1" name="negative" value="1" {if  $form.negative}checked="" {/if}type="radio" class="radio" /> Yes</label>
 	<label class="for" for="negative2"><input id="negative2" name="negative" value="0" {if !$form.negative}checked="" {/if}type="radio" class="radio" /> No</label>
@@ -40,7 +40,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.type} class="err"{/if}>
-	<p class="err" id="err-type">{$errors.type|escape}</p>
+	<p class="err">{$errors.type|escape}</p>
 	<label><#Award Type#>:</label>
 	<select id="awardtype" name="type" class="field">
 		<option value="player" {if $form.type == 'player'}selected=""{/if}><#Player#></option>
@@ -50,7 +50,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div id="groupname" {if $form.type == 'player'}style="display: none"{/if} {if $errors.groupname} class="err"{/if}>
-	<p class="err" id="err-name">{$errors.groupname|escape}</p>
+	<p class="err">{$errors.groupname|escape}</p>
 	<label><#Group Title#>:</label>
 	<input name="name" value="{$form.groupname|escape}" type="text" class="field long" />
 	<p class="small">
@@ -61,7 +61,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.name} class="err"{/if}>
-	<p class="err" id="err-name">{$errors.name|escape}</p>
+	<p class="err">{$errors.name|escape}</p>
 	<label><#Award Name#>:</label>
 	<input name="name" value="{$form.name|escape}" type="text" class="field long" />
 	<p class="small">
@@ -71,7 +71,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.phrase} class="err"{/if}>
-	<p class="err" id="err-phrase">{$errors.phrase|escape}</p>
+	<p class="err">{$errors.phrase|escape}</p>
 	<label><#Award Phrase#>:</label>
 	<input name="phrase" value="{$form.phrase|escape}" type="text" class="field long" />
 	<p class="small">
@@ -82,7 +82,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.expr} class="err"{/if}>
-	<p class="err" id="err-expr">{$errors.expr|escape}</p>
+	<p class="err">{$errors.expr|escape}</p>
 	<label><#Expression#>:</label>
 	<input name="expr" value="{$form.expr|escape}" type="text" class="field long" />
 	<p class="small">
@@ -99,19 +99,19 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 	<p>If left blank the award will be used for all games or mods.</p>
 </div>
 <div{if $errors.gametype} class="err"{/if}>
-	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
+	<p class="err">{$errors.gametype|escape}</p>
 	<label><#Game Type#>:</label>
 	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
 </div>
 
 <div{if $errors.modtype} class="err"{/if}>
-	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
+	<p class="err">{$errors.modtype|escape}</p>
 	<label><#MOD Type#>:</label>
 	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
 </div>
 
 <div{if $errors.class} class="err"{/if}>
-	<p class="err" id="err-class">{$errors.class|escape}</p>
+	<p class="err">{$errors.class|escape}</p>
 	<label><#Award Class#>:</label>
 	<input name="class" value="{$form.class|escape}" type="text" class="field" />
 	<p class="small">
@@ -122,7 +122,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.where} class="err"{/if}>
-	<p class="err" id="err-where">{$errors.where|escape}</p>
+	<p class="err">{$errors.where|escape}</p>
 	<label><#Where Clause#>:</label>
 	<input name="where" value="{$form.where|escape}" type="text" class="field long" />
 	<p class="small">
@@ -133,14 +133,14 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.limit} class="err"{/if}>
-	<p class="err" id="err-limit">{$errors.limit|escape}</p>
+	<p class="err">{$errors.limit|escape}</p>
 	<label><#Maximum Results#>:</label>
 	<input name="limit" value="{$form.limit|escape}" type="text" class="field short" />
 	<p class="small">Maximum players included in the award results. 10 is default for all awards.</p>
 </div>
 
 <div{if $errors.order} class="err"{/if}>
-	<p class="err" id="err-order">{$errors.order|escape}</p>
+	<p class="err">{$errors.order|escape}</p>
 	<label><#Order#>:</label>
 	<select id="order" name="order" class="field">
 		<option value="desc" {if $form.order == 'desc'}selected=""{/if}><#Descending#></option>
@@ -152,7 +152,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.format} class="err"{/if}>
-	<p class="err" id="err-format">{$errors.format|escape}</p>
+	<p class="err">{$errors.format|escape}</p>
 	<label><#Format#>:</label>
 	<input name="format" value="{$form.format|escape}" type="text" class="field" />
 	<p class="small">
@@ -162,7 +162,7 @@ delete_message = "<#Are you sure you want to delete the award?#>";
 </div>
 
 <div{if $errors.description} class="err"{/if}>
-	<p class="err" id="err-description">{$errors.description|escape}</p>
+	<p class="err">{$errors.description|escape}</p>
 	<label><#Description#>: <small style="text-align: right"><#Plain text only#>&nbsp;</small></label>
 	<textarea name="description" rows="3" cols="40" class="field long">{$form.description|escape}</textarea>
 	<p class="small">

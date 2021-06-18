@@ -25,7 +25,7 @@
 	</p>
 	<p>
 		<input name="upload" type="submit" value="<#Upload from URL#>" class="up-btn" />
-		<input name="url" type="text" size="40" value="{$form.url|escape}" />
+		<input name="url" type="text" size="40" value="{$form.url|escape:'spaces_url'}" />
 	</p>
 </form>
 </div>
@@ -39,7 +39,7 @@
 	<h4><#Current Avatar Icons#></h4>
 	<p>
 		Click an icon to delete it. 
-		Highlighted icons <img class='readonly' src='{theme->url}/img/icons/cross.png' /> are read-only and can not be deleted due to file permissions.
+		Highlighted icons <img class='readonly' src='{theme->url}/img/icons/cross.png' alt="Read-Only"> are read-only and can not be deleted due to file permissions.
 
 		<br/><b><label><input id="confirm" type="checkbox" value="1" checked="checked" /> <#Confirm deletion?#></label></b>
 	</p>
@@ -47,10 +47,10 @@
 	<span>
 {if $i.is_writable}
 		<a class="icon" href="{url delete=$i.filename}" title="{$i.filename|escape} ({$i.size|abbrnum})">
-			<img {if $uploaded_icon == $i.filename}class='icon-uploaded'{/if} alt="{$i.filename|escape}" src="{$icons_url}/{$i.filename|escape}" />
+			<img {if $uploaded_icon == $i.filename}class='icon-uploaded'{/if} src="{$icons_url}/{$i.filename|escape:'spaces_url'}" alt="{$i.filename|escape:'spaces_text'}">
 		</a>
 {else}
-		<img class="readonly{if $uploaded_icon == $i.filename} icon-uploaded{/if}" src="{$icons_url}/{$i.filename|escape}" alt="{$i.filename|escape}"/>
+		<img class="readonly{if $uploaded_icon == $i.filename} icon-uploaded{/if}" src="{$icons_url}/{$i.filename|escape:'spaces_url'}" alt="{$i.filename|escape:'spaces_text'}">
 {/if}
 	</span>
 {/strip}{foreachelse}

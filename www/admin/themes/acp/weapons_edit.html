@@ -29,19 +29,19 @@
 {/if}
 
 <div{if $errors.uniqueid} class="err"{/if}>
-	<p class="err" id="err-uniqueid">{$errors.uniqueid|escape}</p>
+	<p class="err">{$errors.uniqueid|escape}</p>
 	<label><#Unique ID#>:</label>
 	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
 </div>
 
 <div{if $errors.name} class="err"{/if}>
-	<p class="err" id="err-name">{$errors.name|escape}</p>
+	<p class="err">{$errors.name|escape}</p>
 	<label><#Real Name#>:</label>
 	<input name="name" value="{$form.name|escape}" type="text" class="field" />
 </div>
 
 <div{if $errors.class} class="err"{/if}>
-	<p class="err" id="err-class">{$errors.class|escape}</p>
+	<p class="err">{$errors.class|escape}</p>
 	<label><#Weapon Class#>:</label>
 	<input name="class" value="{$form.class|escape}" type="text" class="field" />
 	<p class="small">
@@ -51,7 +51,7 @@
 </div>
 
 <div{if $errors.skillweight} class="err"{/if}>
-	<p class="err" id="err-skillweight">{$errors.skillweight|escape}</p>
+	<p class="err">{$errors.skillweight|escape}</p>
 	<label><#Skill Weight#>:</label>
 	<input name="skillweight" value="{$form.skillweight|escape}" type="text" class="field" />
 	<p class="small">
