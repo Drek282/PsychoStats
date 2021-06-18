@@ -36,7 +36,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" /></span>
 	[ <a href="javascript:toggle_gallery()"><#Toggle gallery#></a> ]
 </div>
-<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" />
+<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" alt="Spacer">
 <div id="icon-gallery" class="inline-notes" style="display: none;"><#Loading avatars, please wait#> ...</div>
 
 <div{if $errors.cc} class="err"{/if}>
@@ -55,7 +55,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<label><#HTML Logo#>:
 		<small><#Allowed Tags#>: {$allowed_html_tags}</small>
 	</label>
-	<textarea id="logo" name="logo" cols="30" rows="4" wrap="off" class="field long">{$form.logo|escape}</textarea>
+	<textarea id="logo" name="logo" cols="30" rows="4" wrap="soft" class="field long">{$form.logo|escape}</textarea>
 </div>
 
 <div class="inline-notes">

@@ -26,7 +26,7 @@
 
 <div class="details" id="details-{$server.id}"{if $active_tab != 'details'} style="display: none"{/if}>
 {if $server.timedout}
-		<span id="timeout-{$server.id}" class="timeout"><center><#Server timed out#> <a href="javascript:query({$server.id}, true)"><#Click here to refresh#></a></center></span>
+		<span id="timeout-{$server.id}" class="timeout"><#Server timed out#> <a href="javascript:query({$server.id}, true)"><#Click here to refresh#></a></span>
 {else}
 		<p><label><#Server#>:</label> <a href="{$server.connect_url}"><abbr title="<#Click to connect#>">{$server.host|escape}:{$server.port}</abbr></a> <span class="ping">(<#ping#>: {$server.ping}<#ms#>)</span></p>
 		<p><label><#Type#>:</label> {$server.serveros} {$server.servertype}</p>

@@ -473,6 +473,11 @@ div.row-sep {
 	border-bottom: 1px solid gray;
 	color: gray;
 }
+td.error-log {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /* --- clear floats ------------ */
 .ps-stat-container:after, 

@@ -41,7 +41,7 @@
 		</tr>
 {foreach from=$logs item='l'}
 		<tr{cycle values=", class='even'"}>
-			<td nowrap="">{$l.timestamp|datetime}</td>
+			<td class="error-log">{$l.timestamp|datetime}</td>
 			<td>{$l.severity}</td>
 			<td>{if $l.userid}<a href="{url _base='users.php' _ref=1 filter=$l.username}">{$l.username|escape}</a>{else}-{/if}</td>
 			<td class="left">{$l.msg|escape}</td>
@@ -54,7 +54,6 @@
 		</table>
 	</div>
 	{if $pager}<div class="ps-table-footer">{$pager}</div>{/if}
-	</form>
 </div>
 
 

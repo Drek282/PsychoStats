@@ -33,17 +33,17 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-icon">{$errors.icon|escape}</p>
 	<label><#Mini Avatar#>:</label>
 	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden" />
-	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" /></span>
+	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" alt="Avatar"></span>
 	[ <a href="javascript:toggle_gallery()"><#Toggle gallery#></a> ]
 </div>
-<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" />
+<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" alt="Spacer">
 <div id="icon-gallery" class="inline-notes" style="display: none;"><#Loading avatars, please wait#> ...</div>
 
 <div{if $errors.cc} class="err"{/if}>
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
 	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
-	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" />
+	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" alt="Flag">
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
 *}
@@ -55,7 +55,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<label><#HTML Logo#>:
 		<small><#Allowed Tags#>: {$allowed_html_tags}</small>
 	</label>
-	<textarea id="logo" name="logo" cols="30" rows="4" wrap="off" class="field long">{$form.logo|escape}</textarea>
+	<textarea id="logo" name="logo" cols="30" rows="4" wrap="soft" class="field long">{$form.logo|escape}</textarea>
 </div>
 
 <div class="inline-notes">
@@ -103,7 +103,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-latitude">{$errors.latitude|escape}</p>
 	<label><#Latitude#>:</label>
 	<input name="latitude" value="{$form.latitude|escape}" type="text" class="field" />
-	<a class="openmap" href="javascript:void(0)" title="Open Map"><img src="{theme->url}/img/icons/map.gif"/ alt="map"></a>
+	<a class="openmap" href="javascript:void(0)" title="Open Map"><img src="{theme->url}/img/icons/map.gif" alt="map"></a>
 </div>
 
 <div{if $errors.longitude} class="err"{/if}>

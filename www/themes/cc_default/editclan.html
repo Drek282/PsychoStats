@@ -33,17 +33,17 @@ clanid = parseInt({$clan.clanid});
 	<p class="err" id="err-icon">{$errors.icon|escape}</p>
 	<label><#Mini Avatar#>:</label>
 	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden" />
-	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" /></span>
+	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" alt="Avatar"></span>
 	[ <a href="javascript:toggle_gallery()"><#Toggle gallery#></a> ]
 </div>
-<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" />
+<img id="blank-icon" src="{theme->url}/img/spacer.gif" style="display: none" alt="Spacer">
 <div id="icon-gallery" class="inline-notes" style="display: none;"><#Loading avatars, please wait#> ...</div>
 
 <div{if $errors.cc} class="err"{/if}>
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
 	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
-	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" />
+	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" alt="Flag">
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
 *}
@@ -55,7 +55,7 @@ clanid = parseInt({$clan.clanid});
 	<label><#HTML Logo#>:
 		<small><#Allowed Tags#>: {$allowed_html_tags}</small>
 	</label>
-	<textarea id="logo" name="logo" cols="30" rows="4" wrap="off" class="field long">{$form.logo|escape}</textarea>
+	<textarea id="logo" name="logo" cols="30" rows="4" wrap="soft" class="field long">{$form.logo|escape}</textarea>
 </div>
 
 <div class="inline-notes">
@@ -131,7 +131,7 @@ clanid = parseInt({$clan.clanid});
 <div id="member-row" style="display:none">
 	<label><#Select Members#>:</label>
 	<input id="add-btn" value="<#Add Selected Members#>" type="button" class="btn add" />
-	<select id="member-list" name="add[]" multiple="1" class="field long" size="5">
+	<select id="member-list" name="add[]" multiple class="field long" size="5">
 		<option value=""><#Loading ...#></option>
 	</select>
 	<input name="id" value="{$id}" type="hidden" />
@@ -153,7 +153,7 @@ clanid = parseInt({$clan.clanid});
 			<td class="item"><a href="{url _base='editplr.php' id=$plr.plrid _ref=1}">{$plr.name|escape}</a></td>
 			<td>{$plr.uniqueid|escape}</td>
 			<td>{$plr.skill|escape}</td>
-			<td><a id="mem-{$plr.plrid}" href="{url id=$clan.clanid del=$plr.plrid}"><img src="{theme->url}/img/icons/delete.gif"/></a></td>
+			<td><a id="mem-{$plr.plrid}" href="{url id=$clan.clanid del=$plr.plrid}"><img src="{theme->url}/img/icons/delete.gif" alt="Delete"></a></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="5" class="no-data">
