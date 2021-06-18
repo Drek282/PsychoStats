@@ -23,16 +23,21 @@
 	<label><#Total Kills#></label>
 	<span>{$role.kills|commify}</span>
 </p>
+{if $role.headshotkills}
 <p class="substat">
 	<label><#Headshot Kills#></label>
 	{if $role.headshotkills}<em>{$role.headshotkillspct}%</em>{/if}
 	<span>{$role.headshotkills|commify}</span>
 </p>
+{/if}
+{if $role.ffkills}
 <p class="substat">
 	<label><#Friendly Fire#></label>
 	{if $role.ffkills}<em>{$role.ffkillspct}%</em>{/if}
 	<span>{$role.ffkills|commify}</span>
 </p>
+{/if}
+{if $role.shots}
 <p class="hl">
 	<label><#Overall Accuracy#></label>
 	<span>{$role.accuracy}%</span>
@@ -92,6 +97,7 @@
 	{if $role.shot_rightlegpct}<em>{$role.shot_rightlegpct}%</em>{/if}
 	<span>{$role.shot_rightleg|commify}</span>
 </p>
+{/if}
 </div>
 </div>
 
