@@ -74,4 +74,7 @@ if ($ajax_request) {
 	exit();
 }
 
+// clear PHP_SCNM or it will cause problems
+unset($PHP_SCNM);
+
 ?>

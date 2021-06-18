@@ -1086,4 +1086,7 @@ function _key($key, $root = null) {
 
 } // end of class PsychoThemeStyles
 
+// clear PHP_SCNM or it will cause problems
+unset($PHP_SCNM);
+
 ?>

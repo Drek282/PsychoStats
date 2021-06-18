@@ -55,7 +55,7 @@ if ($install != $opts['install']) {
 
 $pagename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/2column.css');
-$cms->theme->add_js("js/go.js");
+//$cms->theme->add_js("js/go.js");
 $cms->theme->add_js("js/go-$s.js");
 
 $cms->theme->assign_by_ref('allow_next', $allow_next);
