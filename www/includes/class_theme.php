@@ -145,7 +145,10 @@ function __construct(&$cms, $args = array()) {
 }  // end of constructor
  
 function PsychoTheme() {
-        self::__construct();
+    self::__construct();
+    
+    // clear PHP_SCNM or it will cause problems
+    unset($PHP_SCNM);
 }
 
 // assigns a list of request variable names to the theme by referernce so the theme can use them 
@@ -1085,8 +1088,5 @@ function _key($key, $root = null) {
 }
 
 } // end of class PsychoThemeStyles
-
-// clear PHP_SCNM or it will cause problems
-unset($PHP_SCNM);
 
 ?>

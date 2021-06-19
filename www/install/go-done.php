@@ -26,6 +26,9 @@
 */
 if (!defined("PSYCHOSTATS_INSTALL_PAGE")) die("Unauthorized access to " . basename(__FILE__));
 
+// clear PHP_SCNM or it will cause problems
+unset($PHP_SCNM);
+
 $validfields = array('done');
 $cms->theme->assign_request_vars($validfields, true);
 
@@ -73,8 +76,5 @@ if ($ajax_request) {
 	$cms->tiny_page($pagename, $pagename);
 	exit();
 }
-
-// clear PHP_SCNM or it will cause problems
-unset($PHP_SCNM);
 
 ?>
