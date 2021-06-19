@@ -127,6 +127,24 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
         (2629,'theme','map','standard_icon_shadow','man32.shadow.png','Standard Icon Shadow','text',0,'','','Default shadow icon.\r\n\r\nThis icon should be 59x32 or it might not display properly on the map.\r\n\r\nThis is a filename of an icon to use within the themes/[theme]/img/icons/ directory. No path or URL should be included on this path.'),
         (2630,'theme','map','enable_custom_icons','1','Enable Custom Player Icons?','boolean',0,'','','Should player icons be displayed in the map?\r\n\r\n<b>Note:</b> Due to various image sizes, custom player icons may not always display properly on the map and custom icons do not have a shadow.'),
         (2631,'main',NULL,'map_save_spatial','1','Save spatial statistics?','boolean',0,'','','Should spatial statistics be collected and saved? Spatial stats track where the location of a player is when they kill or die. These statistics allow for some advanced map overlays to be collected in the map statistics to produce Heatmaps.\r\n\r\n<b>Warning:</b> Enabling spatial statistics requires a lot of extra storage space in the database, and will require more memory when processing logs and will slow down log processing.\r\n\r\n<b>Requirement:</b> In order for spatial stats to be available you must run the PsychoStats plugin on your server.'),
+        (2700,'main','security','privacy_policy','
+            <h1>Privacy Policy</h1>
+            <div>		
+            <h2>What personal data we collect and why we collect it</h2>
+            <h3>Media</h3>
+            <p>If profiles, user logins and image uploads are enabled and you upload images to your profile you should avoid uploading images with embedded location data (EXIF GPS) included. Anyone viewing your images can download and extract any location data from those images.</p>
+            <h3>Cookies</h3>
+            <p>When you log in, we set up cookies to save your login information. Login cookies are temporary.</p>
+            <h3>Embedded content from other websites</h3>
+            <p>Profiles on this site may include embedded content (e.g. images, links, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
+            <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
+            <h3>How long we retain your data</h3>
+            <p>If you create a profile, your profile and its metadata are retained indefinitely.</p>
+            <p>For users that register in PsychoStats, we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p>
+            <p>PsychoStats users with administrator accounts also can view the SteamID and IP numbers of anyone that connects to the game server the logs are taken from.  This information is necessary for server administration.  This is covered by the Steam Privacy Policy Agreement provided by Valve.</p>
+            <p>You can view that Privacy Policy Agreement <a href=\"https://store.steampowered.com/privacy_agreement/\">here</a>.</p>
+            </div>',
+            'Privacy Policy','text',0,'','','This is the Privacy Policy for PsychoStats.'),
         (5000,'main',NULL,NULL,'Global configuration settings that affect how and what stats are collected and how users interact with your stats website.','General','none',1,NULL,NULL,NULL),
         (5001,'main','awards',NULL,'Settings that affect how often awards are calculated. To create or edit actual awards go to the <a href=\"awards.php\">awards list</a>.','Awards','none',1,NULL,NULL,NULL),
         (5002,'main','daily',NULL,'Settings that affect the \'daily\' calculations being run automatically during long stats.pl updates.','Daily Updates','none',1,NULL,NULL,NULL),
