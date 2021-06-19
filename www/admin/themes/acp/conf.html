@@ -76,6 +76,7 @@
 	<fieldset>
 {if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
 {foreach from=$conf_options item='o'}
+{if ! $o.locked}
 		<div id="row-{$o.id}" {if $errors[$o.id]} class="err"{/if}>
 {if $advanced_config}
 			<a href="{url _base='var.php' id=$o.id del=1}" class="del"><img class="del"  src="{theme->url}/img/icons/delete.png" alt="<#Delete#>" /></a>
@@ -88,6 +89,7 @@
 			<div class="var-help" id="help-{$o.id}" style="display: none">{$o.help|nl2br}</div>
 {/if}
 		</div>
+{/if}
 {/foreach}
 	</fieldset>
 </div>
