@@ -45,7 +45,7 @@ if ($t) {
 		// na... just silently ignore the language
 //		trigger_error("Invalid theme specified!", E_USER_WARNING);
 	}
-	previouspage($_SERVER['SCRIPT_NAME'] . "#" . ps_escape_html($t));
+	previouspage($php_scnm . "#" . ps_escape_html($t));
 }
 
 // assign variables to the theme

@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('ref','start','limit','filter','view');
@@ -88,7 +87,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper(array('_base' => 'manage.php' )));
-$cms->crumb('Error Logs', ps_url_wrapper(array('_base' => $_SERVER['SCRIPT_NAME'] )));
+$cms->crumb('Error Logs', ps_url_wrapper(array('_base' => $php_scnm )));
 
 // assign variables to the theme
 $cms->theme->assign(array(

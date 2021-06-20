@@ -45,6 +45,8 @@ if (empty($_SERVER['REQUEST_URI'])) {
 	}
 }
 
+define('PHP_SCNM', $_SERVER['SCRIPT_NAME']);		// this is used so much we make sure it's global
+
 // read in all of our required libraries for basic functionality!
 require_once(PS_ROOTDIR . "/includes/functions.php");
 require_once(PS_ROOTDIR . "/includes/class_DB.php");
@@ -121,7 +123,7 @@ $cms->init_theme('default', array(
 ));
 $cms->theme->load_styles();
 $cms->theme->assign(array(
-	'SELF'			=> $_SERVER['SCRIPT_NAME'],
+	'SELF'			=> PHP_SCNM,
 	'install_version'	=> PS_INSTALL_VERSION
 ));
 

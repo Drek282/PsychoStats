@@ -23,7 +23,6 @@
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
 define("PSYCHOSTATS_LOGIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', basename(__FILE__, '.php'));
 

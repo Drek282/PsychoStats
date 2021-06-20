@@ -93,9 +93,10 @@ if (is_dir(PS_ROOTDIR . "/install")) {
 // Lets be nice to the global Name Space.
 $ps		= null;				// global PsychoStats object
 $cms 		= null;				// global PsychoCMS object
+$php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-define('SAFE_PHP_SCNM', htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, 'UTF-8'));
+$safe_php_scnm = htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, 'UTF-8');
 
 // start PS object; all $dbxxxx variables are loaded from config.php
 #$ps = new PS(array(
@@ -113,7 +114,7 @@ $ps = PsychoStats::create(array(
 // initialize some defaults if no pre-set values are present for required directories and urls
 $t =& $ps->conf['theme']; //shortcut
 if (empty($t['script_url'])) {
-	$t['script_url'] = dirname($_SERVER['SCRIPT_NAME']); //dirname($PHP_SELF);
+	$t['script_url'] = dirname($php_scnm); //dirname($PHP_SELF);
 	if (defined("PSYCHOSTATS_ADMIN_PAGE") or defined("PSYCHOSTATS_SUBPAGE")) {
 		$t['script_url'] = dirname($t['script_url']);
 	}

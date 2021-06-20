@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 define("PSYCHOSTATS_LOGIN_PAGE", true);
 // prevent common.php from trying to login when script.php is requested from a
 // non-authenticated session. 

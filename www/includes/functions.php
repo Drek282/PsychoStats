@@ -344,6 +344,8 @@ function rename_file($oldfile,$newfile) {
 
 // builds an URL 
 function url($arg = array()) {
+    $php_scnm = $_SERVER['SCRIPT_NAME'];
+    
 	if (!is_array($arg)) $arg = array( '_base' => $arg );
 	$arg += array(					// argument defaults
 		'_base'		=> NULL,		// base URL; if NULL $PHP_SELF is used
@@ -355,7 +357,7 @@ function url($arg = array()) {
 		'_ref'		=> NULL,		// if true/numeric referrer is autoset, if a string it is used instead
 		// any other key => value pair is treated as a parameter in the URL
 	);
-	$base = ($arg['_base'] === NULL) ? ps_escape_html($_SERVER['SCRIPT_NAME']) : $arg['_base'];
+	$base = ($arg['_base'] === NULL) ? ps_escape_html($php_scnm) : $arg['_base'];
 	$enc = $arg['_encode'] ? 1 : 0;
 	$encodefunc = ($arg['_encodefunc'] && function_exists($arg['_encodefunc'])) ? $arg['_encodefunc'] : 'rawurlencode';
 	$i = (strpos($base, '?') === FALSE) ? 0 : 1;
@@ -370,7 +372,7 @@ function url($arg = array()) {
 	if ($arg['_ref']) {
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		if ($arg['_ref'] and $arg['_ref'] == 1) {
-			$base .= 'ref=' . $encodefunc($_SERVER['SCRIPT_NAME'] .
+			$base .= 'ref=' . $encodefunc($php_scnm .
 				($_SERVER['QUERY_STRING'] != null ? '?' . $_SERVER['QUERY_STRING'] : '')
 			);
 		} elseif (!empty($arg['_ref'])) {

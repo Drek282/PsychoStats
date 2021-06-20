@@ -21,6 +21,7 @@
  *	Version: $Id: common.php 539 2008-08-15 19:24:26Z lifo $
  */
 if (!defined("PSYCHOSTATS_ADMIN_PAGE")) die("Unauthorized access to " . basename(__FILE__));
+include("../includes/common.php");
 
 // ADMIN pages need to setup the theme a little differently than the others
 $opts = array( 
@@ -45,13 +46,13 @@ if ($opts['fetch_compile'] and !is_writable($opts['compile_dir'])) {
 $cms->init_theme('acp', $opts);
 $ps->theme_setup($cms->theme);
 
-$cms->crumb('Stats', dirname(dirname(SAFE_PHP_SCNM)) . '/');
+$cms->crumb('Stats', dirname(dirname($safe_php_scnm)) . '/');
 $cms->crumb('Admin', 'index.php');
 
-$file = basename($_SERVER['SCRIPT_NAME'], '.php');
+$file = basename($php_scnm, '.php');
 if (!$cms->user->admin_logged_in()) {
 	if (!defined("PSYCHOSTATS_LOGIN_PAGE")) {
-		gotopage(ps_url_wrapper(array('_base' => dirname($_SERVER['SCRIPT_NAME']) . '/login.php', '_ref' => $_SERVER['REQUEST_URI'])));
+		gotopage(ps_url_wrapper(array('_base' => dirname($php_scnm) . '/login.php', '_ref' => $_SERVER['REQUEST_URI'])));
 	}
 }
 

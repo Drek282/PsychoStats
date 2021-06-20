@@ -23,7 +23,6 @@
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
 define("PSYCHOSTATS_DISABLE_PLUGINS", true);	// we don't want plugins to function on this page
-include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('start','limit','order','move','id','enable','disable','install','uninstall');
@@ -163,7 +162,7 @@ if ($install) {
 				// plugin successfully installed whatever it needed ...
 				// now we install it in the database.
 				if ($cms->install_plugin($plugin, $info)) {
-					gotopage(ps_url_wrapper($_SERVER['SCRIPT_NAME']));
+					gotopage(ps_url_wrapper($php_scnm));
 				} else {
 					$message = $cms->message('failure', array(
 						'message_title'	=> $cms->trans("Plugin Installation Error"),
@@ -200,7 +199,7 @@ $pager = pagination(array(
 	'prev'		=> $cms->trans("Previous"),
 ));
 
-$cms->crumb("Plugins", $_SERVER['SCRIPT_NAME']);
+$cms->crumb("Plugins", $php_scnm);
 
 // assign variables to the theme
 $cms->theme->assign(array(

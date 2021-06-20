@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', basename(__FILE__, '.php'));
 
@@ -112,7 +111,7 @@ if (!is_array($config_layout[$s])) {
 }
 
 
-$cms->crumb("Config", ps_url_wrapper(array( '_base' => $_SERVER['SCRIPT_NAME'], 'ct' => $ct )));
+$cms->crumb("Config", ps_url_wrapper(array( '_base' => $php_scnm, 'ct' => $ct )));
 $cms->crumb($ct);
 
 $form = $cms->new_form();

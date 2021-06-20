@@ -73,6 +73,8 @@ var $_page_title	= '';
 
 //function __construct($cms, $args = array()) { $this->PsychoTheme($cms, $args); }
 function __construct(&$cms, $args = array()) {
+    $php_scnm = $_SERVER['SCRIPT_NAME'];
+    
 	$this->Smarty();
 	$this->cms =& $cms;
 
@@ -126,7 +128,7 @@ function __construct(&$cms, $args = array()) {
 	if ($this->theme_url === null) {
 		// if $base is '/' then don't use it, otherwise the theme_url will start with "//"
 		// and that will cause odd behavior as the client tries to do a network lookup for it
-		$base = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+		$base = str_replace('\\', '/', dirname($php_scnm));
 		$this->theme_url = ($base != '/' ? $base : '') . '/themes';
 	}
 
@@ -562,7 +564,11 @@ function language_dir($theme = null) {
 
 // Translate a string phrase, or return the original string if no translation is available.
 function trans($str, $args = array()) {
-	return $this->lang->gettext($str, $args);
+    if (is_null($str) or empty($args)) {
+        return $str;
+    } else {
+        return $this->lang->gettext($str, $args);
+    }
 }
 
 // Returns true if the specified language is actually available in the current theme.

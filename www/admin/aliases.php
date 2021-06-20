@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('ref','start','limit','filter');
@@ -52,7 +51,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));
-$cms->crumb('Player Aliases', ps_url_wrapper($_SERVER['SCRIPT_NAME']));
+$cms->crumb('Player Aliases', ps_url_wrapper($php_scnm));
 
 // assign variables to the theme
 $cms->theme->assign(array(

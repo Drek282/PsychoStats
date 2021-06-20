@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'users');
 

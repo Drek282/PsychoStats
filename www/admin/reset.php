@@ -22,7 +22,6 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
-include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('ref','cancel','submit');
@@ -84,7 +83,7 @@ if ($submit) {
 }
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));
-$cms->crumb('Reset Stats', ps_url_wrapper($_SERVER['SCRIPT_NAME']));
+$cms->crumb('Reset Stats', ps_url_wrapper($php_scnm));
 
 // save a new form key in the users session cookie
 // this will also be put into a 'hidden' field in the form
