@@ -1,4 +1,4 @@
-***This is just a quick note to let all our millions of fans know that the version in the repo at this very moment is broken.  The minions are working on the problem and we hope to have it resolved before long.  In the meantime the release version 3.2.7b, available over there on the left, should be functional.***
+***This is just a quick note to let all our millions of fans know that the version in the repo at this very moment is broken.  The minions are working on the problem and we hope to have it resolved before long.  In the meantime the release version 3.2.7b, available over there on the right, should be functional.***
 
 
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 5.3.0+ and MySQL 4.1.13+.
