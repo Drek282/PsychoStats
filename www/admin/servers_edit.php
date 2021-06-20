@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+include("../includes/common.php");
 include("./common.php");
 include("../includes/class_PQ.php");
 $cms->theme->assign('page', 'servers');

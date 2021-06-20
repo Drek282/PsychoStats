@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+include("../includes/common.php");
 include("./common.php");
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));

@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+include("../includes/common.php");
 include("./common.php");
 include_once(PS_ROOTDIR . "/includes/class_themeManager.php");
 

@@ -23,6 +23,7 @@
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
 define("PSYCHOSTATS_DISABLE_PLUGINS", true);	// we don't want plugins to function on this page
+include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('start','limit','order','move','id','enable','disable','install','uninstall');

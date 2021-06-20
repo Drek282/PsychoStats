@@ -21,7 +21,6 @@
  *	Version: $Id: common.php 539 2008-08-15 19:24:26Z lifo $
  */
 if (!defined("PSYCHOSTATS_ADMIN_PAGE")) die("Unauthorized access to " . basename(__FILE__));
-include("../includes/common.php");
 
 // ADMIN pages need to setup the theme a little differently than the others
 $opts = array( 

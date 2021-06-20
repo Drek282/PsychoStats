@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+include("../includes/common.php");
 include("./common.php");
 
 $validfields = array('ref','start','limit','order','sort','filter','c', 'sel', 'delete','confirm');
