@@ -141,7 +141,7 @@ if ($ps->conf['theme']['map']['google_key']) {
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'page'			=> basename($PHP_SCNM,'.php'),
+	'page'			=> basename($_SERVER['SCRIPT_NAME'],'.php'),
 	'activity_colors' 	=> $colors,
 ));
 

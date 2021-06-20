@@ -48,8 +48,7 @@ $ps->theme_setup($cms->theme);
 $cms->crumb('Stats', dirname(dirname(SAFE_PHP_SCNM)) . '/');
 $cms->crumb('Admin', 'index.php');
 
-define('PHP_SCNM', $_SERVER['SCRIPT_NAME']);
-$file = basename(PHP_SCNM, '.php');
+$file = basename($_SERVER['SCRIPT_NAME'], '.php');
 if (!$cms->user->admin_logged_in()) {
 	if (!defined("PSYCHOSTATS_LOGIN_PAGE")) {
 		gotopage(ps_url_wrapper(array('_base' => dirname($_SERVER['SCRIPT_NAME']) . '/login.php', '_ref' => $_SERVER['REQUEST_URI'])));

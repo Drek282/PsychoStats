@@ -135,20 +135,17 @@ function __construct(&$cms, $args = array()) {
 	$this->assign_by_ref('theme_name', $this->theme);
 	$this->assign_by_ref('language', $this->language);
 	$this->assign(array(
-		'PHP_SCNM'		=> ps_escape_html($_SERVER['SCRIPT_NAME']),
 		'SELF'			=> ps_escape_html($_SERVER['SCRIPT_NAME']),
 	));
 
 	// allow theme access to a couple methods of our objects
 	$this->register_object('theme', $this, array( 'css_links', 'js_sources', 'meta_tags', 'url', 'parent_url' ), false);
 	$this->register_object('db', $this->cms->db, array( 'totalqueries' ), false);
+	
 }  // end of constructor
  
 function PsychoTheme() {
     self::__construct();
-	
-	// clear PHP_SCNM or it will cause problems
-	destroy_php_scnm();
 }
 
 // assigns a list of request variable names to the theme by referernce so the theme can use them 
@@ -1088,11 +1085,5 @@ function _key($key, $root = null) {
 }
 
 } // end of class PsychoThemeStyles
-
-    
-// function to clear PHP_SCNM
-function destroy_php_scnm() {
-    if(isset($_SERVER['SCRIPT_NAME'])) unset($_SERVER['SCRIPT_NAME']);
-}
 
 ?>

@@ -77,7 +77,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper(array('_base' => 'manage.php' )));
-$cms->crumb('Players', ps_url_wrapper(array('_base' => PHP_SCNM )));
+$cms->crumb('Players', ps_url_wrapper(array('_base' => $_SERVER['SCRIPT_NAME'] )));
 
 
 // assign variables to the theme

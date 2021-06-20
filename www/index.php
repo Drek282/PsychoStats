@@ -52,7 +52,7 @@ if (isset($cms->input['language'])) {
 		// na... just silently ignore the language
 //		trigger_error("Invalid theme specified!", E_USER_WARNING);
 	}
-	previouspage(PHP_SCNM);
+	previouspage($_SERVER['SCRIPT_NAME']);
 }
 
 $total = array();

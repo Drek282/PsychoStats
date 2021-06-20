@@ -311,7 +311,7 @@ function timeurl($time) {
 		$func = $this->conf['timeurl_callback'];
 		$url = $func($this, $time);
 	} else {
-		$url = sprintf("PHP_SCNM?%s=%d", $this->conf['timevar'], $time);
+		$url = sprintf("$_SERVER['SCRIPT_NAME']?%s=%d", $this->conf['timevar'], $time);
 		if ($this->conf['timeurl']) $url .= "&amp;" . $this->conf['timeurl'];
 	}
 	return $url;

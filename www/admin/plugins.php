@@ -163,7 +163,7 @@ if ($install) {
 				// plugin successfully installed whatever it needed ...
 				// now we install it in the database.
 				if ($cms->install_plugin($plugin, $info)) {
-					gotopage(ps_url_wrapper(PHP_SCNM));
+					gotopage(ps_url_wrapper($_SERVER['SCRIPT_NAME']));
 				} else {
 					$message = $cms->message('failure', array(
 						'message_title'	=> $cms->trans("Plugin Installation Error"),
@@ -200,7 +200,7 @@ $pager = pagination(array(
 	'prev'		=> $cms->trans("Previous"),
 ));
 
-$cms->crumb("Plugins", PHP_SCNM);
+$cms->crumb("Plugins", $_SERVER['SCRIPT_NAME']);
 
 // assign variables to the theme
 $cms->theme->assign(array(

@@ -88,7 +88,7 @@ $pager = pagination(array(
 ));
 
 $cms->crumb('Manage', ps_url_wrapper(array('_base' => 'manage.php' )));
-$cms->crumb('Error Logs', ps_url_wrapper(array('_base' => $PHP_SCNM )));
+$cms->crumb('Error Logs', ps_url_wrapper(array('_base' => $_SERVER['SCRIPT_NAME'] )));
 
 // assign variables to the theme
 $cms->theme->assign(array(

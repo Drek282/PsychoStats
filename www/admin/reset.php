@@ -84,7 +84,7 @@ if ($submit) {
 }
 
 $cms->crumb('Manage', ps_url_wrapper($_SERVER['REQUEST_URI']));
-$cms->crumb('Reset Stats', ps_url_wrapper(PHP_SCNM));
+$cms->crumb('Reset Stats', ps_url_wrapper($_SERVER['SCRIPT_NAME']));
 
 // save a new form key in the users session cookie
 // this will also be put into a 'hidden' field in the form
