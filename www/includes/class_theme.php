@@ -567,7 +567,7 @@ function trans($str, $args = array()) {
     if (is_null($str) and empty($args)) {
         return $str;
     } else {
-        return $this->lang->gettext($str, $args);
+        return $this->lang->gettrans($str, $args);
     }
 }
 
