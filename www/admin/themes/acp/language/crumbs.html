@@ -1,0 +1,17 @@
+<!--#BREAD_CRUMBS#-->
+{if $breadcrumbs}
+<div id="ps-crumbs">
+<ul>
+{foreach name='bc' from=$breadcrumbs item='b'}
+	<li{if $smarty.foreach.bc.last} class="last"{/if}>{strip}
+	{if is_array($b)}
+		<a href="{$b.link}">{$b.label|escape}</a>
+	{else}
+		{$b|escape}
+	{/if}
+	{/strip}</li>
+{/foreach}
+</ul>
+</div>
+{/if}
+<!---->

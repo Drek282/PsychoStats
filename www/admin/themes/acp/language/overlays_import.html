@@ -1,0 +1,57 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+{$message}
+
+<div class="ps-form-container" id="ps-{$page}-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend><#Import Overlay XML#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+
+<div{if $errors.overwrite} class="err"{/if}>
+	<p class="err" id="err-overwrite">{$errors.overwrite|escape}</p>
+	<label><#Overwrite?#>:</label>
+	<input name="overwrite" value="1" type="checkbox" {if $form.overwrite}checked="checked"{/if} />
+	<small><#If checked: Imported maps will overwrite duplicate maps in the database.#></small>
+</div>
+
+<div{if $errors.xml} class="err"{/if}>
+	<p class="err" id="err-xml">{$errors.xml|escape}</p>
+	<label><#Overlay XML#>:
+		<small><#Copy and paste the XML to import.#></small>
+		<small><#The root &lt;maps&gt; node of the XML can be ommitted.#></small>
+	</label>
+	<textarea name="xml" cols="20" rows="10" class="long">{$form.xml|escape}</textarea>
+</div>
+
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="ref" value="{$ref}" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}

@@ -144,7 +144,7 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <p>PsychoStats users with administrator accounts also can view the SteamID and IP numbers of anyone that connects to the game server the logs are taken from.  This information is necessary for game server and PsychoStats administration.  This is covered by the Steam Privacy Policy Agreement provided by Valve.</p>
             <p>You can view that Privacy Policy Agreement <a href=\"https://store.steampowered.com/privacy_agreement/\">here</a>.</p>
             </div>',
-            'Privacy Policy','textarea',0,'','','This is the Privacy Policy for PsychoStats.'),
+            'Site Privacy Policy','textarea',0,'','','This is the Privacy Policy for PsychoStats.  It uses html formatting.'),
         (5000,'main',NULL,NULL,'Global configuration settings that affect how and what stats are collected and how users interact with your stats website.','General','none',1,NULL,NULL,NULL),
         (5001,'main','awards',NULL,'Settings that affect how often awards are calculated. To create or edit actual awards go to the <a href=\"awards.php\">awards list</a>.','Awards','none',1,NULL,NULL,NULL),
         (5002,'main','daily',NULL,'Settings that affect the \'daily\' calculations being run automatically during long stats.pl updates.','Daily Updates','none',1,NULL,NULL,NULL),

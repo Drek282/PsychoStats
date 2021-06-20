@@ -1,0 +1,103 @@
+<!--outermost page container for all content-->
+<div id="ps-page-container">
+
+<!--inner container for the content-->
+<div id="ps-main">
+
+{include file="crumbs.html"}
+
+<!--content block-->
+<div id="ps-main-content" class="ps-page-{$page}">
+
+
+<div class="ps-form-container" id="ps-var-form">
+<div class="ps-form">
+<form method="post" action="{url}">
+<fieldset>
+<legend><#Config Option Editor#></legend>
+{if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
+<div class="notes">
+	<h4><#Advanced usage only#></h4>
+	<p><#Normal configuration options should not be edited from this form unless you know what you're doing.#></p>
+</div>
+<div{if $errors.conftype} class="err"{/if}>
+	<p class="err" id="err-conftype">{$errors.conftype|escape}</p>
+	<label><#Config Type#>:</label>
+	<input name="conftype" value="{$form.conftype|escape}" type="text" class="field" />
+</div>
+<div{if $errors.section} class="err"{/if}>
+	<p class="err" id="err-section">{$errors.section|escape}</p>
+	<label><#Section#>:</label>
+	<input name="section" value="{$form.section|escape}" type="text" class="field" />
+</div>
+<div{if $errors.var} class="err"{/if}>
+	<p class="err" id="err-var">{$errors.var|escape}</p>
+	<label><#Variable#>:</label>
+	<input name="var" value="{$form.var|escape}" type="text" class="field" />
+</div>
+<div{if $errors.value} class="err"{/if}>
+	<p class="err" id="err-value">{$errors.value|escape}</p>
+	<label><#Value#>:</label>
+	<input name="value" value="{$form.value|escape}" type="text" class="field" />
+</div>
+<div class="inline-notes">
+	<h4><#Layout Settings#></h4>
+	<p><#The layout settings define how the config option is displayed in the main configuration form#></p>
+</div>
+<div{if $errors.label} class="err"{/if}>
+	<p class="err" id="err-label">{$errors.label|escape}</p>
+	<label><#Variable Label#>:</label>
+	<input name="label" value="{$form.label|escape}" type="text" class="field" />
+</div>
+<div{if $errors.type} class="err"{/if}>
+	<p class="err" id="err-type">{$errors.type|escape}</p>
+	<label><#Input Type#>:</label>
+	<select name="type" class="field">
+{foreach from=$input_types item='i'}
+		<option{if $i == $form.type} selected{/if}>{$i}</option>
+{/foreach}
+	</select>
+</div>
+<div{if $errors.verifycodes} class="err"{/if}>
+	<p class="err" id="err-verifycodes">{$errors.verifycodes|escape}</p>
+	<label><#Verify Codes#>:</label>
+	<input name="verifycodes" value="{$form.verifycodes|escape}" size="6" type="text" class="field" />
+</div>
+{*
+<div class="notes">
+	<h4>Options</h4>
+	<p>Special options are used to specify attributes or menus for each input type</p>
+</div>
+*}
+<div{if $errors.options} class="err"{/if}>
+	<p class="err" id="err-options">{$errors.options|escape}</p>
+	<label><#Options#>:</label>
+	<textarea class="long" name="options" rows="3" wrap="virtual">{$form.options|escape}</textarea>
+</div>
+<div{if $errors.help} class="err"{/if}>
+	<p class="err" id="err-help">{$errors.help|escape}</p>
+	<label><#Help Text#>:</label>
+	<textarea class="long" name="help" rows="5" wrap="virtual">{$form.help|escape}</textarea>
+</div>
+</fieldset>
+<fieldset>
+<div class="submit">
+	<input name="submit" value="1" type="hidden" />
+	<input name="key" value="{$form_key}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden" />
+	<input name="ct" value="{$ct}" type="hidden" />
+	<input name="s" value="{$s}" type="hidden" />
+	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+</div>
+</fieldset>
+</form>
+</div>
+</div>
+
+
+</div> {* end ps-main-content *}
+
+</div> {* end ps-main *}
+
+</div> {* end ps-page-container *}
