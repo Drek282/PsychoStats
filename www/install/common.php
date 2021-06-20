@@ -45,8 +45,6 @@ if (empty($_SERVER['REQUEST_URI'])) {
 	}
 }
 
-define('PHP_SCNM', $_SERVER['SCRIPT_NAME']);		// this is used so much we make sure it's global
-
 // read in all of our required libraries for basic functionality!
 require_once(PS_ROOTDIR . "/includes/functions.php");
 require_once(PS_ROOTDIR . "/includes/class_DB.php");
@@ -64,20 +62,21 @@ $dbuser = '';
 $dbpass = '';
 $dbtblprefix = 'ps_';
 $site_url = '';
-if (file_exists(PS_ROOTDIR . "/config.php")) @include_once(PS_ROOTDIR . "/config.php");
-else {
-        echo "You must install game support before you can install PsychoStats, please see INSTALL.md for details.";
-        exit;
+if (file_exists(PS_ROOTDIR . "/config.php")) {
+    @include_once(PS_ROOTDIR . "/config.php");
+} else {
+    echo "You must install game support before you can install PsychoStats, please see INSTALL.md for details.";
+    exit;
 }
 
 // Initialize our global variables for PsychoStats. 
 // Lets be nice to the global Name Space.
 $db		= null;
 $cms 		= null;				// global PsychoCMS object
-//$PHP_SELF 	= $_SERVER['PHP_SELF'];		// this is used so much we make sure it's global
+$php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-//define(SAFE_PHP_SELF, htmlentities($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'));
+define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
 
 // create database handle
 $db = PsychoDB::create(array(
@@ -123,7 +122,7 @@ $cms->init_theme('default', array(
 ));
 $cms->theme->load_styles();
 $cms->theme->assign(array(
-	'SELF'			=> PHP_SCNM,
+	'SELF'			=> SAFE_PHP_SCNM,
 	'install_version'	=> PS_INSTALL_VERSION
 ));
 

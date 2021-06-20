@@ -45,7 +45,7 @@ if ($opts['fetch_compile'] and !is_writable($opts['compile_dir'])) {
 $cms->init_theme('acp', $opts);
 $ps->theme_setup($cms->theme);
 
-$cms->crumb('Stats', dirname(dirname($safe_php_scnm)) . '/');
+$cms->crumb('Stats', dirname(dirname(SAFE_PHP_SCNM)) . '/');
 $cms->crumb('Admin', 'index.php');
 
 $file = basename($php_scnm, '.php');

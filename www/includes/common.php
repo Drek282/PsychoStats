@@ -77,10 +77,11 @@ require_once(PS_ROOTDIR . "/includes/class_CMS.php");
 
 // load the basic config
 $dbtype = $dbhost = $dbport = $dbname = $dbuser = $dbpass = $dbtblprefix = '';
-if (file_exists(PS_ROOTDIR . "/config.php")) require_once(PS_ROOTDIR . "/config.php");
-else {
-        echo "You must install game support before you can use PsychoStats, please see INSTALL.md for details.";
-        exit;
+if (file_exists(PS_ROOTDIR . "/config.php")) {
+    require_once(PS_ROOTDIR . "/config.php");
+} else {
+    echo "You must install game support before you can use PsychoStats, please see INSTALL.md for details.";
+    exit;
 }
 
 // don't proceed if the install directory still exists
@@ -96,7 +97,7 @@ $cms 		= null;				// global PsychoCMS object
 $php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-$safe_php_scnm = htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, 'UTF-8');
+define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
 
 // start PS object; all $dbxxxx variables are loaded from config.php
 #$ps = new PS(array(

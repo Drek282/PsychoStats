@@ -34,7 +34,7 @@ $cms->theme->assign_request_vars($validfields, true);
 if ($cms->user->admin_logged_in()) {
 	$cms->session->is_admin(0);
 }
-previouspage(dirname(dirname($_SERVER['SCRIPT_NAME'])));
+previouspage(dirname(dirname($php_scnm)));
 
 // A page is never displayed for logout. Just redirect somewhere else.
 

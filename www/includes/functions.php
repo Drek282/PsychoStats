@@ -344,8 +344,6 @@ function rename_file($oldfile,$newfile) {
 
 // builds an URL 
 function url($arg = array()) {
-    $php_scnm = $_SERVER['SCRIPT_NAME'];
-    
 	if (!is_array($arg)) $arg = array( '_base' => $arg );
 	$arg += array(					// argument defaults
 		'_base'		=> NULL,		// base URL; if NULL $PHP_SELF is used

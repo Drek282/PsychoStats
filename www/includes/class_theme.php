@@ -73,8 +73,6 @@ var $_page_title	= '';
 
 //function __construct($cms, $args = array()) { $this->PsychoTheme($cms, $args); }
 function __construct(&$cms, $args = array()) {
-    $php_scnm = $_SERVER['SCRIPT_NAME'];
-    
 	$this->Smarty();
 	$this->cms =& $cms;
 
@@ -128,7 +126,7 @@ function __construct(&$cms, $args = array()) {
 	if ($this->theme_url === null) {
 		// if $base is '/' then don't use it, otherwise the theme_url will start with "//"
 		// and that will cause odd behavior as the client tries to do a network lookup for it
-		$base = str_replace('\\', '/', dirname($php_scnm));
+		$base = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
 		$this->theme_url = ($base != '/' ? $base : '') . '/themes';
 	}
 
@@ -137,7 +135,8 @@ function __construct(&$cms, $args = array()) {
 	$this->assign_by_ref('theme_name', $this->theme);
 	$this->assign_by_ref('language', $this->language);
 	$this->assign(array(
-		'SELF'			=> ps_escape_html($_SERVER['SCRIPT_NAME']),
+		'php_scnm'			=> ps_escape_html($php_scnm),
+		'SELF'			=> ps_escape_html($php_scnm),
 	));
 
 	// allow theme access to a couple methods of our objects
