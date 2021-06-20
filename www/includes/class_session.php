@@ -260,7 +260,7 @@ function delete_cookie($suffix='_id') {
 
 function _read_session($sid) {
 	$res = $this->db->query("SELECT * FROM " . $this->db->qi($this->config['db_session_table']) . " WHERE session_id=" . $this->db->escape($sid, true));
-	if (!$res) die("<br />Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br />");
+	if (!$res) die("<br>Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br>");
 	$this->sessdata = $this->db->num_rows() > 0 ? $this->db->fetch_row() : $this->_init_new_session();
 }
 
@@ -268,7 +268,7 @@ function _save_session() {
 	if ($this->ended) return 1;		// do not save anything if the session was end()'ed
 	$res = $this->db->query("SELECT session_id FROM " . $this->db->qi($this->config['db_session_table']) . " WHERE session_id=" . $this->db->escape($this->sessdata['session_id'], true));
 	list($exists) = $this->db->fetch_row(0);
-	if (!$res) die("<br />Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br />");
+	if (!$res) die("<br>Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br>");
 
 	// don't allow a blank key, set it to null instead
 	if (empty($this->sessdata['session_key'])) $this->sessdata['session_key'] = null;
@@ -289,7 +289,7 @@ function _save_session() {
 //	print "SAVE SESSION: $cmd<br>";
 	$res = $this->db->query($cmd);
 */
-	if (!$res) die("<br />Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br />");
+	if (!$res) die("<br>Fatal Session Error: in function  <b>" .  __FUNCTION__ . "</b>, in file <b>" . __FILE__ . "</b> at line <b>" . __LINE__ . "</b>: " . $this->db->lasterr() . "<br>");
 }
 
 function _init_new_session() {
