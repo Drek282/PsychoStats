@@ -25,6 +25,11 @@
 		<br/><strong>[ <a href="{url _base='admin/index.php'}"><#Login to admin control panel#></a> ]</strong>
 		{/if}
 	</div>
+{if $conf.main.security.show_privacy_policy}
+	<div class="privacy">
+		[ <a href="{url _base='privacy.php'}"><#Privacy Policy#></a> ]
+	</div>
+{/if}
 </div>
 </div>
 

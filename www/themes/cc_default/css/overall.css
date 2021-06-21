@@ -121,6 +121,9 @@ body.psychostats {
 #ps-overall-footer select option {
 	padding-right: 1em;
 }
+#ps-overall-footer div.privacy {
+	font-weight: bold;
+}
 
 /* --- OVERALL LOGIN POPUP --------------------------------------------- */
 #ps-login-popup {

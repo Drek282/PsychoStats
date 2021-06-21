@@ -52,6 +52,29 @@
 	text-align: left;
 }
 
+#ps-page-privacy {
+    color: #222;
+    font-size: 1.2em;
+	padding: 20px;
+	margin: 20px 15% 20px;
+	border: 2px solid #888;
+	text-align: left;
+}
+
+#ps-page-privacy div, #ps-page-privacy p {
+	padding: 5px;
+}
+
+#ps-page-privacy h1, #ps-page-privacy h2, #ps-page-privacy h3, #ps-page-privacy h4 {
+    color: #000;
+    font-weight: bold;
+	padding-top: 20px;
+}
+
+#ps-page-privacy p {
+	padding: 5px;
+}
+
 #ps-container div.ps-plr-profile div.row {
 	margin: 3px 0;
 }
