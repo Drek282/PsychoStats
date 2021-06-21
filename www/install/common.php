@@ -62,7 +62,7 @@ $dbuser = '';
 $dbpass = '';
 $dbtblprefix = 'ps_';
 $site_url = '';
-if (file_exists(PS_ROOTDIR . "/config.php")) {
+if (file_exists(PS_ROOTDIR . "/config.php") and file_exists(PS_ROOTDIR . "/install/go-dbinit.php")) {
     @include_once(PS_ROOTDIR . "/config.php");
 } else {
     echo "You must install game support before you can install PsychoStats, please see INSTALL.md for details.";
