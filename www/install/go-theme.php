@@ -65,7 +65,7 @@ if(!is_writable($defaultdir)) @chmod($default_temp,0755); //try to fix, but won'
 
 // Windows/IIS seems to have permission issues with creating and writting files to a sub-dir of windows\temp\...
 // so we'll default to the temp directory w/o an extra sub-directory for our themes.
-if (php_sapi_name() == 'isapi') $defaultdir = dirname($defaultdir);
+if (php_sapi_name() == 'isapi') $defaultdir = rtrim(dirname($defaultdir), '/\\');
 
 // we're not going to check the locked variable here...
 list($orig_compiledir,$is_locked) = $db->fetch_row(0,"SELECT value,locked FROM " . $db->table('config') . " WHERE conftype='theme' AND var='compile_dir' LIMIT 1");

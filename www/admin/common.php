@@ -22,6 +22,12 @@
  */
 if (!defined("PSYCHOSTATS_ADMIN_PAGE")) die("Unauthorized access to " . basename(__FILE__));
 
+// Initialize our global variables for PsychoStats. 
+$php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
+// Sanitize PHP_SELF and avoid XSS attacks.
+// We use the constant in places we know we'll be outputting $PHP_SELF to the user
+define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
+
 // ADMIN pages need to setup the theme a little differently than the others
 $opts = array( 
 	'theme_default'	=> 'acp',
@@ -45,22 +51,22 @@ if ($opts['fetch_compile'] and !is_writable($opts['compile_dir'])) {
 $cms->init_theme('acp', $opts);
 $ps->theme_setup($cms->theme);
 
-$cms->crumb('Stats', dirname(dirname(SAFE_PHP_SCNM)) . '/');
+$cms->crumb('Stats', rtrim(dirname(rtrim(dirname(SAFE_PHP_SCNM), '/\\')), '/\\') . '/');
 $cms->crumb('Admin', 'index.php');
 
 $file = basename($php_scnm, '.php');
 if (!$cms->user->admin_logged_in()) {
 	if (!defined("PSYCHOSTATS_LOGIN_PAGE")) {
-		gotopage(ps_url_wrapper(array('_base' => dirname($php_scnm) . '/login.php', '_ref' => $_SERVER['REQUEST_URI'])));
+		gotopage(ps_url_wrapper(array('_base' => rtrim(dirname($php_scnm), '/\\') . '/login.php', '_ref' => $_SERVER['REQUEST_URI'])));
 	}
 }
 
 // Set flag if the install directory (go script) is still readable by the
 // webserver. Admins need to remove the install directory after installation.
-if (is_readable(catfile(dirname(__DIR__), 'install', 'go.php'))) {
+if (is_readable(catfile(rtrim(dirname(__DIR__), '/\\'), 'install', 'go.php'))) {
 	$cms->theme->assign(array(
 		'install_dir_insecure' 	=> true,
-		'install_dir'		=> catfile(dirname(__DIR__), 'install')
+		'install_dir'		=> catfile(rtrim(dirname(__DIR__), '/\\'), 'install')
 	));
 }
 

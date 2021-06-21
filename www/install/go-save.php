@@ -63,7 +63,7 @@ $can_write = false;
 $is_saved = verify_config();
 $allow_next = $is_saved;
 $config_file = 'config.php';
-$real_config_file = realpath(dirname(__DIR__)) . DIRECTORY_SEPARATOR . $config_file;
+$real_config_file = realpath(rtrim(dirname(__DIR__), '/\\')) . DIRECTORY_SEPARATOR . $config_file;
 $can_ftp = extension_loaded('ftp');
 
 $cms->theme->assign_by_ref('errors', $errors);
@@ -123,7 +123,7 @@ if ($can_ftp and !$is_saved) {
 }
 
 // try to determine reasonable FTP settings if none were supplied
-if (empty($ftphost) and empty($ftpdir)) $ftpdir = dirname($real_config_file);
+if (empty($ftphost) and empty($ftpdir)) $ftpdir = rtrim(dirname($real_config_file), '/\\');
 if (empty($ftphost)) $ftphost = $_SERVER['SERVER_NAME'];
 if (empty($username)) $username = 'anonymous';
 

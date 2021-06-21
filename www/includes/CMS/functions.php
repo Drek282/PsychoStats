@@ -56,7 +56,7 @@ if (!function_exists('ps_session_start')) {
 	/** 
 	Starts up the session for the current page request
 	*/
-	require_once(dirname(__DIR__) . "/class_session.php");
+	require_once(rtrim(dirname(__DIR__), '/\\') . "/class_session.php");
 	function ps_session_start(&$cms) {
 		global $ps;
 		$time = $ps->conf['main']['security']['cookie_life'];

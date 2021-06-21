@@ -38,7 +38,7 @@ define("PS_RELEASE_DATE", 'today');
 
 // define the directory where we live. Since this file is always 1 directory deeper
 // we know the parent directory is the actual root. DOCUMENT_ROOT.
-define("PS_ROOTDIR", dirname(__DIR__));
+define("PS_ROOTDIR", rtrim(dirname(__DIR__), '/\\'));
 
 // enable some sane error reporting (ignore notice errors) and turn off the magic. 
 // we also want to to disable E_STRICT.
@@ -115,9 +115,9 @@ $ps = PsychoStats::create(array(
 // initialize some defaults if no pre-set values are present for required directories and urls
 $t =& $ps->conf['theme']; //shortcut
 if (empty($t['script_url'])) {
-	$t['script_url'] = dirname($php_scnm); //dirname($PHP_SELF);
+	$t['script_url'] = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\'); //dirname($PHP_SELF);
 	if (defined("PSYCHOSTATS_ADMIN_PAGE") or defined("PSYCHOSTATS_SUBPAGE")) {
-		$t['script_url'] = dirname($t['script_url']);
+		$t['script_url'] = rtrim(dirname($t['script_url']), '/\\');
 	}
 }
 // template directory is figured out here now, instead of leaving it null for theme class so that the admin

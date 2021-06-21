@@ -1992,7 +1992,7 @@ function ip_lookup($ip) {
 	if (substr($url,0,4) == 'http') {	// URL LOOKUP
 		$ipstr = is_array($ip) ? implode(',',$ip) : $ip;
 		$url = (strpos($url, '$ip') === FALSE) ? $url.$ipstr : str_replace('$ip', $ipstr, $url);
-		include_once(dirname(__DIR__) . '/class_HTTP.php');
+		include_once(rtrim(dirname(__DIR__), '/\\') . '/class_HTTP.php');
 		$lookup = new HTTP_Request($url);
 		$text = $lookup->download();
 		return $text;
@@ -2173,8 +2173,8 @@ function weaponimg($w, $args = array()) {
 		}
 		if (empty($file)) {
 			if (--$depth) {	// try the next parent directory
-				$basedir = dirname($basedir);
-				$baseurl = dirname($baseurl);
+				$basedir = rtrim(dirname($basedir), '/\\');
+				$baseurl = rtrim(dirname($baseurl), '/\\');
 				continue;
 			}
 			// we're done... 
@@ -2239,8 +2239,8 @@ function roleimg($w, $args = array()) {
 		}
 		if (empty($file)) {
 			if (--$depth) {	// try the next parent directory
-				$basedir = dirname($basedir);
-				$baseurl = dirname($baseurl);
+				$basedir = rtrim(dirname($basedir), '/\\');
+				$baseurl = rtrim(dirname($baseurl), '/\\');
 				continue;
 			}
 			// we're done... 
@@ -2321,8 +2321,8 @@ function mapimg($m, $args = array()) {
 		}
 		if (empty($file)) {
 			if (--$depth) {	// try the next parent directory
-				$basedir = dirname($basedir);
-				$baseurl = dirname($baseurl);
+				$basedir = rtrim(dirname($basedir), '/\\');
+				$baseurl = rtrim(dirname($baseurl), '/\\');
 				continue;
 			}
 			// we're done... 

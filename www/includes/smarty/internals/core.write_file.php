@@ -15,7 +15,7 @@
  */
 function smarty_core_write_file($params, &$smarty)
 {
-    $_dirname = dirname($params['filename']);
+    $_dirname = rtrim(dirname($params['filename']), '/\\');
 
     if ($params['create_dirs']) {
         $_params = array('dir' => $_dirname);

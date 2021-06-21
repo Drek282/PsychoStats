@@ -24,7 +24,7 @@ if (!defined("PSYCHOSTATS_INSTALL_PAGE")) die("Unauthorized access to " . basena
 
 define("PS_INSTALL_VERSION", '3.2.8b');
 
-define("PS_ROOTDIR", dirname(__DIR__));
+define("PS_ROOTDIR", rtrim(dirname(__DIR__), '/\\'));
 define("PS_INSTALLDIR", __DIR__);
 
 // enable some sane error reporting (ignore notice errors) and turn off the magic. 

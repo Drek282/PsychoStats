@@ -207,7 +207,7 @@ if (is_dir($dir)) {
 				// to delete the file (since deleting a file writes to the directory and not the actual file).
 				// unless the STICKY bit is set on the directory and someone other than the webserver user
 				// owns the file.
-				'is_writable'	=> is_writable($full) || is_writable(dirname($full)),
+				'is_writable'	=> is_writable($full) || is_writable(rtrim(dirname($full), '/\\')),
 				'basename'	=> basename($file),
 				'path'		=> $dir
 			);

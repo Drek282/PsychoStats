@@ -1267,7 +1267,7 @@ class Graph {
 	// The reason for this is that the cache directory is not necessarily
 	// accessible from the HTTP server.
 	if( $this->csimcachename != '' ) {
-	    $dir = dirname($this->csimcachename);
+	    $dir = rtrim(dirname($this->csimcachename), '/\\');
 	    $base = basename($this->csimcachename);
 	    $base = strtok($base,'.');
 	    $suffix = strtok('.');
@@ -1361,7 +1361,7 @@ class Graph {
 	    // The reason for this is that the cache directory is not necessarily
 	    // accessible from the HTTP server.
 	    if( $this->csimcachename != '' ) {
-		$dir = dirname($this->csimcachename);
+		$dir = rtrim(dirname($this->csimcachename), '/\\');
 		$base = basename($this->csimcachename);
 		$base = strtok($base,'.');
 		$suffix = strtok('.');
@@ -7305,8 +7305,8 @@ class ImgStreamCache {
 		$aImage->Stream($aCacheFileName);	
 	    }
 	    else {
-		$this->MakeDirs(dirname($aCacheFileName));
-		if( !is_writeable(dirname($aCacheFileName)) ) {
+		$this->MakeDirs(rtrim(dirname($aCacheFileName), '/\\'));
+		if( !is_writeable(rtrim(dirname($aCacheFileName), '/\\')) ) {
 		    JpGraphError::RaiseL(25114,$aCacheFileName);//('PHP has not enough permissions to write to the cache file '.$aCacheFileName.'. Please make sure that the user running PHP has write permission for this file if you wan to use the cache system with JpGraph.');
 		}
 		$aImage->Stream($aCacheFileName);
@@ -7369,7 +7369,7 @@ class ImgStreamCache {
 	$dirs = array();
 	while ( !(file_exists($aFile)) ) {
 	    $dirs[] = $aFile;
-	    $aFile = dirname($aFile);
+	    $aFile = rtrim(dirname($aFile), '/\\');
 	}
 	for ($i = sizeof($dirs)-1; $i>=0; $i--) {
 	    if(! @mkdir($dirs[$i],0777) )

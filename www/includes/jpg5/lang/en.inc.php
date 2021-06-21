@@ -262,7 +262,7 @@ HTTP headers have already been sent.<br>Caused by output from file <b>%s</b> at 
 25002 => array('Your PHP installation does not seem to have the required GD library. Please see the PHP documentation on how to install and enable the GD library.',0),
 25003 => array('General PHP error : At %s:%d : %s',3),
 25004 => array('General PHP error : %s ',1),
-25005 => array('Can\'t access PHP_SELF, PHP global variable. You can\'t run PHP from command line if you want to use the \'auto\' naming of cache or image files.',0),
+25005 => array('Can\'t access PHP global variable. You can\'t run PHP from command line if you want to use the \'auto\' naming of cache or image files.',0),
 25006 => array('Usage of FF_CHINESE (FF_BIG5) font family requires that your PHP setup has the iconv() function. By default this is not compiled into PHP (needs the "--width-iconv" when configured).',0),
 25007 => array('You are trying to use the locale (%s) which your PHP installation does not support. Hint: Use \'\' to indicate the default locale for this geographic region.',1),
 25008 => array('Image width/height argument in Graph::Graph() must be numeric',0),
