@@ -135,7 +135,7 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <h3>Media</h3>
             <p>If profiles, user logins and image uploads are enabled and you upload images to your profile you should avoid uploading images with embedded location data (EXIF GPS) included. Anyone viewing your images can download and extract any location data from those images.</p>
             <h3>Cookies</h3>
-            <p>When you log in, we set up cookies to save your login information. Login cookies are kept until the browsing session ends.</p>
+            <p>When you visit the site, we set temporary cookies to save your session data. These cookies contain no personal information and are kept until you close your browser.  They are not tracking cookies and have no ability to gather any information from your browser other than general technical information on the browser you are using to allow for browser specific code in displaying pages.</p>
             <h3>Embedded content from other websites</h3>
             <p>Profiles on this site may include embedded content (e.g. images, links, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
             <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
