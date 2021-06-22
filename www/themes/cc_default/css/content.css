@@ -81,6 +81,7 @@
 }
 
 #ps-container div.ps-plr-profile div label {
+    color: #f9df79;
 	display: inline;
 	float: left;
 	width: 175px;
@@ -91,7 +92,7 @@
 }
 
 div.ps-plr-profile div p em { /* 'Not Set' statements */
-	color: #666;
+	color: #DDD;
 }
 
 div.ps-plr-profile #map {
