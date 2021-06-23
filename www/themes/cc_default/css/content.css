@@ -8,9 +8,6 @@
 #ps-main {
 	padding-top: 1em;
 }
-#ps-main #ps-page-title div.inner span {
-	color: #DDD;
-}
 
 #ps-main h1, #ps-main h2, #ps-main h3
 {
@@ -46,6 +43,9 @@
 #ps-page-title span, .ps-section-title span {
 	float: right;
 	font-weight: bold;
+}
+#ps-main #ps-page-title div.inner span {
+	color: #DDD;
 }
 
 #ps-page-title div.ps-plr-profile {
