@@ -1146,7 +1146,7 @@ class PredefIcons {
 	return Image::CreateFromString(base64_decode($this->iBuiltinIcon[$aIdx][1]));   
     }
 
-    function PredefIcons() {
+    function __construct() {
 	//==========================================================
 	// warning.png
 	//==========================================================
@@ -1424,6 +1424,10 @@ class PredefIcons {
 	    '7jadTvJtYG0kCD7lfwl49ijgT1gc0AH+dZSJA/xB+Mz/GSIvFoj/B7H1mAd8CO/zAAAAAElFTkSuQmCC' ;
 
 	$this->iLen = count($this->iBuiltinIcon);
+    }
+    
+    function PredefIcons() {
+        self::__construct();
     }
 }
 

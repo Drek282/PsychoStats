@@ -16,7 +16,7 @@ $__jpg_err_locale = DEFAULT_ERR_LOCALE;
 
 class ErrMsgText {
     private $lt=NULL;
-    function ErrMsgText() {
+    function __construct() {
 	GLOBAL $__jpg_err_locale;
 	$file = 'lang/'.$__jpg_err_locale.'.inc.php';
 
@@ -31,6 +31,9 @@ class ErrMsgText {
 	}
 	require_once($file);
 	$this->lt = $_jpg_messages;
+    }
+    function ErrMsgText() {
+        self::__construct();
     }
 
     function Get($errnbr,$a1=null,$a2=null,$a3=null,$a4=null,$a5=null) {

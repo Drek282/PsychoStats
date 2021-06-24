@@ -3263,11 +3263,14 @@ class GraphTabTitle extends Text{
     private $corner = 6 , $posx = 7, $posy = 4;
     private $fillcolor='lightyellow',$bordercolor='black';
     private $align = 'left', $width=TABTITLE_WIDTHFIT;
-    function GraphTabTitle() {
+    function __construct() {
 	$this->t = '';
 	$this->font_style = FS_BOLD;
 	$this->hide = true;
 	$this->color = 'darkred';
+    }
+    function GraphTabTitle() {
+        self::__construct();
     }
 
     function SetColor($aTxtColor,$aFillColor='lightyellow',$aBorderColor='black') {
@@ -5242,7 +5245,7 @@ class RGB {
     public $rgb_table; 
     public $img;
 
-    function RGB($aImg=null) {
+    function __construct($aImg=null) {
 	$this->img = $aImg;
 		
 	// Conversion array between color names and RGB
@@ -5683,6 +5686,10 @@ class RGB {
 	    "silver"=>array(192, 192, 192),
 	    "eggplant"=>array(144,176,168),
 	    "lightgreen"=>array(144,238,144));		
+    }
+    
+    function RGB($aImg=null) {
+        self::__construct($aImg);
     }
 //----------------
 // PUBLIC METHODS

@@ -23,13 +23,16 @@ DEFINE("BAND_DIAGCROSS",8); // Diagonal crosses
 class Rectangle {
     public $x,$y,$w,$h;
     public $xe, $ye;
-    function Rectangle($aX,$aY,$aWidth,$aHeight) {
+    function __construct($aX,$aY,$aWidth,$aHeight) {
 	$this->x=$aX;
 	$this->y=$aY;
 	$this->w=$aWidth;
 	$this->h=$aHeight;
 	$this->xe=$aX+$aWidth-1;
 	$this->ye=$aY+$aHeight-1;
+    }
+    function Rectangle($aX,$aY,$aWidth,$aHeight) {
+        self::__construct($aX,$aY,$aWidth,$aHeight);
     }
 }
 
@@ -130,9 +133,13 @@ class RectPatternSolid extends RectPattern {
 //=====================================================================
 class RectPatternHor extends RectPattern {
 		
-    function RectPatternHor($aColor="black",$aWeight=1,$aLineSpacing=7) {
+    function __construct($aColor="black",$aWeight=1,$aLineSpacing=7) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->linespacing = $aLineSpacing;
+    }
+    
+    function RectPatternHor($aColor="black",$aWeight=1,$aLineSpacing=7) {
+        self::__construct($aColor,$aWeight,$aLineSpacing);
     }
 		
     function DoPattern($aImg) {
