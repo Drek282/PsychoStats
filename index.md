@@ -14,7 +14,6 @@ This version of PsychoStats currently supports the following games:
 * [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
 * [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
 * [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
-* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
 
 
@@ -29,3 +28,4 @@ There are also modules available for the following games, but they are untested 
 * [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
 * [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
+* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
