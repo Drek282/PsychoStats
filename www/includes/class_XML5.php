@@ -47,13 +47,16 @@ class XMLstruct {
 	var $stack;    		// a stack of the most recent parent at each nesting level
 	var $last_opened_tag; 	// keeps track of the last tag opened.
 
-	function XMLstruct(){
+	function __construct(){
  		$this->parser =& xml_parser_create();
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'open','close');
 		xml_set_character_data_handler($this->parser, 'data');
 	}
+    function XMLstruct() {
+    self::__construct();
+    }
 	function destruct(){ 
 		xml_parser_free($this->parser); 
 	}

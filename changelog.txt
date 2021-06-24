@@ -18,6 +18,8 @@ Version 3.2.8b (in progress)
 * [Fixed] Call of Duty 4X support now considered tested and functional.
 * [Changed] AdminCP will no longer show locked configuration options.
 * [Changed] Option to show SteamID's and IP's publicly now defaulted to off and locked.
+* [Fixed] PHP4 constructor classes.
+* [Removed] Compiled SourceMod and AMXModX plugins.
 
 
 Version 3.2.7b (06/03/2021)

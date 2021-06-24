@@ -24,7 +24,7 @@ class IconPlot {
     private $iImgString='';
 
 
-    function IconPlot($aFile="",$aX=0,$aY=0,$aScale=1.0,$aMix=100) {
+    function __construct($aFile="",$aX=0,$aY=0,$aScale=1.0,$aMix=100) {
 	$this->iFile = $aFile;
 	$this->iX=$aX;
 	$this->iY=$aY;
@@ -33,6 +33,10 @@ class IconPlot {
 	    JpGraphError::RaiseL(8001); //('Mix value for icon must be between 0 and 100.');
 	}
 	$this->iMix = $aMix ;
+    }
+    
+    function IconPlot($aFile="",$aX=0,$aY=0,$aScale=1.0,$aMix=100) {
+        self::__construct($aFile,$aX,$aY,$aScale,$aMix);
     }
 
     function SetCountryFlag($aFlag,$aX=0,$aY=0,$aScale=1.0,$aMix=100,$aStdSize=3) {

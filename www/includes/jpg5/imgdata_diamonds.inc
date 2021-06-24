@@ -19,7 +19,7 @@ class ImgData_Diamonds extends ImgData {
     protected $maxidx = 7 ;
     protected $imgdata ;
 
-    function ImgData_Diamonds() {
+    function __construct() {
 //==========================================================
 // File: diam_red.png
 //==========================================================
@@ -171,6 +171,10 @@ class ImgData_Diamonds extends ImgData {
 	    '6Uwpla6CmJnpoYKRsjjb/Y63vo9kIkLcZCCsbGYGwMRqIzEp1R'.
 	    'OBmFk9HQGA2N0ZEIz5HX+h/jailYpfz4dAAAAABJRU5ErkJggg'.
 	    '==' ; 
+    }
+    
+    function ImgData_Diamonds() {
+        self::__construct();
     }
 }
 

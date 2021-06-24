@@ -264,7 +264,7 @@ class FlagImages {
     private $iFlagData ;
     private $iOrdIdx=array();
 
-    function FlagImages($aSize=FLAGSIZE1) {
+    function __construct($aSize=FLAGSIZE1) {
 	switch($aSize) {
 	    case FLAGSIZE1 :
 	    case FLAGSIZE2 :
@@ -280,6 +280,9 @@ class FlagImages {
 //('Unknown flag size. ('.$aSize.')');
 	}
 	$this->iFlagCount = count($this->iCountryNameMap);
+    }
+    function FlagImages($aSize=FLAGSIZE1) {
+        self::__construct($aSize);
     }
 
     function GetNum() {

@@ -21,7 +21,7 @@ class Spline {
     private $y2;		 // 2:nd derivate of ydata	
     private $n=0;
 
-    function Spline($xdata,$ydata) {
+    function __construct($xdata,$ydata) {
 	$this->y2 = array();
 	$this->xdata = $xdata;
 	$this->ydata = $ydata;
@@ -57,6 +57,10 @@ class Spline {
 	for( $j=$n-2; $j >= 0; --$j ) {
 	    $this->y2[$j] = $this->y2[$j]*$this->y2[$j+1] + $delta[$j];
 	}
+    }
+    
+    function Spline($xdata,$ydata) {
+        self::__construct($xdata,$ydata);
     }
 
     // Return the two new data vectors
@@ -121,7 +125,7 @@ class Bezier {
     private $datay = array();
     private $n=0;
  
-    function Bezier($datax, $datay, $attraction_factor = 1) {
+    function __construct($datax, $datay, $attraction_factor = 1) {
 	// Adding control point multiple time will raise their attraction power over the curve
 	$this->n = count($datax);
 	if( $this->n !== count($datay) ) {
@@ -141,6 +145,10 @@ class Bezier {
 	    }
 	}
 	$this->n *= $attraction_factor;
+    }
+    
+    function Bezier($datax, $datay, $attraction_factor = 1) {
+        self::__construct($datax, $datay, $attraction_factor);
     }
 
     function Get($steps) {

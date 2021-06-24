@@ -35,9 +35,12 @@ class LinePlot extends Plot{
 
 //---------------
 // CONSTRUCTOR
-    function LinePlot($datay,$datax=false) {
+    function __construct($datay,$datax=false) {
 	$this->Plot($datay,$datax);
 	$this->mark = new PlotMark() ;
+    }
+    function LinePlot($datay,$datax=false) {
+        self::__construct($datay,$datax);
     }
 //---------------
 // PUBLIC METHODS	
@@ -419,7 +422,7 @@ class AccLinePlot extends Plot {
     private $iStartEndZero=true;
 //---------------
 // CONSTRUCTOR
-    function AccLinePlot($plots) {
+    function __construct($plots) {
         $this->plots = $plots;
 	$this->nbrplots = count($plots);
 	$this->numpoints = $plots[0]->numpoints;
@@ -427,6 +430,9 @@ class AccLinePlot extends Plot {
 	for($i=0; $i < $this->nbrplots; ++$i ) {
 	    $this->LineInterpolate($this->plots[$i]->coords[0]);
 	}	
+    }
+    function AccLinePlot($plots) {
+        self::__construct($plots);
     }
 
 //---------------

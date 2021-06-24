@@ -212,7 +212,11 @@ class Smarty_Compiler extends Smarty {
         $this->_func_call_regexp = '(?:' . $this->_func_regexp . '\s*(?:'
            . $this->_parenth_param_regexp . '))';
     }
-
+    
+    function Smarty_Compiler() {
+        self::__construct();
+    }
+    
     /**
      * compile a resource
      *

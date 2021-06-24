@@ -29,9 +29,13 @@ class MGraph {
 	$background_image_y=NULL, $background_image_x=NULL;
 
     // Create a new instane of the combined graph
-    function MGraph($aWidth=NULL,$aHeight=NULL) {
+    function __construct($aWidth=NULL,$aHeight=NULL) {
 	$this->iWidth = $aWidth;
 	$this->iHeight = $aHeight;
+    }
+    
+    function MGraph($aWidth=NULL,$aHeight=NULL) {
+        self::__construct($aWidth,$aHeight);
     }
 
     // Specify background fill color for the combined graph

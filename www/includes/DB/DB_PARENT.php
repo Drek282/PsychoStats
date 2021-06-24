@@ -34,7 +34,7 @@ var $selected		= false;
 var $escape_func	= 'addslashes';
 
 // class constructor
-function DB_PARENT($conf=array()) {
+function __construct($conf=array()) {
 	$this->conf = $conf;
 	$this->config($conf);
 	$this->dbtype = $conf['dbtype'] ? $conf['dbtype'] : 'mysql';
@@ -44,6 +44,10 @@ function DB_PARENT($conf=array()) {
 	$this->totalqueries = 0;
 
 	$this->classname = "DB::" . $this->dbtype;
+}
+
+function DB_PARENT($conf=array()) {
+    self::__construct($conf);
 }
 
 // makes a copy of the current object, making a new DB connection, etc.

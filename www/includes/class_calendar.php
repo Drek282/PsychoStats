@@ -47,13 +47,8 @@ class Calendar {
 	var $table;
 	var $selected = 'day';
 
-// PHP5 constructor
-function __construct($year = NULL, $month = NULL, $day = NULL) {
-	return $this->Calendar($year, $month, $day);
-}
-
 // PHP4 constructor
-function Calendar($year = NULL, $month = NULL, $day = NULL) {
+function __construct($year = NULL, $month = NULL, $day = NULL) {
 	if (!$year and !$month and !$day) {
 		$this->time = time();
 	} elseif ($year and $month) {
@@ -88,6 +83,10 @@ function Calendar($year = NULL, $month = NULL, $day = NULL) {
 
 	$this->built = FALSE;
 //	$this->build();
+}
+
+function Calendar($year = NULL, $month = NULL, $day = NULL) {
+    self::__construct($year, $month, $day);
 }
 
 // initialize the basic table properties for the calendar layout

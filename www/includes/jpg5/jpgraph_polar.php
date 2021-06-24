@@ -47,7 +47,7 @@ class PolarPlot {
     private $iLineWeight=1;
     private $coord=null;
 
-    function PolarPlot($aData) {
+    function __construct($aData) {
 	$n = count($aData);
 	if( $n & 1 ) {
 	    JpGraphError::RaiseL(17001);
@@ -56,6 +56,10 @@ class PolarPlot {
 	$this->numpoints = $n/2;
 	$this->coord = $aData;
 	$this->mark = new PlotMark();
+    }
+    
+    function PolarPlot($aData) {
+        self::__construct($aData);
     }
 
     function SetWeight($aWeight) {
@@ -160,8 +164,12 @@ class PolarAxis extends Axis {
     private $show_angle_tick=true;
     private $radius_tick_color='black';
 
-    function PolarAxis($img,$aScale) {
+    function __construct($img,$aScale) {
 	parent::Axis($img,$aScale);
+    }
+    
+    function PolarAxis($img,$aScale) {
+        self::__construct(($img,$aScale);
     }
 
     function ShowAngleDegreeMark($aFlg=true) {
@@ -576,9 +584,13 @@ class PolarAxis extends Axis {
 class PolarScale extends LinearScale {
     private $graph;
 
-    function PolarScale($aMax=0,$graph) {
+    function __construct($aMax=0,$graph) {
 	parent::LinearScale(0,$aMax,'x');
 	$this->graph = $graph;
+    }
+    
+    function PolarScale($aMax=0,$graph) {
+        self::__construct($aMax,$graph);
     }
 
     function _Translate($v) {
@@ -608,11 +620,13 @@ class PolarScale extends LinearScale {
 
 class PolarLogScale extends LogScale {
     private $graph;
-    function PolarLogScale($aMax=1,$graph) {
+    function __construct($aMax=1,$graph) {
 	parent::LogScale(0,$aMax,'x');
 	$this->graph = $graph;
 	$this->ticks->SetLabelLogType(LOGLABELS_MAGNITUDE);
-
+    }
+    function PolarLogScale($aMax=1,$graph) {
+        self::__construct($aMax,$graph);
     }
 
     function PTranslate($aAngle,$aRad) {
@@ -643,11 +657,15 @@ class PolarGraph extends Graph {
     public $axis;
     public $iType=POLAR_360;
     
-    function PolarGraph($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
+    function __construct($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
 	parent::Graph($aWidth,$aHeight,$aCachedName,$aTimeOut,$aInline) ;
 	$this->SetDensity(TICKD_DENSE);
 	$this->SetBox();
 	$this->SetMarginColor('white');
+    }
+    
+    function PolarGraph($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
+        self::__construct($aWidth,$aHeight,$aCachedName,$aTimeOut,$aInline);
     }
 
     function SetDensity($aDense) {

@@ -125,8 +125,8 @@ function __construct($_config = array()) {
 	if (!$this->config['delaystart']) $this->start();		// start session if its not 'delayed'
 }
  
-function PsychoSession() {
-        self::__construct();
+function PsychoSession($_config = array()) {
+        self::__construct($_config);
 }
 
 // gets/sets the admin flag of the session

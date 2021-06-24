@@ -38,12 +38,12 @@ define("CLASS_PQ_GAMESPY_PHP", 1);
 class PQ_gamespy extends PQ_PARENT {
 
 function __construct($conf) {
-	$this->PQ_gamespy($conf);
+	$this->conf = $conf;		// always save the config to the class variable first
+	$this->init();			// always run the class initialization method
 }
 
 function PQ_gamespy($conf) {
-	$this->conf = $conf;		// always save the config to the class variable first
-	$this->init();			// always run the class initialization method
+    self::__construct($conf);
 }
 
 function init() {

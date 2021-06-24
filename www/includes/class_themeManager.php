@@ -43,10 +43,14 @@ var $error = null;		// keeps track of the last error reported
 var $code = null;
 var $invalid = array();		// keeps track of each invalid xml variable
 
-function PsychoThemeManager(&$ps, $dir = null) {
+function __construct(&$ps, $dir = null) {
 	$this->ps =& $ps;
 	$this->db =& $ps->db;
 	$this->template_dir(is_null($dir) ? $ps->conf['theme']['template_dir'] : $dir);
+}
+
+function PsychoThemeManager(&$ps, $dir = null) {
+    self::__construct($ps, $dir);
 }
 
 // fetches the theme.xml from the location specified

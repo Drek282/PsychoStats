@@ -19,7 +19,7 @@ class ImgData_Squares extends ImgData {
     protected $maxidx = 7 ;
     protected $imgdata ;
 
-    function ImgData_Squares () {
+    function __construct() {
 //==========================================================
 //sq_lblue.png
 //==========================================================
@@ -144,6 +144,10 @@ class ImgData_Squares extends ImgData {
 	    'kg5gWkoQAe6TleUQI/66Sy7i56+kLk7cht2N0+hcnJgQu0SqiC'.
 	    '1SzSIbzWSi6gavqJ63wSduRi2f+kwyD5rEukwCdZ1kGAMGMfv9'.
 	    'AbWuGMOr5COSAAAAAElFTkSuQmCC' ; 
+    }
+    
+    function ImgData_Squares() {
+        self::__construct();
     }
 }
 

@@ -145,8 +145,8 @@ function __construct(&$cms, $args = array()) {
 	
 }  // end of constructor
  
-function PsychoTheme() {
-    self::__construct();
+function PsychoTheme(&$cms, $args = array()) {
+    self::__construct($cms, $args);
 }
 
 // assigns a list of request variable names to the theme by referernce so the theme can use them 
@@ -948,8 +948,8 @@ function __construct($xml = null, $root = 'styles') {
 	return false;
 }
  
-function PsychoThemeStyles() {
-        self::__construct();
+function PsychoThemeStyles($xml = null, $root = 'styles') {
+        self::__construct($xml, $root);
 }
 
 function load($xml, $root = 'styles') {

@@ -96,8 +96,8 @@ function __construct($conf=array()) {
 	$this->plugin_dir = $conf['plugin_dir'];
 }
  
-function PsychoCMS() {
-        self::__construct();
+function PsychoCMS($conf=array()) {
+        self::__construct($conf);
 }
 
 // must be called after 'new'

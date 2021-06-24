@@ -43,8 +43,12 @@ class Valve_AuthId {
 */
 var $steam_community_url = "http://steamcommunity.com/profiles/";
 
-function Valve_AuthId() {
+function __construct() {
 	// nothing to do
+}
+
+function Valve_AuthId() {
+    self::__construct();
 }
 
 /**

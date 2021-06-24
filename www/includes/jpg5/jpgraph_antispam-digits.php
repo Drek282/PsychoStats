@@ -12,7 +12,7 @@ class HandDigits {
     public $digits = array();
     public $iHeight=30, $iWidth=30;
 
-    function HandDigits() {
+    function __construct() {
 //==========================================================
 // d6-small.jpg
 //==========================================================
@@ -150,14 +150,22 @@ class HandDigits {
 	    'lbOvjbc3Ts9ynjGCy445UuFLYRzbWgrT6fhSCQSMDke+pew2zYVly/d7YchNqkMJZnQpgV9J8IzwWFJyUrAJHYgjvpLbu37G5nR7'.
 	    'vck5C3YRKYEOEVJZj8kjKypXqWvirjk9h+dB9i4faa89TDZUfKlIyT8k+To10a6KTkpcJ/0vL/7o0TS//9k=' ; 
     } 
+    
+    function HandDigits() {
+        self::__construct();
+    }
 }
 
 class AntiSpam {
 
     var $iNumber='';
 
-    function AntiSpam($aNumber='') {
+    function __construct($aNumber='') {
 	$this->iNumber = $aNumber;
+    }
+    
+    function AntiSpam($aNumber='') {
+        self::__construct($aNumber);
     }
 
     function Rand($aLen) {

@@ -39,8 +39,8 @@ function __construct(&$ps) {
 	$this->ps = &$ps;
 }
  
-function PS_Heatmap() {
-        self::__construct();
+function PS_Heatmap(&$ps) {
+        self::__construct($ps);
 }
 
 // returns a list of available heatmaps for the map specified

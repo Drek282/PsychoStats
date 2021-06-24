@@ -59,7 +59,7 @@ function __construct($conf=array()) {
 }
 
 function PQ_PARENT($conf=array()) {
-	// nothing to do here for now ...
+    self::__construct($conf);
 }
 
 // This is called by the sub-classes to initialize extra stuff for the class

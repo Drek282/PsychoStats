@@ -32,9 +32,13 @@ var $ps = null;
 var $delay = 0;
 
 // $ps is an PS object
-function PS_Live(&$ps, $delay = 0) {
+function __construct(&$ps, $delay = 0) {
 	$this->ps = &$ps;
 	$this->delay = is_numeric($delay) ? $delay : 0;
+}
+
+function PS_Live(&$ps, $delay = 0) {
+    self::__construct($ps, $delay);
 }
 
 // returns the newest game_id available for playback (false if no games)

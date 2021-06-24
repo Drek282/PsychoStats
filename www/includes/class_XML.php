@@ -39,13 +39,7 @@
 if (defined("CLASS_XMLDATA_PHP")) return 1; 
 define("CLASS_XMLDATA_PHP", 1); 
 
-// load the proper class file depending on the PHP version.
-if (version_compare(PHP_VERSION,'5.0.0','>=')) {
-	include("class_XML5.php");
-} else {
-	include("class_XML4.php");
-}
-
+include("class_XML5.php");
 
 // Takes raw XML as a parameter (a string) and returns an equivalent PHP data structure
 function XML_unserialize(&$xml){

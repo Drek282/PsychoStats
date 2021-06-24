@@ -18,9 +18,12 @@ class ErrorPlot extends Plot {
     private $errwidth=2;
 //---------------
 // CONSTRUCTOR
-    function ErrorPlot($datay,$datax=false) {
+    function __construct($datay,$datax=false) {
 	$this->Plot($datay,$datax);
 	$this->numpoints /= 2;
+    }
+    function ErrorPlot($datay,$datax=false) {
+        self::__construct($datay,$datax);
     }
 //---------------
 // PUBLIC METHODS
@@ -87,7 +90,7 @@ class ErrorLinePlot extends ErrorPlot {
     public $line=null;
 //---------------
 // CONSTRUCTOR
-    function ErrorLinePlot($datay,$datax=false) {
+    function __construct($datay,$datax=false) {
 	$this->ErrorPlot($datay,$datax);
 	// Calculate line coordinates as the average of the error limits
 	$n = count($datay);
@@ -95,6 +98,9 @@ class ErrorLinePlot extends ErrorPlot {
 	    $ly[]=($datay[$i]+$datay[$i+1])/2;
 	}		
 	$this->line=new LinePlot($ly,$datax);
+    }
+    function ErrorLinePlot($datay,$datax=false) {
+        self::__construct($datay,$datax);
     }
 
 //---------------
@@ -121,7 +127,7 @@ class LineErrorPlot extends ErrorPlot {
 //---------------
 // CONSTRUCTOR
     // Data is (val, errdeltamin, errdeltamax)
-    function LineErrorPlot($datay,$datax=false) {
+    function __construct($datay,$datax=false) {
 	$ly=array(); $ey=array();
 	$n = count($datay);
 	if( $n % 3 != 0 ) {
@@ -135,6 +141,9 @@ class LineErrorPlot extends ErrorPlot {
 	}		
 	$this->ErrorPlot($ey,$datax);
 	$this->line=new LinePlot($ly,$datax);
+    }
+    function LineErrorPlot($datay,$datax=false) {
+        self::__construct($datay,$datax);
     }
 
 //---------------

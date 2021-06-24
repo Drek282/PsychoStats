@@ -26,14 +26,14 @@ define("SQL_CATALOG_NAME_SEPARATOR", '.');
 
 class DB_sqlite extends DB_PARENT {
 
-function __construct($conf=array()) {
-	return $this->DB_sqlite($conf);
-}
-
-function DB_sqlite($conf) {
+function __construct($conf) {
 	$this->DB_PARENT($conf);
 	$this->conf = $conf;
 	return $this->connect();
+}
+
+function  DB_sqlite($conf) {
+    self::__construct($conf);
 }
 
 function connect() {

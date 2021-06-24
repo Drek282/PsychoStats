@@ -191,7 +191,7 @@ var $conf_layout = array();
 
 var $class = 'PS';
 
-function PS(&$db) {
+function __construct(&$db) {
 	$this->db =& $db;
 	$this->tblprefix = $this->db->dbtblprefix;
 
@@ -260,6 +260,10 @@ function PS(&$db) {
 	$this->c_map_data	= $this->tblprefix . 'c_map_data';
 	$this->c_role_data	= $this->tblprefix . 'c_role_data';
 } // constructor
+
+function PS(&$db) {
+    self::__construct($db);
+}
 
 /*
     * function init_search

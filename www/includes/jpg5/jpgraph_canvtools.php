@@ -26,7 +26,7 @@ class CanvasScale {
     private $w,$h;
     private $ixmin=0,$ixmax=10,$iymin=0,$iymax=10;
 
-    function CanvasScale($graph,$xmin=0,$xmax=10,$ymin=0,$ymax=10) {
+    function __construct($graph,$xmin=0,$xmax=10,$ymin=0,$ymax=10) {
 	$this->g = $graph;
 	$this->w = $graph->img->width;
 	$this->h = $graph->img->height;
@@ -34,6 +34,10 @@ class CanvasScale {
 	$this->ixmax = $xmax;
 	$this->iymin = $ymin;
 	$this->iymax = $ymax;
+    }
+    
+    function CanvasScale($graph,$xmin=0,$xmax=10,$ymin=0,$ymax=10) {
+        self::__construct($graph,$xmin,$xmax,$ymin,$ymax);
     }
     
     function Set($xmin=0,$xmax=10,$ymin=0,$ymax=10) {
@@ -69,10 +73,14 @@ class CanvasScale {
 class Shape {
     private $img,$scale;
 
-    function Shape($aGraph,$scale) {
+    function __construct($aGraph,$scale) {
 	$this->img = $aGraph->img;
 	$this->img->SetColor('black');
 	$this->scale = $scale;
+    }
+    
+    function Shape($aGraph,$scale) {
+        self::__construct($aGraph,$scale);
     }
 
     function SetColor($aColor) {
@@ -379,12 +387,16 @@ class CanvasRectangleText {
     private $iAutoBoxMargin=5;
     private $iShadowWidth=3,$iShadowColor='';
 
-    function CanvasRectangleText($aTxt='',$xl=0,$yt=0,$w=0,$h=0) {
+    function __construct($aTxt='',$xl=0,$yt=0,$w=0,$h=0) {
 	$this->iTxt = new Text($aTxt);
 	$this->ix = $xl;
 	$this->iy = $yt;
 	$this->iw = $w;
 	$this->ih = $h;
+    }
+    
+    function CanvasRectangleText($aTxt='',$xl=0,$yt=0,$w=0,$h=0) {
+        self::__construct($aTxt,$xl,$yt,$w,$h);
     }
  
     function SetShadow($aColor='gray',$aWidth=3) {

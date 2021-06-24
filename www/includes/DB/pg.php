@@ -29,13 +29,13 @@ define("SQL_CATALOG_NAME_SEPARATOR", '.');
 class DB_pg extends DB_PARENT {
 
 function __construct($conf=array()) {
-	return $this->DB_pg($conf);
-}
-
-function DB_pg($conf=array()) {
 	$this->DB_PARENT($conf);
 	$this->conf = $conf;	
 	return $this->connect();
+}
+
+function DB_pg($conf=array()) {
+    self::__construct($conf);
 }
 
 function connect() {

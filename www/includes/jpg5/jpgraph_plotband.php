@@ -48,9 +48,13 @@ class RectPattern {
     protected $linespacing;	// Line spacing in pixels
     protected $iBackgroundColor=-1;  // Default is no background fill
 	
-    function RectPattern($aColor,$aWeight=1) {
+    function __construct($aColor,$aWeight=1) {
 	$this->color = $aColor;
 	$this->weight = $aWeight;		
+    }
+    
+    function RectPattern($aColor,$aWeight=1) {
+        self::__construct($aColor,$aWeight);
     }
 
     function SetBackground($aBackgroundColor) {
@@ -105,8 +109,12 @@ class RectPattern {
 //=====================================================================
 class RectPatternSolid extends RectPattern {
 
-    function RectPatternSolid($aColor="black",$aWeight=1) {
+    function __construct($aColor="black",$aWeight=1) {
 	parent::RectPattern($aColor,$aWeight);
+    }
+    
+    function RectPatternSolid($aColor="black",$aWeight=1) {
+        self::__construct($aColor,$aWeight);
     }
 
     function DoPattern($aImg) {
@@ -144,9 +152,13 @@ class RectPatternHor extends RectPattern {
 //=====================================================================
 class RectPatternVert extends RectPattern {
 		
-    function RectPatternVert($aColor="black",$aWeight=1,$aLineSpacing=7) {
+    function __construct($aColor="black",$aWeight=1,$aLineSpacing=7) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->linespacing = $aLineSpacing;
+    }
+    
+    function RectPatternVert($aColor="black",$aWeight=1,$aLineSpacing=7) {
+        self::__construct($aColor,$aWeight,$aLineSpacing);
     }
 
     //--------------------
@@ -170,9 +182,13 @@ class RectPatternVert extends RectPattern {
 //=====================================================================
 class RectPatternRDiag extends RectPattern {
 		
-    function RectPatternRDiag($aColor="black",$aWeight=1,$aLineSpacing=12) {
+    function __construct($aColor="black",$aWeight=1,$aLineSpacing=12) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->linespacing = $aLineSpacing;
+    }
+    
+    function RectPatternRDiag($aColor="black",$aWeight=1,$aLineSpacing=12) {
+        self::__construct($aColor,$aWeight,$aLineSpacing);
     }
 
     function DoPattern($aImg) {
@@ -239,9 +255,13 @@ class RectPatternRDiag extends RectPattern {
 //=====================================================================
 class RectPatternLDiag extends RectPattern {
 		
-    function RectPatternLDiag($aColor="black",$aWeight=1,$aLineSpacing=12) {
+    function __construct($aColor="black",$aWeight=1,$aLineSpacing=12) {
 	$this->linespacing = $aLineSpacing;
 	parent::RectPattern($aColor,$aWeight);
+    }
+    
+    function RectPatternLDiag($aColor="black",$aWeight=1,$aLineSpacing=12) {
+        self::__construct($aColor,$aWeight,$aLineSpacing);
     }
 
     function DoPattern($aImg) {
@@ -307,9 +327,13 @@ class RectPattern3DPlane extends RectPattern {
     // top of the band. Specifies how fast the lines
     // converge.
 
-    function RectPattern3DPlane($aColor="black",$aWeight=1) {
+    function __construct($aColor="black",$aWeight=1) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->SetDensity(10);  // Slightly larger default
+    }
+    
+    function RectPattern3DPlane($aColor="black",$aWeight=1) {
+        self::__construct($aColor,$aWeight);
     }
 
     function SetHorizon($aHorizon) {
@@ -421,10 +445,13 @@ class RectPattern3DPlane extends RectPattern {
 class RectPatternCross extends RectPattern {
     private $vert=null;
     private $hor=null;
-    function RectPatternCross($aColor="black",$aWeight=1) {
+    function __construct($aColor="black",$aWeight=1) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->vert = new RectPatternVert($aColor,$aWeight);
 	$this->hor  = new RectPatternHor($aColor,$aWeight);
+    }
+    function RectPatternCross($aColor="black",$aWeight=1) {
+        self::__construct($aColor,$aWeight);
     }
 
     function SetOrder($aDepth) {
@@ -457,10 +484,13 @@ class RectPatternCross extends RectPattern {
 class RectPatternDiagCross extends RectPattern {
     private $left=null;
     private $right=null;
-    function RectPatternDiagCross($aColor="black",$aWeight=1) {
+    function __construct($aColor="black",$aWeight=1) {
 	parent::RectPattern($aColor,$aWeight);
 	$this->right = new RectPatternRDiag($aColor,$aWeight);
 	$this->left  = new RectPatternLDiag($aColor,$aWeight);
+    }
+    function RectPatternDiagCross($aColor="black",$aWeight=1) {
+        self::__construct($aColor,$aWeight);
     }
 
     function SetOrder($aDepth) {
@@ -491,8 +521,11 @@ class RectPatternDiagCross extends RectPattern {
 // Factory class for rectangular pattern 
 //=====================================================================
 class RectPatternFactory {
-    function RectPatternFactory() {
+    function __construct() {
 	// Empty
+    }
+    function RectPatternFactory() {
+        self::__construct();
     }
     function Create($aPattern,$aColor,$aWeight=1) {
 	switch($aPattern) {
@@ -540,7 +573,7 @@ class PlotBand {
     private $prect=null;
     private $dir, $min, $max;
 
-    function PlotBand($aDir,$aPattern,$aMin,$aMax,$aColor="black",$aWeight=1,$aDepth=DEPTH_BACK) {
+    function __construct($aDir,$aPattern,$aMin,$aMax,$aColor="black",$aWeight=1,$aDepth=DEPTH_BACK) {
 	$f =  new RectPatternFactory();
 	$this->prect = $f->Create($aPattern,$aColor,$aWeight);
 	if( is_numeric($aMin) && is_numeric($aMax) && ($aMin > $aMax) ) 
@@ -550,6 +583,10 @@ class PlotBand {
 	$this->min = $aMin;
 	$this->max = $aMax;
 	$this->depth=$aDepth;
+    }
+    
+    function PlotBand($aDir,$aPattern,$aMin,$aMax,$aColor="black",$aWeight=1,$aDepth=DEPTH_BACK) {
+        self::__construct($aDir,$aPattern,$aMin,$aMax,$aColor,$aWeight,$aDepth);
     }
 	
     // Set position. aRect contains absolute image coordinates

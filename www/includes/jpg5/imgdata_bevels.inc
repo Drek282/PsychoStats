@@ -18,7 +18,7 @@ class ImgData_Bevels extends ImgData {
 
     protected $imgdata ;
 
-    function ImgData_Bevels() {
+    function __construct() {
 //==========================================================
 // File: bullets_balls_red_013.png
 //==========================================================
@@ -97,6 +97,10 @@ class ImgData_Bevels extends ImgData {
 	    '4VvY5NUgEmCwj6ZMzHtJRgRSXwC1gfcqJJH0GBnSnK1kUQ72DY'.
 	    'CPBv+MCS/e0jib77eQAJxwiEWm7hFwAAAABJRU5ErkJggg==' ; 
 
+    }
+    
+    function ImgData_Bevels() {
+        self::__construct();
     }
 }
 

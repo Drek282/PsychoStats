@@ -46,11 +46,15 @@ var $errstr;
 var $errno;
 
 // constructor
-function HTTP_Request($url, $method="GET", $data="") {
+function __construct($url, $method="GET", $data="") {
 	$this->_url = $url;
 	$this->_method = $method;
 	$this->_postdata = $data;
 	$this->_scan_url();
+}
+
+function HTTP_Request($url, $method="GET", $data="") {
+    self::__construct($url, $method, $date);
 }
 
 // scan url

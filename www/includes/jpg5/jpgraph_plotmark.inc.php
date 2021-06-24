@@ -32,12 +32,15 @@ class PlotMark {
 
 //--------------
 // CONSTRUCTOR
-    function PlotMark() {
+    function __construct() {
 	$this->title = new Text();
 	$this->title->Hide();
 	$this->csimareas = '';
 	$this->csimalt = '';
 	$this->type=-1;
+    }
+    function PlotMark() {
+        self::__construct();
     }
 //---------------
 // PUBLIC METHODS	

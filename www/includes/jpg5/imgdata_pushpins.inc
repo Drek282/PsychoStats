@@ -19,7 +19,7 @@ class ImgData_PushPins extends ImgData {
     protected $maxidx = 4 ;
     protected $imgdata_large, $imgdata_small ;
 
-    function ImgData_PushPins() {
+    function __construct() {
 
 	// The anchor should be where the needle "hits" the paper
 	// (bottom left corner)
@@ -511,6 +511,10 @@ class ImgData_PushPins extends ImgData {
 	    'SxsgkzDMt0mKT3/RcjL8C5hHnvJToXY0xYRZ4xnVKsV/S+a8YA'.
 	    'AvCb3s9g13UhYj+TTo93B3fApRV1FVlEAD6H42DjN9/WvzDYuJ'.
 	    'dL5b1/ji+/IX8EGWP4AwRii8PdFHTqAAAAAElFTkSuQmCC' ; 
+    }
+    
+    function ImgData_PushPins() {
+        self::__construct();
     }
 }
 

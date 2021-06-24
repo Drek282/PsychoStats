@@ -9,7 +9,7 @@ class graph
 	* Constructer for the open_flash_chart_api
 	* Sets our default variables
 	*/
-	function graph()
+	function __construct()
 	{
 		$this->data_sets = array();
 		
@@ -105,6 +105,10 @@ class graph
 		$this->set_x_axis_steps( 1 );
 		$this->y_label_steps( 5 );
 	}
+    
+    function graph() {
+        self::__construct();
+    }
 
 	/**
 	* Set the unique_id to use for the flash object id.
@@ -1246,7 +1250,7 @@ class line
 	// extra tool tip info:
 	var $tips;
 	
-	function line( $line_width, $colour )
+	function __construct( $line_width, $colour )
 	{
 		$this->var = 'line';
 		
@@ -1257,6 +1261,10 @@ class line
 		$this->tips = array();
 		$this->_key = false;
 	}
+    
+    function line( $line_width, $colour ) {
+        self::__construct($line_width, $colour);
+    }
 
 
 	function key( $key, $size )
@@ -1345,12 +1353,16 @@ class line_hollow extends line
 {
 	var $dot_size;
 	
-	function line_hollow( $line_width, $dot_size, $colour )
+	function __construct( $line_width, $dot_size, $colour )
 	{
 		parent::line( $line_width, $colour );
 		$this->var = 'line_hollow';
 		$this->dot_size = $dot_size;
 	}
+    
+    function line_hollow( $line_width, $dot_size, $colour )
+        self::__construct($line_width, $dot_size, $colour);
+    }
 	
 	// return the variables for this chart
 	function _get_variable_list()
@@ -1377,11 +1389,14 @@ class line_hollow extends line
 
 class line_dot extends line_hollow
 {
-	function line_dot( $line_width, $dot_size, $colour )
+	function __construct( $line_width, $dot_size, $colour )
 	{
 		parent::line_dot( $line_width, $colour );
 		$this->var = 'line_dot';
 	}
+    function line_dot( $line_width, $dot_size, $colour ) {
+        self::__construct($line_width, $dot_size, $colour);
+    }
 }
 
 class bar
@@ -1397,7 +1412,7 @@ class bar
 	// extra tool tip info:
 	var $tips;
 	
-	function bar( $alpha, $colour )
+	function __construct( $alpha, $colour )
 	{
 		$this->var = 'bar';
 		
@@ -1408,6 +1423,10 @@ class bar
 		$this->tips = array();
 		$this->_key = false;
 	}
+    
+    function bar( $alpha, $colour ) {
+        self::__construct($alpha, $colour);
+    }
 
 	function key( $key, $size )
 	{
@@ -1488,32 +1507,42 @@ class bar
 
 class bar_3d extends bar
 {
-	function bar_3d( $alpha, $colour )
+	function __construct( $alpha, $colour )
 	{
 		parent::bar( $alpha, $colour );
 		$this->var = 'bar_3d';
 	}
+    function bar_3d( $alpha, $colour ) {
+        self::__construct($alpha, $colour);
+    }
 }
 
 class bar_fade extends bar
 {
-	function bar_fade( $alpha, $colour )
+	function __construct( $alpha, $colour )
 	{
 		parent::bar( $alpha, $colour );
 		$this->var = 'bar_fade';
 	}
+    function bar_fade( $alpha, $colour ) {
+        self::__construct($alpha, $colour);
+    }
 }
 
 class bar_outline extends bar
 {
 	var $outline_colour;
 	
-	function bar_outline( $alpha, $colour, $outline_colour )
+	function __construct( $alpha, $colour, $outline_colour )
 	{
 		parent::bar( $alpha, $colour );
 		$this->var = 'filled_bar';
 		$this->outline_colour = $outline_colour;
 	}
+    
+    function bar_outline( $alpha, $colour, $outline_colour ) {
+        self::__construct($alpha, $colour, $outline_colour);
+    }
 	
 	// override the base method
 	function _get_variable_list()
@@ -1535,11 +1564,14 @@ class bar_outline extends bar
 
 class bar_glass extends bar_outline
 {
-	function bar_glass( $alpha, $colour, $outline_colour )
+	function __construct( $alpha, $colour, $outline_colour )
 	{
 		parent::bar_outline( $alpha, $colour, $outline_colour );
 		$this->var = 'bar_glass';
 	}
+    function bar_glass( $alpha, $colour, $outline_colour ) {
+        self::__construct($alpha, $colour, $outline_colour);
+    }
 }
 
 //
@@ -1550,12 +1582,16 @@ class bar_sketch extends bar_outline
 {
 	var $offset;
 	
-	function bar_sketch( $alpha, $offset, $colour, $outline_colour )
+	function __construct( $alpha, $offset, $colour, $outline_colour )
 	{
 		parent::bar_outline( $alpha, $colour, $outline_colour );
 		$this->var = 'bar_sketch';
 		$this->offset = $offset;
 	}
+    
+    function bar_sketch( $alpha, $offset, $colour, $outline_colour ) {
+        self::__construct($alpha, $offset, $colour, $outline_colour);
+    }
 	
 	// override the base method
 	function _get_variable_list()
@@ -1580,7 +1616,7 @@ class candle
 {
 	var $out;
 	
-	function candle( $high, $open, $close, $low )
+	function __construct( $high, $open, $close, $low )
 	{
 		$this->out = array();
 		$this->out[] = $high;
@@ -1588,6 +1624,10 @@ class candle
 		$this->out[] = $close;
 		$this->out[] = $low;
 	}
+    
+    function candle( $high, $open, $close, $low ) {
+        self::__construct($high, $open, $close, $low);
+    }
 	
 	function toString()
 	{
@@ -1599,13 +1639,17 @@ class hlc
 {
 	var $out;
 	
-	function hlc( $high, $low, $close )
+	function __construct( $high, $low, $close )
 	{
 		$this->out = array();
 		$this->out[] = $high;
 		$this->out[] = $low;
 		$this->out[] = $close;
 	}
+    
+    function hlc( $high, $low, $close ) {
+        self::__construct($high, $low, $close);
+    }
 	
 	function toString()
 	{
@@ -1617,13 +1661,17 @@ class point
 {
 	var $out;
 	
-	function point( $x, $y, $size_px )
+	function __construct( $x, $y, $size_px )
 	{
 		$this->out = array();
 		$this->out[] = $x;
 		$this->out[] = $y;
 		$this->out[] = $size_px;
 	}
+    
+    function point( $x, $y, $size_px ) {
+        self::__construct($x, $y, $size_px);
+    }
 	
 	function toString()
 	{

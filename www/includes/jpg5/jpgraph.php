@@ -410,8 +410,12 @@ class JpgTimer {
     private $start, $idx;	
 //---------------
 // CONSTRUCTOR
-    function JpgTimer() {
+    function __construct() {
 	$this->idx=0;
+    }
+    
+    function JpgTimer() {
+        self::__construct();
     }
 
 //---------------
@@ -446,7 +450,7 @@ class DateLocale {
 
 //---------------
 // CONSTRUCTOR	
-    function DateLocale() {
+    function __construct() {
 	settype($this->iDayAbb, 'array');
 	settype($this->iShortDay, 'array');
 	settype($this->iShortMonth, 'array');
@@ -454,6 +458,10 @@ class DateLocale {
 
 
 	$this->Set('C');
+    }
+    
+    function DateLocale() {
+        self::__construct();
     }
 
 //---------------
@@ -541,13 +549,17 @@ class Footer {
     public $iLeftMargin = 3, $iRightMargin = 3, $iBottomMargin = 3 ;
     public $left,$center,$right;
 
-    function Footer() {
+    function __construct() {
 	$this->left = new Text();
 	$this->left->ParagraphAlign('left');
 	$this->center = new Text();
 	$this->center->ParagraphAlign('center');
 	$this->right = new Text();
 	$this->right->ParagraphAlign('right');
+    }
+    
+    function Footer() {
+        self::__construct();
     }
 
     function SetMargin($aLeft=3,$aRight=3,$aBottom=3) {
@@ -655,7 +667,7 @@ class Graph {
     // aTimeOut		Timeout in minutes for image in cache
     // aInline		If true the image is streamed back in the call to Stroke()
     //			If false the image is just created in the cache
-    function Graph($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
+    function __construct($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
 	GLOBAL $gJpgBrandTiming;
 	// If timing is used create a new timing object
 	if( $gJpgBrandTiming ) {
@@ -714,6 +726,10 @@ class Graph {
 	$this->SetTickDensity(); // Normal density
 
 	$this->tabtitle = new GraphTabTitle();
+    }
+    
+    function Graph($aWidth=300,$aHeight=200,$aCachedName="",$aTimeOut=0,$aInline=true) {
+        self::__construct($aWidth,$aHeight,$aCachedName,$aTimeOut,$aInline);
     }
 //---------------
 // PUBLIC METHODS	
@@ -2891,7 +2907,7 @@ class TTF {
     private $font_files,$style_names;
 //---------------
 // CONSTRUCTOR
-    function TTF() {
+    function __construct() {
 	$this->style_names=array(FS_NORMAL=>'normal',FS_BOLD=>'bold',FS_ITALIC=>'italic',FS_BOLDITALIC=>'bolditalic');
 	// File names for available fonts
 	$this->font_files=array(
@@ -2913,6 +2929,10 @@ class TTF {
  	    FF_PGOTHIC => array(FS_NORMAL=>PGOTHIC_TTF_FONT,  FS_BOLD=>'',   FS_ITALIC=>'',   FS_BOLDITALIC=>'' ),    
  	    FF_MINCHO =>  array(FS_NORMAL=>PMINCHO_TTF_FONT,  FS_BOLD=>'',   FS_ITALIC=>'',   FS_BOLDITALIC=>'' )   
 );
+    }
+    
+    function TTF() {
+        self::__construct();
     }
 
 //---------------
@@ -3007,7 +3027,7 @@ class Text {
 // CONSTRUCTOR
 
     // Create new text at absolute pixel coordinates
-    function Text($aTxt="",$aXAbsPos=0,$aYAbsPos=0) {
+    function __construct($aTxt="",$aXAbsPos=0,$aYAbsPos=0) {
 	if( ! is_string($aTxt) ) {
 	    JpGraphError::RaiseL(25050);//('First argument to Text::Text() must be s atring.');
 	}
@@ -3015,6 +3035,10 @@ class Text {
 	$this->x = round($aXAbsPos);
 	$this->y = round($aYAbsPos);
 	$this->margin = 0;
+    }
+    
+    function Text($aTxt="",$aXAbsPos=0,$aYAbsPos=0) {
+        self::__construct($aTxt,$aXAbsPos,$aYAbsPos);
     }
 //---------------
 // PUBLIC METHODS	
@@ -3366,9 +3390,13 @@ class SuperScriptText extends Text {
     private $iSDir=0;
     private $iSimple=false;
 
-    function SuperScriptText($aTxt="",$aSuper="",$aXAbsPos=0,$aYAbsPos=0) {
+    function __construct($aTxt="",$aSuper="",$aXAbsPos=0,$aYAbsPos=0) {
 	parent::Text($aTxt,$aXAbsPos,$aYAbsPos);
 	$this->iSuper = $aSuper;
+    }
+    
+    function SuperScriptText($aTxt="",$aSuper="",$aXAbsPos=0,$aYAbsPos=0) {
+        self::__construct($aTxt,$aSuper,$aXAbsPos,$aYAbsPos);
     }
 
     function FromReal($aVal,$aPrecision=2) {
@@ -3544,9 +3572,13 @@ class Grid {
     protected $fill=false,$fillcolor=array('#EFEFEF','#BBCCFF');
 //---------------
 // CONSTRUCTOR
-    function Grid($aAxis) {
+    function __construct($aAxis) {
 	$this->scale = $aAxis->scale;
 	$this->img = $aAxis->img;
+    }
+    
+    function Grid($aAxis) {
+        self::__construct($aAxis);
     }
 //---------------
 // PUBLIC METHODS
@@ -3730,6 +3762,7 @@ class AxisPrototype {
 	    $this->title_side=SIDE_DOWN;
 	}
     }
+    
 //---------------
 // PUBLIC METHODS	
 	
@@ -3935,8 +3968,12 @@ class AxisPrototype {
 //===================================================
 class Axis extends AxisPrototype {
 
-    function Axis($img,$aScale,$color=array(0,0,0)) {
+    function __construct($img,$aScale,$color=array(0,0,0)) {
 	parent::Axis($img,$aScale,$color);
+    }
+    
+    function Axis($img,$aScale,$color=array(0,0,0)) {
+        self::__construct($img,$aScale,$color);
     }
 	
     // Stroke the axis.
@@ -4170,9 +4207,13 @@ class Ticks {
 
 //---------------
 // CONSTRUCTOR
-    function Ticks($aScale) {
+    function __construct($aScale) {
 	$this->scale=$aScale;
 	$this->precision = -1;
+    }
+    
+    function Ticks($aScale) {
+        self::__construct($aScale);
     }
 
 //---------------
@@ -4291,8 +4332,12 @@ class LinearTicks extends Ticks {
 
 //---------------
 // CONSTRUCTOR
-    function LinearTicks() {
+    function __construct() {
 	$this->precision = -1;
+    }
+    
+    function LinearTicks() {
+        self::__construct();
     }
 
 //---------------
@@ -4658,7 +4703,7 @@ class LinearScale {
     private $intscale=false; // Restrict autoscale to integers
 //---------------
 // CONSTRUCTOR
-    function LinearScale($aMin=0,$aMax=0,$aType="y") {
+    function __construct($aMin=0,$aMax=0,$aType="y") {
 	assert($aType=="x" || $aType=="y" );
 	assert($aMin<=$aMax);
 		
@@ -4666,6 +4711,10 @@ class LinearScale {
 	$this->scale=array($aMin,$aMax);		
 	$this->world_size=$aMax-$aMin;	
 	$this->ticks = new LinearTicks();
+    }
+    
+    function LinearScale($aMin=0,$aMax=0,$aType="y") {
+        self::__construct($aMin,$aMax,$aType);
     }
 
 //---------------
@@ -5772,7 +5821,7 @@ class Image {
     protected $iInterlace=false;
     //---------------
     // CONSTRUCTOR
-    function Image($aWidth,$aHeight,$aFormat=DEFAULT_GFORMAT) {
+    function __construct($aWidth,$aHeight,$aFormat=DEFAULT_GFORMAT) {
 	$this->CreateImgCanvas($aWidth,$aHeight);
 	$this->SetAutoMargin();		
 
@@ -5781,6 +5830,10 @@ class Image {
 	}
 	$this->ttf = new TTF();
 	$this->langconv = new LanguageConv();
+    }
+    
+    function Image($aWidth,$aHeight,$aFormat=DEFAULT_GFORMAT) {
+        self::__construct($aWidth,$aHeight,$aFormat);
     }
 
     // Enable interlacing in images
@@ -7085,11 +7138,15 @@ class RotImage extends Image {
     public $dx=0,$dy=0,$transx=0,$transy=0; 
     private $m=array();
 	
-    function RotImage($aWidth,$aHeight,$a=0,$aFormat=DEFAULT_GFORMAT) {
+    function __construct($aWidth,$aHeight,$a=0,$aFormat=DEFAULT_GFORMAT) {
 	$this->Image($aWidth,$aHeight,$aFormat);
 	$this->dx=$this->left_margin+$this->plotwidth/2;
 	$this->dy=$this->top_margin+$this->plotheight/2;
 	$this->SetAngle($a);	
+    }
+    
+    function RotImage($aWidth,$aHeight,$a=0,$aFormat=DEFAULT_GFORMAT) {
+        self::__construct($aWidth,$aHeight,$a,$aFormat);
     }
 	
     function SetCenter($dx,$dy) {
@@ -7239,9 +7296,12 @@ class ImgStreamCache {
     private $cache_dir, $img=null, $timeout=0; 	// Infinite timeout
     //---------------
     // CONSTRUCTOR
-    function ImgStreamCache($aImg, $aCacheDir=CACHE_DIR) {
+    function __construct($aImg, $aCacheDir=CACHE_DIR) {
 	$this->img = $aImg;
 	$this->cache_dir = $aCacheDir;
+    }
+    function ImgStreamCache($aImg, $aCacheDir=CACHE_DIR) {
+        self::__construct($aImg, $aCacheDir);
     }
 
 //---------------
@@ -7415,8 +7475,11 @@ class Legend {
     private $reverse = false ;
 //---------------
 // CONSTRUCTOR
-    function Legend() {
+    function __construct() {
 	// Empty
+    }
+    function Legend() {
+        self::__construct();
     }
 //---------------
 // PUBLIC METHODS	
@@ -7895,7 +7958,7 @@ class Plot {
     protected $center=false;
 //---------------
 // CONSTRUCTOR
-    function Plot($aDatay,$aDatax=false) {
+    function __construct($aDatay,$aDatax=false) {
 	$this->numpoints = count($aDatay);
 	if( $this->numpoints==0 )
 	    JpGraphError::RaiseL(25121);//("Empty input data array specified for plot. Must have at least one data point.");
@@ -7910,6 +7973,10 @@ class Plot {
 	    }
 	}
 	$this->value = new DisplayValue();
+    }
+    
+    function Plot($aDatay,$aDatax=false) {
+        self::__construct($aDatay,$aDatax);
     }
 
 //---------------
@@ -8077,11 +8144,15 @@ class PlotLine {
 
 //---------------
 // CONSTRUCTOR
-    function PlotLine($aDir=HORIZONTAL,$aPos=0,$aColor="black",$aWeight=1) {
+    function __construct($aDir=HORIZONTAL,$aPos=0,$aColor="black",$aWeight=1) {
 	$this->direction = $aDir;
 	$this->color=$aColor;
 	$this->weight=$aWeight;
 	$this->scaleposition=$aPos;
+    }
+    
+    function PlotLine($aDir=HORIZONTAL,$aPos=0,$aColor="black",$aWeight=1) {
+        self::__construct($aDir,$aPos,$aColor,$aWeight);
     }
 	
 //---------------

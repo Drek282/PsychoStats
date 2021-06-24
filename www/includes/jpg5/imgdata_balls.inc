@@ -70,7 +70,7 @@ class ImgData_Balls extends ImgData {
 	return parent::GetImg($aMark,$aIdx);
     }
 
-    function ImgData_Balls() {
+    function __construct() {
 
 //==========================================================
 // File: bl_red.png
@@ -1055,6 +1055,10 @@ class ImgData_Balls extends ImgData {
 	    '5hdHVyZQBiYzYyMDIyNjgwYThjODMyMmUxNjk0NWUzZjljOGFh'.
 	    'N2VmZWFhMjA4OTE2ZjkwOTdhZWE1MzYyMjk0MWRkM2I5EqaPDA'.
 	    'AAAABJRU5ErkJggg==' ; 
+    }
+    
+    function ImgData_Balls() {
+        self::__construct();
     }
 }
 

@@ -14,7 +14,10 @@ require_once('jpgraph_plotmark.inc.php');
 class RadarLogTicks extends Ticks {
 //---------------
 // CONSTRUCTOR
+    function __construct() {
+    }
     function RadarLogTicks() {
+        self::__construct();
     }
 //---------------
 // PUBLIC METHODS	
@@ -96,8 +99,12 @@ class RadarLinearTicks extends Ticks { // extends LinearTicks {
 
 //---------------
 // CONSTRUCTOR
-    function RadarLinearTicks() {
+    function __construct() {
 	// Empty
+    }
+    
+    function RadarLinearTicks() {
+        self::__construct();
     }
 
 //---------------
@@ -202,12 +209,15 @@ class RadarAxis extends AxisPrototype {
     public $title=null;
 //---------------
 // CONSTRUCTOR
-    function RadarAxis($img,$aScale,$color=array(0,0,0)) {
+    function __construct($img,$aScale,$color=array(0,0,0)) {
 	parent::Axis($img,$aScale,$color);
 	$this->len=$img->plotheight;
 	$this->title = new Text();
 	$this->title->SetFont(FF_FONT1,FS_BOLD);
 	$this->color = array(0,0,0);
+    }
+    function RadarAxis($img,$aScale,$color=array(0,0,0)) {
+        self::__construct($img,$aScale,$color);
     }
 //---------------
 // PUBLIC METHODS	
@@ -322,7 +332,11 @@ class RadarGrid { //extends Grid {
 
 //------------
 // CONSTRUCTOR
+    function __construct() {
+    }
+    
     function RadarGrid() {
+        self::__construct();
     }
 
 // PUBLIC METHODS
@@ -388,9 +402,12 @@ class RadarPlot {
     private $linestyle='solid';
 //---------------
 // CONSTRUCTOR
-    function RadarPlot($data) {
+    function __construct($data) {
 	$this->data = $data;
 	$this->mark = new PlotMark();
+    }
+    function RadarPlot($data) {
+        self::__construct($data);
     }
 
 //---------------
@@ -505,7 +522,7 @@ class RadarGraph extends Graph {
     private $axis_title=null;
 //---------------
 // CONSTRUCTOR
-    function RadarGraph($width=300,$height=200,$cachedName="",$timeout=0,$inline=1) {
+    function __construct($width=300,$height=200,$cachedName="",$timeout=0,$inline=1) {
 	$this->Graph($width,$height,$cachedName,$timeout,$inline);
 	$this->posx=$width/2;
 	$this->posy=$height/2;
@@ -514,7 +531,9 @@ class RadarGraph extends Graph {
 	$this->SetTickDensity(TICKD_NORMAL);
 	$this->SetScale("lin");
 	$this->SetGridDepth(DEPTH_FRONT);
-
+    }
+    function RadarGraph($width=300,$height=200,$cachedName="",$timeout=0,$inline=1) {
+        self::__construct($width,$height,$cachedName,$timeout,$inline);
     }
 
 //---------------

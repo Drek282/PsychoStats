@@ -22,7 +22,7 @@ if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FIL
 
 class PsychoLanguage_default_en_US extends PsychoLanguage {
 
-function PsychoLanguage_default_en_US() {
+function __construct() {
 	$this->PsychoLanguage();
 	// You can set a locale if you want (which will affect certain system calls)
 	// however, setting a locale is not 100% portable between systems and setlocale is not
@@ -1052,6 +1052,10 @@ function PsychoLanguage_default_en_US() {
 		'',
 
 	) + $this->map;
+}
+
+function PsychoLanguage_default_en_US() {
+    self::__construct();
 }
 
 // if a translation keyword maps to a method below then the matching method should return the translated string.

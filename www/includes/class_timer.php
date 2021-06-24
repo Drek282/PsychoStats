@@ -47,8 +47,8 @@ class Timer {
     }
   }
  
-function Timer() {
-        self::__construct();
+function Timer($precision=5, $default=true) {
+        self::__construct($precision, $default);
 }
 
   // stop tracking time passing. After called, all functions will no longer see time pass

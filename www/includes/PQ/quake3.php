@@ -53,12 +53,12 @@ define("PQ_Q3_GAMETYPE_TEAMTOURNAMENT",	8);
 class PQ_quake3 extends PQ_PARENT {
 
 function __construct($conf) {
-	$this->PQ_quake3($conf);
+	$this->conf = $conf;		// always save the config to the class variable first
+	$this->init();			// always run the class initialization method
 }
 
 function PQ_quake3($conf) {
-	$this->conf = $conf;		// always save the config to the class variable first
-	$this->init();			// always run the class initialization method
+    self::__construct($conf);
 }
 
 function init() {

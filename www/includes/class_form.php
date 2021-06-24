@@ -42,8 +42,12 @@ var $validators = array();	// default validators ...
 var $valid_errors = array();	// default error strings for validators
 var $validated = false;
 
-function PsychoForm($input, $do_strip = false) {
+function __construct($input, $do_strip = false) {
 	$this->input($input, $do_strip);
+}
+
+function PsychoForm($input, $do_strip = false) {
+    self::__construct($input, $do_strip);
 }
 
 // adds a new field to be validated. Call this once for each field on the form.

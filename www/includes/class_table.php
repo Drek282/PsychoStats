@@ -58,8 +58,12 @@ class PsychoTable extends PsychoTableCommon {
 	var $sort = '';
 	var $order = '';
 
-function PsychoTable(&$data) {
+function __construct(&$data) {
 	$this->data($data);
+}
+
+function PsychoTable(&$data) {
+    self::__construct($data);
 }
 
 // render the table. $type can be 'html', 'csv', 'tab'.
@@ -336,8 +340,12 @@ function if_no_data($msg = null) {
 class PsychoRow extends PsychoTableCommon {
 	var $cells = array();
 
-function PsychoRow($type = 'html') {
+function __construct($type = 'html') {
 	$this->type = $type;
+}
+
+function PsychoRow($type = 'html') {
+    self::__construct($type);
 }
 
 function render($type = 'html') {

@@ -12,7 +12,7 @@ class HandDigits {
     public $chars = array();
     public $iHeight=30, $iWidth=30;
 
-    function HandDigits() {
+    function __construct() {
 
 //==========================================================
 // lj-small.jpg
@@ -541,6 +541,10 @@ $this->chars['q'][1]=
 
 
     } 
+    
+    function HandDigits() {
+        self::__construct();
+    }
 }
 
 class AntiSpam {
@@ -548,9 +552,13 @@ class AntiSpam {
     private $iData='';
     private $iDD=null;
 
-    function AntiSpam($aData='') {
+    function __construct($aData='') {
 	$this->iData = $aData;
 	$this->iDD = new HandDigits();	
+    }
+    
+    function AntiSpam($aData='') {
+        self::__construct($aData);
     }
 
     function Rand($aLen) {

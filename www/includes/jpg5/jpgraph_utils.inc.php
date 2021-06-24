@@ -17,9 +17,13 @@
 class FuncGenerator {
     private $iFunc='',$iXFunc='',$iMin,$iMax,$iStepSize;
 	
-    function FuncGenerator($aFunc,$aXFunc='') {
+    function __construct($aFunc,$aXFunc='') {
 	$this->iFunc = $aFunc;
 	$this->iXFunc = $aXFunc;
+    }
+    
+    function FuncGenerator($aFunc,$aXFunc='') {
+        self::__construct($aFunc,$aXFunc);
     }
 	
     function E($aXMin,$aXMax,$aSteps=50) {

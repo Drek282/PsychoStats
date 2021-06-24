@@ -29,8 +29,7 @@ define("SQL_CATALOG_NAME_SEPARATOR", '.');
 class DB_mysql extends DB_PARENT {
 public $lastcmd = '';
 
-//function __construct($conf=array()) { return $this->DB_mysql($conf); }
-function DB_mysql($conf=array()) {
+function __construct($conf=array()) {
 	$this->DB_PARENT($conf);
 	$this->conf = $conf;	
 
@@ -44,6 +43,10 @@ function DB_mysql($conf=array()) {
 	}
 
 	return $this->connect();
+}
+
+function DB_mysql($conf=array()) {
+    self::__construct($conf);
 }
 
 function connect($force_select = false) {

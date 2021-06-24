@@ -19,7 +19,7 @@ class ImgData_Stars extends ImgData {
     protected $maxidx = 7 ;
     protected $imgdata ;
 
-    function ImgData_Stars() {
+    function __construct() {
 //==========================================================
 // File: bstar_green_001.png
 //==========================================================
@@ -138,6 +138,10 @@ class ImgData_Stars extends ImgData {
 	    'mYxSv5lqGCs2nvaLLtZx/VhGOW1MjnPJWp0zsw2wsUY2jd09BY'.
 	    'DFmESC+BwA5UCUxhqAhqrA4CGrLpCMVGK4sZe4B+/5RLdiyMb6'.
 	    'on/PuS9CdQNC7yBXEQAAAABJRU5ErkJggg==' ; 
+    }
+    
+    function ImgData_Stars() {
+        self::__construct();
     }
 }
 

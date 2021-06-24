@@ -63,8 +63,8 @@ function __construct(&$session, &$db) {
 	$this->db =& $db;
 }
  
-function PsychoUser() {
-        self::__construct();
+function PsychoUser(&$session, &$db) {
+        self::__construct($session, $db);
 }
 
 // loads the user information from the database.

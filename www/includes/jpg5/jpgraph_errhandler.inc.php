@@ -123,8 +123,12 @@ class JpGraphErrObject {
     protected $iDest = false;
 
 
-    function JpGraphErrObject() {
+    function __construct() {
 	// Empty. Reserved for future use
+    }
+    
+    function JpGraphErrObject() {
+        self::__construct();
     }
 
     function SetTitle($aTitle) {
