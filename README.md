@@ -1,5 +1,7 @@
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 5.3.0+ and MySQL 4.1.13+.
 
+***This version of PsychoStats should be close to being PHP 8 compatible.  However, it has not yet been tested on PHP 8.  If you wish to use this version of PsychoStats you are strongly advised not to upgrade your PHP version to 8 until this version of PsychoStats has been tested on PHP 8.***
+
 Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.
 
 This version was created without any input from Stormtrooper. The only objective was to get a pretty terrific piece of old software working again. I am Drek, the author of the updates. I am not a coder. I know enough about scripting to have managed most of the fixes without too much trouble.  However, I can make no guaratees about security or best practices.  Use this software at your own risk.
@@ -59,10 +61,6 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Mcrypt is deprecated/obsolete.
 
-* Obsolete and deprecated php still to be cleaned up.
-
-* Roles support for The Battle Grounds III is not yet complete.
-
 
 ## **Stuff that Remains Untested**
 
@@ -70,14 +68,16 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * The contents of the "scripts" folder are also largely unexplored.  Most of them should be self explanatory but they should be considered untested.
 
+* PHP 8 compatibility.
+
 
 ## **Future Plans**
 
 * Improve display on mobile devices.
 * Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
 * Full PHP 8.x compatibility.
-* Clean up deprecated PHP.
 * GDPR compliance.
+
 
 ## **Credits**
 
