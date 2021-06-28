@@ -2,15 +2,13 @@ This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated
 
 ***This version of PsychoStats should be close to being PHP 8 compatible.  However, it has not yet been tested on PHP 8.  If you wish to use this version of PsychoStats you are strongly advised not to upgrade your PHP version to 8 until this version of PsychoStats has been tested on PHP 8.***
 
-Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.
+***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
 
-This version was created without any input from Stormtrooper. The only objective was to get a pretty terrific piece of old software working again. I am Drek, the author of the updates. I am not a coder. I know enough about scripting to have managed most of the fixes without too much trouble.  However, I can make no guaratees about security or best practices.  Use this software at your own risk.
+All of the versions on this repository and the game support repositories should be considered beta software as at this time we do not have the access to game servers necessary to thoroughly test releases.  Prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers.  The base PsychoStats code should be robust and stable, the changes that have been made have been relatively minor, so it stands to reason that the code is still robust and stable, but there are no guarantees.
 
-All of the versions on this repository and the game support repositories should be considered beta software as at this time I simply do not have the capacity or the access to game servers to thoroughly test releases.  I know that prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers.  The base PsychoStats code should be robust and stable, and as stated, the changes I have made have been relatively minor, so it stands to reason that the code is still robust and stable, but again, I can make no guarantees.
+There was one serious known security vulnerability and that has been fixed.  Most of the "fixes" were already present in the code, as Stormtrooper was aware of some of the changes to PHP that had, at that time, recently been made, or had been announced. Very little had to actually be rewritten, and where rewriting was required the changes were pretty minor. There were a number of minor syntax changes, especially with regards to mysqli.
 
-There was one serious security vulnerability that I am aware of, and that has been fixed.  Most of the "fixes" were already present in the code, as Stormtrooper was aware of some of the changes to PHP that had, at that time, recently been made, or had been announced. Very little had to actually be rewritten, and where rewriting was required the changes were pretty minor. There were a number of minor syntax changes, especially with regards to mysqli.
-
-Flag icon images and many map and overlay images have been converted from jpg and png to webp.  There is a slight decrease in image quality that I don't think is noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the webp images are much smaller, require less bandwidth and will load faster.
+Flag icon images and many map and overlay images have been converted from jpg and png to webp.  There is a slight decrease in image quality that is not  noticeable unless you are specifically looking for it, and know what to look for.  The trade off is that the webp images are much smaller, require less bandwidth and will load faster.
 
 This version of PsychoStats currently supports the following games:  
 ***We are always looking for server logs to allow for testing and improved game support.***
@@ -36,9 +34,9 @@ There are also modules available for the following games, but they are untested 
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
 * [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 
-I have, for the most part, tried not to make changes that change the way Psychostats works, by default. However, I have made one or two changes that reflect my own personal biases, and for my own convenience when faced with reinstalling Psychostats hundreds of times as I worked on it. One of those is that the bonus for an ffkill is now -10.  I also believe that winning the game or round is really the entire point, far more important than k:d ratios, this is reflected in the bonuses I have added for team wins.
+We have, for the most part, tried not to make changes to the way Psychostats works, by default. However, one or two changes have been made that reflect personal biases, to make the process of reinstalling Psychostats hundreds of times more convenient as it has been worked on. One of those is that the bonus for an ffkill is now -10.  Winning games or rounds is really the entire point, far more important than k:d ratios, this is reflected in the bonuses that have been added for team wins.
 
-If you don't like those changes they are easy to edit in the Admin CP.  One other significant change is that I have changed the resolution for bonuses to one decimal place, so you can now create bonuses that are 0.1 etc.  There were bonuses for events that can happen very often, such as medic heals in TFC, that were too large if they were a full point or more.
+If you don't like those changes they are easy to edit in the Admin Control Panel.  One other significant change is that the resolution for bonuses has been changed to one decimal place, so you can now create bonuses that are 0.1 etc.  There were bonuses for events that can happen very often, such as medic heals in Team Fortress Classic, that were too large if they were a full point or more.
 
 Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained.  The only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to Stormtrooper's email address have been removed.
 
@@ -75,13 +73,13 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Improve display on mobile devices.
 * Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
-* Full PHP 8.x compatibility.
+* Full PHP 8 compatibility.
 * GDPR compliance.
 
 
 ## **Credits**
 
-I want to express my admiration and gratitude to Jason Morriss, a.k.a. Stormtrooper, for all his work. This software deserves to be used. The period between 2000 and 2005 and all the old Half-Life and Source mods represent a golden age in pc game modding. Those games deserve to be played. With a little massaging most of them still run very well on new hardware and new operating systems.
+Thank you to Jason Morriss, a.k.a. Stormtrooper, for all his oringinal work. This software deserves to be used. The period between 2000 and 2005 and all the old Half-Life and Source mods represent a golden age in PC game modding. Those games deserve to be played. With a little massaging most of them still run very well on new hardware and new operating systems.
 
 Kudos to Valve as well for maintaining their back catalogue.
 
