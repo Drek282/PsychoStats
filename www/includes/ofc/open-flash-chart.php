@@ -1360,7 +1360,7 @@ class line_hollow extends line
 		$this->dot_size = $dot_size;
 	}
     
-    function line_hollow( $line_width, $dot_size, $colour )
+    function line_hollow( $line_width, $dot_size, $colour ) {
         self::__construct($line_width, $dot_size, $colour);
     }
 	
