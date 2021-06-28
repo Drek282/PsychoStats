@@ -59,6 +59,8 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * Mcrypt is deprecated/obsolete.
 
+* Dynamic skill chart on player pages is broken.
+
 
 ## **Stuff that Remains Untested**
 
