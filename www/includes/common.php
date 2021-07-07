@@ -94,7 +94,7 @@ if (is_dir(PS_ROOTDIR . "/install")) {
 // Lets be nice to the global Name Space.
 $ps		= null;				// global PsychoStats object
 $cms 		= null;				// global PsychoCMS object
-$php_scnm = $_SERVER['REQUEST_URI'];		// this is used so much we make sure it's global
+$php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
 define("SAFE_PHP_SCNM", htmlentities($_SERVER['REQUEST_URI'], ENT_QUOTES, "UTF-8"));
