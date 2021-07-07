@@ -304,7 +304,7 @@ function draw($print=FALSE) {
 }
 
 function timeurl($time) {
-    $php_scnm = $_SERVER['SCRIPT_NAME'];
+    $php_scnm = $_SERVER['REQUEST_URI'];
     
 	if (!$this->conf['show_timeurl']) return '';
 	$url = '';

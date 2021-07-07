@@ -73,10 +73,10 @@ if (file_exists(PS_ROOTDIR . "/config.php") and file_exists(PS_ROOTDIR . "/insta
 // Lets be nice to the global Name Space.
 $db		= null;
 $cms 		= null;				// global PsychoCMS object
-$php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
+$php_scnm = $_SERVER['REQUEST_URI'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
+define("SAFE_PHP_SCNM", htmlentities($_SERVER['REQUEST_URI'], ENT_QUOTES, "UTF-8"));
 
 // create database handle
 $db = PsychoDB::create(array(

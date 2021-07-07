@@ -297,10 +297,10 @@ function GenImgName() {
     elseif( $supported & IMG_GIF ) $img_format="gif";
     elseif( $supported & IMG_JPG ) $img_format="jpeg";
 
-    if( !isset($_SERVER['SCRIPT_NAME']) )
+    if( !isset($_SERVER['REQUEST_URI']) )
 	JpGraphError::RaiseL(25005);
 //(" Can't access PHP_SELF, PHP global variable. You can't run PHP from command line if you want to use the 'auto' naming of cache or image files.");
-    $fname = basename($_SERVER['SCRIPT_NAME']);
+    $fname = basename($_SERVER['REQUEST_URI']);
     if( !empty($_SERVER['QUERY_STRING']) ) {
 	$q = @$_SERVER['QUERY_STRING'];
 	$fname .= '_'.preg_replace("/\W/", "_", $q).'.'.$img_format;
@@ -1270,7 +1270,7 @@ class Graph {
 	global $_SERVER;
 
 	if( $aCacheName=='auto' )
-	    $aCacheName=basename($_SERVER['SCRIPT_NAME']);
+	    $aCacheName=basename($_SERVER['REQUEST_URI']);
 
 	$urlarg = $this->GetURLArguments();
 	$this->csimcachename = CSIMCACHE_DIR.$aCacheName.$urlarg;
@@ -1365,7 +1365,7 @@ class Graph {
 	}
 
 	if( $aScriptName=='auto' )
-	    $aScriptName=basename($_SERVER['SCRIPT_NAME']);
+	    $aScriptName=basename($_SERVER['REQUEST_URI']);
 
 	$urlarg = $this->GetURLArguments();
 
