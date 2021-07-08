@@ -75,23 +75,41 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
         $div_name .= '_'. $open_flash_chart_seqno;
     }
     
-    if( $use_swfobject )
-    {
+//    if( $use_swfobject )
+//    {
 	// Using library for auto-enabling Flash object on IE, disabled-Javascript proof  
     $out[] = '<div id="'. $div_name .'"></div>';
+	$out[] = '<script src="'. $base .'js/ruffle/ruffle.js"></script>';
 	$out[] = '<script>';
-	$out[] = 'var so = new SWFObject("'. $base .'open-flash-chart.swf", "'. $obj_id .'", "'. $width . '", "' . $height . '", "9", "#FFFFFF");';
+	$out[] = '{literal}';
+	$out[] = '  window.RufflePlayer = window.RufflePlayer || {};';
+	$out[] = '  window.RufflePlayer.config = {';
+	$out[] = '    "publicPath": undefined,';
+	$out[] = '    "polyfills": true,';
+	$out[] = '    "autoplay": "on",';
+	$out[] = '    "unmuteOverlay": "hidden",';
+	$out[] = '    "backgroundColor": null,';
+	$out[] = '    "letterbox": "fullscreen",';
+	$out[] = '    "warnOnUnsupportedContent": true,';
+	$out[] = '    "contextMenu": false,';
+	$out[] = '    "upgradeToHttps": window.location.protocol === "https:",';
+	$out[] = '    "maxExecutionDuration": {"secs": 15, "nanos": 0},';
+	$out[] = '    "logLevel": "error",';
+	$out[] = '  };';
+	$out[] = '{/literal}';
+	$out[] = '</script>';
+	
+//	$out[] = 'var so = new SWFObject("'. $base .'open-flash-chart.swf", "'. $obj_id .'", "'. $width . '", "' . $height . '", "9", "#FFFFFF");';
 	//$out[] = 'so.addVariable("width", "' . $width . '");';
 	//$out[] = 'so.addVariable("height", "' . $height . '");';
-	$out[] = 'so.addVariable("data", "'. $url . '");';
-	$out[] = 'so.addParam("allowScriptAccess", "sameDomain");';
-	$out[] = 'so.write("'. $div_name .'");';
-	$out[] = '</script>';
-	$out[] = '<noscript>';
-    }
-
+//	$out[] = 'so.addVariable("data", "'. $url . '");';
+//	$out[] = 'so.addParam("allowScriptAccess", "sameDomain");';
+//	$out[] = 'so.write("'. $div_name .'");';
+//	$out[] = '</script>';
+//	$out[] = '<noscript>';
+//    }
     $out[] = '<object type="application/x-shockwave-flash" ';
-    $out[] = 'width="' . $width . '" height="' . $height . '" id="ie_'. $obj_id .'">';
+    $out[] = 'width="' . $width . '" height="' . $height . '">';
     $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />';
     $out[] = '<param name="allowScriptAccess" value="sameDomain" />';
     $out[] = '<param name="movie" value="'. $base .'open-flash-chart.swf?width='. $width .'&height='. $height . '&data='. $url .'" />';
@@ -101,9 +119,9 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
     $out[] = 'type="application/x-shockwave-flash" id="'. $obj_id .'"/>';
     $out[] = '</object>';
 
-    if ( $use_swfobject ) {
-	$out[] = '</noscript>';
-    }
+//    if ( $use_swfobject ) {
+//	$out[] = '</noscript>';
+//    }
     
     return implode("\n",$out);
 }
