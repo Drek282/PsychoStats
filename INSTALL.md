@@ -67,7 +67,8 @@ README.md
 You should not use a database super user for PsychoStats, especially in a production context.  You should create a user then create a database, then make sure your user has full permissions on that database, before you run the installer.  However, for test purposes, in a local network environment you can use a database user with general permissions and the installer will create the database for you.
 
 3. You will need to have Perl installed to run the stats generation scripts, and your web hosting will need to have PHP installed on it.  Note that there are a number of Perl and PHP modules that you will need to have installed.  Again, Google is your friend, if you encounter errors when you try to run the web install, or when you run the stats generation scripts, those errors should let you know what you need to install.
-Minimum version of Perl is `5.08` and it requires `Digest-MD5`, `Digest-SHA1` and `GD` modules.
+
+The minimum required version of Perl is `5.08`, of PHP is `5.3.0` and MySQL is `4.1.13`.  Required Perl modules include the `Digest-MD5`, `Digest-SHA1` and `GD` modules.
 
 4. These instructions assume you already know the basics of hosting a website The specifics of that will depend on your hosting arrangements.  Copy the contents of the 'www' directory to your web hosting folder.  It is recommended that you don't expose your PsychoStats web folder to the public web until you have completed the install process.
 
