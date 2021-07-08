@@ -174,11 +174,13 @@ class graph
 	// escape commas (,)
 	function esc( $text )
 	{
+        if (is_array($text)) $text = implode($text);
 		// we replace the comma so it is not URL escaped
 		// if it is, flash just thinks it is a comma
 		// which is no good if we are splitting the
 		// string on commas.
 		$tmp = str_replace( ',', '#comma#', $text );
+		//$tmp = implode( ',', $txt );
 		//$tmp = utf8_encode( $tmp );
 		// now we urlescape all dodgy characters (like & % $ etc..)
 		return urlencode( $tmp );
@@ -326,7 +328,8 @@ class graph
 	function set_x_labels( $a )
 	{
 		$tmp = array();
-		foreach( $a as $item )
+		foreach((array) $a as $item)
+//		foreach( $a as $item )
 			$tmp[] = $this->esc( $item );
 		$this->x_labels = $tmp;
 	}
