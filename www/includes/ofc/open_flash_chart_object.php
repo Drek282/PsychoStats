@@ -79,7 +79,7 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 //    {
 	// Using library for auto-enabling Flash object on IE, disabled-Javascript proof  
     $out[] = '<div id="'. $div_name .'"></div>';
-	$out[] = '<script src="'. $base .'../ruffle/ruffle.js"></script>';
+	$out[] = '<script src="/includes/ruffle/ruffle.js"></script>';
 	$out[] = '<script>';
 	$out[] = '{literal}';
 	$out[] = '  window.RufflePlayer = window.RufflePlayer || {};';
