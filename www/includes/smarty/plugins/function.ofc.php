@@ -14,9 +14,10 @@ function smarty_function_ofc($args, &$smarty) {
 	);
 	if ($args['url'] == null) {
 		if ($args['data'] == null) {
-			$args['url'] = $_SERVER['REQUEST_URI'] . '?ofc=1';
+			$args['url'] = $_SERVER['SCRIPT_NAME'] . '?ofc=1';
 		} else {
-			$args['url'] = $_SERVER['REQUEST_URI'] . '?ofc=' . $args['data'];
+			$args['url'] = $_SERVER['SCRIPT_NAME'] . '?ofc=' . $args['data'];
+			
 		}
 	}
 
