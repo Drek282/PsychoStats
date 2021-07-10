@@ -85,8 +85,8 @@
 		</conn>
 
 		<!-- quick player skill history line chart -->
-		<plrskill bgcolor="" bg_inner1="" bg_inner2="" inner_angle="">
-			<title style="font-size: 12px;background-color: #c4c4c4">{#Skill Chart#}</title>
+		<plrskill bgcolor="#efe1b4" bg_inner1="" bg_inner2="" inner_angle="">
+			<title style="font-size: 12px;background-color: #efe1b4">{#Skill Chart#}</title>
 			<lines key_size="9">
 				<line width="2" key="{#Average#}" color="#9999ee" />
 				<line width="3" key="{#Skill#}" color="#5555ff" />
