@@ -22,11 +22,20 @@
  */
 if (!defined("PSYCHOSTATS_ADMIN_PAGE")) die("Unauthorized access to " . basename(__FILE__));
 
+// IIS does not have REQUEST_URI defined (apache specific).
+// This URI is handy in certain pages so we create it if needed.
+if (empty($_SERVER['REQUEST_URI'])) {
+	$_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'];
+	if (!empty($_SERVER['QUERY_STRING'])) {
+		$_SERVER['REQUEST_URI'] .= '?' . $_SERVER['QUERY_STRING'];
+	}
+}
+
 // Initialize our global variables for PsychoStats. 
 $php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-define("SAFE_PHP_SCNM", htmlentities($_SERVER['REQUEST_URI'], ENT_QUOTES, "UTF-8"));
+define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
 
 // ADMIN pages need to setup the theme a little differently than the others
 $opts = array( 
