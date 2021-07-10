@@ -75,11 +75,12 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
         $div_name .= '_'. $open_flash_chart_seqno;
     }
     
-//    if( $use_swfobject )
-//    {
-	// Using library for auto-enabling Flash object on IE, disabled-Javascript proof  
+    $php_scnm = $_SERVER['SCRIPT_NAME'];
+    $php_scnm_dir = rtrim(dirname($php_scnm), '/\\');
+    
+	// Using library for auto-enabling Flash object, disabled-Javascript proof  
     $out[] = '<div id="'. $div_name .'"></div>';
-	$out[] = '<script src="/includes/ruffle/ruffle.js"></script>';
+	$out[] = '<script src="' . $php_scnm_dir . '/includes/ruffle/ruffle.js"></script>';
 	$out[] = '<script>';
 	$out[] = '{literal}';
 	$out[] = '  window.RufflePlayer = window.RufflePlayer || {};';
@@ -99,15 +100,6 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 	$out[] = '{/literal}';
 	$out[] = '</script>';
 	
-//	$out[] = 'var so = new SWFObject("'. $base .'open-flash-chart.swf", "'. $obj_id .'", "'. $width . '", "' . $height . '", "9", "#FFFFFF");';
-	//$out[] = 'so.addVariable("width", "' . $width . '");';
-	//$out[] = 'so.addVariable("height", "' . $height . '");';
-//	$out[] = 'so.addVariable("data", "'. $url . '");';
-//	$out[] = 'so.addParam("allowScriptAccess", "sameDomain");';
-//	$out[] = 'so.write("'. $div_name .'");';
-//	$out[] = '</script>';
-//	$out[] = '<noscript>';
-//    }
     $out[] = '<object type="application/x-shockwave-flash" ';
     $out[] = 'width="' . $width . '" height="' . $height . '">';
     $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />';
@@ -118,10 +110,6 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
     $out[] = '<embed src="'. $base .'open-flash-chart.swf?data=' . $url .'" quality="high" bgcolor="#FFFFFF" width="'. $width .'" height="'. $height .'" allowScriptAccess="sameDomain" ';
     $out[] = 'type="application/x-shockwave-flash" id="'. $obj_id .'"/>';
     $out[] = '</object>';
-
-//    if ( $use_swfobject ) {
-//	$out[] = '</noscript>';
-//    }
     
     return implode("\n",$out);
 }
