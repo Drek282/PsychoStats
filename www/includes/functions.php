@@ -355,7 +355,7 @@ function url($arg = array()) {
 		'_ref'		=> NULL,		// if true/numeric referrer is autoset, if a string it is used instead
 		// any other key => value pair is treated as a parameter in the URL
 	);
-	$base = ($arg['_base'] === NULL) ? ps_escape_html($_SERVER['REQUEST_URI']) : $arg['_base'];
+	$base = ($arg['_base'] === NULL) ? ps_escape_html($_SERVER['SCRIPT_NAME']) : $arg['_base'];
 	$enc = $arg['_encode'] ? 1 : 0;
 	$encodefunc = ($arg['_encodefunc'] && function_exists($arg['_encodefunc'])) ? $arg['_encodefunc'] : 'rawurlencode';
 	$i = (strpos($base, '?') === FALSE) ? 0 : 1;
@@ -370,7 +370,7 @@ function url($arg = array()) {
 	if ($arg['_ref']) {
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		if ($arg['_ref'] and $arg['_ref'] == 1) {
-			$base .= 'ref=' . $encodefunc($_SERVER['REQUEST_URI'] .
+			$base .= 'ref=' . $encodefunc($_SERVER['SCRIPT_NAME'] .
 				($_SERVER['QUERY_STRING'] != null ? '?' . $_SERVER['QUERY_STRING'] : '')
 			);
 		} elseif (!empty($arg['_ref'])) {
