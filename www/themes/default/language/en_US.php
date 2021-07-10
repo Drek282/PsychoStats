@@ -852,6 +852,8 @@ function __construct() {
 		'',
 	'Skill' =>
 		'',
+	'Skill Chart' =>
+		'',
 	'SQL queries' =>
 		'',
 	'Start Time' =>
