@@ -45,7 +45,7 @@ $form->field('uniqueid', 'blank');
 $form->field('username', 'blank');
 $form->field('password', 'blank,password_match');
 $form->field('password2', 'blank');
-$form->field('email', 'blank');
+$form->field('email', 'blank, email');
 
 if ($submit) {
 	$form->validate();
