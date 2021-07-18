@@ -17,20 +17,16 @@
 		<p>{if $plr.website}<a href="{$plr.website|escape}">{$plr.website|urltruncate:60|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#Email Address#>:</label>
-		<p>{if $plr.email}<a href="mailto:{$plr.email|escape}">{$plr.email|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Discord ID#>:</label>
+		<p>{if $plr.discord}<a href="https://discordapp.com/users/{$plr.discord|escape}/">{$plr.discord|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#Discord Nick#>:</label>
-		<p>{if $plr.discord}<a href="aim:goim?screenname={$plr.discord|escape}">{$plr.discord|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Youtube Channel Name#>:</label>
+		<p>{if $plr.youtube}<a href="https://www.youtube.com/user/{$plr.youtube|escape}">{$plr.youtube|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#Youtube Channel#>:</label>
-		<p>{if $plr.youtube}<a href="http://wwp.icq.com/scripts/search.dll?to={$plr.youtube|escape}">{$plr.youtube|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
-	</div>
-	<div class="row">
-		<label><#Steam Profile Page#>:</label>
-		<p>{if $plr.steamprofile}{$plr.steamprofile|escape}{else}<em><#Not Set#></em>{/if}</p>
+		<label><#Steam Profile Name#>:</label>
+		<p>{if $plr.steamprofile}<a href="https://steamcommunity.com/id/{$plr.steamprofile|escape}">{$plr.steamprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 {*
 {if !ps_user_logged_in() and $show_login}
 		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>
