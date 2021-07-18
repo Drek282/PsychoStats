@@ -270,7 +270,8 @@ function val_positive($var, $value, &$form) {
 // Validator: returns true if the value is (losely) an email address (or if it's blank)
 function val_email($var, $value, &$form) {
 	if (!empty($value)) {
-		$pattern = '/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/';
+//		$pattern = '/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/';
+		$pattern = '/^(.+)\@(.+\..+)$/';
 		if (!preg_match($pattern, $value)) {
 			$form->error($var, $this->valid_errors['email'] ? $this->valid_errors['email'] : "Field must be a valid email address");
 			return false;
