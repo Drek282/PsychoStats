@@ -252,6 +252,8 @@ function __construct() {
 		'',
 	'Diff' =>
 		'',
+	'Discord ID' =>
+		'',
 	'Dmg' =>
 		'',
 	'Dom' =>
@@ -860,7 +862,7 @@ function __construct() {
 		'',
 	'Steam ID' =>
 		'',
-	'Steam Profile' =>
+	'Steam Profile Name' =>
 		'',
 	'Steamid' =>
 		'',
@@ -1051,6 +1053,8 @@ function __construct() {
 	'You will be redirected in a few seconds' =>
 		'',
 	'Your information is never sold or given away to third parties.' =>
+		'',
+	'YouTube Channel Name' =>
 		'',
 
 	) + $this->map;

@@ -240,6 +240,8 @@ function __construct() {
 		'',
 	'Description' =>
 		'',
+	'Discord ID' =>
+		'',
 	'Download as Text' =>
 		'',
 	'E' =>
@@ -764,6 +766,8 @@ function __construct() {
 		'',
 	'Status' =>
 		'',
+	'Steam Profile Name' =>
+		'',
 	'Successfully connected to the FTP server and verified the path exists!' =>
 		'',
 	'Successfully connected to the SSH server and verified the path exists!' =>
@@ -941,6 +945,8 @@ function __construct() {
 	'Your information is never sold or given away to third parties.' =>
 		'',
 	'Your server environment will not allow new themes to be installed due to the following reasons.' =>
+		'',
+	'YouTube Channel Name' =>
 		'',
 
 	) + $this->map;
