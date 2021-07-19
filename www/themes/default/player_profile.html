@@ -25,8 +25,8 @@
 		<p>{if $plr.youtube}<a href="https://www.youtube.com/user/{$plr.youtube|escape}">{$plr.youtube|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
 	<div class="row">
-		<label><#Steam Profile Name#>:</label>
-		<p>{if $plr.steamprofile}<a href="https://steamcommunity.com/id/{$plr.steamprofile|escape}">{$plr.steamprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<label><#SocialClub Profile Name#>:</label>
+		<p>{if $plr.socialclubprofile}<a href="https ://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}">{$plr.socialclubprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 {*
 {if !ps_user_logged_in() and $show_login}
 		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>

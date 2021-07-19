@@ -87,10 +87,10 @@ flags_url = "{$conf.theme.flags_url}";
 	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
 </div>
 
-<div{if $errors.steamprofile} class="err"{/if}>
-	<p class="err" id="err-steamprofile">{$errors.steamprofile|escape}</p>
+<div{if $errors.socialclubprofile} class="err"{/if}>
+	<p class="err" id="err-socialclubprofile">{$errors.socialclubprofile|escape}</p>
 	<label><#Steam Profile Name#>:</label>
-	<input name="steamprofile" value="{$form.steamprofile|escape}" type="text" class="field long" />
+	<input name="socialclubprofile" value="{$form.socialclubprofile|escape}" type="text" class="field long" />
 </div>
 
 {if $conf.theme.map.google_key}

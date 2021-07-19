@@ -858,6 +858,8 @@ function __construct() {
 		'',
 	'SQL queries' =>
 		'',
+	'SocialClub Profile Name' =>
+		'',
 	'Start Time' =>
 		'',
 	'Steam ID' =>
