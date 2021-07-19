@@ -88,7 +88,7 @@ $form->field('plrname','blank');	// 'plrname' is used instead of 'name' to avoid
 $form->field('email');
 $form->field('discord');
 $form->field('youtube');
-$form->field('steamprofile');
+$form->field('socialclubprofile');
 $form->field('website');
 $form->field('icon');
 $form->field('cc');
