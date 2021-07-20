@@ -9,7 +9,7 @@
 	{if $plr.steam_community_url}
 	<div class="row">
 		<label><#Steam Profile Page#>:</label>
-		<p><a href="{$plr.steam_community_url|escape}">{$plr.name|escape}</a><em class="add-friend">(<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
+		<p><a href="{$plr.steam_community_url|escape}">{$plr.name|escape}</a><em class="add-friend"> (<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
 	</div>
 	{/if}
 	<div class="row">
@@ -26,7 +26,7 @@
 	</div>
 	<div class="row">
 		<label><#SocialClub Profile Name#>:</label>
-		<p>{if $plr.socialclubprofile}<a href="https ://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}">{$plr.socialclubprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
+		<p>{if $plr.socialclubprofile}<a href="https://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}">{$plr.socialclubprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 {*
 {if !ps_user_logged_in() and $show_login}
 		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>
