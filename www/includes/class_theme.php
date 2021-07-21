@@ -65,7 +65,6 @@ var $css_links		= array();
 var $css_compress	= true;
 var $js_sources		= array();
 var $js_compress	= true;
-var $meta_tags		= array();
 var $loaded_themes	= array();
 var $parent_themes	= array();
 var $fetch_compile	= true;
@@ -140,7 +139,7 @@ function __construct(&$cms, $args = array()) {
 	));
 
 	// allow theme access to a couple methods of our objects
-	$this->register_object('theme', $this, array( 'css_links', 'js_sources', 'meta_tags', 'url', 'parent_url' ), false);
+	$this->register_object('theme', $this, array( 'css_links', 'js_sources', 'url', 'parent_url' ), false);
 	$this->register_object('db', $this->cms->db, array( 'totalqueries' ), false);
 	
 }  // end of constructor
@@ -172,30 +171,6 @@ function add_css($href, $media='screen,print') {
 
 function add_js($src) {
 	$this->js_sources[$src] = array( 'src' => $src );
-}
-
-function add_meta($values) {
-	if (is_array($values)) {
-		$this->meta_tags[] = $values;
-	}
-}
-
-function add_refresh($url, $seconds = 3) {
-	$this->add_meta(array( 'http-equiv' => 'Refresh', 'content' => $seconds . ';URL=' . $url ));
-}
-
-// SMARTY: template routine to print out the META tags in the overall_header
-function meta_tags() {
-	if (!is_array($this->meta_tags)) return '';
-	$out = '';
-	foreach ($this->meta_tags as $meta) {
-		$out .= "\t<meta ";
-		foreach ($meta as $key => $val) {
-			$out .= "$key='" . ps_escape_html($val) . "' ";
-		}
-		$out .= "/>\n";
-	}
-	return $out;
 }
 
 // returns true for '1' or 'true' and false for anything else
