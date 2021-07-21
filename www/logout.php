@@ -44,7 +44,6 @@ $cms->theme->assign(array(
 // display the output
 $basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
-$cms->theme->add_refresh($ref ? $ref : 'index.php');
 $cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');
 
 
