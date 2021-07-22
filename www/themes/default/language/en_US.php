@@ -20,7 +20,7 @@ if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FIL
 // every single language map if some translations are no different from the extended language.
 //include_once($this->language_dir('en_US') . '/en_US.php');
 
-class PsychoLanguage_cc_default_en_US extends PsychoLanguage {
+class PsychoLanguage_default_en_US extends PsychoLanguage {
 
 function __construct() {
 	$this->PsychoLanguage();
