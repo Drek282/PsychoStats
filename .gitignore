@@ -13,6 +13,8 @@ docker-compose/mysql/dump/*.sql
 
 # Ignore mods
 # PS_CSTRIKES
+/addons/sourcemod
+/addons/heatmaps
 www/img/weapons/
 www/includes/PS/source/
 www/config.php
@@ -26,6 +28,8 @@ www/install/go-dbinit.php
 /root/lib/PS/Game/source.pm
 /root/lib/PS/Map/source/cstrikes.pm
 /root/lib/PS/Player/source/cstrikes.pm
+/root/lib/PS/Player/source.pm
+/root/lib/PS/Role/source.pm
 
 
 # Kate "conflicted" files
