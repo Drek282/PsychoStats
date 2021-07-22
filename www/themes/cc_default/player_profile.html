@@ -9,28 +9,31 @@
 	{if $plr.steam_community_url}
 	<div class="row">
 		<label><#Steam Profile Page#>:</label>
-		<p><a href="{$plr.steam_community_url|escape}">{$plr.name|escape}</a><em class="add-friend"> (<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
+		<p><a href="{$plr.steam_community_url|escape}">{$plr.name|escape}</a><em class="add-friend">(<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
 	</div>
 	{/if}
+	{if $plr.website}
 	<div class="row">
 		<label><#Website#>:</label>
 		<p>{if $plr.website}<a href="{$plr.website|escape}">{$plr.website|urltruncate:60|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
+	{/if}
+	{if $plr.discord}
 	<div class="row">
 		<label><#Discord ID#>:</label>
 		<p>{if $plr.discord}<a href="https://discordapp.com/users/{$plr.discord|escape}/">{$plr.discord|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
+	{/if}
+	{if $plr.youtube}
 	<div class="row">
 		<label><#Youtube Channel Name#>:</label>
 		<p>{if $plr.youtube}<a href="https://www.youtube.com/user/{$plr.youtube|escape}">{$plr.youtube|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
+	{/if}
+	{if $plr.socialclubprofile}
 	<div class="row">
 		<label><#SocialClub Profile Name#>:</label>
-		<p>{if $plr.socialclubprofile}<a href="https://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}">{$plr.socialclubprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
-{*
-{if !ps_user_logged_in() and $show_login}
-		<a href="{url _base="login.php" _ref=1}"><#Login to edit this player's profile!#></a>
-{/if}
-*}
+		<p>{if $plr.socialclubprofile}<a href="https ://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}">{$plr.socialclubprofile|escape}</a>{else}<em><#Not Set#></em>{/if}</p>
 	</div>
+	{/if}
 </div>

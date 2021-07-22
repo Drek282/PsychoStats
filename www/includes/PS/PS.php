@@ -2032,7 +2032,7 @@ function theme_setup(&$theme) {
 	$theme->assign(array(
 		'use_roles'		=> $this->use_roles,
 		'show_ips'		=> $this->conf['theme']['permissions']['show_ips'] || $is_admin,
-		'show_worldids'		=> $this->conf['theme']['permissions']['show_worldids']|| $is_admin,
+		'show_worldids'		=> $this->conf['theme']['permissions']['show_worldids'] || $is_admin,
 		'show_login'		=> $this->conf['theme']['permissions']['show_login'] || $is_admin,
 		'show_register'		=> $this->conf['theme']['permissions']['show_register'] || $is_admin,
 		'show_version'		=> $this->conf['theme']['permissions']['show_version'] || $is_admin,
