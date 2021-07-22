@@ -60,7 +60,7 @@ docker run --name psychostats_daemon_1 psychostats_daemon perl stats.pl
 
 or you can use script:
 ```
-./scritps/run.sh stats.pl
+./scripts/run.sh stats.pl
 ```
 
 
