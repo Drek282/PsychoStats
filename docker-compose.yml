@@ -1,0 +1,39 @@
+---
+version: "3.4"
+services:
+  www:
+    container_name: psychostats.www
+    build:
+      context: www
+    ports:
+      - "8001:80"
+    volumes:
+      - ./www:/var/www/html/
+    depends_on:
+      - mysql
+
+  mysql:
+    container_name: psychostats.mysql
+    image: mariadb
+    ports:
+      - "3336:3306"
+    environment:
+      MYSQL_DATABASE: psychostats3_1
+      MYSQL_USER: ps3
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - ./docker-compose/mysql/dump:/docker-entrypoint-initdb.d
+      - mysql:/var/lib/mysql
+
+  daemon:
+    container_name: psychostats.daemon
+    build:
+      context: root
+    depends_on:
+      - mysql
+    volumes:
+      - ./root:/usr/src/app
+
+volumes:
+  mysql:
