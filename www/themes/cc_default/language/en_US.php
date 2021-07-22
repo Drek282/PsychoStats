@@ -252,6 +252,8 @@ function __construct() {
 		'',
 	'Diff' =>
 		'',
+	'Discord Channel Invitation Link' =>
+		'',
 	'Discord ID' =>
 		'',
 	'Dmg' =>
@@ -861,6 +863,8 @@ function __construct() {
 	'SocialClub Profile Name' =>
 		'',
 	'Start Time' =>
+		'',
+	'Steam Group Name' =>
 		'',
 	'Steam ID' =>
 		'',

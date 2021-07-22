@@ -80,7 +80,7 @@ clanid = parseInt({$clan.clanid});
 
 <div{if $errors.discord} class="err"{/if}>
 	<p class="err" id="err-discord">{$errors.discord|escape}</p>
-	<label><#Discord Nick#>:</label>
+	<label><#Discord Channel Invitation Link#>:</label>
 	<input name="discord" value="{$form.discord|escape}" type="text" class="field long" />
 </div>
 
@@ -92,7 +92,7 @@ clanid = parseInt({$clan.clanid});
 
 <div{if $errors.steamprofile} class="err"{/if}>
 	<p class="err" id="err-steamprofile">{$errors.steamprofile|escape}</p>
-	<label><#Steam Profile Page#>:</label>
+	<label><#Steam Group Name#>:</label>
 	<input name="steamprofile" value="{$form.steamprofile|escape}" type="text" class="field long" />
 </div>
 
@@ -153,7 +153,7 @@ clanid = parseInt({$clan.clanid});
 			<td class="item"><a href="{url _base='editplr.php' id=$plr.plrid _ref=1}">{$plr.name|escape}</a></td>
 			<td>{$plr.uniqueid|escape}</td>
 			<td>{$plr.skill|escape}</td>
-			<td><a id="mem-{$plr.plrid}" href="{url id=$clan.clanid del=$plr.plrid}"><img src="{theme->url}/img/icons/delete.png" alt="Delete"></a></td>
+			<td><a id="mem-{$plr.plrid}" href="{url id=$clan.clanid del=$plr.plrid}"><img src="{theme->url}/img/icons/delete.gif" alt="Delete"></a></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="5" class="no-data">

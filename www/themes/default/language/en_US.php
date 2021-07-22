@@ -20,7 +20,7 @@ if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FIL
 // every single language map if some translations are no different from the extended language.
 //include_once($this->language_dir('en_US') . '/en_US.php');
 
-class PsychoLanguage_default_en_US extends PsychoLanguage {
+class PsychoLanguage_cc_default_en_US extends PsychoLanguage {
 
 function __construct() {
 	$this->PsychoLanguage();
@@ -251,6 +251,8 @@ function __construct() {
 	'Details' =>
 		'',
 	'Diff' =>
+		'',
+	'Discord Channel Invitation Link' =>
 		'',
 	'Discord ID' =>
 		'',
@@ -862,9 +864,13 @@ function __construct() {
 		'',
 	'Start Time' =>
 		'',
+	'Steam Group Name' =>
+		'',
 	'Steam ID' =>
 		'',
 	'Steam Profile Name' =>
+		'',
+	'Steam Profile Page' =>
 		'',
 	'Steamid' =>
 		'',
@@ -1062,7 +1068,7 @@ function __construct() {
 	) + $this->map;
 }
 
-function PsychoLanguage_default_en_US() {
+function PsychoLanguage_cc_default_en_US() {
     self::__construct();
 }
 

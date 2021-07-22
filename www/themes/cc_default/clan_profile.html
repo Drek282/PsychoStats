@@ -1,0 +1,26 @@
+<div class="ps-clan-profile">
+	{if $c.steamprofile}
+	<div class="row">
+		<label><#Steam Profile Page#>:</label>
+		<p><a href="https://steamcommunity.com/groups/{$c.steamprofile|escape}" target="_blank">{$c.steamprofile|escape}</a></p>
+	</div>
+	{/if}
+	{if $c.website}
+	<div class="row">
+		<label><#Website#>:</label>
+		<p><a href="{$c.website|escape}" target="_blank">{$c.website|urltruncate:60|escape}</a></p>
+	</div>
+	{/if}
+	{if $c.discord}
+	<div class="row">
+		<label><#Discord Channel Invitation Link#>:</label>
+		<p><a href="{$c.discord|escape}" target="_blank">{$c.discord|escape}</a></p>
+	</div>
+	{/if}
+	{if $c.youtube}
+	<div class="row">
+		<label><#Youtube Channel Name#>:</label>
+		<p><a href="https://www.youtube.com/user/{$c.youtube|escape}" target="_blank">{$c.youtube|escape}</a></p>
+	</div>
+	{/if}
+</div>
