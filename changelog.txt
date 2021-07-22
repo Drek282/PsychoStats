@@ -20,6 +20,8 @@ Version 3.2.8b (in progress)
 * [Changed] Option to show SteamID's and IP's publicly now defaulted to off and locked.
 * [Fixed] PHP4 constructor classes.
 * [Removed] Compiled SourceMod and AMXModX plugins.
+* [Fixed] Social profile options for player pages updated and refined.
+* [Added] Social profile optins for clan pages.
 
 
 Version 3.2.7b (06/03/2021)
