@@ -56,6 +56,14 @@
 	text-align: left;
 }
 
+#ps-page-title div.ps-clan-profile {
+	padding: 3px;
+	margin: 0 7px 7px;
+	border: 1px solid #AAA;
+	background: url(../img/page-title-bg-reverse.gif) repeat-x bottom left;
+	text-align: left;
+}
+
 #ps-page-privacy {
     color: #222;
     font-size: 1.2em;
@@ -94,7 +102,26 @@
 	text-align: right;
 }
 
+#ps-container div.ps-clan-profile div.row {
+	margin: 3px 0;
+}
+
+#ps-container div.ps-clan-profile div label {
+    color: #f9df79;
+	display: inline;
+	float: left;
+	width: 250px;
+	padding-right: 0.5em;
+	clear: left;
+	font-weight: bold;
+	text-align: right;
+}
+
 div.ps-plr-profile div p em { /* 'Not Set' statements */
+	color: #DDD;
+}
+
+div.ps-clan-profile div p em { /* 'Not Set' statements */
 	color: #DDD;
 }
 
