@@ -866,6 +866,8 @@ function __construct() {
 		'',
 	'Steam Group Name' =>
 		'',
+	'Steam Group Page' =>
+		'',
 	'Steam ID' =>
 		'',
 	'Steam Profile Name' =>

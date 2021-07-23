@@ -8,31 +8,31 @@
 	{/if}
 	{if $plr.steam_community_url}
 	<div class="row">
-		<label><#Steam Profile Page#>:</label>
-		<p><a href="{$plr.steam_community_url|escape}" target="_blank">{$plr.name|escape}</a><em class="add-friend">(<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
+		<label><img src="{theme->parent_url}/img/icons/steam.gif" alt="[img]" title="<#Steam Profile Page#>"></label>
+		<p><a href="{$plr.steam_community_url|escape}" target="_blank">{$plr.name|escape}</a><em class="add-friend"> (<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
 	</div>
 	{/if}
 	{if $plr.website}
 	<div class="row">
-		<label><#Website#>:</label>
+		<label><img src="{theme->parent_url}/img/icons/www.gif" alt="[img]" title="<#Website#>"></label>
 		<p><a href="{$plr.website|escape}" target="_blank">{$plr.website|urltruncate:60|escape}</a></p>
 	</div>
 	{/if}
 	{if $plr.discord}
 	<div class="row">
-		<label><#Discord ID#>:</label>
+		<label><img src="{theme->parent_url}/img/icons/discord.gif" alt="[img]" title="<#Discord ID#>"></label>
 		<p><a href="https://discordapp.com/users/{$plr.discord|escape}/" target="_blank">{$plr.discord|escape}</a></p>
 	</div>
 	{/if}
 	{if $plr.youtube}
 	<div class="row">
-		<label><#Youtube Channel Name#>:</label>
+		<label><img src="{theme->parent_url}/img/icons/youtube.gif" alt="[img]" title="<#Youtube Channel Name#>"></label>
 		<p><a href="https://www.youtube.com/user/{$plr.youtube|escape}" target="_blank">{$plr.youtube|escape}</a></p>
 	</div>
 	{/if}
 	{if $plr.socialclubprofile}
 	<div class="row">
-		<label><#SocialClub Profile Name#>:</label>
+		<label><img src="{theme->parent_url}/img/icons/socialclub.gif" alt="[img]" title="<#SocialClub Profile Name#>"></label>
 		<p><a href="https ://socialclub.rockstargames.com/member/{$plr.socialclubprofile|escape}" target="_blank">{$plr.socialclubprofile|escape}</a></p>
 	</div>
 	{/if}
