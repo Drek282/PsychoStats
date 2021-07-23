@@ -9,7 +9,7 @@
 	{if $plr.steam_community_url}
 	<div class="row">
 		<label><img src="{theme->parent_url}/img/icons/steam.gif" alt="[img]" title="<#Steam Profile Page#>"></label>
-		<p><a href="{$plr.steam_community_url|escape}" target="_blank">{$plr.name|escape}</a><em class="add-friend"> (<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
+		<p><a href="{$plr.steam_community_url|escape}" target="_blank">{$plr.steam_community_url|escape}</a><em class="add-friend"> (<a href="{$plr.steam_add_friend_url}"><#Add Friend#></a>)</em></p>
 	</div>
 	{/if}
 	{if $plr.website}
