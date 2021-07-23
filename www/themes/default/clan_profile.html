@@ -1,7 +1,7 @@
 <div class="ps-clan-profile">
 	{if $clan.steamprofile}
 	<div class="row">
-		<label><#Steam Profile Page#>:</label>
+		<label><#Steam Group Page#>:</label>
 		<p><a href="https://steamcommunity.com/groups/{$clan.steamprofile|escape}" target="_blank">https://steamcommunity.com/groups/{$clan.steamprofile|escape}</a></p>
 	</div>
 	{/if}
@@ -19,7 +19,7 @@
 	{/if}
 	{if $clan.youtube}
 	<div class="row">
-		<label><#Youtube Channel Name#>:</label>
+		<label><#Youtube Channel#>:</label>
 		<p><a href="https://www.youtube.com/user/{$clan.youtube|escape}" target="_blank">{$clan.youtube|escape}</a></p>
 	</div>
 	{/if}

@@ -256,6 +256,8 @@ function __construct() {
 		'',
 	'Discord ID' =>
 		'',
+	'Discord Profile' =>
+		'',
 	'Dmg' =>
 		'',
 	'Dom' =>
@@ -860,6 +862,8 @@ function __construct() {
 		'',
 	'SQL queries' =>
 		'',
+	'SocialClub Profile' =>
+		'',
 	'SocialClub Profile Name' =>
 		'',
 	'Start Time' =>
@@ -870,7 +874,7 @@ function __construct() {
 		'',
 	'Steam Profile Name' =>
 		'',
-	'Steam Profile Page' =>
+	'Steam Profile' =>
 		'',
 	'Steamid' =>
 		'',
@@ -1061,6 +1065,8 @@ function __construct() {
 	'You will be redirected in a few seconds' =>
 		'',
 	'Your information is never sold or given away to third parties.' =>
+		'',
+	'YouTube Channel' =>
 		'',
 	'YouTube Channel Name' =>
 		'',
