@@ -142,7 +142,8 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <h3>How long we retain your data</h3>
             <p>If you create a profile, your profile and its metadata are retained indefinitely.</p>
             <p>For users that register in PsychoStats, we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username), unless user logins are subsequently disabled. PsychoStats users with administrator accounts can see and edit that information at any time.</p>
-            <p>PsychoStats users with administrator accounts can also view the SteamID and IP numbers of anyone that connects to the game server the logs are taken from.  This information is necessary for game server and PsychoStats administration.  This is covered by the Steam Privacy Policy Agreement provided by Valve.</p>
+            <p>PsychoStats users with administrator accounts can also view the SteamID and IP numbers of anyone that connects to the game server the logs are taken from.  This information is necessary for game server and PsychoStats administration.  For Steam games where players have a SteamID, the player\'s stat page may include a link to that player\'s public Steam profile page.</p>
+            <p>This is covered by the Steam Privacy Policy Agreement provided by Valve.</p>
             <p>You can view that Privacy Policy Agreement <a href=\"https://store.steampowered.com/privacy_agreement/\">here</a>.</p>
             </div>',
             'Site Privacy Policy','textarea',0,'','','This is the Privacy Policy for PsychoStats.  It uses html formatting.'),
