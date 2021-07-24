@@ -87,9 +87,15 @@ flags_url = "{$conf.theme.flags_url}";
 	<input name="discord" value="{$form.discord|escape}" type="text" class="field long" />
 </div>
 
+<div{if $errors.twitch} class="err"{/if}>
+	<p class="err" id="err-twitch">{$errors.twitch|escape}</p>
+	<label><#Twitch User Name#>:</label>
+	<input name="twitch" value="{$form.twitch|escape}" type="text" class="field long" />
+</div>
+
 <div{if $errors.youtube} class="err"{/if}>
 	<p class="err" id="err-youtube">{$errors.youtube|escape}</p>
-	<label><#Youtube Channel Name#>:</label>
+	<label><#YouTube User Name#>:</label>
 	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
 </div>
 

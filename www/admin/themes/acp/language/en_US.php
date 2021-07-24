@@ -836,6 +836,10 @@ function __construct() {
 		'',
 	'Toggle gallery' =>
 		'',
+	'Twitch Channel Name' =>
+		'',
+	'Twitch User Name' =>
+		'',
 	'Type' =>
 		'',
 	'Unable to connect to ftp://%s@%s<br/>\\n' =>
@@ -949,6 +953,8 @@ function __construct() {
 	'Your server environment will not allow new themes to be installed due to the following reasons.' =>
 		'',
 	'YouTube Channel Name' =>
+		'',
+	'YouTube User Name' =>
 		'',
 
 	) + $this->map;

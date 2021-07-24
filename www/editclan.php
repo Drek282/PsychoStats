@@ -172,6 +172,7 @@ $form->default_modifier('trim');
 $form->field('clanname');	// 'clanname' is used instead of 'name' to avoid conflicts with some software (nuke)
 $form->field('email');
 $form->field('discord');
+$form->field('twitch');
 $form->field('youtube');
 $form->field('steamprofile');
 $form->field('website');

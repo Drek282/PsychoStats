@@ -17,10 +17,16 @@
 		<p><a href="{$clan.discord|escape}" target="_blank"><#Discord Channel Invitation Link#></a></p>
 	</div>
 	{/if}
+	{if $clan.twitch}
+	<div class="row">
+		<label><img src="{theme->parent_url}/img/icons/twitch.gif" alt="[img]" title="<#Twitch Channel#>"></label>
+		<p><a href="https://www.twitch.tv/{$clan.twitch|escape}" target="_blank"><#Twitch Channel#></a></p>
+	</div>
+	{/if}
 	{if $clan.youtube}
 	<div class="row">
-		<label><img src="{theme->parent_url}/img/icons/youtube.gif" alt="[img]" title="<#Youtube Channel#>"></label>
-		<p><a href="https://www.youtube.com/user/{$clan.youtube|escape}" target="_blank"><#Youtube Channel#></a></p>
+		<label><img src="{theme->parent_url}/img/icons/youtube.gif" alt="[img]" title="<#YouTube Channel#>"></label>
+		<p><a href="https://www.youtube.com/user/{$clan.youtube|escape}" target="_blank"><#YouTube Channel#></a></p>
 	</div>
 	{/if}
 </div>

@@ -22,6 +22,7 @@ Version 3.2.8b (in progress)
 * [Removed] Compiled SourceMod and AMXModX plugins.
 * [Fixed] Social profile options for player pages updated and refined.
 * [Added] Social profile optins for clan pages.
+* [Added] Twitch to social options.
 
 
 Version 3.2.7b (06/03/2021)

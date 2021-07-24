@@ -974,6 +974,12 @@ function __construct() {
 		'',
 	'Total Servers' =>
 		'',
+	'Twitch Channel' =>
+		'',
+	'Twitch Channel Name' =>
+		'',
+	'Twitch User Name' =>
+		'',
 	'Type' =>
 		'',
 	'Unable to download theme file from ' =>
@@ -1071,6 +1077,8 @@ function __construct() {
 	'YouTube Channel' =>
 		'',
 	'YouTube Channel Name' =>
+		'',
+	'YouTube User Name' =>
 		'',
 
 	) + $this->map;

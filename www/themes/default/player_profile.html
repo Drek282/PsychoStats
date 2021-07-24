@@ -24,9 +24,15 @@
 		<p><a href="https://discordapp.com/users/{$plr.discord|escape}/" target="_blank">{$plr.discord|escape}</a></p>
 	</div>
 	{/if}
+	{if $plr.twitch}
+	<div class="row">
+		<label><img src="{theme->parent_url}/img/icons/twitch.gif" alt="[img]" title="<#Twitch Channel#>"></label>
+		<p><a href="https://www.twitch.tv/{$plr.twitch|escape}" target="_blank"><#Twitch Channel#></a></p>
+	</div>
+	{/if}
 	{if $plr.youtube}
 	<div class="row">
-		<label><#Youtube Channel#>:</label>
+		<label><#YouTube Channel#>:</label>
 		<p><a href="https://www.youtube.com/user/{$plr.youtube|escape}" target="_blank">{$plr.youtube|escape}</a></p>
 	</div>
 	{/if}
