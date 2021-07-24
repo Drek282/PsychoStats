@@ -98,7 +98,7 @@ $form->field('email');
 $form->field('discord');
 $form->field('twitch');
 $form->field('youtube');
-$form->field('socialclubprofile');
+$form->field('socialclub');
 $form->field('website');
 $form->field('icon');
 $form->field('cc');

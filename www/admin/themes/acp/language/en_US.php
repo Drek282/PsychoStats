@@ -760,7 +760,9 @@ function __construct() {
 		'',
 	'Skip Last Log?' =>
 		'',
-	'SocialClub Profile Name' =>
+	'SocialClub Profile' =>
+		'',
+	'SocialClub User Name' =>
 		'',
 	'Stats' =>
 		'',

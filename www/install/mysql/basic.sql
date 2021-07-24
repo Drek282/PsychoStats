@@ -452,7 +452,7 @@ CREATE TABLE `ps_plr_profile` (
   `discord` varchar(191) default NULL,
   `twitch` varchar(191) default NULL,
   `youtube` varchar(191) default NULL,
-  `socialclubprofile` varchar(191) default NULL,
+  `socialclub` varchar(191) default NULL,
   `website` varchar(191) default NULL,
   `icon` varchar(64) default NULL,
   `cc` varchar(2) default NULL,

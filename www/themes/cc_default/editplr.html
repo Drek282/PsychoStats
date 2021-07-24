@@ -93,10 +93,10 @@ flags_url = "{$conf.theme.flags_url}";
 	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
 </div>
 
-<div{if $errors.socialclubprofile} class="err"{/if}>
-	<p class="err" id="err-socialclubprofile">{$errors.socialclubprofile|escape}</p>
-	<label><#SocialClub Profile Name#>:</label>
-	<input name="socialclubprofile" value="{$form.socialclubprofile|escape}" type="text" class="field long" />
+<div{if $errors.socialclub} class="err"{/if}>
+	<p class="err" id="err-socialclub">{$errors.socialclub|escape}</p>
+	<label><#SocialClub User Name#>:</label>
+	<input name="socialclub" value="{$form.socialclub|escape}" type="text" class="field long" />
 </div>
 
 {if $conf.theme.map.google_key}

@@ -864,7 +864,7 @@ function __construct() {
 		'',
 	'SocialClub Profile' =>
 		'',
-	'SocialClub Profile Name' =>
+	'SocialClub User Name' =>
 		'',
 	'Start Time' =>
 		'',
