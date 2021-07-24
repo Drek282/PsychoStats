@@ -330,12 +330,12 @@ if ($player['plrid']) {
 	// allow mods to have their own section on the left side bar
 	$ps->player_left_column_mod($player, $cms->theme);
 
-	if ($ps->conf['main']['gametype'] == 'halflife' and $ps->conf['main']['uniqueid'] == 'worldid') {
+	if ($ps->conf['main']['uniqueid'] == 'worldid') {
 		$steamid = $player['ids_worldid'][0]['worldid'];
-		if ($steamid and strtoupper(substr($steamid, 0, 5)) == 'STEAM') {
-			include_once(PS_ROOTDIR . "/includes/class_valve.php");
-			$v = new Valve_AuthId();
-			$friendid = $v->get_friend_id($steamid);
+		if ($steamid) {
+			include_once(PS_ROOTDIR . "/includes/class_SteamID.php");
+			$v = new SteamID($steamid);
+			$friendid = $v->ConvertToUInt64($steamid);
 			$player['friend_id'] = $friendid;
 			$player['steam_community_url'] = $v->steam_community_url($friendid);
 			$player['steam_add_friend_url'] = $v->steam_add_friend_url($friendid);
