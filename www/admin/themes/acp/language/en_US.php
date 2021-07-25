@@ -798,6 +798,8 @@ function __construct() {
 		'',
 	'The URL does not point to an image' =>
 		'',
+	'The web address is unreachable.' =>
+		'',
 	'Theme' =>
 		'',
 	'Theme \'%s\' is now the default theme' =>

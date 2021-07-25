@@ -918,6 +918,8 @@ function __construct() {
 		'',
 	'The unique ID entered above should match the player you play as.' =>
 		'',
+	'The web address is unreachable.' =>
+		'',
 	'Theme download file not found or invalid type (' =>
 		'',
 	'Theme Gallery' =>

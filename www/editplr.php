@@ -133,6 +133,14 @@ if ($submit) {
 		$input['website'] = "http://" . $input['website'];
 	}
 
+	// return error if website address does not exist or is unreachable
+	if (!empty($input['website']) and !url_exists($input['website'])) {
+        $form->error('website', $cms->trans("The web address is unreachable.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('website', $website);
+	}
+
 	// clear the lat/long fields if nothing is entered.
 	// this will avoid 0,0 being set when a player saves their profile
 	// w/o any values entered.

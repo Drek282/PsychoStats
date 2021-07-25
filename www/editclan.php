@@ -198,6 +198,14 @@ if ($submit) {
 		$input['website'] = "http://" . $input['website'];
 	}
 
+	// return error if website address does not exist or is unreachable
+	if (!empty($input['website']) and !url_exists($input['website'])) {
+        $form->error('website', $cms->trans("The web address is unreachable.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('website', $website);
+	}
+
 	// strip out any bad tags from the logo.
 	if (!empty($input['logo'])) {
 		$logo = ps_strip_tags($input['logo']);

@@ -1227,4 +1227,17 @@ function deleteTree($folder, $keepRootFolder) {
 // Delete the root folder itself?
 	return (!$keepRootFolder ? @rmdir($folder) : true);
 }
+
+// Returns true if url exists.
+if (function_exists('curl_init')) {
+    function url_exists($web_address) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, $web_address);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $page_exists = curl_exec($curl);
+        curl_close($curl);
+        return !empty($page_exists);
+    }
+}
+
 ?>
