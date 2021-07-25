@@ -37,7 +37,8 @@ $loaded_exts = array_flip(get_loaded_extensions());
 $required_err = 0;
 $required_ext = array(
 //	'fake'	=> "Fake extension to cause an error",
-	'mysqli' => "MySQL support must be enabled in order to view your stats online."
+	'mysqli' => "MySQL support must be enabled in order to view your stats online.",
+	'gmp'	=> "GNU Multiple Precision support is required for SteamID conversion routines."
 );
 
 $optional_err = 0;
