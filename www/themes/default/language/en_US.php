@@ -256,6 +256,8 @@ function __construct() {
 		'',
 	'Discord ID' =>
 		'',
+	'Discord invitation not in correct format.' =>
+		'',
 	'Discord Profile' =>
 		'',
 	'Dmg' =>
@@ -866,6 +868,8 @@ function __construct() {
 		'',
 	'SocialClub User Name' =>
 		'',
+	'SocialClub user name not in correct format.' =>
+		'',
 	'Start Time' =>
 		'',
 	'Steam Group Name' =>
@@ -913,6 +917,8 @@ function __construct() {
 	'Thank you for registering your player' =>
 		'',
 	'The %s does not exist!' =>
+		'',
+	'The Discord ID is not in the correct format.' =>
 		'',
 	'The unique ID ({$conf.main.uniqueid}) given for your player must already exist or registration will fail.' =>
 		'',
@@ -979,6 +985,8 @@ function __construct() {
 	'Twitch Channel Name' =>
 		'',
 	'Twitch User Name' =>
+		'',
+	'Twitch user name not in correct format.' =>
 		'',
 	'Type' =>
 		'',
@@ -1079,6 +1087,8 @@ function __construct() {
 	'YouTube Channel Name' =>
 		'',
 	'YouTube User Name' =>
+		'',
+	'YouTube user name not in correct format.' =>
 		'',
 
 	) + $this->map;

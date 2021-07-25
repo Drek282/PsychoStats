@@ -141,6 +141,38 @@ if ($submit) {
         $form->set('website', $website);
 	}
 
+	// return error if discord id is not an 18 digit number
+	if (!empty($input['discord']) and !preg_match('|^[\d+]{17}$|', $input['discord'])) {
+        $form->error('discord', $cms->trans("The Discord ID is not in the correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('discord', $discord);
+	}
+
+	// return error if twitch user name is not in correct format
+	if (!empty($input['twitch']) and !preg_match('|^[a-zA-Z0-9][\w]{3,24}$|', $input['twitch'])) {
+        $form->error('twitch', $cms->trans("Twitch user name not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('twitch', $twitch);
+	}
+
+	// return error if youtube user name is not in correct format
+	if (!empty($input['youtube']) and !preg_match('|^[a-zA-Z0-9_-]{1,}$|', $input['youtube'])) {
+        $form->error('youtube', $cms->trans("YouTube user name not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('youtube', $twitch);
+	}
+
+	// return error if socialclub user name is not in correct format
+	if (!empty($input['socialclub']) and !preg_match('|^[a-zA-Z0-9_-]{1,}$|', $input['socialclub'])) {
+        $form->error('socialclub', $cms->trans("SocialClub user name not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('socialclub', $twitch);
+	}
+
 	// clear the lat/long fields if nothing is entered.
 	// this will avoid 0,0 being set when a player saves their profile
 	// w/o any values entered.

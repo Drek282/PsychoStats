@@ -764,6 +764,8 @@ function __construct() {
 		'',
 	'SocialClub User Name' =>
 		'',
+	'SocialClub user name not in correct format.' =>
+		'',
 	'Stats' =>
 		'',
 	'stats' =>
@@ -789,6 +791,8 @@ function __construct() {
 	'Testing Results' =>
 		'',
 	'The database has been reset. Stats will be empty until your next stats update.' =>
+		'',
+	'The Discord ID is not in the correct format.' =>
 		'',
 	'The icons directory is not writable.' =>
 		'',
@@ -843,6 +847,8 @@ function __construct() {
 	'Twitch Channel Name' =>
 		'',
 	'Twitch User Name' =>
+		'',
+	'Twitch user name not in correct format.' =>
 		'',
 	'Type' =>
 		'',
@@ -959,6 +965,8 @@ function __construct() {
 	'YouTube Channel Name' =>
 		'',
 	'YouTube User Name' =>
+		'',
+	'YouTube user name not in correct format.' =>
 		'',
 
 	) + $this->map;

@@ -206,6 +206,30 @@ if ($submit) {
         $form->set('website', $website);
 	}
 
+	// return error if discord invitation link is not in the correct format
+	if (!empty($input['discord']) and !preg_match('|^https:\/\/discord\.gg\/([A-Za-z0-9+]{6,9})$|', $input['discord'])) {
+        $form->error('discord', $cms->trans("Discord invitation not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('discord', $discord);
+	}
+
+	// return error if twitch user name is not in correct format
+	if (!empty($input['twitch']) and !preg_match('|^[a-zA-Z0-9][\w]{3,24}$|', $input['twitch'])) {
+        $form->error('twitch', $cms->trans("Twitch user name not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('twitch', $twitch);
+	}
+
+	// return error if youtube user name is not in correct format
+	if (!empty($input['youtube']) and !preg_match('|^[a-zA-Z0-9_-]{1,}$|', $input['youtube'])) {
+        $form->error('youtube', $cms->trans("YouTube user name not in correct format.") . " " .
+            $cms->trans("Resubmit to try again.") 
+			);
+        $form->set('youtube', $twitch);
+	}
+
 	// strip out any bad tags from the logo.
 	if (!empty($input['logo'])) {
 		$logo = ps_strip_tags($input['logo']);
