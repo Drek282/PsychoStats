@@ -762,9 +762,9 @@ function __construct() {
 		'',
 	'SocialClub Profile' =>
 		'',
-	'SocialClub User Name' =>
+	'SocialClub Nick Name' =>
 		'',
-	'SocialClub user name not in correct format.' =>
+	'SocialClub nick name not in correct format.' =>
 		'',
 	'Stats' =>
 		'',
