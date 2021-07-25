@@ -166,7 +166,7 @@ if ($submit) {
 	}
 
 	// return error if socialclub user name is not in correct format
-	if (!empty($input['socialclub']) and !preg_match('|^[a-zA-Z0-9_-]{1,}$|', $input['socialclub'])) {
+	if (!empty($input['socialclub']) and !preg_match('|^[a-zA-Z0-9_-]{5,15}$|', $input['socialclub'])) {
         $form->error('socialclub', $cms->trans("SocialClub user name not in correct format.") . " " .
             $cms->trans("Resubmit to try again.") 
 			);
