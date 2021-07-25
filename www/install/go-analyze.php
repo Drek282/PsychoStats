@@ -38,6 +38,7 @@ $required_err = 0;
 $required_ext = array(
 //	'fake'	=> "Fake extension to cause an error",
 	'mysqli' => "MySQL support must be enabled in order to view your stats online.",
+	'curl'	=> "CURL module is required for to check validity of social profile url's.",
 	'gmp'	=> "GNU Multiple Precision support is required for SteamID conversion routines."
 );
 
