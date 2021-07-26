@@ -332,7 +332,7 @@ if ($player['plrid']) {
 
 	if ($ps->conf['main']['uniqueid'] == 'worldid') {
 		$steamid = $player['ids_worldid'][0]['worldid'];
-		if ($steamid) {
+		if ($steamid and !strtoupper(substr($steamid, 0, 3)) == 'BOT') {
 			include_once(PS_ROOTDIR . "/includes/class_SteamID.php");
 			$v = new SteamID($steamid);
 			$friendid = $v->ConvertToUInt64($steamid);
