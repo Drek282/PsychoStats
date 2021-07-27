@@ -48,8 +48,8 @@ $optional_ext = array(
 		   "directly from your stats web pages. Also, the installer can use FTP to save your configuration.",
 	'gd'	=> "GD (version 2) support is recommended so that some dynamic images can be created within the " . 
 		   "player stats (charts and graphs).",
-	'gmp'	=> "GNU Multiple Precision support is only required for SteamID conversion routines for "
-            "player profiles.",
+	'gmp'	=> "GNU Multiple Precision support is only required for SteamID conversion routines for
+player profiles.",
 	'mcrypt'=> "mcrypt support (encryption) is only needed if you want to enable some extra security features " . 
 		   "with user sessions. The extra security granted by having this extension is minimal to PsychoStats.",
 	'zip'	=> "ZIP support will allow you to download and install new themes directly from the ACP."
