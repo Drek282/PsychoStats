@@ -44,7 +44,7 @@ $required_ext = array(
 $optional_err = 0;
 $optional_ext = array(
 //	'blarg' => 'This is not a real extension',
-	'ftp'	=> "FTP support is only needed if you want to be able to download updates, themes and plugins " .
+	'ftp'	=> "FTP support is only needed if you want to be able to download updates, themes and plugins " . 
 		   "directly from your stats web pages. Also, the installer can use FTP to save your configuration.",
 	'gd'	=> "GD (version 2) support is recommended so that some dynamic images can be created within the " . 
 		   "player stats (charts and graphs).",
