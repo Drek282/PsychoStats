@@ -18,7 +18,7 @@
  *	You should have received a copy of the GNU General Public License
  *	along with PsychoStats.  If not, see <http://www.gnu.org/licenses/>.
  *
- *	Version: $Id: player.php 529 2008-08-08 16:10:01Z lifo $
+ *	Version: $Id: player.php 530 2021-07-27 $
  */
 
 define("PSYCHOSTATS_PAGE", true);
@@ -332,7 +332,7 @@ if ($player['plrid']) {
 
 	if ($ps->conf['main']['uniqueid'] == 'worldid') {
 		$steamid = $player['ids_worldid'][0]['worldid'];
-		if ($steamid and strtoupper(substr($steamid, 0, 3)) !== 'BOT') {
+		if ($steamid and strtoupper(substr($steamid, 0, 3)) !== 'BOT' and function_exists('gmp_init')) {
 			include_once(PS_ROOTDIR . "/includes/class_SteamID.php");
 			$v = new SteamID($steamid);
 			$friendid = $v->ConvertToUInt64($steamid);
