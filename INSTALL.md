@@ -23,6 +23,7 @@ Tested and functional:
 * [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
 * [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
 * [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
+* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
 * [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
 * [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
@@ -31,7 +32,6 @@ Untested and may not be functional:
 ***If you wish to improve support for these games we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
-* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
 * [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
 * [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
 * [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
