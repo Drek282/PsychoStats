@@ -18,7 +18,7 @@
  *	You should have received a copy of the GNU General Public License
  *	along with PsychoStats.  If not, see <http://www.gnu.org/licenses/>.
  *
- *	Version: $Id: plrhist.php 492 2021-07-27 $
+ *	Version: $Id: plrhist.php 493 2021-07-30 $
  */
 
 define("PSYCHOSTATS_PAGE", true);
