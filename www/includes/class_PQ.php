@@ -99,13 +99,15 @@ if (!function_exists('pq_query_types')) {
 	function pq_query_types() {
 		// this should be made more robust to read the files in the PQ directory to create a list.
 		$q = array();
-		$q['halflife'] 		= 'Halflife 1 or 2';
+		$q['halflife'] 		= 'Halflife 1';
 		$q['oldhalflife'] 	= 'Halflife 1 only (no steam)';
 # these haven't been tested or used in a long time so I have no idea if they work. 
 # so I'm commenting them out for now.
 #		$q['gamespy'] 		= 'Gamespy (partial support)';
+		$q['source'] 		= 'Halflife 2';
 		$q['quake3'] 		= 'Quake 3';
 		$q['cod4']          = 'Call of Duty 4';
+		$q['cod4x']          = 'Call of Duty 4X';
 		return $q;
 	}
 }
