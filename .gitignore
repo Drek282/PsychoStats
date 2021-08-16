@@ -1,37 +1,3 @@
-# Ignore JetBrains IDEs
-.idea/
-*.log
-
-install/*
-
-# Smarty template compilats
-www/temp/*.php
-
-# Docker artefacts
-docker-compose/mysql/dump/*.sql
-/root/stats.cfg
-
-# Ignore mods
-# PS_CSTRIKES
-/addons/sourcemod
-/addons/heatmaps
-www/img/weapons/
-www/includes/PS/source/
-www/config.php
-www/includes/PS/source.php
-www/install/go-dbinit.php
-/www/includes/PQ/source.php
-/www/install/mysql/source/cstrikes.sql
-/www/themes/cc_default/js/jquery.psycholive.js
-/www/themes/default/js/jquery.psycholive.js
-/root/lib/PS/Game/source/cstrikes.pm
-/root/lib/PS/Game/source.pm
-/root/lib/PS/Map/source/cstrikes.pm
-/root/lib/PS/Player/source/cstrikes.pm
-/root/lib/PS/Player/source.pm
-/root/lib/PS/Role/source.pm
-
-
 # Kate "conflicted" files
 *conflicted*
 

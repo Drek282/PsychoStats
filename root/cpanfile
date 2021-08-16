@@ -1,4 +1,0 @@
-requires 'DBD::mysql',
-requires 'GD',
-requires 'Digest::MD5',
-requires 'Digest::SHA1',
