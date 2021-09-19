@@ -42,6 +42,7 @@ if (!$cms->user->logged_in()) {
 // collect url parameters ...
 $t = strtolower($_GET['t']);
 $idstr = $_GET['id'];
+$idstr = preg_replace('|[^0-9]|', '', $idstr); //Mitigates XSS attack
 $idstr = str_replace(' ', '', urldecode($idstr));	// strip spaces and make sure it's not double url encoded
 if ($idstr == '') $idstr = 'icon-';
 
