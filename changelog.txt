@@ -23,6 +23,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Social profile options for player pages updated and refined.
 * [Added] Social profile options for clan pages.
 * [Added] Twitch to social options.
+* [Fixed] Possible xss vulnerabilities, thanks Rosenstein.
 
 
 Version 3.2.7b (06/03/2021)
