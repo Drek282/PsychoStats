@@ -55,6 +55,7 @@ $url = $ps->conf['theme']['icons_url'];
 if ($dh = @opendir($dir)) {
 	while (($file = @readdir($dh)) !== false) {
 		if (substr($file, 0, 1) == '.') continue;	// skip dot files
+		if (substr($file, -4) == 'html') continue;	// skip html files
 		$fullfile = catfile($dir, $file);
 		if (is_dir($fullfile)) continue;		// skip directories
 		if (is_link($fullfile)) continue;		// skip symlinks
