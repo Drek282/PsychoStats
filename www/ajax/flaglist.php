@@ -56,6 +56,7 @@ $url = $ps->conf['theme']['flags_url'];
 if ($dh = @opendir($dir)) {
 	while (($file = @readdir($dh)) !== false) {
 		if (substr($file, 0, 1) == '.') continue;	// skip dot files
+		if (substr($file, -4) == 'html') continue;	// skip html files
 		list($cc) = explode('.', $file);
 		if ($cc == '00' or $cc == 'a2') continue;	// skip the blank flags
 		$fullfile = catfile($dir, $file);
