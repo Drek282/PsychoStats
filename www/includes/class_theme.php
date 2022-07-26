@@ -405,6 +405,7 @@ function theme($new = null, $in_db = true) {
 		return $this->theme;
 	} elseif ($this->is_theme($new)) {
 		$loaded = false;
+        $this->loaded_themes[$new] = $this->loaded_themes[$new] ?? null;
 		// load the theme from the database
 		if (!$this->loaded_themes[$new] and $in_db) {
 			$loaded = true;
@@ -420,6 +421,7 @@ function theme($new = null, $in_db = true) {
 				return $this->theme;
 			}
 			$this->loaded_themes[$new] = $t;
+            $this->loaded_themes[$t['parent']] = $this->loaded_themes[$t['parent']] ?? null;
 			if ($t['parent'] and !$this->loaded_themes[$t['parent']]) { 
 				// load the parent theme ...
 				// the parent theme doesn't have to be enabled
