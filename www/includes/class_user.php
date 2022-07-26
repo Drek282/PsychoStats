@@ -379,10 +379,12 @@ function get_user_list($join_plr = false, $filter = array()) {
 // returns the total number of users in the database, optionally matching those to the $filter supplied.
 function total_users($filter = array()) {
 	$where = "";
+	$filter['username'] = $filter['username'] ?? null;
 	if ($filter['username'] != '') {
 		$where .= "username LIKE '%" . $this->db->escape($filter['username']). "%' ";
 	}
-
+    
+	$filter['confirmed'] = $filter['confirmed'] ?? null;
 	if ($filter['confirmed'] != '') {
 		if ($where) $where .= "AND ";
 		$where .= "confirmed = " . $this->db->escape($filter['confirmed'], true);

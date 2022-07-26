@@ -264,9 +264,12 @@ function sortorder($args, $prefix='') {
 	foreach ($fields as $sort) {
 		$sort = trim($sort);
 		if ($sort != '') {
+            $args['no_quote'] = $args['no_quote'] ?? null;
 			if ($args['no_quote']) {
+                $args['fieldprefix'] = $args['fieldprefix'] ?? null;
 				if ($args['fieldprefix']) $sort = $args['fieldprefix'] . '.' . $sort;
 			} else {
+                $args['fieldprefix'] = $args['fieldprefix'] ?? null;
 				if ($args['fieldprefix']) {
 					$sort = $this->qi($args['fieldprefix']) . '.' . $this->qi($sort);
 				} else {
