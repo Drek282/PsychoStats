@@ -392,6 +392,7 @@ function _initkey() {
 }
 
 function encrypt($str) {
+    $this->session_encrypted = $this->session_encrypted ?? false;
 	if (!$this->session_encrypted) return $str;
 	mcrypt_generic_init($this->td, $this->key, $this->iv);
 	$encrypted = mcrypt_generic($this->td, $str);						// Encrypt data 
@@ -400,6 +401,7 @@ function encrypt($str) {
 }
  
 function decrypt($str) {
+    $this->session_encrypted = $this->session_encrypted ?? false;
 	if (!$this->session_encrypted) return $str;
 	mcrypt_generic_init($this->td, $this->key, $this->iv);
 	$decrypted = trim(mdecrypt_generic($this->td, $str));

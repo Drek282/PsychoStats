@@ -1124,7 +1124,7 @@ class Smarty_Compiler extends Smarty {
         else
             $output .= "if ({$section_props}['max'] < 0)\n" .
                        "    {$section_props}['max'] = {$section_props}['loop'];\n";
-
+        
         if (!isset($attrs['step']))
             $output .= "{$section_props}['step'] = 1;\n";
 
@@ -1549,6 +1549,7 @@ class Smarty_Compiler extends Smarty {
             1 - expecting '='
             2 - expecting attribute value (not '=') */
         $state = 0;
+        $attrs['step'] = $step ?? null;
 
         foreach ($tokens as $token) {
             switch ($state) {

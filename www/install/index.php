@@ -24,7 +24,6 @@ define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_INSTALL_PAGE", true);
 require_once("./common.php");
 
-
 $opts = init_session_opts(true);
 //$newer_avail = false;
 
@@ -40,6 +39,8 @@ $opts = init_session_opts(true);
 
 $validfields = array('s','re');
 $cms->theme->assign_request_vars($validfields, true);
+$release_date = $release_date ?? null;
+$ps_version = $ps_version ?? null;
 $cms->theme->assign(array(
 	'install'		=> $opts['install'], 
 //	'newer_avail'		=> $newer_avail,

@@ -50,14 +50,20 @@ function DB_mysql($conf=array()) {
 }
 
 function connect($force_select = false) {
+	
 	if (!function_exists('mysqli_connect')) {
 		$this->error("Your installation of PHP v" . PHP_VERSION . " does not include MySQL support.");
 		$this->fatal(true);
 		$this->_fatal("Extension Error!");
 		return false;
 	}
+	
+    $this->dbname = $GLOBALS['dbname'];
+    $this->dbuser = $GLOBALS['dbuser'];
+    $this->dbpass = $GLOBALS['dbpass'];
 
 	$host = !$this->dbport ? $this->dbhost : "$this->dbhost:$this->dbport";
+	
 	$this->dbh = @mysqli_connect($host, $this->dbuser, $this->dbpass); // remove @ from mysqli_connect to see errors
 	$this->connected = ($this->dbh);
 	if ($this->connected and (!$this->conf['delaydb'] or $force_select)) {

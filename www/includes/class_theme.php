@@ -134,8 +134,8 @@ function __construct(&$cms, $args = array()) {
 	$this->assign_by_ref('theme_name', $this->theme);
 	$this->assign_by_ref('language', $this->language);
 	$this->assign(array(
-		'php_scnm'		=> ps_escape_html($php_scnm),
-		'SELF'			=> ps_escape_html($php_scnm),
+		'php_scnm'		=> ps_escape_html($GLOBALS['php_scnm']),
+		'SELF'			=> ps_escape_html($GLOBALS['php_scnm']),
 	));
 
 	// allow theme access to a couple methods of our objects
@@ -232,6 +232,7 @@ function css_links($theme = null) {
 	// output any external or embedded styles
 	$files = array();
 	foreach ($list as $css) {
+        $css['style'] = $css['style'] ?? null;
 		if (substr($css['href'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
 			// their own <link> tag, regardless.
@@ -781,6 +782,7 @@ function prefilter_language($tpl_source, &$smarty) {
 }
 
 function _compile_lang($key) {
+    $key['2'] = $key['2'] ?? null;
 	if ($key[2]) {	// <!--<#KEYWORD#>-->english phrase here<!---->
 		$text = $this->trans($key[1]);
 		// if the translated text equals the key, then there is no translation 
@@ -822,12 +824,12 @@ function output_filter($output, &$smarty) {
 		foreach ($matchlist as $matches) {
 			foreach ($matches as $match) {
 				if (preg_match("/" . $attr . "\s*=\s*(([\"'])(.*?)\\2)/i", $match, $innermatch)) {
-#					$match = <a href="player.php?id=7350" class="example">
+#					$match = <a href="team.php?id=7350" class="example">
 #					$innermatch = Array(
-#						[0] => href="player.php?id=7350"
-#						[1] => "player.php?id=7350"
+#						[0] => href="team.php?id=7350"
+#						[1] => "team.php?id=7350"
 #						[2] => "
-#						[3] => player.php?id=7350
+#						[3] => team.php?id=7350
 #					)
 
 					$url = $innermatch[3];
