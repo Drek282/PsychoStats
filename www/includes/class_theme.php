@@ -290,6 +290,7 @@ function js_sources($theme = null) {
 	// output any external or embedded scripts
 	$files = array();
 	foreach ($list as $js) {
+        $js['script'] = $js['script'] ?? null;
 		if (substr($js['src'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
 			// their own <script> tag, regardless.
