@@ -498,6 +498,7 @@ function close() {
 
 // internal function, returns true if the session has expired
 function _expired() {
+    $this->sessdata['session_last'] = $this->sessdata['session_last'] ?? null;
 	return (time() - $this->sessdata['session_last'] > $this->config['cookielife']);
 }
 
@@ -637,6 +638,7 @@ function del_opt($key) {
 // sets/gets the session key (this is not the session_id).
 // this is for CSRF security.
 function key($value = null) {
+    $this->sessdata['session_key'] = $this->sessdata['session_key'] ?? null;
 	$old = $this->sessdata['session_key'];
 	if ($value !== null) {
 		$this->sessdata['session_key'] = empty($value) ? null : $value;
