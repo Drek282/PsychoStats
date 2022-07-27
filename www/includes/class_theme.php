@@ -206,10 +206,12 @@ function css_links($theme = null) {
 				// ignore block if there's no href or content
 				if ($css) {
 					// add media if present
+					$c['@attributes']['media'] = $c['@attributes']['media'] ?? null;
 					if ($c['@attributes']['media']) {
 						$css['media'] = $c['@attributes']['media'];
 					}
 					// add loadlast if present
+					$c['@attributes']['loadlast'] = $c['@attributes']['loadlast'] ?? null;
 					if ($c['@attributes']['loadlast']) {
 						$css['loadlast'] = $c['@attributes']['loadlast'];
 					}
@@ -219,6 +221,7 @@ function css_links($theme = null) {
 				$css['style'] = trim($c);
 			}
 			if ($css) {
+                $css['loadlast'] = $css['loadlast'] ?? null;
 				if ($css['loadlast']) {
 					$last[] = $css;
 				} else {
@@ -247,6 +250,7 @@ function css_links($theme = null) {
 			$res = $this->template_found($css['href'], false, false);
 			if ($res and $res['resource_name']) {
 				//$files[] = $res['resource_name'];
+				$css['media'] = $css['media'] ?? null;
 				$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s' />\n", 
 					$css['media'] ? $css['media'] : 'screen,print',
 					$this->url($res['resource_theme']) . '/' . $css['href']
@@ -290,6 +294,7 @@ function js_sources($theme = null) {
 	// output any external or embedded scripts
 	$files = array();
 	foreach ($list as $js) {
+        $js['src'] = $js['src'] ?? '';
         $js['script'] = $js['script'] ?? null;
 		if (substr($js['src'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
