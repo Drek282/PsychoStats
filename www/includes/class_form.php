@@ -192,6 +192,7 @@ function values() {
 	foreach (array_keys($this->fields) as $var) {
 		if (empty($var)) continue;
 //		$form[$var] = $this->modify($var);
+        $this->input[$var] = $this->input[$var] ?? null;
 		$form[$var] = $this->input[$var];
 	}
 	return $form;
