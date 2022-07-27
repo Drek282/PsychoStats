@@ -35,7 +35,7 @@ if (empty($_SERVER['REQUEST_URI'])) {
 $php_scnm = $_SERVER['SCRIPT_NAME'];		// this is used so much we make sure it's global
 // Sanitize PHP_SELF and avoid XSS attacks.
 // We use the constant in places we know we'll be outputting $PHP_SELF to the user
-define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
+//define("SAFE_PHP_SCNM", htmlentities($_SERVER['SCRIPT_NAME'], ENT_QUOTES, "UTF-8"));
 
 // ADMIN pages need to setup the theme a little differently than the others
 $opts = array( 
