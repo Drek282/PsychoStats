@@ -2029,6 +2029,7 @@ function ip_lookup($ip) {
 function theme_setup(&$theme) {
 	global $cms;
 	$is_admin = $cms->user->is_admin();
+	$cms->input['loggedin'] = $cms->input['loggedin'] ?? null;
 	$theme->assign(array(
 		'use_roles'		=> $this->use_roles,
 		'show_ips'		=> $this->conf['theme']['permissions']['show_ips'] || $is_admin,

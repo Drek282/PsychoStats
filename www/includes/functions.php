@@ -771,6 +771,7 @@ function elapsedtime_str($elapsed, $max = 7, $plural = array(), $singular = arra
 	
 	$str = '';
 	for ($i = 0, $j = count($plural)-1; $i <= $j; $i++) {
+        $elapsed[$i] = $elapsed[$i] ?? null;
 		$var = $elapsed[$i];
 		if ($var == 0) continue;			// ignore values of 0
 		$word = $var == 1 ? $singular[$i] : $plural[$i];
