@@ -2,7 +2,7 @@
 <h3><#Create Administrator Result#></h3>
 <p class="h3">An error occured while creating the admin user.</p>
 <p class="row"><span class="bad">{$errors.fatal|escape}</span></p>
-{elseif !$errors}
+{elseif !$errors.fatal}
 <h3><#Administrator Update Result#></h3>
 	{if $action == 'created'}
 	<p class="row"><span class="good">Administrator "<strong>{$username|escape}</strong>" has been created successfully!</span></p>

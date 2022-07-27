@@ -72,6 +72,7 @@ $cms->theme->assign_by_ref('can_write', $can_write);
 $cms->theme->assign_by_ref('can_ftp', $can_ftp);
 $cms->theme->assign_by_ref('is_saved', $is_saved);
 
+$db->site_url = $db->site_url ?? null;
 // build the config text
 $config_text =
 	"<?php\n" . 

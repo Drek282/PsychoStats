@@ -120,7 +120,8 @@ if ($ajax_request) {
 		}
 
 	}
-
+    
+    $errors['fatal'] = $errors['fatal'] ?? null;
 	$pagename = 'go-admin-results';
 	$cms->tiny_page($pagename, $pagename);
 	exit();
