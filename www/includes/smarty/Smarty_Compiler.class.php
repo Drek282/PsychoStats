@@ -1635,7 +1635,7 @@ class Smarty_Compiler extends Smarty {
      */
     function _parse_var_props($val)
     {
-        $val = trim($val);
+        $val = trim($val ?? '');
 
         if(preg_match('~^(' . $this->_obj_call_regexp . '|' . $this->_dvar_regexp . ')(' . $this->_mod_regexp . '*)$~', $val, $match)) {
             // $ variable or object
