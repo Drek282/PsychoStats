@@ -586,7 +586,6 @@ class Smarty
         if (is_array($tpl_var)){
             foreach ($tpl_var as $key => $val) {
                 if ($key != '') {
-                    $this->_tpl_vars['install_dir_insecure'] = $this->_tpl_vars['install_dir_insecure'] ?? null;
                     $this->_tpl_vars[$key] = $val;
                 }
             }

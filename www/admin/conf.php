@@ -128,6 +128,7 @@ foreach ($config_layout as $sec => $list) {
 }
 
 $section_errors = array();
+$section_errors['general'] = false;
 
 // NOW we can process the form if it was submitted
 if ($submit) {
@@ -219,11 +220,12 @@ $cms->theme->assign(array(
 	's'			=> $s,
 	'conf'			=> $config_layout,
 	'errors'		=> $form->errors(),
-	'section_errors'	=> $section_errors,
+	'section_errors'	=> $section_errors['general'],
 	'form'			=> $form->values(),
 	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'advanced_config'	=> $cms->session->opt('advconfig') ? true : false,
-	'q'			=> $q
+	'q'			=> $q,
+	'install_dir_insecure'			=> false
 ));
 
 // display the output
