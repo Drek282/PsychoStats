@@ -176,6 +176,7 @@ function default_validator($v, $e = null) {
 
 // returns all errors
 function errors() {
+    $this->errors['fatal'] = $this->errors['fatal'] ?? null;
 	return $this->errors;
 }
 
