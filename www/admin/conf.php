@@ -62,6 +62,7 @@ $list = $ps->db->fetch_rows(1,
 );
 $sections = array();
 foreach ($list as $c) {
+    $sections[ $c['conftype'] ] = $sections[ $c['conftype'] ] ?? null;
 	if (!$sections[ $c['conftype'] ]) {
 		$sections[ $c['conftype'] ] = array();
 	}
