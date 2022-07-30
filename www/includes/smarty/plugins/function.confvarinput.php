@@ -62,7 +62,7 @@ function smarty_function_confvarinput($args, &$smarty)
 
 		case 'boolean':
 			$idx = 0;
-			$labels = varinput_build_boolean($conf_layout[$var]['options']);
+			$labels = varinput_build_boolean($conf_layout[$var]['options'] ?? '');
 			foreach ($labels as $label => $v) {
 				$for = 'for-' . $name . '-' . ++$idx;
 				$output .= sprintf("<input id='%s' name='opts[%s]' value=\"%s\" type='radio'%s%s>&nbsp;" .
