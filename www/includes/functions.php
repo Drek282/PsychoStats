@@ -364,7 +364,7 @@ function url($arg = array()) {
 		if ($key[0] == '_') continue;		// ignore any param starting with '_'
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		$base .= "$key=";			// do not encode keys
-		$base .= $enc ? $encodefunc($value) : $value;
+		$base .= $enc ? $encodefunc($value ?? '') : $value;
 	}
 
 	if ($arg['_ref']) {
