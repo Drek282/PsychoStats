@@ -56,6 +56,8 @@ function __construct() {
 		'',
 	'Access Level' =>
 		'',
+	'Admin Home' =>
+		'',
 	'Administrator Login' =>
 		'',
 	'Advanced usage only' =>
@@ -331,8 +333,6 @@ function __construct() {
 	'Group Title' =>
 		'',
 	'Help Text' =>
-		'',
-	'Home' =>
 		'',
 	'Host' =>
 		'',
