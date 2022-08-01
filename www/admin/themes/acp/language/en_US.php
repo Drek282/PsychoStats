@@ -56,8 +56,6 @@ function __construct() {
 		'',
 	'Access Level' =>
 		'',
-	'Admin Home' =>
-		'',
 	'Administrator Login' =>
 		'',
 	'Advanced usage only' =>
