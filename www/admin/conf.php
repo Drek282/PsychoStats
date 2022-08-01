@@ -66,6 +66,7 @@ foreach ($list as $c) {
 	if (!$sections[ $c['conftype'] ]) {
 		$sections[ $c['conftype'] ] = array();
 	}
+	$c['section'] = $c['section'] ?? null;
 	if ($c['section']) $sections[$c['conftype']][] = $c['section'];
 }
 //print "<pre>"; print_r($sections); print "</pre>";
@@ -94,6 +95,7 @@ $list = $ps->load_config_layout($ct, $where);
 $config_layout = array( 'general' => array() );	// we want 'general' first
 if (is_array($sections[$ct])) {
 	foreach ($sections[$ct] as $sec) {
+        $list[$ct][$sec] = $list[$ct][$sec] ?? null;
 		$config_layout[$sec] = $list[$ct][$sec];
 		unset($list[$ct][$sec]);
 	}
@@ -123,6 +125,8 @@ $form->default_modifier('trim');
 foreach ($config_layout as $sec => $list) {
 	if (!is_array($list)) continue;
 	foreach ($list as $o) {
+        $o['id'] = $o['id'] ?? null;
+        $o['verifycodes'] = $o['verifycodes'] ?? null;
 		$form->field($o['id'], $o['verifycodes']);
 	}
 }
@@ -149,6 +153,8 @@ if ($submit) {
 	if ($form->errors()) {
 		$orig_conf = $ps->load_config_by_id('id,section,var,value');
 		foreach (array_keys($form->errors()) as $id) {
+            $form->errors[$id] = $form->errors[$id] ?? null;
+            $orig_conf[$id]['section'] = $orig_conf[$id]['section'] ?? null;
 			if ($id == 'fatal') continue;
 			$key = $orig_conf[$id]['section'];
 			if ($key == '') $key = 'general';
@@ -164,6 +170,7 @@ if ($submit) {
 		$err = false;
 		$updated = array();
 		foreach ($input as $id => $val) {
+            $orig_conf[$id]['value'] = $orig_conf[$id]['value'] ?? null;
 			if ($orig_conf[$id]['value'] != $val) {
 				if (!$ps->db->update($ps->t_config, array( 'value' => $val ), 'id', $id)) {
 					$form->error('fatal', "Error updating config variable ID '$id': " . $ps->db->errstr);
@@ -196,6 +203,7 @@ if ($submit) {
 	foreach ($config_layout as $sec => $list) {
 		if (!is_array($list)) continue;
 		foreach ($list as $o) {
+            $o['value'] = $o['value'] ?? null;
 			$form->input[ $o['id'] ] = $o['value'];
 		}
 	}

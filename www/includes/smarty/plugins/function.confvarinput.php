@@ -79,9 +79,13 @@ function smarty_function_confvarinput($args, &$smarty)
 
 		case 'textarea': 
 			$attr = varinput_build_attr($var['options']);
+			$attr['rows'] = $attr['rows'] ?? null;
 			$rows = $attr['rows'] ? $attr['rows'] : 3;
+			$attr['cols'] = $attr['cols'] ?? null;
 			$cols = $attr['cols'] ? $attr['cols'] : 40;
+			$attr['wrap'] = $attr['wrap'] ?? null;
 			$wrap = $attr['wrap'] ? $attr['wrap'] : 'virtual';
+			$attr['class'] = $attr['class'] ?? null;
 			$class = $attr['class'] ? $attr['class'] : 'field';
 //			unset($attr['size'], $attr['class']);
 			$output = sprintf("<textarea name=\"opts[%s]\" cols=\"%s\" rows=\"%s\" wrap=\"%s\" class=\"%s\">%s</textarea>", 
@@ -97,7 +101,9 @@ function smarty_function_confvarinput($args, &$smarty)
 		case 'text':
 		default:
 			$attr = varinput_build_attr($var['options']);
+			$attr['size'] = $attr['size'] ?? null;
 			$size = $attr['size'] ? $attr['size'] : 40;
+			$attr['class'] = $attr['class'] ?? null;
 			$class = $attr['class'] ? $attr['class'] : 'field';
 //			unset($attr['size'], $attr['class']);
 			$output = sprintf("<input name=\"opts[%s]\" value=\"%s\" type=\"text\" size=\"%s\" class=\"%s\"%s>", 
