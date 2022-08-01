@@ -1,6 +1,6 @@
 ***As of September 29, 2021, this repository and all related repositories have been mothballed.  So long, thanks for all the fish, and anyone is more than welcome to take the work that has been done here, set up their own repositories, and fly with it.***
 
-This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 5.3.0+ and MySQL 4.1.13+.  The minimum required version of Perl is 5.08.
+This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.0.0+ and MySQL 4.1.13+.  The minimum required version of Perl is 5.08.
 
 ***This version of PsychoStats should be close to being PHP 8 compatible.  However, it has not yet been tested on PHP 8.  If you wish to use this version of PsychoStats you are strongly advised not to upgrade your PHP version to 8 until this version of PsychoStats has been tested on PHP 8.***
 

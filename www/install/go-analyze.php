@@ -29,7 +29,7 @@ if (!defined("PSYCHOSTATS_INSTALL_PAGE")) die("Unauthorized access to " . basena
 $validfields = array();
 $cms->theme->assign_request_vars($validfields, true);
 
-$min_php_version = '5.3.0';
+$min_php_version = '7.0.0';
 $min_mysql_version = '4.1.13';
 
 $loaded_exts = array_flip(get_loaded_extensions());
