@@ -125,8 +125,8 @@ $form->default_modifier('trim');
 foreach ($config_layout as $sec => $list) {
 	if (!is_array($list)) continue;
 	foreach ($list as $o) {
-        $o['id'] = $o['id'] ?? null;
-        $o['verifycodes'] = $o['verifycodes'] ?? null;
+        $o['id'] ??= null;
+        $o['verifycodes'] ??= null;
 		$form->field($o['id'], $o['verifycodes']);
 	}
 }
@@ -153,8 +153,8 @@ if ($submit) {
 	if ($form->errors()) {
 		$orig_conf = $ps->load_config_by_id('id,section,var,value');
 		foreach (array_keys($form->errors()) as $id) {
-            $form->errors[$id] = $form->errors[$id] ?? null;
-            $orig_conf[$id]['section'] = $orig_conf[$id]['section'] ?? null;
+            $form->errors[$id] ??= null;
+            $orig_conf[$id]['section'] ??= null;
 			if ($id == 'fatal') continue;
 			$key = $orig_conf[$id]['section'];
 			if ($key == '') $key = 'general';
