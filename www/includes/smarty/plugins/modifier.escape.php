@@ -84,10 +84,10 @@ function smarty_modifier_escape($string, $esc_type = 'html', $char_set = 'ISO-88
            return $_res;
 
         case 'spaces_url':
-            return preg_replace('/\s/', '%20', $string);
+            return preg_replace('/\s/', '%20', $string ?? '');
 
         case 'spaces_text':
-            return preg_replace('/\s/', '&nbsp;', $string);
+            return preg_replace('/\s/', '&nbsp;', $string ?? '');
 
         default:
             return $string;

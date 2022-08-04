@@ -226,6 +226,7 @@ if (!is_writable($dir)) {
 $cms->crumb('Manage', ps_url_wrapper(array('_base' => 'manage.php' )));
 $cms->crumb('Icon Avatars', ps_url_wrapper(array('_base' => 'icons.php' )));
 
+$message ??= null;
 // assign variables to the theme
 $cms->theme->assign(array(
 	'page'		=> basename(__FILE__, '.php'), 
