@@ -179,6 +179,7 @@ function errors() {
 	foreach (array_keys($this->fields) as $var) {
         $this->errors[$var] ??= null;
 	}
+	$this->errors['fatal'] ??= null;
 	return $this->errors;
 }
 
