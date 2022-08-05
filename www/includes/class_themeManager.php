@@ -326,6 +326,7 @@ function is_xml($hdr = null) {
 	if ($hdr === null) {
 		$hdr =& $this->headers;
 	}
+	$hdr['content-type'] ??= null;
 	$ct = $hdr['content-type'];
 	// if we don't have a content-type we assume the best and return true
 	if (!$ct) return true;
