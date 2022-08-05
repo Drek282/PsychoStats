@@ -335,7 +335,10 @@ function get_user_list($join_plr = false, $filter = array()) {
 		'order'		=> 'asc',
 		'sort'		=> 'username',
 		'username'	=> '',		// search filter "LIKE"
-		'confirmed'	=> null
+		'confirmed'	=> null,
+		'sort'        => null,
+		'order'       => null,
+		'accesslevel' => null
 	);
 
 	if (!is_numeric($filter['start']) or $filter['start'] < 0) $filter['start'] = 0;
@@ -379,17 +382,18 @@ function get_user_list($join_plr = false, $filter = array()) {
 // returns the total number of users in the database, optionally matching those to the $filter supplied.
 function total_users($filter = array()) {
 	$where = "";
-	$filter['username'] = $filter['username'] ?? null;
+	$filter['username'] ??= null;
 	if ($filter['username'] != '') {
 		$where .= "username LIKE '%" . $this->db->escape($filter['username']). "%' ";
 	}
     
-	$filter['confirmed'] = $filter['confirmed'] ?? null;
+	$filter['confirmed'] ??= null;
 	if ($filter['confirmed'] != '') {
 		if ($where) $where .= "AND ";
 		$where .= "confirmed = " . $this->db->escape($filter['confirmed'], true);
 	}
-
+    
+	$filter['accesslevel'] ??= null;
 	if ($filter['accesslevel'] != '') {
 		if ($where) $where .= "AND ";
 		$where .= "accesslevel = " . $this->db->escape($filter['accesslevel'], true);
