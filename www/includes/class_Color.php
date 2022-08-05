@@ -429,6 +429,8 @@ class Image_Color
             
           } else {
           	
+          	$hshift ??= null;
+          	$bshift ??= null;
           	$hshift += $hx;
           	$bshift += $bx;
           	
