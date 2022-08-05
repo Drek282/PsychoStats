@@ -63,7 +63,8 @@ function load_theme($url, $skip_file = false) {
 		$err = str_replace(' [function.file-get-contents]', '', strip_tags($err));
 	}
 	ob_end_clean();
-
+	
+	$http_response_header ??= null;
 	$this->headers = $this->parse_headers($http_response_header);
 	$this->xml = array();
 	$data = array();
