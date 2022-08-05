@@ -2,7 +2,8 @@
 
 
 Version 3.2.8b (in progress)
-* [Updated] Minimum PHP version updated to 7.0.0
+* [Updated] Minimum MySQL version updated to 5.5.0
+* [Updated] Minimum PHP version updated to 7.1.0
 * [Updated] Map overlay sql.
 * [Added] Skill and rank same icons, thanks Rosenstein.
 * [Improved] Skill and rank icons converted to gif, smaller file sizes.
@@ -107,7 +108,7 @@ Version 3.2.4b (10/03/2020)
 * [Improved] Better Firearms weapon images taken from the game itself.
 
 Version 3.2.3b (09/28/2020)
-* [Updated] Minimum PHP and MySQL versions updated to 5.3.0 and 4.1.13 respectively.
+* [Updated] Minimum PHP and MySQL versions updated to 5.3.0 and 5.5.0 respectively.
 * [Fixed] Deprecated and obsolete PHP code in the web front end.
 * [Regression] Replaced broken heat.pl from 3.2.2b with heat.pl from version 3.1 that works.
 * [Added] Support for Natural Selection heatmaps along with some overlays.
