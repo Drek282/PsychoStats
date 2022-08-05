@@ -58,6 +58,8 @@ $cms->crumb('Player Aliases', ps_url_wrapper($php_scnm));
 $cms->theme->assign(array(
 	'aliases'	=> $aliases,
 	'total'		=> $total,
+	'order'    => null,
+	'sort'     => null,
 	'pager'		=> $pager,
 	'page'		=> basename(__FILE__, '.php'), 
 ));
