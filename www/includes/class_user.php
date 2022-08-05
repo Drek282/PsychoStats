@@ -336,8 +336,6 @@ function get_user_list($join_plr = false, $filter = array()) {
 		'sort'		=> 'username',
 		'username'	=> '',		// search filter "LIKE"
 		'confirmed'	=> null,
-		'sort'        => null,
-		'order'       => null,
 		'accesslevel' => null
 	);
 
