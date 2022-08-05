@@ -128,6 +128,7 @@ function pct_bar($args = array()) {
 	$w = $args['width'] ? $args['width'] : 100;
 //	$width = $args['pct'] / 100 * $w; 				// scaled width
 	$key = $args['color1'] . ':' . $args['color2'];
+	$colors[$key] ??= null;
 	if (!$colors[$key]) {
 		$c = new Image_Color();
 		$c->setColors($args['color1'], $args['color2']);
