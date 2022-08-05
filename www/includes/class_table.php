@@ -95,12 +95,16 @@ function header_sort() {
 	$row = new PsychoRow($this->type);
 //	$row->attr($this->header_attr); // wrong
 	foreach ($this->columns as $key => $cell) {
+        $cell['nolabel'] ??= null;
 		if (is_array($cell) and $cell['nolabel']) continue;
+		$this->header_attr[$key] ??= null;
 		$hdr_attr = $this->header_attr[$key];
 		$label = is_array($cell) ? $cell['label'] : $cell;
+        $cell['tooltip'] ??= null;
 		if ($cell['tooltip']) {
 			$label = sprintf("<abbr title='%s'>%s</abbr>", $cell['tooltip'], $label);
 		}
+        $cell['nosort'] ??= null;
 		if ($key and !$cell['nosort']) {
 			$url = array_merge($this->sort_baseurl, array( 
 				$this->prefix . 'sort' => $key, 
@@ -108,6 +112,7 @@ function header_sort() {
 			));
 			if ($key == $this->sort()) {	// alternate the order
 				$url[$this->prefix . 'order'] = $this->order() != 'asc' ? 'asc' : 'desc';
+				$hdr_attr['class'] ??= '';
 				$hdr_attr['class'] = trim($hdr_attr['class'] . ' ' . $this->sort_active_class);
 			}
 			$str = sprintf($this->header_sort_format, $label, ps_url_wrapper($url), $this->order());
@@ -133,14 +138,17 @@ function rows() {
 				$html = $data[$key];
 
 				// is there a modifier?
+				$cell['modifier'] ??= null;
 				if ($cell['modifier']) {
 					$html = $this->callback($html, $cell['modifier']);
 				}
 				// is there a callback?
+				$cell['callback'] ??= null;
 				if ($cell['callback']) {
 					$html = $this->callback($html, $cell['callback'], $data);
 				}
-
+				
+                $this->column_attr[$key] ??= null;
 				$row->td($html, $this->column_attr[$key]);
 			} elseif ($key == '+') {		// special auto-increment row
 				$row->td($i + $this->start);
@@ -256,6 +264,8 @@ function column_opt($col, $key, $value) {
 
 // sets attribute(s) on a single keyed column
 function column_attr($col, $attr, $value = null) {
+    $this->column_attr['name'] ??= null;
+    $this->column_attr['skill'] ??= null;
 	if (!is_array($this->column_attr[$col])) $this->column_attr[$col] = array( );
 	if (is_array($attr)) {
 		$this->column_attr[$col] = $value === null ? array_merge($this->column_attr[$col], $attr) : $attr;
@@ -266,6 +276,7 @@ function column_attr($col, $attr, $value = null) {
 
 // sets attributes on header cells.
 function header_attr($col, $attr, $value = null) {
+    $this->header_attr['rank'] ??= null;
 	if (!is_array($this->header_attr[$col])) $this->header_attr[$col] = array( );
 	if (is_array($attr)) {
 		$this->header_attr[$col] = $value === null ? array_merge($this->header_attr[$col], $attr) : $attr;

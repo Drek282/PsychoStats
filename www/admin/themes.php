@@ -218,6 +218,7 @@ $cms->theme->assign(array(
 	'submit'	=> $submit,
 	'confirm'	=> $confirm,
 	'page'		=> basename(__FILE__, '.php'), 
+	'child'		=> null, 
 ));
 
 // display the output
