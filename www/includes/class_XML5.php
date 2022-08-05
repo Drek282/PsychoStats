@@ -66,7 +66,7 @@ class XMLstruct {
 		$this->parent   = &$this->document;
 		return xml_parse($this->parser, $data, true) ? $this->document : NULL;
 	}
-	function open(&$parser, $tag, $attributes){
+	function open($parser, $tag, $attributes){
 		$this->data = ''; #stores temporary cdata
 		$this->last_opened_tag = $tag;
 		if(is_array($this->parent) and array_key_exists($tag,$this->parent)){ #if you've seen this tag before
@@ -92,11 +92,11 @@ class XMLstruct {
 		$this->parent  = &$this->parent[$key];
 		$this->stack[] = &$this->parent;
 	}
-	function data(&$parser, $data){
+	function data($parser, $data){
 		if($this->last_opened_tag != NULL) # you don't need to store whitespace in between tags
 			$this->data .= $data;
 	}
-	function close(&$parser, $tag){
+	function close($parser, $tag){
 		if($this->last_opened_tag == $tag){
 			$this->parent = $this->data;
 			$this->last_opened_tag = NULL;
