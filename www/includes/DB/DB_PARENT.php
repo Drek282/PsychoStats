@@ -259,6 +259,8 @@ function insert($tbl, $set) {
 function sortorder($args, $prefix='') {
 	$str = "";
 	if (!$args) return $str;
+	$args['order'] ??= null;
+	$args['sort'] ??= null;
 	$order = $args[$prefix . 'order'] ? " " . $args[$prefix . 'order'] : '';
 	$fields = array_filter(explode(',', $args[$prefix . 'sort']), 'not_empty');
 	foreach ($fields as $sort) {
@@ -288,6 +290,7 @@ function sortorder($args, $prefix='') {
 
 function limit($args, $prefix='') {
 	$str = "";
+	$args['limit'] ??= null;
 	if ($args[$prefix . 'limit'] && !$args[$prefix . 'start']) {
 		$str .= " LIMIT " . $args[$prefix . 'limit'];
 	} elseif ($args[$prefix . 'limit'] && $args[$prefix . 'start']) {

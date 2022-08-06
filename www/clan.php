@@ -223,6 +223,7 @@ $ps->clan_maps_table_mod($mtable);
 $cms->filter('clan_maps_table_object', $mtable);
 
 
+$totalranked ??= null;
 $cms->theme->assign(array(
 	'clan'			=> $clan,
 	'members_table'		=> $ptable->render(),

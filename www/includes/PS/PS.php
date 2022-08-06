@@ -807,6 +807,7 @@ function get_clan($args = array(), $minimal = false) {
 	$cmd .= "FROM $this->c_plr_data data, $this->t_plr plr, $this->t_clan clan, $this->t_clan_profile cp ";
 	$cmd .= "WHERE clan.clanid=$id AND plr.clanid=clan.clanid AND clan.clantag=cp.clantag AND data.plrid=plr.plrid ";
 	if (!$args['allowall']) $cmd .= "AND plr.allowrank=1 ";
+	$args['where'] ??= null;
 	if (trim($args['where']) != '') $cmd .= "AND (" . $args['where'] . ") ";
 	$cmd .= "GROUP BY plr.clanid ";
 	$cmd .= $this->getsortorder($args);
@@ -830,6 +831,7 @@ function get_clan($args = array(), $minimal = false) {
 	}
 
 	if (!$args['minimal'] and $args['loadmembers']) {
+        $s ??= null;
 		$clan['members'] = $this->get_player_list(array(
 			'where' => "plr.clanid='$id'",
 			'sort'	=> $args['membersort'],
