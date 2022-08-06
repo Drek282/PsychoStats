@@ -408,7 +408,11 @@ class Smarty
      *
      * @var array
      */
-    var $_tpl_vars             = array();
+    var $_tpl_vars             = array(
+        'language_list' => null,
+        'pager' => null,
+        'theme_list' => null,
+        );
 
     /**
      * stores run-time $smarty.* vars
