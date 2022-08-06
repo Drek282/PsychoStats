@@ -56,9 +56,11 @@ $max = array();
 $keys = array('kills', 'damage', 'headshotkills');
 for ($i=0; $i < count($roles); $i++) {
 	foreach ($keys as $k) {
+        $stats[$k] ??= null;
 		if ($stats[$k]) {
 			$roles[$i][$k.'pct'] = ($stats[$k]) ? ceil($roles[$i][$k] / $stats[$k] * 100) : 0;
 		}
+		$max[$k] ??= null;
 		if ($roles[$i][$k] > $max[$k]) $max[$k] = $roles[$i][$k];
 	}
 }
