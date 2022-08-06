@@ -2536,6 +2536,8 @@ function build_map_stats() {
 	// collect the topten stats
 	$stats = array();
 	foreach ($this->mapstats as $var => $o) {
+        $o['modifier'] ??= null;
+        $o['callback'] ??= null;
 		$stats[$var]['label'] = $o['label'];
 		$stats[$var]['modifier'] = $o['modifier'];
 		$stats[$var]['callback'] = $o['callback'];

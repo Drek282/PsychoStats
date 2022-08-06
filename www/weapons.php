@@ -56,6 +56,7 @@ $max = array();
 $keys = array('kills', 'damage', 'headshotkills');
 for ($i=0; $i < count($weapons); $i++) {
 	foreach ($keys as $k) {
+        $max[$k] ??= null;
 		if ($weapons[$i][$k] > $max[$k]) $max[$k] = $weapons[$i][$k];
 	}
 }
@@ -66,6 +67,7 @@ for ($i=0; $i < count($weapons); $i++) {
 		if ($max[$k]) {
 			$weapons[$i]['scaled'.$k.'pct'] = ceil($weapons[$i][$k] / $max[$k] * 100);
 		}
+		$stats[$k] ??= null;
 		if ($stats[$k]) {
 			$weapons[$i]['real'.$k.'pct'] = ceil($weapons[$i][$k] / $stats[$k] * 100);
 		}
