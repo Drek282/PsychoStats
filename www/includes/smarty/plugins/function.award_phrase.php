@@ -6,6 +6,7 @@ function smarty_function_award_phrase($params, &$smarty) {
 	$phrase = $cms->trans($award['phrase']);
 
 	// if 'desc' is true then we print the award description
+	$params['desc'] ??= null;
 	if ($params['desc']) {
 		$phrase = $cms->trans($award['description']);
 		if (empty($phrase)) {
@@ -19,7 +20,9 @@ function smarty_function_award_phrase($params, &$smarty) {
 
 	$weapon = array();
 	// is this a weapon award?
+	$award['weapon'] ??= null;
 	if ($award['weapon']) {
+        $award['weapon']['name'] ??= null;
 		$award['weapon']['link'] = ps_table_weapon_link($award['weapon']['name'], $award['weapon']);
 		$weapon =& $award['weapon'];
 	} else {
