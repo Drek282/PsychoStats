@@ -592,6 +592,7 @@ function get_player($args = array(), $minimal = false) {
 	}
 
 	if (!$args['minimal'] and $args['loadsessions']) {
+        $s ??= null;
 		$plr['sessions'] = $this->get_player_sessions(array(
 			'plrid'		=> $args['plrid'],
 			'start'		=> $args['sessionstart'],

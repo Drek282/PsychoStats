@@ -205,6 +205,8 @@ function _find_user_sid() {
 	$this->garbage_collect();
 	$name = $this->sid_name();
 	$sid = FALSE;
+	$this->cms->cookie[$name] ??= null;
+	$this->cms->input[$name] ??= null;
 	if ($this->cms->cookie[$name] != '') {
 		$this->sidmethod = 'cookie';
 		$sid = $this->cms->cookie[$name];

@@ -134,6 +134,7 @@ function rows() {
 		$row = new PsychoRow();
 		if (++$i % 2 == $this->stripe_row) $row->attr($stripe_attr);
 		foreach ($this->columns as $key => $cell) {
+            $html = $data[$key] ??= null;
 			if ($key != '+') {
 				$html = $data[$key];
 
@@ -264,8 +265,7 @@ function column_opt($col, $key, $value) {
 
 // sets attribute(s) on a single keyed column
 function column_attr($col, $attr, $value = null) {
-    $this->column_attr['name'] ??= null;
-    $this->column_attr['skill'] ??= null;
+    $this->column_attr[$col] ??= null;
 	if (!is_array($this->column_attr[$col])) $this->column_attr[$col] = array( );
 	if (is_array($attr)) {
 		$this->column_attr[$col] = $value === null ? array_merge($this->column_attr[$col], $attr) : $attr;
@@ -276,7 +276,7 @@ function column_attr($col, $attr, $value = null) {
 
 // sets attributes on header cells.
 function header_attr($col, $attr, $value = null) {
-    $this->header_attr['rank'] ??= null;
+    $this->header_attr[$col] ??= null;
 	if (!is_array($this->header_attr[$col])) $this->header_attr[$col] = array( );
 	if (is_array($attr)) {
 		$this->header_attr[$col] = $value === null ? array_merge($this->header_attr[$col], $attr) : $attr;
