@@ -268,6 +268,7 @@ function draw($print=FALSE) {
 		}
 
 		// output dotw column
+		$d['data']['link'] ??= null;
 		$link = $d['data']['link'] ? sprintf("<a href='%s'>%s</a>", $d['data']['link'],date('d', $d['time'])) : '';
 		$classes = sprintf('calendar-cell calendar-cell-%s', strtolower($this->dotw[$i-1]));
 		$isoverflow = (substr($d['date'],0,7) != substr($ymdthen,0,7));
