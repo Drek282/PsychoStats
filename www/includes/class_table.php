@@ -82,6 +82,8 @@ function header() {
 	$row = new PsychoRow($this->type);
 //	$row->attr($this->header_attr);	// wrong
 	foreach ($this->columns as $key => $cell) {
+        $this->header_attr[$key] ??= null;
+        $cell['nolabel'] ??= null;
 		if (is_array($cell) and $cell['nolabel']) continue;
 		$label = is_array($cell) ? $cell['label'] : $cell;
 		$str = sprintf($this->header_format, $label);
