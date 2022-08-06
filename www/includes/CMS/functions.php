@@ -282,6 +282,7 @@ if (!function_exists('ps_table_weapon_link')) {
 	*/
 	function ps_table_weapon_link($name, $weapon) {
 		global $ps;
+		$weapon['weaponid'] ??= null;
 		$url = ps_url_wrapper(array( '_base' => 'weapon.php', 'id' => $weapon['weaponid'] ));
 		$img = $ps->weaponimg($weapon);
 		return "<a class='weapon' href='$url'>$img</a>";
@@ -323,7 +324,7 @@ if (!function_exists('ps_escape_html')) {
 	which will escape both quotes.
 	*/
 	function ps_escape_html($str,$quote_style = ENT_QUOTES) {
-		return htmlspecialchars($str, $quote_style, 'UTF-8');	// PHP >= 4.3.0
+		return htmlspecialchars($str ?? '', $quote_style, 'UTF-8');	// PHP >= 4.3.0
 	}
 }
 
