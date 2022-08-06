@@ -229,6 +229,7 @@ function draw($print=FALSE) {
 	$hover = "";
 
 	// build headers
+	$output ??= null;
 	$output .= $this->table_begin($id);
 	$output .= "<tr align='center' class='calendar-hdr'><td>";
 	$output .= ($this->conf['show_timeurl']) ? sprintf("<a href='%s'>&lt;&lt;</a>", $this->timeurl($prevmonth)) : '&nbsp;';
@@ -249,6 +250,7 @@ function draw($print=FALSE) {
 		if ($i == 0) {		// start of a new row
 			$w = date('W', $d['time']);
 			$w2 = sprintf("%02d", $w);
+			$this->weeks[$w]['data']['link'] ??= '';
 			$link = $this->weeks[$w]['data']['link']
 				? sprintf("<a href='%s'>%s</a>", $this->weeks[$w]['data']['link'], $w2) 
 				: '';
