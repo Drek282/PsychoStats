@@ -102,13 +102,13 @@ if (empty($d)) {
 $andplr = $p ? " AND topplrid=$_p" : "";
 
 // select them separately, since it's possible a date will not exist $nX should be empty in that case.
-list($p1) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'day' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
-list($p2) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'week' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
-list($p3) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'month' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
+@list($p1) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'day' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
+@list($p2) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'week' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
+@list($p3) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'month' AND awarddate < '$d' $andplr ORDER BY awarddate DESC LIMIT 1");
 
-list($n1) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'day' AND awarddate > '$d' $andplr LIMIT 1");
-list($n2) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'week' AND awarddate > '$d' $andplr LIMIT 1");
-list($n3) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'month' AND awarddate > '$d' $andplr LIMIT 1");
+@list($n1) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'day' AND awarddate > '$d' $andplr LIMIT 1");
+@list($n2) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'week' AND awarddate > '$d' $andplr LIMIT 1");
+@list($n3) = $ps->db->fetch_list("SELECT awarddate FROM $ps->t_awards WHERE awardrange = 'month' AND awarddate > '$d' $andplr LIMIT 1");
 
 $prev = array( 'day' => $p1, 'week' => $p2, 'month' => $p3 );
 $next = array( 'day' => $n1, 'week' => $n2, 'month' => $n3 );
