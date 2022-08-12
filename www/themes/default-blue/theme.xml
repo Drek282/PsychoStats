@@ -6,7 +6,7 @@
 	<title>Default Theme - blue skin</title>
 	<author>Stormtrooper</author>
 	<website></website>
-	<source></source>
+	<source>themes/default-blue/theme.xml</source>
 	<image></image>
 	<file></file>
 	<description>blue skin for {$parent} theme.</description>
