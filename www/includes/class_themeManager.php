@@ -471,7 +471,7 @@ function theme_dirs($dir = null) {
 	if (!$dh) return false;
 	while (($file = readdir($dh)) !== false) {
 		if (!is_dir(catfile($dir, $file)) or substr($file,0,1) == '.') continue;	// ignore non-directories and special
-		list($installed) = $this->db->fetch_list("SELECT 1 FROM {$this->ps->t_config_themes} WHERE name LIKE " . $this->db->escape($file, true));
+		@list($installed) = $this->db->fetch_list("SELECT 1 FROM {$this->ps->t_config_themes} WHERE name LIKE " . $this->db->escape($file, true));
 		$xml = catfile($dir, $file, 'theme.xml');
 		if ($installed or !file_exists($xml)) continue;		// ignore installed themes, or directories w/o a theme.xml
 		$t = new PsychoThemeManager($this->ps, $this->template_dir);
