@@ -121,6 +121,8 @@ $first = $list ? $list[0]['plugin'] : '';
 $last  = $list ? $list[ count($list) - 1]['plugin'] : '';
 $list2 = array();
 foreach ($list as $p) {
+    $p['down'] ??= null;
+    $p['up'] ??= null;
 	if ($p['plugin'] == $first and $p['plugin'] != $last) {
 		$p['down'] = 1;
 	} elseif ($p['plugin'] == $last and $p['plugin'] != $first) {
