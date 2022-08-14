@@ -159,6 +159,7 @@ function fetch_list($cmd="") {
 // returns the first element from the next row. uses $cmd if needed to start a new query
 function fetch_item($cmd="") {
 	$row = $this->fetch_row(0, $cmd);
+	$row[0] ??= '';
 	return $row[0];
 }
 
