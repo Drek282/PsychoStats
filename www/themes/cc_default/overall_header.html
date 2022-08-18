@@ -19,7 +19,6 @@
 {if $show_login}
 <a id="ps-login-link" href="{url _base='login.php' _ref=1}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.gif" alt="<#Login#>" /></a>
 {/if}
-<a id="ps-search-link" href="{url _base='search.php'}" title="<#Quick Search Popup#>"><img id="ps-search-img" src="{theme->parent_url}/img/menu-search-icon.gif" alt="<#Search#>" /></a>
 </div>
 <ul>
 {if $conf.main.site_url}
@@ -90,19 +89,3 @@
 </div>
 <!---->
 {/if}
-
-<!--#SEARCH_POPUP#-->
-<form method="get" action="{url _base='index.php'}">
-<div id="ps-search-popup" style="display: none">
-<div id="ps-search-inner">
-<p>
-	<input id="q" name="q" type="text" class="field" value="{$q|escape}" />
-	<input name="sort" value="skill" type="hidden" />
-	<input name="order" value="desc" type="hidden" />
-	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go" /></button>
-</p>
-</div>
-</div>
-</form>
-<!---->
-
