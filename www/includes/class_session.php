@@ -253,6 +253,7 @@ function get_cookie($suffix = '_id') {
 
 // short-cut method for deleting a users cookie.
 function delete_cookie($suffix='_id') {
+    $this->cms->cookie[ $this->sid_name($suffix) ] ??= null;
 	if ($this->cms->cookie[ $this->sid_name($suffix) ]) {
 		unset($this->cms->cookie[ $this->sid_name($suffix) ]);
 		return $this->send_cookie("", time()-100000, $suffix);
