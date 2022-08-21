@@ -95,6 +95,8 @@ $first = $list ? $list[0]['id'] : array();
 $last  = $list ? $list[ count($list) - 1]['id'] : array();
 foreach ($list as $log) {
 	$log['logsource'] = $ps->parse_logsource($log);
+	$log['down'] ??= null;
+	$log['up'] ??= null;
 	if ($log['id'] == $first) {
 		$log['down'] = 1;
 	} elseif ($log['id'] == $last) {
