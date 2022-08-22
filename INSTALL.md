@@ -64,7 +64,7 @@ README.md
 
 2. You will need a MySQL or MariaDB database, user and password.  If you don't know how to set that up, Google is your friend.  It's fairly simple and there is a lot of information on how to do that on the web.  Make sure your user has full permissions on the database.
 
-You should not use a database super user for PsychoStats, especially in a production context.  You should create a user then create a database, then make sure your user has full permissions on that database, before you run the installer.  However, for test purposes, in a local network environment you can use a database user with general permissions and the installer will create the database for you.
+You should not use a database super user for PsychoStats, especially in a production context.  You should create a user then create a database, then make sure your user has full permissions on that database, before you run the installer.  However, for test purposes, in a local network environment you can use a database user with general permissions.  However you will still have to create the database and enter that database name into the config.php file before you run the installer, as well as add your database user name and password to the config.php file.
 
 3. You will need to have Perl installed to run the stats generation scripts, and your web hosting will need to have PHP installed on it.  Note that there are a number of Perl and PHP modules that you will need to have installed.  Again, Google is your friend, if you encounter errors when you try to run the web install, or when you run the stats generation scripts, those errors should let you know what you need to install.
 

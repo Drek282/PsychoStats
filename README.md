@@ -2,7 +2,7 @@
 
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.1.0+ and MySQL 5.5.0+.  The minimum required version of Perl is 5.08.
 
-***This version of PsychoStats should be close to being PHP 8 compatible.  However, it has not yet been tested on PHP 8.  If you wish to use this version of PsychoStats you are strongly advised not to upgrade your PHP version to 8 until this version of PsychoStats has been tested on PHP 8.***
+***This version of PsychoStats should be close to being PHP 8 compatible.  It has been tested on PHP 8, but not thoroughly.***
 
 ***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
 
