@@ -449,6 +449,7 @@ function & init_form(&$form) {
 
 // returns an array of key=>value pairs to populate a user form
 function to_form_input() {
+	$this->info['userid'] ??= null;
 	$this->info['username'] ??= null;
 	$this->info['accesslevel'] ??= null;
 	$this->info['confirmed'] ??= null;
