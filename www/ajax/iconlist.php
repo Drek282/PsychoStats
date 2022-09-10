@@ -39,6 +39,7 @@ if (!$cms->user->logged_in()) {
 /**/
 
 // collect url parameters ...
+$_GET['id'] ??= null;
 $t = strtolower($_GET['t']);
 $idstr = $_GET['id'];
 $idstr = preg_replace('|[^0-9]|', '', $idstr); //Mitigates XSS attack
