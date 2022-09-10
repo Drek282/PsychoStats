@@ -30,6 +30,9 @@ $cms->theme->page_title('PsychoStats - Edit Player Profile');
 $validfields = array('ref','id','del','submit','cancel');
 $cms->theme->assign_request_vars($validfields, true);
 
+$message = '';
+$cms->theme->assign_by_ref('message', $message);
+
 if ($cancel) {
 	previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'index.php' )));
 }
@@ -76,7 +79,6 @@ if (!ps_user_can_edit_player($plr)) {
 	exit;
 }
 
-
 // delete it, if asked to
 /* we don't want normal users deleting themselves ... */
 if ($cms->user->is_admin() and $del and $id and $plr['plrid'] == $id) {
@@ -93,7 +95,7 @@ if ($cms->user->is_admin() and $del and $id and $plr['plrid'] == $id) {
 // create the form variables
 $form = $cms->new_form();
 $form->default_modifier('trim');
-$form->field('plrname','blank');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
+$form->field('plrname');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
 $form->field('email');
 $form->field('discord');
 $form->field('twitch');
@@ -330,6 +332,7 @@ $cms->theme->assign(array(
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'allow_username_change' => $allow_username_change, 
+	'page' => $php_scnm, 
 ));
 
 // display the output

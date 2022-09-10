@@ -29,8 +29,8 @@ $cms->theme->assign('page', 'users');
 $validfields = array('ref','id','del','submit','cancel');
 $cms->theme->assign_request_vars($validfields, true);
 
-//$message = '';
-//$cms->theme->assign_by_ref('message', $message);
+$message = '';
+$cms->theme->assign_by_ref('message', $message);
 
 if ($cancel) {
 	previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'players.php' )));
@@ -84,7 +84,7 @@ if ($del and $id and $plr['plrid'] == $id) {
 // create the form variables
 $form = $cms->new_form();
 $form->default_modifier('trim');
-$form->field('plrname','blank');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
+$form->field('plrname');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
 $form->field('email');
 $form->field('discord');
 $form->field('twitch');

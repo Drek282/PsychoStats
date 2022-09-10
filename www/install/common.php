@@ -53,7 +53,7 @@ require_once(PS_ROOTDIR . "/includes/class_CMS.php");
 require_once(PS_ROOTDIR . "/includes/class_HTTP.php");
 require_once(PS_ROOTDIR . "/includes/class_session.php");
 
-// try to load the current config (supress warnings if it doesn't exist)
+// try to load the current config
 $dbtype = 'mysql';
 $dbhost = 'localhost';
 $dbport = '';

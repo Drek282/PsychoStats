@@ -146,6 +146,7 @@ function save_session_options($opts = null) {
 // warning: a session's userid can possibly get out-of-sync if you are not careful
 // changing the user's ID here will not update the session.
 function userid($new = null) {
+	$this->info['userid'] ??= null;
 	if ($new === null) {
 		return $this->info['userid'];
 	} else {
@@ -157,6 +158,7 @@ function userid($new = null) {
 
 // The username of the current user.
 function username($new = null) {
+	$this->info['username'] ??= null;
 	if ($new === null) {
 		return $this->info['username'];
 	} else {
@@ -168,6 +170,7 @@ function username($new = null) {
 
 // the users password... duh.
 function password($new = null) {
+	$this->info['password'] ??= null;
 	if ($new === null) {
 		return $this->info['password'];
 	} else {
@@ -179,6 +182,7 @@ function password($new = null) {
 
 // the users confirmation flag
 function confirmed($new = null) {
+	$this->info['confirmed'] ??= null;
 	if ($new === null) {
 		return $this->info['confirmed'];
 	} else {
@@ -190,6 +194,7 @@ function confirmed($new = null) {
 
 // return the current access level of the user (See the PU_* constants)
 function accesslevel($new = null) {
+	$this->info['accesslevel'] ??= null;
 	if ($new === null) {
 		return $this->info['accesslevel'];
 	} else {
@@ -201,6 +206,7 @@ function accesslevel($new = null) {
 
 // the last time the user started a new session.
 function lastvisit($new = null) {
+	$this->info['lastvisit'] ??= null;
 	if ($new === null) {
 		return $this->info['lastvisit'];
 	} else {
@@ -443,6 +449,9 @@ function & init_form(&$form) {
 
 // returns an array of key=>value pairs to populate a user form
 function to_form_input() {
+	$this->info['username'] ??= null;
+	$this->info['accesslevel'] ??= null;
+	$this->info['confirmed'] ??= null;
 	return array(
 		'userid'	=> $this->info['userid'],
 		'username'	=> $this->info['username'],

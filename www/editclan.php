@@ -293,6 +293,7 @@ $cms->theme->assign(array(
 	'allowed_html_tags' => $allowed_html_tags,
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'page' => $php_scnm, 
 ));
 
 // display the output
