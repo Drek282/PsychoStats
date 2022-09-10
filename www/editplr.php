@@ -323,6 +323,7 @@ if ($ps->conf['main']['uniqueid'] == 'ipaddr') {
 $allowed_html_tags = str_replace(',', ', ', $ps->conf['theme']['format']['allowed_html_tags']);
 if ($allowed_html_tags == '') $allowed_html_tags = '<em>' . $cms->translate("none") . '</em>';
 $cms->theme->assign(array(
+	'page'		=> basename(__FILE__, '.php'), 
 	'errors'	=> $form->errors(),
 	'plr'		=> $plr,
 	'plr_user'	=> $plr_user->to_form_input(),
@@ -332,7 +333,6 @@ $cms->theme->assign(array(
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'allow_username_change' => $allow_username_change, 
-	'page' => $php_scnm, 
 ));
 
 // display the output

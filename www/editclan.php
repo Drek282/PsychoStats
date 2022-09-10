@@ -287,13 +287,13 @@ if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->
 $allowed_html_tags = str_replace(',', ', ', $ps->conf['theme']['format']['allowed_html_tags']);
 if ($allowed_html_tags == '') $allowed_html_tags = '<em>' . $cms->trans("none") . '</em>';
 $cms->theme->assign(array(
+	'page'		=> basename(__FILE__, '.php'), 
 	'errors'	=> $form->errors(),
 	'clan'		=> $clan,
 	'members'	=> $members,
 	'allowed_html_tags' => $allowed_html_tags,
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'page' => $php_scnm, 
 ));
 
 // display the output
