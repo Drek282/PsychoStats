@@ -88,6 +88,7 @@ function do_test(&$t, $skip_create = false) {
 	if (!$t['min_ver']) return false;
 
 	// the dbname was invalid, so lets try and create it...
+	$t['created'] ??= null;
 	if (!$t['selected']) {
 		if ($db->dbexists($db->dbname)) {
 			$t['exists'] = true;
