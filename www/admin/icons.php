@@ -233,8 +233,8 @@ $cms->theme->assign(array(
 	'icons'		=> $icons,
 	'message'	=> $message,
 	'icons_url'	=> $ps->conf['theme']['icons_url'],
-	'form'		=> $form ? $form->values() : array(),
-	'errors'	=> $form ? $form->errors() : array(),
+	'form'		=> $form ? $form->values() : array('url' => null,),
+	'errors'	=> $form ? $form->errors() : array('fatal' => null,),
 ));
 
 // display the output
