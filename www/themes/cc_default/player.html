@@ -309,7 +309,7 @@
 </p>
 {foreach from=$plr.ids_ipaddr item='i'}
 <p{cycle values=", class='even'"}>
-	<label>{if $i.id}{$i.flagimg} {$i.id|int2ip}{else}<#unknown#>{/if}</label>
+	<label>{if $i.id}{$i.id|int2ip}{else}<#unknown#>{/if}</label>
 	<span>{$i.totaluses|commify}</span>
 </p>
 {/foreach}

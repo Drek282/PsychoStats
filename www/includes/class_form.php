@@ -36,7 +36,7 @@ define("CLASS_PSYCHOFORM_PHP", 1);
 class PsychoForm {
 var $input = array();
 var $fields = array();
-var $errors = array();
+var $errors = array('fatal'	=> null,);
 var $modifiers = array();	// default modifiers for all fields
 var $validators = array();	// default validators ...
 var $valid_errors = array();	// default error strings for validators
@@ -180,7 +180,6 @@ function errors() {
 	foreach (array_keys($this->fields) as $var) {
         $this->errors[$var] ??= null;
 	}
-	$this->errors['fatal'] ??= null;
 	return $this->errors;
 }
 
