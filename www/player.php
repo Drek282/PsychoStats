@@ -323,6 +323,7 @@ if (empty($ps->conf['main']['modtype'])) {
 $shades = array(
 	's_plr_rundown'		=> null,
 	's_plr_killprofile'	=> null,
+	's_hitbox'			=> null,
 	's_plrsess'			=> null,
 	's_modactions'		=> null,
 	's_plrname'			=> null,
