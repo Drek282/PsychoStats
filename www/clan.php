@@ -222,6 +222,15 @@ $mtable->column_attr('_mapimg', 'style', 'width: 40px;');
 $ps->clan_maps_table_mod($mtable);
 $cms->filter('clan_maps_table_object', $mtable);
 
+// Declare shades array.
+$shades = array(
+	's_clan_rundown'		=> null,
+	's_clan_killprofile'	=> null,
+	's_modactions'			=> null,
+	's_clanmembers'			=> null,
+	's_clanweapons'			=> null,
+	's_clanmaps'			=> null,
+);
 
 $totalranked ??= null;
 $cms->theme->assign(array(
@@ -234,6 +243,7 @@ $cms->theme->assign(array(
 	'memberpager'		=> $memberpager,
 	'mappager'		=> $mappager,
 //	'victimpager'		=> $victimpager,
+	'shades'			=> $shades,
 ));
 
 // allow mods to have their own section on the left side bar
