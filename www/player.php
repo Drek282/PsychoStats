@@ -186,6 +186,18 @@ $sessionpager = pagination(array(
 	'prev'          => $cms->trans("Previous"),
 ));
 
+$weaponpager = pagination(array(
+	'baseurl'       => ps_url_wrapper(array( 'id' => $id, 'wlimit' => $wlimit, 'wsort' => $wsort, 'worder' => $worder)),
+	'total'         => $player['totalweapons'],
+	'start'         => $wstart,
+	'startvar'      => 'wstart',
+	'perpage'       => $wlimit,
+	'urltail'       => 'sessions',
+	'separator'	=> ' ',
+	'next'          => $cms->trans("Next"),
+	'prev'          => $cms->trans("Previous"),
+));
+
 // build a dynamic table that plugins can use to add custom columns of data
 $wtable = $cms->new_table($player['weapons']);
 $wtable->if_no_data($cms->trans("No Weapons Found"));
@@ -306,6 +318,20 @@ if (empty($ps->conf['main']['modtype'])) {
 } else {
     $moddir = '/' . $ps->conf['main']['modtype'];
 }
+
+// Declare shades array.
+$shades = array(
+	's_plr_rundown'		=> null,
+	's_plr_killprofile'	=> null,
+	's_plrsess'			=> null,
+	's_modactions'		=> null,
+	's_plrname'			=> null,
+	's_plrweapons'		=> null,
+	's_plrmaps'			=> null,
+	's_plrroles'		=> null,
+	's_plrvictims'		=> null,
+);
+
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
 //	'hitbox_url'		=> ps_escape_html("weaponxml=$PHP_SELF?id=$id&xml=w") . '&' . ps_escape_html("imgpath=" . dirname($PHP_SELF) . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']),
@@ -319,10 +345,12 @@ $cms->theme->assign(array(
 	'mappager'		=> $mappager,
 	'rolepager'		=> $rolepager,
 	'victimpager'		=> $victimpager,
+	'weaponpager'		=> $weaponpager,
 	'totalranked'		=> $totalranked,
 	'max_plr_ids'		=> $MAX_PLR_IDS,
 	'top10percentile'	=> $player['rank'] ? $player['rank'] < $totalranked * 0.10 : false,
 	'top1percentile'	=> $player['rank'] ? $player['rank'] < $totalranked * 0.01 : false,
+	'shades'			=> $shades,
 ));
 
 $basename = basename(__FILE__, '.php');

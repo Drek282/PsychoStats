@@ -325,9 +325,9 @@
 
 	<!--#SESSIONS#-->
 	<a href="sessions"></a>
-	<div class="ps-table-frame{if $shades.s_plrsess} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalsessions} <#Player Game Sessions#></span></a></div>
-	<div class="ps-table-inner">
+	<div class="ps-table-inner{if $shades.s_plrsess} s-closed{/if}">
 	{$sessions_table}
 	{if $sessionpager}<div class="ps-table-footer">{$sessionpager}</div>{/if}
 	</div>
@@ -336,9 +336,9 @@
 
 	<!--#WEAPONS#-->
 	<a href="weapons"></a>
-	<div class="ps-table-frame{if $shades.s_plrweapons} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalweapons} <#Player Weapons#></span></a></div>
-	<div id="s-plrweapons" class="ps-table-inner">
+	<div id="s-plrweapons" class="ps-table-inner{if $shades.s_plrweapons} s-closed{/if}">
 	{$weapons_table}
 	{if $weaponpager}<div class="ps-table-footer">{$weaponpager}</div>{/if}
 	</div>
@@ -348,9 +348,9 @@
 
 	<!--#MAPS#-->
 	<a href="maps"></a>
-	<div class="ps-table-frame{if $shades.s_plrmaps} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalmaps} <#Player Maps#></span></a></div>
-	<div id="s-plrmaps" class="ps-table-inner">
+	<div id="s-plrmaps" class="ps-table-inner{if $shades.s_plrmaps} s-closed{/if}">
 	{$maps_table}
 	{if $mappager}<div class="ps-table-footer">{$mappager}</div>{/if}
 	</div>
@@ -361,9 +361,9 @@
 {if $use_roles}
 	<!--#ROLES#-->
 	<a href="roles"></a>
-	<div class="ps-table-frame{if $shades.s_plrroles} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalroles} <#Player Roles#></span></a></div>
-	<div id="s-plrroles" class="ps-table-inner">
+	<div id="s-plrroles" class="ps-table-inner{if $shades.s_plrroles} s-closed{/if}">
 	{$roles_table}
 	{if $rolepager}<div class="ps-table-footer">{$rolepager}</div>{/if}
 	</div>
@@ -373,9 +373,9 @@
 
 	<!--#VICTIMS#-->
 	<a href="victims"></a>
-	<div class="ps-table-frame{if $shades.s_plrvictims} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$plr.totalvictims|commify} <#Player Victims#></span></a></div>
-	<div id="s-plrvictims" class="ps-table-inner">
+	<div id="s-plrvictims" class="ps-table-inner{if $shades.s_plrvictims} s-closed{/if}">
 	{$victims_table}
 	{if $victimpager}<div class="ps-table-footer">{$victimpager}</div>{/if}
 	</div>
