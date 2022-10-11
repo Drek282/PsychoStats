@@ -151,7 +151,7 @@ function pct_bar($args = array()) {
 		!empty($args['title']) ? $args['title'] : (int)($args['pct']) . '%',
 		$styles,
 		(int)($args['pct']) . '%',
-		$colors[$key][intval($args['pct']) - 1]
+		$colors[$key][intval($args['pct']) - 1] ?? null
 	);
 	return $out;
 }
