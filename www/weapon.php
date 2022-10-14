@@ -105,14 +105,22 @@ $table->column_attr('name', 'class', 'left');
 $ps->weapon_players_table_mod($table);
 $cms->filter('players_table_object', $table); // same as index.php players table
 
+// Declare shades array.
+$shades = array(
+	's_weapon_killprofile'	=> null,
+	's_weaponlist'			=> null,
+	's_weapon_plrlist'		=> null,
+);
+
 $cms->theme->assign(array(
-	'weapons'	=> $weapons,
-	'weapon'	=> $weapon,
-	'weaponimg'	=> $ps->weaponimg($weapon, array('path' => 'large', 'noimg' => '') ),
+	'weapons'		=> $weapons,
+	'weapon'		=> $weapon,
+	'weaponimg'		=> $ps->weaponimg($weapon, array('path' => 'large', 'noimg' => '') ),
 	'totalweapons'	=> $totalweapons,
-	'players'	=> $players,
+	'players'		=> $players,
 	'players_table'	=> $table->render(),
 	'totalplayers'	=> count($players),
+	'shades'		=> $shades,
 ));
 
 $basename = basename(__FILE__, '.php');

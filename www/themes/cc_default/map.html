@@ -93,9 +93,9 @@
 
 {foreach name='stats' from=$topten item='stats'}
 	<!--#STATS#-->
-	<div class="ps-table-frame{if $shades[$stats.key]} s-closed{/if}">
+	<div class="ps-table-frame">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$stats.label|escape}</span></a></div>
-	<div id='{$stats.id}' class="ps-table-inner">
+	<div id='{$stats.id}' class="ps-table-inner{if $shades[$stats.key]} s-closed{/if}">
 	{$stats.table}
 	</div>
 	</div>

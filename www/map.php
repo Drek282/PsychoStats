@@ -90,6 +90,16 @@ if ($map['mapid']) {
 	$topten = $ps->build_map_stats();
 }
 
+// Declare shades array.
+$shades = array(
+	's_modactions'		=> null,
+	's_mapprofile'		=> null,
+	's_maplist'			=> null,
+	's_map_kills'		=> null,
+	's_map_ffkills'		=> null,
+	's_map_ffdeaths'	=> null,
+	's_map_onlinetime'	=> null,
+);
 
 $cms->theme->assign(array(
 	'maps'		=> $maps,
@@ -98,6 +108,7 @@ $cms->theme->assign(array(
 	'totalmaps'	=> $totalmaps,
 	'topten'	=> $topten,
 	'totaltopten'	=> count($topten),
+	'shades'		=> $shades,
 ));
 
 $basename = basename(__FILE__, '.php');
