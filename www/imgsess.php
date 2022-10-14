@@ -89,6 +89,7 @@ if (!isImgCached($imgfilename)) {
 			);
 		}
 
+		$d[$d1] ??= null;
 		if (!$d[$d1]) $d[$d1] = $idx++;
 		$data[] = array(
 			$d[$d1]-1,

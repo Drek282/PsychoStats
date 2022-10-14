@@ -585,10 +585,13 @@ function get_player($args = array(), $minimal = false) {
 		}
 		$plr['totalmaps'] 	= $this->db->count($this->c_plr_maps, '*', "plrid='$id'");
 		$plr['totalweapons'] 	= $this->db->count($this->c_plr_weapons, '*', "plrid='$id'");
-		$plr['totalroles'] 	= $this->db->count($this->c_plr_roles, '*', "plrid='$id'");
 		//$plr['totalids'] 	= $this->db->count($this->t_plr_ids, '*', "plrid='$id'");
 		$plr['totalsessions'] 	= $this->db->count($this->t_plr_sessions, '*', "plrid='$id'");
 		$plr['totalawards'] 	= $this->db->count($this->t_awards, '*', "topplrid='$id'");
+	}
+
+	if (!$args['minimal'] and $args['loadcounts'] and $args['loadroles']) {
+		$plr['totalroles'] 	= $this->db->count($this->c_plr_roles, '*', "plrid='$id'");
 	}
 
 	if (!$args['minimal'] and $args['loadsessions']) {

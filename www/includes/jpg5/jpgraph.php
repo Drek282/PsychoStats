@@ -16,7 +16,7 @@ require_once 'jpgraph_errhandler.inc.php';
 DEFINE('JPG_VERSION','2.2.1');
 
 // Minimum required PHP version
-DEFINE('MIN_PHPVERSION','5.1.0');
+//DEFINE('MIN_PHPVERSION','5.1.0');
 
 // Should the image be a truecolor image? 
 // Note 1: Has only effect with GD 2.0.1 and above.
@@ -228,29 +228,6 @@ DEFINE("_JPG_DEBUG",false);
 DEFINE("_FORCE_IMGTOFILE",false);
 DEFINE("_FORCE_IMGDIR",'/tmp/jpgimg/');
 
-function CheckPHPVersion($aMinVersion)
-{
-    list($majorC, $minorC, $editC) = explode('[/.-]', PHP_VERSION);
-    list($majorR, $minorR, $editR) = explode('[/.-]', $aMinVersion);
-  
-    if ($majorC > $majorR) return true;
-    if ($majorC < $majorR) return false;
-    // same major - check ninor
-    if ($minorC > $minorR) return true;
-    if ($minorC < $minorR) return false;
-    // and same minor
-    if ($editC  >= $editR)  return true;
-    return true;
-}
-
-//
-// Make sure PHP version is high enough
-//
-if( !CheckPHPVersion(MIN_PHPVERSION) ) {
-    JpGraphError::RaiseL(13,PHP_VERSION,MIN_PHPVERSION);
-}
-
-
 //
 // Make GD sanity check
 //
@@ -262,7 +239,7 @@ if( !function_exists("imagetypes") || !function_exists('imagecreatefromstring') 
 //
 // Setup PHP error handler
 //
-function _phpErrorHandler($errno,$errmsg,$filename, $linenum, $vars) {
+function _phpErrorHandler($errno,$errmsg,$filename, $linenum, $vars = null) {
     // Respect current error level
     if( $errno & error_reporting() ) {
 	JpGraphError::RaiseL(25003,basename($filename),$linenum,$errmsg); 

@@ -137,14 +137,14 @@ DEFINE("DEFAULT_GFORMAT","auto");
 // false will still create the image in the cache directory
 // just not use it. By setting USE_CACHE=false no files will even
 // be generated in the cache directory.
-DEFINE("USE_CACHE",false);
+//DEFINE("USE_CACHE",false);
 
 // Should we try to find an image in the cache before generating it? 
 // Set this define to false to bypass the reading of the cache and always
 // regenerate the image. Note that even if reading the cache is 
 // disabled the cached will still be updated with the newly generated
 // image. Set also "USE_CACHE" below.
-DEFINE("READ_CACHE",true);
+//DEFINE("READ_CACHE",true);
 
 // Determine if the error handler should be image based or purely
 // text based. Image based makes it easier since the script will
@@ -156,13 +156,13 @@ DEFINE("USE_IMAGE_ERROR_HANDLER",true);
 // occasions when, for example, header files cannot be found and this results
 // in the graph not being created and just a "red-cross" image would be seen.
 // This should be turned off for a production site.
-DEFINE("CATCH_PHPERRMSG",true);
+//DEFINE("CATCH_PHPERRMSG",true);
 
 // Determine if the library should also setup the default PHP
 // error handler to generate a graphic error mesage. This is useful
 // during development to be able to see the error message as an image
 // instead as a "red-cross" in a page where an image is expected.
-DEFINE("INSTALL_PHP_ERR_HANDLER",false);
+//DEFINE("INSTALL_PHP_ERR_HANDLER",false);
 
 // If the color palette is full should JpGraph try to allocate
 // the closest match? If you plan on using background images or
@@ -196,7 +196,7 @@ DEFINE("BRAND_TIME_FORMAT","(%01.3fs)");
 // Please note that the Apache user must be a member of the
 // specified group since otherwise it is impossible for Apache
 // to set the specified group.
-DEFINE("CACHE_FILE_GROUP","wwwadmin");
+//DEFINE("CACHE_FILE_GROUP","wwwadmin");
 
 // What permissions should the cached file have
 // (Set to "" will give the default persmissions for the "PHP-user")
