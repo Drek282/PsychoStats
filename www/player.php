@@ -331,6 +331,8 @@ $shades = array(
 	's_plrmaps'			=> null,
 	's_plrroles'		=> null,
 	's_plrvictims'		=> null,
+	's_plrworldid'		=> null,
+	's_plripaddr'		=> null,
 );
 
 $cms->theme->assign_by_ref('plr', $player);
