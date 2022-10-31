@@ -27,6 +27,22 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Maps Played');
 
+// Check to see if there is any data in the database before we continue.
+$cmd = "SELECT * FROM $ps->t_plr_data LIMIT 1";
+
+$results = array();
+$results = $ps->db->fetch_rows(1, $cmd);
+
+// if $results is empty then we have no data in the database
+if (empty($results)) {
+	$cms->full_page_err('awards', array(
+		'message_title'	=> $cms->trans("No Stats Found"),
+		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
+	));
+	exit();
+}
+unset ($results);
+
 // change this if you want the default sort of the player listing to be something else like 'kills'
 $DEFAULT_SORT = 'kills';
 
