@@ -26,6 +26,7 @@ Version 3.2.8b (in progress)
 * [Added] Social profile options for clan pages.
 * [Added] Twitch to social options.
 * [Fixed] Possible xss vulnerabilities, thanks Rosenstein.
+* [Fixed] Themes can now handle gif, jpg, png and webp images in the context of certain javascript.
 
 
 Version 3.2.7b (06/03/2021)
