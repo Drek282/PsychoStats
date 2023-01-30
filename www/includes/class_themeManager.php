@@ -342,9 +342,7 @@ function parse_headers($fields) {
 	if (!is_array($fields)) return $res;
 	foreach( $fields as $field ) {
 		if( preg_match('/([^:]+): (.+)/m', $field, $match) ) {
-            /* Obsolete /e switch.
-			$match[1] = preg_replace('/(?<=^|[\x09\x20\x2D])./e', 'strtoupper("\0")', strtolower(trim($match[1]))); */
-			$match[1] = preg_replace('/(?<=^|[\x09\x20\x2D])./', function($m) { return strtoupper($m[0]); }, strtolower(trim($match[1])));
+			$match[1] = preg_replace_callback('/(?<=^|[\x09\x20\x2D])./', function($m) { return strtoupper($m[0]); }, strtolower(trim($match[1])));
 			$match[1] = strtolower($match[1]);
 			if( isset($res[$match[1]]) ) {
 				$res[$match[1]] = array($res[$match[1]], $match[2]);
