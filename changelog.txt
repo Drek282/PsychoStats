@@ -29,6 +29,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Themes can now handle gif, jpg, png and webp images in the context of certain javascript.
 * [Fixed] PHP 8.2 deprecation warning.
 * [Replaced] Broken preg_replace with preg_replace_callback.
+* [Improved] Install error message to make it more specific and informative.
 
 
 Version 3.2.7b (06/03/2021)
