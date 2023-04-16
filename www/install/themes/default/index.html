@@ -26,8 +26,11 @@
 <div id="bad-install">
 	<h3><#Installation Aborted!#></h3>
 	<p>
-		The installation was halted due to your session either timing out or another installation session was started! 
-		You must start over and try again. Be sure not to open a second installation window or it will fail again.
+		The most likely cause for this error is that you have not created a database and database user for PsychoStats
+		and/or entered your database name, database username and database user password into the config.php file.
+		You need to create a database and a database user, and give that user full permissions on that database.
+		The other possible reason for this error is that your session either timed out or another installation session was started.  If that was the case you must start over and try again.  Make sure you start the installation from the beginning and do not use your back button to attemp to restart the installation.  Make sure you do not open a
+		second installation window or it will fail again.
 	</p>
 </div>
 {/if}
