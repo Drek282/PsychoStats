@@ -38,6 +38,7 @@
 if (defined("CLASS_PSYCHO_SESSION_PHP")) return 1;
 define('CLASS_PSYCHO_SESSION_PHP', 1);
 
+#[AllowDynamicProperties]
 class PsychoSession { 
 var $config = array();
 var $_is_bot = NULL;

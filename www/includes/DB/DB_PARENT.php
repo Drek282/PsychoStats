@@ -23,6 +23,7 @@
 if (defined("CLASS_DB_PARENT_PHP")) return 1;
 define("CLASS_DB_PARENT_PHP", 1);
 
+#[AllowDynamicProperties]
 class DB_PARENT {
 var $DEBUG 		= false;
 var $errno		= 0;

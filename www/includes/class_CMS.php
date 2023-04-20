@@ -44,6 +44,7 @@
 if (defined("CLASS_CMS_PHP")) return 1;
 define("CLASS_CMS_PHP", 1);
 
+#[AllowDynamicProperties]
 class PsychoCMS {
 // I have to stay PHP4 compatible; so don't use public/private variables
 var $user_class		= 'PsychoUser';
