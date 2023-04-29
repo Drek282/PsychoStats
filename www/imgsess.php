@@ -79,7 +79,7 @@ if (!isImgCached($imgfilename)) {
 
 		// need to wrap the session to the next day
 		if ($d2 > $d1) {
-			if (!$d[$d2]) $d[$d2] = $idx++;
+			if (!isset($d[$d2])) $d[$d2] = $idx++;
 			$data[] = array(
 				$d[$d2]-1,
 				date("Y-m-d", $end),
