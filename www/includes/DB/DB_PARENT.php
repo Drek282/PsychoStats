@@ -301,6 +301,13 @@ function limit($args, $prefix='') {
 	return $str;
 }
 
+// returns true if a table exists
+function table_exists($tbl) {
+	$cmd = "SHOW TABLES LIKE '$tbl'";
+	$check = $this->query($cmd);
+	return ($check->num_rows) ? true : false;
+}
+
 // returns true if a row exists based on the key=id given
 function exists($tbl, $key, $id=NULL) {
 	if ($id === NULL) {		// assume $key is in the form: 'mykey=value'

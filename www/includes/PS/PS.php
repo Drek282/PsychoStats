@@ -2625,24 +2625,30 @@ function reset_stats($keep = array()) {
 	// stats.pl will automatically recreate the tables as needed.
 	foreach ($empty_compiled as $t) {
 		$tbl = $this->$t;
-		if (!$this->db->droptable($tbl) and !preg_match("/unknown table/i", $this->db->errstr)) {
-			$errors[] = "$tbl: " . $this->db->errstr;
+		if ($this->db->table_exists($tbl)) {
+			if (!$this->db->droptable($tbl) and !preg_match("/unknown table/i", $this->db->errstr)) {
+				$errors[] = "$tbl: " . $this->db->errstr;
+			}
 		}
 	}
 
 	// delete most of everything
 	foreach ($empty as $t) {
 		$tbl = $this->$t;
-		if (!$this->db->truncate($tbl) and !preg_match("/exist/", $this->db->errstr)) {
-			$errors[] = "$tbl: " . $this->db->errstr;
+		if ($this->db->table_exists($tbl)) {
+			if (!$this->db->truncate($tbl) and !preg_match("/exist/", $this->db->errstr)) {
+				$errors[] = "$tbl: " . $this->db->errstr;
+			}
 		}
 	}
 
 	// delete mod specific tables
 	foreach ($empty_mod as $t) {
 		$tbl = $this->$t . $this->tblsuffix;
-		if (!$this->db->truncate($tbl) and !preg_match("/exist/", $this->db->errstr)) {
-			$errors[] = "$tbl: " . $this->db->errstr;
+		if ($this->db->table_exists($tbl)) {
+			if (!$this->db->truncate($tbl) and !preg_match("/exist/", $this->db->errstr)) {
+				$errors[] = "$tbl: " . $this->db->errstr;
+			}
 		}
 	}
 
