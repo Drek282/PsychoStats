@@ -21,13 +21,13 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 	<div class="ps-table-header">
 		<div id="filter" class="filter">
 			<form action="{url}" method="get">
-				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field" />
-				<label for="all"><input id="all" name="all" type="checkbox" value="1"{if $all} checked="checked"{/if} /> All</label>
-				<input type="submit" 	value="<#Filter#>" class="btn" />
-				<input name="order" 	value="{$order}" type="hidden" />
-				<input name="sort" 	value="{$sort}" type="hidden" />
-				<input name="start" 	value="0" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
+				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field">
+				<label for="all"><input id="all" name="all" type="checkbox" value="1"{if $all} checked="checked"{/if}> All</label>
+				<input type="submit" 	value="<#Filter#>" class="btn">
+				<input name="order" 	value="{$order}" type="hidden">
+				<input name="sort" 	value="{$sort}" type="hidden">
+				<input name="start" 	value="0" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
 			</form>
 		</div>
 		{$pager}
@@ -41,7 +41,7 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 			<th><p><span class="asc"><#User#></span></p></th>
 			<th><p><span class="asc"><#Skill#></span></p></th>
 			<th><p><span class="asc"><#Ranked#></span></p></th>
-			<th><p><abbr title="<#Select All#>"><input id="delete-all" type="checkbox" /></abbr></p></th>
+			<th><p><abbr title="<#Select All#>"><input id="delete-all" type="checkbox"></abbr></p></th>
 		</tr>
 {foreach name="plr" from=$players item='p'}
 		<tr{cycle values=", class='even'"} id="row-{$smarty.foreach.plr.index}">
@@ -50,7 +50,7 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 			<td>{if $p.userid}<a href="{url _base='users_edit.php' _ref=1 id=$p.userid}">{$p.username|escape}</a>{else}-{/if}</td>
 			<td>{$p.skill|escape}</td>
 			<td><img src="{theme->url}/img/icons/{if $p.allowrank}tick{else}cross{/if}.png" alt="{if $p.allowrank}Allow Player to Rank{else}Disallow Rank{/if}"></td>
-			<td><input name="del[]" value="{$p.plrid}" type="checkbox" /></td>
+			<td><input name="del[]" value="{$p.plrid}" type="checkbox"></td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="6" class="no-data">
@@ -61,7 +61,7 @@ delete_message = "<#Are you sure you want to delete the selected players?#>\n<#D
 	</div>
 	<div class="ps-table-footer">
 		<div style="display: none" id="delete-warning" class="warning"><b><#Warning#>:</b> <#Deleting more than a few players at a time may take too long and timeout the request.#></div>
-		<input id="delete-btn" type="submit" value="<#Delete Selected#>" />
+		<input id="delete-btn" type="submit" value="<#Delete Selected#>">
 	</div>
 	</form>
 </div>

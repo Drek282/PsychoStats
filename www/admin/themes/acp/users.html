@@ -21,21 +21,21 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 	<div class="ps-table-header">
 		<div id="filter" class="filter">
 			<form action="{url _base='users_edit.php'}" method="get">
-				<input type="submit" value="<#New User#>" class="btn left" />
+				<input type="submit" value="<#New User#>" class="btn left">
 			</form>
 			<form action="{url}" method="get">
 				<#Search#>:
-				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field" />
+				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field">
 				<select name="c" class="field">
 					<option value="-1"{if $c == -1} selected=""{/if}><#Status#> (<#all#>)</option>
 					<option value="1" {if $c == 1} selected=""{/if}><#Confirmed#></option>
 					<option value="0" {if $c == 0} selected=""{/if}><#Not Confirmed#></option>
 				</select>
-				<input type="submit" 	value="<#Filter#>" class="btn" />
-				<input name="order" 	value="{$order}" type="hidden" />
-				<input name="sort" 	value="{$sort}" type="hidden" />
-				<input name="start" 	value="{$start}" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
+				<input type="submit" 	value="<#Filter#>" class="btn">
+				<input name="order" 	value="{$order}" type="hidden">
+				<input name="sort" 	value="{$sort}" type="hidden">
+				<input name="start" 	value="{$start}" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
 			</form>
 		</div>
 		{$pager}
@@ -48,7 +48,7 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 			<th><p><a href=""><span class="asc"><#Player#></span></a></p></th>
 			<th><p><a href=""><span class="asc"><#Access#></span></a></p></th>
 			<th><p><a href=""><span class="asc"><#Confirmed#></span></a></p></th>
-			<th><p><abbr title="<#Select All#>"><input id="select-all" type="checkbox" /></abbr></p></th>
+			<th><p><abbr title="<#Select All#>"><input id="select-all" type="checkbox"></abbr></p></th>
 		</tr>
 {foreach name="user" from=$users item='u'}
 		<tr{cycle values=", class='even'"} id="row-{$smarty.foreach.user.index}">
@@ -56,7 +56,7 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 			<td class="item">{if $u.plrid}<a href="{url _base='players_edit.php' _ref=1 id=$u.plrid}">{$u.name|escape}</a>{else}-{/if}</td>
 			<td>{user->acl_str acl=$u.accesslevel}</td>
 			<td><img src="{theme->url}/img/icons/{if $u.confirmed}tick{else}cross{/if}.png" alt="{if $u.confirmed}Confirmed{else}Not Confirmed{/if}"></td>
-			<td>{if $u.userid != $user.userid}<input name="sel[]" value="{$u.userid}" type="checkbox" />{else}-{/if}</td>
+			<td>{if $u.userid != $user.userid}<input name="sel[]" value="{$u.userid}" type="checkbox">{else}-{/if}</td>
 		</tr>
 {foreachelse}
 		<tr><td colspan="5" class="no-data">
@@ -68,8 +68,8 @@ delete_message = "<#Are you sure you want to delete the selected users?#>";
 	<div class="ps-table-footer">
 		<div style="display: none" id="delete-warning" class="warning"><b><#Warning#>:</b> <#Deleting more than a few players at a time may take too long and timeout the request.#></div>
 		<#With selected#>: 
-		<input id="confirm-btn" name="confirm" type="submit" value="<#Confirm#>" />
-		<input id="delete-btn" name="delete" type="submit" value="<#Delete#>" />
+		<input id="confirm-btn" name="confirm" type="submit" value="<#Confirm#>">
+		<input id="delete-btn" name="delete" type="submit" value="<#Delete#>">
 	</div>
 	</form>
 </div>

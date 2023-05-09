@@ -19,16 +19,16 @@
 	<div>
 		<label><#XML URL Location#>:</label>
 		<span><strong><a href="{$url|escape}">{$url|escape}</a></strong></span>
-		<input name="submit" value="1" type="hidden" />
-		<input name="url" value="{$url|escape}" type="hidden" />
+		<input name="submit" value="1" type="hidden">
+		<input name="url" value="{$url|escape}" type="hidden">
 	</div>
 	<div>&nbsp;</div>
 	<div><h2><#Please confirm theme installation!#></h2></div>
 	<div>
 		<#Are you sure you want to install this theme?#>
-		<input name="confirm" value="<#Yes#>" type="submit" class="btn" />
+		<input name="confirm" value="<#Yes#>" type="submit" class="btn">
 		/ 
-		<input name="cancel"  value="<#No#>" type="submit" class="btn" />
+		<input name="cancel"  value="<#No#>" type="submit" class="btn">
 		<p><strong><#Themes should only be installed from trusted sources!#></strong></p>
 	</div>
 {if $newtheme.theme_exists}
@@ -42,7 +42,7 @@
 {/if}
 	<div>&nbsp;</div>
 	<div class="theme-info">
-		{if $newtheme.image}<div class="image"><img src="{$newtheme.image|escape}" alt="No preview available" title="Preview of {$newtheme.name|escape}" /></div>{/if}
+		{if $newtheme.image}<div class="image"><img src="{$newtheme.image|escape}" alt="No preview available" title="Preview of {$newtheme.name|escape}"></div>{/if}
 		<div>
 			<label><#Short Name#>:</label>
 			<span>{$newtheme.name|escape} {if $newtheme.parent}<em>(<#parent#>: {$newtheme.parent|escape})</em>{/if}</span>
@@ -81,8 +81,8 @@
 	{else} {* Provide input to specify URL to get theme from *}
 	<div class="row">
 		<label><#XML URL Location#>:</label>
-		<input name="url" value="{$url|escape}" type="text" class="field" />
-		<input name="submit" value="<#Fetch#>" type="submit" class="btn" />
+		<input name="url" value="{$url|escape}" type="text" class="field">
+		<input name="submit" value="<#Fetch#>" type="submit" class="btn">
 	</div>
 {if $theme_dirs}
 	<div class="row-sep">
@@ -101,7 +101,7 @@
 			<option value="{$d.directory|escape}">{$d.title|escape} ({$d.directory|escape})</option>
 	{/foreach}
 		</select>
-		<input name="reinstall" value="<#Reinstall#>" type="submit" class="btn" />
+		<input name="reinstall" value="<#Reinstall#>" type="submit" class="btn">
 	</div>
 {/if}
 	{/if}

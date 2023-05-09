@@ -24,14 +24,14 @@ delete_message = "<#Are you sure you want to delete the user?#>";
 <div{if $errors.confirmed} class="err"{/if}>
 	<p class="err" id="err-confirmed">{$errors.confirmed|escape}</p>
 	<label><#Confirmed?#></label>
-	<label class="for" for="confirmed1"><input id="confirmed1" name="confirmed" value="1" {if  $form.confirmed}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="confirmed2"><input id="confirmed2" name="confirmed" value="0" {if !$form.confirmed}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="confirmed1"><input id="confirmed1" name="confirmed" value="1" {if  $form.confirmed}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="confirmed2"><input id="confirmed2" name="confirmed" value="0" {if !$form.confirmed}checked="" {/if}type="radio" class="radio"> No</label>
 </div>
 
 <div{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+	<input name="username" value="{$form.username|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.accesslevel} class="err"{/if}>
@@ -54,27 +54,27 @@ delete_message = "<#Are you sure you want to delete the user?#>";
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#New Password#>:</label>
-	<input name="password" type="password" class="field" autocomplete="off" />
+	<input name="password" type="password" class="field" autocomplete="off">
 </div>
 
 <div{if $errors.password2} class="err"{/if}>
 	<p class="err" id="err-password2">{$errors.password2|escape}</p>
 	<label><#Retype Password#>:</label>
-	<input name="password2" type="password" class="field" autocomplete="off" />
+	<input name="password2" type="password" class="field" autocomplete="off">
 </div>
 
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

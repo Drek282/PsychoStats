@@ -21,7 +21,7 @@
 <div{if $errors.overwrite} class="err"{/if}>
 	<p class="err" id="err-overwrite">{$errors.overwrite|escape}</p>
 	<label><#Overwrite?#>:</label>
-	<input name="overwrite" value="1" type="checkbox" {if $form.overwrite}checked="checked"{/if} />
+	<input name="overwrite" value="1" type="checkbox" {if $form.overwrite}checked="checked"{/if}>
 	<small><#If checked: Imported maps will overwrite duplicate maps in the database.#></small>
 </div>
 
@@ -37,12 +37,12 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

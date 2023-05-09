@@ -31,19 +31,19 @@
 <div{if $errors.uniqueid} class="err"{/if}>
 	<p class="err">{$errors.uniqueid|escape}</p>
 	<label><#Unique ID#>:</label>
-	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
+	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.name} class="err"{/if}>
 	<p class="err">{$errors.name|escape}</p>
 	<label><#Real Name#>:</label>
-	<input name="name" value="{$form.name|escape}" type="text" class="field" />
+	<input name="name" value="{$form.name|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.team} class="err"{/if}>
 	<p class="err">{$errors.team|escape}</p>
 	<label><#Team#>:</label>
-	<input name="class" value="{$form.team|escape}" type="text" class="field" />
+	<input name="class" value="{$form.team|escape}" type="text" class="field">
 	<p class="small">
 		What team this role is used on. If a role is used on multiple teams leave this blank.
 	</p>
@@ -52,15 +52,15 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

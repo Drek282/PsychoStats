@@ -16,19 +16,19 @@
 	<div class="ps-table-header">
 		<div id="filter" class="filter">
 			<form action="{url _base='overlays_edit.php'}" method="post">
-				<input type="submit" value="<#New Overlay#>" class="btn left" />
+				<input type="submit" value="<#New Overlay#>" class="btn left">
 			</form>
 			<form action="{url _base='overlays_import.php'}" method="post">
-				<input type="submit" value="<#Import XML#>" class="btn left" />
+				<input type="submit" value="<#Import XML#>" class="btn left">
 			</form>
 			<form action="{url}" method="get">
-				<input name="filter" 	value="{$filter|escape}" type="text" size="20" class="field" />
-				<input 			value="<#Filter#>" type="submit" class="btn" />
-				<input name="export" 	value="<#Export XML#>" type="submit" class="btn" />
-				<input name="order" 	value="{$order}" type="hidden" />
-				<input name="sort" 	value="{$sort}"  type="hidden" />
-				<input name="start" 	value="{$start}" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
+				<input name="filter" 	value="{$filter|escape}" type="text" size="20" class="field">
+				<input 			value="<#Filter#>" type="submit" class="btn">
+				<input name="export" 	value="<#Export XML#>" type="submit" class="btn">
+				<input name="order" 	value="{$order}" type="hidden">
+				<input name="sort" 	value="{$sort}"  type="hidden">
+				<input name="start" 	value="{$start}" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
 			</form>
 		</div>
 		{$pager}

@@ -31,19 +31,19 @@
 <div{if $errors.uniqueid} class="err"{/if}>
 	<p class="err">{$errors.uniqueid|escape}</p>
 	<label><#Unique ID#>:</label>
-	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
+	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.name} class="err"{/if}>
 	<p class="err">{$errors.name|escape}</p>
 	<label><#Real Name#>:</label>
-	<input name="name" value="{$form.name|escape}" type="text" class="field" />
+	<input name="name" value="{$form.name|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.class} class="err"{/if}>
 	<p class="err">{$errors.class|escape}</p>
 	<label><#Weapon Class#>:</label>
-	<input name="class" value="{$form.class|escape}" type="text" class="field" />
+	<input name="class" value="{$form.class|escape}" type="text" class="field">
 	<p class="small">
 		Weapon classification, ie: Pistols, Rifles, Sniper, Automatic, ... Classifications allows for some
 		player awards to be created
@@ -53,7 +53,7 @@
 <div{if $errors.skillweight} class="err"{/if}>
 	<p class="err">{$errors.skillweight|escape}</p>
 	<label><#Skill Weight#>:</label>
-	<input name="skillweight" value="{$form.skillweight|escape}" type="text" class="field" />
+	<input name="skillweight" value="{$form.skillweight|escape}" type="text" class="field">
 	<p class="small">
 		Skill weight is a multiplier that is applied to the killer and victim skill values when the weapon is used.
 		0.00 or 1.00 means no modification. Any value above 1.00 will increase the skill gained (or lost) from using
@@ -65,15 +65,15 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>
