@@ -151,10 +151,12 @@ function varinput_build_select($opts) {
 	$l = array();
 	foreach ($ary as $item) {
 //		list($label, $val) = explode(':', $item);
-		list($val, $label) = explode(':', $item);
-		$val = trim($val);
-		$label = trim($label);
-		if ($label == '') {
+		if (str_contains($item, ':')) {
+			list($val, $label) = explode(':', $item);
+			$val = trim($val);
+			$label = trim($label);
+		} else {
+			$val = $item;
 			$label = $val;
 		}
 		$l[$val] = $cms->trans($label);
