@@ -33,6 +33,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Broken stats reset when no dynamic tables have been generated.
 * [Updated] Maxmind.sql - 02 May 2023
 * [Fixed] Broken variable assignment in Admin CP.
+* [Fixed] HTML errors/warnings.
 
 
 Version 3.2.7b (06/03/2021)
