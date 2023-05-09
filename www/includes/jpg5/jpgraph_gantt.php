@@ -465,7 +465,7 @@ class GanttGraph extends Graph {
 	    // Setup caption
 	    $a->caption->Set($data[$i][$csimpos-1]);
 
-	    // Check if this activity should have a CSIM target ?
+	    // Check if this activity should have a CSIM targetï¿½?
 	    if( !empty($data[$i][$csimpos]) ) {
 		$a->SetCSIMTarget($data[$i][$csimpos]);
 		$a->SetCSIMAlt($data[$i][$csimpos+1]);
@@ -3306,7 +3306,7 @@ class GanttBar extends GanttPlotObject {
 		    $tmp = $this->title->csimalt[$i];
 		    $this->csimarea .= " title=\"$tmp\"  alt=\"$tmp\" ";
 		}
-		$this->csimarea .= " />\n";
+		$this->csimarea .= ">\n";
 	    }
 	}
 
@@ -3343,7 +3343,7 @@ class GanttBar extends GanttPlotObject {
 		$tmp = $this->csimalt;
 		$this->csimarea .= " title=\"$tmp\"  alt=\"$tmp\" ";
 	    }
-	    $this->csimarea .= " />\n";
+	    $this->csimarea .= ">\n";
 	}
 
 	// Draw progress bar inside activity bar
@@ -3470,7 +3470,7 @@ class MileStone extends GanttPlotObject {
 		    $tmp = $this->title->csimalt[$i];
 		    $this->csimarea .= " title=\"$tmp\" alt=\"$tmp\" ";
 		}
-		$this->csimarea .= " />\n";
+		$this->csimarea .= ">\n";
 	    }
 	}
 

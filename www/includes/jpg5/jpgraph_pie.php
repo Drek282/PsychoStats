@@ -169,7 +169,7 @@ class PiePlot {
 		$tmp=sprintf($this->csimalts[$i],$this->data[$i]);
 		$this->csimareas .= " title=\"$tmp\"";
 	    }
-	    $this->csimareas .= " alt=\"$tmp\" />\n";
+	    $this->csimareas .= " alt=\"$tmp\">\n";
 	}
     }
 
@@ -1054,7 +1054,7 @@ class PiePlotC extends PiePlot {
 		$tmp=sprintf($this->csimalts[$i],$this->data[$i]);
 		$this->csimareas .= " title=\"$tmp\"";
 	    }
-	    $this->csimareas .= " alt=\"$tmp\" />\n";
+	    $this->csimareas .= " alt=\"$tmp\">\n";
 	}
     }
 
@@ -1110,7 +1110,7 @@ class PiePlotC extends PiePlot {
 	    $tmp = $this->middlecsimalt;
 	    $this->csimareas .= " title=\"$tmp\"";
 	}
-	$this->csimareas .= " alt=\"$tmp\" />\n";
+	$this->csimareas .= " alt=\"$tmp\">\n";
     }
 
     function StrokeLabel($label,$img,$xc,$yc,$a,$r) {

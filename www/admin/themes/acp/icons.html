@@ -20,12 +20,12 @@
 <form action="{url}" method="post" enctype="multipart/form-data">
 	<h4><#Upload New Icon#></h4>
 	<p>
-		<input name="upload" type="submit" value="<#Upload from file#>" class="up-btn" />
-		<input name="file" type="file" size="40" />
+		<input name="upload" type="submit" value="<#Upload from file#>" class="up-btn">
+		<input name="file" type="file" size="40">
 	</p>
 	<p>
-		<input name="upload" type="submit" value="<#Upload from URL#>" class="up-btn" />
-		<input name="url" type="text" size="40" value="{$form.url|escape:'spaces_url'}" />
+		<input name="upload" type="submit" value="<#Upload from URL#>" class="up-btn">
+		<input name="url" type="text" size="40" value="{$form.url|escape:'spaces_url'}">
 	</p>
 </form>
 </div>
@@ -41,7 +41,7 @@
 		Click an icon to delete it. 
 		Highlighted icons <img class='readonly' src='{theme->url}/img/icons/cross.png' alt="Read-Only"> are read-only and can not be deleted due to file permissions.
 
-		<br/><b><label><input id="confirm" type="checkbox" value="1" checked="checked" /> <#Confirm deletion?#></label></b>
+		<br/><b><label><input id="confirm" type="checkbox" value="1" checked="checked"> <#Confirm deletion?#></label></b>
 	</p>
 {foreach from=$icons item=i}{strip}
 	<span>

@@ -128,7 +128,7 @@ class PiePlot3D extends PiePlot {
 	    $alt="alt=\"$tmp\" title=\"$tmp\"";
 	}
 	if( !empty($this->csimtargets[$i]) )
-	    $this->csimareas .= "<area shape=\"poly\" coords=\"$coords\" href=\"".$this->csimtargets[$i]."\" $alt />\n";
+	    $this->csimareas .= "<area shape=\"poly\" coords=\"$coords\" href=\"".$this->csimtargets[$i]."\" $alt>\n";
     }
 
     function SetLabels($aLabels,$aLblPosAdj="auto") {

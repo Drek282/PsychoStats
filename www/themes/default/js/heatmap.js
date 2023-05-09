@@ -63,7 +63,7 @@ function init_heatmap(imgs, overlay) {
 	if (overlay) {
 		var ovr = new Image();
 		ovr.onload = function(){
-			var img = $("<img class='overlay' src='" + this.src + "' />");
+			var img = $("<img class='overlay' src='" + this.src + "'>");
 //			img.css('display', 'none');		// don't do this, or IE6 doesn't resize the image properly
 			$('div.heatmap').append(img);		// insert into DOM, so the w/h will be valid
 			img.attr('_width', img.width());	// keep track of the original dims
@@ -93,7 +93,7 @@ function heatmap_loaded() {
 	// once all images are preloaded add them to the DOM in proper order
 	if (loaded_heatmaps >= pending_heatmaps) {
 		for (var i=heatmaps.length-1; i >= 0; i--) {
-			var img = $("<img class='heat' src='" + heatmaps[i].src + "' />");
+			var img = $("<img class='heat' src='" + heatmaps[i].src + "'>");
 			img.css('display', 'none');
 			$('div.heatmap').prepend(img);
 			img.width(heatmap_overlay.width()).height(heatmap_overlay.height());

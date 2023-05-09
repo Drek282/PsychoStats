@@ -1379,7 +1379,7 @@ class Graph {
 		// to be converted to real arguments.
 		$tmp = str_replace('?','%3f',$baseimg);
 		$htmlwrap = $this->GetHTMLImageMap($aCSIMName)."\n".
-		    '<img src="'.CSIMCACHE_HTTP_DIR.$tmp.'" ismap="ismap" usemap="#'.$aCSIMName.'" border="'.$aBorder.'" width="'.$this->img->width.'" height="'.$this->img->height."\" alt=\"\" />\n";
+		    '<img src="'.CSIMCACHE_HTTP_DIR.$tmp.'" ismap="ismap" usemap="#'.$aCSIMName.'" border="'.$aBorder.'" width="'.$this->img->width.'" height="'.$this->img->height."\" alt=\"\">\n";
 
 		if($fh =  @fopen($basecsim,'w') ) {
 		    fwrite($fh,$htmlwrap);
@@ -1395,7 +1395,7 @@ class Graph {
 		    JpGraphError::RaiseL(25030);//('Missing script name in call to StrokeCSIM(). You must specify the name of the actual image script as the first parameter to StrokeCSIM().');
 		}
 		echo $this->GetHTMLImageMap($aCSIMName);
-		echo "<img src=\"".$aScriptName.'?'.$urlarg."\" ismap=\"ismap\" usemap=\"#".$aCSIMName.'" border="'.$aBorder.'" width="'.$this->img->width.'" height="'.$this->img->height."\" alt=\"\" />\n";
+		echo "<img src=\"".$aScriptName.'?'.$urlarg."\" ismap=\"ismap\" usemap=\"#".$aCSIMName.'" border="'.$aBorder.'" width="'.$this->img->width.'" height="'.$this->img->height."\" alt=\"\">\n";
 	    }
 	}
 	else {
@@ -3229,7 +3229,7 @@ class Text {
 	// Create CSIM targets
 	$coords = $bbox[0].','.$bbox[1].','.$bbox[2].','.$bbox[3].','.$bbox[4].','.$bbox[5].','.$bbox[6].','.$bbox[7];
 	$this->iCSIMarea = "<area shape=\"poly\" coords=\"$coords\" href=\"".htmlentities($this->iCSIMtarget)."\"";
-	$this->iCSIMarea .= " alt=\"".$this->iCSIMalt."\" title=\"".$this->iCSIMalt."\" />\n";
+	$this->iCSIMarea .= " alt=\"".$this->iCSIMalt."\" title=\"".$this->iCSIMalt."\">\n";
 
 	$aImg->PopColor($this->color);	
 
@@ -7789,7 +7789,7 @@ class Legend {
 			$tmp=sprintf($p[5],$p[0]);
 			$this->csimareas .= " title=\"$tmp\"";
 		    }
-		    $this->csimareas .= " alt=\"\" />\n";
+		    $this->csimareas .= " alt=\"\">\n";
 		}
 	    }
 	    if( $i >= $this->layout_n ) {

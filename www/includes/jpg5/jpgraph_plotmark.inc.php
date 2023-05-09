@@ -139,7 +139,7 @@ class PlotMark {
 		$tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
 		$this->csimareas .= " title=\"$tmp\"";
 	    }
-	    $this->csimareas .= " alt=\"$tmp\" />\n";
+	    $this->csimareas .= " alt=\"$tmp\">\n";
 	}
     }
     
@@ -152,7 +152,7 @@ class PlotMark {
 		$tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
 		$this->csimareas .= " title=\"$tmp\"";
 	    }
-            $this->csimareas .= " alt=\"$tmp\" />\n";        
+            $this->csimareas .= " alt=\"$tmp\">\n";        
         }
     }
     	
@@ -296,7 +296,7 @@ class PlotMark {
 		    $tmp=sprintf($this->csimalt,$this->yvalue,$this->xvalue);
 		    $this->csimareas .= " title=\"$tmp\"";
 		}
-		$this->csimareas .= " alt=\"$tmp\" />\n";
+		$this->csimareas .= " alt=\"$tmp\">\n";
 	    }
 	    
 	    // Stroke title

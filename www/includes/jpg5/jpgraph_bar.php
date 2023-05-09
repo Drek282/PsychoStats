@@ -520,7 +520,7 @@ class BarPlot extends Plot {
 		    $sval=sprintf($this->csimalts[$i],$this->coords[0][$i]);
 		    $this->csimareas .= " title=\"$sval\" ";
 		}
-		$this->csimareas .= " alt=\"$sval\" />\n";
+		$this->csimareas .= " alt=\"$sval\">\n";
 	    }
 	}
 	return true;
@@ -879,7 +879,7 @@ class AccBarPlot extends BarPlot {
 			    $sval=sprintf($this->plots[$j]->csimalts[$i],$this->plots[$j]->coords[0][$i]);
 			    $this->csimareas .= " title=\"$sval\" ";
 			}
-			$this->csimareas .= " alt=\"$sval\" />\n";				
+			$this->csimareas .= " alt=\"$sval\">\n";				
 		    }
 		}
 

@@ -145,7 +145,7 @@ class StockPlot extends Plot {
 		    $sval=$this->csimalts[$i];
 		    $this->csimareas .= " title=\"$sval\" ";
 		}
-		$this->csimareas.= " alt=\"$sval\" />\n";
+		$this->csimareas.= " alt=\"$sval\">\n";
 	    }
 	}			
 	return true;
