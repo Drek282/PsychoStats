@@ -72,9 +72,9 @@ $(function(){ldelim}
 	<div id="psycholive-games">
 {foreach from=$games item='g'}
 		<div id='psycholive-game-{$g.game_id}' class='psycholive-game-row{if $game == $g.game_id} highlight{/if}'>
-			<a href="{url _base='map.php' id=$g.map}"><img class="map" src="{if $g.map_url}{$g.map_url}{else}{mapimg map=$g.map gametype=$g.gametype modtype=$g.modtype noimg='' urlonly=1}{/if}" alt="" title="<#click to view map stats#>: {$g.map|escape}" /></a>
+			<a href="{url _base='map.php' id=$g.map}"><img class="map" src="{if $g.map_url}{$g.map_url}{else}{mapimg map=$g.map gametype=$g.gametype modtype=$g.modtype noimg='' urlonly=1}{/if}" alt="" title="<#click to view map stats#>: {$g.map|escape}"></a>
 			<a class="click" href="{url game=$g.game_id}">
-			<input class="game" value="{$g.game_id}" type="hidden" />
+			<input class="game" value="{$g.game_id}" type="hidden">
 			<span class='name'>{$g.server_name}</span>
 			<span class='gametype'>{$g.gametype}::{$g.modtype} - {$g.map|escape}</span>
 			<span class='date'>{$g.start_time|date:'D, M j Y @ H:i:s'}</span>

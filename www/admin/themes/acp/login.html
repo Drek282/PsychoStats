@@ -25,21 +25,21 @@
 <div{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+	<input name="username" value="{$form.username|escape}" type="text" class="field">
 </div>
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#Password#>:</label>
-	<input name="password" type="password" class="field" />
+	<input name="password" type="password" class="field">
 </div>
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input class="btn login" type="submit" value="<#Login#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input class="btn login" type="submit" value="<#Login#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>
