@@ -26,21 +26,21 @@
 <div{if $errors.type} class="err"{/if}>
 	<p class="err" id="err-type">{$errors.type|escape}</p>
 	<label><#Match Type#>:</label>
-	<label class="for" for="type1"><input id="type1" name="type" value="plain" {if $form.type == 'plain'}checked="" {/if}type="radio" class="radio" /> <#Plain#></label>
-	<label class="for" for="type2"><input id="type2" name="type" value="regex" {if $form.type == 'regex'}checked="" {/if}type="radio" class="radio" /> <#Regex#></label>
+	<label class="for" for="type1"><input id="type1" name="type" value="plain" {if $form.type == 'plain'}checked="" {/if}type="radio" class="radio"> <#Plain#></label>
+	<label class="for" for="type2"><input id="type2" name="type" value="regex" {if $form.type == 'regex'}checked="" {/if}type="radio" class="radio"> <#Regex#></label>
 </div>
 
 <div id="pos"{if $errors.pos} class="err"{/if}>
 	<p class="err" id="err-pos">{$errors.pos|escape}</p>
 	<label><#Tag Position#>:</label>
-	<label class="for" for="pos1"><input id="pos1" name="pos" value="left"  {if $form.pos == 'left'}checked=""  {/if}type="radio" class="radio" /> <#Left#></label>
-	<label class="for" for="pos2"><input id="pos2" name="pos" value="right" {if $form.pos == 'right'}checked="" {/if}type="radio" class="radio" /> <#Right#></label>
+	<label class="for" for="pos1"><input id="pos1" name="pos" value="left"  {if $form.pos == 'left'}checked=""  {/if}type="radio" class="radio"> <#Left#></label>
+	<label class="for" for="pos2"><input id="pos2" name="pos" value="right" {if $form.pos == 'right'}checked="" {/if}type="radio" class="radio"> <#Right#></label>
 </div>
 
 <div{if $errors.clantag} class="err"{/if}>
 	<p class="err" id="err-clantag">{$errors.clantag|escape}</p>
 	<label><#Pattern Match#>:</label>
-	<input name="clantag" value="{$form.clantag|escape}" type="text" class="field long" />
+	<input name="clantag" value="{$form.clantag|escape}" type="text" class="field long">
 	<p class="small">
 		The pattern match is either a regular expression (regex) or a plain string to match against names to detect
 		clantags. Regular expressions are very powerful but are slow. Plain string matches are very fast but are very
@@ -51,7 +51,7 @@
 <div{if $errors.overridetag} class="err"{/if}>
 	<p class="err" id="err-overridetag">{$errors.overridetag|escape}</p>
 	<label><#Override Tag#>:</label>
-	<input name="overridetag" value="{$form.overridetag|escape}" type="text" class="field" />
+	<input name="overridetag" value="{$form.overridetag|escape}" type="text" class="field">
 	<p class="small">
 		The override tag defines what string will be used as the actual clantag when a player matches the pattern 
 		instead of using the matched string. This allows you to define several clantags with different patterns and
@@ -62,7 +62,7 @@
 <div{if $errors.example} class="err"{/if}>
 	<p class="err" id="err-example">{$errors.example|escape}</p>
 	<label><#Example#>:</label>
-	<input name="example" value="{$form.example|escape}" type="text" class="field" />
+	<input name="example" value="{$form.example|escape}" type="text" class="field">
 	<p class="small">
 		The example field is optional and is only used as a reference for you so you know what the various patterns
 		will actually match. Since it's not always obvious by just looking at the regular expression.
@@ -72,13 +72,13 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

@@ -30,7 +30,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.eventname} class="err"{/if}>
 	<p class="err" id="err-eventname">{$errors.eventname|escape}</p>
 	<label><#Event Name#>:</label>
-	<input name="eventname" value="{$form.eventname|escape}" type="text" class="field" />
+	<input name="eventname" value="{$form.eventname|escape}" type="text" class="field">
 	<p class="small">
 		The event name is the unique name that is triggered in the game event code when the event fires while 
 		processing logs.
@@ -46,7 +46,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.enactor} class="err"{/if}>
 	<p class="err" id="err-enactor">{$errors.enactor|escape}</p>
 	<label><#Enactor#>:</label>
-	<input name="enactor" value="{$form.enactor|escape}" type="text" class="field short" />
+	<input name="enactor" value="{$form.enactor|escape}" type="text" class="field short">
 	<p class="small">
 		The original player who triggered the event.
 	</p>
@@ -55,7 +55,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.enactor_team} class="err"{/if}>
 	<p class="err" id="err-enactor_team">{$errors.enactor_team|escape}</p>
 	<label><#Enactor Team#>:</label>
-	<input name="enactor_team" value="{$form.enactor_team|escape}" type="text" class="field short" />
+	<input name="enactor_team" value="{$form.enactor_team|escape}" type="text" class="field short">
 	<p class="small">
 		All players on the team of the enactor who triggered the event.
 	</p>
@@ -64,7 +64,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.victim} class="err"{/if}>
 	<p class="err" id="err-victim">{$errors.victim|escape}</p>
 	<label><#Victim#>:</label>
-	<input name="victim" value="{$form.victim|escape}" type="text" class="field short" />
+	<input name="victim" value="{$form.victim|escape}" type="text" class="field short">
 	<p class="small">
 		The player that is on the receiving end of an event (like being shot or fragged)
 	</p>
@@ -73,7 +73,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.victim_team} class="err"{/if}>
 	<p class="err" id="err-victim_team">{$errors.victim_team|escape}</p>
 	<label><#Victim Team#>:</label>
-	<input name="victim_team" value="{$form.victim_team|escape}" type="text" class="field short" />
+	<input name="victim_team" value="{$form.victim_team|escape}" type="text" class="field short">
 	<p class="small">
 		All players on the team of the victim
 	</p>
@@ -82,7 +82,7 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.description} class="err"{/if}>
 	<p class="err" id="err-description">{$errors.description|escape}</p>
 	<label><#Description#>:</label>
-	<input name="description" value="{$form.description|escape}" type="text" class="field long" />
+	<input name="description" value="{$form.description|escape}" type="text" class="field long">
 </div>
 
 <div class="notes">
@@ -92,27 +92,27 @@ delete_message = "<#Are you sure you want to delete the bonus?#>";
 <div{if $errors.gametype} class="err"{/if}>
 	<p class="err" id="err-gametype">{$errors.gametype|escape}</p>
 	<label><#Game Type#>:</label>
-	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field" />
+	<input name="gametype" value="{$form.gametype|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.modtype} class="err"{/if}>
 	<p class="err" id="err-modtype">{$errors.modtype|escape}</p>
 	<label><#MOD Type#>:</label>
-	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field" />
+	<input name="modtype" value="{$form.modtype|escape}" type="text" class="field">
 </div>
 
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

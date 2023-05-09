@@ -32,7 +32,7 @@ delete_message = "<#Are you sure you want to delete all aliases for this unique 
 {if $id}
 	<span class="readonly">{$form.uniqueid|escape}</span> (<#Read Only#>)
 {else}
-	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
+	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field">
 {/if}
 	<p class="small">
 	</p>
@@ -55,15 +55,15 @@ delete_message = "<#Are you sure you want to delete all aliases for this unique 
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

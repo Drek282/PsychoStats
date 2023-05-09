@@ -239,7 +239,7 @@ function css_links($theme = null) {
 		if (substr($css['href'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
 			// their own <link> tag, regardless.
-			$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s' />\n", 
+			$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s'>\n", 
 				$css['media'] ? $css['media'] : 'screen,print', $css['href']
 			);
 		} elseif ($css['style']) {
@@ -251,7 +251,7 @@ function css_links($theme = null) {
 			if ($res and $res['resource_name']) {
 				//$files[] = $res['resource_name'];
 				$css['media'] = $css['media'] ?? null;
-				$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s' />\n", 
+				$out .= sprintf("<link rel='stylesheet' type='text/css' media='%s' href='%s'>\n", 
 					$css['media'] ? $css['media'] : 'screen,print',
 					$this->url($res['resource_theme']) . '/' . $css['href']
 				);

@@ -2205,7 +2205,7 @@ function weaponimg($w, $args = array()) {
 		if (!empty($args['class'])) $attrs .= " class='" . $args['class'] . "'";
 		if (!empty($args['id'])) $attrs .= " id='" . $args['id'] . "'";
 		if (!empty($args['extra'])) $attrs .= " " . $args['extra'];
-		$img = "<img src='$url' title='$label' alt='$alt'$attrs />";
+		$img = "<img src='$url' title='$label' alt='$alt'$attrs>";
 	}
 	return $img;
 }
@@ -2271,7 +2271,7 @@ function roleimg($w, $args = array()) {
 		if (!empty($args['class'])) $attrs .= " class='" . $args['class'] . "'";
 		if (!empty($args['id'])) $attrs .= " id='" . $args['id'] . "'";
 		if (!empty($args['extra'])) $attrs .= " " . $args['extra'];
-		$img = "<img src='$url' title='$label' alt='$alt'$attrs />";
+		$img = "<img src='$url' title='$label' alt='$alt'$attrs>";
 	}
 	return $img;
 }
@@ -2355,7 +2355,7 @@ function mapimg($m, $args = array()) {
 		if (!empty($args['class'])) $attrs .= " class='" . $args['class'] . "'";
 		if (!empty($args['id'])) $attrs .= " id='" . $args['id'] . "'";
 		if (!empty($args['extra'])) $attrs .= " " . $args['extra'];
-		$img = "<img src='$url' title='$label' alt='$alt'$attrs />";
+		$img = "<img src='$url' title='$label' alt='$alt'$attrs>";
 	}
 	return $img;
 }
@@ -2406,7 +2406,7 @@ function iconimg($icon, $args = array()) {
 	if (!empty($args['class'])) $attrs .= " class='" . $args['class'] . "'";
 	if (!empty($args['id'])) $attrs .= " id='" . $args['id'] . "'";
 	if (!empty($args['extra'])) $attrs .= " " . $args['extra'];
-	$img = "<img src='$url' title='$label' alt='$alt'$attrs />";
+	$img = "<img src='$url' title='$label' alt='$alt'$attrs>";
 
 	return $img;
 }
@@ -2461,7 +2461,7 @@ function flagimg($cc, $args = array()) {
 	if (!empty($args['class'])) $attrs .= " class='" . $args['class'] . "'";
 	if (!empty($args['id'])) $attrs .= " id='" . $args['id'] . "'";
 	if (!empty($args['extra'])) $attrs .= " " . $args['extra'];
-	$img = "<img src='$url' title='$label' alt='$alt'$attrs />";
+	$img = "<img src='$url' title='$label' alt='$alt'$attrs>";
 
 	return $img;
 }

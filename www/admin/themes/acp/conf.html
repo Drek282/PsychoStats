@@ -54,7 +54,7 @@
 
 <div id="conf-search">
 	<form action="{url}" method="get">
-		<#Search Config#>: <input name="q" value="{$q|escape}" type="text" class="field search" />
+		<#Search Config#>: <input name="q" value="{$q|escape}" type="text" class="field search">
 	</form>
 </div>
 
@@ -79,8 +79,8 @@
 {if ! $o.locked}
 		<div id="row-{$o.id}" {if $errors[$o.id]} class="err"{/if}>
 {if $advanced_config}
-			<a href="{url _base='var.php' id=$o.id del=1}" class="del"><img class="del"  src="{theme->url}/img/icons/delete.png" alt="<#Delete#>" /></a>
-			<a href="{url _base='var.php' id=$o.id}"><img class="edit" src="{theme->url}/img/icons/pencil.png" alt="<#Edit#>" /></a>
+			<a href="{url _base='var.php' id=$o.id del=1}" class="del"><img class="del"  src="{theme->url}/img/icons/delete.png" alt="<#Delete#>"></a>
+			<a href="{url _base='var.php' id=$o.id}"><img class="edit" src="{theme->url}/img/icons/pencil.png" alt="<#Edit#>"></a>
 {/if}
 			{if $errors[$o.id]}<p class="err" id="err-{$o.id}">{$errors[$o.id]|escape}</p>{/if}
 			{confvarlabel var=$o}
@@ -98,15 +98,15 @@
 	{* ----------------------------------------------- *}
 	<fieldset>
 		<div class="submit">
-			<input name="submit" value="1" type="hidden" />
-			<input name="key" value="{$form_key|escape}" type="hidden" />
-			<input name="ct" value="{$ct|escape}" type="hidden" />
-			<input name="s" value="{$s|escape}" type="hidden" />
-			<input name="q" value="{$q|escape}" type="hidden" />
-			<input class="btn save" type="submit" value="<#Save#>" />
-			<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+			<input name="submit" value="1" type="hidden">
+			<input name="key" value="{$form_key|escape}" type="hidden">
+			<input name="ct" value="{$ct|escape}" type="hidden">
+			<input name="s" value="{$s|escape}" type="hidden">
+			<input name="q" value="{$q|escape}" type="hidden">
+			<input class="btn save" type="submit" value="<#Save#>">
+			<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 {if $advanced_config}
-			<input name="new" class="btn new" type="submit" value="<#New Variable#>" />
+			<input name="new" class="btn new" type="submit" value="<#New Variable#>">
 {/if}
 
 		</div>

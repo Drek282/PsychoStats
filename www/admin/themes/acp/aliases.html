@@ -16,15 +16,15 @@
 	<div class="ps-table-header">
 		<div id="filter" class="filter">
 			<form action="{url _base='aliases_edit.php'}" method="post">
-				<input type="submit" value="<#New Alias#>" class="btn left" />
+				<input type="submit" value="<#New Alias#>" class="btn left">
 			</form>
 			<form action="{url}" method="get">
-				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field" />
-				<input type="submit" 	value="<#Filter#>" class="btn" />
-				<input name="order" 	value="{$order}" type="hidden" />
-				<input name="sort" 	value="{$sort}" type="hidden" />
-				<input name="start" 	value="0" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
+				<input name="filter" type="text" value="{$filter|escape}" size="20" class="field">
+				<input type="submit" 	value="<#Filter#>" class="btn">
+				<input name="order" 	value="{$order}" type="hidden">
+				<input name="sort" 	value="{$sort}" type="hidden">
+				<input name="start" 	value="0" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
 			</form>
 		</div>
 		{$pager}
@@ -35,7 +35,7 @@
 			<th><p><span class="asc"><#Unique ID#></span></p></th>
 			<th><p><span class="asc"><#Aliases#></span></p></th>
 {*
-			<th><p><abbr title="<#Select All#>"><input id="delete-all" type="checkbox" /></abbr></p></th>
+			<th><p><abbr title="<#Select All#>"><input id="delete-all" type="checkbox"></abbr></p></th>
 *}
 		</tr>
 {foreach name='alias' from=$aliases item='a'}
@@ -43,7 +43,7 @@
 			<td class="item">{if $last_uniqueid != $a.uniqueid}<a href="{url _base='aliases_edit.php' id=$a.uniqueid}">{$a.uniqueid|escape}</a>{else}&nbsp;{/if}</td>
 			<td>{$a.alias|escape}</td>
 {*
-			<td><input name="del[]" value="{$a.id}" type="checkbox" /></td>
+			<td><input name="del[]" value="{$a.id}" type="checkbox"></td>
 *}
 		</tr>
 {assign var='last_uniqueid' value=$a.uniqueid}
