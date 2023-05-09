@@ -23,22 +23,22 @@
 <div{if $errors.conftype} class="err"{/if}>
 	<p class="err" id="err-conftype">{$errors.conftype|escape}</p>
 	<label><#Config Type#>:</label>
-	<input name="conftype" value="{$form.conftype|escape}" type="text" class="field" />
+	<input name="conftype" value="{$form.conftype|escape}" type="text" class="field">
 </div>
 <div{if $errors.section} class="err"{/if}>
 	<p class="err" id="err-section">{$errors.section|escape}</p>
 	<label><#Section#>:</label>
-	<input name="section" value="{$form.section|escape}" type="text" class="field" />
+	<input name="section" value="{$form.section|escape}" type="text" class="field">
 </div>
 <div{if $errors.var} class="err"{/if}>
 	<p class="err" id="err-var">{$errors.var|escape}</p>
 	<label><#Variable#>:</label>
-	<input name="var" value="{$form.var|escape}" type="text" class="field" />
+	<input name="var" value="{$form.var|escape}" type="text" class="field">
 </div>
 <div{if $errors.value} class="err"{/if}>
 	<p class="err" id="err-value">{$errors.value|escape}</p>
 	<label><#Value#>:</label>
-	<input name="value" value="{$form.value|escape}" type="text" class="field" />
+	<input name="value" value="{$form.value|escape}" type="text" class="field">
 </div>
 <div class="inline-notes">
 	<h4><#Layout Settings#></h4>
@@ -47,7 +47,7 @@
 <div{if $errors.label} class="err"{/if}>
 	<p class="err" id="err-label">{$errors.label|escape}</p>
 	<label><#Variable Label#>:</label>
-	<input name="label" value="{$form.label|escape}" type="text" class="field" />
+	<input name="label" value="{$form.label|escape}" type="text" class="field">
 </div>
 <div{if $errors.type} class="err"{/if}>
 	<p class="err" id="err-type">{$errors.type|escape}</p>
@@ -61,7 +61,7 @@
 <div{if $errors.verifycodes} class="err"{/if}>
 	<p class="err" id="err-verifycodes">{$errors.verifycodes|escape}</p>
 	<label><#Verify Codes#>:</label>
-	<input name="verifycodes" value="{$form.verifycodes|escape}" size="6" type="text" class="field" />
+	<input name="verifycodes" value="{$form.verifycodes|escape}" size="6" type="text" class="field">
 </div>
 {*
 <div class="notes">
@@ -82,13 +82,13 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input name="ct" value="{$ct}" type="hidden" />
-	<input name="s" value="{$s}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input name="ct" value="{$ct}" type="hidden">
+	<input name="s" value="{$s}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

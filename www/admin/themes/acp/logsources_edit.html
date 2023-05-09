@@ -21,8 +21,8 @@
 <div{if $errors.enabled} class="err"{/if}>
 	<p class="err" id="err-enabled">{$errors.enabled|escape}</p>
 	<label><#Enabled?#></label>
-	<label class="for" for="enabled1"><input id="enabled1" name="enabled" value="1" {if  $form.enabled}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="enabled2"><input id="enabled2" name="enabled" value="0" {if !$form.enabled}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="enabled1"><input id="enabled1" name="enabled" value="1" {if  $form.enabled}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="enabled2"><input id="enabled2" name="enabled" value="0" {if !$form.enabled}checked="" {/if}type="radio" class="radio"> No</label>
 </div>
 
 <div id="ls-stream" class="inline-notes">
@@ -39,7 +39,7 @@
 <div id="ls-path"{if $errors.path} class="err"{/if}>
 	<p class="err" id="err-path">{$errors.path|escape}</p>
 	<label><#Log Path#>:</label>
-	<input name="path" value="{$form.path|escape}" type="text" class="field long" />
+	<input name="path" value="{$form.path|escape}" type="text" class="field long">
 	<p class="small">
 		If your logs are on this server then set the protocol to 'Local
 		Logs' and enter the path above. Also note: Local paths should
@@ -62,32 +62,32 @@
 <div id="ls-host"{if $errors.host} class="err"{/if}>
 	<p class="err" id="err-host">{$errors.host|escape}</p>
 	<label><#Host#>:</label>
-	<input name="host" value="{$form.host|escape}" type="text" class="field" />
+	<input name="host" value="{$form.host|escape}" type="text" class="field">
 </div>
 <div id="ls-port"{if $errors.port} class="err"{/if}>
 	<p class="err" id="err-port">{$errors.port|escape}</p>
 	<label><#Port#>:</label>
-	<input name="port" value="{$form.port|escape}" type="text" class="field short" />
+	<input name="port" value="{$form.port|escape}" type="text" class="field short">
 </div>
 
 <div id="ls-passive" {if $errors.passive} class="err"{/if}>
 	<p class="err" id="err-passive">{$errors.passive|escape}</p>
 	<label><#Passive Mode?#></label>
-	<label class="for" for="pasv1"><input id="pasv1" name="passive" value="1" {if  $form.passive}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="pasv2"><input id="pasv2" name="passive" value="0" {if !$form.passive}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="pasv1"><input id="pasv1" name="passive" value="1" {if  $form.passive}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="pasv2"><input id="pasv2" name="passive" value="0" {if !$form.passive}checked="" {/if}type="radio" class="radio"> No</label>
 </div>
 
 <div id="ls-username"{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+	<input name="username" value="{$form.username|escape}" type="text" class="field">
 </div>
 
 <div id="ls-blank" class="block">
 <div id="ls-blank2">
 	<p class="err" id="err-blank">{$errors.blank|escape}</p>
 	<label><#Use Blank Password#>:</label>
-	<input id="blank" name="blank" value="1" type="checkbox" class="checkbox"{if $form.blank} checked=""{/if} />
+	<input id="blank" name="blank" value="1" type="checkbox" class="checkbox"{if $form.blank} checked=""{/if}>
 </div>
 <div class="block" id="ls-password">
 {if $id and $log.password}
@@ -99,12 +99,12 @@
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#Password#>:</label>
-	<input name="password" type="password" class="field" autocomplete="off" />
+	<input name="password" type="password" class="field" autocomplete="off">
 </div>
 <div{if $errors.password2} class="err"{/if}>
 	<p class="err" id="err-password2">{$errors.password2|escape}</p>
 	<label><#Retype Password#>:</label>
-	<input name="password2" type="password" class="field" autocomplete="off" />
+	<input name="password2" type="password" class="field" autocomplete="off">
 </div>
 </div> {* --- pasword div --- *}
 </div> {* --- blank div --- *}
@@ -112,21 +112,21 @@
 <div{if $errors.defaultmap} class="err"{/if}>
 	<p class="err" id="err-defaultmap">{$errors.defaultmap|escape}</p>
 	<label><#Default Map#>:</label>
-	<input name="defaultmap" value="{$form.defaultmap|escape}" type="text" class="field" />
+	<input name="defaultmap" value="{$form.defaultmap|escape}" type="text" class="field">
 </div>
 
 <div id="ls-skiplast"{if $errors.skiplast} class="err"{/if}>
 	<p class="err" id="err-skiplast">{$errors.skiplast|escape}</p>
 	<label><#Skip Last Log?#></label>
-	<label class="for" for="skiplast1"><input id="skiplast1" name="skiplast" value="1" {if  $form.skiplast}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="skiplast2"><input id="skiplast2" name="skiplast" value="0" {if !$form.skiplast}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="skiplast1"><input id="skiplast1" name="skiplast" value="1" {if  $form.skiplast}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="skiplast2"><input id="skiplast2" name="skiplast" value="0" {if !$form.skiplast}checked="" {/if}type="radio" class="radio"> No</label>
 </div>
 
 <div id="ls-skiplastline"{if $errors.skiplastline} class="err"{/if}>
 	<p class="err" id="err-skiplastline">{$errors.skiplastline|escape}</p>
 	<label><#Skip Last Line?#></label>
-	<label class="for" for="skiplastline1"><input id="skiplastline1" name="skiplastline" value="1" {if  $form.skiplastline}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="skiplastline2"><input id="skiplastline2" name="skiplastline" value="0" {if !$form.skiplastline}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="skiplastline1"><input id="skiplastline1" name="skiplastline" value="1" {if  $form.skiplastline}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="skiplastline2"><input id="skiplastline2" name="skiplastline" value="0" {if !$form.skiplastline}checked="" {/if}type="radio" class="radio"> No</label>
 	<small>(<#only affects the last log in a directory#>)</small>
 </div>
 
@@ -134,14 +134,14 @@
 <div {if $errors.recursive} class="err"{/if}>
 	<p class="err" id="err-recursive">{$errors.recursive|escape}</p>
 	<label><#Recursively Find Logs?#></label>
-	<label class="for" for="recursive1"><input id="recursive1" name="recursive" value="1" {if  $form.recursive}checked="" {/if}type="radio" class="radio" /> Yes</label>
-	<label class="for" for="recursive2"><input id="recursive2" name="recursive" value="0" {if !$form.recursive}checked="" {/if}type="radio" class="radio" /> No</label>
+	<label class="for" for="recursive1"><input id="recursive1" name="recursive" value="1" {if  $form.recursive}checked="" {/if}type="radio" class="radio"> Yes</label>
+	<label class="for" for="recursive2"><input id="recursive2" name="recursive" value="0" {if !$form.recursive}checked="" {/if}type="radio" class="radio"> No</label>
 	<p class="small">If enabled, sub-dirs in the log path will be processed up to $depth levels deep (See below).</p>
 </div>
 <div{if $errors.depth} class="err"{/if}>
 	<p class="err" id="err-depth">{$errors.depth|escape}</p>
 	<label><#Recursive Depth#>:</label>
-	<input name="depth" value="{$form.depth|escape}" type="text" class="field short" />
+	<input name="depth" value="{$form.depth|escape}" type="text" class="field short">
 </div>
 </div> {* recursive div *}
 
@@ -173,16 +173,16 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="test" class="btn test" type="submit" value="<#Test#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="test" class="btn test" type="submit" value="<#Test#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>
