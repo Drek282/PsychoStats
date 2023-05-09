@@ -58,7 +58,7 @@ function img_footer() {}
 function img_data($data, $fields, $idstr = 'id') {
 	$id = 0;
 	foreach ($data as $file) {
-		printf("<img id='%s%d' src='%s' alt='%s' title='%s' %s />\n", 
+		printf("<img id='%s%d' src='%s' alt='%s' title='%s' %s>\n", 
 			$idstr, ++$id, $file['url'], $file['filename'], $file['desc'], $file['attr']
 		);
 	}
