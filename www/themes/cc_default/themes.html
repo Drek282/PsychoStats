@@ -27,7 +27,7 @@
 	<a href="{$t.name|escape}"></a>
 	<div class="theme">
 		<h3><a href="{url t=$t.name}">{$t.title|escape}</a></h3>
-		{if $t.image}<div class="preview"><a href="{url t=$t.name}"><img src="{$t.image|escape}" alt="Preview" title="<#Click to select theme#>" /></a></div>{/if}
+		{if $t.image}<div class="preview"><a href="{url t=$t.name}"><img src="{$t.image|escape}" alt="Preview" title="<#Click to select theme#>"></a></div>{/if}
 		{if $t.name == $theme}<p class="inuse"><span class="inuse"><#You are using this theme#></span></p>{/if}
 		<p><label>Version:</label> <span class="version">{$t.version|escape}</span></p>
 		<p><label>Author:</label> <span class="author">{$t.author|escape}</span></p>

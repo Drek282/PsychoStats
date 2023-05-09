@@ -3,9 +3,9 @@
 <head>
 	<title>{$title|default:"PsychoStats"|escape}</title>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Stormtrooper" />
-	<meta name="keywords" content="{$conf.main.meta_keywords|escape}" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="Stormtrooper">
+	<meta name="keywords" content="{$conf.main.meta_keywords|escape}">
 {theme->css_links}
 {theme->js_sources}
 </head>
@@ -17,7 +17,7 @@
 <div id="ps-overall-menu">
 <div id="ps-menu-right">
 {if $show_login}
-<a id="ps-login-link" href="{url _base='login.php' _ref=1}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.png" alt="<#Login#>" /></a>
+<a id="ps-login-link" href="{url _base='login.php' _ref=1}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.png" alt="<#Login#>"></a>
 {/if}
 </div>
 <ul>
@@ -53,16 +53,16 @@
 	{if $show_register}<div id="ps-login-reg"><#Newbie?#> -- <a href="register.php"><#Register!#></a></div>{/if}
 	<p>
 	<label><#Username#></label>
-	<input id="username" name="username" type="text" class="field" value="" />
-	<input name="submit" value="1" type="hidden" />
+	<input id="username" name="username" type="text" class="field" value="">
+	<input name="submit" value="1" type="hidden">
 	</p>
 	<p>
 	<label><#Password#></label>
-	<input id="password" name="password" type="password" class="field" value="" />
-	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go" /></button>
+	<input id="password" name="password" type="password" class="field" value="">
+	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go"></button>
 	</p>
 	<div id="ps-login-options">
-		<input id="ps-remember-login" name="autologin" type="checkbox" value="1" />
+		<input id="ps-remember-login" name="autologin" type="checkbox" value="1">
 		<label for="ps-remember-login"><#Remember me!#></label>
 {*
 		<a href="forgotpw.php"><#Forgot password?#></a>

@@ -90,14 +90,14 @@ deconcept.SWFObject.prototype = {
 				this.setAttribute('swf', this.xiSWFPath);
 			}
 			swfNode = '<object id="'+ this.getAttribute('id') +'" type="application/x-shockwave-flash" width="'+ this.getAttribute('width') +'" height="'+ this.getAttribute('height') +'" style="'+ this.getAttribute('style') +'">';
-			swfNode += '<param name="classid" value="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" />';
-			swfNode += '<param name="movie" value="'+ this.getAttribute('swf') +'" />';
+			swfNode += '<param name="classid" value="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">';
+			swfNode += '<param name="movie" value="'+ this.getAttribute('swf') +'">';
 			var params = this.getParams();
 			for(var key in params) {
-			 swfNode += '<param name="'+ key +'" value="'+ params[key] +'" />';
+			 swfNode += '<param name="'+ key +'" value="'+ params[key] +'">';
 			}
 			var pairs = this.getVariablePairs().join("&");
-			if(pairs.length > 0) {swfNode += '<param name="flashvars" value="'+ pairs +'" />';}
+			if(pairs.length > 0) {swfNode += '<param name="flashvars" value="'+ pairs +'">';}
 			swfNode += "</object>";
 		}
 		return swfNode;

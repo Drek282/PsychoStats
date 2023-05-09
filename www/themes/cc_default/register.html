@@ -42,7 +42,7 @@
 <div{if $errors.uniqueid} class="err"{/if}>
 	<p class="err" id="err-uniqueid">{$errors.uniqueid|escape}</p>
 	<label>{$uniqueid_label}:</label>
-	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field" />
+	<input name="uniqueid" value="{$form.uniqueid|escape}" type="text" class="field">
 	<p class="small">
 		<#The unique ID entered above should match the player you play as.#>
 	</p>
@@ -51,19 +51,19 @@
 <div{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+	<input name="username" value="{$form.username|escape}" type="text" class="field">
 </div>
 
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#Password#>:</label>
-	<input name="password" type="password" class="field" autocomplete="off" />
+	<input name="password" type="password" class="field" autocomplete="off">
 </div>
 
 <div{if $errors.password2} class="err"{/if}>
 	<p class="err" id="err-password2">{$errors.password2|escape}</p>
 	<label><#Retype Password#>:</label>
-	<input name="password2" type="password" class="field" autocomplete="off" />
+	<input name="password2" type="password" class="field" autocomplete="off">
 </div>
 
 <div class="spacer"></div>
@@ -71,7 +71,7 @@
 <div{if $errors.email} class="err"{/if}>
 	<p class="err" id="err-email">{$errors.email|escape}</p>
 	<label><#Email#>:</label>
-	<input name="email" value="{$form.email|escape}" type="text" class="field" />
+	<input name="email" value="{$form.email|escape}" type="text" class="field">
 	<small><#Required#></small>
 </div>
 
@@ -79,10 +79,10 @@
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input class="btn register" type="submit" value="<#Register#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input class="btn register" type="submit" value="<#Register#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

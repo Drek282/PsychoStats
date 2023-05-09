@@ -40,7 +40,7 @@
 
 <div class="ps-column-frame">
 {*
-	<img id='plrskill' src="{url _base='imgquick.php' id=$plr.plrid}" alt="[img]" />
+	<img id='plrskill' src="{url _base='imgquick.php' id=$plr.plrid}" alt="[img]">
 *}
 	{ofc data="skill&id=`$id`" width=287 height=180}
 </div>
@@ -233,11 +233,11 @@
             {/literal}
         </script>
     <object type="application/x-shockwave-flash" width="277" height="330">
-    <param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />
-    <param name="allowScriptAccess" value="sameDomain" />
-    <param name="movie" value="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" />
-    <param name="quality" value="high" />
-    <param name="bgcolor" value="{$hitbox_bgcolor|default:'#C4C4C4'}" />
+    <param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+    <param name="allowScriptAccess" value="sameDomain">
+    <param name="movie" value="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}">
+    <param name="quality" value="high">
+    <param name="bgcolor" value="{$hitbox_bgcolor|default:'#C4C4C4'}">
     <embed src="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" 
         quality="high" 
         bgcolor="{$hitbox_bgcolor|default:'#C4C4C4'}" 
@@ -246,7 +246,7 @@
         id="hitbox" 
         allowScriptAccess="sameDomain" 
         type="application/x-shockwave-flash" 
-        />
+       >
     </object>
 </div>
 </div>
@@ -255,7 +255,7 @@
 <div id="ps-id-plrsess" class="ps-column-frame{if $shades.s_plrsess} s-closed{/if}">
 <div class="ps-column-header"><a href="" onclick="return false"><span><#Player Session Chart#></span></a></div>
 <div class="ps-column-content" style="text-align: center">
-	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]" />
+	<img src="{url _base='imgsess.php' id=$plr.plrid}" alt="[img]">
 </div>
 </div>
 

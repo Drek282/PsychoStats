@@ -102,11 +102,11 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 	
     $out[] = '<object type="application/x-shockwave-flash" ';
     $out[] = 'width="' . $width . '" height="' . $height . '">';
-    $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" />';
-    $out[] = '<param name="allowScriptAccess" value="sameDomain" />';
-    $out[] = '<param name="movie" value="'. $base .'open-flash-chart.swf?width='. $width .'&height='. $height . '&data='. $url .'" />';
-    $out[] = '<param name="quality" value="high" />';
-    $out[] = '<param name="bgcolor" value="#FFFFFF" />';
+    $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
+    $out[] = '<param name="allowScriptAccess" value="sameDomain">';
+    $out[] = '<param name="movie" value="'. $base .'open-flash-chart.swf?width='. $width .'&height='. $height . '&data='. $url .'">';
+    $out[] = '<param name="quality" value="high">';
+    $out[] = '<param name="bgcolor" value="#FFFFFF">';
     $out[] = '<embed src="'. $base .'open-flash-chart.swf?data=' . $url .'" quality="high" bgcolor="#FFFFFF" width="'. $width .'" height="'. $height .'" allowScriptAccess="sameDomain" ';
     $out[] = 'type="application/x-shockwave-flash" id="'. $obj_id .'"/>';
     $out[] = '</object>';
