@@ -16,17 +16,17 @@
 	<div class="ps-table-header">
 		<div id="filter" class="filter">
 			<form action="{url}" method="get">
-				<input type="submit" 	value="<#Download as Text#>" class="btn left" />
-				<input name="start" 	value="{$start}" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
-				<input name="filter" 	value="{$filter|escape}" type="hidden" />
-				<input name="view" 	value="text" type="hidden" />
+				<input type="submit" 	value="<#Download as Text#>" class="btn left">
+				<input name="start" 	value="{$start}" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
+				<input name="filter" 	value="{$filter|escape}" type="hidden">
+				<input name="view" 	value="text" type="hidden">
 			</form>
 			<form action="{url}" method="get">
-				<input name="filter" 	value="{$filter|escape}" type="text" size="20" class="field" />
-				<input type="submit" 	value="<#Filter#>" class="btn" />
-				<input name="start" 	value="{$start}" type="hidden" />
-				<input name="limit" 	value="{$limit}" type="hidden" />
+				<input name="filter" 	value="{$filter|escape}" type="text" size="20" class="field">
+				<input type="submit" 	value="<#Filter#>" class="btn">
+				<input name="start" 	value="{$start}" type="hidden">
+				<input name="limit" 	value="{$limit}" type="hidden">
 			</form>
 		</div>
 		{$pager}

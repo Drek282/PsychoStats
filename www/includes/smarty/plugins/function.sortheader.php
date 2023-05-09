@@ -52,7 +52,7 @@ function smarty_function_sortheader($args, &$smarty) {
 	// mark this header as active if specified or if the order has changed
 	if (($args['active'] or $neworder == $altorder) and $orig['sort']) {
 		$args['th_class'] = trim($args['th_class'] . " " . $active_class);
-//		$image = sprintf(" <img src='%s' />", catfile($cms->theme->url(), sprintf("img/sort_arrow_%s.gif", $args['order'])));
+//		$image = sprintf(" <img src='%s'>", catfile($cms->theme->url(), sprintf("img/sort_arrow_%s.gif", $args['order'])));
 	}
 
 	$url = array();

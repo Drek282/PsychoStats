@@ -49,7 +49,7 @@ if ($cms->user->logged_in() and $memberlist) {
 	$xml = '<?xml version="1.0"?><ajaxresponse>';
 	foreach ($list as $p) {
 		$xml .= sprintf("<item><text><![CDATA[%s]]></text><value><![CDATA[%s]]></value><plrid>%d</plrid></item>\n", 
-			"<b>" . $p['name'] . "</b><br/><small>" . $p['uniqueid'] . "</small>",
+			"<b>" . $p['name'] . "</b><br><small>" . $p['uniqueid'] . "</small>",
 			$p['name'],
 			$p['plrid']
 		);
@@ -129,7 +129,7 @@ if ($add) {
 			"<td class='item'><a href='" . ps_url_wrapper(array('_base' => 'editplr.php', 'id' => $plr['plrid'])) . "'>{$plr['name']}</a></td>" .
 			"<td>{$plr['uniqueid']}</td>" .
 			"<td>{$plr['skill']}</td>" .
-			"<td><a id='mem-" . $plr['plrid'] . "' href='" . ps_url_wrapper(array('id' => $id, 'del' => $plr['plrid'])) . "'><img class='img-delete' src='" . $cms->theme->parent_url() . "/img/spacer.gif' height='16' width='16'/></a></td>" . 
+			"<td><a id='mem-" . $plr['plrid'] . "' href='" . ps_url_wrapper(array('id' => $id, 'del' => $plr['plrid'])) . "'><img class='img-delete' src='" . $cms->theme->parent_url() . "/img/spacer.gif' height='16' width='16'></a></td>" . 
 			"</tr>\n";
 			// a spacer is used above, so the delete icon can be applied via a style, which can be changed in child themes
 	}

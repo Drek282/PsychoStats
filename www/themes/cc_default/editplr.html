@@ -25,14 +25,14 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.plrname} class="err"{/if}>
 	<p class="err" id="err-plrname">{$errors.plrname|escape}</p>
 	<label><#Name#>:</label>
-	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field" />
-	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox" /> <#Locked?#></label>
+	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field">
+	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox"> <#Locked?#></label>
 </div>
 
 <div{if $errors.icon} class="err"{/if}>
 	<p class="err" id="err-icon">{$errors.icon|escape}</p>
 	<label><#Mini Avatar#>:</label>
-	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden" />
+	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden">
 	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" alt="Avatar"></span>
 	[ <a href="javascript:toggle_gallery()"><#Toggle gallery#></a> ]
 </div>
@@ -42,7 +42,7 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.cc} class="err"{/if}>
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
-	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
+	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2">
 	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" alt="Flag">
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
@@ -66,37 +66,37 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.website} class="err"{/if}>
 	<p class="err" id="err-website">{$errors.website|escape}</p>
 	<label><#Website#>:</label>
-	<input id="website" name="website" value="{$form.website|escape}" type="text" class="field long" />
+	<input id="website" name="website" value="{$form.website|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.email} class="err"{/if}>
 	<p class="err" id="err-email">{$errors.email|escape}</p>
 	<label><#Email#>:</label>
-	<input name="email" value="{$form.email|escape}" type="text" class="field long" />
+	<input name="email" value="{$form.email|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.discord} class="err"{/if}>
 	<p class="err" id="err-discord">{$errors.discord|escape}</p>
 	<label><#Discord ID#>:</label>
-	<input name="discord" value="{$form.discord|escape}" type="text" class="field long" />
+	<input name="discord" value="{$form.discord|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.twitch} class="err"{/if}>
 	<p class="err" id="err-twitch">{$errors.twitch|escape}</p>
 	<label><#Twitch User Name#>:</label>
-	<input name="twitch" value="{$form.twitch|escape}" type="text" class="field long" />
+	<input name="twitch" value="{$form.twitch|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.youtube} class="err"{/if}>
 	<p class="err" id="err-youtube">{$errors.youtube|escape}</p>
 	<label><#YouTube User Name#>:</label>
-	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
+	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.socialclub} class="err"{/if}>
 	<p class="err" id="err-socialclub">{$errors.socialclub|escape}</p>
 	<label><#SocialClub Nick Name#>:</label>
-	<input name="socialclub" value="{$form.socialclub|escape}" type="text" class="field long" />
+	<input name="socialclub" value="{$form.socialclub|escape}" type="text" class="field long">
 </div>
 
 {if $conf.theme.map.google_key}
@@ -108,14 +108,14 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.latitude} class="err"{/if}>
 	<p class="err" id="err-latitude">{$errors.latitude|escape}</p>
 	<label><#Latitude#>:</label>
-	<input name="latitude" value="{$form.latitude|escape}" type="text" class="field" />
+	<input name="latitude" value="{$form.latitude|escape}" type="text" class="field">
 	<a class="openmap" href="javascript:void(0)" title="Open Map"><img src="{theme->url}/img/icons/map.gif" alt="map"></a>
 </div>
 
 <div{if $errors.longitude} class="err"{/if}>
 	<p class="err" id="err-longitude">{$errors.longitude|escape}</p>
 	<label><#Longitude#>:</label>
-	<input name="longitude" value="{$form.longitude|escape}" type="text" class="field" />
+	<input name="longitude" value="{$form.longitude|escape}" type="text" class="field">
 </div>
 {/if}
 
@@ -140,7 +140,7 @@ flags_url = "{$conf.theme.flags_url}";
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
 {if $allow_username_change}
-	<input name="username" value="{$form.username|escape}" type="text" class="field" />
+	<input name="username" value="{$form.username|escape}" type="text" class="field">
 {else}
 	<p>{$plr_user.username|escape}</p>
 {/if}
@@ -168,27 +168,27 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#New Password#>:</label>
-	<input name="password" type="password" class="field" autocomplete="off" />
+	<input name="password" type="password" class="field" autocomplete="off">
 </div>
 
 <div{if $errors.password2} class="err"{/if}>
 	<p class="err" id="err-password2">{$errors.password2|escape}</p>
 	<label><#Retype Password#>:</label>
-	<input name="password2" type="password" class="field" autocomplete="off" />
+	<input name="password2" type="password" class="field" autocomplete="off">
 </div>
 
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
 {if $id and ps_user_is_admin()}
-	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del" />
+	<input id="btn-delete" class="btn delete" type="submit" value="<#Delete#>" name="del">
 {/if}
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>

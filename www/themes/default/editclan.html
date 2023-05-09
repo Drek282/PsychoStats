@@ -25,14 +25,14 @@ clanid = parseInt({$clan.clanid});
 <div{if $errors.clanname} class="err"{/if}>
 	<p class="err" id="err-clanname">{$errors.clanname|escape}</p>
 	<label><#Name#>:</label>
-	<input name="clanname" value="{$form.clanname|escape}" type="text" class="field" />
-	<label class="for" for="locked1"><input id="locked1" name="locked" value="1" {if $form.locked}checked="checked" {/if}type="checkbox" /> <#Lock Member List?#></label>
+	<input name="clanname" value="{$form.clanname|escape}" type="text" class="field">
+	<label class="for" for="locked1"><input id="locked1" name="locked" value="1" {if $form.locked}checked="checked" {/if}type="checkbox"> <#Lock Member List?#></label>
 </div>
 
 <div{if $errors.icon} class="err"{/if}>
 	<p class="err" id="err-icon">{$errors.icon|escape}</p>
 	<label><#Mini Avatar#>:</label>
-	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden" />
+	<input id="icon-input" name="icon" value="{$form.icon|escape}" type="hidden">
 	<span class="mini-avatar"><img id="icon-img" src="{if $form.icon}{$conf.theme.icons_url}/{$form.icon}{else}{theme->url}/img/spacer.gif{/if}" alt="Avatar"></span>
 	[ <a href="javascript:toggle_gallery()"><#Toggle gallery#></a> ]
 </div>
@@ -42,7 +42,7 @@ clanid = parseInt({$clan.clanid});
 <div{if $errors.cc} class="err"{/if}>
 	<p class="err" id="err-cc">{$errors.cc|escape}</p>
 	<label><#Country Code#>:</label>
-	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2" />
+	<input id="cc" name="cc" value="{$form.cc|escape}" type="text" class="field short" maxlength="2">
 	<img id="flag-img" src="{if $form.cc}{$conf.theme.flags_url}/{$form.cc|strtolower|escape}.webp{else}{theme->url}/img/spacer.gif{/if}" alt="Flag">
 {*
 	[ <a href="javascript:toggle_flags()"><#Toggle flags#></a> ]
@@ -69,48 +69,48 @@ clanid = parseInt({$clan.clanid});
 <div{if $errors.website} class="err"{/if}>
 	<p class="err" id="err-website">{$errors.website|escape}</p>
 	<label><#Website#>:</label>
-	<input id="website" name="website" value="{$form.website|escape}" type="text" class="field long" />
+	<input id="website" name="website" value="{$form.website|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.email} class="err"{/if}>
 	<p class="err" id="err-email">{$errors.email|escape}</p>
 	<label><#Email#>:</label>
-	<input name="email" value="{$form.email|escape}" type="text" class="field long" />
+	<input name="email" value="{$form.email|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.discord} class="err"{/if}>
 	<p class="err" id="err-discord">{$errors.discord|escape}</p>
 	<label><#Discord Channel Invitation Link#>:</label>
-	<input name="discord" value="{$form.discord|escape}" type="text" class="field long" />
+	<input name="discord" value="{$form.discord|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.twitch} class="err"{/if}>
 	<p class="err" id="err-twitch">{$errors.twitch|escape}</p>
 	<label><#Twitch User Name#>:</label>
-	<input name="twitch" value="{$form.twitch|escape}" type="text" class="field long" />
+	<input name="twitch" value="{$form.twitch|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.youtube} class="err"{/if}>
 	<p class="err" id="err-youtube">{$errors.youtube|escape}</p>
 	<label><#YouTube User Name#>:</label>
-	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long" />
+	<input name="youtube" value="{$form.youtube|escape}" type="text" class="field long">
 </div>
 
 <div{if $errors.steamprofile} class="err"{/if}>
 	<p class="err" id="err-steamprofile">{$errors.steamprofile|escape}</p>
 	<label><#Steam Group Name#>:</label>
-	<input name="steamprofile" value="{$form.steamprofile|escape}" type="text" class="field long" />
+	<input name="steamprofile" value="{$form.steamprofile|escape}" type="text" class="field long">
 </div>
 
 </fieldset>
 <fieldset>
 <div class="submit">
-	<input name="submit" value="1" type="hidden" />
-	<input name="ref" value="{$ref}" type="hidden" />
-	<input name="key" value="{$form_key}" type="hidden" />
-	<input name="id" value="{$id}" type="hidden" />
-	<input class="btn save" type="submit" value="<#Save#>" />
-	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>" />
+	<input name="submit" value="1" type="hidden">
+	<input name="ref" value="{$ref}" type="hidden">
+	<input name="key" value="{$form_key}" type="hidden">
+	<input name="id" value="{$id}" type="hidden">
+	<input class="btn save" type="submit" value="<#Save#>">
+	<input name="cancel" class="btn cancel" type="submit" value="<#Cancel#>">
 </div>
 </fieldset>
 </form>
@@ -132,15 +132,15 @@ clanid = parseInt({$clan.clanid});
 	<p class="err" id="err-member">{$errors.steamprofile|escape}</p>
 	{include file='ajax.html' float='right'}
 	<label><#Add New Member#>:</label>
-	<input id="member" value="" type="text" class="field" autocomplete="off" />
+	<input id="member" value="" type="text" class="field" autocomplete="off">
 </div>
 <div id="member-row" style="display:none">
 	<label><#Select Members#>:</label>
-	<input id="add-btn" value="<#Add Selected Members#>" type="button" class="btn add" />
+	<input id="add-btn" value="<#Add Selected Members#>" type="button" class="btn add">
 	<select id="member-list" name="add[]" multiple class="field long" size="5">
 		<option value=""><#Loading ...#></option>
 	</select>
-	<input name="id" value="{$id}" type="hidden" />
+	<input name="id" value="{$id}" type="hidden">
 </div>
 
 <div class="ps-table-frame no-ani">
