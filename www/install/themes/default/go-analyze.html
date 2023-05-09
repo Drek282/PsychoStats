@@ -7,7 +7,7 @@
 		<strong><#Collecting information about your server environment#> . . .</strong>
 	</p>
 	<p>
-		<img src="{theme->url}/img/kit.gif" alt="..." /> <#Please Wait#> ...
+		<img src="{theme->url}/img/kit.gif" alt="..."> <#Please Wait#> ...
 	</p>
 </div>
 <div id='results' style="display: none">
@@ -16,9 +16,9 @@
 
 <form action="{$SELF}" method="post">
 <p id="go-ctrl" class="controls">
-	<input id="btn-recheck" value="<#Recheck#>" type="submit" />
-	<input id="step" name="s" value="db" type="hidden" />
-	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled="disabled"{/if}/>
+	<input id="btn-recheck" value="<#Recheck#>" type="submit">
+	<input id="step" name="s" value="db" type="hidden">
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled="disabled"{/if}>
 </p>
 </form>

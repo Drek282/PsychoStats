@@ -18,7 +18,7 @@
 <div class="config-frame">
 <h3><#Choose Wisely#> . . .</h3>
 <p class="row">
-	<input id="nosave" name="nosave" value="1" type="checkbox" {if $nosave}checked="checked"{/if} />
+	<input id="nosave" name="nosave" value="1" type="checkbox" {if $nosave}checked="checked"{/if}>
 	<span class="extra">
 		<label class="for" for="nosave">
 			If checked, themes will be re-compiled on <b>EVERY</b> page request and the compile directory will be ignored.
@@ -33,7 +33,7 @@
 	<p class="sep"></p>
 	<p class="row">
 		<label><#Compile Directory#>:</label>
-		<input id="compiledir" name="compiledir" value="{$compiledir|escape}" class="field long" />
+		<input id="compiledir" name="compiledir" value="{$compiledir|escape}" class="field long">
 		<span class="sub">Leave blank to use the system default "<b>{$system_default_dir}</b>"</span>
 {if $is_windows}
 		<span class="sub"><b>Windows:</b> Only use backslashes "<b>\</b>" in the path.</span>
@@ -67,14 +67,14 @@
 </div> {* #results *}
 
 <p id="go-ctrl" class="controls">
-	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
-	<input name="s_back" value="admin" type="hidden" />
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit">
+	<input name="s_back" value="admin" type="hidden">
 
-	<input id="btn-test" value="<#Test#>" type="button" />
-	<input id="step" name="s" value="save" type="hidden" />
-	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+	<input id="btn-test" value="<#Test#>" type="button">
+	<input id="step" name="s" value="save" type="hidden">
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}>
 
-	<input name="dosubmit" value="1" type="hidden" />
+	<input name="dosubmit" value="1" type="hidden">
 </p>
 </form>

@@ -50,19 +50,19 @@
 	
 		<p class="row">
 			<label><#Username#>:</label>
-			<input id="username" name="username" value="{$username|escape}" type="text" class="field" />
+			<input id="username" name="username" value="{$username|escape}" type="text" class="field">
 		</p>
 		<p class="row">
 			<label><#Password#>:</label>
-			<input id="password" name="password" type="password" class="field" />
+			<input id="password" name="password" type="password" class="field">
 		</p>
 			<p class="row">
 			<label><#Host#>:</label>
-			<input id="ftphost" name="ftphost" value="{$ftphost|escape}" type="text" class="field" />
+			<input id="ftphost" name="ftphost" value="{$ftphost|escape}" type="text" class="field">
 		</p>
 		<p class="row">
 			<label><#Stats Directory#>:</label>
-			<input id="ftpdir" name="ftpdir" value="{$ftpdir|escape}" type="text" class="field" />
+			<input id="ftpdir" name="ftpdir" value="{$ftpdir|escape}" type="text" class="field">
 			<span class="sub">Path to your PsychoStats directory where the config.php is located.</span>
 		</p>
 		</div> {* .config-frame *}
@@ -113,13 +113,13 @@
 </div>
 
 <p id="go-ctrl" class="controls">
-	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
-	<input name="s_back" value="theme" type="hidden" />
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit">
+	<input name="s_back" value="theme" type="hidden">
 
-	<input id="btn-save" value="<#Save Config#>" type="button" />
-	<input id="step" name="s" value="done" type="hidden" />
-	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+	<input id="btn-save" value="<#Save Config#>" type="button">
+	<input id="step" name="s" value="done" type="hidden">
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}>
 </p>
 </form>
 

@@ -11,17 +11,17 @@
 <div class="config-frame">
 <p class="row">
 	<label><#Username#>:</label>
-	<input id="username" name="username" value="{$username|escape}" type="text" class="field" />
+	<input id="username" name="username" value="{$username|escape}" type="text" class="field">
 	<span class="sub err" style="display: none"><#You must enter a username#></span>
 </p>
 <p class="row">
 	<label><#Password#>:</label>
-	<input id="password" name="password" type="password" class="field short" />	
+	<input id="password" name="password" type="password" class="field short">	
 	<span class="sub err" style="display: none"><#You must enter a password#></span>
 </p>
 <p class="row">
 	<label><#Retype Password#>:</label>
-	<input id="password2" name="password2" type="password" class="field short" />	
+	<input id="password2" name="password2" type="password" class="field short">	
 	<span class="sub err" style="display: none"><#Password mismatch!#> <#Please try again#></span>
 </p>
 </div>
@@ -48,13 +48,13 @@
 </p>
 
 <p id="go-ctrl" class="controls">
-	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit" />
-	<input name="s_back" value="dbinit" type="hidden" />
+	<input id="btn-back" name="back" value="&lt;&lt; <#Back#>" type="submit">
+	<input name="s_back" value="dbinit" type="hidden">
 
-	<input id="btn-create" value="<#Create User#>" type="button" />
-	<input id="step" name="s" value="theme" type="hidden" />
-	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+	<input id="btn-create" value="<#Create User#>" type="button">
+	<input id="step" name="s" value="theme" type="hidden">
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}>
 </p>
 </form>
 

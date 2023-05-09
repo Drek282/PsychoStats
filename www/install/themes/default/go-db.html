@@ -19,30 +19,30 @@
 <div class="config-frame">
 <p class="row">
 	<label><#Host#>:</label>
-	<input name="conf[dbhost]" value="{$dbhost|escape}" class="field" />	
+	<input name="conf[dbhost]" value="{$dbhost|escape}" class="field">	
 	<span class="sub"><#Use 'localhost' if your database is on THIS server.#></span>
 </p>
 <p class="row">
 	<label><#Port#>:</label>
-	<input name="conf[dbport]" value="{$dbport|escape}" class="field short" />	
+	<input name="conf[dbport]" value="{$dbport|escape}" class="field short">	
 	<span class="extra">(<#optional#>)</span>
 </p>
 <p class="row">
 	<label><#DB Name#>:</label>
-	<input name="conf[dbname]" value="{$dbname|escape}" class="field" />	
+	<input name="conf[dbname]" value="{$dbname|escape}" class="field">	
 </p>
 <p class="row">
 	<label><#Username#>:</label>
-	<input name="conf[dbuser]" value="{$dbuser|escape}" class="field" />	
+	<input name="conf[dbuser]" value="{$dbuser|escape}" class="field">	
 </p>
 <p class="row">
 	<label><#Password#>:</label>
-	<input name="conf[dbpass]" value="{$dbpass|escape}" class="field" />	
+	<input name="conf[dbpass]" value="{$dbpass|escape}" class="field">	
 	<span class="extra">(will be visible)</span>
 </p>
 <p class="row">
 	<label><#Table Prefix#>:</label>
-	<input name="conf[dbtblprefix]" value="{$dbtblprefix|escape}" class="field" />	
+	<input name="conf[dbtblprefix]" value="{$dbtblprefix|escape}" class="field">	
 	<span class="sub"><#A string prefix that is prepended to all table names in the database.#>
 		<#This makes sure PsychoStats table names do not conflict with other tables in an existing database.#></span>
 </p>
@@ -56,12 +56,12 @@
 </div>
 
 <p id="go-ctrl" class="controls">
-	<input id="btn-test" value="<#Test#>" type="button" />
-	<input id="step" name="s" value="dbinit" type="hidden" />
-	<input id="install-key" name="install" value="{$install|escape}" type="hidden" />
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" />
+	<input id="btn-test" value="<#Test#>" type="button">
+	<input id="step" name="s" value="dbinit" type="hidden">
+	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit">
 {*
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}>
 *}
 </p>
 </form>
