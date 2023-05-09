@@ -49,7 +49,7 @@ delete_message = "<#Are you sure you want to delete all aliases for this unique 
 <div{if $errors.aliases} class="err"{/if}>
 	<p class="err" id="err-aliases">{$errors.aliases|escape}</p>
 	<label><#Aliases#>:</label>
-	<textarea name="aliases" wrap="virtual" rows="5" class="long">{$form.aliases|escape}</textarea>
+	<textarea name="aliases" wrap="soft" rows="5" class="long">{$form.aliases|escape}</textarea>
 </div>
 
 </fieldset>

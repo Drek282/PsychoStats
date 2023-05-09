@@ -72,12 +72,12 @@
 <div{if $errors.options} class="err"{/if}>
 	<p class="err" id="err-options">{$errors.options|escape}</p>
 	<label><#Options#>:</label>
-	<textarea class="long" name="options" rows="3" wrap="virtual">{$form.options|escape}</textarea>
+	<textarea class="long" name="options" rows="3" wrap="soft">{$form.options|escape}</textarea>
 </div>
 <div{if $errors.help} class="err"{/if}>
 	<p class="err" id="err-help">{$errors.help|escape}</p>
 	<label><#Help Text#>:</label>
-	<textarea class="long" name="help" rows="5" wrap="virtual">{$form.help|escape}</textarea>
+	<textarea class="long" name="help" rows="5" wrap="soft">{$form.help|escape}</textarea>
 </div>
 </fieldset>
 <fieldset>

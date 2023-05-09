@@ -21,7 +21,6 @@ function smarty_function_confvarinput($args, &$smarty)
 	global $conf_layout, $form;
 	$args += array(
 		'var'	=> '',
-		'xhtml'	=> 1,
 	);
 
 //	$var = $conf_layout[$args['var']];
@@ -38,10 +37,9 @@ function smarty_function_confvarinput($args, &$smarty)
 			break;
 
 		case 'checkbox':
-			$output .= sprintf("<input name='opts[%s]' value='1' type='checkbox' class='field'%s%s>",
+			$output .= sprintf("<input name='opts[%s]' value='1' type='checkbox' class='field'%s>",
 				ps_escape_html($name),
-				$value ? ' checked ' : '',
-				$args['xhtml'] ? ' /' : ''
+				$value ? ' checked ' : ''
 			);
 			break;
 
@@ -65,13 +63,12 @@ function smarty_function_confvarinput($args, &$smarty)
 			$labels = varinput_build_boolean($conf_layout[$var]['options'] ?? '');
 			foreach ($labels as $label => $v) {
 				$for = 'for-' . $name . '-' . ++$idx;
-				$output .= sprintf("<input id='%s' name='opts[%s]' value=\"%s\" type='radio'%s%s>&nbsp;" .
+				$output .= sprintf("<input id='%s' name='opts[%s]' value=\"%s\" type='radio'%s>&nbsp;" .
 					"<label class='for' for='$for'>%s</label>\n",
 					$for,
 					ps_escape_html($name),
 					ps_escape_html($v),
 					$v == $value ? ' checked ' : '',
-					$args['xhtml'] ? ' /' : '',
 					ps_escape_html($label)
 				);
 			}
@@ -84,7 +81,7 @@ function smarty_function_confvarinput($args, &$smarty)
 			$attr['cols'] = $attr['cols'] ?? null;
 			$cols = $attr['cols'] ? $attr['cols'] : 40;
 			$attr['wrap'] = $attr['wrap'] ?? null;
-			$wrap = $attr['wrap'] ? $attr['wrap'] : 'virtual';
+			$wrap = $attr['wrap'] ? $attr['wrap'] : 'soft';
 			$attr['class'] = $attr['class'] ?? null;
 			$class = $attr['class'] ? $attr['class'] : 'field';
 //			unset($attr['size'], $attr['class']);
@@ -106,12 +103,11 @@ function smarty_function_confvarinput($args, &$smarty)
 			$attr['class'] = $attr['class'] ?? null;
 			$class = $attr['class'] ? $attr['class'] : 'field';
 //			unset($attr['size'], $attr['class']);
-			$output = sprintf("<input name=\"opts[%s]\" value=\"%s\" type=\"text\" size=\"%s\" class=\"%s\"%s>", 
+			$output = sprintf("<input name=\"opts[%s]\" value=\"%s\" type=\"text\" size=\"%s\" class=\"%s\">", 
 				ps_escape_html($name), 
 				ps_escape_html($value),
 				$size,
-				$class,
-				$args['xhtml'] ? ' /' : ''
+				$class
 			);
 			break;
 	};
