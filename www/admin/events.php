@@ -84,6 +84,9 @@ $events = array();
 $first = $list ? $list[0]['id'] : array();
 $last  = $list ? $list[ count($list) - 1]['id'] : array();
 foreach ($list as $ev) {
+	$ev['id'] ??= null;
+	$ev['up'] ??= null;
+	$ev['down'] ??= null;
 	if ($ev['id'] == $first) {
 		$ev['down'] = 1;
 	} elseif ($ev['id'] == $last) {
@@ -104,6 +107,7 @@ $cms->theme->assign(array(
 	'page'		=> basename(__FILE__, '.php'), 
 	'events'	=> $events,
 	'pager'		=> $pager,
+	'text'			=> $text ??= null,
 ));
 
 // display the output

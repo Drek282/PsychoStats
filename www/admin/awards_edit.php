@@ -137,6 +137,7 @@ $cms->theme->assign(array(
 	'award'		=> $award,
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'tokens'	=> $tokens ??= null,
 ));
 
 // display the output

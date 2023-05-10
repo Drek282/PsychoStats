@@ -300,7 +300,7 @@ function draw($print=FALSE) {
 	$output .= "</table>";
 
 	if ($print) {
-#		print nl2br(htmlentities($output))."\n";
+#		print nl2br(htmlentities($output), false)."\n";
 		print $output;
 	}
 	return $output;

@@ -186,6 +186,7 @@ if ($test and $log['id'] == $id) { 	// test the log source, if asked to
 
 // process the form if submitted
 $valid = true;
+$submit ??= null;
 if ($submit) {
 	// do some special error checking and correction depending on the logsource type
 	$type = $form->input['type'];

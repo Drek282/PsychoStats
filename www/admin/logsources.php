@@ -114,9 +114,10 @@ $cms->crumb('Log Sources', ps_url_wrapper(array('_base' => 'logsources.php' )));
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'page'		=> basename(__FILE__, '.php'), 
+	'page'			=> basename(__FILE__, '.php'), 
 	'logsources'	=> $logsources,
-	'pager'		=> $pager,
+	'pager'			=> $pager,
+	'text'			=> $text ??= null,
 ));
 
 // display the output

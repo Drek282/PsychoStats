@@ -27,13 +27,14 @@ Version 3.2.8b (in progress)
 * [Added] Twitch to social options.
 * [Fixed] Possible xss vulnerabilities, thanks Rosenstein.
 * [Fixed] Themes can now handle gif, jpg, png and webp images in the context of certain javascript.
-* [Fixed] PHP 8.2 deprecation warning.
+* [Fixed] PHP 8 errors and warnings.
 * [Replaced] Broken preg_replace with preg_replace_callback.
 * [Improved] Install error message to make it more specific and informative.
 * [Fixed] Broken stats reset when no dynamic tables have been generated.
 * [Updated] Maxmind.sql - 02 May 2023
 * [Fixed] Broken variable assignment in Admin CP.
 * [Fixed] HTML errors/warnings.
+* [Fixed] Icon uploads from file and URL.
 
 
 Version 3.2.7b (06/03/2021)

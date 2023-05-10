@@ -99,6 +99,9 @@ $awards = array();
 $first = $list ? $list[0]['id'] : array();
 $last  = $list ? $list[ count($list) - 1]['id'] : array();
 foreach ($list as $aw) {
+	$aw['id'] ??= null;
+	$aw['up'] ??= null;
+	$aw['down'] ??= null;
 	if ($aw['id'] == $first) {
 		$aw['down'] = 1;
 	} elseif ($aw['id'] == $last) {
@@ -112,12 +115,13 @@ foreach ($list as $aw) {
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'page'		=> basename(__FILE__, '.php'), 
-	'pager'		=> $pager,
-	'gametypes'	=> $gametypes,
-	'modtypes'	=> $modtypes,
+	'page'			=> basename(__FILE__, '.php'), 
+	'pager'			=> $pager,
+	'gametypes'		=> $gametypes,
+	'modtypes'		=> $modtypes,
 	'awardtypes'	=> $awardtypes,
-	'awards'	=> $awards
+	'awards'		=> $awards,
+	'text'			=> $text ??= null,
 ));
 
 // display the output
