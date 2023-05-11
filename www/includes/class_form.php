@@ -212,7 +212,7 @@ function error($name, $err = null) {
 	if ($err !== null) {
 		$this->errors[$name] = $err;
 	} else {
-		return $this->errors[$name];
+		return $this->errors[$name] ??= null;
 	}
 }
 
