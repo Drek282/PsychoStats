@@ -35,6 +35,8 @@ Version 3.2.8b (in progress)
 * [Fixed] Broken variable assignment in Admin CP.
 * [Fixed] HTML errors/warnings.
 * [Fixed] Icon uploads from file and URL.
+* [Fixed] Handle empty fields for live server test in Admin CP.
+* [Fixed] Live server edit page in Admin CP will now only list protocols for installed games.
 
 
 Version 3.2.7b (06/03/2021)

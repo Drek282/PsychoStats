@@ -83,9 +83,10 @@ public static function &create($conf) {
 	$filename = strtolower($conf['querytype']);
 	$classname = "PQ_" . $filename;
 
-	if (!include_once(__DIR__ . "/PQ/" . $filename . ".php")) {
-		trigger_error("Unsupported 'querytype' specified (${conf['querytype']}) for new PQ object", E_USER_ERROR);
+	if (!file_exists(__DIR__ . "/PQ/" . $filename . ".php")) {
+		trigger_error("Support for (${conf['querytype']}) not installed", E_USER_ERROR);
 	} else {
+		include_once(__DIR__ . "/PQ/" . $filename . ".php");
 		$pq = new $classname($conf);
 		return $pq;
 	}
@@ -97,17 +98,31 @@ public static function &create($conf) {
 // this is not an object method. It's a plain function.
 if (!function_exists('pq_query_types')) {
 	function pq_query_types() {
-		// this should be made more robust to read the files in the PQ directory to create a list.
+		// will only list the query types for the currently installed game.
+		global $ps;
+		$gametype = $ps->conf['main']['gametype'];
 		$q = array();
-		$q['halflife'] 		= 'Halflife 1';
-		$q['oldhalflife'] 	= 'Halflife 1 only (no steam)';
-# these haven't been tested or used in a long time so I have no idea if they work. 
-# so I'm commenting them out for now.
-#		$q['gamespy'] 		= 'Gamespy (partial support)';
-		$q['source'] 		= 'Halflife 2';
-		$q['quake3'] 		= 'Quake 3';
-		$q['cod4']          = 'Call of Duty 4';
-		$q['cod4x']          = 'Call of Duty 4X';
+		$q[$gametype] = '';
+		switch ($gametype) {
+			case 'halflife':
+				$q['halflife'] 		= 'Halflife 1';
+				break;
+			case 'oldhalflife':
+				$q['oldhalflife'] 	= 'Halflife 1 only (no steam)';
+				break;
+			case 'source':
+				$q['source'] 		= 'Halflife 2';
+				break;
+			case 'quake3':
+				$q['quake3'] 		= 'Quake 3';
+				break;
+			case 'cod4':
+				$q['cod4']          = 'Call of Duty 4';
+				break;
+			case 'cod4x':
+				$q['cod4x']          = 'Call of Duty 4X';
+				break;
+		}
 		return $q;
 	}
 }

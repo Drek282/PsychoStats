@@ -107,7 +107,7 @@ function check($name) {
 		}
 
 		if (!$ok) {
-			if ($this->fields[$name]['e']) $this->error($name,$this->fields[$name]['e']);
+			if (isset($this->fields[$name]['e'])) $this->error($name,$this->fields[$name]['e']);
 			break;
 		}
 	}	
@@ -249,7 +249,7 @@ function reset($input = null, $do_strip = false) {
 // Validator: returns true if the value is NOT blank
 function val_blank($var, $value, &$form) {
 	if ($value == '') {
-		$form->error($var, $this->valid_errors['blank'] ? $this->valid_errors['blank'] : "Field can not be blank");
+		$form->error($var, isset($this->valid_errors['blank']) ? $this->valid_errors['blank'] : "Field can not be blank");
 		return false;
 	}
 	return true;

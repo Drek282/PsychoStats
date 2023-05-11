@@ -74,7 +74,7 @@ $form->field('rcon');
 $form->field('cc');
 //$form->field('idx');
 
-if ($test and $server['id'] == $id) { 	// test the server, if asked to
+if (isset($test)) { 	// test the server, if asked to
 	$test = $form->values();
 	$result = 'success';
 	$msg = '';
@@ -109,7 +109,7 @@ if ($test and $server['id'] == $id) { 	// test the server, if asked to
 
 // process the form if submitted
 $valid = true;
-if ($submit) {
+if (isset($submit)) {
 	$form->validate();
 	$input = $form->values();
 	$valid = !$form->has_errors();
