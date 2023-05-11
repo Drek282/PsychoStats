@@ -39,6 +39,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Live server edit page in Admin CP will now only list protocols for installed games.
 * [Fixed] Broken clantag edit when choosing regex.
 * [Added] Check for valid regular expressions to clantag edit page—Rosenstein is a bastard.
+* [Removed] RIP gamespy.
 
 
 Version 3.2.7b (06/03/2021)
