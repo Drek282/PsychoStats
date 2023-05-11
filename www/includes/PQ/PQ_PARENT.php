@@ -33,7 +33,6 @@
 			Halflife 1		(info, rcon)
 			Halflife 2 (source)	(info, rcon, master)
 			COD4            (info)
-			GameSpy			(info) -- Only games supporting the newer GS network protocol
 			Quake 3			(info, master)
 */
 
