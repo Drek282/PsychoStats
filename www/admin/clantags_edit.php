@@ -26,7 +26,7 @@ include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'clantags');
 
-$validfields = array('ref','id','del','submit','cancel');
+$validfields = array('ref','id','del','submit','cancel','test');
 $cms->theme->assign_request_vars($validfields, true);
 
 $message = '';
@@ -71,27 +71,54 @@ $form->field('type');
 $form->field('example');
 //$form->field('idx');
 
-/* not implemented
-if ($test and $clantag['id'] == $id) { 	// test the log source, if asked to
+
+if (isset($test) and $form->input['type'] == 'regex') { 	// test the regex, if asked to
 	$test = $form->values();
 	$result = 'success';
 	$msg = '';
 
 	// verify the regex is valid
-	// ...
+	$pattern = "/" . $test['clantag'] . "/";
+	ob_start();
+	var_export(preg_match($pattern, '')) === false;
+	$test['result'] = ob_get_clean();
+	
+	if ($test['result'] == 0) {
+		$msg = $cms->trans("The regular expression is valid!");
+	} else {
+		$result = 'failure';
+		$msg = $cms->trans("The regular expression is not valid! - Please check the syntax");
+	}
 
 	$message = $cms->message($result, array(
 		'message_title'	=> $cms->trans("Testing Results"), 
 		'message'	=> $msg
 	));
+
 	// don't let the form be submitted
+	unset($test);
+	unset($submit);
+
+} elseif (isset($test) and $form->input['type'] == 'plain') {
+	$result = 'failure';
+	$msg = '';
+
+	// no test for plain text clantags
+	$msg = $cms->trans("You can only test regex clantags!");
+
+	$message = $cms->message($result, array(
+		'message_title'	=> $cms->trans("Testing Results"), 
+		'message'	=> $msg
+	));
+
+	// don't let the form be submitted
+	unset($test);
 	unset($submit);
 }
-*/
 
 // process the form if submitted
 $valid = true;
-if ($submit) {
+if (isset($submit)) {
 	if ($form->input['type'] == 'plain') {
 		$form->field('pos', 'blank');
 		$form->field('clantag','blank');	// not a regex

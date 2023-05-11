@@ -181,6 +181,7 @@ if ($test and $log['id'] == $id) { 	// test the log source, if asked to
 		'message'	=> $msg
 	));
 	// don't let the form be submitted
+	unset($test);
 	unset($submit);
 }
 
@@ -256,7 +257,7 @@ if ($submit) {
 
 } else {
 	// fill in defaults
-	if (!$test) {
+	if (!isset($test)) {
 		if ($id) {
 			$form->input($log);
 			if (empty($log['password'])) $form->input['blank'] = 1;
