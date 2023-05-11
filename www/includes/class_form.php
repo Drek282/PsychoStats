@@ -258,7 +258,7 @@ function val_blank($var, $value, &$form) {
 // Validator: returns true if the value is numeric (or if it's blank)
 function val_numeric($var, $value, &$form) {
 	if (!is_numeric($value) and $value != '') {
-		$form->error($var, $this->valid_errors['numeric'] ? $this->valid_errors['numeric'] : "Field must be a number");
+		$form->error($var, isset($this->valid_errors['numeric']) ? $this->valid_errors['numeric'] : "Field must be a number");
 		return false;
 	} 
 	return true;
@@ -267,7 +267,7 @@ function val_numeric($var, $value, &$form) {
 // Validator: returns true if the value is a positive number
 function val_positive($var, $value, &$form) {
 	if ($value != '' and (!is_numeric($value) or $value < 0)) {
-		$form->error($var, $this->valid_errors['positive'] ? $this->valid_errors['positive'] : "Field must be a positive number");
+		$form->error($var, isset($this->valid_errors['positive']) ? $this->valid_errors['positive'] : "Field must be a positive number");
 		return false;
 	} 
 	return true;
@@ -279,7 +279,7 @@ function val_email($var, $value, &$form) {
 //		$pattern = '/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/';
 		$pattern = '/^(.+)\@(.+\..+)$/';
 		if (!preg_match($pattern, $value)) {
-			$form->error($var, $this->valid_errors['email'] ? $this->valid_errors['email'] : "Field must be a valid email address");
+			$form->error($var, isset($this->valid_errors['email']) ? $this->valid_errors['email'] : "Field must be a valid email address");
 			return false;
 		}
 	}
@@ -294,7 +294,7 @@ function val_ymd($var, $value, &$form) {
 		if (!(preg_match("/^\d+$/", $day) and $day > 0 and $day < 32)) $err = 1;
 		if (!(preg_match("/^\d+$/", $year) and $year > 1900 and $year < (date('Y')-10))) $err = 1;
 		if ($err) {
-			$form->error($var, $this->valid_errors['ymd'] ? $this->valid_errors['ymd'] : "Field must be a valid date (YYYY-MM-DD)");
+			$form->error($var, isset($this->valid_errors['ymd']) ? $this->valid_errors['ymd'] : "Field must be a valid date (YYYY-MM-DD)");
 			return false;
 		}
 	} 
@@ -306,7 +306,7 @@ function val_strtotime($var, $value, &$form) {
 	if (!empty($value)) {
 		$time = strtotime($value);
 		if ($time === false or $time == -1) {
-			$form->error($var, $this->valid_errors['strtotime'] ? $this->valid_errors['strtotime'] : "Field must be a valid date (YYYY-MM-DD)");
+			$form->error($var, isset($this->valid_errors['strtotime']) ? $this->valid_errors['strtotime'] : "Field must be a valid date (YYYY-MM-DD)");
 			return false;
 		}
 	}
@@ -319,7 +319,7 @@ function val_hostname($var, $value, &$form) {
 		$ip = gethostbyname($value);
 		if ($ip != $value) return true;		// hostname was resolved successfully
 		if (!preg_match('/^(\\d{1,3}\\.){3}\\d{1,3}$/', $value)) {
-			$form->error($var, $this->valid_errors['hostname'] ? $this->valid_errors['hostname'] : "Unknown hostname or IP Address");
+			$form->error($var, isset($this->valid_errors['hostname']) ? $this->valid_errors['hostname'] : "Unknown hostname or IP Address");
 			return false;
 		}
 	}
