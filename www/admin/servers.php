@@ -78,6 +78,9 @@ $servers = array();
 $first = $list ? $list[0]['id'] : array();
 $last  = $list ? $list[ count($list) - 1]['id'] : array();
 foreach ($list as $log) {
+	$log['id'] ??= null;
+	$log['up'] ??= null;
+	$log['down'] ??= null;
 	if ($log['id'] == $first) {
 		$log['down'] = 1;
 	} elseif ($log['id'] == $last) {
@@ -98,6 +101,7 @@ $cms->theme->assign(array(
 	'page'		=> basename(__FILE__, '.php'), 
 	'servers'	=> $servers,
 	'pager'		=> $pager,
+	'text'		=> $text ??= null,
 ));
 
 // display the output
