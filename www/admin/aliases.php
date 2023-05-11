@@ -56,12 +56,13 @@ $cms->crumb('Player Aliases', ps_url_wrapper($php_scnm));
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'aliases'	=> $aliases,
-	'total'		=> $total,
-	'order'    => null,
-	'sort'     => null,
-	'pager'		=> $pager,
-	'page'		=> basename(__FILE__, '.php'), 
+	'aliases'		=> $aliases,
+	'last_uniqueid'	=> $last_uniqueid ??= null,
+	'total'			=> $total,
+	'order'			=> null,
+	'sort'			=> null,
+	'pager'			=> $pager,
+	'page'			=> basename(__FILE__, '.php'), 
 ));
 
 // display the output
