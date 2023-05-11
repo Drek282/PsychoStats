@@ -74,6 +74,9 @@ $tags = array();
 $first = $list ? $list[0]['id'] : array();
 $last  = $list ? $list[ count($list) - 1]['id'] : array();
 foreach ($list as $tag) {
+	$tag['id'] ??= null;
+	$tag['up'] ??= null;
+	$tag['down'] ??= null;
 	if ($tag['id'] == $first) {
 		$tag['down'] = 1;
 	} elseif ($tag['id'] == $last) {

@@ -71,22 +71,6 @@ $form->field('type');
 $form->field('example');
 //$form->field('idx');
 
-if ($test and $clantag['id'] == $id) { 	// test the log source, if asked to
-	$test = $form->values();
-	$result = 'success';
-	$msg = '';
-
-	// verify the regex is valid
-	// ...
-
-	$message = $cms->message($result, array(
-		'message_title'	=> $cms->trans("Testing Results"), 
-		'message'	=> $msg
-	));
-	// don't let the form be submitted
-	unset($submit);
-}
-
 // process the form if submitted
 $valid = true;
 if ($submit) {
@@ -94,7 +78,7 @@ if ($submit) {
 		$form->field('pos', 'blank');
 		$form->field('clantag','blank');	// not a regex
 	} else {
-		$form->input['pos'] = '';
+		$form->input['pos'] = 'left';
 	}
 
 	$form->validate();
@@ -129,10 +113,8 @@ if ($submit) {
 
 } else {
 	// fill in defaults
-	if (!$test) {
-		if ($id) {
-			$form->input($clantag);
-		}
+	if ($id) {
+		$form->input($clantag);
 	}
 }
 

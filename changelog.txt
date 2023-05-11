@@ -37,6 +37,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Icon uploads from file and URL.
 * [Fixed] Handle empty fields for live server test in Admin CP.
 * [Fixed] Live server edit page in Admin CP will now only list protocols for installed games.
+* [Fixed] Broken clantag edit when choosing regex.
 
 
 Version 3.2.7b (06/03/2021)
