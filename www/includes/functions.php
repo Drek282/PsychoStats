@@ -146,12 +146,12 @@ function pct_bar($args = array()) {
 	}
 	if (!empty($styles)) $styles = " style='$styles'";
 
-	$out = sprintf("<span %s title='%s'%s><span style='width: %s; background-color: #%s'></span></span>",
+	$out = sprintf("<span %s title='%s'%s><span style='width: %s%s'></span></span>",
 		!empty($args['class']) ? "class='" . $args['class'] . "'" : "",
 		!empty($args['title']) ? $args['title'] : (int)($args['pct']) . '%',
 		$styles,
 		(int)($args['pct']) . '%',
-		$colors[$key][intval($args['pct']) - 1] ?? null
+		!empty($colors[$key][intval($args['pct']) - 1]) ? "; background-color: #" . $colors[$key][intval($args['pct']) - 1] : ''
 	);
 	return $out;
 }
@@ -261,7 +261,7 @@ function rank_change($args = array()) {
 			$img = $cms->theme->url() . $img;
 		}
 
-		$output = sprintf("<img src='%s' alt='%s' title='%s' %s/>", $img, $alt, $alt, $args['attr']);
+		$output = sprintf("<img src='%s' alt='%s' title='%s' %s>", $img, $alt, $alt, $args['attr']);
 #		if ($args['acronym']) {
 #			$output = "<abbr title='$alt'>$output</abbr>";
 #		}
@@ -322,7 +322,7 @@ function skill_change($args = array()) {
 			$img = $cms->theme->url() . $img;
 		}
 
-		$output = sprintf("<img src='%s' alt='%s' title='%s' %s/>", $img, $alt, $alt, $args['attr']);
+		$output = sprintf("<img src='%s' alt='%s' title='%s' %s>", $img, $alt, $alt, $args['attr']);
 #		if ($args['acronym']) {
 #			$output = "<abbr title='$alt'>$output</abbr>";
 #		}
