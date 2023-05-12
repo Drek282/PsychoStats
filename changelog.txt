@@ -40,6 +40,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Broken clantag edit when choosing regex.
 * [Added] Check for valid regular expressions to clantag edit page.
 * [Removed] RIP gamespy.
+* [Added] PHP 7.0 polyfill for 'str_contains()' function added in PHP 8.0
 * [Fixed] Broken player edit in Admin CP.
 
 
