@@ -42,6 +42,7 @@ Version 3.2.8b (in progress)
 * [Removed] RIP gamespy.
 * [Added] PHP 7.0 polyfill for 'str_contains()' function added in PHP 8.0
 * [Fixed] Broken player edit in Admin CP.
+* [Added] Proper email format check to the main stats player edit page.
 
 
 Version 3.2.7b (06/03/2021)

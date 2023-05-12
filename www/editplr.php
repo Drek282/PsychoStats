@@ -96,7 +96,7 @@ if ($cms->user->is_admin() and $del and $id and $plr['plrid'] == $id) {
 $form = $cms->new_form();
 $form->default_modifier('trim');
 $form->field('plrname');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
-$form->field('email');
+$form->field('email', 'email');
 $form->field('discord');
 $form->field('twitch');
 $form->field('youtube');
