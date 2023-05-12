@@ -275,6 +275,10 @@ div.ps-plr-profile #map {
 .ps-weapon-table td.first {
 	width: 80px;
 }
+.ps-role-table td.pct_bar,
+.ps-weapon-table td.pct_bar {
+	width: 50px;
+}
 
 /* --- PAGER styles ------------ */
 #ps-container .pager {
