@@ -1232,14 +1232,31 @@ function deleteTree($folder, $keepRootFolder) {
 
 // Returns true if url exists.
 if (function_exists('curl_init')) {
-    function url_exists($web_address) {
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $web_address);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $page_exists = curl_exec($curl);
-        curl_close($curl);
-        return !empty($page_exists);
-    }
+	function url_exists($web_address) {
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $web_address);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$page_exists = curl_exec($curl);
+		curl_close($curl);
+		return !empty($page_exists);
+	}
+}
+
+if (!function_exists('str_contains')) {
+	/**
+	 * Polyfill for 'str_contains()' function added in PHP 8.0. Thanks to PHP.Watch
+	 *
+	 * Performs a case-sensitive check indicating if needle is contained in haystack.
+	 *
+	 * @param string $haystack The string to search in.
+	 * @param string $needle   The substring to search for in the '$haystack'.
+	 * @return bool True if '$needle' is in '$haystack', otherwise false.
+	 *
+	 * If you search for an empty $needle (""), PHP will always return true.
+	 */
+	function str_contains(string $haystack, string $needle): bool {
+		return '' === $needle || false !== mb_strpos($haystack, $needle);
+	}
 }
 
 ?>
