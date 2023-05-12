@@ -171,13 +171,11 @@ if (isset($submit)) {
 		$input['logo'] = $logo;
 	}
 
-	if ($cms->user->is_admin()) {
-		if (!array_key_exists($input['accesslevel'], $cms->user->accesslevels())) {
-			$form->error('accesslevel', $cms->trans("Invalid access level specified"));
-		}
+	if (!array_key_exists($input['accesslevel'], $cms->user->accesslevels())) {
+		$form->error('accesslevel', $cms->trans("Invalid access level specified"));
 	}
 
-	if ($input['username'] != '') {
+	if (!$form->error('username') and $input['username'] != '') {
 		// load the user matching the username
 		$_u = $plr_user->load_user($input['username'], 'username');
 		// do not allow a duplicate username if another user has it already
@@ -187,8 +185,6 @@ if (isset($submit)) {
 			unset($form->errors['username']);
 		}
 		unset($_u);
-	} else {
-		unset($form->errors['username']);
 	}
 
 	// if a username is given we need to make sure a password was provided too (if there wasn't one already)
