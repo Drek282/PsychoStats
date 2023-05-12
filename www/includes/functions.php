@@ -737,8 +737,8 @@ function elapsedtime($seconds, $start = 0, $wantarray = false) {
 		if ($hours) $seconds -= 3600 * $hours;
 	}
 	if ($start <= 5) {
-		$minutes= floor($seconds / 60);
-		$seconds = $seconds % 60;
+		$minutes = floor($seconds / 60);
+		$seconds = intval($seconds) % 60;
 	}
 
 	if ($wantarray) {

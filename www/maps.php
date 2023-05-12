@@ -97,7 +97,7 @@ $table->columns(array(
 ));
 $table->column_attr('uniqueid', 'class', 'left');
 $table->header_attr('uniqueid', 'colspan', '2');
-$table->column_attr('_mapimg', 'width', '40');
+$table->column_attr('_mapimg', 'class', 'mapimg');
 $ps->maps_table_mod($table);
 $cms->filter('maps_table_object', $table);
 

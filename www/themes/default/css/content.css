@@ -279,6 +279,9 @@ div.ps-plr-profile #map {
 .ps-weapon-table td.pct_bar {
 	width: 50px;
 }
+.ps-map-table td.mapimg {
+	width: 40px;
+}
 
 /* --- PAGER styles ------------ */
 #ps-container .pager {
