@@ -2021,7 +2021,7 @@ function ip_lookup($ip) {
 		$xml = "<markers>\n";
 		if ($info) {
 			for ($i=0; $i < count($info); $i++) {
-				$xml .= sprintf("  <marker lat='%s' lng='%s' ip='%s' />\n", 
+				$xml .= sprintf("  <marker lat='%s' lng='%s' ip='%s'>\n", 
 					$info[$i]->latitude, $info[$i]->longitude, $list[$i]
 				);
 			}
@@ -2315,7 +2315,7 @@ function mapimg($m, $args = array()) {
 
 	if (!is_array($m)) $m = array( 'uniqueid' => !empty($m) ? $m : 'unknown' );
 	$name = !empty($m['uniqueid']) ? $m['uniqueid'] : 'unknown';
-	$alt = ($args['alt'] !== NULL) ? $args['alt'] : $m['name'];
+	$alt = ($args['alt'] !== NULL) ? $args['alt'] : $m['name'] ??= 'unknown';
 	$label = !empty($alt) ? $alt : $name;
 	$ext = array_map('trim', explode(',', str_replace('.','', $this->conf['theme']['images']['search_ext'])));
 

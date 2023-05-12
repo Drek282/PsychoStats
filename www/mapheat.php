@@ -28,7 +28,7 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Heatmap');
 
-$validfields = array('id', 'heatid');
+$validfields = array('id', 'heatid', 'sort', 'order', 'start', 'limit');
 $cms->theme->assign_request_vars($validfields, true);
 
 $sort = strtolower($sort);
