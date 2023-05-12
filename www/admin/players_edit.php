@@ -85,7 +85,7 @@ if ($del and $id and $plr['plrid'] == $id) {
 $form = $cms->new_form();
 $form->default_modifier('trim');
 $form->field('plrname');	// 'plrname' is used instead of 'name' to avoid conflicts with some software (nuke)
-$form->field('email');
+$form->field('email', 'email');
 $form->field('discord');
 $form->field('twitch');
 $form->field('youtube');
@@ -95,17 +95,14 @@ $form->field('icon');
 $form->field('cc');
 $form->field('logo');
 $form->field('namelocked');
-if ($cms->user->is_admin()) {
-	$form->field('username');
-	$form->field('password');
-	$form->field('password2');
-	$form->field('accesslevel');
-//	$form->field('confirmed');
-}
+$form->field('username');
+$form->field('password');
+$form->field('password2');
+$form->field('accesslevel');
 
 // process the form if submitted
 $valid = true;
-if ($submit) {
+if (isset($submit)) {
 	$form->validate();
 	$input = $form->values();
 	$valid = !$form->has_errors();
@@ -180,14 +177,18 @@ if ($submit) {
 		}
 	}
 
-	if (!$form->error('username') and $input['username'] != '') {
+	if ($input['username'] != '') {
 		// load the user matching the username
 		$_u = $plr_user->load_user($input['username'], 'username');
 		// do not allow a duplicate username if another user has it already
-		if ($_u and $_u['userid'] != $plr_user->userid()) {
+		if ($_u and $_u['userid']) {
 			$form->error('username', $cms->trans("Username already exists; please try another name"));
+		} else {
+			unset($form->errors['username']);
 		}
 		unset($_u);
+	} else {
+		unset($form->errors['username']);
 	}
 
 	// if a username is given we need to make sure a password was provided too (if there wasn't one already)
@@ -205,7 +206,6 @@ if ($submit) {
 		}
 		unset($input['password2']);
 	}
-
 	
 	$valid = ($valid and !$form->has_errors());
 	if ($valid) {

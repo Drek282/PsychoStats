@@ -40,6 +40,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Broken clantag edit when choosing regex.
 * [Added] Check for valid regular expressions to clantag edit page.
 * [Removed] RIP gamespy.
+* [Fixed] Broken player edit in Admin CP.
 
 
 Version 3.2.7b (06/03/2021)
