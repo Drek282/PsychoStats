@@ -98,6 +98,10 @@
 #ps-container .calendar-week-selected,
 #ps-container .calendar-cell-selected,
 #ps-container .calendar-month-selected tr.calendar-hdr td.calendar-month-name {
+	width: 250px;
+	border: 0;
+	border-spacing: 0;
+	padding: 1px;
 	font-weight: bold;
 	border: 1px dashed #888;
 	background-color: #DDFFDD;

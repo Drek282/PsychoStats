@@ -189,6 +189,8 @@ foreach ($list as $a) {
 }
 //print_r($awards);
 
+$awards['weaponclass'] ??= null;
+$awards['weapon'] ??= null;
 
 // assign variables to the theme
 $cms->theme->assign(array(

@@ -231,7 +231,7 @@ function draw($print=FALSE) {
 	// build headers
 	$output ??= null;
 	$output .= $this->table_begin($id);
-	$output .= "<tr align='center' class='calendar-hdr'><td>";
+	$output .= "<tr class='calendar-hdr'><td>";
 	$output .= ($this->conf['show_timeurl']) ? sprintf("<a href='%s'>&lt;&lt;</a>", $this->timeurl($prevmonth)) : '&nbsp;';
 	$output .= sprintf("</td><td colspan='6' class='calendar-month-name'>%s %s</td><td>", $monthname, $year);
 	$output .= ($this->conf['show_timeurl']) ? sprintf("<a href='%s'>&gt;&gt;</a>", $this->timeurl($nextmonth)) : '&nbsp;';
@@ -257,8 +257,8 @@ function draw($print=FALSE) {
 			$classes = $link ? ' calendar-week-hasdata' : '';
 			if ($link and $ymdthen == $d['date'] and $this->selected() == 'week') $classes .= ' calendar-week-selected';
 			$output .= sprintf("<tr><td class='calendar-week%s' style='width: %s;' %s%s>%s</td>", 
-				$width, 
 				$classes,
+				$width, 
 				$hover,
 				// the onclick is so any part of the cell will trigger the link
 				$link ? " onclick=\"window.location.href='" . $this->weeks[$w]['data']['link'] . "'\"" : '',
@@ -322,7 +322,7 @@ function timeurl($time) {
 }
 
 function table_begin($id) {
-	static $attr = array('border','class','width','cellspacing','cellpadding','style');
+	static $attr = array('class','style');
 	$conf = $this->conf;
 	if ($this->selected() == 'month') {
 		$class  = $conf['class'];
