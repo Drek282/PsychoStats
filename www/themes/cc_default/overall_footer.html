@@ -24,12 +24,12 @@
 		{if ! $conf.theme.permissions.show_admin}
 		<br><strong>[ <a href="{url _base='admin/index.php'}"><#Admin Control Panel#></a> ]</strong>
 		{/if}
+		{if $conf.main.security.show_privacy_policy}
+        <strong>
+			[ <a href="{url _base='privacy.php'}"><#Privacy Policy#></a> ]
+        </strong>
+		{/if}
 	</div>
-{if $conf.main.security.show_privacy_policy}
-	<div class="privacy">
-		[ <a href="{url _base='privacy.php'}"><#Privacy Policy#></a> ]
-	</div>
-{/if}
 </div>
 </div>
 
