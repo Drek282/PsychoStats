@@ -76,6 +76,17 @@ if ($map['mapid']) {
 	}
 }
 
+// Declare shades array.
+$shades = array(
+	's_modactions'		=> null,
+	's_mapprofile'		=> null,
+	's_maplist'			=> null,
+	's_map_kills'		=> null,
+	's_map_ffkills'		=> null,
+	's_map_ffdeaths'	=> null,
+	's_map_onlinetime'	=> null,
+);
+
 $cms->theme->assign(array(
 	'heatid'	=> $heatid,
 	'maps'		=> $maps,
@@ -83,6 +94,7 @@ $cms->theme->assign(array(
 	'mapimg'	=> $ps->mapimg($map, array( 'noimg' => '' )),
 	'totalmaps'	=> $totalmaps,
 	'heatmap_list'	=> $heatmap_list,
+	'shades'		=> $shades,
 ));
 
 $basename = basename(__FILE__, '.php');
