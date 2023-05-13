@@ -86,6 +86,6 @@
 	<input id="step" name="s" value="admin" type="hidden">
 	<input id="install-key" name="install" value="{$install|escape}" type="hidden">
 	<input id="btn-skip" value="<#Skip#>" type="button">
-	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit" {if !$allow_next}disabled='disabled'{/if}/>
+	<input id="btn-next" name="next" value="<#Next#> &gt;&gt;" type="submit"{if !$allow_next} disabled='disabled'{/if}>
 </p>
 </form>
