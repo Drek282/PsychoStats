@@ -57,6 +57,7 @@ if (is_numeric($id)) {
 	exit();		
 }
 
+$log['id'] ??= null;
 // delete it, if asked to
 if ($del and $log['id'] == $id) {
 	$ps->db->delete($ps->t_config_logsources, 'id', $id);
