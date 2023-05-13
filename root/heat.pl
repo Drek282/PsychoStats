@@ -31,7 +31,7 @@ use strict;
 use warnings;
 
 use File::Spec::Functions qw( catfile splitpath );
-use Digest::SHA1 qw( sha1_hex );
+use Digest::SHA qw( sha1_hex );
 use PS::CmdLine::Heatmap;
 use PS::DB;
 use PS::Config;					# use'd here only for the loadfile() function
