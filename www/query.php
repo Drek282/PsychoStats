@@ -36,8 +36,9 @@ $rulefilters = array('_tutor_','coop','deathmatch','pausable','r_');
 
 if (!in_array($t,array('details','players','rules','rcon'))) $t = 'details';
 
-list($host,$port) = explode(':', $s);
-if (empty($port) or !is_numeric($port) or $port < 1 or $port > 65535) $port = 27015;
+str_contains($s, ':') ? list($host,$port) = explode(':', $s) : $host = $s;
+
+if (!isset($port) or !is_numeric($port) or $port < 1 or $port > 65535) $port = 27015;
 
 if (is_numeric($host)) {	// $host is potentially an ID of a server in the database
 	$cmd = "SELECT id,host,port,alt,querytype,rcon,cc FROM $ps->t_config_servers s WHERE id='%s' AND enabled=1 ";
@@ -110,6 +111,9 @@ $pqinfo['windows'] = (bool)($pqinfo['serveros'] != 'l');
 $pqinfo['serveros'] = $pqinfo['windows'] ? $cms->trans("Windows") : $cms->trans("Linux");
 $pqinfo['timeleft'] = !empty($pqinfo['rules']['amx_timeleft']) ? $pqinfo['rules']['amx_timeleft'] : '';
 $pqinfo['nextmap'] = !empty($pqinfo['rules']['mani_nextmap']) ? $pqinfo['rules']['mani_nextmap'] : '';
+$pqinfo['timedout'] ??= null;
+$pqinfo['rules']['amx_nextmap'] ??= null;
+$pqinfo['rules']['mani_nextmap'] ??= null;
 
 $cms->theme->assign(array(
 	'server'	=> array_merge($server, $pqinfo),
