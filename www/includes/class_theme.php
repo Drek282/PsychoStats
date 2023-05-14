@@ -407,11 +407,12 @@ function remove_template_dir($dir) {
 
 // get/set the current theme
 function theme($new = null, $in_db = true) {
+	global $ps;
 	if (empty($new)) {
 		return $this->theme;
 	} elseif ($this->is_theme($new)) {
 		$loaded = false;
-        $this->loaded_themes[$new] = $this->loaded_themes[$new] ?? null;
+        $this->loaded_themes[$new] ??= null;
 		// load the theme from the database
 		if (!$this->loaded_themes[$new] and $in_db) {
 			$loaded = true;
@@ -419,6 +420,13 @@ function theme($new = null, $in_db = true) {
 				$this->cms->db->table('config_themes'),
 				$this->cms->db->escape($new, true)
 			));
+			if (!$t) {
+				$new = $ps->conf['main']['theme'];
+				$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
+					$this->cms->db->table('config_themes'),
+					$this->cms->db->escape($new, true)
+				));
+			}
 			if (!$t) {
 				$new = 'default';
 				$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
@@ -428,7 +436,7 @@ function theme($new = null, $in_db = true) {
 			}
 			$this->loaded_themes[$new] = $t;
             $t['parent'] ??= null;
-			$this->loaded_themes[$t['parent']] = $this->loaded_themes[$t['parent']] ?? null;
+			$this->loaded_themes[$t['parent']] ??= null;
 			if ($t['parent'] and !$this->loaded_themes[$t['parent']]) { 
 				// load the parent theme ...
 				// the parent theme doesn't have to be enabled
@@ -442,6 +450,10 @@ function theme($new = null, $in_db = true) {
 //					$this->child_themes[$t['parent']] = $new;
 				}
 			}	
+
+			// update the user's theme
+			$this->cms->session->opt('theme', $new);
+			$this->cms->session->save_session_options();
 		}
 
 		// if we're not loading a theme from the DB then fudge a loaded record ...
@@ -497,6 +509,8 @@ function theme($new = null, $in_db = true) {
 			"Is your 'template_dir' set to the proper directory? Edit your config in the ACP. ",
 			E_USER_WARNING
 		);
+
+
 		return $this->theme;
 	}
 }
