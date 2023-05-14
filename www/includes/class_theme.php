@@ -420,14 +420,15 @@ function theme($new = null, $in_db = true) {
 				$this->cms->db->escape($new, true)
 			));
 			if (!$t) {
-				trigger_error("<b>PsychoTheme:</b> Attempt to set \$theme to an invalid name '<b>$new</b>'. " . 
-					"Theme not installed or enabled, please check your theme configuration.", 
-					E_USER_WARNING
-				);
-				return $this->theme;
+				$new = 'default';
+				$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
+					$this->cms->db->table('config_themes'),
+					$this->cms->db->escape($new, true)
+				));
 			}
 			$this->loaded_themes[$new] = $t;
-            $this->loaded_themes[$t['parent']] = $this->loaded_themes[$t['parent']] ?? null;
+            $t['parent'] ??= null;
+			$this->loaded_themes[$t['parent']] = $this->loaded_themes[$t['parent']] ?? null;
 			if ($t['parent'] and !$this->loaded_themes[$t['parent']]) { 
 				// load the parent theme ...
 				// the parent theme doesn't have to be enabled
