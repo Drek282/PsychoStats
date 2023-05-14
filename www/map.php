@@ -100,6 +100,7 @@ $shades = array(
 	's_map_ffkills'		=> null,
 	's_map_ffdeaths'	=> null,
 	's_map_onlinetime'	=> null,
+	's_map_capturepoint'	=> null,
 );
 
 $cms->theme->assign(array(
