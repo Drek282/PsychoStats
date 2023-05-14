@@ -77,7 +77,7 @@ function init_heatmap(imgs, overlay) {
 				pending_heatmaps = imgs.length;
 				for (var i=0; i < imgs.length; i++) {
 					heatmaps[i] = new Image();
-					heatmaps[i].onload = heatmap_loaded;
+					heatmaps[i].onload = heatmap_loaded();
 					heatmaps[i].src = 'heatimg.php?id=' + imgs[i];
 				}
 			}

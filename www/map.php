@@ -95,6 +95,7 @@ $shades = array(
 	's_modactions'		=> null,
 	's_mapprofile'		=> null,
 	's_maplist'			=> null,
+	's_map_bandage'		=> null,
 	's_map_kills'		=> null,
 	's_map_ffkills'		=> null,
 	's_map_ffdeaths'	=> null,

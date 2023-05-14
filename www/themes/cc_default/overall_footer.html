@@ -19,10 +19,10 @@
 	<div class="poweredby">
 		<#Powered by#> PsychoStats {ps->version}
 		{if $show_benchmark}
-		-- <#Page loaded in#> <!--PAGE_BENCHMARK--> <#seconds with#> {db->totalqueries} <#SQL queries#>
+		-- <#Page loaded in#> <!--PAGE_BENCHMARK--> <#seconds with#> {db->totalqueries} <#SQL queries#><br>
 		{/if}
 		{if ! $conf.theme.permissions.show_admin}
-		<br><strong>[ <a href="{url _base='admin/index.php'}"><#Admin Control Panel#></a> ]</strong>
+		<strong>[ <a href="{url _base='admin/index.php'}"><#Admin Control Panel#></a> ]</strong>
 		{/if}
 		{if $conf.main.security.show_privacy_policy}
         <strong>

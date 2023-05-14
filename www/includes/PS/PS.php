@@ -52,6 +52,7 @@
 if (defined("CLASS_PS_PHP")) return 1;
 define("CLASS_PS_PHP", 1);
 
+#[AllowDynamicProperties]
 class PS {
 var $use_roles = false;
 

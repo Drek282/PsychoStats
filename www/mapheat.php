@@ -31,8 +31,8 @@ $cms->theme->page_title('PsychoStats - Heatmap');
 $validfields = array('id', 'heatid', 'sort', 'order', 'start', 'limit');
 $cms->theme->assign_request_vars($validfields, true);
 
-$sort = strtolower($sort);
-$order = strtolower($order);
+$sort = isset($sort) ? $sort = strtolower($sort) : '';
+if (isset($order)) $order = strtolower($order);
 if (!preg_match('/^\w+$/', $sort)) $sort = 'kills';
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;

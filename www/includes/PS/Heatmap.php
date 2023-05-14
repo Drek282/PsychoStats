@@ -188,7 +188,7 @@ function image_passthru($id, $content_type = true, $skip_cache = false) {
 			$this->ps->db->escape($id, true)
 		);
 		$headers = apache_request_headers();
-		$if_modified_since = preg_replace('/;.*$/', '', $headers['If-Modified-Since']);
+		$if_modified_since = preg_replace('/;.*$/', '', $headers['If-Modified-Since'] ??= null);
 		if ($if_modified_since) {
 			$gmtime = gmdate("D, d M Y H:i:s", $lastupdate) . " GMT";
 			if ($if_modified_since == $gmtime) {

@@ -922,6 +922,7 @@ function load_styles($file = 'styles.xml', $theme = null) {
 
 // basic styles class for loaded theme styles.
 // allows for easy navigation and defaults for styles.
+#[AllowDynamicProperties]
 class PsychoThemeStyles {
 var $xml = '';
 var $styles = array();
