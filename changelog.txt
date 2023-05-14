@@ -46,6 +46,7 @@ Version 3.2.8b (in progress)
 * [Removed] Redundant and broken admin checks in Admin CP.
 * [Fixed] Replaced obsolete SHA1 perl digest with SHA.
 * [Improved] Handling of theme uninstalls and changes to default themes.
+* [Improved] Handle multiple PsychoStats instances with multiple themes installed.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

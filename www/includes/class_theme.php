@@ -412,16 +412,15 @@ function theme($new = null, $in_db = true) {
 		return $this->theme;
 	} elseif ($this->is_theme($new)) {
 		$loaded = false;
-        $this->loaded_themes[$new] ??= null;
 		// load the theme from the database
-		if (!$this->loaded_themes[$new] and $in_db) {
-			$loaded = true;
+		if ($in_db) {
+			$new = $this->cms->session->options['theme'] ??= null;
 			$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
 				$this->cms->db->table('config_themes'),
 				$this->cms->db->escape($new, true)
 			));
 			if (!$t) {
-				$new = $ps->conf['main']['theme'];
+				$new = $ps->conf['main']['theme'] ??= null;
 				$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
 					$this->cms->db->table('config_themes'),
 					$this->cms->db->escape($new, true)
@@ -435,6 +434,7 @@ function theme($new = null, $in_db = true) {
 				));
 			}
 			$this->loaded_themes[$new] = $t;
+			$loaded = true;
             $t['parent'] ??= null;
 			$this->loaded_themes[$t['parent']] ??= null;
 			if ($t['parent'] and !$this->loaded_themes[$t['parent']]) { 
@@ -457,6 +457,7 @@ function theme($new = null, $in_db = true) {
 		}
 
 		// if we're not loading a theme from the DB then fudge a loaded record ...
+		$this->loaded_themes[$new] ??= null;
 		if (!$this->loaded_themes[$new] and !$in_db) {
 			$loaded = true;
 			$this->loaded_themes[$new] = array(
@@ -504,13 +505,6 @@ function theme($new = null, $in_db = true) {
 		$this->theme = $new;
 		return $old;
 	} else {
-		trigger_error("<b>PsychoTheme:</b> Attempt to set \$theme to an invalid name '<b>$new</b>'. " . 
-			"Theme not found in \$template_dir(<b>" . implode(', ', (array)$this->template_dir) . "</b>). " .
-			"Is your 'template_dir' set to the proper directory? Edit your config in the ACP. ",
-			E_USER_WARNING
-		);
-
-
 		return $this->theme;
 	}
 }
