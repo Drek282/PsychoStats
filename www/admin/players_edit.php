@@ -181,8 +181,6 @@ if (isset($submit)) {
 		// do not allow a duplicate username if another user has it already
 		if ($_u and $_u['userid']) {
 			$form->error('username', $cms->trans("Username already exists; please try another name"));
-		} else {
-			unset($form->errors['username']);
 		}
 		unset($_u);
 	}

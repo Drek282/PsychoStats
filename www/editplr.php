@@ -205,18 +205,22 @@ if ($submit) {
 		}
 	}
 
-	if (!$form->error('username') and $input['username'] != $plr_user->username()) {
+	if ($input['username'] != $plr_user->username()) {
 		// load the user matching the username
 		$_u = $plr_user->load_user($input['username'], 'username');
 		// do not allow a duplicate username if another user has it already
 		if ($_u and $_u['userid'] != $plr_user->userid()) {
 			$form->error('username', $cms->trans("Username already exists; please try another name"));
+		} else {
+			unset($form->error['username']);
 		}
 		unset($_u);
+	} else {
+		unset($form->error['username']);
 	}
 
 	// if a username is given we need to make sure a password was provided too (if there wasn't one already)
-	if (!$form->error('username') and $input['username'] != '' or ($plr_user->userid() and $input['password'] != '')) {
+	if ($input['username'] != '' or ($plr_user->userid() and $input['password'] != '')) {
 		// verify the passwords match if one was specified
 		if (!$plr_user->userid() and $input['password'] == '') {
 			$form->error('password', $cms->trans("A password must be entered for new users"));

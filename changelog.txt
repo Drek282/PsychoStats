@@ -41,7 +41,7 @@ Version 3.2.8b (in progress)
 * [Added] Check for valid regular expressions to clantag edit page.
 * [Removed] RIP gamespy.
 * [Added] PHP 7.0 polyfill for 'str_contains()' function added in PHP 8.0
-* [Fixed] Broken player edit in Admin CP.
+* [Fixed] Broken player edit pages.
 * [Added] Proper email format check to the main stats player edit page.
 * [Removed] Redundant and broken admin checks in Admin CP.
 * [Fixed] Replaced obsolete SHA1 perl digest with SHA.
