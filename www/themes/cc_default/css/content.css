@@ -19,11 +19,6 @@
 #ps-main h2 { font-size: 110%; }
 #ps-main h3 { font-size: 80%; }
 
-#ps-page-container {
-    background-image: url("../img/tripe.webp");
-    background-repeat: repeat;
-}
-
 #ps-main-content {
 	text-align: center;
 }

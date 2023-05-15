@@ -28,6 +28,7 @@ body.psychostats {
 	font-size: 80%;
 	font-family: Tahoma,Arial,sans-serif;
 	background: #efe1b4;
+    background-image: url("../img/tripe.webp");
 }
 
 #ps-container a,
