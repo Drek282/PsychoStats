@@ -1,8 +1,6 @@
-***As of September 29, 2021, this repository and all related repositories have been mothballed.  So long, thanks for all the fish, and anyone is more than welcome to take the work that has been done here, set up their own repositories, and fly with it.***
+***As of September 29, 2021, this repository and all related repositories have been mothballed.  So long, thanks for all the fish, and anyone is more than welcome to take the work that has been done here, set up their own repositories, and fly with it.  The code may still be updated from time to time, but this should not be considered an active project.***
 
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.1.0+ and MySQL 5.5.0+.  The minimum required version of Perl is 5.08.
-
-***This version of PsychoStats should be close to being PHP 8 compatible.  It has been tested on PHP 8, but not thoroughly.***
 
 ***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
 
@@ -43,6 +41,14 @@ If you don't like those changes they are easy to edit in the Admin Control Panel
 Most of the links and references to psychostats.com have been removed as that domain is no longer actively maintained.  The only exception is the xml database that provides GeoIP data for the flags functionality. That appears to still be hosted. All of the references to Stormtrooper's email address have been removed.
 
 
+You can view working demos of PsychoStats at the following links: 
+
+* [The Battle Grounds III](https://displaced.zone/ps_bg3/ "The Battle Grounds III")
+* [Firearms 3.0](https://displaced.zone/ps_firearms-30/ "Firearms 3.0")
+* [Natural Selection](https://displaced.zone/ps_ns/ "Natural Selection")
+* [Team Fortress Classic](https://displaced.zone/ps_tfc/ "Team Fortress Classic")
+
+
 ## **Known Issues**
 
 *The plan for the following issues is to either fix them, or improve them, in future versions:*
@@ -57,9 +63,9 @@ Most of the links and references to psychostats.com have been removed as that do
 
 * PsychoStats is decidedly **not** mobile friendly.
 
-* The live server views can be flakey and unreliable.
-
 * Mcrypt is deprecated/obsolete.
+
+* Hourly heatmap display is broken.
 
 
 ## **Stuff that Remains Untested**
@@ -67,8 +73,6 @@ Most of the links and references to psychostats.com have been removed as that do
 * The contents of the "addons" folder are largely unexplored with the exception of the AMX Mod X ps_heatmaps script, which does work.
 
 * The contents of the "scripts" folder are also largely unexplored.  Most of them should be self explanatory but they should be considered untested.
-
-* PHP 8 compatibility.
 
 
 ## **Future Plans**

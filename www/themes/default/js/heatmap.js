@@ -78,7 +78,7 @@ function init_heatmap(imgs, overlay) {
 				for (var i=0; i < imgs.length; i++) {
 					heatmaps[i] = new Image();
 					heatmaps[i].src = 'heatimg.php?id=' + imgs[i];
-					heatmaps[i].onload = heatmap_loaded(heatmaps[i].src);
+					heatmaps[i].onload = heatmap_loaded(i);
 				}
 			}
 		};
@@ -87,18 +87,16 @@ function init_heatmap(imgs, overlay) {
 }
 
 // each heatmap pre-loaded is processed here. Once all are loaded the slider is enabled.
-function heatmap_loaded(hmsrc) {
+function heatmap_loaded(i) {
 	loaded_heatmaps++;
 	update_heatmap_progress();
 	// once all images are preloaded add them to the DOM in proper order
 	if (loaded_heatmaps >= pending_heatmaps) {
-		for (var i=heatmaps.length-1; i >= 0; i--) {
-			var img = $("<img class='heat' src='" + hmsrc + "'>");
-			img.css('display', 'none');
-			$('div.heatmap').prepend(img);
-			img.width(heatmap_overlay.width()).height(heatmap_overlay.height());
-			heatmaps[i] = img;	// change heatmap image pointer to the DOM element
-		}
+		var img = $("<img class='heat' src='" + heatmaps[i].src + "'>");
+		img.css('display', 'none');
+		$('div.heatmap').prepend(img);
+		img.width(heatmap_overlay.width()).height(heatmap_overlay.height());
+		heatmaps[i] = img;	// change heatmap image pointer to the DOM element
 		if (loaded_heatmaps > 1) {
 			slider.slider('enable');
 			$('div.heatmap .hour').show();
