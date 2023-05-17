@@ -412,15 +412,16 @@ function theme($new = null, $in_db = true) {
 		return $this->theme;
 	} elseif ($this->is_theme($new)) {
 		$loaded = false;
-		// load the theme from the database
-		if ($in_db) {
+		// load the theme from the database if possible
+		$ps_installed = $this->cms->db->table_exists($this->cms->db->table('config_themes'));
+		if ($ps_installed and $in_db) {
 			$new = $this->cms->session->options['theme'] ??= null;
 			$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
 				$this->cms->db->table('config_themes'),
 				$this->cms->db->escape($new, true)
 			));
 			if (!$t) {
-				$new = $ps->conf['main']['theme'] ??= null;
+				$new = $ps->conf['main']['theme'] ?? null;
 				$t = $this->cms->db->fetch_row(1, sprintf("SELECT * FROM %s WHERE name=%s and enabled <> 0", 
 					$this->cms->db->table('config_themes'),
 					$this->cms->db->escape($new, true)
@@ -433,6 +434,7 @@ function theme($new = null, $in_db = true) {
 					$this->cms->db->escape($new, true)
 				));
 			}
+
 			$this->loaded_themes[$new] = $t;
 			$loaded = true;
             $t['parent'] ??= null;
@@ -449,24 +451,24 @@ function theme($new = null, $in_db = true) {
 					$this->parent_themes[$new] = $t['parent'];
 //					$this->child_themes[$t['parent']] = $new;
 				}
-			}	
-
+			}
+				
 			// update the user's theme
 			$this->cms->session->opt('theme', $new);
 			$this->cms->session->save_session_options();
-		}
-
-		// if we're not loading a theme from the DB then fudge a loaded record ...
-		$this->loaded_themes[$new] ??= null;
-		if (!$this->loaded_themes[$new] and !$in_db) {
-			$loaded = true;
-			$this->loaded_themes[$new] = array(
-				'name' => $new,
-				'parent' => null,
-				'enabled' => 1, 
-				'title' => $new,
-				'description' => ''
-			);
+		} else {	
+			// if we're not loading a theme from the DB then fudge a loaded record ...
+			$this->loaded_themes[$new] ??= null;
+			if (!$this->loaded_themes[$new] and !$in_db) {
+				$loaded = true;
+				$this->loaded_themes[$new] = array(
+					'name' => $new,
+					'parent' => null,
+					'enabled' => 1, 
+					'title' => $new,
+					'description' => ''
+				);
+			}
 		}
 
 		// load the language for the theme
