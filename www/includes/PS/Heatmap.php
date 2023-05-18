@@ -152,17 +152,9 @@ function get_heatmap_images($mapid, $criteria = array(), $ids_only = true) {
 	return $list;
 }
 
-function total_heatmap_images($mapid, $criteria = array()) {
-	static $valid = array('heatkey','statdate','enddate','who','weaponid','pid','kid','vid','team','kteam','vteam','headshot');
+function total_heatmap_images($mapid) {
 	$db =& $this->ps->db;
-	$where = "mapid=" . $db->escape($mapid, true);
-	foreach ($criteria as $key => $val) {
-		if (!in_array($key, $valid)) continue;
-		$where .= " AND $key" . (is_null($val) ? ' IS NULL' : "=" . $db->escape($val,true));
-	}
-	// hour is checked separately due to its special requirement
-	$where .= " AND hour IS " . (isset($criteria['hour']) ? 'NOT NULL' : 'NULL');
-	list($total) = $db->fetch_list("SELECT COUNT(*) FROM {$this->ps->t_heatmaps} WHERE $where");
+	list($total) = $db->fetch_list("SELECT COUNT(*) FROM {$this->ps->t_heatmaps} WHERE mapid=$mapid");
 	return $total;
 }
 
