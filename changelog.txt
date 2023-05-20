@@ -48,6 +48,7 @@ Version 3.2.8b (in progress)
 * [Improved] Handling of theme uninstalls and changes to default themes.
 * [Improved] Handle multiple PsychoStats instances with multiple themes installed.
 * [Fixed] Broken heatmap display.
+* [Fixed] Login errors related to multiple open instances.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

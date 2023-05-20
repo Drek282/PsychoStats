@@ -653,7 +653,7 @@ function key($value = null) {
 
 // returns the time the session key was generated
 function key_time() {
-	return $this->sessdata['session_key_time'];
+	return $this->sessdata['session_key_time'] ?? null;
 }
 
 // returns true if the key given matches the current session and is valid.
