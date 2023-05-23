@@ -49,8 +49,8 @@ $DEFAULT_SORT = 'kills';
 $validfields = array('sort','order','start','limit','xml');
 $cms->theme->assign_request_vars($validfields, true);
 
-$sort = trim(strtolower($sort));
-$order = trim(strtolower($order));
+$sort = trim(strtolower($sort ?? ''));
+$order = trim(strtolower($order ?? ''));
 if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;

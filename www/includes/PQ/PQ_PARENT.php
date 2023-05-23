@@ -40,6 +40,7 @@ if (!defined("CLASS_PQ_PHP")) die("Access Denied!");
 if (defined("PQ_PARENT_PHP")) return 1;
 define("PQ_PARENT_PHP", 1);
 
+#[AllowDynamicProperties]
 class PQ_PARENT {
 
 // to remain PHP4 compatible I declare our object members here like this

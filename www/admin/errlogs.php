@@ -32,8 +32,8 @@ if (!is_numeric($start) or $start < 0) $start = 0;
 if (!is_numeric($limit) or $limit < 0) $limit = 300;
 $order = 'desc';
 $sort  = 'timestamp';
-$filter = trim($filter);
-$view = trim($view);
+$filter = trim($filter ?? '');
+$view = trim($view ?? '');
 
 $_order = array(
 	'start'	=> $start,

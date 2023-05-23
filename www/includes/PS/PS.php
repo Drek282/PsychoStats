@@ -1230,7 +1230,7 @@ function get_basic_player_list($args = array()) {
 	if (!$args['allowall']) $cmd .= "AND plr.allowrank=1 ";
 	if (trim($args['where']) != '') $cmd .= "AND (" . $args['where'] . ") ";
 	// basic filter
-	if (trim($args['filter']) != '') {
+	if (trim($args['filter'] ?? '') != '') {
 		$cmd .= " AND (pp.name LIKE '%" . $this->db->escape(trim($args['filter'])) . "%') ";		
 	}
 
@@ -1397,7 +1397,7 @@ function get_total_players($args = array()) {
 		'filter'	=> '',
 	);
 	$cmd = "";
-	$filter = trim($args['filter']);
+	$filter = trim($args['filter'] ?? '');
 	if ($filter == '') {
 		$cmd = "SELECT count(*) FROM $this->t_plr plr WHERE 1 ";
 	} else {

@@ -83,7 +83,7 @@ $config_text =
 	"\$dbuser = '" . addslashes($db->dbuser) . "';\n" . 
 	"\$dbpass = '" . addslashes($db->dbpass) . "';\n" . 
 	"\$dbtblprefix = '" . addslashes($db->dbtblprefix) . "';\n" .
-	"\$site_url = '" . addslashes($db->site_url) . "';\n" .
+	"\$site_url = '" . addslashes($db->site_url ?? '') . "';\n" .
 	"?>";
 
 // determine if we're able to write to the config.php directly...

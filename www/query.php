@@ -92,7 +92,7 @@ if ($pqinfo) {
 }
 
 $pqinfo['totalkills'] = 0;
-if ($pqinfo['players']) {
+if (isset($pqinfo['players'])) {
 	foreach ($pqinfo['players'] as $p) {
 		$pqinfo['totalkills'] += $p['kills'];
 	}
@@ -105,6 +105,10 @@ if ($cms->user->is_admin() and !empty($r) and !empty($server['rcon'])) {
 }
 
 // adjust some variables so its easier to use them within the theme
+$pqinfo['servertype'] ??= null;
+$pqinfo['serveros'] ??= null;
+$pqinfo['map'] ??= null;
+$pqinfo['gamedir'] ??= null;
 $pqinfo['dedicated'] = (bool)($pqinfo['servertype'] == 'd');
 $pqinfo['servertype'] = $pqinfo['dedicated'] ? $cms->trans('Dedicated') : $cms->trans('Listen');
 $pqinfo['windows'] = (bool)($pqinfo['serveros'] != 'l');

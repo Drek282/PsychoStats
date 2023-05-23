@@ -40,6 +40,7 @@ if (defined("CLASS_XMLDATA5_PHP")) return 1;
 define("CLASS_XMLDATA5_PHP", 1); 
 
 // XML class: utility class to be used with PHP's XML handling functions
+#[AllowDynamicProperties]
 class XMLstruct {
 	var $parser;   		// a reference to the XML parser
 	var $document; 		// the entire XML structure built up so far
@@ -48,7 +49,8 @@ class XMLstruct {
 	var $last_opened_tag; 	// keeps track of the last tag opened.
 
 	function __construct(){
- 		$this->parser =& xml_parser_create();
+		$parser = xml_parser_create();
+ 		$this->parser =& $parser;
 		xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
 		xml_set_object($this->parser, $this);
 		xml_set_element_handler($this->parser, 'open','close');
@@ -64,7 +66,8 @@ class XMLstruct {
 		$this->document = array();
 		$this->stack    = array();
 		$this->parent   = &$this->document;
-		return xml_parse($this->parser, $data, true) ? $this->document : NULL;
+		$parse = xml_parse($this->parser, $data, true) ? $this->document : NULL;
+		return $parse;
 	}
 	function open($parser, $tag, $attributes){
 		$this->data = ''; #stores temporary cdata

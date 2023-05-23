@@ -34,8 +34,8 @@ $MAX_PLAYERS = 10;
 $validfields = array('id', 'sort', 'order', 'start', 'limit');
 $cms->theme->assign_request_vars($validfields, true);
 
-$sort = strtolower($sort);
-$order = strtolower($order);
+$sort = strtolower($sort ?? '');
+$order = strtolower($order ?? '');
 if (!preg_match('/^\w+$/', $sort)) $sort = 'kills';
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;

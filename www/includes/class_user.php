@@ -445,6 +445,7 @@ function accesslevels() {
 // ... not sure how this will work yet ...
 function & init_form(&$form) {
 	$form->default_modifier('trim');
+	return $this;
 }
 
 // returns an array of key=>value pairs to populate a user form

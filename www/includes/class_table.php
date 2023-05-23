@@ -39,6 +39,7 @@
 if (defined("CLASS_PSYCHOTABLE_PHP")) return 1; 
 define("CLASS_PSYCHOTABLE_PHP", 1); 
 
+#[AllowDynamicProperties]
 class PsychoTable extends PsychoTableCommon {
 	var $data = array();	// array of data to display
 	var $stripe = true;	// automatically stripe rows?
@@ -224,7 +225,8 @@ function insert_columns($col, $key = null, $after = false) {
 		$newcols = array();
 		$curcols = array_values($this->columns);
 		$cols = array_keys($this->columns);
-		$c = array_pop(array_keys($cols, $key));	// which column index matches the $key 
+		$tmp =array_keys($cols, $key);	// which column index matches the $key 
+		$c = array_pop($tmp);
 		if ($after) $c++;
 		for ($i=0; $i < $c; $i++) {			// keep preceeding columns
 			$newcols[ $cols[$i] ] = $curcols[$i];
@@ -350,6 +352,7 @@ function if_no_data($msg = null) {
 
 } // end of PsychoTable
 
+#[AllowDynamicProperties]
 class PsychoRow extends PsychoTableCommon {
 	var $cells = array();
 

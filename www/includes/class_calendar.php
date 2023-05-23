@@ -35,6 +35,7 @@
 if (defined("CLASS_CALENDAR_PHP")) return 1; 
 define("CLASS_CALENDAR_PHP", 1); 
 
+#[AllowDynamicProperties]
 class Calendar {
 	var $dotw = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");	// sun - sat
 //	var $dotw = array("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");	// mon - sun

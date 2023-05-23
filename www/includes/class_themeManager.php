@@ -34,6 +34,7 @@ include_once(PS_ROOTDIR . "/includes/class_XML.php");
 //require_once(PS_ROOTDIR . '/includes/class_simplexml.php');
 
 
+#[AllowDynamicProperties]
 class PsychoThemeManager {
 var $ps = null;			// PsychoStats object handle
 var $db = null;			// PsychoDB object handle

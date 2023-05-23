@@ -84,7 +84,7 @@ public static function &create($conf) {
 	$classname = "PQ_" . $filename;
 
 	if (!file_exists(__DIR__ . "/PQ/" . $filename . ".php")) {
-		trigger_error("Support for (${conf['querytype']}) not installed", E_USER_ERROR);
+		trigger_error("Support for ({$conf['querytype']}) not installed", E_USER_ERROR);
 	} else {
 		include_once(__DIR__ . "/PQ/" . $filename . ".php");
 		$pq = new $classname($conf);

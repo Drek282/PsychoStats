@@ -64,7 +64,7 @@ public static function &create($conf=array()) {
 
 	// Attempt to load the proper class for our specified 'dbtype'.
 	if (!include_once($filepath)) {
-		die("<b>Fatal Error:</b> Unsupported 'dbtype' specified (${conf['dbtype']}) for new DB object.");
+		die("<b>Fatal Error:</b> Unsupported 'dbtype' specified ({$conf['dbtype']}) for new DB object.");
 	} else {
 		$_db = new $classname($conf);
 		return $_db;

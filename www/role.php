@@ -34,8 +34,8 @@ $validfields = array('id','order','sort');
 $cms->theme->assign_request_vars($validfields, true);
 
 $limit = 25;
-$sort = trim(strtolower($sort));
-$order = trim(strtolower($order));
+$sort = trim(strtolower($sort ?? ''));
+$order = trim(strtolower($order ?? ''));
 if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 

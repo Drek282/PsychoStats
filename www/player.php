@@ -108,7 +108,7 @@ $player = $ps->get_player(array(
 
 $cms->theme->page_title(' for ' . $player['name'], true);
 
-$x = substr($xml,0,1);
+$x = substr($xml ?? '',0,1);
 if ($x == 'p') {	// player
 	// we have to alter some of the data for player arrays otherwise we'll end up with invalid or strange keys
 	$ary = $player;

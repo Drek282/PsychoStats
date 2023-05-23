@@ -1550,7 +1550,7 @@ class Smarty_Compiler extends Smarty {
             1 - expecting '='
             2 - expecting attribute value (not '=') */
         $state = 0;
-        $attrs['step'] = $attrs['step'] ?? null;
+        $attrs['step'] ??= null;
 
         foreach ($tokens as $token) {
             switch ($state) {

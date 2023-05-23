@@ -49,9 +49,9 @@ $DEFAULT_SORT = 'kills';
 $validfields = array('sort','order','xml','v');
 $cms->theme->assign_request_vars($validfields, true);
 
-$v = strtolower($v);
-$sort = trim(strtolower($sort));
-$order = trim(strtolower($order));
+$v = strtolower($v ?? '');
+$sort = trim(strtolower($sort ?? ''));
+$order = trim(strtolower($order ?? ''));
 $start = 0;
 $limit = 100;
 if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;

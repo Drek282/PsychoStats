@@ -35,7 +35,7 @@ if (!is_numeric($start) or $start < 0) $start = 0;
 if (!is_numeric($limit) or $limit < 0) $limit = 100;
 if (!in_array($order, array('asc','desc'))) $order = 'asc';
 if (!in_array($sort, array('username'))) $sort = 'username';
-$c = trim($c);
+$c = trim($c ?? '');
 if ($c == '') $c = -1;
 
 $_order = array(

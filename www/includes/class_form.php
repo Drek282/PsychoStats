@@ -115,7 +115,7 @@ function check($name) {
 
 // return a field value modified with any modifiers enabled on it
 function modify($name) {
-    $this->input[$name] ??= null;
+    $this->input[$name] ??= '';
 	$value = $this->input[$name];
 	$modifiers = array_merge($this->modifiers, $this->fields[$name]['m']);
 	foreach ($modifiers as $func => $args) {
