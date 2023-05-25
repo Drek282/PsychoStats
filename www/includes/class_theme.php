@@ -491,6 +491,8 @@ function theme($new = null, $in_db = true) {
 				if ($ok and !$err) {
 					$this->lang = new $class();
 				}
+			} elseif (class_exists($class)) {
+				$ok = true;
 			}
 			
 			// if no language file can be loaded then create an
@@ -498,7 +500,7 @@ function theme($new = null, $in_db = true) {
 			if (!$ok) {
 				if (defined("PS_THEME_DEV") and PS_THEME_DEV == true) {
 					trigger_error("Error loading language class $class. <strong>Using default instead.</strong> See the errors and/or warnings below for more information", E_USER_WARNING);
-					print $err;
+					print $err ?? null;
 				}
 				$this->lang = new PsychoLanguage();
 			}
