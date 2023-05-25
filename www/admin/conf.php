@@ -110,7 +110,7 @@ unset($list);
 //print "<pre>"; print_r($config_layout); print "</pre>";
 // make sure the section is valid
 if (empty($s)) $s = 'general';
-if (!is_array($config_layout[$s])) {
+if (!is_array($config_layout[$s] ?? null)) {
 	$s = $sections[$ct][0];		// default to first section found
 }
 

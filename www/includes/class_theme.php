@@ -358,7 +358,7 @@ function no_template_found($resource_type, $resource_name, &$template_source, &$
 			// create the template file, return contents.
 			$template_source = "Template '$resource_name' not found! Do something about it!<br/><br/>\n\n";
 			$template_timestamp = time();
-#			$smarty->_write_file($resource_name,$template_source);
+//			$smarty->_write_file($resource_name,$template_source);
 			return true;
 		}
 	} else {
@@ -763,7 +763,7 @@ function parse($filename, $append_buffer = true) {
 	$len = strlen($filename);
 	if (!$pos || $len - $pos > 5) $filename .= ".html";
 	$orig = $this->theme();
-#	print "parse($filename) orig=$orig\n";
+//	print "parse($filename) orig=$orig\n";
 	$out = $this->fetch_compile ? $this->fetch($filename) : $this->fetch_eval($filename);
 	$this->theme($orig);
 	if ($append_buffer) $this->buffer .= $out;
@@ -846,13 +846,13 @@ function output_filter($output, &$smarty) {
 		foreach ($matchlist as $matches) {
 			foreach ($matches as $match) {
 				if (preg_match("/" . $attr . "\s*=\s*(([\"'])(.*?)\\2)/i", $match, $innermatch)) {
-#					$match = <a href="team.php?id=7350" class="example">
-#					$innermatch = Array(
-#						[0] => href="team.php?id=7350"
-#						[1] => "team.php?id=7350"
-#						[2] => "
-#						[3] => team.php?id=7350
-#					)
+//					$match = <a href="team.php?id=7350" class="example">
+//					$innermatch = Array(
+//						[0] => href="team.php?id=7350"
+//						[1] => "team.php?id=7350"
+//						[2] => "
+//						[3] => team.php?id=7350
+//					)
 
 					$url = $innermatch[3];
 

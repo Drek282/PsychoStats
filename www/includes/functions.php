@@ -190,7 +190,7 @@ function dual_bar($args = array()) {
 	$out = sprintf("<span %s%s>" . 
 			"<span class='left'  title='%s' style='width: %s; background-color: #%s'></span>" . 
 			"<span class='center'%s></span>" . 
-#######			"<span class='right' title='%s' style='width: %s; background-color: #%s'></span>" . 
+			//"<span class='right' title='%s' style='width: %s; background-color: #%s'></span>" . 
 			"</span>",
 		!empty($args['class']) ? "class='" . $args['class'] . "'" : "",
 		$styles, 
@@ -202,9 +202,9 @@ function dual_bar($args = array()) {
 		(int)($args['pct2']) ? '' : " style='display: none'"
 
 // instead of trying to float a 2nd span for the other percentage, just set the background of the overall div
-#		!empty($args['title2']) ? $args['title2'] : (int)($args['pct2']) . '%',
-#		(int)($args['pct2']) . '%',
-#		$args['color2']
+//		!empty($args['title2']) ? $args['title2'] : (int)($args['pct2']) . '%',
+//		(int)($args['pct2']) . '%',
+//		$args['color2']
 	);
 	return $out;
 }
@@ -235,10 +235,10 @@ function rank_change($args = array()) {
 
 	$alt = $cms->trans("no change");
 	$dir = "same";
-	$diff = sprintf($args['difffmt'], $prevrank - $rank);	# note: LESS is better. Opposite of 'skill'.
+	$diff = sprintf($args['difffmt'], $prevrank - $rank);	// note: LESS is better. Opposite of 'skill'.
 
 	if ($prevrank == 0) {
-		# no change
+		// no change
 	} elseif ($diff > 0) {
 		$dir = "up";
 		$alt = $cms->trans("Diff") . ": +$diff";
@@ -262,9 +262,9 @@ function rank_change($args = array()) {
 		}
 
 		$output = sprintf("<img src='%s' alt='%s' title='%s' %s>", $img, $alt, $alt, $args['attr']);
-#		if ($args['acronym']) {
-#			$output = "<abbr title='$alt'>$output</abbr>";
-#		}
+//		if ($args['acronym']) {
+//			$output = "<abbr title='$alt'>$output</abbr>";
+//		}
 		$output = "<span class='rankchange-$dir'>$output</span>";
 	}
 	return $output;
@@ -299,7 +299,7 @@ function skill_change($args = array()) {
 	$diff = sprintf($args['difffmt'], $skill - $prevskill);
 
 	if ($prevskill == 0) {
-		# no change
+		// no change
 	} elseif ($diff > 0) {
 		$dir = "up";
 		$alt = $cms->trans("Diff") . ": +$diff";
@@ -323,9 +323,9 @@ function skill_change($args = array()) {
 		}
 
 		$output = sprintf("<img src='%s' alt='%s' title='%s' %s>", $img, $alt, $alt, $args['attr']);
-#		if ($args['acronym']) {
-#			$output = "<abbr title='$alt'>$output</abbr>";
-#		}
+//		if ($args['acronym']) {
+//			$output = "<abbr title='$alt'>$output</abbr>";
+//		}
 		$output = "<span class='skillchange-$dir'>$output</span>";
 	}
 	return $output;
@@ -381,7 +381,7 @@ function url($arg = array()) {
 	}
 
 	if ($arg['_raw']) $base .= ($i ? $arg['_amp'] : '?') . $arg['_raw'];
-	if ($arg['_anchor']) $base .= '#' . $arg['_anchor'];
+	if (!empty($arg['_anchor'])) $base .= '#' . $arg['_anchor'];
 
 	return $base;
 }

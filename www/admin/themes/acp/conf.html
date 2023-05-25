@@ -21,7 +21,7 @@
 <div class="ps-column-content">
 <dl id="ps-admin-menu">
 {foreach from=$sections key='conftype' item='ct_section'}
-	<dt {if $conftype == $ct}id="menu-general"{/if} class="folder first {if $conftype == $ct}{if $section_errors.general}err {/if}{if $s == 'general'}sel{/if}{/if}">
+	<dt {if $conftype == $ct}id="menu-general"{/if} class="folder first {if $conftype == $ct}{if is_array($section_errors) and $section_errors.general}err {/if}{if $s == 'general'}sel{/if}{/if}">
 		{if $conftype == $ct}
 			<a id="link-general" href="{url ct=$conftype}">{$conftype|ucfirst|escape}</a>
 		{else}
@@ -29,7 +29,7 @@
 		{/if}
 	</dt>
 	{foreach from=$ct_section item='sec'}
-		<dd id="menu-{$sec|escape}" class="edit {$sec|escape}{if $section_errors[$sec]} err {/if}{if $s == $sec} sel{/if}">{strip}
+		<dd id="menu-{$sec|escape}" class="edit {$sec|escape}{if is_array($section_errors) and $section_errors[$sec]} err {/if}{if $s == $sec} sel{/if}">{strip}
 		{if $conftype == $ct}
 			<a id="link-{$sec|escape}" href="#">{confsection var='label' ct=$conftype sec=$sec}</a>
 		{else}
@@ -60,9 +60,9 @@
 
 <div class="ps-tabs">
 <ul style="display: none">
-	<li id="tab-general" class="{if $section_errors.general}err {/if}{if $s == 'general'}sel{/if}"><a href="#">{confsection var='label' sec='general' ct=$ct}</a></li>
+	<li id="tab-general" class="{if is_array($section_errors) and $section_errors.general}err {/if}{if $s == 'general'}sel{/if}"><a href="#">{confsection var='label' sec='general' ct=$ct}</a></li>
 {foreach from=$section item='sec'}
-	<li id="tab-{$sec|escape}" class="{if $section_errors[$sec]}err {/if}{if $s == $sec}sel{/if}"><a href="#">{confsection var='label' sec=$sec ct=$ct}</a></li>
+	<li id="tab-{$sec|escape}" class="{if is_array($section_errors) and $section_errors[$sec]}err {/if}{if $s == $sec}sel{/if}"><a href="#">{confsection var='label' sec=$sec ct=$ct}</a></li>
 {/foreach}
 </ul>
 </div>
