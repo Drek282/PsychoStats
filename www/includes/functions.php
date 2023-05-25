@@ -363,6 +363,7 @@ function url($arg = array()) {
 
 	foreach ($arg as $key => $value) {
 		if ($key[0] == '_') continue;		// ignore any param starting with '_'
+		if (empty($value)) continue;		// ignore empty values
 		$base .= ($i++) ? $arg['_amp'] : '?';
 		$base .= "$key=";			// do not encode keys
 		$base .= $enc ? $encodefunc($value ?? '') : $value;
