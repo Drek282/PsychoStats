@@ -1550,7 +1550,6 @@ class Smarty_Compiler extends Smarty {
             1 - expecting '='
             2 - expecting attribute value (not '=') */
         $state = 0;
-        $attrs['step'] ??= null;
 
         foreach ($tokens as $token) {
             switch ($state) {
@@ -1609,6 +1608,11 @@ class Smarty_Compiler extends Smarty {
         }
 
         $this->_parse_vars_props($attrs);
+
+        // destroy empty $attrs keys
+        foreach ($attrs as $a) {
+            if (empty($attrs[$a])) unset($attrs[$a]);
+        }
 
         return $attrs;
     }
