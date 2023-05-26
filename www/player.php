@@ -376,8 +376,8 @@ if ($player['plrid']) {
 	$cms->theme->add_css('css/2column.css');	// this page has a left column
 	if ($ps->conf['theme']['map']['google_key'] and $player['latitude'] and $player['longitude']) {
 		$cms->theme->add_js('http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $ps->conf['theme']['map']['google_key']);
-		$cms->theme->add_js('js/player.js');
 	}
+	$cms->theme->add_js('js/player.js');
 	$cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');
 } else {
 	$cms->full_page_err($basename, array(
