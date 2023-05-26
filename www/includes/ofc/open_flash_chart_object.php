@@ -81,25 +81,6 @@ function _ofc( $width, $height, $url, $use_swfobject, $base )
 	// Using library for auto-enabling Flash object, disabled-Javascript proof  
     $out[] = '<div id="'. $div_name .'"></div>';
 	$out[] = '<script src="' . $php_scnm_dir . '/includes/ruffle/ruffle.js"></script>';
-	$out[] = '<script>';
-	$out[] = '{literal}';
-	$out[] = '  window.RufflePlayer = window.RufflePlayer || {};';
-	$out[] = '  window.RufflePlayer.config = {';
-	$out[] = '    "publicPath": undefined,';
-	$out[] = '    "polyfills": true,';
-	$out[] = '    "autoplay": "on",';
-	$out[] = '    "unmuteOverlay": "hidden",';
-	$out[] = '    "backgroundColor": null,';
-	$out[] = '    "letterbox": "fullscreen",';
-	$out[] = '    "warnOnUnsupportedContent": true,';
-	$out[] = '    "contextMenu": false,';
-	$out[] = '    "upgradeToHttps": window.location.protocol === "https:",';
-	$out[] = '    "maxExecutionDuration": {"secs": 15, "nanos": 0},';
-	$out[] = '    "logLevel": "error",';
-	$out[] = '  };';
-	$out[] = '{/literal}';
-	$out[] = '</script>';
-	
     $out[] = '<object type="application/x-shockwave-flash" ';
     $out[] = 'width="' . $width . '" height="' . $height . '">';
     $out[] = '<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
