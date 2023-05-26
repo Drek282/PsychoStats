@@ -1,3 +1,23 @@
+// When the page is loaded this is automatically called
+$(document).ready(function() {
+    window.RufflePlayer = window.RufflePlayer || {};
+    window.RufflePlayer.config = {
+        // Options affecting the whole page
+        "publicPath": undefined,
+        "polyfills": true,
+        // Options affecting files only
+        "autoplay": "on",
+        "unmuteOverlay": "hidden",
+        "backgroundColor": null,
+        "letterbox": "fullscreen",
+        "warnOnUnsupportedContent": true,
+        "contextMenu": false,
+        "upgradeToHttps": window.location.protocol === "https:",
+        "maxExecutionDuration": {"secs": 15, "nanos": 0},
+        "logLevel": "error",
+    };
+});
+
 // http://code.google.com/apis/maps/documentation/
 var map;
 $(function(){
