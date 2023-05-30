@@ -65,8 +65,6 @@ You can view working demos of PsychoStats at the following links:
 
 * Mcrypt is deprecated/obsolete.
 
-* Hourly heatmap display is broken.
-
 
 ## **Stuff that Remains Untested**
 
@@ -79,7 +77,6 @@ You can view working demos of PsychoStats at the following links:
 
 * Improve display on mobile devices.
 * Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
-* Full PHP 8 compatibility.
 * GDPR compliance.
 
 
