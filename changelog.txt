@@ -52,6 +52,8 @@ Version 3.2.8b (in progress)
 * [Fixed] Problem with language class attempting to load multiple times.
 * [Fixed] Broken Smarty debugging—thanks Rosenstein.
 * [Fixed] Annoying ugly links urls.
+* [Fixed] No longer have to enter the password every time an FTP/SFTP source is tested.
+* [Improved] The script now automatically enters a default log path for FTP/SFTP if none is given.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
