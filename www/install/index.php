@@ -42,6 +42,7 @@ $cms->theme->assign_request_vars($validfields, true);
 $release_date = $release_date ?? null;
 $ps_version = $ps_version ?? null;
 $cms->theme->assign(array(
+	'step'				=> $s ??= null,
 	'install'		=> $opts['install'], 
 //	'newer_avail'		=> $newer_avail,
 	'release_date'		=> $release_date,
