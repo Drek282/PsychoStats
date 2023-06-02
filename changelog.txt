@@ -55,6 +55,7 @@ Version 3.2.8b (in progress)
 * [Fixed] No longer have to enter the password every time an FTP/SFTP source is tested.
 * [Improved] The script now automatically enters a default log path for FTP/SFTP if none is given.
 * [Added] Serbian language support, credit to Rosenstein.
+* [Changed] Cookies are now only set as secure if the host is using HTTPS.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

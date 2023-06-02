@@ -1260,4 +1260,11 @@ if (!function_exists('str_contains')) {
 	}
 }
 
+// Returns true if PsychoStats is hosted on HTTPS.
+function host_secure() {
+  return
+    (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+    || $_SERVER['SERVER_PORT'] == 443;
+}
+
 ?>
