@@ -1094,7 +1094,7 @@ function __construct() {
 	) + $this->map;
 }
 
-function PsychoLanguage_default_sr_RS() {
+function PsychoLanguage_cc_default_sr_RS() {
     self::__construct();
 }
 
