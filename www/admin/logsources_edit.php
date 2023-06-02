@@ -74,7 +74,7 @@ if ($del and $log['id'] == $id) {
 $form = $cms->new_form();
 $form->default_modifier('trim');
 $form->field('type', 'val_type');
-$form->field('path', 'blank');
+$form->field('path');
 $form->field('host', 'hostname');
 $form->field('port', 'numeric');
 $form->field('passive', 'numeric');
@@ -105,13 +105,16 @@ if ($test and $log['id'] == $id) { 	// test the log source, if asked to
 			$msg = $cms->trans("Log source path was not found or is not readable! - Please verify the path");
 		}
 	} elseif ($test['type'] == 'ftp') {
+		// Fill in a default log path.
+		if (empty($test['path'])) $test['path'] = $log['path'] ?? './';
+
 		// Check if we can connect to the FTP server and fetch a list of logs
 		if (!function_exists('ftp_connect')) {
 			$result = 'failure';
 			$msg = $cms->trans("FTP support not available in this installation of PHP") . "<br/>\n" . 
 				$cms->trans("See %s for more information", "<a href='http://php.net/ftp'>http://php.net/ftp</a>");
 		} else {
-			if (empty($test['password'])) $test['password'] = $log['password'];
+			if (!isset($test['password']) or empty($test['password'])) $test['password'] = $log['password'] ?? null;
 			$ftp = @ftp_connect($test['host'], $test['port'] ? $test['port'] : 21);
 			$res = @ftp_login($ftp, $test['username'], $test['password']);
 			$result = 'failure';
@@ -141,13 +144,16 @@ if ($test and $log['id'] == $id) { 	// test the log source, if asked to
 			if ($ftp) ftp_close($ftp);
 		}
 	} elseif ($test['type'] == 'sftp') {
+		// Fill in a default log path.
+		if (empty($test['path'])) $test['path'] = $log['path'] ?? './';
+
 		// Check if we can connect to the SFTP server
 		if (!function_exists('ssh2_connect')) {
 			$result = 'failure';
 			$msg = $cms->trans("SFTP support not available in this installation of PHP") . "<br/>\n" . 
 				$cms->trans("See %s for more information", "<a href='http://php.net/manual/en/ref.ssh2.php'>http://php.net/manual/en/ref.ssh2.php</a>");
 		} else {
-			if (empty($test['password'])) $test['password'] = $log['password'];
+			if (!isset($test['password']) or empty($test['password'])) $test['password'] = $log['password'] ?? null;
 			$ssh = @ssh2_connect($test['host'], $test['port'] ? $test['port'] : 22);
 			$finger = @ssh2_fingerprint($ssh);
 			// in order for this to work PasswordAuthentication must be set to 'yes' in 
@@ -205,6 +211,8 @@ if ($submit) {
 	if ($type == 'ftp' or $type == 'sftp') {
 		$form->field('host', 'blank,hostname');
 		$form->field('port', 'numeric');
+		// Fill in a default log path.
+		if (empty($form->input['path'])) $form->input['path'] = $log['path'] ?? './';
 	} elseif ($type == 'stream') {
 		$form->field('host', 'blank,hostname');
 		$form->field('port', 'blank,numeric');
