@@ -141,7 +141,7 @@ $(document).ready(function() {
         "backgroundColor": null,
         "letterbox": "fullscreen",
         "warnOnUnsupportedContent": true,
-        "contextMenu": true,
+        "contextMenu": "on",
         "upgradeToHttps": window.location.protocol === "https:",
         "maxExecutionDuration": {"secs": 15, "nanos": 0},
         "logLevel": "error",
