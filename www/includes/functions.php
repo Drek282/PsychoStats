@@ -1267,4 +1267,9 @@ function host_secure() {
     || $_SERVER['SERVER_PORT'] == 443;
 }
 
+function db_escape($s) {
+	global $ps;
+	return $ps->db->escape($s,true);
+}
+
 ?>

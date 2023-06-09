@@ -183,7 +183,7 @@ function return_ofc_cc() {
 		"SELECT COUNT(*) " . 
 		"FROM $ps->t_plr_profile pp, $ps->t_geoip_cc cc " . 
 		"WHERE pp.cc IS NOT NULL AND cc.cc=pp.cc AND NOT pp.cc IN (" . 
-			implode(',', array_map(create_function('$s','global $ps; return $ps->db->escape($s,true);'), $exclude)) . 
+			implode(',', array_map(db_escape($s), $exclude)) . 
 		") "
 	);
 	$data[] = $cctotal;
