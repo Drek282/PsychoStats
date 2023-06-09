@@ -1,8 +1,9 @@
 // http://code.google.com/apis/maps/documentation/
 var map;
 $(function(){
-	$('body').unload(function(){ if (window.GUnload) GUnload(); });
-	if (GBrowserIsCompatible()) init_google();
+	init_google();
+	//$('body').unload(function(){ if (window.GUnload) GUnload(); });
+	//if (GBrowserIsCompatible()) init_google();
 });
 
 function enable_wheel() {
@@ -18,13 +19,14 @@ function init_google() {
 	// the window will scroll if we don't disable the wheel while hovering over the map
 	$('#map').hover(disable_wheel, enable_wheel);
 
-	map = new GMap2(document.getElementById("map"), {
-		// ...
-	});
-
 	// initialize map
 	var ll = mapconf.center ? mapconf.center.split(',') : [ 40.317232,-95.339355 ]; 	// Default is US
-	map.setCenter(new GLatLng(ll[0],ll[1]), mapconf.zoom ? mapconf.zoom : 4);		// 48.57479,11.425781 - Eurpoe
+	map = new google.maps.Map(
+		document.getElementById("map"), {
+			center: new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
+			zoom: mapconf.zoom ? mapconf.zoom : 4,
+	});
+	//map.setCenter(new google.maps.LatLng(number(ll[0]),number(ll[1])), mapconf.zoom ? mapconf.zoom : 4);		// 48.57479,11.425781 - Eurpoe
 	map.addMapType(G_PHYSICAL_MAP);
 
 	if (!mapconf.maptype) mapconf.maptype = 'G_SATELLITE_MAP';
