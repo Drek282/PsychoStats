@@ -827,35 +827,6 @@ function csv($data,$del=',',$enc='"') {
 	return "$csv\n";
 }
 
-//if (!function_exists('sys_get_temp_dir')) {	// PHP4 doesn't have this function (added in 5.2.1)
-	// if a temp directory can not be found a blank string is returned instead.
-	function get_temp_dir() {
-		// Search environment and system variables for path
-		if (!empty($_ENV['TMP'])) {
-			return realpath($_ENV['TMP']);
-		} elseif (!empty($_ENV['TMPDIR'])) {
-			return realpath($_ENV['TMPDIR']);
-		} elseif (!empty($_ENV['TEMP'])) {
-			return realpath($_ENV['TEMP']);
-		} elseif (!empty($_SERVER['TEMP'])) {
-			return realpath($_SERVER['TEMP']);
-		} elseif (!empty($_SERVER['TMP'])) {
-			return realpath($_SERVER['TMP']);
-		} else { 
-			// Make a temp file using the built in routines and discover where it was written to.
-			// creating a file is slow (relatively), so its best to cache the return of this function just in case.
-			$temp_file = tempnam(md5(uniqid(rand(), true)), '');
-			if ($temp_file) {
-				$temp_dir = realpath(rtrim(dirname($temp_file), '/\\'));
-				unlink($temp_file);
-				return $temp_dir;
-			} else {
-				return '';
-			}
-		}
-	}
-//}
-
 function ymd2time($date, $char='-') {
 	list($y,$m,$d) = explode($char, $date);
 	return mktime(0,0,0,$m,$d,$y);

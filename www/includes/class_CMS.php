@@ -187,7 +187,7 @@ function init_theme($theme, $opts = array()) {
 //	print "<pre>"; print_r($conf); print "</pre>";
 
 	if ($conf['fetch_compile'] and (empty($conf['compile_dir']) || !@is_writable($conf['compile_dir']))) {
-		$temp = get_temp_dir();
+		$temp = sys_get_temp_dir();
 		if (php_sapi_name() == 'isapi') {
 			$dir = $temp;
 		} else {

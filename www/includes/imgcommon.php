@@ -48,7 +48,7 @@ define("CACHE_TIMEOUT", $ps->conf['theme']['images']['cache_timeout']);
 if (!empty($ps->conf['theme']['images']['cache_dir'])) {
 	define("CACHE_DIR", catfile($ps->conf['theme']['images']['cache_dir']) . DIRECTORY_SEPARATOR);
 } else {
-	define("CACHE_DIR", catfile(get_temp_dir(), "ps_img_cache") . DIRECTORY_SEPARATOR);
+	define("CACHE_DIR", catfile(sys_get_temp_dir(), "ps_img_cache") . DIRECTORY_SEPARATOR);
 }
 
 // Path to the TTF fonts. If left blank system defaults will be used
