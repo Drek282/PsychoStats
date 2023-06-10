@@ -170,8 +170,8 @@ function add_css($href, $media='screen,print') {
 	$this->css_links[$href] = array( 'href' => $href, 'media' => $media );
 }
 
-function add_js($src) {
-	$this->js_sources[$src] = array( 'src' => $src );
+function add_js($src, $switch = null) {
+	$this->js_sources[$src] = array( 'src' => $src, 'switch' => $switch );
 }
 
 // returns true for '1' or 'true' and false for anything else
@@ -300,7 +300,11 @@ function js_sources($theme = null) {
 		if (substr($js['src'], 0, 4) == 'http') {
 			// ignore fully qualified sources and output them as
 			// their own <script> tag, regardless.
-			$out .= sprintf("<script src='%s'></script>\n",  $js['src']);
+			if (!empty($js['switch'])) {
+				$out .= sprintf("<script src='%s' %s></script>\n",  $js['src'], $js['switch']);
+			} else {
+				$out .= sprintf("<script src='%s'></script>\n",  $js['src']);
+			}
 		} elseif ($js['script']) {
 			// embedded JS
 			$out .= "<script>" . $js['script'] . "</script>\n";

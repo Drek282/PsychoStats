@@ -1,42 +1,43 @@
 // http://code.google.com/apis/maps/documentation/
 var map;
-$(function(){
-	init_google();
+//$(function(){
+//	init_google();
 	//$('body').unload(function(){ if (window.GUnload) GUnload(); });
 	//if (GBrowserIsCompatible()) init_google();
-});
+//});
 
-function enable_wheel() {
-	if (window.addEventListener) window.removeEventListener('DOMMouseScroll', wheel, false);
-	window.onmousewheel = document.onmousewheel = undefined;
-}
-function disable_wheel() {
-	if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-	window.onmousewheel = document.onmousewheel = wheel;
-}
+//function enable_wheel() {
+//	if (window.addEventListener) window.removeEventListener('DOMMouseScroll', wheel, false);
+//	window.onmousewheel = document.onmousewheel = undefined;
+//}
+//function disable_wheel() {
+//	if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
+//	window.onmousewheel = document.onmousewheel = wheel;
+//}
 
-function init_google() {
+async function init_google() {
 	// the window will scroll if we don't disable the wheel while hovering over the map
-	$('#map').hover(disable_wheel, enable_wheel);
+	//$('#map').hover(disable_wheel, enable_wheel);
 
 	// initialize map
 	var ll = mapconf.center ? mapconf.center.split(',') : [ 40.317232,-95.339355 ]; 	// Default is US
-	map = new google.maps.Map(
+	const { Map } = await google.maps.importLibrary("maps");
+	map = new Map(
 		document.getElementById("map"), {
 			center: new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
 			zoom: mapconf.zoom ? mapconf.zoom : 4,
 	});
 	//map.setCenter(new google.maps.LatLng(number(ll[0]),number(ll[1])), mapconf.zoom ? mapconf.zoom : 4);		// 48.57479,11.425781 - Eurpoe
-	map.addMapType(G_PHYSICAL_MAP);
+	//map.addMapType(HYBRID);
 
-	if (!mapconf.maptype) mapconf.maptype = 'G_SATELLITE_MAP';
-	eval("map.setMapType(" + mapconf.maptype + ")");
+	//if (!mapconf.maptype) mapconf.maptype = SATELLITE;
+	//eval("map.setMapTypeId(" + mapconf.maptype + ")");
 
-	if (mapconf.ctrl_maptype) map.addControl(new GMapTypeControl());
-	if (mapconf.ctrl_overview) map.addControl(new GOverviewMapControl());
-	if (mapconf.ctrl_map) eval("map.addControl(new " + mapconf.ctrl_map + "())");
-	if (mapconf.smoothzoom) map.enableContinuousZoom();
-	if (mapconf.mousewheel) map.enableScrollWheelZoom();
+	//if (mapconf.ctrl_maptype) map.addControl(new GMapTypeControl());
+	//if (mapconf.ctrl_overview) map.addControl(new GOverviewMapControl());
+	//if (mapconf.ctrl_map) eval("map.addControl(new " + mapconf.ctrl_map + "())");
+	//if (mapconf.smoothzoom) map.enableContinuousZoom();
+	//if (mapconf.mousewheel) map.enableScrollWheelZoom();
 
 	// standard icon base
 	var stdIcon = new GIcon();

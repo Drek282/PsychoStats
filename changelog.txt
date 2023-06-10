@@ -56,6 +56,7 @@ Version 3.2.8b (in progress)
 * [Improved] The script now automatically enters a default log path for FTP/SFTP if none is given.
 * [Added] Serbian language support, credit to Rosenstein.
 * [Changed] Cookies are now only set as secure if the host is using HTTPS.
+* [Added] Switches can now be added to theme script loading.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

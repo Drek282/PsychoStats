@@ -149,7 +149,7 @@ $cms->theme->assign(array(
 $basename = basename(__FILE__, '.php');
 if ($ps->conf['theme']['map']['google_key']) {
 	$p = host_secure() ? 'https' : 'http';
-	$cms->theme->add_js($p . '://maps.googleapis.com/maps/api/js?key=' . $ps->conf['theme']['map']['google_key']);
+	$cms->theme->add_js($p . '://maps.googleapis.com/maps/api/js?key=' . $ps->conf['theme']['map']['google_key'] . '&callback=init_google', 'defer');
 	//$cms->theme->add_js('http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $ps->conf['theme']['map']['google_key']);
 	$cms->theme->add_js('js/map.js');
 	$cms->theme->add_js('js/markerwithlabel.min.js');
