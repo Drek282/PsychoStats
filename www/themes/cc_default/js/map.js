@@ -22,16 +22,15 @@ async function init_google() {
 	// initialize map
 	var ll = mapconf.center ? mapconf.center.split(',') : [ 40.317232,-95.339355 ]; 	// Default is US
 	const { Map } = await google.maps.importLibrary("maps");
+	const { MapTypeId } = await google.maps.importLibrary("maps");
+	if (!mapconf.maptype) mapconf.maptype = SATELLITE;
+	const maptypecall = eval("google.maps.MapTypeId." + mapconf.maptype);
 	map = new Map(
 		document.getElementById("map"), {
 			center: new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
 			zoom: mapconf.zoom ? mapconf.zoom : 4,
+			mapTypeId: maptypecall,
 	});
-	//map.setCenter(new google.maps.LatLng(number(ll[0]),number(ll[1])), mapconf.zoom ? mapconf.zoom : 4);		// 48.57479,11.425781 - Eurpoe
-	//map.addMapType(HYBRID);
-
-	//if (!mapconf.maptype) mapconf.maptype = SATELLITE;
-	//eval("map.setMapTypeId(" + mapconf.maptype + ")");
 
 	//if (mapconf.ctrl_maptype) map.addControl(new GMapTypeControl());
 	//if (mapconf.ctrl_overview) map.addControl(new GOverviewMapControl());
@@ -40,29 +39,15 @@ async function init_google() {
 	//if (mapconf.mousewheel) map.enableScrollWheelZoom();
 
 	// standard icon base
-	//var stdIcon = new GIcon();
-	//stdIcon.image = themeurl + '/img/icons/' + mapconf.standard_icon;
-	//stdIcon.shadow = themeurl + '/img/icons/' + mapconf.standard_icon_shadow;
-	//stdIcon.iconSize = new GSize(32,32);
-	//stdIcon.shadowSize = new GSize(59,32);
-	//stdIcon.iconAnchor = new GPoint(16,32);
-	//stdIcon.infoWindowAnchor = new GPoint(16,16);
+	var stdIcon = {};
+	stdIcon.image = themeurl + '/img/icons/' + mapconf.standard_icon;
+	stdIcon.shadow = themeurl + '/img/icons/' + mapconf.standard_icon_shadow;
 
 	// custom icon base
 	//var customIcon = new GIcon();
 	//customIcon.iconSize = new GSize(16,16);
 	//customIcon.iconAnchor = new GPoint(8,8);
 	//customIcon.infoWindowAnchor = new GPoint(8,8);
-
-
-	//var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
-	//window.alert(icon);
-	//var marker = new google.maps.Marker({
-	//	position:  new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
-	//	map,
-	//	icon: icon,
-	//});
-	//marker.setMap(map);
 
 	// start adding markers to the map
 	var markers = {};
@@ -78,11 +63,12 @@ async function init_google() {
 			markers[latlng] = true;
 
 			// auto center on the first marker, chances are most markers will be surrounding the same area
-//			if (i == 0) map.setCenter(new GLatLng(lat, lng), 4);
+			if (i == 0) map.setCenter(new google.maps.LatLng(Number(lat), Number(lng)));
 
 			// define the point, create the marker and add the icon and event listener for it...
 			//var point = new google.maps.LatLng(t.attr('lat'), t.attr('lng'));
-			var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
+			//var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
+			var icon = stdIcon.image;
 			//str = JSON.stringify(point, null, 4);
 			//window.alert(str);
 			//if (mapconf.enable_custom_icons && t.attr('icon')) {
