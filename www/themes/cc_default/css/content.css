@@ -528,12 +528,13 @@ div.ps-plr-profile #map {
 }
 #ps-container .map-header,
 #ps-container .map-footer {
+	background-color: #f9e6ab;
 	width: 90%;
 	margin: 0 auto;
 }
 #ps-main .map-header h3 {
 	font-size: 130%;
-	color: black;
+	color: #330000;
 }
 #ps-container .map-footer p {
 	font-size: 80%;

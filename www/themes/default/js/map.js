@@ -74,32 +74,32 @@ async function init_google() {
 			// auto center on the first marker, chances are most markers will be surrounding the same area
 			if (i == 0) map.setCenter(new google.maps.LatLng(Number(lat), Number(lng)));
 
-			// define the point, create the marker and add the icon and event listener for it...
-			//var point = new google.maps.LatLng(t.attr('lat'), t.attr('lng'));
-			//var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
-
-			//str = JSON.stringify(point, null, 4);
-			//window.alert(str);
 			//if (mapconf.enable_custom_icons && t.attr('icon')) {
 			//	icon = new GIcon(customIcon);
 			//	icon.image = iconsurl + '/' + t.attr('icon');
 			//}
+
+			const psinfo = makeInfo(t);	
+  			const infowindow = new google.maps.InfoWindow({
+    			content: psinfo,
+    			ariaLabel: t.attr('name'),
+  			});
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(Number(lat), Number(lng)),
 				map,
 				icon: icon,
+				title:  t.attr('name'),
 				optimized: true
 			});
-			//marker.psinfo = null;
-			//GEvent.addListener(marker, "click", function() {
-			//	if (marker.psinfo == null) marker.psinfo = makeInfo(t);
-			//	marker.openInfoWindowHtml(marker.psinfo);
-			//});
 
+  			marker.addListener("click", () => {
+    			infowindow.open({
+      				anchor: marker,
+      				map,
+    			});
+  			});
 			// add the marker to the map
-			//map.addOverlay(marker);
 			marker.setMap(map);
-			//window.initMap = init_google;
 		});
 	});
 }

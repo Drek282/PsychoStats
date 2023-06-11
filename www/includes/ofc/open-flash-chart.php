@@ -172,7 +172,7 @@ class graph
 	}
 	
 	// escape commas (,)
-	function esc( $text )
+	public static function esc( $text )
 	{
         if (is_array($text)) $text = implode($text);
 		// we replace the comma so it is not URL escaped

@@ -22,11 +22,12 @@
 <!--content block-->
 <div id="ps-main-content" class="ps-page-{$page}">
 
-<div>
-	<div class="ofc-least">{ofc data="cc" width='100%' height=200}</div>
-	<div class="ofc-most">{ofc data="h24" width='100%' height=200}</div>
+<div class="map-header">
+	
+	<div class="ofc-least"><h3><#Country Breakdown#></h3>{ofc data="cc" width='100%' height=200}</div>
+	<div class="ofc-most"><h3><#Last 24 Hours#></h3>{ofc data="h24" width='100%' height=200}</div>
 	<div style="clear: both"></div>
-	<div class="ofc-full">{ofc data="day" width='100%' height=200}</div>
+	<div class="ofc-full"><h3><#Daily Connections#></h3>{ofc data="day" width='100%' height=200}</div>
 </div>
 
 {if $conf.theme.map.google_key}

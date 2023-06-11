@@ -184,7 +184,7 @@ function return_ofc_cc() {
 		"SELECT COUNT(*) " . 
 		"FROM $ps->t_plr_profile pp, $ps->t_geoip_cc cc " . 
 		"WHERE pp.cc IS NOT NULL AND cc.cc=pp.cc AND NOT pp.cc IN (" . 
-			implode(',', array_map(db_escape($s), $exclude)) . 
+			implode(',', array_map("db_escape", $exclude)) . 
 		") "
 	);
 	$data[] = $cctotal;
@@ -227,10 +227,10 @@ function return_ofc_cc() {
 	$g = new graph();
 	$g->bg_colour = $styles->val('flash.pie.bgcolor', 'flash.bgcolor');
 
-	$g->title(
-		$styles->val('flash.pie.title', $cms->trans('Country Breakdown'), true),
-		'{' . $styles->val('flash.pie.title.style', 'font-size: 16px', true) . '}'
-	);
+	//$g->title(
+	//	$styles->val('flash.pie.title', $cms->trans('Country Breakdown'), true),
+	//	'{' . $styles->val('flash.pie.title.style', 'background: transparent; font-size: 16px', true) . '}'
+	//);
 	$g->pie(
 		75,
 		$styles->val('flash.pie.slices.border', '#505050', true),
@@ -313,10 +313,10 @@ function return_ofc_24() {
 	$g = new graph();
 	$g->bg_colour = $styles->val('flash.last24.bgcolor', 'flash.bgcolor');
 
-	$g->title(
-		$styles->val('flash.last24.title', $cms->trans('Last 24 Hours'), true),
-		'{' . $styles->val('flash.last24.title.style', 'font-size: 16px', true) . '}'
-	);
+	//$g->title(
+	//	$styles->val('flash.last24.title', $cms->trans('Last 24 Hours'), true),
+	//	'{' . $styles->val('flash.last24.title.style', 'background: transparent; font-size: 16px', true) . '}'
+	//);
 
 	$g->set_data($data_avg);
 	$g->set_data($data);
@@ -452,10 +452,10 @@ function return_ofc_day() {
 	$g = new graph();
 	$g->bg_colour = $styles->val('flash.conn.bgcolor', 'flash.bgcolor');
 
-	$g->title(
-		$styles->val('flash.conn.title', $cms->trans('Daily Connections'), true),
-		'{' . $styles->val('flash.conn.title.style', 'font-size: 16px', true) . '}'
-	);
+	//$g->title(
+	//	$styles->val('flash.conn.title', $cms->trans('Daily Connections'), true),
+	//	'{' . $styles->val('flash.conn.title.style', 'background: transparent; font-size: 16px', true) . '}'
+	//);
 
 #	$g->set_data($data_avg);
 #	$g->line(1, '#9999ee', 'Average Connections', 9);
