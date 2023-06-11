@@ -40,19 +40,29 @@ async function init_google() {
 	//if (mapconf.mousewheel) map.enableScrollWheelZoom();
 
 	// standard icon base
-	var stdIcon = new GIcon();
-	stdIcon.image = themeurl + '/img/icons/' + mapconf.standard_icon;
-	stdIcon.shadow = themeurl + '/img/icons/' + mapconf.standard_icon_shadow;
-	stdIcon.iconSize = new GSize(32,32);
-	stdIcon.shadowSize = new GSize(59,32);
-	stdIcon.iconAnchor = new GPoint(16,32);
-	stdIcon.infoWindowAnchor = new GPoint(16,16);
+	//var stdIcon = new GIcon();
+	//stdIcon.image = themeurl + '/img/icons/' + mapconf.standard_icon;
+	//stdIcon.shadow = themeurl + '/img/icons/' + mapconf.standard_icon_shadow;
+	//stdIcon.iconSize = new GSize(32,32);
+	//stdIcon.shadowSize = new GSize(59,32);
+	//stdIcon.iconAnchor = new GPoint(16,32);
+	//stdIcon.infoWindowAnchor = new GPoint(16,16);
 
 	// custom icon base
-	var customIcon = new GIcon();
-	customIcon.iconSize = new GSize(16,16);
-	customIcon.iconAnchor = new GPoint(8,8);
-	customIcon.infoWindowAnchor = new GPoint(8,8);
+	//var customIcon = new GIcon();
+	//customIcon.iconSize = new GSize(16,16);
+	//customIcon.iconAnchor = new GPoint(8,8);
+	//customIcon.infoWindowAnchor = new GPoint(8,8);
+
+
+	//var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
+	//window.alert(icon);
+	//var marker = new google.maps.Marker({
+	//	position:  new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
+	//	map,
+	//	icon: icon,
+	//});
+	//marker.setMap(map);
 
 	// start adding markers to the map
 	var markers = {};
@@ -61,6 +71,7 @@ async function init_google() {
 		$('marker', xml).each(function(i){
 			var t = $(this);
 			var lat = t.attr('lat');
+			//window.alert(lat);
 			var lng = t.attr('lng');
 			var latlng = lat+','+lng;
 			if (markers[latlng]) return;	// don't add the same marker more than once
@@ -70,21 +81,29 @@ async function init_google() {
 //			if (i == 0) map.setCenter(new GLatLng(lat, lng), 4);
 
 			// define the point, create the marker and add the icon and event listener for it...
-			var point = new GLatLng(t.attr('lat'), t.attr('lng'));
-			var icon = stdIcon;
-			if (mapconf.enable_custom_icons && t.attr('icon')) {
-				icon = new GIcon(customIcon);
-				icon.image = iconsurl + '/' + t.attr('icon');
-			}
-			var marker = new GMarker(point, {icon: icon});
-			marker.psinfo = null;
-			GEvent.addListener(marker, "click", function() {
-				if (marker.psinfo == null) marker.psinfo = makeInfo(t);
-				marker.openInfoWindowHtml(marker.psinfo);
+			//var point = new google.maps.LatLng(t.attr('lat'), t.attr('lng'));
+			var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
+			//str = JSON.stringify(point, null, 4);
+			//window.alert(str);
+			//if (mapconf.enable_custom_icons && t.attr('icon')) {
+			//	icon = new GIcon(customIcon);
+			//	icon.image = iconsurl + '/' + t.attr('icon');
+			//}
+			var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(Number(lat), Number(lng)),
+				map,
+				icon: icon,
 			});
+			//marker.psinfo = null;
+			//GEvent.addListener(marker, "click", function() {
+			//	if (marker.psinfo == null) marker.psinfo = makeInfo(t);
+			//	marker.openInfoWindowHtml(marker.psinfo);
+			//});
 
 			// add the marker to the map
-			map.addOverlay(marker);
+			//map.addOverlay(marker);
+			marker.setMap(map);
+			//window.initMap = init_google;
 		});
 	});
 }
@@ -113,9 +132,9 @@ function makeInfo(o) {
 
 // we simply disable the mousewheel by preventing the default
 // the google map code will still get the mousewheel movement event.
-function wheel(event){
-	if (!event) event = window.event;
+//function wheel(event){
+//	if (!event) event = window.event;
 
-	if (event.preventDefault) event.preventDefault();
-	event.returnValue = false;
-}
+//	if (event.preventDefault) event.preventDefault();
+//	event.returnValue = false;
+//}
