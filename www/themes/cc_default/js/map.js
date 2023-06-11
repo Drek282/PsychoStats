@@ -41,11 +41,20 @@ async function init_google() {
 	// standard icon base
 	var stdIcon = {};
 	stdIcon.image = themeurl + '/img/icons/' + mapconf.standard_icon;
-	stdIcon.shadow = themeurl + '/img/icons/' + mapconf.standard_icon_shadow;
+	stdIcon.iconSize = new google.maps.Size(32, 32);
+	stdIcon.iconWindowAnchor = new google.maps.Point(0, 16);
+	stdIcon.infoAnchor = new google.maps.Point(0, 0);
+
+	var icon = {
+   		url: stdIcon.image,
+    	size: stdIcon.iconSize, //adjust size of image placeholder  
+    	origin: stdIcon.infoWindowAnchor, //origin
+     	anchor: stdIcon.iconAnchor //anchor point
+	};
 
 	// custom icon base
 	//var customIcon = new GIcon();
-	//customIcon.iconSize = new GSize(16,16);
+	//customIcon.iconSize = new google.maps.Size(16,16);
 	//customIcon.iconAnchor = new GPoint(8,8);
 	//customIcon.infoWindowAnchor = new GPoint(8,8);
 
@@ -68,7 +77,7 @@ async function init_google() {
 			// define the point, create the marker and add the icon and event listener for it...
 			//var point = new google.maps.LatLng(t.attr('lat'), t.attr('lng'));
 			//var icon = themeurl + '/img/icons/' + mapconf.standard_icon;
-			var icon = stdIcon.image;
+
 			//str = JSON.stringify(point, null, 4);
 			//window.alert(str);
 			//if (mapconf.enable_custom_icons && t.attr('icon')) {
@@ -79,6 +88,7 @@ async function init_google() {
 				position: new google.maps.LatLng(Number(lat), Number(lng)),
 				map,
 				icon: icon,
+				optimized: true
 			});
 			//marker.psinfo = null;
 			//GEvent.addListener(marker, "click", function() {
