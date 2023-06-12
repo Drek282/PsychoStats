@@ -59,6 +59,7 @@ Version 3.2.8b (in progress)
 * [Added] Switches can now be added to theme script loading.
 * [Fixed] Google maps functionality and Overview page.
 * [Fixed] Custom icons will now display in Google maps.
+* [Restored] Some, but not all, of the Google maps configuration options.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

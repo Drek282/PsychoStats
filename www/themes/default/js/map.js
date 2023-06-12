@@ -1,19 +1,5 @@
 // http://code.google.com/apis/maps/documentation/
 var map;
-//$(function(){
-//	init_google();
-	//$('body').unload(function(){ if (window.GUnload) GUnload(); });
-	//if (GBrowserIsCompatible()) init_google();
-//});
-
-//function enable_wheel() {
-//	if (window.addEventListener) window.removeEventListener('DOMMouseScroll', wheel, false);
-//	window.onmousewheel = document.onmousewheel = undefined;
-//}
-//function disable_wheel() {
-//	if (window.addEventListener) window.addEventListener('DOMMouseScroll', wheel, false);
-//	window.onmousewheel = document.onmousewheel = wheel;
-//}
 
 async function init_google() {
 	// the window will scroll if we don't disable the wheel while hovering over the map
@@ -23,20 +9,32 @@ async function init_google() {
 	var ll = mapconf.center ? mapconf.center.split(',') : [ 40.317232,-95.339355 ]; 	// Default is US
 	const { Map } = await google.maps.importLibrary("maps");
 	const { MapTypeId } = await google.maps.importLibrary("maps");
+	const { MapOptions } = await google.maps.importLibrary("maps");
 	if (!mapconf.maptype) mapconf.maptype = SATELLITE;
 	const maptypecall = eval("google.maps.MapTypeId." + mapconf.maptype);
+	
+	// disable mousewheel and gestures
+	if (!mapconf.smoothzoom && !mapconf.mousewheel ) {
+		var gesturehandling = 'none';
+		var zoomcontrol = false;
+	} else {
+		var gesturehandling = 'auto';
+		var zoomcontrol = true;
+	}
+
+	//const mapcontrolcall = (mapconf.ctrl_maptype == 1) ? true : false;
 	map = new Map(
 		document.getElementById("map"), {
 			center: new google.maps.LatLng(Number(ll[0]),Number(ll[1])),
 			zoom: mapconf.zoom ? mapconf.zoom : 4,
 			mapTypeId: maptypecall,
+			mapTypeControl: mapconf.ctrl_maptype,
+  			gestureHandling: gesturehandling,
+  			zoomControl: zoomcontrol,
 	});
 
-	//if (mapconf.ctrl_maptype) map.addControl(new GMapTypeControl());
 	//if (mapconf.ctrl_overview) map.addControl(new GOverviewMapControl());
 	//if (mapconf.ctrl_map) eval("map.addControl(new " + mapconf.ctrl_map + "())");
-	//if (mapconf.smoothzoom) map.enableContinuousZoom();
-	//if (mapconf.mousewheel) map.enableScrollWheelZoom();
 
 	// standard icon base
 	var stdIcon = {};
@@ -131,12 +129,3 @@ function makeInfo(o) {
 	$('span', bar).css({ width: pct + '%', backgroundColor: '#' + $('#color-' + pct).text() });
 	return dom.html();
 }
-
-// we simply disable the mousewheel by preventing the default
-// the google map code will still get the mousewheel movement event.
-//function wheel(event){
-//	if (!event) event = window.event;
-
-//	if (event.preventDefault) event.preventDefault();
-//	event.returnValue = false;
-//}
