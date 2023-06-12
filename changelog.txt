@@ -58,6 +58,7 @@ Version 3.2.8b (in progress)
 * [Changed] Cookies are now only set as secure if the host is using HTTPS.
 * [Added] Switches can now be added to theme script loading.
 * [Fixed] Google maps functionality and Overview page.
+* [Fixed] Custom icons will now display in Google maps.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

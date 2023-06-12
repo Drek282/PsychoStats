@@ -45,20 +45,14 @@ async function init_google() {
 	stdIcon.iconWindowAnchor = new google.maps.Point(0, 16);
 	stdIcon.infoAnchor = new google.maps.Point(0, 0);
 
-	var icon = {
-   		url: stdIcon.image,
-    	size: stdIcon.iconSize, //adjust size of image placeholder  
-    	origin: stdIcon.infoWindowAnchor, //origin
-     	anchor: stdIcon.iconAnchor //anchor point
-	};
-
 	// custom icon base
-	//var customIcon = new GIcon();
-	//customIcon.iconSize = new google.maps.Size(16,16);
-	//customIcon.iconAnchor = new GPoint(8,8);
-	//customIcon.infoWindowAnchor = new GPoint(8,8);
+	var customIcon = {};
+	customIcon.iconSize = new google.maps.Size(20, 20);
+	customIcon.infoWindowAnchor = new google.maps.Point(0, 0);
+	customIcon.iconAnchor = new google.maps.Point(10, 20);
 
 	// start adding markers to the map
+	var icon;
 	var markers = {};
 	$.get('overview.php', { ip: 100 }, function(xml) {
 		// add each ip marker to the map
@@ -74,10 +68,22 @@ async function init_google() {
 			// auto center on the first marker, chances are most markers will be surrounding the same area
 			if (i == 0) map.setCenter(new google.maps.LatLng(Number(lat), Number(lng)));
 
-			//if (mapconf.enable_custom_icons && t.attr('icon')) {
-			//	icon = new GIcon(customIcon);
-			//	icon.image = iconsurl + '/' + t.attr('icon');
-			//}
+			if (mapconf.enable_custom_icons && t.attr('icon')) {
+				customIcon.image = iconsurl + '/' + t.attr('icon');
+				icon = { 
+   					url: customIcon.image,
+    				size: customIcon.iconSize, //adjust size of image placeholder  
+    				origin: customIcon.infoWindowAnchor, //origin
+     				anchor: customIcon.iconAnchor //anchor point
+				}
+			} else {
+				icon = {
+   					url: stdIcon.image,
+    				size: stdIcon.iconSize, //adjust size of image placeholder  
+    				origin: stdIcon.infoWindowAnchor, //origin
+     				anchor: stdIcon.iconAnchor //anchor point
+				};
+			}
 
 			const psinfo = makeInfo(t);	
   			const infowindow = new google.maps.InfoWindow({
