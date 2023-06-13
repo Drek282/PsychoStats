@@ -27,7 +27,7 @@ include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', basename(__FILE__, '.php'));
 $validfields = array('submit','cancel','ref');
-$_GET['ref'] = htmlspecialchars($_GET['ref']); //XSS Fix. Thanks to JS2007
+$_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
 $cms->theme->assign_request_vars($validfields, true);
 
 if ($cancel) {
