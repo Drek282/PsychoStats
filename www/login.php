@@ -28,6 +28,7 @@ $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Please Login');
 
 $validfields = array('submit','cancel','ref');
+$_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
 $cms->theme->assign_request_vars($validfields, true);
 
 if ($cancel or $cms->user->logged_in()) previouspage('index.php');
