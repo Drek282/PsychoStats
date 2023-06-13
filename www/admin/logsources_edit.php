@@ -198,6 +198,7 @@ $submit ??= null;
 if ($submit) {
 	// do some special error checking and correction depending on the logsource type
 	$type = $form->input['type'];
+	$form->input['blank'] ??= null;
 	if ($type == '' or $type == 'file' or $type == 'stream' or $form->input['blank']) {
 		$form->input['password'] = '';
 		$form->input['password2'] = '';
