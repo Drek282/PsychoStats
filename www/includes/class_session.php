@@ -190,7 +190,7 @@ function generate_sid($random="") {
 	} else {
 //		return md5(time() . mt_rand()  . $random);
 		// the UNIQUE_ID may or may not actually be present. If it is, all the better.
-		return md5($_SERVER["UNIQUE_ID"] . uniqid(mt_rand(), true) . $random);
+		return md5($_SERVER['UNIQUE_ID'] ?? null . uniqid(mt_rand(), true) . $random);
 	}
 }
 
