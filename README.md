@@ -1,5 +1,3 @@
-***As of September 29, 2021, this repository and all related repositories have been mothballed.  So long, thanks for all the fish, and anyone is more than welcome to take the work that has been done here, set up their own repositories, and fly with it.  The code may still be updated from time to time, but this should not be considered an active project.***
-
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.1.0+ and MySQL 5.5.0+.  The minimum required version of Perl is 5.08.
 
 ***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
