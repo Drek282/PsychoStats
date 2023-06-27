@@ -60,6 +60,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Google maps functionality and Overview page.
 * [Fixed] Custom icons will now display in Google maps.
 * [Restored] Some, but not all, of the Google maps configuration options.
+* [Changed] Pages will now display error message if javascript is disabled.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
