@@ -138,6 +138,8 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <h3>Cookies</h3>
             <p>When you visit the site, a temporary cookie is set to save your session data. This cookie contains no personal information and is kept until your browser is closed. It\'s primary function is to store and retrieve login status when you have an account.  It also gathers some technical browser information to allow for browser specific code in displaying pages.</p>
             <p>A cookie is also set that is persistent that allows for the storage and retrieval of your theme preference.  Neither of these two cookies are tracking cookies or are used for any purpose other than those stated here.</p>
+            <h3>Cookie Consent</h3>
+            <p>By default no cookies will be saved in your browser.  You must accept cookies for them to be saved in your browser.  If you do not accept cookies you will be able to browse the stats but you will not be able to register or log into an account if those options are enabled or you already have an account.  You will also not be able to log into an admin account if you have one or choose anything other than the default theme or language support.</p>
             <h3>Embedded content from other websites</h3>
             <p>Profiles on this site may include embedded content (e.g. images, links, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p>
             <p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p>
@@ -149,6 +151,7 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <p>You can view that Privacy Policy Agreement <a href=\"https://store.steampowered.com/privacy_agreement/\">here</a>.</p>
             </div>',
             'Site Privacy Policy','textarea',0,'','','This is the Privacy Policy for PsychoStats.  It uses html formatting.'),
+        (2800,'main','security','enable_cookieconsent','1','Enable Cookie Consent?','boolean',0,'','','This enables the cookie consent code for CCPA and GDPR compliance.  Note that if you disable cookie consent, you should also either disable, or modify, the privacy policy.'),
         (5000,'main',NULL,NULL,'Global configuration settings that affect how and what stats are collected and how users interact with your stats website.','General','none',1,NULL,NULL,NULL),
         (5001,'main','awards',NULL,'Settings that affect how often awards are calculated. To create or edit actual awards go to the <a href=\"awards.php\">awards list</a>.','Awards','none',1,NULL,NULL,NULL),
         (5002,'main','daily',NULL,'Settings that affect the \'daily\' calculations being run automatically during long stats.pl updates.','Daily Updates','none',1,NULL,NULL,NULL),

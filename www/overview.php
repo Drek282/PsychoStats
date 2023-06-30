@@ -28,6 +28,50 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Stats Overview');
 
+// create the form variable
+$form = $cms->new_form();
+
+// Get cookie consent status from the cookie if it exists.
+$cms->session->options['cookieconsent'] ??= false;
+$cookieconsent = $cms->session->options['cookieconsent'];
+if (isset($cms->input['cookieconsent'])) {
+	$cookieconsent = $cms->input['cookieconsent'];
+
+	// Update cookie consent status in the cookie if they are accepted.
+	// Delete coolies if they are rejected.
+	if ($cookieconsent) {
+		$cms->session->opt('cookieconsent', $cms->input['cookieconsent']);
+		$cms->session->save_session_options();
+
+		// save a new form key in the users session cookie
+		// this will also be put into a 'hidden' field in the form
+		if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->key());
+		
+	} else {
+		$cms->session->delete_cookie();
+		$cms->session->delete_cookie('_opts');
+	}
+	previouspage($php_scnm);
+}
+
+// Check to see if there is any data in the database before we continue.
+$cmd = "SELECT * FROM $ps->t_plr_data LIMIT 1";
+
+$results = array();
+$results = $ps->db->fetch_rows(1, $cmd);
+
+// if $results is empty then we have no data in the database
+if (empty($results)) {
+	$cms->full_page_err('awards', array(
+		'message_title'	=> $cms->trans("No Stats Found"),
+		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
+		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+		'cookieconsent'	=> $cookieconsent,
+	));
+	exit();
+}
+unset ($results);
+
 // default pie slice colors (see styles.xml in the theme to change)
 $pie_slice_colors = array(
 	'#0033FF','#00B3FF','#00FFCC','#00FF4D','#CC00FF',
@@ -143,6 +187,8 @@ if ($ps->conf['theme']['map']['google_key']) {
 $cms->theme->assign(array(
 	'page'			=> basename($php_scnm,'.php'),
 	'activity_colors' 	=> $colors,
+	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 ));
 
 // display the output

@@ -313,12 +313,14 @@ function _init_new_session() {
 
 // private method to get or set the users current SID cookie
 function _session_start() {
+	global $ps;
+	global $cookieconsent;
 	$sid = $this->_find_user_sid();
 	if (!$sid or !$this->is_sid($sid)) {
 #		print "NEW SESSION STARTING ... <BR>";
 		$this->_init_new_session();
 #		$this->_save_session();				// always SAVE when we create a new session
-		$this->send_cookie($this->sid());
+		if ($cookieconsent or !$ps->conf['main']['security']['enable_cookieconsent']) $this->send_cookie($this->sid());
 	} else {
 #		print "PREVIOUS SESSION STARTING ... <BR>";
 		$this->_read_session($sid);
@@ -328,7 +330,7 @@ function _session_start() {
 			$this->_init_new_session();			// generate a new dataset
 #			$this->_save_session();
 			$this->delete_cookie();				// delete old sess_id cookie
-			$this->send_cookie($this->sid());		// send a new cookie
+			if ($cookieconsent or !$ps->conf['main']['security']['enable_cookieconsent']) $this->send_cookie($this->sid());		// send a new cookie
 		}
 	}
 }
@@ -569,6 +571,8 @@ function load_session_options() {
 // saves the session options.
 // deflate reduces the cookie size by about 1/2 (plus it obfuscates it)
 function save_session_options($opts = null) {
+	global $ps;
+	global $cookieconsent;
 	if ($opts === null) {
 		if ($this->options === null) {
 			$this->load_session_options();
@@ -581,7 +585,7 @@ function save_session_options($opts = null) {
 	if ($this->config['cookiecompress'] and function_exists('gzdeflate')) $str = gzdeflate($str);
 	$str = $this->encrypt($str);
 	$encoded = $this->config['cookieencode'] ? base64_encode($str) : $str;
-	$this->send_cookie($encoded, $this->config['cookielifeoptions'] ? time() + $this->config['cookielifeoptions'] : 0, '_opts');
+	if ($cookieconsent or !isset($ps->conf['main']['security']['enable_cookieconsent'])) $this->send_cookie($encoded, $this->config['cookielifeoptions'] ? time() + $this->config['cookielifeoptions'] : 0, '_opts');
 //	$this->send_cookie(strlen($encoded), 0, '_opts_size');	// debug
 
 	// add the modified cookie to memory incase we re-read the options before we exit
@@ -680,6 +684,8 @@ function sid_method() {
 // The user's cookie must have the proper login_key or the auto-login will fail. This prevents another user from attempting
 // to forge an auto-login since the login_key is private to the original user.
 function save_login($userid, $password) {
+	global $ps;
+	global $cookieconsent;
 	$token = substr(md5(md5($_SERVER["UNIQUE_ID"] . uniqid(mt_rand(), true)) . $userid . $password), mt_rand(0,24), 8);
 	$ary = array('userid' => $userid, 'password' => $password, 'token' => $token);
 	$data = $this->encrypt(base64_encode(serialize($ary)));
@@ -689,7 +695,7 @@ function save_login($userid, $password) {
 			$this->config['db_user_id'], $this->sessdata['session_userid']
 		);
 	}
-	return $this->send_cookie($data, time()+60*60*24*30, '_login'); 		// autologin cookie is saved for 30 days
+	if ($cookieconsent or !$ps->conf['main']['security']['enable_cookieconsent']) return $this->send_cookie($data, time()+60*60*24*30, '_login'); 		// autologin cookie is saved for 30 days
 }
 
 // returns the auto login cookie or an empty array if not found or not valid.

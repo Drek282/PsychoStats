@@ -31,6 +31,10 @@ $cms->theme->page_title('PsychoStats - Theme Gallery');
 $validfields = array('t');
 $cms->theme->assign_request_vars($validfields, true);
 
+// If you are on this page $cookieconsent is assumed to be true.
+$cms->session->options['cookieconsent'] = true;
+$cookieconsent = $cms->session->options['cookieconsent'];
+
 $t = trim($t);
 
 $themes = $cms->theme->get_theme_list();
@@ -52,6 +56,8 @@ if ($t) {
 $cms->theme->assign(array(
 	'themes'	=> $themes,
 	'theme'		=> $cms->theme->theme,
+	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 ));
 
 // display the output

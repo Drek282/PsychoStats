@@ -159,6 +159,7 @@ function init_user() {
 // $theme is the name of the theme to use.
 // $conf should be passed with an array of theme options.
 function init_theme($theme, $opts = array()) {
+	global $cookieconsent;
 	require_once(__DIR__ . '/class_theme.php');
 	require_once(__DIR__ . '/class_lang.php');
 	$conf = array( 'theme' => $theme );
@@ -179,6 +180,7 @@ function init_theme($theme, $opts = array()) {
 		'compile_dir'		=> '', 
 		'template_dir'		=> null,
 		'theme_url'		=> null,
+		'cookieconsent'	=> $cookieconsent,
 	);
 	
 	if (empty($conf['theme_url'])) $conf['theme_url'] = null;

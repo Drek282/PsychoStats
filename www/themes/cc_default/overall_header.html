@@ -25,7 +25,7 @@
 <!--#OVERALL_HEADER_MENU#-->
 <div id="ps-overall-menu">
 <div id="ps-menu-right">
-{if $show_login}
+{if $show_login and $cookieconsent}
 <a id="ps-login-link" href="{url _base='login.php' _ref=1}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.png" alt="<#Login#>"></a>
 {/if}
 </div>
@@ -47,14 +47,20 @@
 {if $conf.theme.map.google_key}
 	<li><a href="{url _base='overview.php'}"><#Overview#></a></li>
 {/if}
-{if $show_admin}
+{if $show_admin and $cookieconsent}
 	<li><a href="{url _base='admin/index.php'}"><#Admin#></a></li>
+{/if}
+{if !ps_user_logged_in() and $show_login and $cookieconsent}
+	<li><a href="login.php" title="Login, Register and Reset Password"><#Login#></a></li>
+{/if}
+{if ps_user_logged_in()}
+	<li><a href="logout.php"><#Logout#></a></li>
 {/if}
 </ul>
 </div>
 <!---->
 
-{if !ps_user_logged_in()}
+{if !ps_user_logged_in() and $cookieconsent}
 <!--#LOGIN_POPUP#-->
 <form method="post" action="{url _base='login.php' _ref=1}">
 <div id="ps-login-popup" style="display: none">

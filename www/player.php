@@ -41,6 +41,31 @@ $validfields = array(
 );
 $cms->theme->assign_request_vars($validfields, true);
 
+// create the form variable
+$form = $cms->new_form();
+
+// Get cookie consent status from the cookie if it exists.
+$cms->session->options['cookieconsent'] ??= false;
+$cookieconsent = $cms->session->options['cookieconsent'];
+if (isset($cms->input['cookieconsent'])) {
+	$cookieconsent = $cms->input['cookieconsent'];
+
+	// Update cookie consent status in the cookie if they are accepted.
+	// Delete coolies if they are rejected.
+	if ($cookieconsent) {
+		$cms->session->opt('cookieconsent', $cms->input['cookieconsent']);
+		$cms->session->save_session_options();
+
+		// save a new form key in the users session cookie
+		// this will also be put into a 'hidden' field in the form
+		if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->key());
+		
+	} else {
+		$cms->session->delete_cookie();
+		$cms->session->delete_cookie('_opts');
+	}
+}
+
 if ($cms->input['ofc']) {
 	$styles = $cms->theme->load_styles();
 	return_ofc_data($styles);
@@ -358,6 +383,8 @@ $cms->theme->assign(array(
 	'top10percentile'	=> $player['rank'] ? $player['rank'] < $totalranked * 0.10 : false,
 	'top1percentile'	=> $player['rank'] ? $player['rank'] < $totalranked * 0.01 : false,
 	'shades'			=> $shades,
+	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'		=> $cookieconsent,
 ));
 
 $basename = basename(__FILE__, '.php');

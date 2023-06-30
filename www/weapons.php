@@ -27,6 +27,38 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Weapon Usage');
 
+// change this if you want the default sort of the player listing to be something else like 'kills'
+$DEFAULT_SORT = 'kills';
+
+$validfields = array('sort','order','xml','v');
+$cms->theme->assign_request_vars($validfields, true);
+
+// create the form variable
+$form = $cms->new_form();
+
+// Get cookie consent status from the cookie if it exists.
+$cms->session->options['cookieconsent'] ??= false;
+$cookieconsent = $cms->session->options['cookieconsent'];
+if (isset($cms->input['cookieconsent'])) {
+	$cookieconsent = $cms->input['cookieconsent'];
+
+	// Update cookie consent status in the cookie if they are accepted.
+	// Delete coolies if they are rejected.
+	if ($cookieconsent) {
+		$cms->session->opt('cookieconsent', $cms->input['cookieconsent']);
+		$cms->session->save_session_options();
+
+		// save a new form key in the users session cookie
+		// this will also be put into a 'hidden' field in the form
+		if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->key());
+		
+	} else {
+		$cms->session->delete_cookie();
+		$cms->session->delete_cookie('_opts');
+	}
+	previouspage($php_scnm);
+}
+
 // Check to see if there is any data in the database before we continue.
 $cmd = "SELECT * FROM $ps->t_plr_data LIMIT 1";
 
@@ -38,16 +70,12 @@ if (empty($results)) {
 	$cms->full_page_err('awards', array(
 		'message_title'	=> $cms->trans("No Stats Found"),
 		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
+		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+		'cookieconsent'	=> $cookieconsent,
 	));
 	exit();
 }
 unset ($results);
-
-// change this if you want the default sort of the player listing to be something else like 'kills'
-$DEFAULT_SORT = 'kills';
-
-$validfields = array('sort','order','xml','v');
-$cms->theme->assign_request_vars($validfields, true);
 
 $v = strtolower($v ?? '');
 $sort = trim(strtolower($sort ?? ''));
@@ -148,12 +176,14 @@ $cms->filter('weapons_table_object', $table);
 // assign variables to the theme
 $cms->theme->assign(array(
 	'weapons_by_class'	=> $weaponclasses,	// allow a theme to use either ...
-	'weapons'		=> $weapons,		// ... way to display weapons
+	'weapons'			=> $weapons,		// ... way to display weapons
 	'weapons_table'		=> $table->render(),
 	'weapon_classes'	=> array_keys($weaponclasses),
 	'totalweapons'		=> $totalweapons,
 	'totalkills'		=> $stats['kills'],
 	'totaldamage'		=> $stats['damage'],
+	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'		=> $cookieconsent,
 ));
 
 // display the output

@@ -32,6 +32,7 @@ $cms->theme->assign_request_vars($validfields, true);
 if ($done) {
 	$cms->session->delete_cookie('_opts');
 	deleteTree('../install/', $keepRootFolder = false);
+	$cookieconsent = true;
 	gotopage("../admin/logsources.php");
 }
 

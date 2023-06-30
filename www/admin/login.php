@@ -30,6 +30,10 @@ $validfields = array('submit','cancel','ref');
 $_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
 $cms->theme->assign_request_vars($validfields, true);
 
+// If you are on this page $cookieconsent is assumed to be true.
+$cms->session->options['cookieconsent'] = true;
+$cookieconsent = $cms->session->options['cookieconsent'];
+
 if ($cancel) {
 	gotopage("../index.php");
 } elseif ($cms->user->admin_logged_in()) {
@@ -102,7 +106,8 @@ if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->
 $cms->theme->assign(array(
 	'errors'	=> $form->errors(),
 	'form'		=> $form->values(),
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'form_key'	=> '', //$ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 ));
 
 // display the output

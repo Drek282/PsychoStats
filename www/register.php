@@ -33,6 +33,10 @@ $cms->theme->assign_request_vars($validfields, true);
 //if ($cancel or $cms->user->logged_in()) previouspage('index.php');
 if ($cancel) previouspage('index.php');
 
+// If you are on this page $cookieconsent is assumed to be true.
+$cms->session->options['cookieconsent'] = true;
+$cookieconsent = $cms->session->options['cookieconsent'];
+
 switch ($ps->conf['main']['uniqueid']) {
 	case 'worldid': $uniqueid_label = $cms->trans("Steam ID"); break;
 	case 'name': 	$uniqueid_label = $cms->trans("Name"); break;
@@ -109,7 +113,9 @@ if ($submit) {
 			$plr = $ps->get_player($plr['plrid'], true);
 			$cms->theme->assign(array(
 				'plr'	=> $plr,
-				'reg'	=> $userinfo, 
+				'reg'	=> $userinfo,
+				'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+				'cookieconsent'	=> $cookieconsent,
 			));
 
 			// if registration is open log the user in
@@ -142,7 +148,8 @@ $cms->theme->assign(array(
 	'errors'	=> $form->errors(),
 	'form'		=> $form->values(),
 	'uniqueid_label' => $uniqueid_label,
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 ));
 
 // display the output
