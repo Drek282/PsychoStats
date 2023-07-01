@@ -18,6 +18,13 @@
 <legend>{if $id}<#Edit#>{else}<#New#>{/if} <#Log Source#></legend>
 {if $errors.fatal}<div class="err fatal"><h4><#Fatal Error#></h4><p>{$errors.fatal}</p></div>{/if}
 
+<div class="inline-notes">
+	<h4><#Note#></h4>
+	<p>	
+		You should save your log source before you test it.  If you test the log source before you save it you will have to re-enter any passwords.
+	</p>
+</div>
+
 <div{if $errors.enabled} class="err"{/if}>
 	<p class="err" id="err-enabled">{$errors.enabled|escape}</p>
 	<label><#Enabled?#></label>
