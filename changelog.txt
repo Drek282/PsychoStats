@@ -63,7 +63,7 @@ Version 3.2.8b (in progress)
 * [Changed] Pages will now display error message if javascript is disabled.
 * [Added] GDPR compliance.
 * [Fixed] Broken quick login.
-* [Added] Support for Gun Game: Source—currently untested.
+* [Added] Support for Gun Game: Source.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
