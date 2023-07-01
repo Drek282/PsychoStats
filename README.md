@@ -27,6 +27,7 @@ There are also modules available for the following games, but they are untested 
 * [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
 * [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
 * [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
+* [Gun Game](https://github.com/Drek282/ps_gungames "Gun Game: Source")
 * [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
 * [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
