@@ -62,6 +62,7 @@ Version 3.2.8b (in progress)
 * [Restored] Some, but not all, of the Google maps configuration options.
 * [Changed] Pages will now display error message if javascript is disabled.
 * [Added] GDPR compliance.
+* [Fixed] Broken quick login.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
