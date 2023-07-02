@@ -61,7 +61,7 @@ Version 3.2.8b (in progress)
 * [Fixed] Custom icons will now display in Google maps.
 * [Restored] Some, but not all, of the Google maps configuration options.
 * [Changed] Pages will now display error message if javascript is disabled.
-* [Added] GDPR compliance.
+* [Added] GDPR compliance. ( Import '.\migrations\20230630_GDPR-commits.sql' into PMA if your install date is before Jun 30, 2023. )
 * [Fixed] Broken quick login.
 * [Added] Support for Gun Game: Source.
 
