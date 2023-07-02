@@ -33,7 +33,7 @@ if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FIL
 
 // Global PsychoStats version and release date. 
 // These are updated automatically by the release packaging script 'rel.pl'.
-define("PS_VERSION", '3.2.8b');
+define("PS_VERSION", '3.2.8n');
 define("PS_RELEASE_DATE", 'today');
 
 // define the directory where we live. Since this file is always 1 directory deeper

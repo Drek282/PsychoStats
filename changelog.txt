@@ -1,7 +1,7 @@
 --- DREK ---
 
 
-Version 3.2.8b (in progress)
+Version 3.2.8n (in progress)
 * [Updated] Minimum MySQL version updated to 5.5.0
 * [Updated] Minimum PHP version updated to 7.1.0
 * [Updated] Map overlay sql.
@@ -64,6 +64,7 @@ Version 3.2.8b (in progress)
 * [Added] GDPR compliance. ( Import '.\migrations\20230630_GDPR-commits.sql' into PMA if your install date is before Jun 30, 2023. )
 * [Fixed] Broken quick login.
 * [Added] Support for Gun Game: Source.
+* [Changed] Version string to indicate "nightly" status of current working version.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
