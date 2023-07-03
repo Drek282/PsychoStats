@@ -687,7 +687,7 @@ function not0($a) { return ($a != '0.0.0.0'); }
 // returns a list of per-day stats for a player. Each element in the list is a single day.
 function get_player_days($args = array()) {
 	$args += array(
-		'plrid'		=> $id,
+		'plrid'		=> 0,
 		'sort'		=> 'statdate',
 		'order'		=> 'desc',
 		'start'		=> 0,
