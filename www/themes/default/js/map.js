@@ -31,6 +31,11 @@ async function init_google() {
 			mapTypeControl: mapconf.ctrl_maptype,
   			gestureHandling: gesturehandling,
   			zoomControl: zoomcontrol,
+			streetViewControl: false,
+			styles: [
+				{ featureType: "poi", stylers: [{ "visibility": "off" }] },
+				{ featureType: "transit", stylers: [{ visibility: "off" }] },
+			]
 	});
 
 	//if (mapconf.ctrl_overview) map.addControl(new GOverviewMapControl());
