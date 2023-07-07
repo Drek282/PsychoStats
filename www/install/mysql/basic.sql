@@ -234,7 +234,7 @@ CREATE TABLE `ps_errlog` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_geoip_cc` (
   `cc` char(2) NOT NULL,
-  `cn` varchar(50) NOT NULL,
+  `cn` varchar(52) NOT NULL,
   PRIMARY KEY  (`cc`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 CREATE TABLE `ps_geoip_ip` (
