@@ -311,6 +311,14 @@ div.ps-plr-profile #map {
 	background: lightyellow;
 	border: 2px solid darkred;
 	padding: 1em;
+	padding-top: 1%;
+	padding-left: 3%;
+	background-repeat: no-repeat;
+	background-position: 1% center;
+	color: #D8000C;
+	z-index:2;
+	/*background-color: #FFBABA;*/
+	background-image: url('../img/script_error.png');
 }
 #error h1 {
 	color: darkred;
