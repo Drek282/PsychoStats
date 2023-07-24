@@ -98,6 +98,7 @@ if (is_numeric($ip) and $ip > 0) {
 		"pp.latitude IS NOT NULL AND pp.longitude IS NOT NULL AND pp.cc <>'A2' " . 
 		"ORDER BY p.rank,p.skill DESC,c.kills DESC LIMIT $limit"
 	);
+	$profiles = array_reverse($profiles);
 	if ($profiles) $limit -= count($profiles);
 
 	// return a list of IP's of the highest ranking players.
@@ -115,6 +116,7 @@ if (is_numeric($ip) and $ip > 0) {
 		"GROUP BY ip.plrid " .
 		"ORDER BY p.rank,p.skill DESC,c.kills DESC LIMIT $limit"
 	);
+	$list = array_reverse($list);
 	$iplist = array();
 	foreach ($list as $p) {
 		$iplist[$p['ipaddr']] = $p;

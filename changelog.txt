@@ -66,6 +66,7 @@ Version 3.2.8n (in progress)
 * [Added] Support for Gun Game: Source.
 * [Changed] Version string to indicate "nightly" status of current working version.
 * [Fixed] Overview map now excludes bots.
+* [Fixed] Where there is a location conflict, overview map now displays highest ranking player.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

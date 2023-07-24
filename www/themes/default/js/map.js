@@ -69,7 +69,7 @@ async function init_google() {
 			markers[latlng] = true;
 
 			// auto center on the first marker, chances are most markers will be surrounding the same area
-			if (i == 0) map.setCenter(new google.maps.LatLng(Number(lat), Number(lng)));
+			if (i == $('marker', xml).slice(-1)) map.setCenter(new google.maps.LatLng(Number(lat), Number(lng)));
 
 			if (mapconf.enable_custom_icons && t.attr('icon')) {
 				customIcon.image = iconsurl + '/' + t.attr('icon');
