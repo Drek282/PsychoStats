@@ -65,6 +65,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Broken quick login.
 * [Added] Support for Gun Game: Source.
 * [Changed] Version string to indicate "nightly" status of current working version.
+* [Fixed] Overview map now excludes bots.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
