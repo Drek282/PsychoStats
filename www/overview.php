@@ -87,7 +87,7 @@ $cms->theme->assign_request_vars($validfields, true);
 if (is_numeric($ip) and $ip > 0) {
 	$limit = min($ip, 100);
 	$fields =
-		'p.plrid,p.rank,p.skill,p.activity,pp.name,pp.icon,' .
+		'p.plrid,p.rank,p.skill,p.activity,pp.name,pp.icon,pp.cc,' .
 		'c.kills,c.headshotkills,c.onlinetime,c.killsperdeath kpd';
 
 	// return a list of highest ranked players that have lat,lng values set
@@ -95,7 +95,7 @@ if (is_numeric($ip) and $ip > 0) {
 		"SELECT $fields,pp.latitude lat,pp.longitude lng " .
 		"FROM $ps->t_plr_profile pp, $ps->t_plr p, $ps->c_plr_data c " . 
 		"WHERE p.uniqueid=pp.uniqueid AND p.plrid=c.plrid AND p.allowrank=1 AND " . 
-		"pp.latitude IS NOT NULL AND pp.longitude IS NOT NULL " . 
+		"pp.latitude IS NOT NULL AND pp.longitude IS NOT NULL AND pp.cc <>'A2' " . 
 		"ORDER BY p.rank,p.skill DESC,c.kills DESC LIMIT $limit"
 	);
 	if ($profiles) $limit -= count($profiles);
@@ -103,11 +103,11 @@ if (is_numeric($ip) and $ip > 0) {
 	// return a list of IP's of the highest ranking players.
 	$list = $ps->db->fetch_rows(1,
 		"SELECT DISTINCT ip.plrid, INET_NTOA(ipaddr) ipaddr, p.plrid," .
-		"p.rank,p.skill,p.activity,pp.name,pp.icon,c.kills,c.headshotkills," .
+		"p.rank,p.skill,p.activity,pp.name,pp.icon,pp.cc,c.kills,c.headshotkills," .
 		"c.onlinetime,c.killsperdeath kpd " .
 		"FROM $ps->t_plr_ids_ipaddr ip, $ps->t_plr p, $ps->t_plr_profile pp, $ps->c_plr_data c " . 
 		"WHERE ip.plrid=p.plrid AND p.uniqueid=pp.uniqueid AND p.plrid=c.plrid AND p.allowrank=1 AND " . 
-		"pp.latitude IS NULL AND pp.longitude IS NULL AND " . 
+		"pp.latitude IS NULL AND pp.longitude IS NULL AND pp.cc <>'A2' AND " . 
 		"(ipaddr NOT BETWEEN 167772160 AND 184549375) AND " .		// 10/8
 		"(ipaddr NOT BETWEEN 2886729728 AND 2887778303) AND " .		// 172.16/12
 		"(ipaddr NOT BETWEEN 3232235520 AND 3232301055) AND " .		// 192.168/16
