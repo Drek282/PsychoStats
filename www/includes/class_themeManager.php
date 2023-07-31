@@ -332,7 +332,7 @@ function is_xml($hdr = null) {
 	// if we don't have a content-type we assume the best and return true
 	if (!$ct) return true;
 
-	$ok = preg_match('@^\w+/xml|text/(plain|html)$@', $ct);
+	$ok = preg_match('@^\w+/xml|text/(plain|html)@', $ct);
 	return $ok;
 
 }
