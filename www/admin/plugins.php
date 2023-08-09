@@ -55,8 +55,12 @@ if ($enable or $disable) {
 $plugin = array();
 if (!empty($id)) {
 	$plugin = $ps->db->fetch_row(1, "SELECT * FROM $ps->t_plugins WHERE plugin=" . $ps->db->escape($id, true));
-	if (!isset($plugin['plugin'])) {
-		previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'plugins.php' )));		
+	if (!$plugin['plugin']) {
+		$data = array(
+			'message' => $cms->trans("Invalid Plugin Specified"),
+		);
+		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		exit();	
 	}
 }
 

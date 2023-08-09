@@ -12,3 +12,5 @@ function confirm_inst(e) {
 	var text = $(this).parent().siblings();
 	return window.confirm("Are you sure you want to install the plugin?:\n\t" + text.html());
 }
+
+history.replaceState({},'','/admin/plugins.php');
