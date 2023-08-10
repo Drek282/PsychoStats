@@ -7,5 +7,3 @@ function confirm_uninst(e) {
 	return window.confirm("Are you sure you want to uninstall the theme (it will not be deleted)?:\n\t" + text.html());
 }
 
-history.replaceState({},'','/admin/themes.php');
-
