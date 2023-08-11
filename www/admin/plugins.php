@@ -56,7 +56,7 @@ $plugin = array();
 if (!empty($id)) {
 	$plugin = $ps->db->fetch_row(1, "SELECT * FROM $ps->t_plugins WHERE plugin=" . $ps->db->escape($id, true));
 	if (!isset($plugin['plugin'])) {
-		previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'plugins.php' )));		
+		previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'plugins.php' )));	
 	}
 }
 
