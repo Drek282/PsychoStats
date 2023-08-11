@@ -85,7 +85,7 @@ function simple_interpolate($str, $tokens, $fill = false) {
 			die("ENDLESS LOOP in simple_interpolate (line " . __LINE__ . ") with string '$str'");
 		}
 		$var1	= strtolower($m[1][0]);
-		$var2 	= $m[2][0] ? strtolower($m[2][0]) : '';
+		$var2 	= isset($m[2][0]) ? strtolower($m[2][0]) : '';
 		$idx	= $m[0][1];	// get position of where match begins
 		if (array_key_exists($var1, $tokens)) {
 			if (!empty($var2)) {
