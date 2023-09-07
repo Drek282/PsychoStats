@@ -27,6 +27,29 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Edit Player Profile');
 
+// Get cookie consent status from the cookie if it exists.
+$cms->session->options['cookieconsent'] ??= false;
+$cookieconsent = $cms->session->options['cookieconsent'];
+if (isset($cms->input['cookieconsent'])) {
+	$cookieconsent = $cms->input['cookieconsent'];
+
+	// Update cookie consent status in the cookie if they are accepted.
+	// Delete coolies if they are rejected.
+	if ($cookieconsent) {
+		$cms->session->opt('cookieconsent', $cms->input['cookieconsent']);
+		$cms->session->save_session_options();
+
+		// save a new form key in the users session cookie
+		// this will also be put into a 'hidden' field in the form
+		if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->key());
+		
+	} else {
+		$cms->session->delete_cookie();
+		$cms->session->delete_cookie('_opts');
+	}
+	previouspage($php_scnm);
+}
+
 $validfields = array('ref','id','del','submit','cancel');
 $cms->theme->assign_request_vars($validfields, true);
 
@@ -336,6 +359,7 @@ $cms->theme->assign(array(
 	'accesslevels'	=> $plr_user->accesslevels(),
 	'form'		=> $form->values(),
 	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 	'allow_username_change' => $allow_username_change, 
 ));
 
