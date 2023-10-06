@@ -320,7 +320,7 @@ function load_active_plugins() {
 				$obj = new $plugin();
 				$loaded = $obj->load($this);
 				if ($loaded) {
-					$this->plugins[ $plugin ] =& $obj;
+					$this->plugins[ $plugin ] = $obj;
 				} elseif (!empty($obj->errstr)) {
 					$this->plugin_errors[ $plugin ][] = $obj->errstr;
 				}
