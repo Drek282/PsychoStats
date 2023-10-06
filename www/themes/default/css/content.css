@@ -43,6 +43,9 @@
 	float: right;
 	font-weight: bold;
 }
+#ps-search-clear {
+	padding-bottom: 2px;
+}
 
 #ps-page-title div.ps-plr-profile {
 	padding: 3px;

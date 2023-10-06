@@ -47,6 +47,9 @@
 #ps-main #ps-page-title div.inner span {
 	color: #DDD;
 }
+#ps-search-clear {
+	padding-bottom: 2px;
+}
 
 #ps-page-title div.ps-plr-profile {
 	padding: 5px;
