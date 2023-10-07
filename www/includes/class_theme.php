@@ -411,9 +411,9 @@ function remove_template_dir($dir) {
 }
 
 // get/set the current theme
-function theme($new = false, $in_db = true) {
+function theme($new = null, $in_db = true) {
 	global $ps;
-	if (!$new) {
+	if (empty($new)) {
 		return $this->theme;
 	} elseif ($this->is_theme($new)) {
 		$loaded = false;
