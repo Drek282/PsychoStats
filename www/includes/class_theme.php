@@ -592,6 +592,7 @@ function get_language_list($theme = null) {
 	$theme_list = (array)($theme ? $theme : array_keys($this->loaded_themes));
 	$langs = array();
 	foreach ($theme_list as $t) {
+		if (empty($t)) continue;
 		$path = $this->language_dir($t);
 		$dh = @opendir($path);
 		if ($dh) {
