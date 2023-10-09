@@ -49,7 +49,7 @@ function PsychoLanguage() {
  * @param string $str String to translate. May contain sprintf format characters.
  * @param array $args optional array of sprintf variables to interpolate into the string.
  **/
-function gettrans($str, $args = array()) {
+function gettrans($str = null, $args = array()) {
 	if (isset($this->map[$str])) {
 		if ($this->map[$str] != '') {
 			$str = $this->map[$str];
