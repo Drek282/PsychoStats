@@ -513,7 +513,12 @@ function theme($new = null, $in_db = true) {
 		$this->theme = $new;
 		return $new;
 	} else {
-		return $this->theme;
+		trigger_error("Error loading theme $new. <strong>Using default instead.</strong> See the errors and/or warnings below for more information", E_USER_WARNING);
+		print $err;
+
+		$new = 'default';
+		$this->theme = $new;
+		return $new;
 	}
 }
 
