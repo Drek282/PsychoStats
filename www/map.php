@@ -77,16 +77,21 @@ $maps = $ps->get_map_list(array(
 
 // a map name was given; look up the ID for it
 if (!is_numeric($id) and !empty($id)) {
-	list($id) = $ps->db->fetch_list("SELECT mapid FROM $ps->t_map WHERE uniqueid=" . $ps->db->escape($id, true));
+	if ($ps->db->fetch_list("SELECT mapid FROM $ps->t_map WHERE uniqueid=" . $ps->db->escape($id, true))) {
+		list($id) = $ps->db->fetch_list("SELECT mapid FROM $ps->t_map WHERE uniqueid=" . $ps->db->escape($id, true));
+	} else {
+		$fn = $id;
+		$id = null;
+	}
 }
 
 $map = $ps->get_map(array( 
 	'mapid' => $id 
 ));
 
-$cms->theme->page_title(' for ' . $map['uniqueid'], true);
+($id) ? $cms->theme->page_title(' for ' . $map['uniqueid'], true) : $cms->theme->page_title(' unavailable', true);
 
-if ($map['mapid']) {
+if (isset($map['mapid'])) {
 
 	$heat = new PS_Heatmap($ps);
 	$map['total_heatmaps'] = $heat->total_heatmap_images($map['mapid']);
@@ -142,7 +147,7 @@ $cms->theme->assign(array(
 ));
 
 $basename = basename(__FILE__, '.php');
-if ($map['mapid']) {
+if (isset($map['mapid'])) {
 	// allow mods to have their own section on the left side bar
 	$ps->map_left_column_mod($map, $cms->theme);
 
@@ -151,7 +156,7 @@ if ($map['mapid']) {
 } else {
 	$cms->full_page_err($basename, array(
 		'message_title'	=> $cms->trans("No Map Found!"),
-		'message'	=> $cms->trans("Invalid map ID specified.") . " " . $cms->trans("Please go back and try again.")
+		'message'	=> $cms->trans("Invalid map ID specified.") . " " . $cms->trans("No stats available for $fn.")
 	));
 }
 
