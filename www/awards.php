@@ -132,7 +132,7 @@ if (!$valid_date) {
 $cmd = "SELECT awarddate FROM $ps->t_awards WHERE awardrange = '$v' AND awarddate <= '$d' "; 
 if ($p) $cmd .= "AND topplrid=$_p ";
 $cmd .= "ORDER BY awarddate DESC LIMIT 1";
-list($d) = $ps->db->fetch_list($cmd);
+list($d) = !empty($ps->db->fetch_list($cmd)) ? $ps->db->fetch_list($cmd) : null;
 
 // if date is still empty then we have no awards in the database (at least not for the selected view)
 if (empty($d)) {

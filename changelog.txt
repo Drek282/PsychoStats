@@ -69,6 +69,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Where there is a location conflict, overview map now displays highest ranking player.
 * [Added] Reset button next to the search field on the Players page.
 * [Removed] Redundant theme function calls.
+* [Fixed] Error when attempting to load Awards page while stats were being generated.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
