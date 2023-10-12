@@ -360,10 +360,6 @@ $shades = array(
 	's_plripaddr'		=> null,
 );
 
-$player['friend_id'] ??= null;
-$player['steam_community_url'] ??= null;
-$player['steam_add_friend_url'] ??= null;
-
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
 //	'hitbox_url'		=> ps_escape_html("weaponxml=$PHP_SELF?id=$id&xml=w") . '&' . ps_escape_html("imgpath=" . dirname($PHP_SELF) . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']),

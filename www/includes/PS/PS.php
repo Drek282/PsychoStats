@@ -680,6 +680,11 @@ function get_player($args = array(), $minimal = false) {
 	}
 */
 
+	//declarations for player profile
+	$plr['friend_id'] ??= null;
+	$plr['steam_community_url'] ??= null;
+	$plr['steam_add_friend_url'] ??= null;
+
 	return $plr;
 }
 function not0($a) { return ($a != '0.0.0.0'); }
