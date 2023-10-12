@@ -81,6 +81,10 @@ You can view working demos of PsychoStats at the following links:
 * GDPR compliance.
 * Fix the Google Maps functionality on the Overview page.
 
+## A Note Regarding the Cookie Consent, a.k.a. GDPR and CCPA Compliance
+
+If you choose to enable Cookie Consent, in the Admin CP Security section, by default no cookies will be saved in users browsers. Cookies must be accepted for them to be saved by users in their browsers. If cookeies are not accepted users will be able to browse the stats but they will not be able to register or log into an account if those options are enabled or if they already have an account. They will also not be able to log into an admin account if they have one, or choose anything other than the default theme or language support.
+
 
 ## **Credits**
 
