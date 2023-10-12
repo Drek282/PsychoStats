@@ -31,12 +31,12 @@ $form = $cms->new_form();
 
 // Get cookie consent status from the cookie if it exists.
 $cms->session->options['cookieconsent'] ??= false;
-$cookieconsent = $cms->session->options['cookieconsent'];
+($ps->conf['main']['security']['enable_cookieconsent']) ? $cookieconsent = $cms->session->options['cookieconsent'] : $cookieconsent = 1;
 if (isset($cms->input['cookieconsent'])) {
 	$cookieconsent = $cms->input['cookieconsent'];
 
 	// Update cookie consent status in the cookie if they are accepted.
-	// Delete coolies if they are rejected.
+	// Delete cookies if they are rejected.
 	if ($cookieconsent) {
 		$cms->session->opt('cookieconsent', $cms->input['cookieconsent']);
 		$cms->session->save_session_options();

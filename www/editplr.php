@@ -29,7 +29,7 @@ $cms->theme->page_title('PsychoStats - Edit Player Profile');
 
 // Get cookie consent status from the cookie if it exists.
 $cms->session->options['cookieconsent'] ??= false;
-$cookieconsent = $cms->session->options['cookieconsent'];
+($ps->conf['main']['security']['enable_cookieconsent']) ? $cookieconsent = $cms->session->options['cookieconsent'] : $cookieconsent = 1;
 if (isset($cms->input['cookieconsent'])) {
 	$cookieconsent = $cms->input['cookieconsent'];
 
