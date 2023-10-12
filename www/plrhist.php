@@ -145,6 +145,10 @@ $sessionpager = pagination(array(
 	'prev'          => $cms->trans("Previous"),
 ));
 
+$player['friend_id'] ??= null;
+$player['steam_community_url'] ??= null;
+$player['steam_add_friend_url'] ??= null;
+
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
 	'history'		=> $history,
