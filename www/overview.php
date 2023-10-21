@@ -315,7 +315,7 @@ function return_ofc_24() {
 	// build a list of hours in the proper order
 	for ($h=$newest; count($hours)<24; $h--) {
 		if ($h < 0) $h = 23;
-		$hours[ sprintf('%02d:00', $h) ] = 'null';
+		$hours[ sprintf('%02d:00', $h) ] = '0';
 	}
 	$hours = array_reverse($hours);
 
