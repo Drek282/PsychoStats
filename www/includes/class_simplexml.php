@@ -123,8 +123,7 @@ class simplexml {
 	function array_reindex($array)
 	{
 		if (is_array($array)) {
-            $array[0] = $array[0] ?? null;
-			if(count($array) == 1 && $array[0] != ''){
+			if(count($array) == 1 && isset($array[0])){
 				return $this->array_reindex($array[0]);
 			}else{
 				foreach($array as $keys => $items) {
