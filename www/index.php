@@ -86,6 +86,17 @@ if (!is_numeric($start) || $start < 0) $start = 0;
 if (!is_numeric($limit) || $limit < 0 || $limit > 500) $limit = $DEFAULT_LIMIT;
 $q = trim($q ?? '');
 
+// if $q is longer than 50 characters we have a problem
+if (strlen($q) > 50) {
+	$cms->full_page_err('awards', array(
+		'message_title'	=> $cms->trans("Invalid Search String"),
+		'message'	=> $cms->trans("Searches are limited to 50 characters in length."),
+		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+		'cookieconsent'	=> $cookieconsent,
+	));
+	exit();
+}
+
 // If a language is passed from GET/POST update the user's cookie. 
 if (isset($cms->input['language'])) {
 	if ($cms->theme->is_language($cms->input['language'])) {
