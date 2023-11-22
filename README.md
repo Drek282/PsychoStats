@@ -60,11 +60,7 @@ You can view working demos of PsychoStats at the following links:
 
 * The team wins and losses for Firearms don't work extremely well or consistently.
 
-* PsychoStats is decidedly **not** mobile friendly.
-
 * Mcrypt is deprecated/obsolete.
-
-* The Overview page that makes use of the Google Maps functionality is broken.
 
 
 ## **Stuff that Remains Untested**
@@ -76,10 +72,8 @@ You can view working demos of PsychoStats at the following links:
 
 ## **Future Plans**
 
-* Improve display on mobile devices.
 * Copy the old PsychoStats wiki content from The Wayback Machine to the GitHub wiki.
-* GDPR compliance.
-* Fix the Google Maps functionality on the Overview page.
+* Create a PschoStats HELP page and supporting software infrastructure.
 
 ## A Note Regarding the Cookie Consent, a.k.a. GDPR and CCPA Compliance
 
