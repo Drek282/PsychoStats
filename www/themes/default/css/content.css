@@ -175,6 +175,14 @@ div.ps-plr-profile #map {
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
+	position: relative;
+}
+#ps-container .ps-player-table tr.hdr,
+#ps-container .ps-weapon-table tr.hdr,
+#ps-container .ps-map-table tr.hdr {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
 }
 #ps-container .ps-table th {
 	line-height: 20px;

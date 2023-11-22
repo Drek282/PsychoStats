@@ -81,6 +81,7 @@ function render($type = 'html') {
 // returns a simple table header row (no sorting)
 function header() {
 	$row = new PsychoRow($this->type);
+	$trclass = 'hdr'; //class for table header row to allow for styling
 //	$row->attr($this->header_attr);	// wrong
 	foreach ($this->columns as $key => $cell) {
         $this->header_attr[$key] ??= null;
@@ -90,12 +91,13 @@ function header() {
 		$str = sprintf($this->header_format, $label);
 		$row->th($str, $this->header_attr[$key]);
 	}
-	return $row->render();
+	return $row->render($trclass);
 }
 
 // renders the table header row that can be clicked to change the current sort
 function header_sort() {
 	$row = new PsychoRow($this->type);
+	$trclass = 'hdr'; //class for table header row to allow for styling
 //	$row->attr($this->header_attr); // wrong
 	foreach ($this->columns as $key => $cell) {
         $cell['nolabel'] ??= null;
@@ -125,7 +127,7 @@ function header_sort() {
 		$row->th($str, $hdr_attr);
 //		$row->th($str);
 	}
-	return $row->render();
+	return $row->render($trclass);
 }
 
 // renders all the data rows of the table
@@ -364,9 +366,9 @@ function PsychoRow($type = 'html') {
     self::__construct($type);
 }
 
-function render($type = 'html') {
+function render($trclass = null, $type = 'html') {
 	$this->type = $type;
-	$tr = $this->with_attr("<tr%s>\n");
+	$tr = ($trclass == 'hdr') ? $this->with_attr("<tr class=\"$trclass\"%s>\n") : $this->with_attr("<tr%s>\n");
 	foreach ($this->cells as $col) {
 		$tr .= $this->with_attr("\t<" . $col['type'] . "%s>", $col['attr'], true);
 		$tr .= sprintf("%s</%s>\n",
