@@ -1181,7 +1181,7 @@ sub daily_decay {
 		} else {	# decay eq 'percent'
 			$newskill -= $newskill * $value / 100;
 		}
-		$newskill = $self->{baseskill} if $newskill < $self->{baseskill};
+		#$newskill = $self->{baseskill} if $newskill < $self->{baseskill};
 #		print "id $id: len: $length, val: $value, old: $skill, new: $newskill\n";
 		$db->update($db->{t_plr}, { lastdecay => $newest, skill => $newskill }, [ plrid => $id ]);
 	}

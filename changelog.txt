@@ -73,7 +73,8 @@ Version 3.2.8n (in progress)
 * [Fixed] Error when attempting to load map page for map not in database.
 * [Fixed] Search string length limited to 50 characters.
 * [Improved] Table header sticky at top of player, weapon and map tables when table is scrolled.
-* [Changed] Minimum player session length from 1 to 11.
+* [Changed] Minimum player session length from 1 to 11 seconds.
+* [Changed] Skill decay can now lower skill below baseline.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

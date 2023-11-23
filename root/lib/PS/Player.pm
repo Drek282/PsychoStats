@@ -362,8 +362,9 @@ sub decay {
 		$newskill = $self->skill - ($self->skill * $value / 100);
 	}
 
-	# update the players skill value (don't let it drop below the base)
-	$self->skill($newskill > $BASESKILL ? $newskill : $BASESKILL);
+	# update the players skill value (can drop below base skill value)
+	#$self->skill($newskill > $BASESKILL ? $newskill : $BASESKILL);
+	$self->skill($newskill);
 	$self->lastdecay($self->{game}{timestamp});
 
 #	$self->{db}->update($self->{db}{t_plr}, $set, [ plrid => $self->{plrid} ]);
