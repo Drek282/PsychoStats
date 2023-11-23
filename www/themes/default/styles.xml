@@ -69,10 +69,10 @@
 		<last24 bgcolor="" bg_inner1="" bg_inner2="" inner_angle="">
 			<title style="font-size: 16px">{#Last 24 Hours#}</title>
 			<tooltip><![CDATA[#key#<br>#val# (#x_label#)]]></tooltip>
-			<lines key_size="9">
-				<line width="3" key="{#Average Kills#}" color="#9999ee" />
-				<line width="2" dot_size="5" key="{#Kills#}" color="#5555ff" />
-				<line width="1" key="{#Connections#}" color="#000000" />
+			<lines>
+				<line width="3" color="#9999ee" key="{#Average Kills#}" key_size="9"/>
+				<line width="2" color="#5555ff" key="{#Kills#}" key_size="9" dot_size="5"/>
+				<line width="1" color="#000000" key="{#Connections#}" key_size="9" dot_size="3"/>
 			</lines>
 		</last24>
 
