@@ -179,7 +179,9 @@ div.ps-plr-profile #map {
 }
 #ps-container .ps-player-table tr.hdr,
 #ps-container .ps-weapon-table tr.hdr,
-#ps-container .ps-map-table tr.hdr {
+#ps-container .ps-map-table tr.hdr,
+#ps-container .ps-role-table tr.hdr,
+#ps-container .ps-clan-table tr.hdr {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
