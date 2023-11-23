@@ -1023,8 +1023,8 @@ sub save {
 			$session->{sessionend} += 3600;
 		}
 
-		# save the session (only if the session is more than 0 seconds)
-		if ($session->{sessionend} - $start > 0) {
+		# save the session (only if the session is more than 10 seconds)
+		if ($session->{sessionend} - $start > 10) {
 			$db->save_stats($db->{t_plr_sessions}, { %$session, %{$self->{basic}} }, $TYPES_PLRSESSIONS, [ dataid => $sid ] );
 			# remove old sessions
 			my $numsessions = $db->count($db->{t_plr_sessions}, [ plrid => $plrid ]);
