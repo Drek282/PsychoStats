@@ -151,7 +151,7 @@ function maxretries() {
 
 // connects the socket for reading/writting
 function _connectsocket($ip, $port, $proto='udp') {
-	if ($this->DEBUG) print "DEBUG: Opening socket to $ip:$port >>>\n";
+	if ($this->DEBUG) print nl2br("DEBUG: Opening socket to $ip:$port >>>\n");
 	$this->sock = @fsockopen("$proto://$ip", $port, $this->errno, $this->errstr);
 	$this->_set_timeout($this->conf['timeout']);
 	return $this->sock;
