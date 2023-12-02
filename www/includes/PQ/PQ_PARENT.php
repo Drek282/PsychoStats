@@ -87,7 +87,7 @@ function query($query, $resetdata=0) {
 			if (is_array($res)) {
 				$result += $res;
 			} else {
-//				trigger_reror("Server did not respond to '$q' query", E_USER_WARNING);
+				trigger_error("Server did not respond to '$q' query", E_USER_WARNING);
 			}
 		} else {
 			trigger_error("Invalid query specified ($q)", E_USER_WARNING);
@@ -126,7 +126,7 @@ function query_master() {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'master' server query", E_USER_WARNING);
 }
 function connect_url() {
-//	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support 'connect_url'", E_USER_WARNING);
+	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support 'connect_url'", E_USER_WARNING);
 	return "";
 }
 
