@@ -126,7 +126,7 @@ function query_master() {
 	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support the 'master' server query", E_USER_WARNING);
 }
 function connect_url() {
-	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support 'connect_url'", E_USER_WARNING);
+//	trigger_error("PQ subclass '{$this->conf['querytype']}' does not support 'connect_url'", E_USER_WARNING);
 	return "";
 }
 
@@ -247,7 +247,7 @@ function hexdump($string, $maxwidth=16) {
 			$curwidth = $maxwidth;
 		}
 		if ($curwidth >= $maxwidth) {
-			$output .= " ";
+			$output .= "| ";
 			foreach ($bytes as $b) {
 				if ($b <= 32 or $b >= 127) {
 //				if ($b <= 32) {
@@ -263,7 +263,7 @@ function hexdump($string, $maxwidth=16) {
 			$curwidth++;
 		}
 	}
-	return $output;
+	return "<pre>" . $output . "</pre>\n";
 }
 
 } // end of PQ class
