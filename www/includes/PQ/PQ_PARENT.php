@@ -263,7 +263,7 @@ function hexdump($string, $maxwidth=16) {
 			$curwidth++;
 		}
 	}
-	return "<pre>" . $output . "</pre>\n";
+	return $output;
 }
 
 } // end of PQ class
