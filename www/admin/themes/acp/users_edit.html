@@ -28,11 +28,26 @@ delete_message = "<#Are you sure you want to delete the user?#>";
 	<label class="for" for="confirmed2"><input id="confirmed2" name="confirmed" value="0" {if !$form.confirmed}checked="" {/if}type="radio" class="radio"> No</label>
 </div>
 
+{if $id}
+<div class="notes">
+	<h4><#User Name#></h4>
+	<p><#Cannot be modified.#></p>
+</div>
+<div>
+	<label><#User Name#>:</label>
+	<span class="nomodify">{$u.username|escape}</span>
+	<input name="username" value="{$u.username|escape}" type="hidden">
+</div>
+{else}
 <div{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
 	<input name="username" value="{$form.username|escape}" type="text" class="field">
+	<p class="small">
+		<#This is the user name the user will use to log into the account.#>
+	</p>
 </div>
+{/if}
 
 <div{if $errors.accesslevel} class="err"{/if}>
 	<p class="err" id="err-accesslevel">{$errors.accesslevel|escape}</p>
@@ -45,12 +60,12 @@ delete_message = "<#Are you sure you want to delete the user?#>";
 </div>
 
 {if $id}
+<br><br><br>
 <div class="notes">
 	<h4><#Change Password?#></h4>
 	<p><#Only enter a password if you want to change it from the current password.#></p>
 </div>
 {/if}
-
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
 	<label><#New Password#>:</label>
@@ -61,6 +76,9 @@ delete_message = "<#Are you sure you want to delete the user?#>";
 	<p class="err" id="err-password2">{$errors.password2|escape}</p>
 	<label><#Retype Password#>:</label>
 	<input name="password2" type="password" class="field" autocomplete="off">
+	{if $id}
+	<p class="small"><strong><#IMPORTANT#>:</strong>  <#If you use a password manager that fills in passwords automatically, or your browser does the same thing, make sure the passwords fields are blank or you will change the password for your user.#></p>
+	{/if}
 </div>
 
 </fieldset>
