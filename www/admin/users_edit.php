@@ -98,7 +98,7 @@ if ($submit) {
 		$form->error('accesslevel', $cms->trans("Invalid access level specified"));
 	}
 
-	if (empty($u->info['username']) and $u->load_user($input['username'], 'username')) {
+	if ($u->load_user($input['username'], 'username')) {
 		$form->error('username', $cms->trans("Username already exists under a different user"));
 	}
 	
