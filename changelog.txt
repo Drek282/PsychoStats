@@ -76,7 +76,6 @@ Version 3.2.8n (in progress)
 * [Changed] Minimum player session length from 1 to 6 seconds.
 * [Changed] Skill decay can now lower skill below baseline.
 * [Fixed] Broken user creation in the Admin CP.
-* [Fixed] User name no longer interactive when editing a user in the Admin CP.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
