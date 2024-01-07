@@ -1054,6 +1054,10 @@ function get_weapon_player_list($args = array()) {
 		'start'		=> 0,
 		'limit'		=> 10,
 	);
+
+	// sanitize sort
+	$args['sort'] = ($this->db->column_exists(array($this->c_plr_weapons, $this->t_plr, $this->t_plr_profile), $args['sort'])) ? $args['sort'] : 'kills';
+
 	$id = $this->db->escape($args['weaponid']);
 	if (!is_numeric($id)) $id = 0;
 	$fields = $args['fields'] ? $args['fields'] : "data.*, plr.*, pp.*, c.cn";
@@ -1144,6 +1148,10 @@ function get_player_list($args = array()) {
 		'results'	=> null,
 		'search'	=> null
 	);
+
+	// sanitize sort
+	$args['sort'] = ($this->db->column_exists(array($this->t_plr, $this->t_plr_profile, $this->c_plr_data), $args['sort'])) ? $args['sort'] : 'skill';
+
 	$values = "";
 	if (trim($args['fields']) == '') {
 		if ($args['joinclaninfo']) $values .= "clan.*, ";
@@ -1306,6 +1314,9 @@ function get_weapon_list($args = array()) {
 		'where'		=> '',
 	);
 
+	// sanitize sort
+	$args['sort'] = ($this->db->column_exists(array($this->c_weapon_data, $this->t_weapon), $args['sort'])) ? $args['sort'] : 'skill';
+
 	$values = "";
 	if (trim($args['fields']) == '') {
 		$values .= "data.*,w.*,COALESCE(w.name,w.uniqueid) label";
@@ -1329,11 +1340,14 @@ function get_role_list($args = array()) {
 	$args += array(
 		'start'		=> 0,
 		'limit'		=> 100,
-		'sort'		=> 'skill',
+		'sort'		=> 'kills',
 		'order'		=> 'desc',
 		'fields'	=> '',
 		'where'		=> '',
 	);
+
+	// sanitize sort
+	$args['sort'] = ($this->db->column_exists(array($this->c_role_data, $this->t_role), $args['sort'])) ? $args['sort'] : 'kills';
 
 	$values = "";
 	if (trim($args['fields']) == '') {
@@ -1358,11 +1372,14 @@ function get_map_list($args = array()) {
 	$args += array(
 		'start'		=> 0,
 		'limit'		=> 100,
-		'sort'		=> 'skill',
+		'sort'		=> 'kills',
 		'order'		=> 'desc',
 		'fields'	=> '',
 		'where'		=> '',
 	);
+
+	// sanitize sort
+	$args['sort'] = ($this->db->column_exists(array($this->c_map_data, $this->t_map), $args['sort'])) ? $args['sort'] : 'kills';
 
 	$values = "";
 	if (trim($args['fields']) == '') {

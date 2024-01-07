@@ -76,7 +76,7 @@ if (!$msort) $msort = 'kills';
 if (!$ssort) $ssort = 'sessionstart';
 if (!$slimit) $slimit = '10';
 
-// SET DEFAULTS. Since they're basically the same for each list, we do this in a loop
+// SET DEFAULTS—sanitized. Since they're basically the same for each list, we do this in a loop
 foreach ($validfields as $var) {
 	switch (substr($var, 1)) {
 		case 'sort':
@@ -95,6 +95,13 @@ foreach ($validfields as $var) {
 		        break;
 	}
 }
+
+// sanitize sorts
+$vsort = ($ps->db->column_exists(array($ps->c_plr_victims, $ps->t_plr, $ps->t_plr_profile), $vsort)) ? $vsort : 'kills';
+$msort = ($ps->db->column_exists(array($ps->c_plr_maps, $ps->t_map), $msort)) ? $msort : 'kills';
+$wsort = ($ps->db->column_exists(array($ps->c_plr_weapons, $ps->t_weapon), $wsort)) ? $wsort : 'kills';
+$rsort = ($ps->db->column_exists(array($ps->c_plr_roles, $ps->t_role), $rsort)) ? $rsort : 'kills';
+if ($ssort != 'mapname' && $ssort != 'online') $ssort = ($ps->db->column_exists(array($ps->t_plr_sessions, $ps->t_map), $ssort)) ? $ssort : 'sessionstart';
 
 $totalranked  = $ps->get_total_players(array('allowall' => 0));
 
