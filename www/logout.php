@@ -47,7 +47,9 @@ if (isset($cms->input['cookieconsent'])) {
 		
 	} else {
 		$cms->session->delete_cookie();
+		$cms->session->delete_cookie('_id');
 		$cms->session->delete_cookie('_opts');
+		$cms->session->delete_cookie('_login');
 	}
 	previouspage($php_scnm);
 }
