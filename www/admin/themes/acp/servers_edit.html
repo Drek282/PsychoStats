@@ -31,18 +31,18 @@ delete_message = "<#Are you sure you want to delete the server?#>";
 <div{if $errors.host} class="err"{/if}>
 	<p class="err" id="err-host">{$errors.host|escape}</p>
 	<label><#Server Host#>:</label>
-	<input name="host" value="{$form.host|escape}" type="text" class="field">
+	<input name="host" value="{$form.host|escape}" type="text" class="field" autocomplete="off">
 </div>
 <div{if $errors.port} class="err"{/if}>
 	<p class="err" id="err-port">{$errors.port|escape}</p>
 	<label><#Server Port#>:</label>
-	<input name="port" value="{$form.port|escape}" type="text" class="field short">
+	<input name="port" value="{$form.port|escape}" type="text" class="field short" autocomplete="off">
 </div>
 
 <div{if $errors.alt} class="err"{/if}>
 	<p class="err" id="err-alt">{$errors.alt|escape}</p>
 	<label><#Connection IP#>:</label>
-	<input name="alt" value="{$form.alt|escape}" type="text" class="field">
+	<input name="alt" value="{$form.alt|escape}" type="text" class="field" autocomplete="off">
 	<p class="small">
 		The connection IP is an optional alternate IP (or hostname) to use for connecting to the server. This is useful 
 		when a server is on a local LAN with a private IP but has a public IP for Internet users to connect to.
@@ -62,7 +62,7 @@ delete_message = "<#Are you sure you want to delete the server?#>";
 <div{if $errors.rcon} class="err"{/if}>
 	<p class="err" id="err-rcon">{$errors.rcon|escape}</p>
 	<label><#RCON Password#>:</label>
-	<input name="rcon" value="{$form.rcon|escape}" type="password" class="field">
+	<input name="rcon" value="{$form.rcon|escape}" type="password" class="field" autocomplete="off">
 </div>
 
 </fieldset>
