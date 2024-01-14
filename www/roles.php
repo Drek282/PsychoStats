@@ -27,7 +27,7 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Role Stats');
 
-// change this if you want the default sort of the player listing to be something else like 'kills'
+// change this if you want the default sort of the roles listing to be something else like 'ffkills'
 $DEFAULT_SORT = 'kills';
 
 $validfields = array('sort','order','xml','v');
@@ -79,13 +79,16 @@ if (empty($results)) {
 }
 unset ($results);
 
+// SET DEFAULTS—sanitized
 $v = strtolower($v ?? '');
-$sort = trim(strtolower($sort ?? ''));
+$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
 $start = 0;
 $limit = 100;
-if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
+
+// sanitize sorts
+$sort = ($ps->db->column_exists(array($ps->c_role_data, $ps->t_role), $sort)) ? $sort : $DEFAULT_SORT;
 
 $stats = $ps->get_sum(array('kills','damage'), $ps->c_plr_data);
 

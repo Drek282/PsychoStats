@@ -28,6 +28,7 @@ $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Player Stats');
 
 // maximum player ID's to load for ipaddr, name, and worldid
+$DEFAULT_SORT = 'kills';
 $MAX_PLR_IDS = 10;
 
 $validfields = array(
@@ -74,16 +75,15 @@ if ($cms->input['ofc']) {
 	exit;
 }
 
-if (!$msort) $msort = 'kills';
-if (!$ssort) $ssort = 'sessionstart';
+// SET DEFAULTS—sanitized
 if (!$slimit) $slimit = '10';
-
-// SET DEFAULTS—sanitized. Since they're basically the same for each list, we do this in a loop
+$vsort = (isset($vsort) and strlen($vsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $vsort) : $DEFAULT_SORT;
+$msort = (isset($msort) and strlen($msort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $msort) : $DEFAULT_SORT;
+$wsort = (isset($wsort) and strlen($wsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $wsort) : $DEFAULT_SORT;
+$rsort = (isset($rsort) and strlen($rsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $rsort) : $DEFAULT_SORT;
+$ssort = (isset($ssort) and strlen($ssort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $ssort) : 'sessionstart';
 foreach ($validfields as $var) {
 	switch (substr($var, 1)) {
-		case 'sort':
-			if (!$$var) $$var = 'kills';
-			break;
 		case 'order':
 			if (!$$var or !in_array($$var, array('asc', 'desc'))) $$var = 'desc';
 			break;
@@ -99,10 +99,10 @@ foreach ($validfields as $var) {
 }
 
 // sanitize sorts
-$vsort = ($ps->db->column_exists(array($ps->c_plr_victims, $ps->t_plr, $ps->t_plr_profile), $vsort)) ? $vsort : 'kills';
-$msort = ($ps->db->column_exists(array($ps->c_plr_maps, $ps->t_map), $msort)) ? $msort : 'kills';
-$wsort = ($ps->db->column_exists(array($ps->c_plr_weapons, $ps->t_weapon), $wsort)) ? $wsort : 'kills';
-$rsort = ($ps->db->column_exists(array($ps->c_plr_roles, $ps->t_role), $rsort)) ? $rsort : 'kills';
+$vsort = ($ps->db->column_exists(array($ps->c_plr_victims, $ps->t_plr, $ps->t_plr_profile), $vsort)) ? $vsort : $DEFAULT_SORT;
+$msort = ($ps->db->column_exists(array($ps->c_plr_maps, $ps->t_map), $msort)) ? $msort : $DEFAULT_SORT;
+$wsort = ($ps->db->column_exists(array($ps->c_plr_weapons, $ps->t_weapon), $wsort)) ? $wsort : $DEFAULT_SORT;
+$rsort = ($ps->db->column_exists(array($ps->c_plr_roles, $ps->t_role), $rsort)) ? $rsort : $DEFAULT_SORT;
 if ($ssort != 'mapname' && $ssort != 'online') $ssort = ($ps->db->column_exists(array($ps->t_plr_sessions, $ps->t_map), $ssort)) ? $ssort : 'sessionstart';
 
 $totalranked  = $ps->get_total_players(array('allowall' => 0));

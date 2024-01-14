@@ -73,18 +73,21 @@ if (empty($results)) {
 }
 unset ($results);
 
-// change this if you want the default sort of the player listing to be something else like 'kills'
+// Default sort for the maps listing.
 $DEFAULT_SORT = 'kills';
 
 $validfields = array('sort','order','start','limit','xml');
 $cms->theme->assign_request_vars($validfields, true);
 
-$sort = trim(strtolower($sort ?? ''));
+// SET DEFAULTS—santized
+$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
-if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;
 if (!is_numeric($limit) || $limit < 0 || $limit > 500) $limit = 100;
+
+// sanitize sorts
+$sort = ($ps->db->column_exists(array($ps->c_map_data, $ps->t_map), $sort)) ? $sort : $DEFAULT_SORT;
 
 $totalmaps = $ps->get_total_maps();
 $maps = $ps->get_map_list(array(

@@ -60,11 +60,14 @@ if (isset($cms->input['cookieconsent'])) {
 	}
 }
 
+// SET DEFAULTS—santized
 $limit = 25;
-$sort = trim(strtolower($sort ?? ''));
+$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
-if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
+
+// sanitize sorts
+$sort = ($ps->db->column_exists(array($ps->c_weapon_data, $ps->t_weapon), $sort)) ? $sort : $DEFAULT_SORT;
 
 $totalweapons = $ps->get_total_weapons();
 $weapons = $ps->get_weapon_list(array(

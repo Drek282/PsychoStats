@@ -80,13 +80,16 @@ $DEFAULT_LIMIT = 100;
 $validfields = array('sort','order','start','limit','q','search');
 $cms->theme->assign_request_vars($validfields, true);
 
-$sort = trim(strtolower($sort ?? ''));
+// SET DEFAULTS—santized
+$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
-if (!preg_match('/^\w+$/', $sort)) $sort = $DEFAULT_SORT;
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;
 if (!is_numeric($limit) || $limit < 0 || $limit > 500) $limit = $DEFAULT_LIMIT;
 $q = trim($q ?? '');
+
+// sanitize sorts
+$sort = ($ps->db->column_exists(array($ps->t_plr, $ps->t_plr_profile, $ps->c_plr_data), $sort)) ? $sort : $DEFAULT_SORT;
 
 // if $q is longer than 50 characters we have a problem
 if (strlen($q) > 50) {

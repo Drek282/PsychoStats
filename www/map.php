@@ -29,6 +29,7 @@ $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Map Stats');
 
 // how many players per stat
+$DEFAULT_SORT = 'kills';
 $MAX_PLAYERS = 10;
 
 $validfields = array('id', 'sort', 'order', 'start', 'limit');
@@ -61,12 +62,15 @@ if (isset($cms->input['cookieconsent'])) {
 	}
 }
 
-$sort = strtolower($sort ?? '');
-$order = strtolower($order ?? '');
-if (!preg_match('/^\w+$/', $sort)) $sort = 'kills';
+// SET DEFAULTS—santized
+$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
+$order = trim(strtolower($order ?? ''));
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 if (!is_numeric($start) || $start < 0) $start = 0;
 if (!is_numeric($limit) || $limit < 0) $limit = 10;
+
+// sanitize sorts
+$sort = ($ps->db->column_exists(array($ps->c_map_data, $ps->t_map), $sort)) ? $sort : $DEFAULT_SORT;
 
 $topten = array();
 $totalmaps = $ps->get_total_maps();

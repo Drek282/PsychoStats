@@ -37,6 +37,9 @@ $validfields = array(
 );
 $cms->theme->assign_request_vars($validfields, true);
 
+// change this if you want the default sort of the clan listing to be something else
+$DEFAULT_SORT = 'kills';
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -69,11 +72,12 @@ $load_google = (bool)($ps->conf['theme']['map']['google_key'] != '');
 
 if (!$psort) $psort = 'skill';
 
-// SET DEFAULTS. Since they're basically the same for each list, we do this in a loop
+// SET DEFAULTS—sanitized. Since they're basically the same for each list, we do this in a loop
 foreach ($validfields as $var) {
 	switch (substr($var, 1)) {
 		case 'sort':
-			if (!$$var) $$var = 'kills';
+			$$var = ($$var and strlen($$var) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $$var) : $DEFAULT_SORT;
+			if ($$var != 'totalmembers') $$var = ($ps->db->column_exists(array($ps->c_plr_data, $ps->t_plr, $ps->t_clan, $ps->t_clan_profile), $$var)) ? $$var : $DEFAULT_SORT;
 			break;
 		case 'order':
 			if (!$$var or !in_array($$var, array('asc', 'desc'))) $$var = 'desc';

@@ -1149,9 +1149,6 @@ function get_player_list($args = array()) {
 		'search'	=> null
 	);
 
-	// sanitize sort
-	$args['sort'] = ($this->db->column_exists(array($this->t_plr, $this->t_plr_profile, $this->c_plr_data), $args['sort'])) ? $args['sort'] : 'skill';
-
 	$values = "";
 	if (trim($args['fields']) == '') {
 		if ($args['joinclaninfo']) $values .= "clan.*, ";
@@ -1314,9 +1311,6 @@ function get_weapon_list($args = array()) {
 		'where'		=> '',
 	);
 
-	// sanitize sort
-	$args['sort'] = ($this->db->column_exists(array($this->c_weapon_data, $this->t_weapon), $args['sort'])) ? $args['sort'] : 'skill';
-
 	$values = "";
 	if (trim($args['fields']) == '') {
 		$values .= "data.*,w.*,COALESCE(w.name,w.uniqueid) label";
@@ -1346,9 +1340,6 @@ function get_role_list($args = array()) {
 		'where'		=> '',
 	);
 
-	// sanitize sort
-	$args['sort'] = ($this->db->column_exists(array($this->c_role_data, $this->t_role), $args['sort'])) ? $args['sort'] : 'kills';
-
 	$values = "";
 	if (trim($args['fields']) == '') {
 		$values .= "data.*,r.*,COALESCE(r.name,r.uniqueid) label";
@@ -1377,9 +1368,6 @@ function get_map_list($args = array()) {
 		'fields'	=> '',
 		'where'		=> '',
 	);
-
-	// sanitize sort
-	$args['sort'] = ($this->db->column_exists(array($this->c_map_data, $this->t_map), $args['sort'])) ? $args['sort'] : 'kills';
 
 	$values = "";
 	if (trim($args['fields']) == '') {
