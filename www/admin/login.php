@@ -52,6 +52,7 @@ if ($submit) {
 	$form->validate();
 	$input = $form->values();
 	$valid = !$form->has_errors();
+	
 	// protect against CSRF attacks
 	if ($ps->conf['main']['security']['csrf_protection']) $valid = ($valid and $form->key_is_valid($cms->session));
 
@@ -106,7 +107,7 @@ if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->
 $cms->theme->assign(array(
 	'errors'	=> $form->errors(),
 	'form'		=> $form->values(),
-	'form_key'	=> '', //$ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));
 
