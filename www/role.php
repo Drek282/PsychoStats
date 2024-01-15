@@ -62,7 +62,7 @@ if (isset($cms->input['cookieconsent'])) {
 
 // SET DEFAULTS—sanitized
 $limit = 25;
-$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
+$sort = ($sort and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
 if (!in_array($order, array('asc','desc'))) $order = 'desc';
 

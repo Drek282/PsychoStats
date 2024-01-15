@@ -81,7 +81,7 @@ unset ($results);
 
 // SET DEFAULTS—sanitized
 $v = strtolower($v ?? '');
-$sort = (isset($sort) and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
+$sort = ($sort and strlen($sort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $sort) : $DEFAULT_SORT;
 $order = trim(strtolower($order ?? ''));
 $start = 0;
 $limit = 100;

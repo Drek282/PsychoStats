@@ -77,11 +77,11 @@ if ($cms->input['ofc']) {
 
 // SET DEFAULTS—sanitized
 if (!$slimit) $slimit = '10';
-$vsort = (isset($vsort) and strlen($vsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $vsort) : $DEFAULT_SORT;
-$msort = (isset($msort) and strlen($msort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $msort) : $DEFAULT_SORT;
-$wsort = (isset($wsort) and strlen($wsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $wsort) : $DEFAULT_SORT;
-$rsort = (isset($rsort) and strlen($rsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $rsort) : $DEFAULT_SORT;
-$ssort = (isset($ssort) and strlen($ssort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $ssort) : 'sessionstart';
+$vsort = ($vsort and strlen($vsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $vsort) : $DEFAULT_SORT;
+$msort = ($msort and strlen($msort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $msort) : $DEFAULT_SORT;
+$wsort = ($wsort and strlen($wsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $wsort) : $DEFAULT_SORT;
+$rsort = ($rsort and strlen($rsort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $rsort) : $DEFAULT_SORT;
+$ssort = ($ssort and strlen($ssort) <= 64) ? preg_replace('/[^A-Za-z0-9_\-\.]/', '', $ssort) : 'sessionstart';
 foreach ($validfields as $var) {
 	switch (substr($var, 1)) {
 		case 'order':
