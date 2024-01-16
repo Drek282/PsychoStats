@@ -80,7 +80,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Behaviour when function theme call is empty.
 * [Added] column_exists DB function.
 * [Fixed] Sanitized sort parameters.
-* [Improved] Encryption updted from mcrypt to openssl.
+* [Improved] Encryption updted from mcrypt to openssl, thanks to jangazata.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

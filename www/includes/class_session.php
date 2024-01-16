@@ -72,7 +72,6 @@ function __construct($_config = array()) {
 		'cookielifeoptions'	=> 60 * 60 * 24 * 30,		// ~30 days
 		'cookiedomain'		=> '',
 		'cookiepath'		=> '/',
-		'cookiename'		=> 'sess',
 		'cookiesecure'		=> host_secure() ? 1 : 0,	// only set if host is using HTTPS
 		'cookiesalt'		=> '',				// mcrypt module must be installed if this is !empty	
 		'cookiecompress'	=> TRUE,
@@ -518,12 +517,16 @@ function logged_in() {
 
 // returns the cookie name (w/o any suffix; '_id', etc)
 function sid_prefix() {
-	return $this->config['cookiename'];
+	// If PS is installed in a subfolder the cookie name needs to reflect that.
+	$cnsfid = reset(explode('/', ltrim(SAFE_PHP_SCNM, '/')));
+	$cnsfid = ($cnsfid != 'admin' or $cnsfid != 'install') ? $cnsfid : null;
+	$cookiename = ($cnsfid) ? $cnsfid . '_sess' : 'sess';
+	return $cookiename;
 }
 
 // returns the name of the SID cookie
 function sid_name($suffix='_id') {
-	return $this->config['cookiename'] . $suffix;
+	return $this->sid_prefix() . $suffix;
 }
 
 // returns the current session ID
@@ -644,12 +647,11 @@ function del_opt($key) {
 // sets/gets the session key (this is not the session_id).
 // this is for CSRF security.
 function key($value = null) {
-	if ($value != null) {
-		$this->sessdata['session_key'] = $value;
+	$old = $this->sessdata['session_key'] ?? '';
+	if ($value !== null) {
+		$this->sessdata['session_key'] = empty($value) ? null : $value;
 		$this->sessdata['session_key_time'] = time();
-		return $value;
 	}
-	$old = $this->sessdata['session_key'] ?? null;
 	return $old;
 }
 
@@ -663,9 +665,10 @@ function key_time() {
 function verify_key($form_key, $max_age = 900) {
 	$time = $this->key_time();
 	if (empty($time)) $time = time();
+	$key_check = (empty($this->key())) ? $form_key : $this->key();
 	$valid = (
 		!is_null($form_key) and 
-		$this->key() == $form_key and 
+		$key_check == $form_key and 
 		time() - $time <= $max_age
 	);
 	return $valid;
