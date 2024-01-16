@@ -131,7 +131,7 @@ function PsychoSession($_config = array()) {
 
 // gets/sets the admin flag of the session
 function is_admin($toggle = null) {
-	$old = $this->sessdata['session_is_admin'];
+	$old = $this->sessdata['session_is_admin'] ?? null;
 	if ($toggle !== null) $this->sessdata['session_is_admin'] = $toggle;
 	return $old;
 }
