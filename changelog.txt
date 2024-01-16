@@ -81,6 +81,10 @@ Version 3.2.8n (in progress)
 * [Added] column_exists DB function.
 * [Fixed] Sanitized sort parameters.
 * [Improved] Encryption updted from mcrypt to openssl, thanks to jangazata.
+* [Fixed] CSRF protection.
+* [Fixed] Persistent login failures.
+* [Improved] For multiple instances of PS hosted on an individual domain, cookies are no longer shared.
+* [Removed] References to mcrypt module.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
