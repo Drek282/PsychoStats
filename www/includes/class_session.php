@@ -38,8 +38,8 @@
 if (defined("CLASS_PSYCHO_SESSION_PHP")) return 1;
 define('CLASS_PSYCHO_SESSION_PHP', 1);
 
-class PsychoSession {
-const CIPHER = "AES-128-CBC";
+#[AllowDynamicProperties]
+class PsychoSession { 
 var $config = array();
 var $_is_bot = NULL;
 var $_is_new = 0;
@@ -387,10 +387,11 @@ function start() {
 // Initializes the encryption engine for encrypting user cookies
 function _initkey() {
 	$this->session_encrypted = false;
-	if ($this->config['cookiesalt'] and function_exists('openssl_encrypt')) {
+	if ($this->config['cookiesalt'] and function_exists('mcrypt_module_open')) {
 		$salt = $this->config['cookiesalt'] == -1 ? $this->sid() : $this->config['cookiesalt'];
-		$this->iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length($this::CIPHER));
-		$this->key = $salt;
+		$this->td = mcrypt_module_open('tripledes', '', 'ecb', '');
+		$this->iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($this->td), MCRYPT_RAND);
+		$this->key = substr($salt, 0, mcrypt_enc_get_key_size($this->td));
 		$this->session_encrypted = true;
 	}
 	return $this->session_encrypted;
@@ -399,18 +400,19 @@ function _initkey() {
 function encrypt($str) {
     $this->session_encrypted = $this->session_encrypted ?? false;
 	if (!$this->session_encrypted) return $str;
-	$ciphertext_raw = openssl_encrypt($str, $this::CIPHER, $this->key, $options=OPENSSL_RAW_DATA, $this->iv);
-	return base64_encode( $this->iv.$ciphertext_raw );
+	mcrypt_generic_init($this->td, $this->key, $this->iv);
+	$encrypted = mcrypt_generic($this->td, $str);						// Encrypt data 
+	mcrypt_generic_deinit($this->td);
+	return $encrypted;
 }
  
 function decrypt($str) {
     $this->session_encrypted = $this->session_encrypted ?? false;
 	if (!$this->session_encrypted) return $str;
-	$c = base64_decode($str);
-	$ivlen = openssl_cipher_iv_length($this::CIPHER);
-	$iv = substr($c, 0, $ivlen);
-	$ciphertext_raw = substr($c, $ivlen);
-	return openssl_decrypt($ciphertext_raw, $this::CIPHER, $this->key, $options=OPENSSL_RAW_DATA, $iv);
+	mcrypt_generic_init($this->td, $this->key, $this->iv);
+	$decrypted = trim(mdecrypt_generic($this->td, $str));
+	mcrypt_generic_deinit($this->td);
+	return $decrypted;
 }
 
 // sets or gets the current online status for the session. If the online status is changed, the previous value is returned.
