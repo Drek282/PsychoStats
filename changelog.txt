@@ -85,6 +85,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Persistent login failures.
 * [Improved] For multiple instances of PS hosted on an individual domain, cookies are no longer shared.
 * [Removed] References to mcrypt module.
+* [Fixed] Quick login popu display.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

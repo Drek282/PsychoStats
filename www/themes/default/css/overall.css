@@ -148,8 +148,7 @@ body.psychostats {
 	overflow: hidden;
 	z-index: 65535;
 }
-#ps-login-popup #ps-login-inner,
-#ps-search-popup #ps-search-inner
+#ps-login-popup #ps-login-inner
 {
 	margin: 33px 10px 0 10px;
 	font-size: 8pt;
@@ -167,13 +166,16 @@ div#ps-login-inner {
 	margin-bottom: 0.2em;
 }
 #ps-login-inner p label {
+	padding-right: 5px;
+	margin-top: 3px;
 	float: left;
 	width: 60px;
 	text-align: right;
 }
-#ps-login-inner button, 
-#ps-search-inner button {
-	vertical-align: bottom;
+#ps-login-inner button {
+	position: absolute;
+	right: 10px;
+	bottom: 5px;
 	border: none;
 	background: transparent;
 	cursor: pointer;
@@ -187,11 +189,14 @@ div#ps-login-inner {
 	text-decoration: underline;
 }
 #ps-login-options {
+	position: absolute;
+	right: 95px;
+	bottom: 7px;
 	font-size: 8pt;
 }
 #ps-login-popup input.field {
 	border: 1px solid gray;
-	width: 100px;
+	width: 130px;
 }
 #ps-login-options a {
 	position: absolute;
@@ -211,6 +216,7 @@ div#ps-login-inner {
 	border: 1px solid black;
 	width: 300px;
 	font-size: 110%;
+	z-index: 10000;
 }
 
 /* --- OVERALL SEARCH POPUP --------------------------------------------- */

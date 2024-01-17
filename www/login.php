@@ -27,19 +27,21 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Please Login');
 
-$validfields = array('submit','cancel','ref');
-$_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
-$cms->theme->assign_request_vars($validfields, true);
+// create the form variable
+$form = $cms->new_form();
 
 // If you are on this page $cookieconsent is assumed to be true.
 $cms->session->options['cookieconsent'] = true;
 $cookieconsent = $cms->session->options['cookieconsent'];
 
+$validfields = array('submit','cancel','ref');
+$_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
+$cms->theme->assign_request_vars($validfields, true);
+
 if ($cancel or $cms->user->logged_in()) previouspage('index.php');
 
 $bad_pw_error = $cms->trans('Invalid username or password');
 
-$form = $cms->new_form();
 $form->default_modifier('trim');
 $form->default_validator('blank', $cms->trans("This field can not be blank"));
 $form->field('username', 'user_exists');
@@ -51,12 +53,8 @@ if ($submit) {
 	$input = $form->values();
 	$valid = !$form->has_errors();
 	// protect against CSRF attacks
-	// Wait a minute, I can't do this for logins, otherwise the overall
-	// login popup window won't work with CSRF enabled. This should be fine,
-	// CSRF is more targeted at user requests and not logins, I think.
 	if ($ps->conf['main']['security']['csrf_protection']) $valid = ($valid and $form->key_is_valid($cms->session));
 
-	$u = null;
 	if ($valid) {
 		// attempt to authenticate
 		$id = $cms->user->auth($input['username'], $input['password']);
@@ -88,8 +86,13 @@ if ($submit) {
 		$valid = false;
 	}
 
-	// If authenetication was valid then we'll set the users online flag and redirect to their previous page
+	// If authentication was valid then we'll set the users online flag and redirect to their previous page
 	if (!$form->has_errors()) {
+		// assign the session a new SID
+		$cms->session->delete_session();
+		$cms->session->sid($cms->session->generate_sid());
+		$cms->session->send_cookie($cms->session->sid());
+		$cms->session->key('');
 //		header("Cache-Control: no-cache, must-revalidate");
 		$cms->session->online_status(1, $u->userid());
 		if ($cms->input['autologin']) $cms->session->save_login($u->userid(), $u->password());
