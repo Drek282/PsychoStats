@@ -64,6 +64,8 @@ if ($submit) {
 			if (!$u->load($id)) {
 				$form->error('fatal', $cms->trans("Error retreiving user from database") . ":" . $u->loaderr);
 				$valid = false;
+			} else {
+				$cms->user = $u;
 			}
 		} else { // auth failed
 			$form->error('fatal', $bad_pw_error);
