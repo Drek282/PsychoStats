@@ -74,7 +74,6 @@ $cms->theme->assign(array(
 $basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 $cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');
-
-
+header("Refresh:3");
 
 ?>
