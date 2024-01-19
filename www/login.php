@@ -90,11 +90,6 @@ if ($submit) {
 
 	// If authentication was valid then we'll set the users online flag and redirect to their previous page
 	if (!$form->has_errors()) {
-		// assign the session a new SID
-		$cms->session->delete_session();
-		$cms->session->sid($cms->session->generate_sid());
-		$cms->session->send_cookie($cms->session->sid());
-		$cms->session->key('');
 //		header("Cache-Control: no-cache, must-revalidate");
 		$cms->session->online_status(1, $u->userid());
 		if ($cms->input['autologin']) $cms->session->save_login($u->userid(), $u->password());
