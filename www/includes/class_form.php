@@ -342,10 +342,14 @@ function key_is_valid(&$session, $key_name = 'key', $error = true) {
 	$valid = $session->verify_key($key);
 	if ($error and !$valid) {
 		$this->error('fatal', 
-			"Invalid key token! Using the 'refresh' button in your browser or waiting too long to submit " .
-			"a request can cause problems on these forms. " . 
-			"If you continue to encounter problems then go back to the previous page and try again."
+			"Your session has expired." .
+			"Please try again."
 		);
+		// assign the session a new SID
+		$session->delete_session();
+		$session->sid($session->generate_sid());
+		$session->send_cookie($session->sid());
+		$session->key('');
 	}
 	return $valid;
 }

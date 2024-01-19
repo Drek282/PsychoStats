@@ -662,7 +662,7 @@ function key_time() {
 
 // returns true if the key given matches the current session and is valid.
 // max_age is the maximum seconds a key is allowed to be alive before being invalid.
-function verify_key($form_key, $max_age = 900) {
+function verify_key($form_key, $max_age = 1200) {
 	$time = $this->key_time();
 	if (empty($time)) $time = time();
 	$key_check = (empty($this->key())) ? $form_key : $this->key();

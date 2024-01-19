@@ -88,6 +88,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Quick login popup display.
 * [Temporarily Removed] Non-functioning reset password link.
 * [Fixed] Broken redirect on logout.
+* [Improved] When a session is expired a new session is generated.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
