@@ -665,10 +665,9 @@ function key_time() {
 function verify_key($form_key, $max_age = 1200) {
 	$time = $this->key_time();
 	if (empty($time)) $time = time();
-	$key_check = (empty($this->key())) ? $form_key : $this->key();
 	$valid = (
 		!is_null($form_key) and 
-		$key_check == $form_key and 
+		$this->key() == $form_key and 
 		time() - $time <= $max_age
 	);
 	return $valid;
