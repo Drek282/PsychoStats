@@ -85,6 +85,11 @@ if ($submit) {
 
 	// If authenetication was valid then we'll set the users admin flag and redirect to the previous page
 	if ($valid and !$form->has_errors()) {
+		// assign the session a new SID
+		$cms->session->delete_session();
+		$cms->session->sid($cms->session->generate_sid());
+		$cms->session->send_cookie($cms->session->sid());
+		$cms->session->key('');
 //		header("Cache-Control: no-cache, must-revalidate");
 		// enable the session admin flag
 		$cms->session->is_admin(1);
