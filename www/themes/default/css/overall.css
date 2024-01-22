@@ -70,6 +70,12 @@ body.psychostats {
 	line-height: 28px;	/* Setting the line-height allows the menu to vertically align */
 	background: url(../img/header-menu-bg.png) repeat;
 }
+#ps-overall-menu a img.ps-icon {
+	position: relative;
+	top: 6px;
+	height: 16px;
+	width: 16px;
+}
 #ps-overall-menu ul {
 	margin: 0 1em;
 }

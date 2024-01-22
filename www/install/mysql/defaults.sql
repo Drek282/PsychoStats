@@ -151,6 +151,18 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
             <p>You can view that Privacy Policy Agreement <a href=\"https://store.steampowered.com/privacy_agreement/\">here</a>.</p>
             </div>',
             'Site Privacy Policy','textarea',0,'','','This is the Privacy Policy for PsychoStats.  It uses html formatting.'),
+        (2702,'theme','credits','credits','
+            <h1>Credits</h1>
+            <div>
+            <ul>
+                <li><strong>Jason Morriss, a.k.a. Stormtrooper</strong>—the original creator of PsychoStats</li>
+                <li><strong>Rosenstein</strong>—for contributions to the code, feedback, support, ecouragement and for putting up with a lot of bullshit</li>
+                <li><strong>wakachamo, Solomenka and janzagata</strong>—for contributions to the code</li>
+                <li><strong>RoboCop from APG</strong>—for feedback, support and encouragement</li>
+                <li>PsychoStats makes use of various open source libraries, some precompiled.  Among these libraries are jQuery, the Smarty Template Engine and JpGraph.  Most of the versions used in PsychoStats are obsolete but still functional and secure.  PsychoStats would not function without them and a special debt of gratitude is owed to the creators and maintainers of those libraries.</li>
+            </ul>
+            </div>',
+            'Credits','textarea',0,'','','This is the content of the Credits for PsychoStats.  You can edit this to create your own custom thank you list.  It uses html formatting.'),
         (2800,'main','security','enable_cookieconsent','1','Enable Cookie Consent?','boolean',0,'','','This enables the cookie consent code for CCPA and GDPR compliance.  Note that if you disable cookie consent, you should also either disable, or modify, the privacy policy.'),
         (5000,'main',NULL,NULL,'Global configuration settings that affect how and what stats are collected and how users interact with your stats website.','General','none',1,NULL,NULL,NULL),
         (5001,'main','awards',NULL,'Settings that affect how often awards are calculated. To create or edit actual awards go to the <a href=\"awards.php\">awards list</a>.','Awards','none',1,NULL,NULL,NULL),
@@ -168,6 +180,7 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
         (5014,'theme','permissions',NULL,'General permission settings for theme output. These settings enable/disable various things from appearing in the player stats. Choosing to hide certain features in the theme output does not entirely disable that feature (ie: hiding the Admin link does not disable access to the admin section of the website).','Permissions','none',1,NULL,NULL,NULL),
         (5015,'main','heatmap',NULL,'Heatmaps are dynamic images that represent spatial player information. Red glowing spots on a heatmap indicate a high concentration of events on that point in the image. \"Death Heatmaps\" are the most common information to display.','Heatmaps','text',0,NULL,NULL,NULL),
         (5016,'main','psycholive',NULL,'PsychoLive playback settings change the way a PsychoLive recording is played back to a user in their browser.','PsychoLive','text',1,NULL,NULL,NULL),
+        (5017,'theme','credits',NULL,'Credits for PsychoStats.','Credits','none',1,NULL,NULL,NULL),
         (6000,'main','daily','per_day_ranks','1','Calculate ranks every day?','boolean',0,'blank,numeric','','If enabled, player ranks will be recalculated when the day changes within the context of the current logs being scanned. This is only useful when batch processing several days of logs. This helps keep the up/down rank arrows more accurate.'),
         (6001,'theme','permissions','show_plr_profile','1','Show Player Profiles?','boolean',0,'','','Should player profiles be displayed?\r\n\r\nPlayer profiles are the extra information that players can configure on their player pages. This includes their website, Discord nick, Twitch channel, YouTube channel, Steam profile page link, a google map and possibly other information.'),
         (6002,'main','heatmap','scale','0.5','Heatmap scale','text',0,'blank,numeric','size=5','The scale represents the size of the heatmap to generate. \r\n\r\nA scale of 1 means the heatmap will be the same resolution as the map overlay and has no loss of detail. A scale of 0.5 means the heatmap would be 1/2 the size, and a scale of 2 would be double the size. When a heatmap is displayed on top of a map overlay image it is stretched automatically to fit the actual overlay image.\r\n\r\nThe larger the heatmap the longer it takes to process the image and the larger the file or database storage is required.\r\n\r\n<b>Recommendation:</b> 0.5 (with a brush size of \'medium\')'),

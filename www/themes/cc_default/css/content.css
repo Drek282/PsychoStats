@@ -74,21 +74,25 @@
 	margin: 20px 15% 20px;
 	border: 2px solid #888;
 	text-align: left;
-	background: #CCC;
+	background: #d8d8d8;
 }
-
 #ps-page-privacy div, #ps-page-privacy p {
 	padding: 5px;
 }
-
 #ps-page-privacy h1, #ps-page-privacy h2, #ps-page-privacy h3, #ps-page-privacy h4 {
     color: #000;
     font-weight: bold;
 	padding-top: 20px;
 }
-
 #ps-page-privacy p {
 	padding: 5px;
+}
+#ps-page-privacy ul {
+	margin-left: 20px;
+	background: #cecece;
+}
+#ps-page-privacy li {
+	margin: 10px;
 }
 
 #ps-container div.ps-plr-profile div.row {

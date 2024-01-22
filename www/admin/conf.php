@@ -131,6 +131,18 @@ foreach ($config_layout as $sec => $list) {
 	}
 }
 
+// we want the credits at the end of the theme section
+foreach ($sections['theme'] as $st => $val) {
+	if ($val != 'credits') continue;
+	$mv = $val;
+	unset($sections['theme'][$st]);
+	$sections['theme'] = array_values($sections['theme']);
+	array_push($sections['theme'],$mv);
+	unset($mv);
+	break;
+}
+//print "<pre>"; print_r($sections['theme']); print "</pre>";
+
 $section_errors = array();
 $section_errors['general'] = false;
 
