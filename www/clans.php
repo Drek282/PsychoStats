@@ -143,7 +143,6 @@ $cms->theme->assign(array(
 	'pager'			=> $pager,
 	'totalclans'	=> $totalclans,
 	'totalranked' 	=> $totalranked,
-	'i_bots'		=> $ps->invisible_bots(),
 	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));

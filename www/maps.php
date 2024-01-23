@@ -117,16 +117,16 @@ $table->sortable(true);
 //$table->sort_baseurl(array( '_base' => 'maps.php' ));
 $table->start_and_sort($start, $sort, $order);
 $table->columns(array(
-	'+'				=> '#',
-	'_mapimg'		=> array( 'nolabel' => true, 'callback' => 'ps_table_map_link' ),
-	'uniqueid'		=> array( 'label' => $cms->trans("Map"), 'callback' => 'ps_table_map_text_link' ),
-	'kills'			=> array( 'label' => $cms->trans("Kills"), 'modifier' => 'commify' ), 
-	'ffkills'		=> array( 'label' => $cms->trans("FF Kills"), 'tooltip' => $cms->trans('Friendly Fire Kills') ),
+	'+'		=> '#',
+	'_mapimg'	=> array( 'nolabel' => true, 'callback' => 'ps_table_map_link' ),
+	'uniqueid'	=> array( 'label' => $cms->trans("Map"), 'callback' => 'ps_table_map_text_link' ),
+	'kills'		=> array( 'label' => $cms->trans("Kills"), 'modifier' => 'commify' ), 
+	'ffkills'	=> array( 'label' => $cms->trans("FF Kills"), 'tooltip' => $cms->trans('Friendly Fire Kills') ),
 //	'headshotkills'	=> 'Headshots',
-	'games'			=> $cms->trans("Games"),
-	'rounds'		=> $cms->trans("Rounds"),
+	'games'		=> $cms->trans("Games"),
+	'rounds'	=> $cms->trans("Rounds"),
 	'onlinetime'	=> array( 'label' => $cms->trans("Online"), 'modifier' => 'compacttime' ),
-	'lasttime'		=> array( 'label' => $cms->trans("Last"), 'modifier' => 'ps_date_stamp' ),
+	'lasttime'	=> array( 'label' => $cms->trans("Last"), 'modifier' => 'ps_date_stamp' ),
 ));
 $table->column_attr('uniqueid', 'class', 'left');
 $table->header_attr('uniqueid', 'colspan', '2');
@@ -136,12 +136,11 @@ $cms->filter('maps_table_object', $table);
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'maps'			=> $maps,
+	'maps'		=> $maps,
 	'maps_table'	=> $table->render(),
-	'totalmaps'		=> $totalmaps,
-	'pager'			=> $pager,
-	'i_bots'		=> $ps->invisible_bots(),
-	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'totalmaps'	=> $totalmaps,
+	'pager'		=> $pager,
+	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));
 

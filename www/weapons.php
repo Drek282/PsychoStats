@@ -187,7 +187,6 @@ $cms->theme->assign(array(
 	'totalweapons'		=> $totalweapons,
 	'totalkills'		=> $stats['kills'],
 	'totaldamage'		=> $stats['damage'],
-	'i_bots'			=> $ps->invisible_bots(),
 	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'		=> $cookieconsent,
 ));

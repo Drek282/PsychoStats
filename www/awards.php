@@ -191,15 +191,11 @@ foreach ($list as $week) {
 $cal->selected($v);
 $cms->theme->assign('calendar', $cal->draw());
 
-// If bots are to be excluded from ranking
-$exclude = (!$ps->conf['main']['ranking']['bots_rank']) ? "AND (p.uniqueid NOT LIKE '%BOT%') " : '';
-
 // load the awards for the date specified (for all players; not just the selected one if $p is selected)
 $list = $ps->db->fetch_rows(1, 
 	"SELECT a.*,ac.phrase,ac.negative,ac.format,ac.rankedonly,ac.description,p.*,pp.* ". 
 	"FROM $ps->t_awards a, $ps->t_config_awards ac, $ps->t_plr p, $ps->t_plr_profile pp " .
 	"WHERE ac.id=a.awardid AND p.plrid=a.topplrid AND pp.uniqueid=p.uniqueid AND awardrange='$v' AND awarddate='$d' " .
-	$exclude .
 	"ORDER BY idx,awardtype,awardname"
 );
 $awards = array();
@@ -241,7 +237,6 @@ $cms->theme->assign(array(
 	'awards_for_str'=> curr_str($d,$v),
 	'awards'	=> $awards,
 	'plrid'		=> $p,
-	'i_bots'		=> $ps->invisible_bots(),
 	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));

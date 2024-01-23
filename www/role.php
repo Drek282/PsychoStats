@@ -133,16 +133,15 @@ $ps->role_players_table_mod($table);
 $cms->filter('players_table_object', $table); // same as index.php players table
 
 $cms->theme->assign(array(
-	'roles'			=> $roles,
-	'role'			=> $role,
-	'roleimg'		=> $ps->roleimg($role, array('path' => 'large', 'noimg' => '') ),
+	'roles'		=> $roles,
+	'role'		=> $role,
+	'roleimg'	=> $ps->roleimg($role, array('path' => 'large', 'noimg' => '') ),
 	'totalroles'	=> $totalroles,
-	'players'		=> $players,
+	'players'	=> $players,
 	'players_table'	=> $table->render(),
 	'totalplayers'	=> count($players),
-	'i_bots'		=> $ps->invisible_bots(),
-	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'cookieconsent'	=> $cookieconsent,
+	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'		=> $cookieconsent,
 ));
 
 $basename = basename(__FILE__, '.php');

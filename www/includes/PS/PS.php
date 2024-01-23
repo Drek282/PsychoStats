@@ -2749,18 +2749,6 @@ function is_bot($uniqueid) {
 	return (reset(explode(':', $uniqueid)) == 'BOT') ? true : false;
 }
 
-# returns true if bot stats are included in stats but are not listed
-function invisible_bots() {
-	// Are bots not ignored in stat compilation and not allowed to rank?
-	if (!$this->conf['main']['ranking']['bots_rank'] and !$this->conf['main']['ignore_bots']) {
-		// Are there BOT uniqueids in the player table?
-		$cmd  = "SELECT uniqueid FROM $this->t_plr ";
-		$cmd .= "WHERE uniqueid LIKE '%BOT%' LIMIT 1";
-		return ($this->db->fetch_row(1, $cmd)) ? true : false;
-	}
-	return false;
-}
-
 // mod sub-classes override these to modify various tables within the stats.
 // this allows mods to add custom variables to tables specific to each mod.
 function index_table_mod(&$table) {}

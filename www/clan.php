@@ -276,7 +276,6 @@ $cms->theme->assign(array(
 	'mappager'			=> $mappager,
 //	'victimpager'		=> $victimpager,
 	'shades'			=> $shades,
-	'i_bots'			=> $ps->invisible_bots(),
 	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'		=> $cookieconsent,
 ));

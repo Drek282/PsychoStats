@@ -12,10 +12,7 @@
 		]</span>
 {/if}
 		<h1><#Clan Statistics for Tag#> :: {$clan.clantag|escape}</h1>
-		<h2>
-			{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong>
-			{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
-		</h2>
+		<h2>{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong></h2>
 		</div>
         {include file="../cc_default/clan_profile.html"}
 	</div>
@@ -32,11 +29,13 @@
 </p>
 <p>
 	<label><#Activity Level#></label>
+{**}
 	<em>{if $clan.activity != -1}{pctbar pct=$clan.activity width=50 fixedwidth=true}{else}-{/if}</em>
 	<span>{if $clan.activity != -1}{$clan.activity}%{else}-{/if}</span>
-{*
+{**
+{**
 	<span>{if $clan.activity != -1}{$clan.activity}%{else}-{/if}</span>
-*}
+{**}
 </p>
 <p>
 	<label><#Bonus Points#></label>

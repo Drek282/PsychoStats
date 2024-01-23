@@ -12,10 +12,7 @@
 		]</span>
 {/if}
 		<h1><#Clan Statistics for Tag#> :: {$clan.clantag|escape}</h1>
-		<h2>
-			{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong>
-			{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
-		</h2>
+		<h2>{if $clan.name}{$clan.name|escape}{else}{$clan.clantag|escape}{/if} <#has#> <strong>{$clan.totalmembers}</strong> <#members with an average skill of#> <strong>{$clan.skill}</strong></h2>
 		</div>
         {include file="../default/clan_profile.html"}
 	</div>

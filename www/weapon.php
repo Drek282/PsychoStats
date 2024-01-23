@@ -150,10 +150,9 @@ $cms->theme->assign(array(
 	'players'		=> $players,
 	'players_table'	=> $table->render(),
 	'totalplayers'	=> count($players),
-	'i_bots'		=> $ps->invisible_bots(),
 	'shades'		=> $shades,
-	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'cookieconsent'	=> $cookieconsent,
+	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'		=> $cookieconsent,
 ));
 
 $basename = basename(__FILE__, '.php');
