@@ -7,7 +7,7 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<h1><#Role Statistics#> :: {roleimg role=$role noimg=''} {$role.label|escape}</h1>
-		<h2>&nbsp;</h2>
+		<h2>{if $i_bots}<small>BOT stats are included in player stats but BOT's are not listed</small>{else}&nbsp;{/if}</h2>
 		</div>
 	</div>
 

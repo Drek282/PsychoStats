@@ -16,7 +16,10 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<h1><#Weapon Statistics#></h1>
-		<h2><strong>{$totalweapons|commify}</strong> <#weapons have killed#> <strong>{$totalkills|commify}</strong> <#players#> {if $totaldamage}<#and have done#> <strong>{$totaldamage|commify}</strong> <#in damage#>{/if}</h2>
+		<h2>
+			<strong>{$totalweapons|commify}</strong> <#weapons have killed#> <strong>{$totalkills|commify}</strong> <#players#> {if $totaldamage}<#and have done#> <strong>{$totaldamage|commify}</strong> <#in damage#>{/if}
+			{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not listed</small>{/if}
+		</h2>
 		</div>
 	</div>
 
