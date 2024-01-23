@@ -210,7 +210,6 @@ $table->header_attr('rank', 'colspan', '2');
 $ps->index_table_mod($table);
 $cms->filter('players_table_object', $table);
 
-
 // assign variables to the theme
 $cms->theme->assign(array(
 	'q'		=> $q,
