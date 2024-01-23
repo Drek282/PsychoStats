@@ -210,23 +210,23 @@ $table->header_attr('rank', 'colspan', '2');
 $ps->index_table_mod($table);
 $cms->filter('players_table_object', $table);
 
-
 // assign variables to the theme
 $cms->theme->assign(array(
-	'q'		=> $q,
-	'search'	=> $search,
-	'results'	=> $results,
+	'q'				=> $q,
+	'search'		=> $search,
+	'results'		=> $results,
 	'search_blurb'	=> $cms->trans('Search criteria "<em>%s</em>" matched %d ranked players out of %d total',
 		ps_escape_html($q), $total['ranked'], $total['absolute']
 	),
-	'players'	=> $players,
+	'players'		=> $players,
 	'players_table'	=> $table->render(),
-	'total'		=> $total,
-	'pager'		=> $pager,
+	'total'			=> $total,
+	'pager'			=> $pager,
+	'i_bots'		=> $ps->invisible_bots(),
 	'language_list'	=> $cms->theme->get_language_list(),
 	'theme_list'	=> $cms->theme->get_theme_list(),
-	'language'	=> $cms->theme->language,
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'language'		=> $cms->theme->language,
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));
 

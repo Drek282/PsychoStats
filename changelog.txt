@@ -93,6 +93,7 @@ Version 3.2.8n (in progress)
 * [Updated] Day of Defeat moved from untested to supported list.
 * [Added] Credits page. ( Import '.\migrations\327b_base_20240122_00_credits.sql' into PMA if your install date is before Jun 30, 2023. )
 * [Added] Switch to exclude bots from ranking. ( Import '.\migrations\327b_base_20240122_01_bot-ranking-switch.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Added] Header note when bot stats are included in human stats but bots are not ranked.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

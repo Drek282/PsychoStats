@@ -141,15 +141,16 @@ $shades = array(
 );
 
 $cms->theme->assign(array(
-	'maps'		=> $maps,
-	'map'		=> $map,
-	'mapimg'	=> $ps->mapimg($map, array( 'noimg' => '' )),
-	'totalmaps'	=> $totalmaps,
-	'topten'	=> $topten,
+	'maps'			=> $maps,
+	'map'			=> $map,
+	'mapimg'		=> $ps->mapimg($map, array( 'noimg' => '' )),
+	'totalmaps'		=> $totalmaps,
+	'topten'		=> $topten,
 	'totaltopten'	=> count($topten),
 	'shades'		=> $shades,
-	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'cookieconsent'		=> $cookieconsent,
+	'i_bots'		=> $ps->invisible_bots(),
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'	=> $cookieconsent,
 ));
 
 $basename = basename(__FILE__, '.php');

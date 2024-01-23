@@ -158,11 +158,12 @@ $cms->filter('roles_table_object', $table);
 // assign variables to the theme
 $cms->theme->assign(array(
 	'roles'			=> $roles,
-	'roles_table'		=> $table->render(),
-	'totalroles'		=> $totalroles,
-	'totalkills'		=> $stats['kills'],
-	'totaldamage'		=> $stats['damage'],
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'roles_table'	=> $table->render(),
+	'totalroles'	=> $totalroles,
+	'totalkills'	=> $stats['kills'],
+	'totaldamage'	=> $stats['damage'],
+	'i_bots'		=> $ps->invisible_bots(),
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 ));
 

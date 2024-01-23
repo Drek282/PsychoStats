@@ -9,7 +9,10 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<h1><#Clan Statistics#></h1>
-		<h2><strong>{$totalranked|commify}</strong> <#clans rank out of#> <strong>{$totalclans|commify}</strong> <#potential clans#></h2>
+		<h2>
+			<strong>{$totalranked|commify}</strong> <#clans rank out of#> <strong>{$totalclans|commify}</strong> <#potential clans#>
+			{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
+		</h2>
 		</div>
 	</div>
 

@@ -7,7 +7,7 @@
 	<div id="ps-page-title">
 		<div class="inner">
 		<h1><#Weapon Statistics#> :: {weaponimg weapon=$weapon noimg=''} {$weapon.label|escape}</h1>
-		<h2>&nbsp;</h2>
+		<h2>{if $i_bots}<small>BOT stats are included in player stats but BOT's are not ranked</small>{else}&nbsp;{/if}</h2>
 		</div>
 	</div>
 

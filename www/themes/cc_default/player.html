@@ -23,9 +23,15 @@
 			{/if}
 
 			{if $plr.rank}
-			<h2>{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is ranked#> <strong>#{$plr.rank}</strong> <#out of#> <strong>{$totalranked|commify}</strong>{if $top1percentile} (<#top 1 percentile#>){/if}</h2>
+			<h2>
+				{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is ranked#> <strong>#{$plr.rank}</strong> <#out of#> <strong>{$totalranked|commify}</strong>{if $top1percentile} (<#top 1 percentile#>){/if}
+				{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
+			</h2>
 			{else}
-			<h2>{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is not ranked#></h2>
+			<h2>
+				{if $conf.theme.permissions.show_plr_flags}{flagimg cc=$plr.cc}{/if} {iconimg icon=$plr.icon} {$plr.name|escape} <#is not ranked#>
+				{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
+			</h2>
 			{/if}
 		</div>
 		{if $conf.theme.permissions.show_plr_profile}
@@ -68,13 +74,11 @@
 </p>
 <p>
 	<label><#Activity Level#></label>
-{**}
 	<em>{if $plr.activity != -1}{pctbar pct=$plr.activity width=50 fixedwidth=true}{else}-{/if}</em>
 	<span>{if $plr.activity != -1}{$plr.activity}%{else}-{/if}</span>
-{**
-{**
+{*
 	<span>{if $plr.activity != -1}{$plr.activity}%{else}-{/if}</span>
-{**}
+*}
 </p>
 <p>
 	<label><#Bonus Points#></label>

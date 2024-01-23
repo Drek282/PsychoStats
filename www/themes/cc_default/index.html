@@ -29,8 +29,10 @@
 		<h2>
 {if $search}
 			<#Search criteria#> "<em>{$results.phrase|escape}</em>" <#matched#> <strong>{$total.ranked|commify}</strong> <#ranked players out of#> <strong>{$total.all|commify}</strong> <#total#>
+			{if $i_bots}— <small>BOT stats are included in the player stats but BOT's are not ranked</small>{/if}
 {else}
 			<strong>{$total.ranked|commify}</strong> <#players rank out of#> <strong>{$total.absolute|commify}</strong> <#total#>
+			{if $i_bots}— <small>BOT stats are included in the player stats but BOT's are not ranked</small>{/if}
 {/if}
 		</h2>
 		</div>

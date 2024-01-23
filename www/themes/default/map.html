@@ -12,7 +12,10 @@
 			]</span>
 {/if}
 			<h1><#Map Statistics#> :: {$map.uniqueid|escape}</h1>
-			<h2>{$map.uniqueid|escape} <#has been played for#> {$map.onlinetime|elapsedtime}</h2>
+			<h2>
+				{$map.uniqueid|escape} <#has been played for#> {$map.onlinetime|elapsedtime}
+				{if $i_bots}— <small>BOT stats are included in player stats but BOT's are not ranked</small>{/if}
+			</h2>
 		</div>
 	</div>
 
