@@ -92,7 +92,7 @@ Version 3.2.8n (in progress)
 * [Changed] New session no longer generated on login.
 * [Updated] Day of Defeat moved from untested to supported list.
 * [Added] Credits page. ( Import '.\migrations\327b_base_20240122_00_credits.sql' into PMA if your install date is before Jun 30, 2023. )
-* [Added] Switch to exclude bots from ranking. ( Import '.\migrations\327b_base_20240122_01_bot-ranking-switch.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Added] Switch to exclude bots from listing. ( Import '.\migrations\327b_base_20240122_01_bot-ranking-switch.sql' into PMA if your install date is before Jun 30, 2023. )
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
