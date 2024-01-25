@@ -70,7 +70,7 @@ You should not use a database super user for PsychoStats, especially in a produc
 
 The minimum required version of Perl is `5.08`, of PHP is `7.1.0` and MySQL*/MariaDB is `5.5.0`.  Required Perl modules include the `Digest-MD5`, `Digest-SHA1` and `GD` modules.
 
-* **Oracle's MySQL '8.0+' is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
+\* **Oracle's MySQL '8.0+' is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
 
 4. These instructions assume you already know the basics of hosting a website The specifics of that will depend on your hosting arrangements.  Copy the contents of the 'www' directory to your web hosting folder.  You can install the front end files from the "www" folder in a subfolder, but only one level deep.  It is recommended that you don't expose your PsychoStats web folder to the public web until you have completed the install process.
 
