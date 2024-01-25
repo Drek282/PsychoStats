@@ -1,6 +1,6 @@
 This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.1.0+ and MySQL*/MariaDB 5.5.0+.  The minimum required version of Perl is 5.08.
 
-\* **Oracle's MySQL 8.0+ is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
+\* **Oracle's MySQL `8.0+` is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
 
 ***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
 
