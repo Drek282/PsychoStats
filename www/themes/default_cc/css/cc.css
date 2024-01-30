@@ -1,0 +1,366 @@
+/*
+	ss-bb.css 
+	Styles for the child theme default_ss-bb.
+*/
+
+
+/*
+	overall.css
+	Specific styles for the overall header and footer.
+*/
+
+body.psychostats {
+    background-color: #dec781;
+	color: #777777;
+	border: 1px solid #999999 ;
+}
+
+#ps-container {
+	background: #efe1b4;
+    background-image: url("../img/tripe.webp");
+}
+
+#ps-container a,
+#ps-container a:link,
+#ps-container a:visited,
+#ps-container a:hover,
+#ps-container a:active {
+	color: #330000;
+}
+#ps-container a:hover {
+	color: #660000;
+}
+
+/* --- OVERALL MENU --------------------------------------- */
+#ps-overall-menu {
+	background: url(../img/header-menu-bg.gif) repeat;
+}
+#ps-overall-menu ul li {
+	background: url(../img/header-menu-sep.gif) no-repeat 0 50%;
+}
+#ps-container #ps-overall-menu a {
+	color: #5d3231;
+}
+#ps-container #ps-overall-menu a:hover {
+	color: #b66358;
+}
+
+/* --- OVERALL FOOTER ------------------------------------- */
+#ps-overall-footer {
+	color: #333;
+	background: #e7cebd url(../img/footer-bg.gif) repeat-x;
+}
+
+/* --- HISTORICAL SEASONS DROP DOWN --------------------------------------------- */
+#ps-seasons_h-dropdown {
+	top: 2px;
+}
+
+
+/*
+	content.css
+	Specific styles for main content.
+*/
+
+#ps-main {
+	background: none;
+}
+
+#ps-page-title, #ps-container .ps-section-title {
+ 	background: #a67347;
+}
+#ps-page-title h1 {
+    color: #ffe2b8;
+	font-size: 150%;
+}
+#ps-main #ps-page-title div.inner,
+#ps-main #ps-page-title div.inner span {
+	color: #DDD;
+}
+
+#ps-page-title div.ps-plr-profile,
+#ps-page-title div.ps-clan-profile {
+	padding: 5px;
+	background: url(../img/page-title-bg-reverse.gif) repeat-x bottom left;
+	text-align: left;
+}
+
+#ps-page-privacy {
+	background: #ccc;
+}
+#ps-page-privacy ul {
+	background: #bababa;
+}
+
+#ps-container div.ps-plr-profile div.row,
+#ps-container div.ps-clan-profile div.row {
+	margin: 5px 0;
+}
+#ps-container div.ps-plr-profile div label,
+#ps-container div.ps-clan-profile div label {
+    color: #7d6f3d;
+}
+#ps-container div.ps-plr-profile div p em,
+#ps-container div.ps-clan-profile div p em {
+	color: #342b24;
+}
+#ps-container .ps-plr-logo {
+	background: #f5f0e4;
+}
+
+/* --- TABLE LAYOUT --------------------------------------------------------------- */
+.ps-frame-header span { 
+	background: url(../img/exp_minus_arrow.gif) no-repeat 100% 50%;
+}
+.s-closed .ps-frame-header span {
+	background: url(../img/exp_plus_arrow.gif) no-repeat 100% 50%;
+}
+
+#ps-container .ps-table th {
+	background: url(../img/table-header-bg.gif) repeat;
+}
+.ps-table tr { background-color: #f9e6ab; }
+.ps-table tr.even { background-color: #f5f0e4; }
+
+#ps-container .ps-table th a,
+#ps-container .ps-table th a:link,
+#ps-container .ps-table th a:visited,
+#ps-container .ps-table th a:hover,
+#ps-container .ps-table th a:active
+{
+	color: #6e3e19;
+}
+#ps-container .ps-table th.active a,
+#ps-container .ps-table th a:hover {
+	color: #f76a23;
+}
+#ps-container .ps-table th.active a:hover {
+	color: #6e3e19;
+}
+
+.ps-table th.active p {
+	background: url(../img/table-header-active-l-bg.png) no-repeat;
+}
+.ps-table th.active span {
+	/* default the right side with no sort arrow */
+	background: url(../img/table-header-desc-r-bg.gif) no-repeat 100% 0;
+}
+.ps-table tr th.active span.asc {
+	background: url(../img/table-header-asc-r-bg.gif) no-repeat 100% 0;
+}
+.ps-table tr th.active span.desc {
+	background: url(../img/table-header-desc-r-bg.gif) no-repeat 100% 0;
+}
+
+#ps-container .ps-table .first,
+#ps-container .ps-table .right	{
+	background-color: #e1cf9a;
+	color: #7c7c7c;
+}
+#ps-container .ps-table tr.even .first,
+#ps-container .ps-table tr.even .right {
+	background-color: #d0ccc1;
+}
+#ps-container .ps-table .left  {
+	background-color: #efdca4;
+}
+#ps-container .ps-table tr.even .left { background-color: #ebe6da; }
+#ps-container .ps-table .primary,
+#ps-container .ps-table .secondary {
+	background-color: #e5d29d;
+	color: #7d1919;
+}
+#ps-container .ps-table .secondary {
+	background-color: #efdca4;
+}
+#ps-container .ps-table tr.even .primary { background-color: #e6e1d6; }
+#ps-container .ps-table tr.even .secondary { background-color: #ebe6da; }
+
+/* awards.php */
+#ps-award-frame {
+	background: #b17e37;
+}
+
+#ps-container .ps-award-ctrl,
+#ps-container .ps-award-ctrl-bottom {
+	background:transparent url(../img/table-header-bg.gif) repeat scroll 0% 50%;
+}
+#ps-award-hdr {
+	border: 1px solid #999999;
+	background: #460000 url(../img/frame-header-bg.jpg);
+    background-repeat: repeat-y top left;
+    background-size: 100%;
+}
+#ps-award-hdr h1 {
+	color: #8d4447;
+}
+
+#ps-container .ps-award-ctrl-bottom a.next, 
+#ps-container .ps-award-ctrl a.next {
+	background: url(../img/icons/arrow_right.gif) no-repeat 100% 50%;
+}
+
+#ps-container .ps-award-ctrl-bottom a.prev, 
+#ps-container .ps-award-ctrl a.prev {
+	background: url(../img/icons/arrow_left.gif) no-repeat 0 50%;
+}
+
+#ps-award-frame .award,
+#ps-award-frame .award-neg,
+#ps-award-frame .award-none {
+	background-color: #ffffe0;
+}
+#ps-award-frame .award-hdr {
+	background: #633e20;
+	color: #f8d29d;
+}
+#ps-award-frame .award-neg {
+	background: #f9e6ab;
+}
+
+#ps-award-frame .award h2,
+#ps-award-frame .award-neg h2 {
+    color: #613e0c;
+}
+
+#ps-award-frame .selected-user {
+	border: 3px solid #8a8b79;
+}
+
+#ps-container .map-header,
+#ps-container .map-footer {
+	background-color: #f9e6ab;
+}
+#ps-main .map-header h3 {
+	color: #330000;
+}
+#ps-container .map-footer p {
+	color: #666;
+}
+
+/* Slider styles */
+/* Default slider backgrounds */
+.ui-slider-1 { background-image: url(../img/slider-bg-1.gif); }
+#gallery div.theme h3 {
+	background: url(../img/page-title-bg-reverse.gif) repeat-x left bottom;
+}
+#gallery div.theme .website a 		{ background: url(../img/icons/house.gif) no-repeat 0 50%; }
+#gallery div.theme .author  		{ background: url(../img/icons/user_green.gif) no-repeat 0 50%; }
+#gallery div.theme .version  		{ background: url(../img/icons/note.gif) no-repeat 0 50%; }
+#gallery div.theme .source  		{ background: url(../img/icons/package.gif) no-repeat 0 50%; }
+#gallery div.theme .inuse  			{ background: url(../img/icons/accept.gif) no-repeat 0 50%; }
+#gallery div.theme p.description 	{ background: url(../img/icons/information.gif) no-repeat top left; }
+
+img.img-delete { /* editclan.php */
+	background: url(../img/icons/delete.gif) no-repeat 0 0;
+}
+
+
+/*
+	forms.css
+	Specific styles for forms.
+*/
+
+#ps-container .ps-form form {
+	background: #e1e1e1;
+}
+
+#ps-container .ps-form form fieldset div.inline-notes h4,
+#ps-container .ps-form form fieldset div.notes h4 
+{
+	background: transparent url(../img/icons/information.gif) no-repeat left 50%;
+}
+
+#ps-container .ps-form form div.err p.err, div.err p.err { 
+	background: url(../img/icons/error.gif) no-repeat 0 50%;
+}
+
+#ps-container .ps-form form div.fatal, div.fatal {
+	background: #B75E52 url(../img/icons/error.gif) no-repeat 5px 50%;
+}
+
+
+/*
+	help.css
+	Specific styles for the help page.
+*/
+
+#ps-help-frame {
+	background: #b17e37;
+}
+
+#ps-container .ps-help-ctrl,
+#ps-container .ps-help-ctrl-bottom {
+	background:transparent url(../img/table-header-bg.gif) repeat scroll 0% 50%;
+}
+
+#ps-help-hdr {
+	border: 1px solid #999999;
+	background: #460000 url(../img/frame-header-bg.jpg);
+    background-repeat: repeat-y top left;
+    background-size: 100%;
+}
+#ps-help-hdr h1 {
+	color: #8d4447;
+}
+
+#ps-container .ps-help-ctrl-bottom a.next, 
+#ps-container .ps-help-ctrl a.next {
+	background: url(../img/icons/arrow_right.gif) no-repeat 100% 50%;
+}
+
+#ps-container .ps-help-ctrl-bottom a.prev, 
+#ps-container .ps-help-ctrl a.prev {
+	background: url(../img/icons/arrow_left.gif) no-repeat 0 50%;
+}
+
+#ps-help-frame .help,
+#ps-help-frame .help-none {
+	background-color: #ffffe0;
+}
+#ps-help-frame .hint {
+	color: #555;
+	border: 2px dashed #80808a;
+	background-color: #cbcbb2;
+}
+#ps-help-frame .help-hdr {
+	background: #633e20;
+	color: #f8d29d;
+}
+
+#ps-help-frame .help h2 {
+    color: #613e0c;
+}
+#ps-help-frame .ps-himg-disp {
+	border: 1px solid #5a3721;
+	background-color: #d0aa61;
+}
+
+#ps-help-frame div.help p code {
+	background: #fdfdfd;
+}
+
+/*
+	Left Column
+*/
+#ps-container .ps-column-content div.chelp p code {
+	background: #fdfdfd;
+}
+
+
+/* 
+	2column.css
+*/
+
+#ps-container .ps-column-sep {
+	background-color: #e4dcce;
+}
+
+#ps-container .ps-column-header {
+	background: url(../img/table-header-bg.gif) repeat;
+}
+
+#ps-amazed-img {
+	background: url(../img/psvrat_logo_comp_284X284.webp) no-repeat;
+}
+

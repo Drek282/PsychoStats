@@ -102,7 +102,9 @@ foreach ($validfields as $var) {
 $vsort = ($ps->db->column_exists(array($ps->c_plr_victims, $ps->t_plr, $ps->t_plr_profile), $vsort)) ? $vsort : $DEFAULT_SORT;
 $msort = ($ps->db->column_exists(array($ps->c_plr_maps, $ps->t_map), $msort)) ? $msort : $DEFAULT_SORT;
 $wsort = ($ps->db->column_exists(array($ps->c_plr_weapons, $ps->t_weapon), $wsort)) ? $wsort : $DEFAULT_SORT;
-$rsort = ($ps->db->column_exists(array($ps->c_plr_roles, $ps->t_role), $rsort)) ? $rsort : $DEFAULT_SORT;
+if ($ps->use_roles and $ps->db->table_exists($ps->c_plr_roles)) {
+	$rsort = ($ps->db->column_exists(array($ps->c_plr_roles, $ps->t_role), $rsort)) ? $rsort : $DEFAULT_SORT;
+}
 if ($ssort != 'mapname' && $ssort != 'online') $ssort = ($ps->db->column_exists(array($ps->t_plr_sessions, $ps->t_map), $ssort)) ? $ssort : 'sessionstart';
 
 $totalranked  = $ps->get_total_players(array('allowall' => 0));
@@ -341,6 +343,7 @@ $vtable->columns(array(
 	'killsperdeath' => array( 'label' => $cms->trans("K:D"), 'tooltip' => $cms->trans("Kills Per Death") ),
 	'skill'		=> $cms->trans("Skill"),
 ));
+$vtable->column_attr('+', 'class', 'first');
 $vtable->column_attr('name', 'class', 'left');
 $vtable->column_attr('skill', 'class', 'right');
 $ps->player_victims_table_mod($wtable);

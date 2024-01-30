@@ -113,6 +113,8 @@ $htable->columns(array(
 	'onlinetime' 		=> array( 'label' => $cms->trans("Online"), 'modifier' => 'compacttime' ),
 	'dayskill' 		=> array( 'label' => $cms->trans("Skill") ),
 ));
+$htable->column_attr('statdate','class','secondary');
+$htable->column_attr('dayskill','class','right');
 $cms->filter('player_history_table_object', $htable);
 
 // build player session table
@@ -131,6 +133,8 @@ $stable->columns(array(
 	'accuracy'		=> array( 'label' => $cms->trans("Acc"), 'modifier' => '%s%%', 'tooltip' => $cms->trans("Accuracy") ),
 	'skill' 		=> array( 'label' => $cms->trans("Skill") ),
 ));
+$htable->column_attr('sessionstart','class','secondary');
+$stable->column_attr('skill','class','right');
 $cms->filter('player_session_table_object', $stable);
 
 $sessionpager = pagination(array(

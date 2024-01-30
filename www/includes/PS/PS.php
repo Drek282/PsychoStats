@@ -2572,6 +2572,7 @@ function build_map_stats() {
 		'skill' => $cms->trans("Skill"),
 	));
 	$stat_table->header_attr('value', 'class', 'active');
+	$stat_table->column_attr('+', 'class', 'first');
 	$stat_table->column_attr('name', 'class', 'left');
 	$stat_table->column_attr('skill', 'class', 'right');
 	$this->map_players_table_mod($stat_table);

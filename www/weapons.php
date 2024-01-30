@@ -172,6 +172,7 @@ $table->columns(array(
 	'damage' 		=> array( 'label' => $cms->trans("Dmg"), 'callback' => 'abbr_dmg', 'tooltip' => $cms->trans("Damage") ),
 ));
 $table->column_attr('uniqueid', 'class', 'first');
+$table->column_attr('class', 'class', 'secondary');
 $table->column_attr('_killspct', 'class', 'pct_bar');
 $table->header_attr('kills', 'colspan', '2');
 //$table->header_attr('headshotkillspct', 'colspan', '2');

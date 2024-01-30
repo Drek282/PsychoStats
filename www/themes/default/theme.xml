@@ -6,8 +6,8 @@
 	<title>Default PsychoStats Theme (Metallic)</title>
 	<author>Stormtrooper</author>
 	<website></website>
-	<source></source>
-	<image></image>
+	<source>themes/default/theme.xml</source>
+	<image>default.webp</image>
 	<file></file>
 	<description>This is the default PsychoStats theme.</description>
 </theme>

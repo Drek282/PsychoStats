@@ -203,7 +203,9 @@ $ptable->columns(array(
 	'headshotkillspct'	=> array( 'label' => $cms->trans("HS%"), 'modifier' => '%s%%', 'tooltip' => $cms->trans("Headshot Kills Percentage") ),
 	'skill'			=> $cms->trans("Skill"),
 ));
+$ptable->column_attr('rank', 'class', 'first');
 $ptable->column_attr('name', 'class', 'left');
+$ptable->column_attr('skill', 'class', 'right');
 $ps->clan_players_table_mod($ptable);
 $cms->filter('clan_members_table_object', $ptable);
 
@@ -224,6 +226,7 @@ $wtable->columns(array(
 	'damage' 		=> array( 'label' => $cms->trans("Dmg"), 'callback' => 'dmg', 'tooltip' => $cms->trans("Damage") ),
 ));
 $wtable->column_attr('uniqueid', 'class', 'first');
+$wtable->column_attr('kills', 'class', 'secondary');
 $ps->clan_weapons_table_mod($wtable);
 $cms->filter('clan_weapons_table_object', $wtable);
 

@@ -111,7 +111,6 @@ body.psychostats {
 	background: gray url(../img/footer-bg.png) repeat-x;
 	margin-top: 2em;
 	min-height: 41px;					/* FF  */
-	height: expression(this.height = 41 + 'px');		/* IE6 */
 	overflow: hidden;
 	position: relative;
 	width: 100%;
@@ -266,92 +265,94 @@ div#ps-login-inner {
 }
 
 /* --- COOKIE CONSENT POPUP --------------------------------------------- */
-{box-sizing: border-box;}
+* {box-sizing: border-box;}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
-.open-cookieconsent {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
+#ps-container .open-cookieconsent {
+	background-color: #555;
+	color: white;
+	padding: auto;
+	border: none;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	bottom: 23px;
+	right: 28px;
+	width: 280px;
+	height: 25px;
+	line-height: 100%;
 }
 
 /* The popup form - hidden by default */
-.form-cookieconsent {
-  display: block;
-  height: 55px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+#ps-container .form-cookieconsent {
+	display: block;
+	min-height: 75px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	background-color: #ccc;
-  border: 3px solid #aaa;
-  z-index: 9;
+	border: 3px solid #aaa;
+	z-index: 9;
 }
 
 /* Add styles to the form container */
-.form-cccontainer {
+#ps-container .form-cccontainer {
 	color: black;
-	size: 100%;
-	text-align: left; 
-	max-width: 80%;
+	text-align: left;
 }
-.form-cccontainer p {
-	width: 92%;
+#ps-container .form-cccontainer p {
+	margin-right: 320px;
 }
-.form-cccontainer p.privacy {
+#ps-container .form-cccontainer p.privacy {
 	text-align: center; 
 }
 
 /* Full-width input fields */
-.form-cccontainer input[type=button] {
-  width: 280px;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  border: none;
-  background: #f1f1f1;
+#ps-container .form-cccontainer input[type=button] {
+	width: 280px;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
 }
 
 /* When the inputs get focus, do something */
-.form-cccontainer input[type=button]:focus {
-  background-color: #ddd;
-  outline: none;
+#ps-container .form-cccontainer input[type=button]:focus {
+	background-color: #ddd;
+	outline: none;
 }
 
 /* Set a style for the submit/login button */
-.form-cccontainer .btn {
-  color: white;
+#ps-container .form-cccontainer .btn {
+	color: white;
 	background-color: #ccc;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  position: fixed;
-  right: 28px;
-  width: 280px;
-  opacity: 0.8;
+	padding: auto;
+	border: none;
+	cursor: pointer;
+	position: fixed;
+	right: 28px;
+	height: 20px;
+	line-height: 100%;
+	width: 280px;
+	opacity: 0.8;
 }
 
 /* Add a red background color to the cancel button */
-.form-cccontainer .accept {
-  background-color: #04AA6D;
-  bottom: 32px;
+#ps-container .form-cccontainer .accept {
+	background-color: #04AA6D;
+	bottom: 40px;
 }
 
 /* Add a red background color to the cancel button */
-.form-cccontainer .reject {
-  background-color: red;
-  bottom: 12px;
+#ps-container .form-cccontainer .reject {
+	background-color: red;
+	bottom: 15px;
 }
 
 /* Add some hover effects to buttons */
-.form-cccontainer .btn:hover,
-.open-button:hover {
-  opacity: 1;
-} 
+#ps-container .form-cccontainer .btn:hover,
+#ps-container .open-button:hover {
+	opacity: 1;
+}
 

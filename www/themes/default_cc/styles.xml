@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!--
+	Language strings can be used in this file using {#string to translate#}.
+	That is different then HTML templates that use <#...#>. This is done to
+	prevent strict XML errors when editing the file in a GUI.
+-->
+<styles>
+	<!--
+		Define overall theme styles.
+		Defining styles and scripts below allows each file to be
+		combined and compressed into a single request automatically.
+		And this allows a child theme to override a parent theme styles.
+		'src' and 'href' locations are relative to the theme and do
+		not require a leading slash.
+	-->
+	<theme>
+		<!-- Define overall stylesheets for all pages -->
+		<css href="css/overall.css" />
+		<css href="css/content.css" />
+		<css href="css/cc.css" loadlast="1" />
+		<!-- Define overall javascripts for all pages -->
+		<script>
+			{* these variables are used in various js routines throughout the stats *}
+			var themeurl = '{theme->parent_url|escape:'javascript'}';
+			var iconsurl = '{$conf.theme.icons_url|escape:'javascript'}';
+		</script>
+		{if $conf.theme.map.google_key}
+		<script>
+			var mapconf = {ldelim}
+				enable_custom_icons:	parseInt('{$conf.theme.map.enable_custom_icons|escape:'javascript'}'),
+				ctrl_maptype:		parseInt('{$conf.theme.map.ctrl_maptype|escape:'javascript'}'),
+				ctrl_overview:		parseInt('{$conf.theme.map.ctrl_overview|escape:'javascript'}'),
+				mousewheel:		parseInt('{$conf.theme.map.mousewheel|escape:'javascript'}'),
+				smoothzoom:		parseInt('{$conf.theme.map.smoothzoom|escape:'javascript'}'),
+				zoom:			parseInt('{$conf.theme.map.zoom|escape:'javascript'}'),
+				center: 		'{$conf.theme.map.center|escape:'javascript'}',
+				ctrl_map: 		'{$conf.theme.map.ctrl_map|escape:'javascript'}',
+				maptype:		'{$conf.theme.map.maptype|escape:'javascript'}',
+				standard_icon: 		'{$conf.theme.map.standard_icon|escape:'javascript'}',
+				standard_icon_shadow:	'{$conf.theme.map.standard_icon_shadow|escape:'javascript'}'
+			{rdelim};
+		</script>
+		{/if}
+		<script src="js/jquery.js" />
+		<script src="js/overall.js" />
+	</theme>
+
+	<!-- Define styles for flash output within the theme -->
+	<flash bgcolor="#C4C4C4" bg_inner1="#eeeeff" bg_inner2="#ced4e1" inner_angle="90">
+		<!-- country breakdown pie chart -->
+		<pie bgcolor="">
+			<title style="font-size: 16px">{#Country Breakdown#}</title>
+			<labels style="display: none" />
+			<tooltip><![CDATA[#x_label#<br>#val#%]]></tooltip>
+			<slices border="#505050">
+				<slice color="#0033FF" />
+				<slice color="#00B3FF" />
+				<slice color="#00FFCC" />
+				<slice color="#00FF4D" />
+				<slice color="#CC00FF" />
+				<slice color="#7A95FF" />
+				<slice color="#FFD83D" />
+				<slice color="#B3FF00" />
+				<slice color="#FF0033" />
+				<slice color="#FFCC00" />
+			</slices>
+		</pie>
+
+		<!-- last 24 hours line chart -->
+		<last24 bgcolor="" bg_inner1="" bg_inner2="" inner_angle="">
+			<title style="font-size: 16px">{#Last 24 Hours#}</title>
+			<tooltip><![CDATA[#key#<br>#val# (#x_label#)]]></tooltip>
+			<lines>
+				<line width="3" color="#9999ee" key="{#Average Kills#}" key_size="9"/>
+				<line width="2" color="#5555ff" key="{#Kills#}" key_size="9" dot_size="5"/>
+				<line width="1" color="#000000" key="{#Connections#}" key_size="9" dot_size="3"/>
+			</lines>
+		</last24>
+
+		<!-- last 31 days connection bar chart -->
+		<conn bgcolor="" bg_inner1="" bg_inner2="" inner_angle="">
+			<title style="font-size: 16px">{#Daily Connections#}</title>
+			<tooltip><![CDATA[#x_label#<br>#key#: #val# ({#Avg#}: %d)]]></tooltip>
+			<line width="3" key="{#Average Connections!#}" size="9" color="#9999ee" />
+			<bar3d alpha="75" key="{#Connections#}" size="9" color1="#5555ff" color2="#3333DD" />
+		</conn>
+
+		<!-- quick player skill history line chart -->
+		<plrskill bgcolor="" bg_inner1="" bg_inner2="" inner_angle="">
+			<title style="font-size: 12px;background-color: #c4c4c4">{#Skill Chart#}</title>
+			<lines key_size="9">
+				<line width="2" key="{#Average#}" color="#9999ee" />
+				<line width="3" key="{#Skill#}" color="#5555ff" />
+			</lines>
+		</plrskill>
+	</flash>
+	<image>
+		<!-- Common styles for all images -->
+		<common>
+			<margin top="0" right="0" bottom="0" left="0" />
+			<footer show="1" color="#999999" font="FF_FONT0">
+				<left>{#PsychoStats#} v%s</left>
+				<right>M d @ H:i:s</right>
+			</footer>
+		</common>
+		<!-- Player sessions ghantt chart image -->
+		<session interval="2" font="FF_FONT0" showfooter="1">
+			<margin top="5" right="5" bottom="" left="6" />
+			<title></title>
+			<frame margin="#EEEEEE" color="gray" width="0" />
+			<header color="black" bgcolor="#E4DCCE" hourstyle="HOURSTYLE_H24" />
+			<hgrid show="1" color1="#EEEEFF@0.5" color2="#DDDDFF@0.5" />
+			<hgrid2 show="1" color1="gray@0.7" color2="#E4DCCE@0.6" />
+			<bar showempty="0" vmargin="0.4" patternfill="#E4DCCE" fill="darkgreen" pattern="BAND_SOLID" shadow="" />
+		</session>
+	</image>
+</styles>

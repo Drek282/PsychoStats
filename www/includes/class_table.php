@@ -157,7 +157,8 @@ function rows() {
                 $this->column_attr[$key] ??= null;
 				$row->td($html, $this->column_attr[$key]);
 			} elseif ($key == '+') {		// special auto-increment row
-				$row->td($i + $this->start);
+                $this->column_attr[$key] ??= null;
+				$row->td($i + $this->start, $this->column_attr[$key]);
 			} else {
 
 			}

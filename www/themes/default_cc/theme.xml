@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>default_cc</name>
+	<parent>default</parent>
+	<version>0.0</version>
+	<title>Casually Crackers Theme</title>
+	<author>Stormtrooper (modded by Drek)</author>
+	<website></website>
+	<source>themes/default_cc/theme.xml</source>
+	<image>cc.webp</image>
+	<file></file>
+	<description>Default PsychoStats theme with the colour scheme of a Casual Cracker</description>
+</theme>

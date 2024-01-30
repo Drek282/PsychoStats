@@ -421,9 +421,9 @@ function validate_theme($skip_file = false) {
 	}
 
 	// make sure the image is valid
-	if (!$this->re_match('|^https?:/\/|', $this->xml_image())) {
+	if (!$this->re_match('/.(?:jpg|png|webp)$/', $this->xml_image())) {
 		$this->error($cms->trans("Invalid image defined"), PSTHEME_ERR_VALUE);
-		$this->invalid('image', $cms->trans("Image must start with http:// or https://"));
+		$this->invalid('image', $cms->trans("Image must be in jpg, png or webp format."));
 	}
 
 	// if there's a parent defined make sure we have the appropriate parent already installed
@@ -448,7 +448,7 @@ function re_match($regex, $str) {
 
 // readonly accessor functions for loaded XML theme values
 function theme_xml() 		{ return $this->xml ? $this->xml : ''; }
-function xml_name() 		{ return $this->xml ? trim($this->xml['name']) : ''; }
+function xml_name() 		{ return $this->xml ? trim($this->xml['name'] ?? '') : ''; }
 function xml_parent() 		{ return $this->xml ? trim($this->xml['parent']) : ''; }
 function xml_website() 		{ return $this->xml ? trim($this->xml['website']) : ''; }
 function xml_version() 		{ return $this->xml ? trim($this->xml['version']) : ''; }

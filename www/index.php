@@ -203,9 +203,9 @@ $table->columns(array(
 	'activity'		=> array( 'label' => $cms->trans("Activity"), 'modifier' => 'activity_bar' ),
 	'skill'			=> array( 'label' => $cms->trans("Skill"), 'callback' => 'plr_skill' ),
 ));
-$table->column_attr('name', 'class', 'left');
+$table->column_attr('rank', 'class', 'first');
 $table->column_attr('skill', 'class', 'right');
-//$table->column_attr('rank', 'class', 'left');
+$table->column_attr('name', 'class', 'left');
 $table->header_attr('rank', 'colspan', '2');
 $ps->index_table_mod($table);
 $cms->filter('players_table_object', $table);

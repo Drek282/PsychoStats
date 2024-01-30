@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>default_pt20x</name>
+	<parent>default</parent>
+	<version>0.0</version>
+	<title>PT20X Theme</title>
+	<author>Stormtrooper (modded by Drek)</author>
+	<website></website>
+	<source>themes/default_pt20x/theme.xml</source>
+	<image>pt20x-bb.webp</image>
+	<file></file>
+	<description>Default PsychoStats theme based on the colours for the old PT20X Post Nuke theme</description>
+</theme>

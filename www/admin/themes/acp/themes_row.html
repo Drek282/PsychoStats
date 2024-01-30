@@ -1,7 +1,7 @@
 		<tr class="{cycle values=", even" advance=false}">
 			<td class="preview" rowspan="2">
 {if $t.image}
-	<div class="preview"><img src="{$t.image|escape}" width="50" alt="" title="<#Preview of #> {$t.title|escape}"></div>
+	<div class="preview"><img src="../themes/{$t.name}/img/{$t.image|escape}" width="50" alt="" title="<#Preview of #> {$t.title|escape}"></div>
 {else}
 	<em><#none#></em>
 {/if}

@@ -7,7 +7,7 @@
 	<author>Stormtrooper</author>
 	<website></website>
 	<source>themes/default-blue/theme.xml</source>
-	<image></image>
+	<image>blue.webp</image>
 	<file></file>
 	<description>blue skin for {$parent} theme.</description>
 </theme>

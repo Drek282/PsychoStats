@@ -131,8 +131,10 @@ $table->columns(array(
 	'activity'		=> array( 'label' => $cms->trans("Activity"), 'modifier' => 'activity_bar' ),
 	'skill'			=> $cms->trans("Skill")
 ));
+$table->column_attr('+', 'class', 'first');
 $table->column_attr('clantag', 'class', 'left');
 $table->column_attr('name', 'class', 'left');
+$table->column_attr('skill', 'class', 'right');
 $ps->clans_table_mod($table);
 $cms->filter('clans_table_object', $table);
 

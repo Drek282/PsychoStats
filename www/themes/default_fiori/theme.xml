@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<theme>
+	<name>default_fiori</name>
+	<parent>default</parent>
+	<version>0.0</version>
+	<title>Fiori Theme</title>
+	<author>Stormtrooper (modded by Drek)</author>
+	<website></website>
+	<source>themes/default_fiori/theme.xml</source>
+	<image>fiori-bb.webp</image>
+	<file></file>
+	<description>Default PsychoStats theme based on the colours of a Fiori fabric</description>
+</theme>
