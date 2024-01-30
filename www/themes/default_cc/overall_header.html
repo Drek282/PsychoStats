@@ -26,7 +26,7 @@
 <div id="ps-overall-menu">
 <div id="ps-menu-right">
 {if $show_login and $cookieconsent}
-<a id="ps-login-link" href="{url _base='login.php'}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.png" alt="<#Login#>"></a>
+<a id="ps-login-link" href="{url _base='login.php'}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->url}/img/menu-login-icon.png" alt="<#Login#>"></a>
 {/if}
 <a href="credits.php" title="<#Credits#>"><img class="ps-icon" src="{theme->url}/img/icons/ps_logo_16X16.png" alt="Credits"></a>
 </div>
@@ -76,7 +76,7 @@
 	<p>
 	<label><#Password#></label>
 	<input id="password" name="password" type="password" class="field" value="">
-	<button type="submit"><img src="{theme->parent_url}/img/go.gif" alt="go"></button>
+	<button type="submit"><img src="{theme->url}/img/go.gif" alt="go"></button>
 	</p>
 	<div id="ps-login-options">
 		<input id="ps-remember-login" name="autologin" type="checkbox" value="1">
