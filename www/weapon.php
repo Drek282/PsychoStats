@@ -30,7 +30,7 @@ $cms->theme->page_title('PsychoStats - Weapon Stats');
 // default sort for the weapons listing
 $DEFAULT_SORT = 'kills';
 
-$validfields = array('id','order','sort');
+$validfields = array('id','order','sort','xml');
 $cms->theme->assign_request_vars($validfields, true);
 
 // create the form variable
@@ -100,6 +100,34 @@ foreach ($zone as $z) {
 	$weapon['real_shot_'.$z.'pct'] = $hits ? ceil($weapon['shot_'.$z] / $hits * 100) : 0;
 }
 
+// Setup the xml for the hitbox.
+$player = array();
+$player['weapons'][0] = $weapon;
+
+$x = substr($xml ?? '',0,1);
+if ($x == 'p') {	// player
+	// we have to alter some of the data for player arrays otherwise we'll end up with invalid or strange keys
+	$ary = $player;
+	$ary['weapons'] = array();
+	$ary['maps'] = array();
+	foreach ($player['weapons'] as $w) {
+		$ary['weapons'][ $w['uniqueid'] ] = $w;
+	} 
+	foreach ($player['maps'] as $m) {
+		$ary['maps'][ $m['uniqueid'] ] = $m;
+	} 
+	print_xml($ary);
+
+} elseif ($x == 'w') {	// weapons
+	// re-arrange the weapons list so the uniqueid of each weapon is a key.
+	// weapon uniqueid's should never have any weird characters so this should be safe.
+	$ary = array();
+	foreach ($player['weapons'] as $w) {
+		$ary[ $w['uniqueid'] ] = $w;
+	} 
+	print_xml($ary);
+}
+
 // get top10 players .....
 $players = array();
 if ($weapon['weaponid']) {
@@ -135,14 +163,23 @@ $table->column_attr('name', 'class', 'left');
 $ps->weapon_players_table_mod($table);
 $cms->filter('players_table_object', $table); // same as index.php players table
 
+# handle games with no mods
+if (empty($ps->conf['main']['modtype'])) {
+    $moddir = "";
+} else {
+    $moddir = '/' . $ps->conf['main']['modtype'];
+}
+
 // Declare shades array.
 $shades = array(
+	's_hitbox'				=> null,
 	's_weapon_killprofile'	=> null,
 	's_weaponlist'			=> null,
 	's_weapon_plrlist'		=> null,
 );
 
 $cms->theme->assign(array(
+    'hitbox_url'		=> 'weaponxml=' . ps_escape_html($php_scnm) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname($php_scnm), '/\\') . '/img/weapons/' . $ps->conf['main']['gametype'] . $moddir) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
 	'weapons'		=> $weapons,
 	'weapon'		=> $weapon,
 	'weaponimg'		=> $ps->weaponimg($weapon, array('path' => 'large', 'noimg' => '') ),

@@ -98,6 +98,7 @@ Version 3.2.8n (in progress)
 * [Improved] The CC theme is now a child theme.
 * [Improved] Streamlined the CSS of child themes.
 * [Fixed] Player page SQL error when mod does not have roles.
+* [Added] Hitbox to weapon pages.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

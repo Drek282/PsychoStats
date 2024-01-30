@@ -58,6 +58,8 @@
 	<label><#Damage Done#></label>
 	<span>{$weapon.damage|commify}</span>
 </p>
+
+{if !$conf.theme.permissions.show_hitbox}
 <p class="hl">
 	<label><#Hitbox Zones#></label>
 	<span></span>
@@ -98,6 +100,7 @@
 	<span>{$weapon.shot_rightleg|commify}</span>
 </p>
 {/if}
+{/if}
 </div>
 </div>
 
@@ -127,6 +130,33 @@
 
 <!--content block-->
 <div id="ps-main-content" class="ps-page-weapon">
+
+	<!-- RIP Flash Player - January 12th, 2021 Temp fix with Ruffle.js emulator -->
+
+	{if $conf.theme.permissions.show_hitbox}
+	<div class="ps-table-frame{if $shades.s_hitbox} s-closed{/if}">
+	<div class="ps-frame-header"><a href="" onclick="return false"><span><#Weapon Hitbox#></span></a></div>
+	<div id="s-hitbox" class="ps-table-inner" style="text-align: center">
+    	<script src="{url _base='includes/ruffle/ruffle.js'}"></script>
+    	<object type="application/x-shockwave-flash" width="277" height="330">
+    	<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
+    	<param name="allowScriptAccess" value="sameDomain">
+    	<param name="movie" value="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}">
+    	<param name="quality" value="high">
+    	<param name="bgcolor" value="{$hitbox_bgcolor|default:'#C4C4C4'}">
+    	<embed src="{theme->parent_url}/hitbox/hitbox.swf?{$hitbox_url}" 
+        	quality="high" 
+        	bgcolor="{$hitbox_bgcolor|default:'#C4C4C4'}" 
+        	width="277" 
+        	height="330" 
+        	id="hitbox" 
+        	allowScriptAccess="sameDomain" 
+        	type="application/x-shockwave-flash" 
+       	>
+    	</object>
+	</div>
+	</div>
+	{/if}
 
 	<div class="ps-table-frame{if $shades.s_weapon_plrlist} s-closed{/if}">
 	<div class="ps-frame-header"><a href="" onclick="return false"><span>{$totalplayers} <#Top Players#></span></a></div>
