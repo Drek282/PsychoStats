@@ -101,17 +101,11 @@ foreach ($zone as $z) {
 }
 
 // Setup the xml for the hitbox.
-$xary = array();
-$xary[0] = $weapon;
-
 $x = substr($xml ?? '',0,1);
-if ($x == 'w') {	// weapons
-	// re-arrange the weapons list so the uniqueid of each weapon is a key.
-	// weapon uniqueid's should never have any weird characters so this should be safe.
+if ($x == 'w') {
+	// re-arrange the weapon array so the uniqueid of the weapon is the key.
 	$ary = array();
-	foreach ($xary as $w) {
-		$ary[ $w['uniqueid'] ] = $w;
-	} 
+	$ary[ $weapon['uniqueid'] ] = $weapon;
 	print_xml($ary);
 }
 
