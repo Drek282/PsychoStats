@@ -99,6 +99,7 @@ Version 3.2.8n (in progress)
 * [Improved] Streamlined the CSS of child themes.
 * [Fixed] Player page SQL error when mod does not have roles.
 * [Added] Hitbox to weapon pages.
+* [Fixed] Compile to disk option no longer errors out.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

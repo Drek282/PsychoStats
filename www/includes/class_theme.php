@@ -758,7 +758,7 @@ function fetch_eval($tpl) {
 		return '';
 	}
 
-	$source = $res['source_content'];
+	$source = $res['source_content'] ?? '';
 	$compiled = '';
 
 	$this->_compile_source('eval-template', $source, $compiled);
@@ -1068,7 +1068,7 @@ function _key($key, $root = null) {
 	$found = true;
 	while (count($nodes) > 1) {
 		$node = array_shift($nodes);
-		if (array_key_exists($node, $root)) {
+		if (is_array($root) and array_key_exists($node, $root)) {
 			$root =& $root[$node];
 		} else {
 			$found = false;
