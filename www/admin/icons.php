@@ -83,6 +83,8 @@ if ($upload) {
 		}
 	} elseif ($from) {	// fetch file from URL
 		$file = array();
+		// Sanitize $from
+		$from = filter_var($from, FILTER_SANITIZE_URL);
 		if (!preg_match('|^\w+://|', $from)) {	// make sure a http:// prefex is present
 			$from = "http://" . $from;
 		}
