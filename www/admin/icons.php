@@ -78,11 +78,16 @@ if ($upload) {
 	$err = '';
 	if (is_array($from)) {	// upload file
 		$file = $from;
+		// Sanitize $file['tmp_name'].
+		$file['tmp_name'] = preg_replace('/(?:\.\.|%2e%2e)(?:\/|\\)/','',$file['tmp_name']);
 		if (!is_uploaded_file($file['tmp_name'])) {
 			$err = $cms->trans("Uploaded icon is invalid");
 		}
 	} elseif ($from) {	// fetch file from URL
 		$file = array();
+		// Sanitize $from
+		$from = filter_var($from, FILTER_SANITIZE_URL);
+		$from = preg_replace('/(?:\.\.|%2e%2e)(?:\/|\\)/','',$from);
 		if (!preg_match('|^\w+://|', $from)) {	// make sure a http:// prefex is present
 			$from = "http://" . $from;
 		}
