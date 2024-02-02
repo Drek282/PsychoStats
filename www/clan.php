@@ -282,6 +282,8 @@ $cms->theme->assign(array(
 	'i_bots'			=> $ps->invisible_bots(),
 	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'		=> $cookieconsent,
+	'title_logo'		=> ps_title_logo(),
+	'game_name'			=> ps_game_name(),
 ));
 
 // allow mods to have their own section on the left side bar

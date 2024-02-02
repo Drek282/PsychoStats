@@ -172,6 +172,8 @@ $cms->theme->assign(array(
 	'shades'		=> $shades,
 	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
+	'title_logo'	=> ps_title_logo(),
+	'game_name'		=> ps_game_name(),
 ));
 
 $basename = basename(__FILE__, '.php');

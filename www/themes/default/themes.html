@@ -13,15 +13,18 @@
 
 <!--content block-->
 <div id="ps-main-content" class="ps-page-index">
-<form action="{url}" method="get">
 	<input name="key" value="{$form_key}" type="hidden">
 	<div id="ps-page-title">
+		{if $title_logo}
+		<div id="ps-title-logo">
+			<img src="{theme->url}/img/{$title_logo}" alt="{if $game_name}{$game_name}{else}{$title_logo}{/if}" width="64" height="64">
+		</div>
+		{/if}
 		<div class="inner">
 		<h1><#Theme Gallery#></h1>
 		<h2><#Select a theme from this gallery.#> <#Themes will be applied to your session even if you're not logged in.#></h2>
 		</div>
 	</div>
-</form>
 
 <div id="gallery">
 {foreach from=$themes item='t'}

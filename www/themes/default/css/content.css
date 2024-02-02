@@ -40,6 +40,7 @@
 	z-index: 1;
 }
 #ps-page-title div.inner, #ps-container .ps-section-title div.inner {
+	min-height: 64px;
 	text-align: left;
 	padding: 7px; /* 7px 7px 0 7px */
 }

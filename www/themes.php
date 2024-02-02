@@ -54,10 +54,12 @@ if ($t) {
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'themes'	=> $themes,
-	'theme'		=> $cms->theme->theme,
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'themes'		=> $themes,
+	'theme'			=> $cms->theme->theme,
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
+	'title_logo'	=> ps_title_logo(),
+	'game_name'		=> ps_game_name(),
 ));
 
 // display the output
