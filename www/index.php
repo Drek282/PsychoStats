@@ -76,6 +76,10 @@ unset ($results);
 $DEFAULT_SORT = 'skill';
 $DEFAULT_LIMIT = 100;
 
+// default player name
+$MAX_PLR_IDS = 10;
+$DEFAULT_PNAME = 'Player';
+
 // collect url parameters ...
 $validfields = array('sort','order','start','limit','q','search');
 $cms->theme->assign_request_vars($validfields, true);
@@ -158,6 +162,8 @@ if ($search and $results['abs_total'] == 1 and is_numeric($results['results'])) 
 
 // fetch stats, etc...
 $players = $ps->get_player_list(array(
+	'name'		=> $DEFAULT_PNAME,
+	'idlimit'	=> $MAX_PLR_IDS,
 	'results'	=> $results,
 	'sort'		=> $sort,
 	'order'		=> $order,

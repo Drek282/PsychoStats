@@ -693,6 +693,39 @@ function get_player($args = array(), $minimal = false) {
 }
 function not0($a) { return ($a != '0.0.0.0'); }
 
+// Returns the next name on the list if the given name matches. Use to exclude default player names.
+function next_pname($args = array()) {
+	if (!is_array($args)) {
+		$id = $args;
+		$args = array( 'plrid' => $id );
+	}
+	$args += array(
+		'plrid'		=> 0,
+		'name'		=> 'Player',
+		'idsort'	=> 'totaluses',
+		'idorder'	=> 'desc',
+		'idstart'	=> 0,
+		'idlimit'	=> 10,
+	);
+	$plr = array();
+	$id = $this->db->escape($args['plrid']);
+	$name = $args['name'];
+	if (!is_numeric($id)) $id = 0;
+
+	// Load player name.
+	$v = 'name';
+	$tbl = $this->{'t_plr_ids_' . $v};
+	$cmd  = "SELECT $v FROM $tbl WHERE plrid='$id' ";
+	$cmd .= "AND name <> '$name' ";
+	$cmd .= $this->getsortorder($args, 'id');
+	$pname = $this->db->fetch_row(1, $cmd);
+
+	$pname = (!empty($pname) and is_array($pname)) ? implode($pname) : $name;
+#	print "<pre>"; print_r($plr['ids_'.$v]); print "</pre>";
+
+	return $pname;
+}
+
 // returns a list of per-day stats for a player. Each element in the list is a single day.
 function get_player_days($args = array()) {
 	$args += array(
@@ -1155,6 +1188,8 @@ function get_map_player_list($args = array()) {
 function get_player_list($args = array()) {
 	global $cms;
 	$args += array(
+		'name'		=> 'Player',
+		'idlimit'	=> 10,
 		'allowall'	=> false,
 		'start'		=> 0,
 		'limit'		=> 100,
@@ -1168,6 +1203,9 @@ function get_player_list($args = array()) {
 		'results'	=> null,
 		'search'	=> null,
 	);
+
+	$name = $args['name'];
+	$idlimit = $args['idlimit'];
 
 	$values = "";
 	if (trim($args['fields']) == '') {
@@ -1219,6 +1257,21 @@ function get_player_list($args = array()) {
 	if (!$results or $results['results']) {
 		$cmd .= $this->getsortorder($args);
 		$list = $this->db->fetch_rows(1, $cmd);
+	}
+
+	// Replace default player names in list where possible.
+	foreach ($list as $i => $p) {
+		// Replace default name (usually "Player").
+		if ($p['name'] == $name) {
+			$list[$i]['name'] = $this->next_pname(array(
+				'plrid' 	=> $p['plrid'],
+				'name'		=> $name,
+				'idstart'	=> 0,
+				'idlimit'	=> $idlimit,
+				'idsort'	=> 'totaluses',
+				'idorder'	=> 'desc',
+			));
+		}
 	}
 
 	return $list;
