@@ -112,6 +112,9 @@ if ($ssort != 'mapname' && $ssort != 'online') $ssort = ($ps->db->column_exists(
 
 $totalranked  = $ps->get_total_players(array('allowall' => 0));
 
+// get configured name sort
+$idsort = $ps->get_name_sort();
+
 $player = $ps->get_player(array(
 	'plrid' 	=> $id,
 	'loadsessions'	=> 1,
@@ -141,7 +144,7 @@ $player = $ps->get_player(array(
 	'victimlimit'	=> $vlimit,
 	'idstart'	=> 0,
 	'idlimit'	=> $MAX_PLR_IDS,
-	'idsort'	=> 'totaluses',
+	'idsort'	=> $idsort,
 	'idorder'	=> 'desc',
 ));
 
@@ -152,7 +155,7 @@ if ($player['name'] == $DEFAULT_PNAME) {
 		'name'		=> $DEFAULT_PNAME,
 		'idstart'	=> 0,
 		'idlimit'	=> $MAX_PLR_IDS,
-		'idsort'	=> 'totaluses',
+		'idsort'	=> $idsort,
 		'idorder'	=> 'desc',
 	));
 }

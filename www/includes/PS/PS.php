@@ -726,6 +726,18 @@ function next_pname($args = array()) {
 	return $pname;
 }
 
+// Returns the configured name sort column.
+function get_name_sort() {
+	$sort = $this->conf['main']['plr_primary_name'];
+
+	switch ($sort) {
+		case 'most': return 'totaluses';
+		case 'first': return 'firstseen';
+		case 'last': return 'lastseen';
+		default: return 'totaluses';
+	}
+}
+
 // returns a list of per-day stats for a player. Each element in the list is a single day.
 function get_player_days($args = array()) {
 	$args += array(
@@ -1268,7 +1280,7 @@ function get_player_list($args = array()) {
 				'name'		=> $name,
 				'idstart'	=> 0,
 				'idlimit'	=> $idlimit,
-				'idsort'	=> 'totaluses',
+				'idsort'	=> $this->get_name_sort(),
 				'idorder'	=> 'desc',
 			));
 		}
