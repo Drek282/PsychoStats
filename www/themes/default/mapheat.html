@@ -16,6 +16,11 @@ $(function(){ldelim}
 <div id="ps-main">
 
 	<div id="ps-page-title">
+		{if $title_logo}
+		<div id="ps-title-logo">
+			<img src="{theme->url}/img/{$title_logo}" alt="{if $game_name}{$game_name}{else}{$title_logo}{/if}" width="64" height="64">
+		</div>
+		{/if}
 		<div class="inner">
 			<span>[ 
 				<a href="{url _base='map.php' id=$map.mapid}"><#View Statistics#></a> 
