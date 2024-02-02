@@ -25,6 +25,7 @@
 }
 
 #ps-page-title, #ps-container .ps-section-title {
+	min-height: 64px;
 	text-align: center;
 	margin: 0 1em 1em 1em;
  	background: #CCCCCC url(../img/page-title-bg.png) repeat-x;
@@ -33,7 +34,8 @@
 #ps-title-logo {
 	position: relative;
 	margin: 0 10px;
-	width: 64;
+	height: 64px;
+	width: 64px;
 	float: left;
 	z-index: 1;
 }

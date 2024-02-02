@@ -281,6 +281,7 @@ div#ps-login-inner {
 	width: 280px;
 	height: 25px;
 	line-height: 100%;
+	z-index: 10000;
 }
 
 /* The popup form - hidden by default */
