@@ -139,9 +139,7 @@
 	<!-- RIP Flash Player - January 12th, 2021 Temp fix with Ruffle.js emulator -->
 
 	{if $conf.theme.permissions.show_hitbox}
-	<div class="ps-table-frame{if $shades.s_hitbox} s-closed{/if}">
-	<div class="ps-frame-header"><a href="" onclick="return false"><span><#Weapon Hitbox#></span></a></div>
-	<div id="s-hitbox" class="ps-table-inner" style="text-align: center">
+	<div style="text-align: center">
     	<script src="{url _base='includes/ruffle/ruffle.js'}"></script>
     	<object type="application/x-shockwave-flash" width="277" height="330">
     	<param name="classid" value="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">
@@ -160,7 +158,7 @@
        	>
     	</object>
 	</div>
-	</div>
+	<div>&nbsp;</div>
 	{/if}
 
 	<div class="ps-table-frame{if $shades.s_weapon_plrlist} s-closed{/if}">
