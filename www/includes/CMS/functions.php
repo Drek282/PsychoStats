@@ -179,6 +179,84 @@ if (!function_exists('ps_time_stamp')) {
 	}
 }
 
+if (!function_exists('ps_game_name')) {
+	/**
+	Returns the name of the installed game.
+	*/
+	function ps_game_name() {
+		global $ps;
+		$prefix = ($ps->conf['main']['modtype']) ? $ps->conf['main']['modtype'] : $ps->conf['main']['gametype'];
+		if ($ps->conf['main']['modtype']) {
+			$options = $ps->db->fetch_row(1, "SELECT options FROM $ps->t_config WHERE var='modtype' AND value='$prefix'");
+			$options = implode($options);
+			$options = explode("\n",$options);
+			array_shift($options);
+			foreach ($options as $o) {
+				$oa = explode(':',$o);
+				if ($oa[0] == $prefix) return $oa[1];
+			}
+			return false;
+		}
+		$options = $ps->db->fetch_row(1, "SELECT options FROM $ps->t_config WHERE var='gametype' AND value='$prefix'");
+		$options = implode($options);
+		$options = explode("\n",$options);
+		array_shift($options);
+		foreach ($options as $o) {
+			$oa = explode(':',$o);
+			if ($oa[0] == $prefix) return $oa[1];
+		}
+		return false;
+	}
+}
+
+if (!function_exists('ps_title_logo')) {
+	/**
+	Returns the image name if the option to show title logos on primary stat pages has
+	been enabled, and the image exists in the theme img folder in the correct format.
+	*/
+	function ps_title_logo($img = null) {
+		global $cms, $ps;
+		$bdary = array_reverse(explode('/', dirname(__FILE__)));
+		array_shift($bdary);
+		array_shift($bdary);
+		array_shift($bdary);
+		$basedir = implode('/', array_reverse($bdary));
+		$basedir = $basedir . catfile($cms->theme->url(), 'img');
+
+		// First check if logo file exists.
+		if (!$img) {
+			if ($ps->conf['theme']['permissions']['show_titlelogo'] and $ps->conf['theme']['titlelogo_name']) {
+				$img = trim($ps->conf['theme']['titlelogo_name']);
+				$file = catfile($basedir, $img);
+				if (!file_exists($file)) return false;
+			} elseif ($ps->conf['theme']['permissions']['show_titlelogo']) {
+				$prefix = ($ps->conf['main']['modtype']) ? $ps->conf['main']['modtype'] : $ps->conf['main']['gametype'];
+				$prefix = $prefix . '_logo';
+				$ext = array_map('trim', explode(',', str_replace('.','', $ps->conf['theme']['images']['search_ext'])));
+				$file = "";
+				foreach ($ext as $e) {
+					$img = $prefix . '.' . $e;
+					$file = catfile($basedir, $img);
+//					print "$file<br>";
+					if (@file_exists($file)) break;
+					$file = "";
+				}
+				if (!$file) return false;
+			} else {
+				return false;
+			}
+		} else {
+			$img = trim($img);
+			$file = catfile($basedir, $img);
+			if (!file_exists($file)) return false;
+		}
+
+		// Check if logo file is the right dimensions.
+		$dim = @getimagesize($file);
+		return ($dim[0] === 64 && $dim[1] === 64) ? $img : false;
+	}
+}
+
 if (!function_exists('ps_table_map_link')) {
 	/**
 	Called from the dynamic table class when creating a table that has a map <a> link.

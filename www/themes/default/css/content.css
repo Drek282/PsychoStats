@@ -30,6 +30,13 @@
  	background: #CCCCCC url(../img/page-title-bg.png) repeat-x;
 	border: 1px solid gray;
 }
+#ps-title-logo {
+	position: relative;
+	margin: 0 10px;
+	width: 64;
+	float: left;
+	z-index: 1;
+}
 #ps-page-title div.inner, #ps-container .ps-section-title div.inner {
 	text-align: left;
 	padding: 7px; /* 7px 7px 0 7px */
