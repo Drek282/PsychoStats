@@ -29,6 +29,10 @@ $cms->theme->page_title('PsychoStats - Role Stats');
 
 // default sort for the roles listing
 $DEFAULT_SORT = 'kills';
+$MAX_PLR_IDS = 10;
+
+// default player name
+$DEFAULT_PNAME = 'Player';
 
 $validfields = array('id','order','sort');
 $cms->theme->assign_request_vars($validfields, true);
@@ -71,6 +75,8 @@ $sort = ($ps->db->column_exists(array($ps->c_role_data, $ps->t_role), $sort)) ? 
 
 $totalroles = $ps->get_total_roles();
 $roles = $ps->get_role_list(array(
+	'name'		=> $DEFAULT_PNAME,
+	'idlimit'	=> $MAX_PLR_IDS,
 	'sort'		=> 'kills',
 	'order'		=> 'desc',
 	'start'		=> 0,

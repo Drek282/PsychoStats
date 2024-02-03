@@ -29,6 +29,10 @@ $cms->theme->page_title('PsychoStats - Weapon Stats');
 
 // default sort for the weapons listing
 $DEFAULT_SORT = 'kills';
+$MAX_PLR_IDS = 10;
+
+// default player name
+$DEFAULT_PNAME = 'Player';
 
 $validfields = array('id','order','sort','xml');
 $cms->theme->assign_request_vars($validfields, true);
@@ -113,6 +117,8 @@ if ($x == 'w') {
 $players = array();
 if ($weapon['weaponid']) {
 	$players = $ps->get_weapon_player_list(array(
+		'name'		=> $DEFAULT_PNAME,
+		'idlimit'	=> $MAX_PLR_IDS,
 		'weaponid' 	=> $id,
 		'sort'		=> $sort,
 		'order'		=> $order,

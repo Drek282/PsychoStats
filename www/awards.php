@@ -27,6 +27,10 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Player Awards');
 
+// default player name
+$DEFAULT_PNAME = 'Player';
+$MAX_PLR_IDS = 10;
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -227,6 +231,23 @@ foreach ($list as $a) {
 
 $awards['weaponclass'] ??= null;
 $awards['weapon'] ??= null;
+
+// Replace default player names in lists where possible.
+foreach ($awards as $k => $val) {
+	foreach ($val as $i => $plr) {
+		// Replace default name (usually "Player").
+		if ($plr['name'] == $DEFAULT_PNAME) {
+			$awards[$k][$i]['name'] = $ps->next_pname(array(
+				'plrid' 	=> $plr['plrid'],
+				'name'		=> $DEFAULT_PNAME,
+				'idstart'	=> 0,
+				'idlimit'	=> $MAX_PLR_IDS,
+				'idsort'	=> $ps->get_name_sort(),
+				'idorder'	=> 'desc',
+			));
+		}
+	}
+}
 
 // assign variables to the theme
 $cms->theme->assign(array(

@@ -31,6 +31,10 @@ $cms->theme->page_title('PsychoStats - Map Stats');
 // how many players per stat
 $DEFAULT_SORT = 'kills';
 $MAX_PLAYERS = 10;
+$MAX_PLR_IDS = 10;
+
+// default player name
+$DEFAULT_PNAME = 'Player';
 
 $validfields = array('id', 'sort', 'order', 'start', 'limit');
 $cms->theme->assign_request_vars($validfields, true);
@@ -123,7 +127,10 @@ if (isset($map['mapid'])) {
 	$cms->action('add_map_player_list');
 
 	// build all topten stats
-	$topten = $ps->build_map_stats();
+	$topten = $ps->build_map_stats(array(
+		'name'		=> $DEFAULT_PNAME,
+		'idlimit'	=> $MAX_PLR_IDS,
+	));
 }
 
 // Declare shades array.

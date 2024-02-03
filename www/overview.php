@@ -28,6 +28,10 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Stats Overview');
 
+// default player name
+$DEFAULT_PNAME = 'Player';
+$MAX_PLR_IDS = 10;
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -119,6 +123,22 @@ if (is_numeric($ip) and $ip > 0) {
 		"ORDER BY p.rank,p.skill DESC,c.kills DESC LIMIT $limit"
 	);
 	$list = array_reverse($list);
+
+	// Replace default player names in list where possible.
+	foreach ($list as $i => $plr) {
+		// Replace default name (usually "Player").
+		if ($plr['name'] == $DEFAULT_PNAME) {
+			$list[$i]['name'] = $ps->next_pname(array(
+				'plrid' 	=> $plr['plrid'],
+				'name'		=> $DEFAULT_PNAME,
+				'idstart'	=> 0,
+				'idlimit'	=> $MAX_PLR_IDS,
+				'idsort'	=> $ps->get_name_sort(),
+				'idorder'	=> 'desc',
+			));
+		}
+	}
+	
 	$iplist = array();
 	foreach ($list as $p) {
 		$iplist[$p['ipaddr']] = $p;
