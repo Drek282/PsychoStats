@@ -233,6 +233,7 @@ $awards['weaponclass'] ??= null;
 $awards['weapon'] ??= null;
 
 // Replace default player names in lists where possible.
+$idsort = $ps->get_name_sort();
 foreach ($awards as $k => $val) {
 	foreach ($val as $i => $plr) {
 		// Replace default name (usually "Player").
@@ -242,7 +243,7 @@ foreach ($awards as $k => $val) {
 				'name'		=> $DEFAULT_PNAME,
 				'idstart'	=> 0,
 				'idlimit'	=> $MAX_PLR_IDS,
-				'idsort'	=> $ps->get_name_sort(),
+				'idsort'	=> $idsort,
 				'idorder'	=> 'desc',
 			));
 		}
