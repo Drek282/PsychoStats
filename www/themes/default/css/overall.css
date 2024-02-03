@@ -294,7 +294,7 @@ div#ps-login-inner {
 	right: 0;
 	background-color: #ccc;
 	border: 3px solid #aaa;
-	z-index: 9;
+	z-index: 20000;
 }
 
 /* Add styles to the form container */
