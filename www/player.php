@@ -31,9 +31,6 @@ $cms->theme->page_title('PsychoStats - Player Stats');
 $DEFAULT_SORT = 'kills';
 $MAX_PLR_IDS = 10;
 
-// default player name
-$DEFAULT_PNAME = 'Player';
-
 $validfields = array(
 	'id', 'ofc', 
 	'vsort','vorder','vstart','vlimit',	// victims
@@ -144,18 +141,6 @@ $player = $ps->get_player(array(
 	'idsort'	=> 'totaluses',
 	'idorder'	=> 'desc',
 ));
-
-// Replace default name (usually "Player").
-if ($player['name'] == $DEFAULT_PNAME) {
-	$player['name'] = $ps->next_pname(array(
-		'plrid' 	=> $id,
-		'name'		=> $DEFAULT_PNAME,
-		'idstart'	=> 0,
-		'idlimit'	=> $MAX_PLR_IDS,
-		'idsort'	=> 'totaluses',
-		'idorder'	=> 'desc',
-	));
-}
 
 $cms->theme->page_title(' for ' . $player['name'], true);
 
