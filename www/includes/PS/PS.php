@@ -2735,7 +2735,6 @@ function build_map_stats($args = array()) {
 		}
 
 		// Replace default player names in lists where possible.
-		$idsort = $this->get_name_sort();
 		foreach ($stats as $k => $val) {
 			foreach ($val['players'] as $i => $p) {
 				// Replace default name (usually "Player").
@@ -2745,7 +2744,7 @@ function build_map_stats($args = array()) {
 						'name'		=> $name,
 						'idstart'	=> 0,
 						'idlimit'	=> $idlimit,
-						'idsort'	=> $idsort,
+						'idsort'	=> $this->get_name_sort(),
 						'idorder'	=> 'desc',
 					));
 				}
