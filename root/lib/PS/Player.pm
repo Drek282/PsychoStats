@@ -52,7 +52,7 @@ our $MODTYPE = '';
 # static object variables for all objects created for configuration values
 our (
 	$INITIALIZED,
-	$PLR_PRIMARY_NAME, $PLR_DEFAULT_NAME, $UNIQUEID, $MAXDAYS, $PLR_SESSIONS_MAX, $PLR_SAVE_VICTIMS,
+	$PLR_PRIMARY_NAME, $UNIQUEID, $MAXDAYS, $PLR_SESSIONS_MAX, $PLR_SAVE_VICTIMS,
 	$BASESKILL, $DECAY_TYPE, $DECAY_HOURS, $DECAY_VALUE, $DECAY
 );
 
@@ -275,7 +275,6 @@ sub _init {
 	if (!$INITIALIZED) {
 		$INITIALIZED 		= 1;
 		$PLR_PRIMARY_NAME 	= $self->{conf}->get_main('plr_primary_name');
-		$PLR_DEFAULT_NAME 	= $self->{conf}->get_main('plr_default_name');
 		$UNIQUEID 		= $self->{conf}->get_main('uniqueid');
 		$MAXDAYS 		= $self->{conf}->get_main('maxdays');
 		$PLR_SESSIONS_MAX 	= $self->{conf}->get_main('plr_sessions_max');
@@ -897,13 +896,12 @@ sub signature {
 sub most_used_name {
 	my $self = shift;
 	my $db = $self->{db};
-	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', "plrid=" . $self->plrid . " AND name <> '" . $PLR_DEFAULT_NAME . "'", "totaluses DESC");
-	if (!defined $name) {
-		$name = $PLR_DEFAULT_NAME;
+	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', [ plrid => $self->plrid ], "totaluses DESC");
+	if (defined $name) {
+		$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
+		$self->name($name);
+#		$self->clanid(0);
 	}
-	$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
-	$self->name($name);
-#	$self->clanid(0);
 	return $name;
 }
 
@@ -912,13 +910,12 @@ sub most_used_name {
 sub last_used_name {
 	my $self = shift;
 	my $db = $self->{db};
-	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', "plrid=" . $self->plrid . "  AND name <> '" . $PLR_DEFAULT_NAME . "'", "lastseen DESC");
-	if (!defined $name) {
-		$name = $PLR_DEFAULT_NAME;
+	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', [ plrid => $self->plrid ], "lastseen DESC");
+	if (defined $name) {
+		$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
+		$self->name($name);
+#		$self->clanid(0);
 	}
-	$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
-	$self->name($name);
-#	$self->clanid(0);
 	return $name;
 }
 
