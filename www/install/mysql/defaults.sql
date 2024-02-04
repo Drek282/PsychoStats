@@ -26,6 +26,7 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
         (119,'main','skillcalc','kill_adj_5','24',NULL,'text',0,NULL,'',''),
         (120,'main','skillcalc','kill_onlinetime_6','30',NULL,'text',0,NULL,'',''),
         (121,'main','skillcalc','kill_adj_6','32',NULL,'text',0,NULL,'',''),
+        (122,'main',NULL,'plr_default_name','Player','Player name default','text',0,NULL,'size=16','This is the default name for players when they join a server, usually \"Player\".  This name will be replaced with the next name choice, if there is one available, in the player lists and stats pages.  See \"Player name selection\".'),
         (300,'main','errlog','maxdays','31','Maximum days to keep','text',0,'blank,numeric','size=5','Maximum number of days to keep error logs. This does not affect player stats.'),
         (301,'main','errlog','maxrows','1000','Maximum rows to keep','text',0,'blank,numeric','size=9','Maximum number of error log events to keep. This does not affect player stats.'),
         (302,'main','errlog','report_unknown','0','Report Unknown Events?','boolean',0,'','','Should unknown log events be reported with a warning during stats processing? This is purely an informational setting and has no effect on player stats. Enabling this is useful when support for a new game is being added.'),

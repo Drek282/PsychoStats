@@ -52,7 +52,7 @@ our $MODTYPE = '';
 # static object variables for all objects created for configuration values
 our (
 	$INITIALIZED,
-	$PLR_PRIMARY_NAME, $UNIQUEID, $MAXDAYS, $PLR_SESSIONS_MAX, $PLR_SAVE_VICTIMS,
+	$PLR_PRIMARY_NAME, $PLR_PNAME_COL, $PLR_DEFAULT_NAME, $UNIQUEID, $MAXDAYS, $PLR_SESSIONS_MAX, $PLR_SAVE_VICTIMS,
 	$BASESKILL, $DECAY_TYPE, $DECAY_HOURS, $DECAY_VALUE, $DECAY
 );
 
@@ -275,6 +275,7 @@ sub _init {
 	if (!$INITIALIZED) {
 		$INITIALIZED 		= 1;
 		$PLR_PRIMARY_NAME 	= $self->{conf}->get_main('plr_primary_name');
+		$PLR_DEFAULT_NAME 	= $self->{conf}->get_main('plr_default_name');
 		$UNIQUEID 		= $self->{conf}->get_main('uniqueid');
 		$MAXDAYS 		= $self->{conf}->get_main('maxdays');
 		$PLR_SESSIONS_MAX 	= $self->{conf}->get_main('plr_sessions_max');
@@ -893,29 +894,22 @@ sub signature {
 
 # Sets the players profile name to be the name that has currently been used the most.
 # this function does not check the 'namelocked' player profile variable.
-sub most_used_name {
+sub update_name {
 	my $self = shift;
 	my $db = $self->{db};
-	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', [ plrid => $self->plrid ], "totaluses DESC");
-	if (defined $name) {
-		$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
-		$self->name($name);
-#		$self->clanid(0);
+	my $sort = 'firstseen';
+	if ($PLR_PRIMARY_NAME eq 'most') {
+			$sort = "totaluses";
+		} elsif ($PLR_PRIMARY_NAME eq 'last') {
+			$sort = "lastseen";
+		}
+	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', "plrid=" . $self->plrid . " AND name <> '" . $PLR_DEFAULT_NAME . "'", $sort . " DESC");
+	if (!defined $name) {
+		$name = $PLR_DEFAULT_NAME;
 	}
-	return $name;
-}
-
-# Sets the players profile name to be the name that was last used.
-# this function does not check the 'namelocked' player profile variable.
-sub last_used_name {
-	my $self = shift;
-	my $db = $self->{db};
-	my ($name) = $db->select($db->{t_plr_ids_name}, 'name', [ plrid => $self->plrid ], "lastseen DESC");
-	if (defined $name) {
-		$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
-		$self->name($name);
-#		$self->clanid(0);
-	}
+	$db->update($db->{t_plr_profile}, { name => $name }, [ uniqueid => $self->uniqueid ]);
+	$self->name($name);
+#	$self->clanid(0);
 	return $name;
 }
 
@@ -1085,11 +1079,7 @@ sub save {
 	
 	# update most/least used name if the name is not locked
 	if (!$namelocked and $UNIQUEID ne 'name') {
-		if ($PLR_PRIMARY_NAME eq 'most') {
-			$self->most_used_name;
-		} elsif ($PLR_PRIMARY_NAME eq 'last') {
-			$self->last_used_name;
-		} # else 'first'
+		$self->update_name;
 	};
             
     # if player is a bot assign country code
