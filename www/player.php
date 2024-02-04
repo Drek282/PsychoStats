@@ -116,7 +116,6 @@ $totalranked  = $ps->get_total_players(array('allowall' => 0));
 $idsort = $ps->get_name_sort();
 
 $player = $ps->get_player(array(
-	'name'		=> $DEFAULT_PNAME,
 	'plrid' 	=> $id,
 	'loadsessions'	=> 1,
 	'loadnames'	=> 1, 

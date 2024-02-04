@@ -517,7 +517,6 @@ function get_player($args = array(), $minimal = false) {
 		$args = array( 'plrid' => $id );
 	}
 	$args += array(
-		'name'		=> 'Player',
 		'plrid'		=> 0,
 		'minimal'	=> false, // if true, overrides all 'load...' options to false (or use $minimal parameter)
 		'loadsessions'	=> 0,			// do not want sessions by default
@@ -557,8 +556,6 @@ function get_player($args = array(), $minimal = false) {
 		'idstart'	=> 0,
 		'idlimit'	=> 10,
 	);
-	$name = $args['name'];
-	$idlimit = $args['idlimit'];
 	$plr = array();
 	$id = $this->db->escape($args['plrid']);
 	if (!is_numeric($id)) $id = 0;
@@ -643,21 +640,6 @@ function get_player($args = array(), $minimal = false) {
 
 		$cmd .= $this->getsortorder($args, 'victim');
 		$plr['victims'] = $this->db->fetch_rows(1, $cmd);
-	}
-
-	// Replace default player names in victim list where possible.
-	foreach ($plr['victims'] as $i => $p) {
-		// Replace default name (usually "Player").
-		if ($p['name'] == $name) {
-			$plr['victims'][$i]['name'] = $this->next_pname(array(
-				'plrid' 	=> $p['victimid'],
-				'name'		=> $name,
-				'idstart'	=> 0,
-				'idlimit'	=> $idlimit,
-				'idsort'	=> $this->get_name_sort(),
-				'idorder'	=> 'desc',
-			));
-		}
 	}
 
 	// Load player identities.
@@ -1116,8 +1098,6 @@ function get_award_player_list($args = array()) {
 
 function get_weapon_player_list($args = array()) {
 	$args += array(
-		'name'		=> 'Player',
-		'idlimit'	=> 10,
 		'weaponid'	=> 0,
 		'fields'	=> '',
 		'where'		=> '',
@@ -1127,9 +1107,6 @@ function get_weapon_player_list($args = array()) {
 		'start'		=> 0,
 		'limit'		=> 10,
 	);
-
-	$name = $args['name'];
-	$idlimit = $args['idlimit'];
 
 	// sanitize sort
 	$args['sort'] = ($this->db->column_exists(array($this->c_plr_weapons, $this->t_plr, $this->t_plr_profile), $args['sort'])) ? $args['sort'] : 'kills';
@@ -1152,28 +1129,11 @@ function get_weapon_player_list($args = array()) {
 	$list = array();
 	$list = $this->db->fetch_rows(1, $cmd);
 
-	// Replace default player names in list where possible.
-	foreach ($list as $i => $p) {
-		// Replace default name (usually "Player").
-		if ($p['name'] == $name) {
-			$list[$i]['name'] = $this->next_pname(array(
-				'plrid' 	=> $p['plrid'],
-				'name'		=> $name,
-				'idstart'	=> 0,
-				'idlimit'	=> $idlimit,
-				'idsort'	=> $this->get_name_sort(),
-				'idorder'	=> 'desc',
-			));
-		}
-	}
-
 	return $list;
 }
 
 function get_role_player_list($args = array()) {
 	$args += array(
-		'name'		=> 'Player',
-		'idlimit'	=> 10,
 		'roleid'	=> 0,
 		'fields'	=> '',
 		'where'		=> '',
@@ -1183,10 +1143,6 @@ function get_role_player_list($args = array()) {
 		'start'		=> 0,
 		'limit'		=> 10,
 	);
-
-	$name = $args['name'];
-	$idlimit = $args['idlimit'];
-
 	$id = $this->db->escape($args['roleid']);
 	if (!is_numeric($id)) $id = 0;
 	$fields = $args['fields'] ? $args['fields'] : "data.*, plr.*, pp.*, c.cn";
@@ -1204,21 +1160,6 @@ function get_role_player_list($args = array()) {
 	$cmd .= $this->getsortorder($args);
 	$list = array();
 	$list = $this->db->fetch_rows(1, $cmd);
-
-	// Replace default player names in list where possible.
-	foreach ($list as $i => $p) {
-		// Replace default name (usually "Player").
-		if ($p['name'] == $name) {
-			$list[$i]['name'] = $this->next_pname(array(
-				'plrid' 	=> $p['plrid'],
-				'name'		=> $name,
-				'idstart'	=> 0,
-				'idlimit'	=> $idlimit,
-				'idsort'	=> $this->get_name_sort(),
-				'idorder'	=> 'desc',
-			));
-		}
-	}
 
 	return $list;
 }
@@ -2679,16 +2620,8 @@ function add_map_player_list($var, $opts) {
 }
 
 // collects all map stats previously added using add_map_player_list()
-function build_map_stats($args = array()) {
+function build_map_stats() {
 	global $cms;
-	$args += array(
-		'name'		=> 'Player',
-		'idlimit'	=> 10,
-	);
-
-	$name = $args['name'];
-	$idlimit = $args['idlimit'];
-
 
 	// setup a basic table structure for all topten result sets
 	$stat_table = $cms->new_table();
@@ -2734,23 +2667,6 @@ function build_map_stats($args = array()) {
 			}
 		}
 
-		// Replace default player names in lists where possible.
-		foreach ($stats as $k => $val) {
-			foreach ($val['players'] as $i => $p) {
-				// Replace default name (usually "Player").
-				if ($p['name'] == $name) {
-					$stats[$k]['players'][$i]['name'] = $this->next_pname(array(
-						'plrid' 	=> $p['plrid'],
-						'name'		=> $name,
-						'idstart'	=> 0,
-						'idlimit'	=> $idlimit,
-						'idsort'	=> $this->get_name_sort(),
-						'idorder'	=> 'desc',
-					));
-				}
-			}
-		}
-
 		// allow plugins to modify the stats
 		$cms->filter('map_topten_stat', 	$var, $stats[$var]);
 		$cms->filter('map_topten_' . $var, 	$var, $stats[$var]);
@@ -2762,7 +2678,6 @@ function build_map_stats($args = array()) {
 		$stats[$var]['id'] = 's-map-' . $var;
 		$stats[$var]['key'] = 's_map_' . $var;
 	}
-	
 
 	return $stats;
 }
