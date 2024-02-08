@@ -87,7 +87,7 @@
 <div id="ls-username"{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field">
+	<input name="username" value="{$log.username|escape}" type="text" class="field" autocomplete="off">
 </div>
 
 <div id="ls-blank" class="block">
