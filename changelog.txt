@@ -103,6 +103,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Security issues.
 * [Added] Optional primary page title logo. ( Import '.\install\migrations\327b_base_20240201_00_title-logo.sql' into PMA if your install date is before Jun 30, 2023. )
 * [Improved] Choose alternate name if player name to be saved to player profile table is the default player name (usually "Player"), if possible. ( Import '.\install\migrations\327b_base_20240204_00_default-player-name.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Fixed] Reset cookie consent button fully hidden if cookies accepted.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

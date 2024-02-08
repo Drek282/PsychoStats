@@ -34,11 +34,12 @@
 
 <!-- COOKIE CONSENT -->
 {if $conf.main.security.enable_cookieconsent}
+{if $cookieconsent}
 <form method="post">
   <button name="cookieconsent" value="0" class="open-cookieconsent">Reset Cookie Consent</button>
 </form>
 
-{if ! $cookieconsent}
+{else}
 <div class="form-cookieconsent" id="cookieconsentForm">
   <form method="post" class="form-cccontainer">
 	  <input name="key" value="{$form_key}" type="hidden">
