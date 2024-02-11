@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Edit Player Profile');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // Get cookie consent status from the cookie if it exists.
 $cms->session->options['cookieconsent'] ??= false;
 ($ps->conf['main']['security']['enable_cookieconsent']) ? $cookieconsent = $cms->session->options['cookieconsent'] : $cookieconsent = 1;
@@ -350,16 +356,17 @@ if ($ps->conf['main']['uniqueid'] == 'ipaddr') {
 $allowed_html_tags = str_replace(',', ', ', $ps->conf['theme']['format']['allowed_html_tags']);
 if ($allowed_html_tags == '') $allowed_html_tags = '<em>' . $cms->translate("none") . '</em>';
 $cms->theme->assign(array(
-	'page'		=> basename(__FILE__, '.php'), 
-	'errors'	=> $form->errors(),
-	'plr'		=> $plr,
-	'plr_user'	=> $plr_user->to_form_input(),
-	'plr_uniqueid'	=> $uid,
-	'allowed_html_tags' => $allowed_html_tags,
-	'accesslevels'	=> $plr_user->accesslevels(),
-	'form'		=> $form->values(),
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'cookieconsent'	=> $cookieconsent,
+	'maintenance'			=> $maintenance,
+	'page'					=> basename(__FILE__, '.php'), 
+	'errors'				=> $form->errors(),
+	'plr'					=> $plr,
+	'plr_user'				=> $plr_user->to_form_input(),
+	'plr_uniqueid'			=> $uid,
+	'allowed_html_tags' 	=> $allowed_html_tags,
+	'accesslevels'			=> $plr_user->accesslevels(),
+	'form'					=> $form->values(),
+	'form_key'				=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'			=> $cookieconsent,
 	'allow_username_change' => $allow_username_change, 
 ));
 

@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Clan Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -64,6 +70,7 @@ $results = $ps->db->fetch_rows(1, $cmd);
 // if $results is empty then we have no data in the database
 if (empty($results)) {
 	$cms->full_page_err('awards', array(
+		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
 		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
 		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
@@ -103,14 +110,14 @@ $clans = $ps->get_clan_list(array(
 ));
 
 $pager = pagination(array(
-	'baseurl'	=> ps_url_wrapper(array('limit' => $limit, 'sort' => $sort, 'order' => $order)),
-	'total'		=> $totalranked,
-	'start'		=> $start,
-	'perpage'	=> $limit,
-	'separator'	=> ' ', 
-	'force_prev_next' => true,
-        'next'          => $cms->trans("Next"),
-        'prev'          => $cms->trans("Previous"),
+	'baseurl'			=> ps_url_wrapper(array('limit' => $limit, 'sort' => $sort, 'order' => $order)),
+	'total'				=> $totalranked,
+	'start'				=> $start,
+	'perpage'			=> $limit,
+	'separator'			=> ' ', 
+	'force_prev_next'	=> true,
+    'next'          	=> $cms->trans("Next"),
+    'prev'          	=> $cms->trans("Previous"),
 ));
 
 // build a dynamic table that plugins can use to add custom columns of data
@@ -140,6 +147,7 @@ $cms->filter('clans_table_object', $table);
 
 
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'clans'			=> $clans,
 	'clans_table'	=> $table->render(),
 	'pager'			=> $pager,

@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Player Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // maximum player ID's to load for ipaddr, name, and worldid
 $DEFAULT_SORT = 'kills';
 $MAX_PLR_IDS = 10;
@@ -374,6 +380,7 @@ $shades = array(
 
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
+	'maintenance'		=> $maintenance,
 //	'hitbox_url'		=> ps_escape_html("weaponxml=$PHP_SELF?id=$id&xml=w") . '&' . ps_escape_html("imgpath=" . dirname($PHP_SELF) . '/img/weapons/' . $ps->conf['main']['gametype'] . '/' . $ps->conf['main']['modtype']),
     'hitbox_url'		=> 'weaponxml=' . ps_escape_html($php_scnm) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname($php_scnm), '/\\') . '/img/weapons/' . $ps->conf['main']['gametype'] . $moddir) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
 	'weapons_table'		=> $wtable->render(),

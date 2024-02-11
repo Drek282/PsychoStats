@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Role Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // default sort for the roles listing
 $DEFAULT_SORT = 'kills';
 
@@ -133,6 +139,7 @@ $ps->role_players_table_mod($table);
 $cms->filter('players_table_object', $table); // same as index.php players table
 
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'roles'			=> $roles,
 	'role'			=> $role,
 	'roleimg'		=> $ps->roleimg($role, array('path' => 'large', 'noimg' => '') ),

@@ -106,6 +106,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Reset cookie consent button fully hidden if cookies accepted.
 * [Fixed] Annoyances with the log sources edit page.
 * [Removed] The substring "base_" from migrations sql file names.
+* [Added] Maintenance mode.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Maps Played');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -98,15 +104,15 @@ $maps = $ps->get_map_list(array(
 ));
 
 $pager = pagination(array(
-	'baseurl'	=> ps_url_wrapper(array( 'limit' => $limit, 'sort' => $sort, 'order' => $order )),
-	'total'		=> $totalmaps,
-	'start'		=> $start,
-	'perpage'	=> $limit,
-	'pergroup'	=> 5,
-	'separator'	=> ' ', 
-	'force_prev_next'=> true,
-        'next'          => $cms->trans("Next"),
-        'prev'          => $cms->trans("Previous"),
+	'baseurl'			=> ps_url_wrapper(array( 'limit' => $limit, 'sort' => $sort, 'order' => $order )),
+	'total'				=> $totalmaps,
+	'start'				=> $start,
+	'perpage'			=> $limit,
+	'pergroup'			=> 5,
+	'separator'			=> ' ', 
+	'force_prev_next'	=> true,
+    'next'          	=> $cms->trans("Next"),
+    'prev'          	=> $cms->trans("Previous"),
 ));
 
 // build a dynamic table that plugins can use to add custom columns of data
@@ -136,6 +142,7 @@ $cms->filter('maps_table_object', $table);
 
 // assign variables to the theme
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'maps'			=> $maps,
 	'maps_table'	=> $table->render(),
 	'totalmaps'		=> $totalmaps,

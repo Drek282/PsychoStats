@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Live Server Views');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // collect url parameters ...
 $validfields = array('s');
 $cms->theme->assign_request_vars($validfields, true);
@@ -68,8 +74,9 @@ $results = $ps->db->fetch_rows(1, $cmd);
 // if $results is empty then we have no data in the database
 if (empty($results)) {
 	$cms->full_page_err('awards', array(
+		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
-		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
+		'message'		=> $cms->trans("You must run stats.pl before you will see any stats."),
 		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 		'cookieconsent'	=> $cookieconsent,
 	));
@@ -91,8 +98,9 @@ for ($i=0; $i < count($servers); $i++) {
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'servers'	=> $servers,
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'maintenance'	=> $maintenance,
+	'servers'		=> $servers,
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 	'title_logo'	=> ps_title_logo(),
 	'game_name'		=> ps_game_name(),

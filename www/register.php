@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Player Registration');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 $validfields = array('submit','cancel','ref');
 $cms->theme->assign_request_vars($validfields, true);
 
@@ -144,12 +150,13 @@ if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->
 
 // assign variables to the theme
 $cms->theme->assign(array(
-//	'plr'		=> $ps->get_player(6375, true),
-	'errors'	=> $form->errors(),
-	'form'		=> $form->values(),
-	'uniqueid_label' => $uniqueid_label,
-	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
-	'cookieconsent'	=> $cookieconsent,
+	'maintenance'		=> $maintenance,
+//	'plr'				=> $ps->get_player(6375, true),
+	'errors'			=> $form->errors(),
+	'form'				=> $form->values(),
+	'uniqueid_label'	=> $uniqueid_label,
+	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'cookieconsent'		=> $cookieconsent,
 ));
 
 // display the output

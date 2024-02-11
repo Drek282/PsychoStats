@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Clan Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 $validfields = array(
 	'id', 'v', 'xml',
 	'psort','porder','pstart','plimit',	// players
@@ -269,6 +275,7 @@ $shades = array(
 
 $totalranked ??= null;
 $cms->theme->assign(array(
+	'maintenance'		=> $maintenance,
 	'clan'				=> $clan,
 	'members_table'		=> $ptable->render(),
 	'weapons_table'		=> $wtable->render(),

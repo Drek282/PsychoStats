@@ -131,6 +131,17 @@ foreach ($config_layout as $sec => $list) {
 	}
 }
 
+// we want the maintenance mode at the end of the main section
+foreach ($sections['main'] as $st => $val) {
+	if ($val != 'maintenance_mode') continue;
+	$mv = $val;
+	unset($sections['main'][$st]);
+	$sections['main'] = array_values($sections['main']);
+	array_push($sections['main'],$mv);
+	unset($mv);
+	break;
+}
+
 // we want the credits at the end of the theme section
 foreach ($sections['theme'] as $st => $val) {
 	if ($val != 'credits') continue;

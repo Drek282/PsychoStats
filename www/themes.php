@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Theme Gallery');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // collect url parameters ...
 $validfields = array('t');
 $cms->theme->assign_request_vars($validfields, true);
@@ -54,6 +60,7 @@ if ($t) {
 
 // assign variables to the theme
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'themes'		=> $themes,
 	'theme'			=> $cms->theme->theme,
 	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',

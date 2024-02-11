@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Weapon Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // default sort for the weapons listing
 $DEFAULT_SORT = 'kills';
 
@@ -160,7 +166,8 @@ $shades = array(
 );
 
 $cms->theme->assign(array(
-    'hitbox_url'		=> 'weaponxml=' . ps_escape_html($php_scnm) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname($php_scnm), '/\\') . '/img/weapons/' . $ps->conf['main']['gametype'] . $moddir) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
+	'maintenance'	=> $maintenance,
+    'hitbox_url'	=> 'weaponxml=' . ps_escape_html($php_scnm) . "&amp;id=$id&amp;imgpath=" . ps_escape_html(rtrim(dirname($php_scnm), '/\\') . '/img/weapons/' . $ps->conf['main']['gametype'] . $moddir) . '&amp;confxml=' . $cms->theme->parent_url() . '/hitbox/config.xml',
 	'weapons'		=> $weapons,
 	'weapon'		=> $weapon,
 	'weaponimg'		=> $ps->weaponimg($weapon, array('path' => 'large', 'noimg' => '') ),

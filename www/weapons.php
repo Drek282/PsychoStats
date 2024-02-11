@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Weapon Usage');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // change this if you want the default sort of the player listing to be something else like 'kills'
 $DEFAULT_SORT = 'kills';
 
@@ -70,8 +76,9 @@ $results = $ps->db->fetch_rows(1, $cmd);
 // if $results is empty then we have no data in the database
 if (empty($results)) {
 	$cms->full_page_err('awards', array(
+		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
-		'message'	=> $cms->trans("You must run stats.pl before you will see any stats."),
+		'message'		=> $cms->trans("You must run stats.pl before you will see any stats."),
 		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 		'cookieconsent'	=> $cookieconsent,
 	));
@@ -181,6 +188,7 @@ $cms->filter('weapons_table_object', $table);
 
 // assign variables to the theme
 $cms->theme->assign(array(
+	'maintenance'		=> $maintenance,
 	'weapons_by_class'	=> $weaponclasses,	// allow a theme to use either ...
 	'weapons'			=> $weapons,		// ... way to display weapons
 	'weapons_table'		=> $table->render(),

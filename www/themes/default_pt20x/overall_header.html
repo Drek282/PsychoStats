@@ -25,12 +25,15 @@
 <!--#OVERALL_HEADER_MENU#-->
 <div id="ps-overall-menu">
 <div id="ps-menu-right">
-{if $show_login and $cookieconsent}
+{if !$maintenance and $show_login and $cookieconsent}
 <a id="ps-login-link" href="{url _base='login.php'}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->url}/img/menu-login-icon.gif" alt="<#Login#>"></a>
 {/if}
+{if !$maintenance}
 <a href="credits.php" title="<#Credits#>"><img class="ps-icon" src="{theme->url}/img/icons/ps_logo_16X16.png" alt="Credits"></a>
+{/if}
 </div>
 <ul>
+{if !$maintenance}
 {if $conf.main.site_url}
 	<li class="first"><a href="{$conf.main.site_url|escape}" title="<#Go to#> {$conf.main.site_url|escape}"><#Home#></a></li>
 	<li><a href="{url _base='index.php'}"><#Players#></a></li>
@@ -57,11 +60,14 @@
 {if ps_user_logged_in()}
 	<li><a href="logout.php"><#Logout#></a></li>
 {/if}
+{else}
+	<li class="first"><a href="admin/index.php"><#Admin#></a></li>
+{/if}
 </ul>
 </div>
 <!---->
 
-{if !ps_user_logged_in() and $cookieconsent}
+{if !$maintenance and !ps_user_logged_in() and $cookieconsent}
 <!--#LOGIN_POPUP#-->
 <form method="post" action="{url _base='login.php' _ref=1}">
 <div id="ps-login-popup" style="display: none">

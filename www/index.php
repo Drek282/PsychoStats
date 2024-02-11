@@ -54,6 +54,21 @@ if (isset($cms->input['cookieconsent'])) {
 	previouspage($php_scnm);
 }
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// If PschoStats is in maintenance mode display a message
+if ($maintenance) {
+	$cms->full_page_err('awards', array(
+		'maintenance'	=> $maintenance,
+		'message_title'	=> $cms->trans("PsychoStats Maintenance"),
+		'message'		=> $cms->trans("Please try again later."),
+		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+		'cookieconsent'	=> $cookieconsent,
+	));
+	exit();
+}
+
 // Check to see if there is any data in the database before we continue.
 $cmd = "SELECT * FROM $ps->t_plr_data LIMIT 1";
 
@@ -94,6 +109,7 @@ $sort = ($ps->db->column_exists(array($ps->t_plr, $ps->t_plr_profile, $ps->c_plr
 // if $q is longer than 50 characters we have a problem
 if (strlen($q) > 50) {
 	$cms->full_page_err('awards', array(
+		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("Invalid Search String"),
 		'message'	=> $cms->trans("Searches are limited to 50 characters in length."),
 		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
@@ -212,6 +228,7 @@ $cms->filter('players_table_object', $table);
 
 // assign variables to the theme
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'q'				=> $q,
 	'search'		=> $search,
 	'results'		=> $results,

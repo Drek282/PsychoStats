@@ -27,6 +27,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Player History');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 $validfields = array(
 	'id',
 	'start','sort','order','limit',
@@ -151,10 +157,11 @@ $sessionpager = pagination(array(
 
 $cms->theme->assign_by_ref('plr', $player);
 $cms->theme->assign(array(
-	'history'		=> $history,
+	'maintenance'		=> $maintenance,
+	'history'			=> $history,
 	'history_table'		=> $htable->render(),
 	'sessions_table'	=> $stable->render(),
-	'days'			=> $days,
+	'days'				=> $days,
 	'total_days'		=> $days ? count($days) : 0,
 	'totalranked'		=> $totalranked,
 	'top10percentile'	=> $player['rank'] ? $player['rank'] < $totalranked * 0.10 : false,

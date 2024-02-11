@@ -215,6 +215,9 @@ dd.ranking a {
 dd.security a {
 	background-image: url(../img/icons/shield.png);
 }
+dd.maintenance_mode a {
+	background-image: url(../img/icons/cog.png);
+}
 dd.map a {
 	background-image: url(../img/icons/map.png);
 }

@@ -28,6 +28,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Map Stats');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // how many players per stat
 $DEFAULT_SORT = 'kills';
 $MAX_PLAYERS = 10;
@@ -141,6 +147,7 @@ $shades = array(
 );
 
 $cms->theme->assign(array(
+	'maintenance'	=> $maintenance,
 	'maps'			=> $maps,
 	'map'			=> $map,
 	'mapimg'		=> $ps->mapimg($map, array( 'noimg' => '' )),

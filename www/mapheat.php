@@ -28,6 +28,12 @@ $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('PsychoStats - Heatmap');
 
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+// Page cannot be viewed if the site is in maintenance mode.
+if ($maintenance) previouspage('index.php');
+
 // create the form variable
 $form = $cms->new_form();
 
@@ -132,14 +138,15 @@ $shades = array(
 );
 
 $cms->theme->assign(array(
-	'heatid'	=> $heatid,
-	'maps'		=> $maps,
-	'map'		=> $map,
-	'mapimg'	=> $ps->mapimg($map, array( 'noimg' => '' )),
-	'totalmaps'	=> $totalmaps,
+	'maintenance'	=> $maintenance,
+	'heatid'		=> $heatid,
+	'maps'			=> $maps,
+	'map'			=> $map,
+	'mapimg'		=> $ps->mapimg($map, array( 'noimg' => '' )),
+	'totalmaps'		=> $totalmaps,
 	'heatmap_list'	=> $heatmap_list,
 	'shades'		=> $shades,
-	'form_key'	=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
+	'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'	=> $cookieconsent,
 	'title_logo'	=> ps_title_logo(),
 	'game_name'		=> ps_game_name(),
