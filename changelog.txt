@@ -92,7 +92,7 @@ Version 3.2.8n (in progress)
 * [Changed] New session no longer generated on login.
 * [Updated] Day of Defeat moved from untested to supported list.
 * [Added] Credits page. ( Import '.\install\migrations\327b_base_20240122_00_credits.sql' into PMA if your install date is before Jun 30, 2023. )
-* [Added] Switch to exclude bots from listing. ( Import '.\install\migrations\327b_base_20240122_01_bot-ranking-switch.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Added] Switch to exclude bots from listing. ( Import '.\install\migrations\327b_base_20240122_01_bot-ranking-switch.sql' into PMA if your install date is before Jan 22, 2023. )
 * [Removed] Oracle's MySQL 8.0+ not supported.
 * [Added] Two new child themes: Fiori and PT20X.
 * [Improved] The CC theme is now a child theme.
@@ -101,12 +101,12 @@ Version 3.2.8n (in progress)
 * [Added] Hitbox to weapon pages.
 * [Fixed] Compile to disk option no longer errors out.
 * [Fixed] Security issues.
-* [Added] Optional primary page title logo. ( Import '.\install\migrations\327b_base_20240201_00_title-logo.sql' into PMA if your install date is before Jun 30, 2023. )
-* [Improved] Choose alternate name if player name to be saved to player profile table is the default player name (usually "Player"), if possible. ( Import '.\install\migrations\327b_base_20240204_00_default-player-name.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Added] Optional primary page title logo. ( Import '.\install\migrations\327b_base_20240201_00_title-logo.sql' into PMA if your install date is before Feb 01, 2024. )
+* [Improved] Choose alternate name if player name to be saved to player profile table is the default player name (usually "Player"), if possible. ( Import '.\install\migrations\327b_base_20240204_00_default-player-name.sql' into PMA if your install date is before Feb 04, 2024. )
 * [Fixed] Reset cookie consent button fully hidden if cookies accepted.
 * [Fixed] Annoyances with the log sources edit page.
 * [Removed] The substring "base_" from migrations sql file names.
-* [Added] Maintenance mode. ( Import '.\install\migrations\327b_20240210_00_maintenance-mode.sql' into PMA if your install date is before Jun 30, 2023. )
+* [Added] Maintenance mode. ( Import '.\install\migrations\327b_20240210_00_maintenance-mode.sql' into PMA if your install date is before Feb 10, 2024. )
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
