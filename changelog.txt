@@ -106,7 +106,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Reset cookie consent button fully hidden if cookies accepted.
 * [Fixed] Annoyances with the log sources edit page.
 * [Removed] The substring "base_" from migrations sql file names.
-* [Added] Maintenance mode.
+* [Added] Maintenance mode. ( Import '.\install\migrations\327b_20240210_00_maintenance-mode.sql' into PMA if your install date is before Jun 30, 2023. )
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
