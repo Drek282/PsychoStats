@@ -118,6 +118,7 @@ if ($submit) {
 			// load this player
 			$plr = $ps->get_player($plr['plrid'], true);
 			$cms->theme->assign(array(
+				'maintenance'	=> $maintenance,
 				'plr'	=> $plr,
 				'reg'	=> $userinfo,
 				'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',

@@ -204,7 +204,7 @@ function values() {
 }
 
 function value($var, $modified = false) {
-	return $modified ? $this->modify($var) : $this->input[$var];
+	return $modified ? $this->modify($var) : $this->input[$var] ?? null;
 }
 
 // get/set an error string for a field

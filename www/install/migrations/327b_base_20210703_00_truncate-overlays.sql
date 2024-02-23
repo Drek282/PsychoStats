@@ -1,0 +1,1 @@
+TRUNCATE TABLE `ps_config_overlays`;
