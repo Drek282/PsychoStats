@@ -26,7 +26,7 @@ include(__DIR__ . "/includes/common.php");
 include(PS_ROOTDIR . '/includes/PS/Live.php');
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
-$cms->theme->page_title('PsychoStats - PsychoLive');
+$cms->theme->page_title('PsychoLive—PsychoStats');
 
 // Is PsychoStats in maintenance mode?
 $maintenance = $ps->conf['main']['maintenance_mode']['enable'];

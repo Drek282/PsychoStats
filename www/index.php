@@ -24,7 +24,7 @@ define("PSYCHOSTATS_PAGE", true);
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
-$cms->theme->page_title('PsychoStats - Player Stats');
+$cms->theme->page_title('Player Stats—PsychoStats');
 
 // create the form variable
 $form = $cms->new_form();
