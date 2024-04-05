@@ -110,6 +110,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Broken ACP search functionality.
 * [Improved] Display of page names on browser tabs.
 * [Added] Note to "Reset Cookie Consent" button indicating that cookies will be deleted.
+* [Fixed] XSS vulnerability, thanks to JS2007.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

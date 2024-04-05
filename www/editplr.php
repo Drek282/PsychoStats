@@ -57,6 +57,7 @@ if (isset($cms->input['cookieconsent'])) {
 }
 
 $validfields = array('ref','id','del','submit','cancel');
+$_GET['ref'] = htmlspecialchars($_GET['ref'] ?? null); //XSS Fix. Thanks to JS2007
 $cms->theme->assign_request_vars($validfields, true);
 
 $message = '';
