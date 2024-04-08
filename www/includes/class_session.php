@@ -347,7 +347,7 @@ function start() {
 //	print "START SESSION<br/>\n";
 	if ($this->online_status()==0 and !empty($this->cms->cookie[ $this->sid_name('_login') ])) {
 		$auto = $this->load_login();
-		if ($auto['userid'] and $auto['password']) {
+		if (isset($auto['userid']) and isset($auto['password'])) {
 			$func = $this->config['login_callback_func'];
 			$userid = is_callable($func) ? call_user_func($func, $auto['userid'], $auto['password']) : false;
 			if ($userid) {
