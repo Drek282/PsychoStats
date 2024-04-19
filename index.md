@@ -3,8 +3,10 @@
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/drek282/psychostats)](https://github.com/Drek282/PsychoStats/archive/refs/heads/main.zip)
  [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-raw/drek282/psychostats)](https://github.com/Drek282/PsychoStats/issues) [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-closed-raw/drek282/psychostats)](https://github.com/Drek282/PsychoStats/issues?q=is%3Aissue+is%3Aclosed) [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/drek282/psychostats.svg)](http://isitmaintained.com/project/drek282/psychostats)
+ 
 ---
-This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP 7.1.0+ and MySQL*/MariaDB 5.5.0+.  The minimum required version of Perl is 5.08.
+
+This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated to work with PHP `7.1.0+` and MySQL*/MariaDB `5.5.0+`.  The minimum required version of Perl is `5.08`.
 
 \* **Oracle's MySQL `8.0+` is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
 
