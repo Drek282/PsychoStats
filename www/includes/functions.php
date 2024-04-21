@@ -403,7 +403,10 @@ function previouspage($alt=NULL) {
 	if ($alt==NULL) $alt = 'index.php';
 	if ($_REQUEST['ref']) {
 //		$ref = (get_magic_quotes_gpc()) ? stripslashes($_REQUEST['ref']) : $_REQUEST['ref'];
-		$ref = $_REQUEST['ref'];
+		// Sanitize $_REQUEST['ref'].
+		$ref = htmlspecialchars($_REQUEST['ref']); //XSS Fix. Thanks to JS2007
+		// Don't allow links to external pages or long uris.
+		$ref = (strlen($ref) <= 64) ? preg_replace('/http(?:s|):\/\//', '', $ref) : null;
 		gotopage($ref);				// jump to previous page, if specified
 	} else {
 		gotopage($alt);
