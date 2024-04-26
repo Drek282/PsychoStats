@@ -83,8 +83,6 @@ The install process will automatically delete your install folder when it is com
 
 6. The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere as long as your user has executable permissions and you can access your PsychoStats database from that machine.  The contents of the 'root' folder should not be exposed to the web.  Edit the 'stats.cfg' in that folder with your PsychoStats database name, user and password.
 
-7. Timestamps must be preserved on log files for PsychStats to work properly.  Do not edit, rename, or modify your log files in any way.  If you download your log files via FTP or SFTP before processing them make sure you enable the option to preserve timestamps.
-
 ### Security Notes
 
 Common sense is your best protection.  You want a distinct PsychoStats database user that only has permissions on the PsychoStats database.  Never run the PsychoStats scripts as root in Linux.  Never use your MySQL/MariaDB super user as your PsychoStats user.

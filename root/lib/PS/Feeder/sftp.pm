@@ -29,7 +29,6 @@ use base qw( PS::Feeder );
 use Digest::MD5 qw( md5_hex );
 use File::Spec::Functions qw( splitpath catfile );
 use File::Path;
-#use Data::Dumper;
 
 our $VERSION = '1.00.' . (('$Rev: 530 $' =~ /(\d+)/)[0] || '000');
 
@@ -120,24 +119,9 @@ sub init {
 # reads the contents of the current directory
 sub _readdir {
 	my $self = shift;
-	#$self->{_logs} = [ 
-	#	map {
-	#		( $_->{filename} )
-	#	}
-	#	grep { 
-	#		$_->{filename} !~ /^\./ && 
-	#		$_->{filename} !~ /WS_FTP/ && 
-	#		$_->{filename} =~ /$self->{_log_regexp}/ 
-	#	} 
-	#	$self->{sftp}->ls($self->{_dir})
-	#];
-
-	$self->{_logs} = [
+	$self->{_logs} = [ 
 		map {
 			( $_->{filename} )
-		}
-		sort {
-			$a->{a}->{mtime} <=> $b->{a}->{mtime} || $a->{filename} cmp $b->{filename}
 		}
 		grep { 
 			$_->{filename} !~ /^\./ && 
@@ -146,14 +130,9 @@ sub _readdir {
 		} 
 		$self->{sftp}->ls($self->{_dir})
 	];
-
-	#print Dumper($self->{_logs});
-	#exit();
-
-	#if (scalar @{$self->{_logs}}) {
-	#	$self->{_logs} = $self->{game}->logsort($self->{_logs});
-	#}
-	
+	if (scalar @{$self->{_logs}}) {
+		$self->{_logs} = $self->{game}->logsort($self->{_logs});
+	}
 	# skip the last log in the directory
 	if ($self->{logsource}{skiplast}) {
 		my $log = pop(@{$self->{_logs}});
