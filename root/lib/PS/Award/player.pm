@@ -54,6 +54,12 @@ sub calc {
 
 	my ($newest) = $db->get_row_array("SELECT MAX(statdate) FROM $db->{t_plr_data}");
 
+	# return if no "statdate" in t_plr_data
+	if (!$newest) {
+		$::ERR->info("Player award process skipped, no data in dynamic player data table.");
+		return;
+	}
+
 	$fields = { 
 		(map { $_ => "SUM(data.$_)" } @mainkeys), 
 		(@modkeys ? map { $_ => "SUM(mdata.$_)" } @modkeys : ()),

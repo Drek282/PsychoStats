@@ -51,6 +51,12 @@ sub calc {
 
 	my ($newest) = $db->get_row_array("SELECT MAX(statdate) FROM $db->{t_plr_weapons}");
 
+	# return if no "statdate" in t_plr_weapons
+	if (!$newest) {
+		$::ERR->info("Weapon class award process skipped, no data in dynamic weapons data table.");
+		return;
+	}
+
 	$fields = { 
 		(map { $_ => "SUM(data.$_)" } keys %{$db->tableinfo($db->{t_plr_weapons})}), 
 		skill => "AVG(plr.skill)",
