@@ -406,7 +406,7 @@ function previouspage($alt=NULL) {
 		// Sanitize $_REQUEST['ref'].
 		$ref = htmlspecialchars($_REQUEST['ref']); //XSS Fix. Thanks to JS2007
 		// Don't allow links to external pages or long uris.
-		$ref = (strlen($ref) <= 64) ? preg_replace('/http(?:s|):\/\//', '', $ref) : null;
+		if (strlen($ref) > 64 or preg_match('/http(?:s|):\/\//', $ref)) $ref = 'index.php';
 		gotopage($ref);				// jump to previous page, if specified
 	} else {
 		gotopage($alt);
