@@ -137,6 +137,7 @@
 	<small>(<#only affects the last log in a directory#>)</small>
 </div>
 
+{* recursive div
 <div id="ls-recursive" class="block">
 <div {if $errors.recursive} class="err"{/if}>
 	<p class="err" id="err-recursive">{$errors.recursive|escape}</p>
@@ -150,7 +151,8 @@
 	<label><#Recursive Depth#>:</label>
 	<input name="depth" value="{$form.depth|escape}" type="text" class="field short">
 </div>
-</div> {* recursive div *}
+</div>
+*}
 
 <div id="ls-stream-opt" class="inline-notes">
 	<h4><#Stream Access-List#></h4>

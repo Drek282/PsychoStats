@@ -29,6 +29,7 @@ use base qw( PS::Feeder );
 
 use IO::File;
 use File::Spec::Functions qw( catfile splitpath );
+#use Data::Dumper;
 
 our $VERSION = '1.10.' . (('$Rev: 530 $' =~ /(\d+)/)[0] || '000');
 
@@ -94,13 +95,15 @@ sub init { # called from calling program after new()
 						}
 					}
 				}
-			} elsif ($cmp == -1) { # <
+			} else { # <
 				shift @{$self->{_logs}};
-			} else { # >
+			#} else if ($cmp == -1) { # <
+			#	shift @{$self->{_logs}};
+			#} else { # >
 				# if we get to a log that is 'newer' then the last log in our state then 
 				# we'll just continue from that log since the old log was apparently lost.
-				$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
-				return $self->{type};
+			#	$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
+			#	return $self->{type};
 			}
 		}
 
@@ -159,20 +162,38 @@ sub readnextdir {
 		return;
 	}
 
+	my @ls_arr;
 	while (defined(my $f = readdir(D))) {
 		next if substr($f,0,1) eq '.';				# ignore any file/dir that starts with a period
-		my $file = catfile($dir, $f);				# absolute filename
-		next if -d $file;					# ignore sub-dirs
-		next if $file =~ /WS_FTP/;				# ignore WS log files, they mess things up
-		next unless $file =~ $self->{_log_regexp};		# regexp is compiled in init()
-		push(@{$self->{_logs}}, $f);				# add the base filename (no path)
+		my $fna = catfile($dir, $f);				# absolute filename
+		next if -d $fna;							# ignore sub-dirs
+		next if $fna =~ /WS_FTP/;					# ignore WS log files, they mess things up
+		next unless $fna =~ $self->{_log_regexp};	# regexp is compiled in init()
+		my @file = $f;
+		my $mtime = (stat($fna))[9];
+		push(@file, $mtime);						# mtime
+		push(@ls_arr, \@file);			# add the base filename (no path)
 	}
 	closedir(D);
 
-	# sort the logs we have ...
-	if (scalar @{$self->{_logs}}) {
-		$self->{_logs} = $self->{game}->logsort($self->{_logs});
+	# sort the list of files by modified time
+	@{$self->{_logs}} = sort {
+		$a->[1] <=> $b->[1] || $a->[0] cmp $b->[0]
+	} @ls_arr;
+	undef @ls_arr;
+
+	# reduce the elements of the array to the file name
+	foreach my $file (@{$self->{_logs}}) {
+		$file = $file->[0];
 	}
+
+	#print Dumper($self->{_logs});
+	#exit();
+
+	# sort the logs we have ...
+	#if (scalar @{$self->{_logs}}) {
+	#	$self->{_logs} = $self->{game}->logsort($self->{_logs});
+	#}
 
 	pop(@{$self->{_logs}}) if $self->{logsource}{skiplast};		# skip the last log in the directory
 

@@ -29,6 +29,8 @@ use base qw( PS::Feeder );
 use Digest::MD5 qw( md5_hex );
 use File::Spec::Functions qw( splitpath catfile );
 use File::Path;
+use File::Listing qw(parse_dir);
+#use Data::Dumper;
 
 our $VERSION = '1.10.' . (('$Rev: 530 $' =~ /(\d+)/)[0] || '000');
 
@@ -102,14 +104,16 @@ sub init {
 						}
 					}
 				}
-			} elsif ($cmp == -1) { # <
+			} else { # <
 				shift @{$self->{_logs}};
-			} else { # >
+			#} else if ($cmp == -1) { # <
+			#	shift @{$self->{_logs}};
+			#} else { # >
 				# if we get to a log that is 'newer' then the last log in our state then 
 				# we'll just continue from that log since the old log was apparently lost.
-				$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
-				return $self->{type};
-			} 
+			#	$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
+			#	return $self->{type};
+			}
 		}
 
 		if (!$self->{_curlog}) {
@@ -123,10 +127,31 @@ sub init {
 # reads the contents of the current directory
 sub _readdir {
 	my $self = shift;
-	$self->{_logs} = [ grep { !/^\./ && !/WS_FTP/ && /$self->{_log_regexp}/ } $self->{ftp}->ls ];
-	if (scalar @{$self->{_logs}}) {
-		$self->{_logs} = $self->{game}->logsort($self->{_logs});
+	#$self->{_logs} = [ grep { !/^\./ && !/WS_FTP/ && /$self->{_log_regexp}/ } $self->{ftp}->ls ];
+
+	my $ls = $self->{ftp}->dir();
+	my @ls_arr = parse_dir($ls);
+
+	@ls_arr = grep { !/^\./ && !/WS_FTP/ && $self->{_log_regexp} } @ls_arr;
+
+	# sort the list of files by modified time
+	@{$self->{_logs}} = sort {
+		$a->[3] <=> $b->[3] || $a->[0] cmp $b->[0]
+	} @ls_arr;
+	undef @ls_arr;
+
+	# reduce the elements of the array to the file name
+	foreach my $file (@{$self->{_logs}}) {
+		$file = $file->[0];
 	}
+
+	#print Dumper($self->{_logs});
+	#exit();
+
+	#if (scalar @{$self->{_logs}}) {
+	#	$self->{_logs} = $self->{game}->logsort($self->{_logs});
+	#}
+
 	# skip the last log in the directory
 	if ($self->{logsource}{skiplast}) {
 		my $log = pop(@{$self->{_logs}});
