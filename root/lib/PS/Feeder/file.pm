@@ -29,7 +29,7 @@ use base qw( PS::Feeder );
 
 use IO::File;
 use File::Spec::Functions qw( catfile splitpath );
-use Data::Dumper;
+#use Data::Dumper;
 
 our $VERSION = '1.10.' . (('$Rev: 530 $' =~ /(\d+)/)[0] || '000');
 
