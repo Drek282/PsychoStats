@@ -83,6 +83,10 @@ sub init {
 	# we have a previous state to deal with. We must "fast-forward" to the log we ended with.
 	if ($self->{state}{file}) {
 		my $statelog = $self->{state}{file};
+
+		# backup $self->{_logs}
+		my @ll_bu = @{$self->{_logs}};
+
 		# first: find the log that matches our previous state in the current log directory
 		while (scalar @{$self->{_logs}}) {
 			my $cmp = $self->{game}->logcompare($self->{_logs}[0], $statelog);
@@ -106,14 +110,14 @@ sub init {
 				}
 			} else { # <
 				shift @{$self->{_logs}};
-			#} else if ($cmp == -1) { # <
-			#	shift @{$self->{_logs}};
-			#} else { # >
-				# if we get to a log that is 'newer' then the last log in our state then 
-				# we'll just continue from that log since the old log was apparently lost.
-			#	$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
-			#	return $self->{type};
 			}
+		}
+
+		# second: if the log that matches previous state is not found parse the logs that are present
+		@{$self->{_logs}} = @ll_bu;
+		while (scalar @{$self->{_logs}}) {
+			$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
+			return $self->{type};
 		}
 
 		if (!$self->{_curlog}) {
