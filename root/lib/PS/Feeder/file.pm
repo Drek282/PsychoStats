@@ -29,7 +29,7 @@ use base qw( PS::Feeder );
 
 use IO::File;
 use File::Spec::Functions qw( catfile splitpath );
-use Data::Dumper;
+#use Data::Dumper;
 
 our $VERSION = '1.10.' . (('$Rev: 530 $' =~ /(\d+)/)[0] || '000');
 
@@ -73,9 +73,6 @@ sub init { # called from calling program after new()
 			}
 		}
 
-		# backup $self->{_logs}
-		my @ll_bu = @{$self->{_logs}};
-
 		# second: find the log that matches our previous state in the current log directory
 		while (scalar @{$self->{_logs}}) {
 			my $cmp = $self->{game}->logcompare($self->{_logs}[0], $statelog);
@@ -100,14 +97,14 @@ sub init { # called from calling program after new()
 				}
 			} else { # <
 				shift @{$self->{_logs}};
+			#} else if ($cmp == -1) { # <
+			#	shift @{$self->{_logs}};
+			#} else { # >
+				# if we get to a log that is 'newer' then the last log in our state then 
+				# we'll just continue from that log since the old log was apparently lost.
+			#	$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
+			#	return $self->{type};
 			}
-		}
-
-		# third: if the log that matches previous state is not found parse the logs that are present
-		@{$self->{_logs}} = @ll_bu;
-		while (scalar @{$self->{_logs}}) {
-			$::ERR->warn("Previous log from state '$statelog' not found. Continuing from " . $self->{_logs}[0] . " instead ...");
-			return $self->{type};
 		}
 
 		if (!$self->{_curlog}) {
