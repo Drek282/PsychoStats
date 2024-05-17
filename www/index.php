@@ -58,7 +58,7 @@ if (isset($cms->input['cookieconsent'])) {
 $maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // If PschoStats is in maintenance mode display a message
-if ($maintenance) {
+if ($maintenance and !$cms->user->is_admin()) {
 	$cms->full_page_err('awards', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("PsychoStats Maintenance"),

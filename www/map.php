@@ -32,7 +32,7 @@ $cms->theme->page_title('Map Stats—PsychoStats');
 $maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // Page cannot be viewed if the site is in maintenance mode.
-if ($maintenance) previouspage('index.php');
+if ($maintenance and !$cms->user->is_admin()) previouspage('index.php');
 
 // how many players per stat
 $DEFAULT_SORT = 'kills';

@@ -1,6 +1,6 @@
 <div id="ps-overall-footer">
 <div id="ps-footer-middle">
-{if !$maintenance and $language_list and $cookieconsent}
+{if $cookieconsent and !$maintenance or ps_user_is_admin() and $language_list}
 	<div class="language">
 		<form action="{url _base='index.php' _ref=1}" method="post">
 		<select name="language" class="language" title="<#Select a Language#>">
@@ -11,7 +11,7 @@
 		</form>
 	</div>
 {/if}
-{if !$maintenance and $theme_list and count($theme_list) > 1 and $cookieconsent}
+{if $cookieconsent and !$maintenance or ps_user_is_admin() and $theme_list and count($theme_list) > 1}
 	<div class="theme">
 		[ <a href="{url _base='themes.php'}"><#Change Theme#></a> ]
 	</div>
@@ -24,7 +24,7 @@
 		{if ! $conf.theme.permissions.show_admin and $cookieconsent}
 		<strong>[ <a href="{url _base='admin/index.php'}"><#Admin Control Panel#></a> ]</strong>
 		{/if}
-		{if !$maintenance and $conf.main.security.show_privacy_policy}
+    	{if !$maintenance or ps_user_is_admin() and $show_privacy_policy}
         <strong>
 			[ <a href="{url _base='privacy.php'}"><#Privacy Policy#></a> ]
         </strong>

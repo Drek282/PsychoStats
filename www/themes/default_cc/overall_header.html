@@ -25,15 +25,15 @@
 <!--#OVERALL_HEADER_MENU#-->
 <div id="ps-overall-menu">
 <div id="ps-menu-right">
-{if !$maintenance and $show_login and $cookieconsent}
-<a id="ps-login-link" href="{url _base='login.php'}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->url}/img/menu-login-icon.png" alt="<#Login#>"></a>
+{if !$maintenance and ps_user_is_admin() or $show_login and $cookieconsent}
+<a id="ps-login-link" href="{url _base='login.php'}" title="<#Quick Login Popup#>"><img id="ps-login-img" src="{theme->parent_url}/img/menu-login-icon.png" alt="<#Login#>"></a>
 {/if}
-{if !$maintenance}
+{if !$maintenance or ps_user_is_admin()}
 <a href="credits.php" title="<#Credits#>"><img class="ps-icon" src="{theme->url}/img/icons/ps_logo_16X16.png" alt="Credits"></a>
 {/if}
 </div>
 <ul>
-{if !$maintenance}
+{if !$maintenance or ps_user_is_admin()}
 {if $conf.main.site_url}
 	<li class="first"><a href="{$conf.main.site_url|escape}" title="<#Go to#> {$conf.main.site_url|escape}"><#Home#></a></li>
 	<li><a href="{url _base='index.php'}"><#Players#></a></li>
@@ -47,23 +47,26 @@
 {/if}
 	<li><a href="{url _base='maps.php'}"><#Maps#></a></li>
 	<li><a href="{url _base='awards.php'}"><#Awards#></a></li>
-    <li><a href="{url _base='server.php'}"><#Servers#></a></li>
+	<li><a href="{url _base='server.php'}"><#Servers#></a></li>
 {if $conf.theme.map.google_key}
 	<li><a href="{url _base='overview.php'}"><#Overview#></a></li>
+{/if}
+{else}
+{if $conf.main.site_url}
+	<li class="first"><a href="{$conf.main.site_url|escape}" title="<#Go to#> {$conf.main.site_name|escape}"><#Home#></a></li>
+{else}
+	<li class="first"><a href="index.php" title="<#Home#>"><#Home#></a></li>
+{/if}
 {/if}
 {if $show_admin and $cookieconsent}
 	<li><a href="{url _base='admin/index.php'}"><#Admin#></a></li>
 {/if}
-{if !ps_user_logged_in() and $show_login and $cookieconsent}
+{if !$maintenance and !ps_user_logged_in() and $show_login and $cookieconsent}
 	<li><a href="login.php" title="Login, Register and Reset Password"><#Login#></a></li>
 {/if}
 {if ps_user_logged_in()}
 	<li><a href="logout.php"><#Logout#></a></li>
 {/if}
-{else}
-	<li class="first"><a href="admin/index.php"><#Admin#></a></li>
-{/if}
-</ul>
 </div>
 <!---->
 
@@ -111,4 +114,8 @@
 	<#This window will close in a few seconds.#>
 </div>
 <!---->
+{/if}
+
+{if $maintenance and ps_user_is_admin()}
+<div id="error"><h1>NOTICE:</h1>PsychoStats is currently in maintenance mode and can only be viewed by users with admin access.</div>
 {/if}

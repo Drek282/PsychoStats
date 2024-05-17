@@ -30,7 +30,7 @@ $cms->theme->page_title('Credits—PsychoStats');
 $maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // Page cannot be viewed if the site is in maintenance mode.
-if ($maintenance) previouspage('index.php');
+if ($maintenance and !$cms->user->is_admin()) previouspage('index.php');
 
 // create the form variable
 $form = $cms->new_form();

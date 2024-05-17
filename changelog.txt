@@ -113,6 +113,7 @@ Version 3.2.8n (in progress)
 * [Fixed] XSS vulnerability, thanks to JS2007.
 * [Fixed] Handle logs from multiple years.
 * [Fixed] Handle deleted logs and empty dynamic tables.
+* [Improved] Maintenance mode now displays the stats to admins with a status note.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

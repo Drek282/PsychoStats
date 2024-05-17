@@ -32,7 +32,7 @@ $cms->theme->page_title('PsychoLive—PsychoStats');
 $maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // Page cannot be viewed if the site is in maintenance mode.
-if ($maintenance) previouspage('index.php');
+if ($maintenance and !$cms->user->is_admin()) previouspage('index.php');
 
 // Total seconds to delay recording. This is approximate. Due to how events are
 // inserted at the start of a new game by the game engine there is usually a
