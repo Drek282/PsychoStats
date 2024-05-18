@@ -59,7 +59,7 @@ $maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // If PschoStats is in maintenance mode display a message
 if ($maintenance and !$cms->user->is_admin()) {
-	$cms->full_page_err('awards', array(
+	$cms->full_page_err('index', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("PsychoStats Maintenance"),
 		'message'		=> $cms->trans("Please try again later."),
@@ -77,7 +77,7 @@ $results = $ps->db->fetch_rows(1, $cmd);
 
 // if $results is empty then we have no data in the database
 if (empty($results)) {
-	$cms->full_page_err('awards', array(
+	$cms->full_page_err('index', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
 		'message'		=> $cms->trans("You must run stats.pl before you will see any stats."),
@@ -109,7 +109,7 @@ $sort = ($ps->db->column_exists(array($ps->t_plr, $ps->t_plr_profile, $ps->c_plr
 
 // if $q is longer than 50 characters we have a problem
 if (strlen($q) > 50) {
-	$cms->full_page_err('awards', array(
+	$cms->full_page_err('index', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("Invalid Search String"),
 		'message'	=> $cms->trans("Searches are limited to 50 characters in length."),

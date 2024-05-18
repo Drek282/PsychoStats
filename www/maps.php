@@ -69,7 +69,7 @@ $results = $ps->db->fetch_rows(1, $cmd);
 
 // if $results is empty then we have no data in the database
 if (empty($results)) {
-	$cms->full_page_err('awards', array(
+	$cms->full_page_err('maps', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
 		'message'		=> $cms->trans("You must run stats.pl before you will see any stats."),
