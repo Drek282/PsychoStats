@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
@@ -75,7 +76,7 @@ $results = $ps->db->fetch_rows(1, $cmd);
 
 // if $results is empty then we have no data in the database
 if (empty($results)) {
-	$cms->full_page_err('weapons', array(
+	$cms->full_page_err($basename, array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
 		'message'		=> $cms->trans("You must run stats.pl before you will see any stats."),
@@ -204,7 +205,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 //$cms->theme->add_css('css/tabs.css');
 $cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');
 

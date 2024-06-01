@@ -2074,9 +2074,12 @@ function ip_lookup($ip) {
 // allows the PS object to initialize some theme related variables, etc...
 function theme_setup(&$theme) {
 	global $cms;
+	global $basename;
 	$is_admin = $cms->user->is_admin();
 	$cms->input['loggedin'] = $cms->input['loggedin'] ?? null;
 	$theme->assign(array(
+		'basename'				=> $basename ?? null,
+		'maintenance'			=> $this->conf['main']['maintenance_mode']['enable'],
 		'use_roles'				=> $this->use_roles,
 		'show_ips'				=> $this->conf['theme']['permissions']['show_ips'] || $is_admin,
 		'show_worldids'			=> $this->conf['theme']['permissions']['show_worldids'] || $is_admin,

@@ -23,9 +23,10 @@
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
 define("PSYCHOSTATS_LOGOUT_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
-$cms->theme->assign('page', basename(__FILE__, '.php'));
+$cms->theme->assign('page', $basename);
 
 $validfields = array('ref');
 $cms->theme->assign_request_vars($validfields, true);
@@ -39,7 +40,6 @@ previouspage(rtrim(dirname(rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\')), '/\\
 // A page is never displayed for logout. Just redirect somewhere else.
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');
 
 ?>

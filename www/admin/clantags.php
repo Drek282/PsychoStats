@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 
@@ -94,13 +95,12 @@ $cms->crumb('Clan Tags', ps_url_wrapper(array('_base' => 'clantags.php' )));
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'page'		=> basename(__FILE__, '.php'), 
+	'page'		=> $basename, 
 	'clantags'	=> $tags,
 	'pager'		=> $pager,
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/2column.css');
 $cms->theme->add_css('css/forms.css');
 //$cms->theme->add_js('js/jquery.interface.js');

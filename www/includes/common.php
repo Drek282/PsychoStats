@@ -156,4 +156,11 @@ $cms = new PsychoCMS(array(
 
 $cms->init();
 
+///////////////////////////////////////////////////////////////
+///////////    Code that applies to every page.    ////////////
+///////////////////////////////////////////////////////////////
+
+// Is PsychoStats in maintenance mode?
+$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
 ?>

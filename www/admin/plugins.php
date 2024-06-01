@@ -23,6 +23,7 @@
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
 define("PSYCHOSTATS_DISABLE_PLUGINS", true);	// we don't want plugins to function on this page
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 
@@ -187,32 +188,31 @@ if ($install) {
 
 $total = $ps->db->count($ps->t_plugins);
 $pager = pagination(array(
-	'baseurl'	=> ps_url_wrapper(array('sort' => $sort, 'order' => $order, 'limit' => $limit)),
-	'total'		=> $total,
-	'start'		=> $start,
-	'perpage'	=> $limit, 
-	'pergroup'	=> 5,
-	'separator'	=> ' ', 
-	'force_prev_next' => true,
-	'next'		=> $cms->trans("Next"),
-	'prev'		=> $cms->trans("Previous"),
+	'baseurl'			=> ps_url_wrapper(array('sort' => $sort, 'order' => $order, 'limit' => $limit)),
+	'total'				=> $total,
+	'start'				=> $start,
+	'perpage'			=> $limit, 
+	'pergroup'			=> 5,
+	'separator'			=> ' ', 
+	'force_prev_next'	=> true,
+	'next'				=> $cms->trans("Next"),
+	'prev'				=> $cms->trans("Previous"),
 ));
 
 $cms->crumb("Plugins", $php_scnm);
 
 // assign variables to the theme
 $cms->theme->assign(array(
-	'page'			=> basename(__FILE__, '.php'), 
+	'page'				=> $basename, 
 	'installed_plugins'	=> $plugins,
 	'pending_plugins'	=> $pending,
 	'total_installed'	=> count($plugins),
 	'total_pending'		=> count($pending),
-	'pager'			=> $pager,
-	'total'			=> $total,
+	'pager'				=> $pager,
+	'total'				=> $total,
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/2column.css');
 $cms->theme->add_css('css/forms.css');
 //$cms->theme->add_js('js/jquery.interface.js');

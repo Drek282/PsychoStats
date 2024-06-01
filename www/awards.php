@@ -21,6 +21,7 @@
  *	Version $Id: awards.php 495 2008-06-18 18:41:37Z lifo $
  */
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 include(PS_ROOTDIR . "/includes/class_calendar.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
@@ -238,7 +239,6 @@ $awards['weapon'] ??= null;
 // assign variables to the theme
 $cms->theme->assign(array(
 	'maintenance'		=> $maintenance,
-	'page'				=> basename(__FILE__,'.php'),
 	'view_str' 			=> $views[$v],
 	'view'				=> $v,
 	'date'				=> $d,
@@ -257,7 +257,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/2column.css');	// this page has a left column
 $cms->theme->add_css('css/calendar.css');
 $cms->theme->add_js('js/calendar.js');

@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
@@ -121,19 +122,19 @@ if ($id) {
 
 	if (!$clan) {
 		$data = array( 'message' => $cms->trans("Invalid clan ID Specified") );
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();
 	}
 } else {
 	$data = array( 'message' => $cms->trans("Invalid clan ID Specified") );
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit();
 }
 
 // check privileges to edit this clan
 if (!ps_user_can_edit_clan($clan['clanid'], ps_user_plrid())) {
 	$data = array( 'message' => $cms->trans("Insufficient privileges to edit clan!") );
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit();
 }
 
@@ -318,7 +319,6 @@ $allowed_html_tags = str_replace(',', ', ', $ps->conf['theme']['format']['allowe
 if ($allowed_html_tags == '') $allowed_html_tags = '<em>' . $cms->trans("none") . '</em>';
 $cms->theme->assign(array(
 	'maintenance'		=> $maintenance,
-	'page'				=> basename(__FILE__, '.php'), 
 	'errors'			=> $form->errors(),
 	'clan'				=> $clan,
 	'members'			=> $members,
@@ -329,7 +329,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 $cms->theme->add_js('js/jquery.interface.js');	// needed for autocomplete
 $cms->theme->add_js('js/forms.js');

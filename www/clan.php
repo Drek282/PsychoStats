@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
@@ -296,7 +297,6 @@ $cms->theme->assign(array(
 // allow mods to have their own section on the left side bar
 $ps->clan_left_column_mod($clan, $cms->theme);
 
-$basename = basename(__FILE__, '.php');
 if ($clan['clanid']) {
 	$cms->theme->add_css('css/2column.css');	// this page has a left column
 	$cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer');

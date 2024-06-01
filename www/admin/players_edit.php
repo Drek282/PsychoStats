@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'users');
@@ -54,7 +55,7 @@ if ($id) {
 
 	if (!$plr) {
 		$data = array( 'message' => $cms->trans("Invalid player ID Specified") );
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();		
 	}
 	if ($plr['userid']) {
@@ -67,7 +68,7 @@ if ($id) {
 	}
 } else {
 	$data = array( 'message' => $cms->trans("Invalid player ID Specified") );
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit();		
 }
 
@@ -75,7 +76,7 @@ if ($id) {
 if ($del and $id and $plr['plrid'] == $id) {
 	if (!$ps->delete_player($id)) {
 		$data = array( 'message' => $cms->trans("Error deleting player: " . $ps->db->errstr) );
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();
 	}
 	previouspage(ps_url_wrapper(array( '_amp' => '&', '_base' => 'players.php' )));
@@ -299,7 +300,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 //$cms->theme->add_js('js/jquery.interface.js');
 $cms->theme->add_js('js/forms.js');

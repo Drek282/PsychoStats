@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'awards');
@@ -42,12 +43,12 @@ if (is_numeric($id)) {
 	$award = $ps->db->fetch_row(1, "SELECT * FROM $ps->t_config_awards WHERE id=" . $ps->db->escape($id));
 	if (!$award['id']) {
 		$data = array('message' => $cms->trans("Invalid award ID Specified"));
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();		
 	}
 } elseif (!empty($id)) {
 	$data = array('message' => $cms->trans("Invalid award ID Specified"));
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit();		
 }
 
@@ -141,7 +142,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 $cms->theme->add_js('js/forms.js');
 $cms->theme->add_js('js/awards.js');

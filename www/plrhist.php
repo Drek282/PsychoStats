@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
@@ -171,7 +172,6 @@ $cms->theme->assign(array(
 	'cookieconsent'		=> $cookieconsent,
 ));
 
-$basename = basename(__FILE__, '.php');
 if ($player['plrid']) {
 	// allow mods to have their own section on the left side bar
 	$ps->player_left_column_mod($player, $cms->theme);

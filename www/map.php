@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 include_once(PS_ROOTDIR . "/includes/PS/Heatmap.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
@@ -162,7 +163,6 @@ $cms->theme->assign(array(
 	'game_name'		=> ps_game_name(),
 ));
 
-$basename = basename(__FILE__, '.php');
 if (isset($map['mapid'])) {
 	// allow mods to have their own section on the left side bar
 	$ps->map_left_column_mod($map, $cms->theme);

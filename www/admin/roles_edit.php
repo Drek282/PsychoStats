@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'roles');
@@ -42,12 +43,12 @@ if (is_numeric($id)) {
 	$role = $ps->db->fetch_row(1, "SELECT * FROM $ps->t_role WHERE roleid=" . $ps->db->escape($id, true));
 	if (!$role['roleid']) {
 		$data = array('message' => $cms->trans("Invalid role ID Specified"));
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();		
 	}
 } elseif (!empty($id)) {
 	$data = array('message' => $cms->trans("Invalid role ID Specified"));
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit();		
 }
 
@@ -119,7 +120,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 $cms->theme->add_js('js/forms.js');
 $cms->full_page($basename, $basename, $basename.'_header', $basename.'_footer', '');

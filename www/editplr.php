@@ -22,13 +22,11 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
 $ps->theme_setup($cms->theme);
 $cms->theme->page_title('Edit Player Profile—PsychoStats');
-
-// Is PsychoStats in maintenance mode?
-$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
 
 // Page cannot be viewed if the site is in maintenance mode.
 if ($maintenance and !$cms->user->is_admin()) previouspage('index.php');
@@ -86,7 +84,7 @@ if ($id) {
 
 	if (!$plr) {
 		$data = array( 'message' => $cms->trans("Invalid player ID Specified") );
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();
 	}
 	if ($plr['userid']) {
@@ -99,13 +97,13 @@ if ($id) {
 	}
 } else {
 	$data = array( 'message' => $cms->trans("Invalid player ID Specified") );
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 }
 
 // check privileges to edit this player
 if (!ps_user_can_edit_player($plr)) {
 	$data = array( 'message' => $cms->trans("Insufficient privileges to edit player!") );
-	$cms->full_page_err(basename(__FILE__, '.php'), $data);
+	$cms->full_page_err($basename, $data);
 	exit;
 }
 
@@ -114,7 +112,7 @@ if (!ps_user_can_edit_player($plr)) {
 if ($cms->user->is_admin() and $del and $id and $plr['plrid'] == $id) {
 	if (!$ps->delete_player($id)) {
 		$data = array( 'message' => $cms->trans("Error deleting player: " . $ps->db->errstr) );
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();
 	}
 	// don't use previouspage, since chances are the player.php is the referrer and will no longer be valid.
@@ -357,8 +355,6 @@ if ($ps->conf['main']['uniqueid'] == 'ipaddr') {
 $allowed_html_tags = str_replace(',', ', ', $ps->conf['theme']['format']['allowed_html_tags']);
 if ($allowed_html_tags == '') $allowed_html_tags = '<em>' . $cms->translate("none") . '</em>';
 $cms->theme->assign(array(
-	'maintenance'			=> $maintenance,
-	'page'					=> basename(__FILE__, '.php'), 
 	'errors'				=> $form->errors(),
 	'plr'					=> $plr,
 	'plr_user'				=> $plr_user->to_form_input(),
@@ -372,7 +368,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 $cms->theme->add_js('js/forms.js');
 if ($ps->conf['theme']['map']['google_key']) {

@@ -22,6 +22,7 @@
  */
 
 define("PSYCHOSTATS_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 include(PS_ROOTDIR . "/includes/class_Color.php");
 $cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
@@ -196,7 +197,6 @@ if ($ps->conf['theme']['map']['google_key']) {
 // assign variables to the theme
 $cms->theme->assign(array(
 	'maintenance'		=> $maintenance,
-	'page'				=> basename($php_scnm,'.php'),
 	'activity_colors' 	=> $colors,
 	'form_key'			=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'cookieconsent'		=> $cookieconsent,
@@ -205,7 +205,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 if ($ps->conf['theme']['map']['google_key']) {
 	$p = host_secure() ? 'https' : 'http';
 	$cms->theme->add_js($p . '://maps.googleapis.com/maps/api/js?key=' . $ps->conf['theme']['map']['google_key'] . '&callback=init_google', 'defer');

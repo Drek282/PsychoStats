@@ -22,6 +22,7 @@
  */
 define("PSYCHOSTATS_PAGE", true);
 define("PSYCHOSTATS_ADMIN_PAGE", true);
+$basename = basename(__FILE__, '.php');
 include("../includes/common.php");
 include("./common.php");
 $cms->theme->assign('page', 'aliases');
@@ -43,7 +44,7 @@ if (!empty($id)) {
 	$alias = $ps->db->fetch_row(1, "SELECT * FROM $ps->t_plr_aliases WHERE $key=" . $ps->db->escape($id, true) . " LIMIT 1");
 	if (!$alias['id']) {
 		$data = array('message' => $cms->trans("Unknown player alias specified"));
-		$cms->full_page_err(basename(__FILE__, '.php'), $data);
+		$cms->full_page_err($basename, $data);
 		exit();	
 	}
 	// load all matching aliases for this uniqueid
@@ -198,7 +199,6 @@ $cms->theme->assign(array(
 ));
 
 // display the output
-$basename = basename(__FILE__, '.php');
 $cms->theme->add_css('css/forms.css');
 //$cms->theme->add_js('js/jquery.interface.js');
 $cms->theme->add_js('js/forms.js');
