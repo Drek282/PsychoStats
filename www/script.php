@@ -27,8 +27,6 @@
 if (!defined('PSYCHOSTATS_PAGE')) {
 	define("PSYCHOSTATS_PAGE", true);
 	include(__DIR__ . "/includes/common.php");
-	$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-	$ps->theme_setup($cms->theme);
 }
 
 // collect url parameters ...

@@ -25,8 +25,6 @@ define("PSYCHOSTATS_PAGE", true);
 $basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
 include(PS_ROOTDIR . "/includes/class_Color.php");
-$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-$ps->theme_setup($cms->theme);
 $cms->theme->page_title('Stats Overview—PsychoStats');
 
 // Is PsychoStats in maintenance mode?

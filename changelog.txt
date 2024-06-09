@@ -117,6 +117,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Incorrect script names in errors.
 * [Fixed] Corrected path regex added in 260e8c25dd7f45e45aab51e821d1bd1b658459ba
 * [Improved] $basename is now a global Smarty variable.
+* [Added] A notice, configurable in the ACP, which can be displayed at the top of every page.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

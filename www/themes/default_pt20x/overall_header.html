@@ -119,3 +119,7 @@
 {if $maintenance and ps_user_is_admin()}
 <div id="error"><h1>NOTICE:</h1>PsychoStats is currently in maintenance mode and can only be viewed by users with admin access.</div>
 {/if}
+
+{if $notice}
+<div id="error">{$notice}</div>
+{/if}

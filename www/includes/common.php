@@ -159,8 +159,21 @@ $cms->init();
 ///////////////////////////////////////////////////////////////
 ///////////    Code that applies to every page.    ////////////
 ///////////////////////////////////////////////////////////////
+$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
+$ps->theme_setup($cms->theme);
 
-// Is PsychoStats in maintenance mode?
-$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+// Do not load if this is one of the image scripts.
+if (!defined("PSFILE_IMGCOMMON_PHP")) {
+
+	// Is PsychoStats in maintenance mode?
+	$maintenance = $ps->conf['main']['maintenance_mode']['enable'];
+
+	// Is there a notice to display?
+	if ($ps->conf['main']['notice']['enable']) {
+		$cms->theme->assign('notice', $ps->conf['main']['notice']['notice'] ?? null);
+	} else {
+		$cms->theme->assign('notice', null);
+	}
+}
 
 ?>

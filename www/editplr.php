@@ -24,8 +24,6 @@
 define("PSYCHOSTATS_PAGE", true);
 $basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
-$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-$ps->theme_setup($cms->theme);
 $cms->theme->page_title('Edit Player Profile—PsychoStats');
 
 // Page cannot be viewed if the site is in maintenance mode.

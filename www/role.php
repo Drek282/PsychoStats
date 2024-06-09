@@ -24,8 +24,6 @@
 define("PSYCHOSTATS_PAGE", true);
 $basename = basename(__FILE__, '.php');
 include(__DIR__ . "/includes/common.php");
-$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-$ps->theme_setup($cms->theme);
 $cms->theme->page_title('Role Stats—PsychoStats');
 
 // Is PsychoStats in maintenance mode?

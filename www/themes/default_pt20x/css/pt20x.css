@@ -291,6 +291,10 @@ span.pos {
 #error {
 	background: #FFFF00;
 	border: 2px solid #CC0000;
+	background-repeat: no-repeat;
+	background-position: 1% center;
+	z-index:2;
+	background-image: url('../img/script_error.png');
 }
 #error h1 {
 	color: #CC0000;
