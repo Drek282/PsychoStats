@@ -22,8 +22,10 @@
  *
  *      AJAX session options update script.
  *      This script is called via AJAX requests in the theme to update various
- *      options on the current session. Currently, this is only used to update
- *	which content shade boxes on a page are closed.
+ *      options on the current session. Currently, this is only used to update	
+ *		which content shade boxes on a page are closed.
+ *      *Not* an IMGCOMMON script, but defines the same constant so that certain
+ *      common page code does not run.
  */
 
 if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FILE__));
