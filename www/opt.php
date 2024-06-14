@@ -26,10 +26,12 @@
  *	which content shade boxes on a page are closed.
  */
 
-define("PSYCHOSTATS_PAGE", true);
-include(__DIR__ . "/includes/common.php");
-#$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-#$ps->theme_setup($cms->theme);
+if (!defined("PSYCHOSTATS_PAGE")) die("Unauthorized access to " . basename(__FILE__));
+
+if (defined("PSFILE_IMGCOMMON_PHP")) return 1;
+define("PSFILE_IMGCOMMON_PHP", 1);
+
+require_once(__DIR__ . "/includes/common.php");
 
 // collect url parameters ...
 $validfields = array('shade','closed');
