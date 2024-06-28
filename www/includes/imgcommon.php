@@ -31,8 +31,6 @@ if (defined("PSFILE_IMGCOMMON_PHP")) return 1;
 define("PSFILE_IMGCOMMON_PHP", 1);
 
 require_once(__DIR__ . "/common.php");
-$cms->init_theme($ps->conf['main']['theme'], $ps->conf['theme']);
-$ps->theme_setup($cms->theme);
 
 // JPGRAPH config
 
