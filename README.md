@@ -10,6 +10,8 @@ This is, yet another, unofficial version of PsychoStats by Stormtrooper. Updated
 
 \* **Oracle's MySQL `8.0+` is *NOT* supported.  Please use [MariaDB](https://mariadb.org/ "MariaDB") instead.**
 
+\* **There may be issues running PsychoStats on [nginx](https://nginx.org/en/ "nginx").  These are currently being investigated, but at this time running PsychoStats on the nginx web server should be considered unsupported.**
+
 ***Note that as of the release of version 3.2.7b on June 4, 2021, and specifically the change before that when the character encoding for the database was updated, if you do not drop and recreate your database, certain functionality will break.  You are strongly advised not to run the new web front end on an old database created before those changes were implemented.***
 
 All of the versions on this repository and the game support repositories should be considered beta software as at this time we do not have the access to game servers necessary to thoroughly test releases.  Prior to 2010 PsychoStats was tested on thousands of websites with logs from thousands of game servers.  The base PsychoStats code should be robust and stable, the changes that have been made have been relatively minor, so it stands to reason that the code is still robust and stable, but there are no guarantees.
