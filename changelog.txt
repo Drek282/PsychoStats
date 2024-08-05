@@ -120,7 +120,6 @@ Version 3.2.8n (in progress)
 * [Added] A notice, configurable in the ACP, which can be displayed at the top of every page.
 * [Improved] opt.php now defined as PSFILE_IMGCOMMON_PHP.
 * [Fixed] Dynamic graphs broken due to code migration to common.php.
-* [Fixed] Undeclared array key error. 
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

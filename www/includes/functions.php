@@ -389,12 +389,10 @@ function url($arg = array()) {
 
 function remote_addr($alt='') {
 	$ip = $alt;
-	if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))  {
+	if ($_SERVER['HTTP_X_FORWARDED_FOR'])  {
 		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	} elseif (isset($_SERVER['REMOTE_ADDR'])) {
+	} elseif ($_SERVER['REMOTE_ADDR']) {
 		$ip = $_SERVER['REMOTE_ADDR'];
-	} else {
-		$ip = null;
 	}
 	return $ip;
 }
