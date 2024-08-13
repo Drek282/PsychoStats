@@ -53,6 +53,7 @@ Most of the links and references to psychostats.com have been removed as that do
 
 
 You can view working demos of PsychoStats at the following links: 
+*Note that this is a testing environment and as such the availability of the demos will not be 100%, 24/7.*
 
 * [The Battle Grounds III](https://displaced.zone/ps_bg3/ "The Battle Grounds III")
 * [Firearms 3.0](https://displaced.zone/ps_firearms-30/ "Firearms 3.0")
