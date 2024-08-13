@@ -122,6 +122,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Dynamic graphs broken due to code migration to common.php.
 * [Fixed] Undeclared array key error.
 * [Added] Note regarding availability of demo stats.
+* [Tested] No apparent issues while running on nginx.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
