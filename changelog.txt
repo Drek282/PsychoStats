@@ -123,6 +123,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Undeclared array key error.
 * [Added] Note regarding availability of demo stats.
 * [Tested] No apparent issues while running on nginx.
+* [Fixed] Default sort limit reduced on error logs.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

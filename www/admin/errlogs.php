@@ -30,7 +30,7 @@ $validfields = array('ref','start','limit','filter','view');
 $cms->theme->assign_request_vars($validfields, true);
 
 if (!is_numeric($start) or $start < 0) $start = 0;
-if (!is_numeric($limit) or $limit < 0) $limit = 300;
+if (!is_numeric($limit) or $limit < 0 or $limit > 100) $limit = 100;
 $order = 'desc';
 $sort  = 'timestamp';
 $filter = trim($filter ?? '');
