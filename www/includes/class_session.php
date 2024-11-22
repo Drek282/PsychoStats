@@ -519,14 +519,14 @@ function logged_in() {
 function sid_prefix() {
 	// If PS is installed in a subfolder the cookie name needs to reflect that.
 	$cnsfid = reset(explode('/', ltrim(SAFE_PHP_SCNM, '/')));
-	$cnsfid = ($cnsfid != 'admin' or $cnsfid != 'install' or !str_contains($cnsfid, '.php')) ? $cnsfid : null;
-	$cookiename = ($cnsfid) ? $cnsfid . '_sess' : 'sess';
-	return $cookiename;
+	$cnsfid = (($cnsfid != 'admin' or $cnsfid != 'install') and !str_contains($cnsfid, '.php')) ? $cnsfid : null;
+	$sidprefix = ($cnsfid) ? $cnsfid . '_sess' : 'sess';
+	return $sidprefix;
 }
 
 // returns the name of the SID cookie
 function sid_name($suffix='_id') {
-	return $this->sid_prefix() . $suffix;
+	return 'ps_' . $this->sid_prefix() . $suffix;
 }
 
 // returns the current session ID
