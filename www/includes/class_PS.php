@@ -66,7 +66,11 @@ public static function &create($dbconf = array(), $gametype = null, $modtype = n
 	}
 
 	// determine the game::mod class to try and load
-	$cmd = "SELECT value FROM " . $db->dbtblprefix . "config WHERE conftype='main' AND section IS NULL AND ";
+	if ($db->table_exists($db->dbtblprefix . "config")) {
+		$cmd = "SELECT value FROM " . $db->dbtblprefix . "config WHERE conftype='main' AND section IS NULL AND ";
+	} else {
+		die("PsychoStats is not installed properly.  Please check README.md and try again.");
+	}
 	if (!$gametype and !$modtype) {
 		$cmd .= "var IN ('gametype', 'modtype') ORDER BY var";
 		list($gametype,$modtype) = $db->fetch_list($cmd);

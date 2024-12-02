@@ -125,6 +125,7 @@ Version 3.2.8n (in progress)
 * [Tested] No apparent issues while running on nginx.
 * [Fixed] Default sort limit reduced on error logs.
 * [Fixed] Cookie names not set correctly.
+* [Fixed] User friendly error if PsychoStats is not properly installed.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
