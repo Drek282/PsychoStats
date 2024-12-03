@@ -69,7 +69,7 @@ public static function &create($dbconf = array(), $gametype = null, $modtype = n
 	if ($db->table_exists($db->dbtblprefix . "config")) {
 		$cmd = "SELECT value FROM " . $db->dbtblprefix . "config WHERE conftype='main' AND section IS NULL AND ";
 	} else {
-		die("PsychoStats is not installed properly.  Please check README.md and try again.");
+		die("PsychoStats has not been installed properly.  See INSTALL.md for details.");
 	}
 	if (!$gametype and !$modtype) {
 		$cmd .= "var IN ('gametype', 'modtype') ORDER BY var";
