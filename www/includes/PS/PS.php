@@ -1539,13 +1539,13 @@ function delete_player($plrid, $keep_profile = TRUE) {
 		while (count($ids)) {
 			// limit how many we delete at a time, so we're sure the query is never too large
 			$list = array_splice($ids, 0, 100);
-			$this->db->query("DELETE FROM " . $t . $this->tblsuffix . " WHERE dataid IN (" . join(', ', $list) . ")");
+			if ($this->db->table_exists($t . $this->tblsuffix)) $this->db->query("DELETE FROM " . $t . $this->tblsuffix . " WHERE dataid IN (" . join(', ', $list) . ")");
 		}
 		$this->db->delete($t, 'plrid', $plrid);
 	}
 
 	// remove simple data related to this player ID
-	$tables = array( 't_plr_ids', 't_plr_sessions', 't_plr_victims', 't_plr_weapons', 't_plr' );
+	$tables = array( 't_plr_ids_name', 't_plr_ids_ipaddr', 't_plr_ids_worldid', 't_plr_sessions', 't_plr_victims', 't_plr_weapons', 't_plr' );
 	foreach ($tables as $table) {
 		// don't use $_plrid, since delete() will escape it
 		$this->db->delete($this->$table, 'plrid', $plrid);

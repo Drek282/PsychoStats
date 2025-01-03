@@ -126,6 +126,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Default sort limit reduced on error logs.
 * [Fixed] Cookie names not set correctly.
 * [Fixed] User friendly error if PsychoStats is not properly installed.
+* [Fixed] Broken player deletion.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
