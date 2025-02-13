@@ -28,7 +28,7 @@ flags_url = "{$conf.theme.flags_url}";
 <div{if $errors.plrname} class="err"{/if}>
 	<p class="err" id="err-plrname">{$errors.plrname|escape}</p>
 	<label><#Name#>:</label>
-	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field">
+	<input name="plrname" value="{$form.plrname|escape}" type="text" class="field" autocomplete="off">
 	<label class="for" for="namelocked1"><input id="namelocked1" name="namelocked" value="1" {if $form.namelocked}checked="checked" {/if}type="checkbox"> Locked?</label>
 </div>
 
@@ -61,11 +61,11 @@ flags_url = "{$conf.theme.flags_url}";
 	<textarea id="logo" name="logo" cols="30" rows="4" wrap="soft" class="field long">{$form.logo|escape}</textarea>
 </div>
 
+{if isset($plr.username)}
 <div class="inline-notes">
 	<h4><#Informational Fields#></h4>
 	<p>
 		<#All informational fields are optional and used solely for display purposes.#>
-		<#Your information is never sold or given away to third parties.#>
 	</p>
 </div>
 
@@ -105,23 +105,36 @@ flags_url = "{$conf.theme.flags_url}";
 	<input name="socialclub" value="{$form.socialclub|escape}" type="text" class="field long">
 </div>
 
+<div>
+	<label><#User Name#>:</label>
+	<span class="nomodify">{$plr.username|escape}</span>
+</div>
+
+<div class="inline-notes">
+	<h4><#This player already has an associated user#></h4>
+	<p><#If this is an error the user associated with this player will have to be deleted before a new user can be associated with this team.#></p>
+</div>
+
+<div class="inline-notes">
+	<h4><#IMPORTANT#></h4>
+	<p><#Deleting a player in this menu deletes the player's stats.  If you wish to delete a user associated with a player you must use the "All Users" menu.#></p>
+</div>
 </fieldset>
-<fieldset>
-{if $form.username}
-<legend><#Edit user for this player#></legend>
 {else}
+<fieldset>
 <legend><#Create user for this player#></legend>
 <div class="inline-notes">
 	<h4><#Register new user#></h4>
 	<p><#Register a user for this player by entering a username and password below.#>
 		<#This will allow the user to login and modify their profile.#>
+		<#You will be unable to modify the user profile until a new user is created.#>
 	</p>
 </div>
-{/if}
 <div{if $errors.username} class="err"{/if}>
 	<p class="err" id="err-username">{$errors.username|escape}</p>
 	<label><#Username#>:</label>
-	<input name="username" value="{$form.username|escape}" type="text" class="field">
+	<input name="username" value="{$form.username|escape}" type="text" class="field" autocomplete="off">
+	<p class="small"><strong><#IMPORTANT#>:</strong>  <#If you use a password manager that fills in usernames and passwords automatically, or your browser does the same thing, make sure you have selected a new username and password to associate with this team.#></p>
 </div>
 
 <div{if $errors.accesslevel} class="err"{/if}>
@@ -132,14 +145,8 @@ flags_url = "{$conf.theme.flags_url}";
 		<option value="{$value}"{if $value == $form.accesslevel} selected{/if}>{$label}</option>
 {/foreach}
 	</select>
+	<p class="small"><strong><#IMPORTANT#>:</strong>  <#You must set the "Access Level" to at least "User" or the user will not be able to log in with this account.#></p>
 </div>
-
-{if $plr_user.userid}
-<div class="notes">
-	<h4><#Change Password?#></h4>
-	<p><#Only enter a password if you want to change it from the current password.#></p>
-</div>
-{/if} 
 
 <div{if $errors.password} class="err"{/if}>
 	<p class="err" id="err-password">{$errors.password|escape}</p>
@@ -152,8 +159,8 @@ flags_url = "{$conf.theme.flags_url}";
 	<label><#Retype Password#>:</label>
 	<input name="password2" type="password" class="field" autocomplete="off">
 </div>
-
 </fieldset>
+{/if}
 <fieldset>
 <div class="submit">
 	<input name="submit" value="1" type="hidden">

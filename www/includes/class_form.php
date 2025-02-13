@@ -209,10 +209,11 @@ function value($var, $modified = false) {
 
 // get/set an error string for a field
 function error($name, $err = null) {
+	$this->errors[$name] ??= null;
 	if ($err !== null) {
 		$this->errors[$name] = $err;
 	} else {
-		return $this->errors[$name] ??= null;
+		return $this->errors[$name];
 	}
 }
 

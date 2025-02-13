@@ -64,6 +64,8 @@ if ($id) {
 			// remove userid from plr profile
 			$ps->db->update($ps->t_plr_profile, array( 'userid' => null ), 'plrid', $plr['plrid']);
 			$plr_user->userid(0);
+		} else {
+			$plr['username'] = $plr_user->username();
 		}
 	}
 } else {
@@ -125,7 +127,6 @@ if (isset($submit)) {
 			);
         $form->set('website', $website);
 	}
-
 	// return error if discord id is not an 18 digit number
 	if (!empty($input['discord']) and !preg_match('|^[\d+]{17}$|', $input['discord'])) {
         $form->error('discord', $cms->trans("The Discord ID is not in the correct format.") . " " .
@@ -175,10 +176,10 @@ if (isset($submit)) {
 	if (!array_key_exists($input['accesslevel'], $cms->user->accesslevels())) {
 		$form->error('accesslevel', $cms->trans("Invalid access level specified"));
 	}
-
-	if (!$form->error('username') and $input['username'] != '') {
+	if ($input['username'] != '') {
 		// load the user matching the username
 		$_u = $plr_user->load_user($input['username'], 'username');
+
 		// do not allow a duplicate username if another user has it already
 		if ($_u and $_u['userid']) {
 			$form->error('username', $cms->trans("Username already exists; please try another name"));
