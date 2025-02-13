@@ -176,13 +176,15 @@ if (isset($submit)) {
 	if (!array_key_exists($input['accesslevel'], $cms->user->accesslevels())) {
 		$form->error('accesslevel', $cms->trans("Invalid access level specified"));
 	}
-	if ($input['username'] != '') {
+	if (!$form->error('username') and $input['username'] != '') {
 		// load the user matching the username
 		$_u = $plr_user->load_user($input['username'], 'username');
 
 		// do not allow a duplicate username if another user has it already
 		if ($_u and $_u['userid']) {
 			$form->error('username', $cms->trans("Username already exists; please try another name"));
+		} else {
+			unset($form->errors['username']);
 		}
 		unset($_u);
 	}
