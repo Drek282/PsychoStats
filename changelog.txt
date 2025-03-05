@@ -130,6 +130,7 @@ Version 3.2.8n (in progress)
 * [Fixed] New user creation from the player edit menu in the ACP.
 * [Restored] Error checking on username in player edit menu in the ACP.
 * [Fixed] Deprecated dynamic properties.
+* [Fixed] Force permissions on install folder.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

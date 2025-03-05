@@ -1181,6 +1181,8 @@ if (!function_exists('json_encode')) {
  * Source - https://gist.github.com/mindplay-dk/a4aad91f5a4f1283a5e2#gistcomment-2036828
  **/
 function deleteTree($folder, $keepRootFolder) {
+	// Set permissions on $folder.
+	chmod($folder, 0775);
 	// Handle bad arguments.
 	if (empty($folder) || !file_exists($folder)) {
 		return true; // No such file/folder exists.
