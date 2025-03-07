@@ -1181,6 +1181,8 @@ if (!function_exists('json_encode')) {
  * Source - https://gist.github.com/mindplay-dk/a4aad91f5a4f1283a5e2#gistcomment-2036828
  **/
 function deleteTree($folder, $keepRootFolder) {
+	// Set permissions on $folder.
+	chmod($folder, 0775);
 	// Handle bad arguments.
 	if (empty($folder) || !file_exists($folder)) {
 		return true; // No such file/folder exists.
@@ -1188,21 +1190,20 @@ function deleteTree($folder, $keepRootFolder) {
 		return @unlink($folder); // Delete file/link.
 	}
 
-	// Set permissions and delete all children.
+// Delete all children.
 	$files = new \RecursiveIteratorIterator(
 		new \RecursiveDirectoryIterator($folder, \RecursiveDirectoryIterator::SKIP_DOTS),
-		\RecursiveIteratorIterator::SELF_FIRST
+		\RecursiveIteratorIterator::CHILD_FIRST
 	);
 
 	foreach ($files as $fileinfo) {
-		chmod($fileinfo->getRealPath(), 0775);
 		$action = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
 		if (!@$action($fileinfo->getRealPath())) {
 			return false; // Abort due to the failure.
 		}
 	}
 
-	// Delete the root folder itself?
+// Delete the root folder itself?
 	return (!$keepRootFolder ? @rmdir($folder) : true);
 }
 
