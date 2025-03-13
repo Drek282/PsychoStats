@@ -79,7 +79,7 @@ The minimum required version of Perl is `5.08`, of PHP is `7.1.0` and MySQL*/Mar
 
 ### IMPORTANT
 
-The install process will automatically delete your install folder when it is completed.  If you need to run the install process again you will need to upload the install folder to your PsychoStats web folder again along with the game specific install files.
+The install process should automatically delete your install folder when it is completed.  If that doesn't happen you will get the following error message, "PsychoStats hasn't been properly installed, please see INSTALL.md for details."  If that happens you will need to delete the install folder manually.  If you need to run the install process again you will need to upload the install folder to your PsychoStats web folder again.
 
 6. The 'root' folder contains the heart of your PsychoStats.  You can put that anywhere as long as your user has executable permissions and you can access your PsychoStats database from that machine.  The contents of the 'root' folder should not be exposed to the web.  Edit the 'stats.cfg' in that folder with your PsychoStats database name, user and password.
 
