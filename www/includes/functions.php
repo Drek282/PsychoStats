@@ -1203,7 +1203,18 @@ function deleteTree($folder, $keepRootFolder) {
 	}
 
 	// Delete the root folder itself?
-	return (!$keepRootFolder ? @rmdir($folder) : true);
+	if (!$keepRootFolder) {
+		chmod($folder, 0775);
+		rmdir($folder);
+		// If this fails try unlink.
+		if (file_exists($folder)) {
+			$mask = "*";
+   			array_map( "unlink", glob( $mask ) );
+			rmdir($folder);
+			return (file_exists($folder)) ? false : true;
+		}
+	}
+	return true;
 }
 
 // Returns true if url exists.
