@@ -148,8 +148,6 @@ $player = $ps->get_player(array(
 ));
 
 $cms->theme->page_title(' for ' . $player['name'], true);
-//Fix for google search engine
-$cms->theme->add_meta(array('link rel' => 'canonical', 'href' => 'player.php?id=' . $player['plrid']));
 
 $x = substr($xml ?? '',0,1);
 if ($x == 'p') {	// player
