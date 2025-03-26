@@ -190,7 +190,7 @@ function rel_links() {
                 foreach ($link as $key => $val) {
                         $out .= "$key='" . ps_escape_html($val) . "' ";
                 }
-                $out .= "/>\n";
+                $out .= ">\n";
         }
         return $out;
 }
