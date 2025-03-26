@@ -148,7 +148,6 @@ $player = $ps->get_player(array(
 ));
 
 $cms->theme->page_title(' for ' . $player['name'], true);
-$cms->theme->add_rel(array('rel' => 'canonical', 'href' => '/player.php?id=' . $player['plrid']));
 
 $x = substr($xml ?? '',0,1);
 if ($x == 'p') {	// player
