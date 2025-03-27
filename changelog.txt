@@ -134,7 +134,7 @@ Version 3.2.8n (in progress)
 * [Added] Note regarding manual deletion of install folder to INSTALL.md.
 * [Fixed] install folder not deleting after install.
 * [Fixed] Meta tag for Google.
-* [Added] Add xml as a required PHP extension during the install checks by @amdoolitle
+* [Added] Add xml as a required PHP extension during the install checks by @amdoolittle
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
