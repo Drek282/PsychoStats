@@ -87,6 +87,7 @@ $player = $ps->get_player(array(
 ));
 
 $cms->theme->page_title(' for ' . $player['name'], true);
+$cms->theme->add_rel(array('rel' => 'canonical', 'href' => '/plrhist.php?id=' . $player['plrid']));
 
 $history = $ps->get_player_days(array(
 	'plrid'		=> $id,
