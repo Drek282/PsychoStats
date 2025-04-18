@@ -136,8 +136,10 @@ Version 3.2.8n (in progress)
 * [Fixed] Meta tag for Google.
 * [Added] Add xml as a required PHP extension during the install checks by @amdoolittle
 * [Added] Full hitbox Flash source code, reminded & provided by @Solomenka
-* [Fixed] Some small html errors
+* [Fixed] Some small html errors.
 * [Fixed] alt tag language file compatible.
+* [Fixed] Removed css style tags inside of noscript tag.
+* [Fixed] Missing 'script_error.png' in some themes.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
