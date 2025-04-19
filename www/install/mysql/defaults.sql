@@ -208,11 +208,21 @@ INSERT INTO `ps_config` (`id`, `conftype`, `section`, `var`, `value`, `label`, `
         (6018,'main','psycholive','delay','15','Playback Delay','text',0,'numeric','size=5','How many seconds to delay playback of a real-time game. Delaying the playback of a game prohibits players from viewing a real-time game online and using that to cheat in-game by seeing where players are located.\r\n\r\n<b>Recommendation:</b> 15 - 30 seconds'),
         (6019,'theme',NULL,'titlelogo_name','','Custom Title Logo Image','text',0,'','','If you want to use a custom title logo image, enter it\'s name here.  It must be uploaded to the theme "img" directory and be in the correct format: 64X64 pixels and an accepted image format—see Theme->Images.');
 
-
 INSERT INTO `ps_config_clantags` (`id`, `idx`, `clantag`, `overridetag`, `pos`, `type`, `example`) 
     VALUES 
+        (2,5,'^(\\[.+?\\]).','','left','regex','[clan]playername'),
+        (3,10,'^(\\(.+?\\)).','','left','regex','(clan)playername'),
+        (4,30,'^(\\{.+?\\}).','','left','regex','{clan}playername'),
+        (5,40,'^(<.+?>).','','left','regex','<clan>playername'),
+        (6,50,'^(\\|.+?\\|).','','left','regex','|clan|playername'),
+        (7,60,'^(\\].+?\\[).','','left','regex',']clan[playername'),
         (8,70,'^(([^\\w\\d\\S]).+\\2).','','left','regex','-clan-playername'),
-        (7,60,'^(\\].+?\\[).','','left','regex',']clan[playername'),(5,40,'^(<.+?>).','','left','regex','<clan>playername'),(6,50,'^(\\|.+?\\|).','','left','regex','|clan|playername'),(4,30,'^(\\{.+?\\}).','','left','regex','{clan}playername'),(3,10,'^(\\(.+?\\)).','','left','regex','(clan)playername'),(2,5,'^(\\[.+?\\]).','','left','regex','[clan]playername'),(9,100,'.(\\[.+?\\])$','','right','regex','playername[clan]'),(10,110,'.(\\(.+?\\))$','','left','regex','playername(clan)'),(11,120,'.(<.+?>)$','','right','regex','playername<clan>'),(12,130,'.(\\|.+?\\|)$','','left','regex','playername|clan|'),(13,80,'^([^\\|]+\\|)','','left','regex','clan|playername'),(14,90,'^(~.+?~).','','left','regex','~clan~playername');
+        (9,100,'.(\\[.+?\\])$','','right','regex','playername[clan]'),
+        (10,110,'.(\\(.+?\\))$','','left','regex','playername(clan)'),
+        (11,120,'.(<.+?>)$','','right','regex','playername<clan>'),
+        (12,130,'.(\\|.+?\\|)$','','left','regex','playername|clan|'),
+        (13,80,'^([^\\|]+\\|)','','left','regex','clan|playername'),
+        (14,90,'^(~.+?~).','','left','regex','~clan~playername');
 
 INSERT INTO `ps_config_themes` (`name`, `parent`, `enabled`, `version`, `title`, `author`, `website`, `source`, `image`, `description`) 
     VALUES 
