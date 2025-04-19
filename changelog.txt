@@ -140,7 +140,8 @@ Version 3.2.8n (in progress)
 * [Fixed] alt tag language file compatible.
 * [Fixed] Removed css style tags inside of noscript tag.
 * [Fixed] Missing 'script_error.png' in some themes.
-* [Improved] Cleaned up the sql for the ps_config_clantags table.
+* [Improved] Cleaned up SQL for the ps_config_clantags table.
+* [Improved] Cleaned up child theme CSS.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
