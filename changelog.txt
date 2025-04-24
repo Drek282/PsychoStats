@@ -142,6 +142,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Missing 'script_error.png' in some themes.
 * [Improved] Cleaned up SQL for the ps_config_clantags table.
 * [Improved] Cleaned up child theme CSS.
+* [Added] Optional .htaccess to addons—thanks to Solomenka.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
