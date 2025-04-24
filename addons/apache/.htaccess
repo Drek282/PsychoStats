@@ -2,6 +2,9 @@
 # Put it in directory where PsychoStats is installed.
 # Apache2 modules "expires", "deflate" and "mime" must be enabled.
 
+RewriteEngine on
+RewriteBase /
+
 # Compression text, html, javascript, css, xml:
 <ifModule mod_deflate>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
