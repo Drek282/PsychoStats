@@ -695,6 +695,23 @@ function compacttime($seconds, $format="hh:mm:ss") {
   return $str;
 }
 
+// "Fixed" above function compacttime.
+// You can change 'modifier' => 'compacttime' in some files to try that
+// index.php ||| 'onlinetime' => array('label' => $cms->trans("Online"), 'modifier'=>'compacttime'), ||| etc.
+// return format is 0d 00:00:00 if time is above than 1 day, and 00:00:00 if not.
+// And yes, this is not the right way how to do that. But I dont care, because this code is only for TRUE Jedi
+function compacttimeF($online){
+$d = $h = $m = $s = 0;
+if (!isset($online)) return = 0;
+if ($online <= 0) return 0;
+if (($online / (60*60*24)) >= 1) {
+  $days = floor($online / (60*60*24));
+  $online -= $days * (60*60*24);
+}
+
+return ($days > 0 ? $days . '<span style="color:red">d</span> ' : '') . gmdate("H:i:s", $online);
+}
+
 /*
 
  Returns the total time elapsed from the seconds given. 
