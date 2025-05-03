@@ -54,7 +54,7 @@ function do_next(e) {
 function do_init(e, go_next) {
 	e.preventDefault();
 	if ($('#dropdb').attr('checked')) {
-		var proceed = window.confirm('All current data in the datbase will be lost!\nAre you sure you want to continue?');
+		var proceed = window.confirm('All current data in the database will be lost!\nAre you sure you want to continue?');
 		if (!proceed) return false;
 	}
 	$('#go-ctrl input:not(:hidden)').attr('disabled','disabled');
