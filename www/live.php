@@ -56,7 +56,7 @@ if (isset($cms->input['cookieconsent'])) {
 }
 
 // Check to see if there is any data in the database before we continue.
-$cmd = "SELECT * FROM $ps->t_plr_data LIMIT 1";
+$cmd = "SELECT * FROM $ps->t_live_games LIMIT 1";
 
 $results = array();
 $results = $ps->db->fetch_rows(1, $cmd);
