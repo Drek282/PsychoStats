@@ -66,7 +66,7 @@ if (empty($results)) {
 	$cms->full_page_err('index', array(
 		'maintenance'	=> $maintenance,
 		'message_title'	=> $cms->trans("No Stats Found"),
-		'message'		=> $cms->trans("You must be running the PsychoLive 3.2 AMXX plugin."),
+		'message'		=> $cms->trans("You must be running the PsychoLive 3.2 AMXX plugin for HLDS, or the ps_live plugin for Sourcemod for SRCDS."),
 		'form_key'		=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 		'cookieconsent'	=> $cookieconsent,
 	));

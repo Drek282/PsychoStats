@@ -147,6 +147,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Misleading error message for the live view page.
 * [Fixed] "no stats" error checked incorrect table.
 * [Fixed] Script syntax for live view template.
+* [Restored] Sourcemod plugins folder from 3.2.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
