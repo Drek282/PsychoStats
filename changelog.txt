@@ -146,6 +146,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Header and cookie errors for live view page.
 * [Fixed] Misleading error message for the live view page.
 * [Fixed] "no stats" error checked incorrect table.
+* [Fixed] Script syntax for live view template.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
