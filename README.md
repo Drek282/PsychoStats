@@ -43,6 +43,8 @@ There are also modules available for the following games, but they are untested 
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
 * [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 
+There is also a GitHub repo for [PsychoStats Mods](https://github.com/Rosenstein/Psychostats-Mods/ "PsychoStats Mods").
+
 We have, for the most part, tried not to make changes to the way Psychostats works, by default. However, one or two changes have been made that reflect personal biases, to make the process of reinstalling Psychostats hundreds of times more convenient as it has been worked on. One of those is that the bonus for an ffkill is now -10.  Winning games or rounds is really the entire point, far more important than k:d ratios, this is reflected in the bonuses that have been added for team wins.
 
 If you don't like those changes they are easy to edit in the Admin Control Panel.  One other significant change is that the resolution for bonuses has been changed to one decimal place, so you can now create bonuses that are 0.1 etc.  There were bonuses for events that can happen very often, such as medic heals in Team Fortress Classic, that were too large if they were a full point or more.
