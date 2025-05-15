@@ -149,6 +149,7 @@ Version 3.2.8n (in progress)
 * [Fixed] Script syntax for live view template.
 * [Restored] Sourcemod plugins folder from 3.2.
 * [Added] Link to PsychoStats Mods to README.md.
+* [Added] Half Life Death Match to list of supported mods.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
