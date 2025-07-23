@@ -21,27 +21,24 @@ Flag icon images and many map and overlay images have been converted from jpg an
 This version of PsychoStats currently supports the following games:  
 ***We are always looking for server logs to allow for testing and improved game support.***
 
-* [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III")
-* [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
-* [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
-* [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
-* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
-* [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
-* [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
-* [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
-
-
-There are also modules available for the following games, but they are untested and may not be functional:  
-***If you wish to improve support for these games we will require server logs.***
-
-* [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
-* [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
-* [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
-* [Gun Game: Source](https://github.com/Drek282/ps_gungames "Gun Game: Source")
-* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
-* [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
-* [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
-* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
+| :label: Game | Protocol | Supported | Tested |
+| :--- | :---: | :---: | :---: |
+| [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game") | half-life | :heavy_check_mark: | :x: |
+| [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Soldat](https://github.com/Drek282/ps_soldat "Soldat") | half-life | :heavy_check_mark: | :x: |
+| [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic") | half-life | :heavy_check_mark: | :heavy_check_mark: |
+| [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source") | source | :heavy_check_mark: | :heavy_check_mark: |
+| [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source") | source | :heavy_check_mark: | :x: |
+| [Gun Game: Source](https://github.com/Drek282/ps_gungames "Gun Game: Source") | source | :heavy_check_mark: | :x: |
+| [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match") | source | :heavy_check_mark: | :x: |
+| [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2") | source | :heavy_check_mark: | :x: |
+| [The Battle Grounds III](https://github.com/Drek282/ps_bg3 "The Battle Grounds III") | source | :heavy_check_mark: | :heavy_check_mark: |
+| [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4") | cod4 | :heavy_check_mark: | :x: |
+| [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X") | cod4x | :heavy_check_mark: | :x: |
 
 We have, for the most part, tried not to make changes to the way Psychostats works, by default. However, one or two changes have been made that reflect personal biases, to make the process of reinstalling Psychostats hundreds of times more convenient as it has been worked on. One of those is that the bonus for an ffkill is now -10.  Winning games or rounds is really the entire point, far more important than k:d ratios, this is reflected in the bonuses that have been added for team wins.
 
