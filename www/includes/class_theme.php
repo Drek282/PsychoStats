@@ -435,14 +435,7 @@ function remove_template_dir($dir) {
 function theme($new = null, $in_db = true) {
 	global $ps;
 	if (empty($new)) {
-		if (defined("PSYCHOSTATS_ADMIN_PAGE") or defined("PSYCHOSTATS_INSTALL_PAGE")) return $this->theme;
-		if ($this->cms->session->options['theme']) {
-			$new = $this->cms->session->options['theme'];
-		} elseif ($ps->conf->main['theme']) {
-			$new = $ps->conf->main['theme'];
-		} else {
-		$new = 'default';
-		}
+		return $this->theme;
 	}
 	if ($this->is_theme($new)) {
 		$loaded = false;
