@@ -86,7 +86,7 @@ if (file_exists(PS_ROOTDIR . "/config.php")) {
 }
 
 // don't proceed if the install directory still exists
-if (is_dir(PS_ROOTDIR . "/install")) {
+if (is_dir(PS_ROOTDIR . "/install") and !defined("PSYCHOSTATS_ADMIN_PAGE")) {
         echo "PsychoStats hasn't been properly installed, please see INSTALL.md for details.";
         exit;
 }
