@@ -74,6 +74,12 @@ The minimum required version of Perl is `5.08`, of PHP is `7.1.0` and MySQL*/Mar
 
 4. These instructions assume you already know the basics of hosting a website The specifics of that will depend on your hosting arrangements.  Copy the contents of the 'www' directory to your web hosting folder.  You can install the front end files from the "www" folder in a subfolder, but only one level deep.  It is recommended that you don't expose your PsychoStats web folder to the public web until you have completed the install process.
 
+\* **Note:**  If you are running NGINX you may need to increase your fastcgi buffer size:
+	Ex:	fastcgi_buffer_size 128k;
+		fastcgi_buffers 64 64k;
+		fastcgi_busy_buffers_size 128k;
+		fastcgi_temp_file_write_size 128k;
+
 5. Browse to the stats installation wizard with your browser and follow the instructions:  
 	http[s]://[domain|localhost]/[stats folder name if any]/install/
 

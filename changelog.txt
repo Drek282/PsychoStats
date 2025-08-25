@@ -153,6 +153,7 @@ Version 3.2.8n (in progress)
 * [Improved] Support table—credit @Rosenstein.
 * [Fixed] Looping theme function—credit @Rosenstein.
 * [Fixed] Insecure install warning in ACP.
+* [Added] Note re. NGNIX configuration—credit @kimsook.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

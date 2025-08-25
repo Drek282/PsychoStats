@@ -92,6 +92,6 @@ Thank you to Jason Morriss, a.k.a. Stormtrooper, for all his oringinal work. Thi
 
 Kudos to Valve as well for maintaining their back catalogue.
 
-Credit to wakachamo, Rosenstein, Solomenka and janzagata for their contributions.  Thanks also to RoboCop from APG for his support and encouragement.
+Credit to wakachamo, Rosenstein, Solomenka, janzagata and kimsook for their contributions.  Thanks also to RoboCop from APG for his support and encouragement.
 
 The basic text for the default privacy policy has been copied from the default WordPress privacy policy.
