@@ -258,7 +258,7 @@ $cms->theme->assign(array(
 	'form_key'				=> $ps->conf['main']['security']['csrf_protection'] ? $cms->session->key() : '',
 	'advanced_config'		=> $cms->session->opt('advconfig') ? true : false,
 	'q'						=> $q,
-	'install_dir_insecure'	=> false
+	'install_dir_insecure'	=> $cms->theme->_tpl_vars['install_dir_insecure'] ?? null
 ));
 
 // display the output

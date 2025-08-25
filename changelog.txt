@@ -152,6 +152,7 @@ Version 3.2.8n (in progress)
 * [Added] Half Life Death Match to list of supported mods.
 * [Improved] Support table—credit @Rosenstein.
 * [Fixed] Looping theme function—credit @Rosenstein.
+* [Fixed] Insecure install warning in ACP.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
