@@ -241,10 +241,10 @@ $cms->session->save_session_options();
 if ($ps->conf['main']['security']['csrf_protection']) $cms->session->key($form->key());
 
 // turn on 'advanced mode'
-//if ($adv) {
-//	$cms->session->opt('advconfig', 1);
-//	$cms->session->save_session_options();
-//}
+if ($adv) {
+	$cms->session->opt('advconfig', 1);
+	$cms->session->save_session_options();
+}
 
 // assign variables to the theme
 $cms->theme->assign(array(
