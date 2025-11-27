@@ -1107,7 +1107,7 @@ sub daily_ranks {
 		$lastupdate ? scalar localtime $lastupdate : 'never'
 	));
 
-	$cmd = "SELECT plrid,rank,skill FROM $db->{t_plr} WHERE allowrank ORDER BY skill DESC";
+	$cmd = "SELECT plrid,`rank`,skill FROM $db->{t_plr} WHERE allowrank ORDER BY skill DESC";
 	if (!($sth = $db->query($cmd))) {
 		$db->fatal("Error executing DB query:\n$cmd\n" . $db->errstr . "\n--end of error--");
 	}
@@ -1118,7 +1118,7 @@ sub daily_ranks {
 	my $prevskill = -999999;
 	# This will allow players with the SAME skill to receive the SAME rank. But this is slower
 	while (my ($id,$rank,$skill) = $sth->fetchrow_array) {
-		$cmd = "UPDATE $db->{t_plr} SET prevrank=rank, rank=" . ($prevskill == $skill ? $newrank : ++$newrank) . " WHERE plrid=$id";
+		$cmd = "UPDATE $db->{t_plr} SET prevrank=`rank`, `rank`=" . ($prevskill == $skill ? $newrank : ++$newrank) . " WHERE plrid=$id";
 		$db->query($cmd) if $rank ne $newrank;
 		$prevskill = $skill;
 	}

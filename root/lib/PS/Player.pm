@@ -387,7 +387,7 @@ sub load_stats {
 sub load_info {
 	my $self = shift;
 	my $db = $self->{db};
-	$self->{_plr} = $db->get_row_hash("SELECT clanid,prevrank,rank,prevskill,skill,allowrank,lastdecay " . 
+	$self->{_plr} = $db->get_row_hash("SELECT clanid,prevrank,`rank`,prevskill,skill,allowrank,lastdecay " . 
 		"FROM $db->{t_plr} WHERE plrid=" . $self->plrid
 	);
 }
