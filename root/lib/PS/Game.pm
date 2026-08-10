@@ -898,79 +898,79 @@ sub reset_isdead {
 	map { $self->{c_plrid}{$_}->is_dead($isdead || 0) } keys %{$self->{c_plrid}};
 }
 
-=pod
-use constant 'PI' => 3.1415926;
-use constant 'T'  => 1;
-our $KMAX = 100;
-our $KCNT = 0;
-our $MEAN = 0;
-our $VARIANCE = 0;
-our $NORMVAR = 0;
-# http://www.gamasutra.com/features/20000209/kreimeier_pfv.htm
-# Does not work yet... Still trying to figure out the calculations
-sub calcskill_kill_new {
-	my ($self,$k,$v,$w) = @_;
-	my ($vskill, $kskill, $delta, $expectancy, $change, $kbonus, $vbonus, $result);
-	my $T = 1;
-	my $MAX_GAIN = 25;
-	my ($kprob, $vprob);
 
-	$kskill = $k->skill;
-	$vskill = $v->skill;
-
-	# determine current meadian and variance of skill value of players in memory
-#	if ($KCNT == 0) {
-#		my $sum = 0;
-#		my $tot = scalar keys %{$self->{plrs}};
-#		$sum += $self->{plrs}{$_}->skill for keys %{$self->{plrs}};
-#		$MEAN = (1/$tot) * $sum;						# mean value of skill
-#		$VARIANCE = 1 / ($tot-1) * (($MEAN)^2);
-#		$NORMVAR = 1 / sqrt(2*PI * $VARIANCE);					# normalize
-#		$kprob = $NORMVAR * exp(($kskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of killer killing victim
-##		$vprob = $NORMVAR * exp(($vskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of victim killing killer
-#		printf "KS: %0.2f, VK: %0.2f, MEAN: %0.7f, VAR: %0.7f, NVAR: %0.7f, kprob: %0.7f (%d plrs)\n", 
-#			$kskill, $vskill, $MEAN, $VARIANCE, $NORMVAR, $kprob, $tot;
-#		$KCNT = $KMAX;
-#	} else {
-#		--$KCNT;
-#	}
-
-	$result = 1;
-	$delta = $vskill - $kskill;
-	$expectancy = 1.0 / (1.0 + exp((-$delta) / T));			# Fermi function
-	$kbonus = $vbonus = $change = $MAX_GAIN * ($result-$expectancy);
-
-	print "kk: $kskill, vk: $vskill, delta: $delta, exp: $expectancy, change: $change\n"; # if $k->plrid eq 193 or $v->plrid eq 193;
-
-	$kskill += $change;
-	$vskill -= $change;
-
-	$k->skill($kskill);
-	$v->skill($vskill);
-
-	return (
-		$kskill,						# killers new skill value
-		$vskill,						# victims ...
-		$kbonus,						# total bonus points given to killer
-		$vbonus							# ... victim
-	);
-}
-
-# update population variance for current player IQs (PQ)
-#sub bootstrap {
-#	my $self = shift;
-#	my $sum = 0;
-#	my $tot = scalar keys %{$self->{plrs}};
-#	$sum += $self->{plrs}{$_}->skill for keys %{$self->{plrs}};
-#	$MEAN = (1/$tot) * $sum;						# mean value of skill
-#	$VARIANCE = 1 / ($tot-1) * (($MEAN)^2);
-#	$NORMVAR = 1 / sqrt(2*PI * $VARIANCE);					# normalize
-#	$kprob = $NORMVAR * exp(($kskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of killer killing victim
-##	$vprob = $NORMVAR * exp(($vskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of victim killing killer
-#	printf "KS: %0.2f, VK: %0.2f, MEAN: %0.7f, VAR: %0.7f, NVAR: %0.7f, kprob: %0.7f (%d plrs)\n", 
-#		$kskill, $vskill, $MEAN, $VARIANCE, $NORMVAR, $kprob, $tot;
+#use constant 'PI' => 3.1415926;
+#use constant 'T'  => 1;
+#our $KMAX = 100;
+#our $KCNT = 0;
+#our $MEAN = 0;
+#our $VARIANCE = 0;
+#our $NORMVAR = 0;
+## http://www.gamasutra.com/features/20000209/kreimeier_pfv.htm
+## Does not work yet... Still trying to figure out the calculations
+#sub calcskill_kill_new {
+#	my ($self,$k,$v,$w) = @_;
+#	my ($vskill, $kskill, $delta, $expectancy, $change, $kbonus, $vbonus, $result);
+#	my $T = 1;
+#	my $MAX_GAIN = 25;
+#	my ($kprob, $vprob);
+#
+#	$kskill = $k->skill;
+#	$vskill = $v->skill;
+#
+#	# determine current meadian and variance of skill value of players in memory
+##	if ($KCNT == 0) {
+##		my $sum = 0;
+##		my $tot = scalar keys %{$self->{plrs}};
+##		$sum += $self->{plrs}{$_}->skill for keys %{$self->{plrs}};
+##		$MEAN = (1/$tot) * $sum;						# mean value of skill
+##		$VARIANCE = 1 / ($tot-1) * (($MEAN)^2);
+##		$NORMVAR = 1 / sqrt(2*PI * $VARIANCE);					# normalize
+##		$kprob = $NORMVAR * exp(($kskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of killer killing victim
+###		$vprob = $NORMVAR * exp(($vskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of victim killing killer
+##		printf "KS: %0.2f, VK: %0.2f, MEAN: %0.7f, VAR: %0.7f, NVAR: %0.7f, kprob: %0.7f (%d plrs)\n", 
+##			$kskill, $vskill, $MEAN, $VARIANCE, $NORMVAR, $kprob, $tot;
+##		$KCNT = $KMAX;
+##	} else {
+##		--$KCNT;
+##	}
+#
+#	$result = 1;
+#	$delta = $vskill - $kskill;
+#	$expectancy = 1.0 / (1.0 + exp((-$delta) / T));			# Fermi function
+#	$kbonus = $vbonus = $change = $MAX_GAIN * ($result-$expectancy);
+#
+#	print "kk: $kskill, vk: $vskill, delta: $delta, exp: $expectancy, change: $change\n"; # if $k->plrid eq 193 or $v->plrid eq 193;
+#
+#	$kskill += $change;
+#	$vskill -= $change;
+#
+#	$k->skill($kskill);
+#	$v->skill($vskill);
+#
+#	return (
+#		$kskill,						# killers new skill value
+#		$vskill,						# victims ...
+#		$kbonus,						# total bonus points given to killer
+#		$vbonus							# ... victim
+#	);
 #}
-=cut
+#
+## update population variance for current player IQs (PQ)
+##sub bootstrap {
+##	my $self = shift;
+##	my $sum = 0;
+##	my $tot = scalar keys %{$self->{plrs}};
+##	$sum += $self->{plrs}{$_}->skill for keys %{$self->{plrs}};
+##	$MEAN = (1/$tot) * $sum;						# mean value of skill
+##	$VARIANCE = 1 / ($tot-1) * (($MEAN)^2);
+##	$NORMVAR = 1 / sqrt(2*PI * $VARIANCE);					# normalize
+##	$kprob = $NORMVAR * exp(($kskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of killer killing victim
+###	$vprob = $NORMVAR * exp(($vskill - $MEAN)^2 / (2*$VARIANCE) );		# probibility of victim killing killer
+##	printf "KS: %0.2f, VK: %0.2f, MEAN: %0.7f, VAR: %0.7f, NVAR: %0.7f, kprob: %0.7f (%d plrs)\n", 
+##		$kskill, $vskill, $MEAN, $VARIANCE, $NORMVAR, $kprob, $tot;
+##}
+
 
 # assign bonus points to players
 # ->plrbonus('trigger', 'enactor type', $PLR/LIST, ... )
