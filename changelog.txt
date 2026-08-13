@@ -162,6 +162,7 @@ Version 3.2.8n (in progress)
 * [Restored] Perl script errors are color-coded by severity, only in supported terminal emulators. 
     Windows Terminal will work with 'COLORTERM=truecolor' variable in your env ( https://learn.microsoft.com/en-us/windows/terminal/tips-and-tricks#environment-variables-per-profile ). - Rosenstein
 * [Improved] [Chore] Make pod2html happy.
+* [Moved] Game and mod specific addons to the modules.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.
