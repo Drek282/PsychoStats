@@ -507,6 +507,10 @@ function get_player_profile($plrid, $key = 'plrid') {
 	}
 	$cmd .= $this->db->escape($plrid, true);
 	$plr = $this->db->fetch_row(1, $cmd);
+
+	# Return false if the player record returned does not match the uniqueid provided.
+	if ($key == 'uniqueid' && !empty($plr['uniqueid']) && $plr['uniqueid'] != $plrid) return false;
+
 	return $plr ? $plr : false;
 }
 
