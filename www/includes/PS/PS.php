@@ -493,21 +493,10 @@ function token_to_sql($str, $mode) {
 	}
 }
 
-// Check to see if a player exists.
-function player_exists($uniqueid, $key = 'uniqueid') {
-	$cmd = "SELECT $key FROM ";
-	$cmd .= "$this->t_plr p LEFT JOIN $this->t_plr_profile pp USING($key) WHERE p.$key=";
-	$cmd .= $this->db->escape($uniqueid, true);
-
-	return (implode($this->db->fetch_row(1, $cmd)) == $uniqueid) ? true : false;
-}
-
 // load a player's profile only. does not load any extra statistics.
 // if a plrid doesn't have a matching profile then nulls are returned for each column except plrid.
 // @param $key is either 'plrid' or 'uniqueid'
 function get_player_profile($plrid, $key = 'plrid') {
-	# Does the player exist?
-	if (!$this->player_exists($plrid)) return false;
 	$plr = array();
 	$cmd = "SELECT p.*,pp.* FROM ";
 	if ($key == 'plrid') {
