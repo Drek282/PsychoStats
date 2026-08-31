@@ -165,6 +165,7 @@ Version 3.2.8n (in progress)
 * [Moved] Game and mod specific addons to the modules.
 * [Fixed] Error on registration when unique player id does not exist.
 * [Fixed] COD4X support now fully tested and supported.
+* [Updated] INSTALL.md.
 
 Version 3.2.7b (06/03/2021)
 * [Added] TFC heatmaps.

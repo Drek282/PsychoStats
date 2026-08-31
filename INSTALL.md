@@ -6,8 +6,7 @@
 PsychoStats has two parts. The local Perl scripts in the 'root' folder that do all the database updates and stats processing. And the PHP 'www' files that
 make up the web front end that allow you to view the stats web pages on your website.
 
-The local 'root' files SHOULD NEVER BE located inside your website directory tree.  If you put it somewhere where the webserver can access it then any user on the Internet would be able to read your stats.cfg file and see your database
-settings, user name and password. You have been warned.
+The local 'root' files SHOULD NEVER BE located inside your website directory tree.  If you put it somewhere where the webserver can access it then any user on the Internet would be able to read your stats.cfg file and see your database settings, user name and password. You have been warned.
 
 You will need to download and install game support separately for each game.  If you wish to install support for multiple games each game will need it's own PsychoStats installation.  The game support is divided into two parts, just as the base PsychoStats software is.
 
@@ -24,26 +23,27 @@ Tested and functional:
 * [Call of Duty 4X](https://github.com/Drek282/ps_cod4x "Call of Duty 4X")
 * [Counter-Strike](https://github.com/Drek282/ps_cstrike "Counter-Strike")
 * [Counter-Strike: Source](https://github.com/Drek282/ps_cstrikes "Counter-Strike: Source")
+* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
 * [Firearms 3.0](https://github.com/Drek282/ps_firearms "Firearms 3.0")
+* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
 * [Natural Selection](https://github.com/Drek282/ps_natural "Natural Selection")
 * [Team Fortress Classic](https://github.com/Drek282/ps_tfc "Team Fortress Classic")
+* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 
 Untested and may not be functional:  
 ***If you wish to improve support for these games we will require server logs.***
 
 * [Call of Duty 4](https://github.com/Drek282/ps_cod4 "Call of Duty 4")
-* [Day of Defeat](https://github.com/Drek282/ps_dod "Day of Defeat")
 * [Day of Defeat: Source](https://github.com/Drek282/ps_dods "Day of Defeat: Source")
 * [Gun Game](https://github.com/Drek282/ps_gungame "Gun Game")
-* [Half-Life Death Match](https://github.com/Drek282/ps_hldm "Half-Life Death Match")
+* [Gun Game: Source](https://github.com/Drek282/ps_gungames "Gun Game: Source")
 * [Half-Life 2 Death Match](https://github.com/Drek282/ps_hl2dm "Half-Life 2 Death Match")
 * [Soldat](https://github.com/Drek282/ps_soldat "Soldat")
-* [Team Fortress 2](https://github.com/Drek282/ps_tf2 "Team Fortress 2")
 
 
 ## IF YOU ARE UPGRADING FROM A PREVIOUS VERSION OF PSYCHOSTATS
 
-There is no option currenty for a graceful or automated upgrade.  Any database generated with any version of PsychoStats earlier than the released version of PsychoStats 3.2.7b will not work well with any more recent version.  This is because the old deprecated and soon to be obsolete MySQL character encoding has been changed from utf8_general_ci to utf8mb4_general_ci.
+There is no option currently for a graceful or automated upgrade.  Any database generated with any version of PsychoStats earlier than the released version of PsychoStats 3.2.7b will not work well with any more recent version.  This is because the old deprecated and soon to be obsolete MySQL character encoding has been changed from utf8_general_ci to utf8mb4_general_ci.
 
 You can try going through your old database and changing the character encoding on all the tables, but you are probably better off to go with a fresh install where you drop and recreate the database.
 
